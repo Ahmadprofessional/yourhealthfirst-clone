@@ -1,3 +1,15 @@
+export interface TreatmentFaq {
+  question: string;
+  answer: string;
+}
+
+export interface TreatmentGallery {
+  folder: string;
+  prefix: string;
+  count: number;
+  ext: string;
+}
+
 export interface TreatmentDetail {
   slug: string;
   title: string;
@@ -10,6 +22,8 @@ export interface TreatmentDetail {
   suitableFor: string[];
   results: string;
   priceFrom?: string;
+  faqs: TreatmentFaq[];
+  gallery?: TreatmentGallery;
 }
 
 export const treatmentDetails: TreatmentDetail[] = [
@@ -43,6 +57,54 @@ export const treatmentDetails: TreatmentDetail[] = [
     ],
     results: "First results visible in 3–14 days, lasting 3–6 months",
     priceFrom: "£120",
+    gallery: {
+      folder: "/images/gallery/botox",
+      prefix: "botox",
+      count: 14,
+      ext: "jpeg",
+    },
+    faqs: [
+      {
+        question: "How many treatments will I need?",
+        answer:
+          "Most areas are treated in a single session. Some patients — particularly those treating hyperhidrosis or a gummy smile — may need a short top-up 2 weeks later if the initial dose needs fine-tuning. After that, repeat sessions every 3–6 months keep results maintained.",
+      },
+      {
+        question: "What results can I expect?",
+        answer:
+          "A softened, more rested appearance in the treated area with your natural expression preserved. Dr Sofia's approach favours subtle, natural movement rather than a 'frozen' look, so you'll still be able to smile, frown and raise your brows normally.",
+      },
+      {
+        question: "Will it 'freeze' my face and leave me expressionless?",
+        answer:
+          "No. When dosed and placed correctly, anti-wrinkle injections relax only the specific muscles causing the lines you want softened, while surrounding muscles continue to move naturally. This is why precise placement, not just the product itself, is what determines a natural result.",
+      },
+      {
+        question: "What are the side-effects?",
+        answer:
+          "Mild redness, small bumps at the injection sites, or slight bruising can occur and typically settle within a day or two. Headache is occasionally reported after forehead treatment. Serious side effects are rare when performed by an experienced practitioner.",
+      },
+      {
+        question: "Is the treatment painful?",
+        answer:
+          "Most patients describe it as a series of quick, small pinpricks rather than pain. The needles used are very fine, and the whole treatment for a typical area takes only a few minutes.",
+      },
+      {
+        question: "How long will it last?",
+        answer:
+          "Results generally last 3–6 months depending on the area treated, your muscle strength and your individual metabolism. Areas like hyperhidrosis treatment can last up to 6–9 months.",
+      },
+      {
+        question: "What can and can't I do after treatment?",
+        answer:
+          "Avoid lying down, rubbing the treated area, strenuous exercise or alcohol for the rest of the day. You can return to normal activities and makeup immediately afterwards.",
+      },
+      {
+        question: "Who is suitable for anti-wrinkle injections?",
+        answer:
+          "Most healthy adults concerned about dynamic lines, jaw clenching, gummy smiles or excessive sweating are good candidates. Pregnant or breastfeeding women, and those with certain neuromuscular conditions, are not suitable — this is confirmed during your consultation.",
+      },
+    ],
   },
   {
     slug: "dermal-fillers",
@@ -74,6 +136,54 @@ export const treatmentDetails: TreatmentDetail[] = [
     ],
     results: "Immediate results, lasting 9–18 months depending on area",
     priceFrom: "£250",
+    gallery: {
+      folder: "/images/gallery/dermal-fillers",
+      prefix: "filler",
+      count: 14,
+      ext: "jpeg",
+    },
+    faqs: [
+      {
+        question: "How many sessions will I need?",
+        answer:
+          "Most filler treatments achieve their full result in a single session. Some patients choose a follow-up appointment 2–4 weeks later for minor fine-tuning once any initial swelling has settled.",
+      },
+      {
+        question: "What results can I expect?",
+        answer:
+          "Immediate, visible volume restoration or contouring in the treated area — for example plumper lips, softened nasolabial folds, or a smoother under-eye area. Results continue to settle and look even more natural over the following 1–2 weeks.",
+      },
+      {
+        question: "Will I look overfilled or unnatural?",
+        answer:
+          "No — Dr Sofia's approach prioritises symmetry, proportion and a natural outcome over maximum volume. Filler is built up gradually and conservatively, and dissolving is always available if you ever want a correction.",
+      },
+      {
+        question: "What are the side-effects?",
+        answer:
+          "Temporary swelling, bruising or tenderness at the injection site is common and usually resolves within a few days to a week. Lips in particular can swell noticeably for the first 24–48 hours.",
+      },
+      {
+        question: "Is the treatment painful?",
+        answer:
+          "A topical numbing cream is applied before treatment in sensitive areas such as the lips, and most fillers contain a local anaesthetic within the product itself, making the procedure very tolerable for most patients.",
+      },
+      {
+        question: "How long will it last?",
+        answer:
+          "Depending on the area and product used, results typically last 9–18 months. Lips tend to metabolise filler faster (6–12 months), while structural areas like cheeks and jawline can last longer.",
+      },
+      {
+        question: "What should I do and avoid after treatment?",
+        answer:
+          "Avoid strenuous exercise, alcohol and excessive heat (saunas, sunbeds) for 24–48 hours, and avoid pressing on or massaging the treated area unless instructed to. Mild swelling is normal and settles within a few days.",
+      },
+      {
+        question: "Who is suitable for dermal fillers?",
+        answer:
+          "Adults with volume loss, hollowing or asymmetry seeking a non-surgical improvement are generally suitable. A full medical history is taken at consultation to rule out any contraindications before treatment.",
+      },
+    ],
   },
   {
     slug: "sunekos",
@@ -104,6 +214,48 @@ export const treatmentDetails: TreatmentDetail[] = [
     ],
     results: "Visible improvement after course of 4, lasting 6–9 months",
     priceFrom: "£200 per session / £600 course of 4",
+    faqs: [
+      {
+        question: "How many sessions will I need?",
+        answer:
+          "A standard course is 4 sessions spaced 7–10 days apart. This spacing allows the amino acid and hyaluronic acid formula to progressively stimulate fibroblast activity for a build-up effect.",
+      },
+      {
+        question: "What results can I expect?",
+        answer:
+          "Firmer, more hydrated and more luminous skin with a visible reduction in fine lines and crepiness. Because Sunekos works by stimulating your own collagen and elastin, the improvement looks structural rather than 'filled'.",
+      },
+      {
+        question: "When will I notice a difference?",
+        answer:
+          "Skin hydration and glow are often noticeable after the first session, with firmness and elasticity continuing to improve for several weeks after the full course is complete.",
+      },
+      {
+        question: "What are the side-effects?",
+        answer:
+          "Mild redness or small bumps at the injection points are common immediately after treatment and typically settle within a few hours to a day.",
+      },
+      {
+        question: "Is the treatment painful?",
+        answer:
+          "Sunekos is injected using very fine needles across the treatment area. Most patients tolerate it well, describing only mild discomfort, particularly in more delicate areas like under the eyes.",
+      },
+      {
+        question: "How long will results last?",
+        answer:
+          "Results from a full course typically last 6–9 months, after which a maintenance session every 3–6 months is recommended to sustain the improvement.",
+      },
+      {
+        question: "Can Sunekos be used on younger skin preventatively?",
+        answer:
+          "Yes — Sunekos is popular with patients from age 25 onwards as a way to maintain skin quality and delay early signs of ageing, not just to correct existing damage.",
+      },
+      {
+        question: "Who is suitable for Sunekos?",
+        answer:
+          "Anyone with loss of elasticity, dullness, crepey skin or early fine lines on the face, neck, décolleté or hands. It is also suitable for younger patients wanting preventative skin maintenance.",
+      },
+    ],
   },
   {
     slug: "profhilo",
@@ -134,6 +286,48 @@ export const treatmentDetails: TreatmentDetail[] = [
     ],
     results: "Progressive improvement over 4–6 weeks, lasting 6–9 months",
     priceFrom: "£700 course of 2 (face)",
+    faqs: [
+      {
+        question: "How many sessions will I need?",
+        answer:
+          "The standard protocol is just 2 sessions, spaced 4 weeks apart. This is fewer sessions than most other biostimulators because of Profhilo's very high hyaluronic acid concentration.",
+      },
+      {
+        question: "What results can I expect?",
+        answer:
+          "Noticeably hydrated, tightened and more radiant skin, with an improvement in laxity across the whole treated zone rather than a change in one specific spot — it improves skin quality broadly, not volume in one place.",
+      },
+      {
+        question: "Will Profhilo add volume to my face?",
+        answer:
+          "No — unlike dermal fillers, Profhilo spreads through the tissue rather than sitting in one place, so it improves skin quality and tightness without changing facial contours or adding bulk.",
+      },
+      {
+        question: "What are the side-effects?",
+        answer:
+          "Small bumps at each of the 10 injection points are expected immediately after treatment and typically settle within 24–48 hours. Mild bruising can occasionally occur.",
+      },
+      {
+        question: "Is the treatment painful?",
+        answer:
+          "Most patients find Profhilo very tolerable — the injections are quick and superficial, with only brief discomfort at each of the Bio Aesthetic Points.",
+      },
+      {
+        question: "When will I notice a difference?",
+        answer:
+          "Increased hydration and glow are often visible almost immediately, with the fuller skin-remodelling effect on laxity and firmness developing progressively over 4–6 weeks.",
+      },
+      {
+        question: "How long will results last?",
+        answer:
+          "A full course of 2 sessions typically lasts 6–9 months. Many patients repeat the course twice a year to maintain skin quality.",
+      },
+      {
+        question: "Who is suitable for Profhilo?",
+        answer:
+          "Adults noticing loss of skin firmness, dullness or early laxity in the face, neck, décolleté, arms or knees — particularly those who want a natural skin lift without adding volume.",
+      },
+    ],
   },
   {
     slug: "polynucleotides",
@@ -164,6 +358,48 @@ export const treatmentDetails: TreatmentDetail[] = [
     ],
     results: "Gradual improvement over 4–8 weeks, sustained with maintenance",
     priceFrom: "From £399 per session",
+    faqs: [
+      {
+        question: "How many sessions will I need?",
+        answer:
+          "A course of 3–4 sessions is typically recommended, spaced 2–4 weeks apart, to allow the regenerative effect to build progressively.",
+      },
+      {
+        question: "What results can I expect?",
+        answer:
+          "Thicker, more elastic and better-toned skin, with a visible reduction in under-eye dark circles and improved texture in areas affected by acne scarring or sun damage.",
+      },
+      {
+        question: "Is this treatment safe — it's derived from salmon DNA?",
+        answer:
+          "Yes. The DNA fragments used are highly purified and processed to remove any protein material, leaving only the polynucleotide chains that trigger tissue repair. It has an excellent safety profile and is not a fish allergen risk.",
+      },
+      {
+        question: "What are the side-effects?",
+        answer:
+          "Mild swelling, redness or small bumps at the injection sites are common straight after treatment, particularly around the delicate under-eye area, and usually settle within a day or two.",
+      },
+      {
+        question: "Is the treatment painful?",
+        answer:
+          "A topical numbing cream is applied beforehand, especially for the under-eye area, making the treatment comfortable for most patients.",
+      },
+      {
+        question: "When will I notice a difference?",
+        answer:
+          "Improvement builds gradually as new collagen forms, with the full effect typically visible 4–8 weeks after the final session in the course.",
+      },
+      {
+        question: "How long will results last?",
+        answer:
+          "Results are sustained with periodic maintenance sessions, generally every 4–6 months, as the regenerative effect on tissue quality gradually fades over time.",
+      },
+      {
+        question: "Who is suitable for Polynucleotides?",
+        answer:
+          "Adults with under-eye hollowing and dark circles, thin or sun-damaged skin, or acne scarring who want a regenerative rather than volumising treatment.",
+      },
+    ],
   },
   {
     slug: "sculptra",
@@ -194,6 +430,48 @@ export const treatmentDetails: TreatmentDetail[] = [
     ],
     results: "Gradual improvement over 3–6 months, lasting up to 2+ years",
     priceFrom: "From £600 per session",
+    faqs: [
+      {
+        question: "How many sessions will I need?",
+        answer:
+          "Most patients need 2–3 sessions spaced roughly 6 weeks apart, allowing each round of collagen stimulation to build on the last.",
+      },
+      {
+        question: "What results can I expect?",
+        answer:
+          "A gradual restoration of facial volume and structure, particularly in the cheeks, temples and jawline, that looks like a natural improvement in skin quality rather than an obvious 'filled' change.",
+      },
+      {
+        question: "Why does it take longer to see results than fillers?",
+        answer:
+          "Because Sculptra doesn't add volume directly — it stimulates your own body to gradually produce new collagen over 3–6 months, which is why the result builds slowly and looks so natural.",
+      },
+      {
+        question: "What are the side-effects?",
+        answer:
+          "Swelling, redness and small bumps at injection sites are common initially and usually settle within days. Very occasionally, small nodules can form under the skin, which is why post-treatment massage is important.",
+      },
+      {
+        question: "Is the treatment painful?",
+        answer:
+          "A local anaesthetic is mixed into the product and topical numbing can also be used, so most patients find the treatment comfortable.",
+      },
+      {
+        question: "What aftercare is required?",
+        answer:
+          "You'll be asked to massage the treated area for 5 minutes, 5 times a day, for 5 days after treatment (the 'rule of 5s') to help distribute the product evenly and reduce the risk of nodules.",
+      },
+      {
+        question: "How long will results last?",
+        answer:
+          "Results can last up to 2 years or more, making Sculptra one of the longer-lasting options among facial volumising treatments.",
+      },
+      {
+        question: "Who is suitable for Sculptra?",
+        answer:
+          "Adults with significant facial volume loss who want a subtle, progressive improvement rather than an immediate dramatic change, and who are looking for a longer-lasting result from fewer overall sessions.",
+      },
+    ],
   },
   {
     slug: "prp-face-body",
@@ -224,6 +502,48 @@ export const treatmentDetails: TreatmentDetail[] = [
     ],
     results: "Improvement visible after first session, optimised after 3 sessions",
     priceFrom: "£399 (Standard PRP) / £599 (A-PRP HA Cellular Matrix)",
+    faqs: [
+      {
+        question: "How many sessions will I need?",
+        answer:
+          "A course of 3 sessions is recommended for optimal results, followed by an annual maintenance session to sustain the improvement.",
+      },
+      {
+        question: "What results can I expect?",
+        answer:
+          "Improved skin texture, tone and radiance, with a reduction in fine lines and acne scarring as your own growth factors stimulate new collagen production.",
+      },
+      {
+        question: "What's the difference between Standard PRP and A-PRP HA Cellular Matrix?",
+        answer:
+          "The A-PRP HA Cellular Matrix combines your concentrated plasma with hyaluronic acid for an added rehydration boost alongside regeneration, making it a step up for more dehydrated or lower-quality skin.",
+      },
+      {
+        question: "What are the side-effects?",
+        answer:
+          "Mild redness, swelling or bruising at the injection or microneedling sites is common and usually resolves within a couple of days.",
+      },
+      {
+        question: "Is the treatment painful?",
+        answer:
+          "The pain-free U225 micro-injector minimises discomfort considerably compared to manual injection, and topical numbing cream is used for microneedling applications.",
+      },
+      {
+        question: "Is it safe — it uses my own blood?",
+        answer:
+          "Yes — because PRP is derived entirely from your own blood, the risk of allergic reaction or rejection is extremely low compared with synthetic alternatives.",
+      },
+      {
+        question: "When will I notice a difference?",
+        answer:
+          "Some improvement is visible after the very first session, with results building and becoming optimised after the full course of 3 sessions.",
+      },
+      {
+        question: "Who is suitable for PRP?",
+        answer:
+          "Adults with fine lines, acne scarring, dull or fatigued skin who prefer a natural, biologically-derived treatment over synthetic injectables.",
+      },
+    ],
   },
   {
     slug: "prp-hair-loss",
@@ -254,6 +574,48 @@ export const treatmentDetails: TreatmentDetail[] = [
     ],
     results: "Reduced shedding from 4–6 weeks, density improvement from 3 months",
     priceFrom: "£399 (Standard PRP) / £599 (Advanced RegenKit-BCT)",
+    faqs: [
+      {
+        question: "How many sessions will I need?",
+        answer:
+          "A course of 3 sessions spaced 4–6 weeks apart is recommended, with an annual maintenance session afterwards to sustain the improvement in density.",
+      },
+      {
+        question: "What results can I expect?",
+        answer:
+          "Reduced shedding, strengthened existing hair and, for many patients, visible improvement in density and thickness in areas of thinning — particularly with the Advanced RegenKit-BCT protocol.",
+      },
+      {
+        question: "What's the difference between Standard PRP and RegenKit-BCT?",
+        answer:
+          "RegenKit-BCT uses a double-centrifugation process to produce a higher concentration of growth factors than standard PRP, making it particularly suited to more advanced hair loss or patients who haven't responded fully to standard PRP.",
+      },
+      {
+        question: "Does it work for all types of hair loss?",
+        answer:
+          "PRP is most effective for androgenetic alopecia (pattern hair loss) and alopecia areata, and works best on follicles that are thinning but still active. Dr Sofia will assess suitability at your consultation.",
+      },
+      {
+        question: "Is the treatment painful?",
+        answer:
+          "A numbing cream or cold air device is used on the scalp beforehand, and most patients tolerate the injections well.",
+      },
+      {
+        question: "What are the side-effects?",
+        answer:
+          "Mild tenderness, redness or minor swelling on the scalp is common for a day or two after treatment. Because PRP uses your own blood, allergic reaction risk is very low.",
+      },
+      {
+        question: "When will I notice a difference?",
+        answer:
+          "Reduced shedding is often noticed from 4–6 weeks, with visible improvement in hair density and thickness typically from around 3 months onward.",
+      },
+      {
+        question: "Can PRP be combined with other treatments?",
+        answer:
+          "Yes — PRP is often combined with Exosome Therapy for an enhanced regenerative effect, particularly for patients with more advanced hair thinning.",
+      },
+    ],
   },
   {
     slug: "exosome",
@@ -284,6 +646,48 @@ export const treatmentDetails: TreatmentDetail[] = [
     ],
     results: "Progressive improvement over 3–6 months",
     priceFrom: "From £699 per session",
+    faqs: [
+      {
+        question: "How many sessions will I need?",
+        answer:
+          "This varies by individual goal, but most patients follow a short course of sessions spaced several weeks apart, similar in structure to a PRP course, with progress reviewed at each visit.",
+      },
+      {
+        question: "What results can I expect?",
+        answer:
+          "For hair, reduced inflammation and reactivated growth in dormant follicles; for skin, improved texture, tone and deeper regeneration of sun-damaged or aged tissue.",
+      },
+      {
+        question: "How is this different from PRP?",
+        answer:
+          "PRP concentrates your own platelets, which varies from person to person. Exosomes deliver a standardised, highly concentrated dose of growth factors and signalling molecules regardless of your own blood profile, making them a more powerful option for patients who haven't responded fully to PRP.",
+      },
+      {
+        question: "Is exosome therapy safe?",
+        answer:
+          "Yes — the exosomes used are lab-processed and do not contain cellular material, meaning there is no risk of immune rejection in the way there might be with cell-based therapies.",
+      },
+      {
+        question: "Is the treatment painful?",
+        answer:
+          "For the scalp, a numbing agent is used before injection. For skin, exosomes are applied via microneedling with topical anaesthetic, making the treatment comfortable for most patients.",
+      },
+      {
+        question: "What are the side-effects?",
+        answer:
+          "Mild redness or scalp tenderness for hair treatments, and temporary redness similar to a mild sunburn after microneedling application for skin treatments — both typically settle within a day or two.",
+      },
+      {
+        question: "When will I notice a difference?",
+        answer:
+          "Improvement is progressive, typically developing over 3–6 months as the regenerative signalling takes effect on follicles or skin tissue.",
+      },
+      {
+        question: "Can exosomes be combined with PRP?",
+        answer:
+          "Yes — many patients combine exosome therapy with PRP for a synergistic effect, particularly for more advanced hair restoration goals.",
+      },
+    ],
   },
   {
     slug: "cryolipolysis",
@@ -314,6 +718,54 @@ export const treatmentDetails: TreatmentDetail[] = [
     ],
     results: "Visible from 8 weeks, optimal results at 12–16 weeks",
     priceFrom: "£400 per area",
+    gallery: {
+      folder: "/images/gallery/cryolipolysis",
+      prefix: "cryo",
+      count: 19,
+      ext: "jpeg",
+    },
+    faqs: [
+      {
+        question: "How many treatments will I need?",
+        answer:
+          "Many patients see excellent results from a single session per area. Some choose a second session on the same area after 8–12 weeks for further reduction, particularly for larger or more stubborn fat pockets.",
+      },
+      {
+        question: "What results can I expect?",
+        answer:
+          "A visible, permanent reduction in the fatty tissue of the treated area — typically 20–25% of the fat layer per session — giving a smoother, more contoured shape.",
+      },
+      {
+        question: "Is cryolipolysis painful?",
+        answer:
+          "You'll feel intense cold and pulling sensation for the first 5–10 minutes as the area numbs, after which most patients feel little to nothing for the remainder of the session.",
+      },
+      {
+        question: "What are the side-effects?",
+        answer:
+          "Temporary redness, numbness, tingling, bruising or mild swelling in the treated area is common and typically resolves within 1–2 weeks.",
+      },
+      {
+        question: "Does the fat come back afterwards?",
+        answer:
+          "No — the destroyed fat cells are permanently eliminated by the body and do not regenerate. Maintaining a stable weight afterwards ensures the results are sustained long-term.",
+      },
+      {
+        question: "When will I see results?",
+        answer:
+          "The body gradually clears the destroyed fat cells over several weeks. Initial results are visible from around 8 weeks, with the optimal outcome seen at 12–16 weeks.",
+      },
+      {
+        question: "Can multiple areas be treated at once?",
+        answer:
+          "Yes — depending on your goals, multiple applicators and areas can be treated within the same appointment, which Dr Sofia will plan with you at consultation.",
+      },
+      {
+        question: "Who is suitable for cryolipolysis?",
+        answer:
+          "Adults at or near their ideal body weight with stubborn, diet-and-exercise-resistant fat pockets in specific areas. It is not a weight-loss treatment for those significantly overweight.",
+      },
+    ],
   },
   {
     slug: "emsculpt-neo",
@@ -344,6 +796,48 @@ export const treatmentDetails: TreatmentDetail[] = [
     ],
     results: "Visible improvements after 2–4 sessions, optimal at 12 weeks",
     priceFrom: "From £500 per session",
+    faqs: [
+      {
+        question: "How many sessions will I need?",
+        answer:
+          "A course of 4 sessions, spaced 5–10 days apart, is recommended to achieve the clinically studied results of increased muscle volume and reduced fat.",
+      },
+      {
+        question: "What results can I expect?",
+        answer:
+          "Clinical studies show an average 25% increase in muscle volume and 30% reduction in subcutaneous fat in the treated area after a full course.",
+      },
+      {
+        question: "Does it hurt?",
+        answer:
+          "No — most patients describe the sensation as an intense, involuntary workout combined with a warming feeling from the radiofrequency. It is not painful, though the muscle contractions are strong.",
+      },
+      {
+        question: "What are the side-effects?",
+        answer:
+          "Muscle soreness similar to an intense workout is common for a day or two afterwards. Mild redness or warmth in the treated area can also occur immediately post-treatment.",
+      },
+      {
+        question: "Do I still need to exercise?",
+        answer:
+          "Emsculpt Neo complements, but doesn't replace, regular exercise. Many patients use it to enhance results they're already achieving through training, or to target areas that resist muscle definition.",
+      },
+      {
+        question: "When will I see results?",
+        answer:
+          "Visible improvement is often noticed after 2–4 sessions, with optimal results — as muscle continues to build and fat continues to clear — seen around 12 weeks after the course.",
+      },
+      {
+        question: "Which areas can be treated?",
+        answer:
+          "Emsculpt Neo is cleared for the abdomen, buttocks, arms, calves and thighs, and can be used for both muscle toning and non-surgical buttock lifting.",
+      },
+      {
+        question: "Who is suitable for Emsculpt Neo?",
+        answer:
+          "Adults wanting to build muscle definition and reduce fat simultaneously — particularly those who already exercise but want to enhance results, or anyone seeking a non-surgical alternative to buttock augmentation.",
+      },
+    ],
   },
   {
     slug: "aqualyx",
@@ -374,6 +868,48 @@ export const treatmentDetails: TreatmentDetail[] = [
     ],
     results: "Progressive fat reduction over 6–8 weeks per session",
     priceFrom: "£350 (chin/jaws) / From £450 (abdomen)",
+    faqs: [
+      {
+        question: "How many sessions will I need?",
+        answer:
+          "Most areas require 2–4 sessions spaced 6 weeks apart, allowing your body time to process and clear each round of destroyed fat cells before the next treatment.",
+      },
+      {
+        question: "What results can I expect?",
+        answer:
+          "A progressive, permanent reduction in the treated fat pocket — commonly the double chin, jowls or small areas on the abdomen and thighs.",
+      },
+      {
+        question: "Is the treatment painful?",
+        answer:
+          "A thin cannula is used to minimise discomfort, and local anaesthetic can be applied. Most patients tolerate the injections well with only mild stinging.",
+      },
+      {
+        question: "What are the side-effects?",
+        answer:
+          "Swelling and redness in the treated area for several days is expected and is a normal sign that the immune system is processing the destroyed fat cells. Bruising can also occur.",
+      },
+      {
+        question: "How is Aqualyx different from Cryolipolysis?",
+        answer:
+          "Aqualyx is an injectable, making it ideal for small, precisely defined areas like the chin or jowls that a cryolipolysis applicator can't easily reach — the two treatments are often used together for comprehensive contouring.",
+      },
+      {
+        question: "When will I see results?",
+        answer:
+          "Fat reduction develops progressively over 6–8 weeks per session as the body clears the treated tissue via the lymphatic system.",
+      },
+      {
+        question: "Is the fat reduction permanent?",
+        answer:
+          "Yes — the destroyed fat cells do not regenerate, so results are permanent provided a stable weight is maintained afterwards.",
+      },
+      {
+        question: "Who is suitable for Aqualyx?",
+        answer:
+          "Adults with small, localised fat deposits — such as a double chin, jowls or defined abdominal pockets — that are resistant to diet and exercise.",
+      },
+    ],
   },
   {
     slug: "lemon-bottle",
@@ -403,6 +939,48 @@ export const treatmentDetails: TreatmentDetail[] = [
     ],
     results: "Results visible from 2–4 weeks after each session",
     priceFrom: "From £250 per session",
+    faqs: [
+      {
+        question: "How many sessions will I need?",
+        answer:
+          "Most patients need 2–4 sessions spaced 2–4 weeks apart — a faster overall course than many other fat-dissolving treatments.",
+      },
+      {
+        question: "What results can I expect?",
+        answer:
+          "A visible reduction in the treated fat pocket, with the Riboflavin, Lecithin and Bromelain formula working faster than traditional fat-dissolving injectables.",
+      },
+      {
+        question: "Is it more comfortable than other fat-dissolving injections?",
+        answer:
+          "Yes — Lemon Bottle's formulation is known for producing less post-treatment swelling and discomfort compared with older fat-dissolving solutions, while still working quickly.",
+      },
+      {
+        question: "What are the side-effects?",
+        answer:
+          "Mild swelling, redness or tenderness at the injection sites can occur but is typically less pronounced and shorter-lived than with other fat-dissolving treatments.",
+      },
+      {
+        question: "Which areas can be treated?",
+        answer:
+          "Lemon Bottle is suitable for the chin, jowls, abdomen, flanks, arms, inner thighs, knees and back, including delicate facial areas such as buccal fat.",
+      },
+      {
+        question: "When will I see results?",
+        answer:
+          "Results become visible from around 2–4 weeks after each session as the body processes the treated fat cells.",
+      },
+      {
+        question: "Is the treatment painful?",
+        answer:
+          "Most patients find the treatment quick and well-tolerated, with only mild discomfort during the injections.",
+      },
+      {
+        question: "Who is suitable for Lemon Bottle?",
+        answer:
+          "Adults with localised fat pockets on the face or body who want a faster-acting treatment with less downtime than traditional fat-dissolving options.",
+      },
+    ],
   },
   {
     slug: "mounjaro",
@@ -433,6 +1011,48 @@ export const treatmentDetails: TreatmentDetail[] = [
     ],
     results: "Significant weight reduction over 12–72 weeks",
     priceFrom: "From £199 per month (programme-based)",
+    faqs: [
+      {
+        question: "How does the programme work?",
+        answer:
+          "After an initial consultation and health assessment to confirm suitability, you self-administer a once-weekly injection via a pre-filled pen. The dose is gradually increased over time under medical supervision.",
+      },
+      {
+        question: "What results can I expect?",
+        answer:
+          "Clinical trials show patients losing an average of 15–22% of their body weight over 72 weeks, alongside improvements in blood sugar and metabolic health.",
+      },
+      {
+        question: "Is Mounjaro safe?",
+        answer:
+          "Mounjaro is a clinically approved and extensively studied medication. It is only prescribed following a full health assessment, with ongoing monitoring throughout your programme to ensure it remains appropriate and safe for you.",
+      },
+      {
+        question: "What are the side-effects?",
+        answer:
+          "The most commonly reported side effects are gastrointestinal — nausea, mild digestive upset or reduced appetite — particularly when starting or increasing the dose. These often settle as your body adjusts.",
+      },
+      {
+        question: "Is the injection painful?",
+        answer:
+          "Mounjaro is administered via a simple pre-filled pen with a very fine needle, and most patients find self-injection straightforward and minimally uncomfortable.",
+      },
+      {
+        question: "How is the dose managed?",
+        answer:
+          "Treatment starts at a low dose which is gradually increased over subsequent weeks, allowing your body to adjust and minimising the likelihood of side effects while optimising results.",
+      },
+      {
+        question: "When will I see results?",
+        answer:
+          "Weight reduction is progressive over the course of the programme, with meaningful results typically building from around 12 weeks and continuing through to 72 weeks.",
+      },
+      {
+        question: "Who is suitable for Mounjaro?",
+        answer:
+          "Adults with a BMI of 30+ (or 27+ with a weight-related health condition) who have not achieved sufficient results through diet and exercise alone, and who are confirmed medically suitable at assessment.",
+      },
+    ],
   },
   {
     slug: "mesotherapy",
@@ -463,6 +1083,48 @@ export const treatmentDetails: TreatmentDetail[] = [
     ],
     results: "Visible improvement after 2–3 sessions; best results after full course",
     priceFrom: "£250 per session / £800 course of 4",
+    faqs: [
+      {
+        question: "How many sessions will I need?",
+        answer:
+          "A course of 4–6 sessions spaced 1–2 weeks apart is recommended for best results, followed by periodic maintenance sessions.",
+      },
+      {
+        question: "What results can I expect?",
+        answer:
+          "Improved hydration, radiance and firmness, with visible improvement in acne scarring, pigmentation or stretch marks depending on the specific cocktail formula used.",
+      },
+      {
+        question: "What's in the mesotherapy cocktail?",
+        answer:
+          "The formula is bespoke to your concern — options include vitamins, amino acids, hyaluronic acid and antioxidants, tailored for anti-ageing, brightening, firming, slimming, stretch mark reduction or hair stimulation.",
+      },
+      {
+        question: "Is the treatment painful?",
+        answer:
+          "The U225 pain-free micro-injector delivers ingredients at a controlled depth with minimal discomfort, making it far more comfortable than manual mesotherapy injections.",
+      },
+      {
+        question: "What are the side-effects?",
+        answer:
+          "Minor redness may occur for a few hours after treatment. There is no significant downtime, and most patients return to normal activities immediately.",
+      },
+      {
+        question: "When will I notice a difference?",
+        answer:
+          "Visible improvement is typically noticed after 2–3 sessions, with the best overall results seen after completing the full course.",
+      },
+      {
+        question: "Can mesotherapy treat the body as well as the face?",
+        answer:
+          "Yes — formulas are available for body slimming and hair stimulation in addition to facial skin concerns, all delivered with the same precise micro-injector.",
+      },
+      {
+        question: "Who is suitable for mesotherapy?",
+        answer:
+          "Adults with dull, dehydrated or uneven skin, acne scarring, fine lines or stretch marks who want a customised, multi-ingredient approach to skin improvement.",
+      },
+    ],
   },
   {
     slug: "photo-aging",
@@ -493,6 +1155,48 @@ export const treatmentDetails: TreatmentDetail[] = [
     ],
     results: "Visible improvement after 2–3 sessions, best results after a course of 4",
     priceFrom: "£250 per session / £600 course of 4",
+    faqs: [
+      {
+        question: "How many sessions will I need?",
+        answer:
+          "A course of 4 sessions is recommended, with visible improvement in pigmentation and redness typically noticed from the second treatment onward.",
+      },
+      {
+        question: "What results can I expect?",
+        answer:
+          "A visible reduction in sun spots, age spots, melasma and redness, along with improved overall skin texture and clarity.",
+      },
+      {
+        question: "How does the treatment work?",
+        answer:
+          "A photosensitive serum is applied to the skin and then activated with a High-Density Diodes (HDD) laser mask, creating a photodynamic effect that targets pigmentation and vascular redness.",
+      },
+      {
+        question: "Is the treatment painful?",
+        answer:
+          "Most patients describe a mild warming or tingling sensation during the light activation phase, which is generally well tolerated without the need for anaesthetic.",
+      },
+      {
+        question: "What are the side-effects?",
+        answer:
+          "Mild redness or a warm sensation immediately after treatment is common and typically resolves within a few hours. Some pigmented spots may temporarily darken before flaking off over the following days.",
+      },
+      {
+        question: "When will I notice a difference?",
+        answer:
+          "Visible improvement is typically seen after 2–3 sessions, with the best overall results achieved after completing the full course of 4.",
+      },
+      {
+        question: "Can it help with rosacea, not just pigmentation?",
+        answer:
+          "Yes — the treatment also targets the vascular irregularities responsible for diffuse redness and rosacea, in addition to pigmentation concerns.",
+      },
+      {
+        question: "Who is suitable for Skinox Photo-Aging Therapy?",
+        answer:
+          "Adults with sun damage, age spots, melasma, rosacea or uneven skin tone and texture seeking a non-invasive correction option.",
+      },
+    ],
   },
   {
     slug: "sclerotherapy",
@@ -522,6 +1226,48 @@ export const treatmentDetails: TreatmentDetail[] = [
     ],
     results: "Progressive fading over 4–8 weeks per session",
     priceFrom: "£350 per session (up to 4–5 veins)",
+    faqs: [
+      {
+        question: "How many sessions will I need?",
+        answer:
+          "Most patients require 2–4 sessions, depending on the number and extent of the veins being treated.",
+      },
+      {
+        question: "What results can I expect?",
+        answer:
+          "A progressive fading and eventual disappearance of the treated spider veins or small varicose veins as they are absorbed by the body.",
+      },
+      {
+        question: "Is the treatment painful?",
+        answer:
+          "A very fine needle is used, and most patients describe only a mild stinging or burning sensation as the solution is injected.",
+      },
+      {
+        question: "What are the side-effects?",
+        answer:
+          "Mild bruising, redness or minor swelling around the treated veins is common and typically settles within a couple of weeks.",
+      },
+      {
+        question: "What aftercare is required?",
+        answer:
+          "Compression stockings are recommended after treatment to support the healing process, and strenuous exercise should be avoided for 48 hours.",
+      },
+      {
+        question: "When will I see results?",
+        answer:
+          "Treated veins fade progressively over 4–8 weeks per session as the body gradually absorbs the closed vessels.",
+      },
+      {
+        question: "Can sclerotherapy treat areas other than the legs?",
+        answer:
+          "Yes — while most commonly used on the legs, sclerotherapy can also be used to treat visible veins on other areas of the face and body.",
+      },
+      {
+        question: "Who is suitable for sclerotherapy?",
+        answer:
+          "Adults with visible spider veins, thread veins or small varicose veins seeking a non-surgical removal option. Dr Sofia is a member of the British Association of Sclerotherapists.",
+      },
+    ],
   },
   {
     slug: "cryopen",
@@ -552,6 +1298,48 @@ export const treatmentDetails: TreatmentDetail[] = [
     ],
     results: "Lesion falls away within 1–4 weeks post-treatment",
     priceFrom: "£20 per lesion / from £35 for age spots",
+    faqs: [
+      {
+        question: "How many sessions will I need?",
+        answer:
+          "Most lesions require only 1–2 sessions. Larger or more stubborn lesions may occasionally need a further treatment once the initial site has healed.",
+      },
+      {
+        question: "What results can I expect?",
+        answer:
+          "The treated lesion forms a small blister or crust, which falls away within 1–4 weeks to reveal clear skin beneath.",
+      },
+      {
+        question: "Is the treatment painful?",
+        answer:
+          "No anaesthesia is required. Most patients feel a brief cold sensation and mild stinging during the treatment, which typically lasts under 60 seconds per lesion.",
+      },
+      {
+        question: "What are the side-effects?",
+        answer:
+          "A small blister or crust forms at the treatment site, which is a normal part of healing. Temporary redness or mild swelling around the area can also occur.",
+      },
+      {
+        question: "Can multiple lesions be treated in one visit?",
+        answer:
+          "Yes — multiple lesions can be treated within the same session, making CryoPen a convenient option if you have several areas of concern.",
+      },
+      {
+        question: "How long does healing take?",
+        answer:
+          "The treated area typically heals within 1–4 weeks as the blister or crust naturally falls away, revealing the clear skin underneath.",
+      },
+      {
+        question: "What types of lesions can be treated?",
+        answer:
+          "CryoPen effectively treats skin tags, warts, viral verrucae, milia, age spots, solar lentigo and cherry angiomas, among other benign skin lesions.",
+      },
+      {
+        question: "Who is suitable for CryoPen treatment?",
+        answer:
+          "Most adults with benign skin lesions such as skin tags, warts or age spots are suitable candidates. Dr Sofia will assess each lesion at consultation to confirm suitability.",
+      },
+    ],
   },
   {
     slug: "phlebotomy",
@@ -582,6 +1370,48 @@ export const treatmentDetails: TreatmentDetail[] = [
     ],
     results: "Immediate — same-day service",
     priceFrom: "£80 (blood draw) / £10 per tube (centrifugal)",
+    faqs: [
+      {
+        question: "Do I need a referral to book a blood draw?",
+        answer:
+          "No referral is necessary for a standard private blood draw — you can book directly. If the sample is for external lab testing arranged through your GP or specialist, you'll simply bring their request form with you.",
+      },
+      {
+        question: "How long does the appointment take?",
+        answer:
+          "A standard blood draw appointment is quick, typically taking only 10–15 minutes including preparation.",
+      },
+      {
+        question: "Is the service suitable for children?",
+        answer:
+          "Yes — our experienced practitioner performs blood draws for both adults and children in a comfortable, clinical setting.",
+      },
+      {
+        question: "What is the centrifugal service used for?",
+        answer:
+          "The in-house centrifuge processes blood samples to separate components for clinical use, including preparation of PRP for our own hair and skin treatments, and specialist sample processing for external clinicians.",
+      },
+      {
+        question: "Is the treatment painful?",
+        answer:
+          "Blood draws involve a brief pinprick sensation from the needle, similar to any standard blood test, and are performed by an experienced practitioner to ensure comfort.",
+      },
+      {
+        question: "How quickly will I get my results?",
+        answer:
+          "The blood draw itself is a same-day service. Turnaround for lab results depends on the specific test and external laboratory processing it.",
+      },
+      {
+        question: "Can I book a Saturday appointment?",
+        answer:
+          "Yes — selected Saturday sessions are available in addition to weekday appointments to fit around your schedule.",
+      },
+      {
+        question: "Who is this service for?",
+        answer:
+          "Anyone requiring a private blood draw — whether for PRP treatment preparation, external lab testing outside the NHS, or specialist centrifugal processing for a clinician.",
+      },
+    ],
   },
   {
     slug: "vitamin-b12",
@@ -612,5 +1442,47 @@ export const treatmentDetails: TreatmentDetail[] = [
     ],
     results: "Energy improvement often felt within days",
     priceFrom: "£50 single shot / £190 course of 4 / £260 course of 6",
+    faqs: [
+      {
+        question: "How many injections will I need?",
+        answer:
+          "A single booster shot can be enough for a quick energy lift, but courses of 4 or 6 injections are available for sustained benefit, particularly for confirmed deficiency.",
+      },
+      {
+        question: "What results can I expect?",
+        answer:
+          "Many patients report a noticeable improvement in energy levels, mental clarity and overall wellbeing within days of their injection.",
+      },
+      {
+        question: "Why is an injection better than a B12 supplement tablet?",
+        answer:
+          "An intramuscular injection bypasses the digestive system entirely, delivering the vitamin directly into the bloodstream. This makes it far more bioavailable than oral tablets, especially for those with absorption issues.",
+      },
+      {
+        question: "Is the injection painful?",
+        answer:
+          "The injection is quick, taking just a few minutes, with only brief, mild discomfort at the injection site.",
+      },
+      {
+        question: "What are the side-effects?",
+        answer:
+          "Vitamin B12 injections are very well tolerated. Mild redness or tenderness at the injection site is the most commonly reported effect.",
+      },
+      {
+        question: "How often should I have injections?",
+        answer:
+          "This depends on your individual needs — those with a diagnosed deficiency may benefit from a course of 4–6 injections, while others use single top-up shots periodically for an energy boost.",
+      },
+      {
+        question: "When will I notice a difference?",
+        answer:
+          "Many patients notice an improvement in energy and mental clarity within just a few days of their injection.",
+      },
+      {
+        question: "Who is suitable for B12 injections?",
+        answer:
+          "Vegans, vegetarians, older adults, and anyone experiencing fatigue, brain fog or low mood who may benefit from a rapid, highly bioavailable B12 boost.",
+      },
+    ],
   },
 ];

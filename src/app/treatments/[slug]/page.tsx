@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import TreatmentFaqAccordion from "@/components/TreatmentFaqAccordion";
 import { treatmentDetails } from "@/data/treatments";
 
 interface Props {
@@ -176,6 +178,104 @@ export default async function TreatmentPage({ params }: Props) {
                 </ul>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQs */}
+      {treatment.faqs.length > 0 && (
+        <section className="w-full bg-cream px-5">
+          <div className="mx-auto max-w-[900px] py-[80px] lg:py-[100px]">
+            <h2 className="text-center font-subheading text-[26px] font-medium leading-[32px] tracking-[-1px] text-forest uppercase lg:text-[32px] lg:leading-[38px]">
+              Frequently Asked Questions
+            </h2>
+            <p className="mx-auto mt-3 max-w-[520px] text-center text-[15px] leading-[24px] text-body-text">
+              Everything you need to know about {treatment.title.toLowerCase()} at YourHealthFirst Clinic.
+            </p>
+            <div className="mt-10">
+              <TreatmentFaqAccordion items={treatment.faqs} />
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Real patient gallery */}
+      {treatment.gallery && (
+        <section className="w-full px-5">
+          <div className="mx-auto max-w-[1400px] py-[80px] lg:py-[100px]">
+            <h2 className="text-center font-subheading text-[26px] font-medium leading-[32px] tracking-[-1px] text-forest uppercase lg:text-[32px] lg:leading-[38px]">
+              Our Gallery
+            </h2>
+            <p className="mx-auto mt-3 max-w-[520px] text-center text-[15px] leading-[24px] text-body-text">
+              Real before &amp; after results from patients treated at YourHealthFirst Clinic.
+            </p>
+            <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {Array.from({ length: treatment.gallery.count }, (_, i) => {
+                const g = treatment.gallery!;
+                const src = `${g.folder}/${g.prefix}-${i + 1}.${g.ext}`;
+                return (
+                  <div
+                    key={src}
+                    className="group relative overflow-hidden rounded-[12px] shadow-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg"
+                  >
+                    <div className="relative aspect-square w-full">
+                      <Image
+                        src={src}
+                        alt={`${treatment.title} before & after — result ${i + 1}`}
+                        fill
+                        sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                        className="object-cover object-top"
+                        loading={i < 3 ? "eager" : "lazy"}
+                      />
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+            <div className="mt-8 text-center">
+              <Link
+                href="/gallery"
+                className="font-nav text-[13px] font-semibold tracking-[0.5px] text-tan uppercase transition-opacity hover:opacity-70"
+              >
+                View Full Gallery →
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Prices / Appointment / Opening hours */}
+      <section className="w-full border-t border-black/8 bg-cream px-5">
+        <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-10 py-[60px] sm:grid-cols-3">
+          <div className="flex flex-col gap-2">
+            <h3 className="font-subheading text-[15px] font-semibold tracking-[1px] text-forest uppercase">
+              Our Prices
+            </h3>
+            <Link
+              href="/price-list"
+              className="text-[14px] text-tan underline-offset-4 hover:underline"
+            >
+              Check Our Price List
+            </Link>
+          </div>
+          <div className="flex flex-col gap-2">
+            <h3 className="font-subheading text-[15px] font-semibold tracking-[1px] text-forest uppercase">
+              Get an Appointment
+            </h3>
+            <p className="text-[14px] leading-[22px] text-body-text">
+              By phone: 0207 225 3582 / 078 1847 4041<br />
+              By email: info@yourhealthfirst.uk
+            </p>
+          </div>
+          <div className="flex flex-col gap-2">
+            <h3 className="font-subheading text-[15px] font-semibold tracking-[1px] text-forest uppercase">
+              Opening Hours
+            </h3>
+            <p className="text-[14px] leading-[22px] text-body-text">
+              Monday to Friday – 10am to 6pm<br />
+              Saturday – 12pm to 2pm (doctor appointments only)<br />
+              Sunday &amp; out of hours – by appointment only
+            </p>
           </div>
         </div>
       </section>

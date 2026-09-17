@@ -14,6 +14,7 @@ const greatVibes = Great_Vibes({
   weight: ["400"],
 });
 import "./globals.css";
+import WhatsAppFloat from "@/components/WhatsAppFloat";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -54,7 +55,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${montserrat.variable} ${interTight.variable} ${jost.variable} ${playfairSC.variable} ${instrumentSerif.variable} ${greatVibes.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        {children}
+        <WhatsAppFloat />
+      </body>
     </html>
   );
 }

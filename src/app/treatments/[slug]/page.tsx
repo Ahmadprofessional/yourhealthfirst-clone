@@ -209,8 +209,8 @@ export default async function TreatmentPage({ params }: Props) {
             <p className="mx-auto mt-3 max-w-[520px] text-center text-[15px] leading-[24px] text-body-text">
               Real before &amp; after results from patients treated at YourHealthFirst Clinic.
             </p>
-            <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {Array.from({ length: treatment.gallery.count }, (_, i) => {
+            <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-3">
+              {Array.from({ length: Math.min(3, treatment.gallery.count) }, (_, i) => {
                 const g = treatment.gallery!;
                 const src = `${g.folder}/${g.prefix}-${i + 1}.${g.ext}`;
                 return (
@@ -225,7 +225,7 @@ export default async function TreatmentPage({ params }: Props) {
                         fill
                         sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                         className="object-cover object-top"
-                        loading={i < 3 ? "eager" : "lazy"}
+                        loading="eager"
                       />
                     </div>
                   </div>
@@ -235,7 +235,7 @@ export default async function TreatmentPage({ params }: Props) {
             <div className="mt-8 text-center">
               <Link
                 href="/gallery"
-                className="font-nav text-[13px] font-semibold tracking-[0.5px] text-tan uppercase transition-opacity hover:opacity-70"
+                className="inline-flex h-12 items-center justify-center rounded-[8px] bg-forest px-7 font-nav text-[14px] font-semibold tracking-[-0.3px] text-cream transition-opacity hover:opacity-90"
               >
                 View Full Gallery →
               </Link>

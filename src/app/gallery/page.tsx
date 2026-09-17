@@ -19,6 +19,11 @@ const botoxImages = Array.from({ length: 14 }, (_, i) => ({
   alt: `Anti-wrinkle (Botox) before & after — result ${i + 1}`,
 }));
 
+const fillerImages = Array.from({ length: 14 }, (_, i) => ({
+  src: `/images/gallery/dermal-fillers/filler-${i + 1}.jpeg`,
+  alt: `Dermal filler before & after — result ${i + 1}`,
+}));
+
 function BeforeAfterGrid({ images }: { images: { src: string; alt: string }[] }) {
   return (
     <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -156,7 +161,7 @@ export default function GalleryPage() {
               Filler treatments — tear trough, nasolabial folds, lip enhancement, chin augmentation and non-surgical rhinoplasty.
             </p>
           </div>
-          <ComingSoonPlaceholder title="Dermal Filler Before & After Photos" />
+          <BeforeAfterGrid images={fillerImages} />
         </div>
       </section>
 

@@ -14,6 +14,41 @@ const cryoImages = Array.from({ length: 19 }, (_, i) => ({
   alt: `Cryolipolysis before & after — result ${i + 1}`,
 }));
 
+const botoxImages = Array.from({ length: 14 }, (_, i) => ({
+  src: `/images/gallery/botox/botox-${i + 1}.jpeg`,
+  alt: `Anti-wrinkle (Botox) before & after — result ${i + 1}`,
+}));
+
+function BeforeAfterGrid({ images }: { images: { src: string; alt: string }[] }) {
+  return (
+    <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {images.map((img, index) => (
+        <div
+          key={img.src}
+          className="group relative overflow-hidden rounded-[12px] shadow-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg"
+        >
+          <div className="relative aspect-square w-full">
+            <Image
+              src={img.src}
+              alt={img.alt}
+              fill
+              sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+              className="object-cover object-top"
+              loading={index < 3 ? "eager" : "lazy"}
+            />
+          </div>
+          <div className="absolute inset-0 bg-gradient-to-t from-forest/60 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+          <div className="absolute bottom-0 left-0 right-0 translate-y-4 px-4 pb-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+            <p className="text-center font-subheading text-[12px] font-semibold tracking-[1px] text-cream uppercase">
+              Result {index + 1}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 function ComingSoonPlaceholder({ title }: { title: string }) {
   return (
     <div className="flex flex-col items-center justify-center gap-3 rounded-[12px] border border-dashed border-forest/20 bg-cream/60 px-8 py-16 text-center">
@@ -85,33 +120,7 @@ export default function GalleryPage() {
             </p>
           </div>
 
-          {/* Real images grid */}
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {cryoImages.map((img, index) => (
-              <div
-                key={img.src}
-                className="group relative overflow-hidden rounded-[12px] shadow-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg"
-              >
-                <div className="relative aspect-square w-full">
-                  <Image
-                    src={img.src}
-                    alt={img.alt}
-                    fill
-                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                    className="object-cover object-top"
-                    loading={index < 3 ? "eager" : "lazy"}
-                  />
-                </div>
-                {/* Subtle hover overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-forest/60 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                <div className="absolute bottom-0 left-0 right-0 translate-y-4 px-4 pb-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-                  <p className="text-center font-subheading text-[12px] font-semibold tracking-[1px] text-cream uppercase">
-                    Result {index + 1}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
+          <BeforeAfterGrid images={cryoImages} />
         </div>
       </section>
 
@@ -129,7 +138,7 @@ export default function GalleryPage() {
               Botox and anti-wrinkle injection results — forehead, frown lines, bunny lines and combination treatments.
             </p>
           </div>
-          <ComingSoonPlaceholder title="Anti-Wrinkle Before & After Photos" />
+          <BeforeAfterGrid images={botoxImages} />
         </div>
       </section>
 

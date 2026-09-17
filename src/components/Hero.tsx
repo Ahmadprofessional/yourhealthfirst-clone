@@ -20,8 +20,8 @@ const avatars = [
 export default function Hero() {
   return (
     <section className="relative flex w-full flex-col overflow-hidden lg:h-[857px] lg:flex-row">
-      {/* ── LEFT: dark content panel ── */}
-      <div className="relative z-10 flex w-full flex-col gap-[10px] bg-[#0c0a07] px-5 pt-[150px] pb-16 sm:pt-[160px] sm:pr-[50px] sm:pb-[150px] lg:w-[600px] lg:shrink-0">
+      {/* ── LEFT: warm gradient panel ── */}
+      <div className="relative z-10 flex w-full flex-col gap-[10px] bg-[linear-gradient(90deg,#061a10_0%,#0c2c1d_50%,#17452f_100%)] px-5 pt-[150px] pb-16 sm:pt-[160px] sm:pr-[50px] sm:pb-[150px] lg:w-[600px] lg:shrink-0">
 
         {/* Heading block */}
         <div className="relative flex flex-col gap-4 pr-[30px]">
@@ -50,7 +50,7 @@ export default function Hero() {
         {/* Details block */}
         <div className="relative flex flex-col gap-[14px] pt-2">
           <div className="flex gap-[11px]">
-            <MapPinIcon className="h-[28px] w-[28px] shrink-0" style={{ color: "#c9a84c" } as React.CSSProperties} />
+            <MapPinIcon className="h-[28px] w-[28px] shrink-0" style={{ color: "#c9a84c" }} />
             <div>
               <h3 className="font-subheading text-[16px] font-semibold tracking-[0.5px] uppercase" style={{ color: "#c9a84c" }}>
                 Harley Street, London
@@ -135,13 +135,13 @@ export default function Hero() {
           fill
           priority
           sizes="(min-width: 1024px) 60vw, 100vw"
-          className="object-cover object-[center_15%]"
+          className="object-cover object-[68%_center] lg:object-[85%_center]"
         />
 
         {/* Dark overlay on left edge to blend with panel */}
         <div
           aria-hidden="true"
-          className="absolute inset-y-0 left-0 hidden w-32 bg-gradient-to-r from-[#0c0a07] to-transparent lg:block"
+          className="absolute inset-y-0 left-0 hidden w-32 bg-gradient-to-r from-[#17452f] to-transparent lg:block"
         />
 
         {/* "Your Health Our Priority" cursive overlay */}

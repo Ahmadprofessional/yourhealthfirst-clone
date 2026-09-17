@@ -1,48 +1,36 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Gallery | YourHealthFirst Clinic — Before & After Results",
   description:
-    "View real before & after results from YourHealthFirst Clinic — cryolipolysis, anti-wrinkle, dermal fillers, dermal fillers and more. All pictures are based on real patients.",
+    "View real before & after results from YourHealthFirst Clinic — cryolipolysis, anti-wrinkle, dermal fillers and more. All pictures are based on real patients.",
 };
 
-const categories = [
-  {
-    title: "Cryolipolysis — Before & After",
-    description: "Fat freezing results across multiple body areas",
-    areas: ["Abdomen", "Waist", "Abdomen / Waist", "Lower Back", "Arms", "Legs"],
-  },
-  {
-    title: "Anti-Wrinkle Treatments — Before & After",
-    description: "Botox and anti-wrinkle injection results",
-    areas: [
-      "Anti-wrinkle forehead",
-      "Anti-wrinkle frown",
-      "Anti-wrinkle bunny lines",
-      "Combination treatment",
-    ],
-  },
-  {
-    title: "Dermal Fillers — Before & After",
-    description: "Filler treatments for volume restoration and enhancement",
-    areas: [
-      "Tear trough / Dark circles / Hollow eyes",
-      "Nasolabial folds / Laugh lines / Marionette lines",
-      "Frown correction",
-      "Chin augmentation / Enhancement",
-      "Non-surgical rhinoplasty",
-      "Lip enhancement (female)",
-      "Lip enhancement (male)",
-    ],
-  },
-  {
-    title: "Other Treatments",
-    description: "Additional treatment results",
-    areas: ["Microsclerotherapy", "Hair loss — regrowth & alopecia"],
-  },
-];
+const cryoImages = Array.from({ length: 19 }, (_, i) => ({
+  src: `/images/gallery/cryolipolysis/cryo-${i + 1}.jpeg`,
+  alt: `Cryolipolysis before & after — result ${i + 1}`,
+}));
+
+function ComingSoonPlaceholder({ title }: { title: string }) {
+  return (
+    <div className="flex flex-col items-center justify-center gap-3 rounded-[12px] border border-dashed border-forest/20 bg-cream/60 px-8 py-16 text-center">
+      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-forest/8">
+        <svg className="h-6 w-6 text-forest/40" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M9 9.75h.008v.008H9V9.75zm6.75 0h.008v.008h-.008V9.75z" />
+        </svg>
+      </div>
+      <p className="font-subheading text-[13px] font-semibold tracking-[1px] text-forest/50 uppercase">
+        {title}
+      </p>
+      <p className="text-[13px] leading-[20px] text-body-text/50">
+        Photos coming soon
+      </p>
+    </div>
+  );
+}
 
 export default function GalleryPage() {
   return (
@@ -80,56 +68,111 @@ export default function GalleryPage() {
         </div>
       </section>
 
-      {/* Gallery categories */}
+      {/* Cryolipolysis section */}
       <section className="w-full px-5">
         <div className="mx-auto max-w-[1400px] py-[80px] lg:py-[100px]">
-          <div className="flex flex-col gap-16">
-            {categories.map((cat) => (
-              <div key={cat.title} className="flex flex-col gap-8">
-                {/* Category header */}
-                <div className="flex flex-col gap-2">
-                  <div className="flex items-center gap-4">
-                    <h2 className="font-subheading text-[24px] font-medium leading-[30px] tracking-[-1px] text-forest uppercase lg:text-[30px] lg:leading-[36px]">
-                      {cat.title}
-                    </h2>
-                    <div className="flex-1 border-t border-black/8" />
-                  </div>
-                  <p className="text-[15px] text-body-text">{cat.description}</p>
+
+          {/* Section header */}
+          <div className="mb-10 flex flex-col gap-2">
+            <div className="flex items-center gap-4">
+              <h2 className="font-subheading text-[24px] font-medium leading-[30px] tracking-[-1px] text-forest uppercase lg:text-[30px] lg:leading-[36px]">
+                Cryolipolysis — Before &amp; After
+              </h2>
+              <div className="flex-1 border-t border-black/8" />
+            </div>
+            <p className="text-[15px] text-body-text">
+              Fat freezing results across multiple body areas — lower abdomen, waist, arms, back and legs.
+            </p>
+          </div>
+
+          {/* Real images grid */}
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {cryoImages.map((img, index) => (
+              <div
+                key={img.src}
+                className="group relative overflow-hidden rounded-[12px] shadow-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg"
+              >
+                <div className="relative aspect-square w-full">
+                  <Image
+                    src={img.src}
+                    alt={img.alt}
+                    fill
+                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                    className="object-cover object-top"
+                    loading={index < 3 ? "eager" : "lazy"}
+                  />
                 </div>
-
-                {/* Placeholder grid — images to be added */}
-                <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-                  {cat.areas.map((area) => (
-                    <div
-                      key={area}
-                      className="group relative overflow-hidden rounded-[10px] bg-cream aspect-[3/4]"
-                    >
-                      {/* Placeholder — real before/after images to be uploaded */}
-                      <div className="flex h-full flex-col items-center justify-center gap-2 p-4">
-                        <div className="flex gap-[2px]">
-                          <div className="h-8 w-[45%] rounded-[4px] bg-body-text/10" />
-                          <div className="h-8 w-[45%] rounded-[4px] bg-body-text/10" />
-                        </div>
-                        <p className="text-center text-[12px] leading-[18px] tracking-[0.5px] text-body-text/50 uppercase">
-                          {area}
-                        </p>
-                      </div>
-
-                      {/* Hover overlay */}
-                      <div className="absolute inset-0 flex items-end bg-gradient-to-t from-forest/70 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                        <p className="w-full px-4 pb-4 text-center text-[13px] font-semibold tracking-[0.5px] text-cream uppercase">
-                          {area}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
+                {/* Subtle hover overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-forest/60 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                <div className="absolute bottom-0 left-0 right-0 translate-y-4 px-4 pb-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                  <p className="text-center font-subheading text-[12px] font-semibold tracking-[1px] text-cream uppercase">
+                    Result {index + 1}
+                  </p>
                 </div>
               </div>
             ))}
           </div>
+        </div>
+      </section>
 
-          {/* Note about full gallery */}
-          <div className="mt-14 rounded-[12px] border border-tan/30 bg-cream p-8 text-center">
+      {/* Anti-Wrinkle section */}
+      <section className="w-full border-t border-black/8 bg-cream/40 px-5">
+        <div className="mx-auto max-w-[1400px] py-[80px] lg:py-[100px]">
+          <div className="mb-10 flex flex-col gap-2">
+            <div className="flex items-center gap-4">
+              <h2 className="font-subheading text-[24px] font-medium leading-[30px] tracking-[-1px] text-forest uppercase lg:text-[30px] lg:leading-[36px]">
+                Anti-Wrinkle Treatments — Before &amp; After
+              </h2>
+              <div className="flex-1 border-t border-black/8" />
+            </div>
+            <p className="text-[15px] text-body-text">
+              Botox and anti-wrinkle injection results — forehead, frown lines, bunny lines and combination treatments.
+            </p>
+          </div>
+          <ComingSoonPlaceholder title="Anti-Wrinkle Before & After Photos" />
+        </div>
+      </section>
+
+      {/* Dermal Fillers section */}
+      <section className="w-full border-t border-black/8 px-5">
+        <div className="mx-auto max-w-[1400px] py-[80px] lg:py-[100px]">
+          <div className="mb-10 flex flex-col gap-2">
+            <div className="flex items-center gap-4">
+              <h2 className="font-subheading text-[24px] font-medium leading-[30px] tracking-[-1px] text-forest uppercase lg:text-[30px] lg:leading-[36px]">
+                Dermal Fillers — Before &amp; After
+              </h2>
+              <div className="flex-1 border-t border-black/8" />
+            </div>
+            <p className="text-[15px] text-body-text">
+              Filler treatments — tear trough, nasolabial folds, lip enhancement, chin augmentation and non-surgical rhinoplasty.
+            </p>
+          </div>
+          <ComingSoonPlaceholder title="Dermal Filler Before & After Photos" />
+        </div>
+      </section>
+
+      {/* Other Treatments section */}
+      <section className="w-full border-t border-black/8 bg-cream/40 px-5">
+        <div className="mx-auto max-w-[1400px] py-[80px] lg:py-[100px]">
+          <div className="mb-10 flex flex-col gap-2">
+            <div className="flex items-center gap-4">
+              <h2 className="font-subheading text-[24px] font-medium leading-[30px] tracking-[-1px] text-forest uppercase lg:text-[30px] lg:leading-[36px]">
+                Other Treatments — Before &amp; After
+              </h2>
+              <div className="flex-1 border-t border-black/8" />
+            </div>
+            <p className="text-[15px] text-body-text">
+              Microsclerotherapy, hair loss regrowth, alopecia and additional treatment results.
+            </p>
+          </div>
+          <ComingSoonPlaceholder title="Other Treatment Before & After Photos" />
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="w-full border-t border-black/8 px-5 py-[60px]">
+        <div className="mx-auto max-w-[1400px]">
+          <div className="rounded-[12px] border border-tan/30 bg-cream p-8 text-center">
             <h3 className="font-subheading text-[20px] font-semibold leading-[26px] tracking-[-0.8px] text-forest uppercase">
               View the Full Gallery at Your Consultation
             </h3>

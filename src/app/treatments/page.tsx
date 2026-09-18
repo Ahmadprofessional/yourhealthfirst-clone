@@ -46,7 +46,7 @@ export default function TreatmentsPage() {
       <Header />
 
       {/* Page hero */}
-      <section className="relative w-full bg-forest pt-[111px]">
+      <section className="relative w-full bg-[linear-gradient(90deg,#1c1813_0%,#2b2217_50%,#3a2e1a_100%)] pt-[111px]">
         <div className="mx-auto max-w-[1400px] px-5 py-[80px] lg:py-[100px]">
           <div className="w-fit rounded-full border-[0.8px] border-white/20 px-3 py-2">
             <p className="text-[13px] font-semibold leading-[20.8px] tracking-[3px] text-tan uppercase">

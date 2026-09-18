@@ -39,7 +39,7 @@ export default async function TreatmentPage({ params }: Props) {
       <Header />
 
       {/* Page hero */}
-      <section className="relative w-full bg-forest pt-[111px]">
+      <section className="relative w-full bg-[linear-gradient(90deg,#1c1813_0%,#2b2217_50%,#3a2e1a_100%)] pt-[111px]">
         <div className="mx-auto max-w-[1400px] px-5 py-[80px] lg:py-[100px]">
           <div className="flex flex-col gap-4">
             <div className="flex flex-wrap items-center gap-2">

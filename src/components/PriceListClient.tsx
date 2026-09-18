@@ -78,44 +78,6 @@ export default function PriceListClient({ categories }: Props) {
           </div>
         </div>
 
-        {/* Category card grid */}
-        <div className="mb-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
-          {filtered.map((cat) => (
-            <button
-              key={cat.id}
-              type="button"
-              onClick={() => setOpen(open === cat.id ? null : cat.id)}
-              className={`flex items-center gap-4 rounded-[10px] border bg-white px-4 py-3 text-left transition-all duration-200 hover:border-tan/50 hover:shadow-sm ${
-                open === cat.id
-                  ? "border-tan/60 shadow-sm ring-1 ring-tan/20"
-                  : "border-black/8"
-              }`}
-            >
-              <div className="relative h-[70px] w-[70px] shrink-0 overflow-hidden rounded-[8px] bg-cream">
-                <Image
-                  src={cat.image}
-                  alt={cat.title}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="flex-1 min-w-0">
-                <p className="font-subheading text-[13px] font-bold leading-[18px] tracking-[-0.3px] text-forest uppercase">
-                  {cat.title}
-                </p>
-                <p className="mt-1 text-[12px] leading-[18px] text-body-text/60 line-clamp-2">
-                  {cat.description}
-                </p>
-              </div>
-              <ChevronDown
-                className={`h-4 w-4 shrink-0 text-tan transition-transform duration-200 ${
-                  open === cat.id ? "rotate-180" : ""
-                }`}
-              />
-            </button>
-          ))}
-        </div>
-
         {/* Accordion — expanded details */}
         <div className="flex flex-col gap-2">
           {filtered.map((cat) => (
@@ -124,7 +86,7 @@ export default function PriceListClient({ categories }: Props) {
               <button
                 type="button"
                 onClick={() => setOpen(open === cat.id ? null : cat.id)}
-                className="flex w-full items-center gap-4 bg-forest px-5 py-4 text-left transition-opacity hover:opacity-90"
+                className="flex w-full items-center gap-4 bg-[linear-gradient(90deg,#1c1813_0%,#2b2217_50%,#3a2e1a_100%)] px-5 py-4 text-left transition-opacity hover:opacity-90"
               >
                 <div className="relative h-[44px] w-[44px] shrink-0 overflow-hidden rounded-[6px]">
                   <Image src={cat.image} alt={cat.title} fill className="object-cover" />

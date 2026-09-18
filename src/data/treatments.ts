@@ -1369,7 +1369,7 @@ export const treatmentDetails: TreatmentDetail[] = [
       "Children and adults requiring routine or specialist blood draw",
     ],
     results: "Immediate — same-day service",
-    priceFrom: "£80 (blood draw) / £10 per tube (centrifugal)",
+    priceFrom: "From £80 (blood draw) / £10 per tube (centrifugal)",
     faqs: [
       {
         question: "Do I need a referral to book a blood draw?",

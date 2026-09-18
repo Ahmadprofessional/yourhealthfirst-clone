@@ -158,7 +158,7 @@ const categories: PriceCategory[] = [
     image: "/images/treatments/phlebotomy.jpg",
     description: "Essential health checks for peace of mind.",
     items: [
-      { service: "Blood draw", price: "£80" },
+      { service: "Blood draw", price: "From £80" },
       { service: "Blood centrifugal (per tube)", price: "£10" },
     ],
   },

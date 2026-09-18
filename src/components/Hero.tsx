@@ -31,7 +31,7 @@ export default function Hero() {
           priority
           quality={92}
           sizes="(min-width: 1024px) 2048px, 100vw"
-          className="object-cover object-[68%_center] lg:object-[70%_center]"
+          className="object-cover object-[68%_center] lg:object-right"
         />
         {/* Dark brown fade over the left side so the text sits on it */}
         <div
@@ -42,27 +42,6 @@ export default function Hero() {
               "linear-gradient(90deg, #1c1813 0%, #1e1a14 16%, rgba(38,30,20,0.93) 28%, rgba(58,46,26,0.6) 40%, rgba(58,46,26,0.2) 50%, rgba(58,46,26,0) 58%)",
           }}
         />
-
-        {/* Handwritten "Your Health Our Priority" */}
-        <div
-          aria-hidden="true"
-          className="absolute left-[73%] top-[31%] hidden -rotate-[8deg] flex-col items-center lg:flex"
-          style={{ color: GOLD }}
-        >
-          <p className="font-script text-[44px] leading-[1] xl:text-[52px]">Your Health</p>
-          <p className="font-script text-[44px] leading-[1] xl:text-[52px]">Our Priority</p>
-          <svg
-            className="mt-3 h-9 w-9 translate-x-8"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth={1.4}
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M12 20.5s-7.5-4.6-9.3-9.2C1.4 8 3.3 4.5 6.8 4.5c2 0 3.6 1.2 5.2 3.1 1.6-1.9 3.2-3.1 5.2-3.1 3.5 0 5.4 3.5 4.1 6.8-1.8 4.6-9.3 9.2-9.3 9.2z" />
-          </svg>
-        </div>
       </div>
 
       {/* Text column */}

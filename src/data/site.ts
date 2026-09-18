@@ -49,8 +49,13 @@ export const navLinks: NavLink[] = [
           { label: "Photo-Aging / Skinox", href: "/treatments/photo-aging" },
           { label: "Sclerotherapy", href: "/treatments/sclerotherapy" },
           { label: "CryoPen", href: "/treatments/cryopen" },
-          { label: "Phlebotomy", href: "/treatments/phlebotomy" },
           { label: "Vitamin B12", href: "/treatments/vitamin-b12" },
+        ],
+      },
+      {
+        category: "Phlebotomy & Health Tests",
+        items: [
+          { label: "Phlebotomy", href: "/treatments/phlebotomy" },
         ],
       },
       {

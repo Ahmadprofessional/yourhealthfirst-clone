@@ -1345,7 +1345,7 @@ export const treatmentDetails: TreatmentDetail[] = [
     slug: "phlebotomy",
     title: "Phlebotomy (Private Blood Draw)",
     tagline: "Professional private blood draw and centrifugal service since 2014",
-    category: "Skin & Health",
+    category: "Phlebotomy & Health Tests",
     image: "/images/services/phlebotomy.png",
     intro:
       "YourHealthFirst Clinic has been providing professional private phlebotomy (blood draw) and centrifugal services for adults and children since 2014. We process blood for PRP treatments, provide blood draw for external lab testing, and offer centrifugal services for a wide range of clinical applications.",

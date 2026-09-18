@@ -26,7 +26,11 @@ const categories = [
   },
   {
     label: "Skin & Health",
-    slugs: ["microneedling", "photo-aging", "sclerotherapy", "cryopen", "phlebotomy", "vitamin-b12"],
+    slugs: ["microneedling", "photo-aging", "sclerotherapy", "cryopen", "vitamin-b12"],
+  },
+  {
+    label: "Phlebotomy & Health Tests",
+    slugs: ["phlebotomy"],
   },
 ];
 

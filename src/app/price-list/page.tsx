@@ -262,6 +262,108 @@ export default function PriceListPage() {
       {/* ── INTERACTIVE PRICE LIST ── */}
       <PriceListClient categories={categories} />
 
+      {/* ── BOOKING / CANCELLATION & REFUND POLICY ── */}
+      <section className="w-full bg-cream px-5 py-[80px] lg:py-[100px]">
+        <div className="mx-auto max-w-[900px]">
+          <div className="w-fit rounded-full border border-forest/20 px-4 py-2">
+            <p className="font-nav text-[11px] font-semibold tracking-[3px] text-forest uppercase">
+              Client Information
+            </p>
+          </div>
+          <h2 className="mt-4 font-display text-[30px] leading-[36px] font-bold tracking-[-1px] text-forest uppercase lg:text-[38px] lg:leading-[44px]">
+            Booking, Cancellation &amp; Refund Policy
+          </h2>
+          <p className="mt-4 text-[15px] leading-[26px] text-body-text">
+            To discuss your treatment plans, book in for a consultation — there is no obligation to
+            proceed with treatment. Please state your main interest when booking, and arrive ten
+            minutes early so you feel relaxed.
+          </p>
+
+          <div className="mt-10 flex flex-col gap-8">
+            <div>
+              <h3 className="font-subheading text-[16px] font-semibold tracking-[1px] text-forest uppercase">
+                Procedure Refunds
+              </h3>
+              <p className="mt-2 text-[15px] leading-[26px] text-body-text">
+                All treatments and procedures are carried out to the highest possible standard.
+                However, as with any non-invasive procedure, there is no guarantee of outcome, and
+                treatment is undertaken at the patient&apos;s own risk. YourHealthFirst Clinic does
+                not offer refunds on this basis. The only exception is a serious or long-term
+                illness that contra-indicates the treatment, confirmed by a medical certificate.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="font-subheading text-[16px] font-semibold tracking-[1px] text-forest uppercase">
+                Complaints Procedure
+              </h3>
+              <p className="mt-2 text-[15px] leading-[26px] text-body-text">
+                We aim to exceed our clients&apos; expectations with first-class service, before,
+                during and after treatment. If for any reason you are unhappy with your experience,
+                we welcome your feedback and will do our best to put things right as soon as
+                possible.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="font-subheading text-[16px] font-semibold tracking-[1px] text-forest uppercase">
+                Consultation Deposits
+              </h3>
+              <p className="mt-2 text-[15px] leading-[26px] text-body-text">
+                Bookings require a deposit of up to £50, payable at the point of booking or over the
+                phone. This deposit is fully redeemable against the cost of your treatment should
+                you go ahead. You will be informed of this when booking your initial consultation.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="font-subheading text-[16px] font-semibold tracking-[1px] text-forest uppercase">
+                Cancellations
+              </h3>
+              <p className="mt-2 text-[15px] leading-[26px] text-body-text">
+                Please give at least 24 hours&apos; notice if you need to cancel. Cancellations with
+                less than 24 hours&apos; notice will incur a charge of 50% of the total treatment
+                cost, added to your next appointment. No-shows will be charged in full. This notice
+                allows us to offer your slot to clients on our waiting list.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="font-subheading text-[16px] font-semibold tracking-[1px] text-forest uppercase">
+                Late For Your Appointment
+              </h3>
+              <p className="mt-2 text-[15px] leading-[26px] text-body-text">
+                If you are running late, we will do our best to accommodate your full treatment, but
+                this is not always possible. If we are unavoidably running late for your appointment,
+                we apologise — this is sometimes outside of our control — and will make this up to
+                you should it cause any inconvenience.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="font-subheading text-[16px] font-semibold tracking-[1px] text-forest uppercase">
+                Payment
+              </h3>
+              <p className="mt-2 text-[15px] leading-[26px] text-body-text">
+                All major credit and debit cards are accepted.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="font-subheading text-[16px] font-semibold tracking-[1px] text-forest uppercase">
+                Gift Vouchers
+              </h3>
+              <p className="mt-2 text-[15px] leading-[26px] text-body-text">
+                Gift vouchers can be arranged, paid for and posted to you or the recipient. Vouchers
+                are valid for 6 months only. Please quote your voucher number when booking to secure
+                your appointment — the same cancellation charges apply to voucher holders, and a
+                no-show will void the voucher.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── CTA ── */}
       <section className="relative w-full overflow-hidden bg-cream px-5 py-[80px] lg:py-[100px]">
         <div className="mx-auto flex max-w-[1400px] flex-col items-center gap-6 text-center">

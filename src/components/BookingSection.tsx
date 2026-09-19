@@ -61,7 +61,7 @@ export default function BookingSection() {
               <h2 className="font-subheading text-[34px] leading-[38px] font-medium tracking-[-1.8px] text-[#c9a84c] uppercase lg:text-[48px] lg:leading-[53px]">
                 Begin Your
               </h2>
-              <h2 className="-mt-2 font-subheading text-[34px] leading-[38px] font-medium tracking-[-1.8px] text-cream uppercase lg:text-[48px] lg:leading-[53px]">
+              <h2 className="-mt-2 font-subheading text-[34px] leading-[38px] font-medium tracking-[-1.8px] text-white uppercase lg:text-[48px] lg:leading-[53px]">
                 Journey Today
               </h2>
               <p className="mt-2 text-[16px] leading-[27px] tracking-[-0.2px] text-white/80">
@@ -79,7 +79,7 @@ export default function BookingSection() {
                 </div>
                 <div>
                   <p className="text-[12px] tracking-[1px] text-white/65 uppercase">Telephone</p>
-                  <a href="tel:02072253582" className="text-[16px] font-medium text-cream transition-colors hover:text-[#c9a84c]">
+                  <a href="tel:02072253582" className="text-[16px] font-bold text-white transition-colors hover:text-[#c9a84c]">
                     0207 225 3582
                   </a>
                 </div>
@@ -90,7 +90,7 @@ export default function BookingSection() {
                 </div>
                 <div>
                   <p className="text-[12px] tracking-[1px] text-white/65 uppercase">Mobile</p>
-                  <a href="tel:07818474041" className="text-[16px] font-medium text-cream transition-colors hover:text-[#c9a84c]">
+                  <a href="tel:07818474041" className="text-[16px] font-bold text-white transition-colors hover:text-[#c9a84c]">
                     078 1847 4041
                   </a>
                 </div>
@@ -101,7 +101,7 @@ export default function BookingSection() {
                 </div>
                 <div>
                   <p className="text-[12px] tracking-[1px] text-white/65 uppercase">Email</p>
-                  <a href="mailto:info@yourhealthfirst.uk" className="text-[16px] font-medium text-cream transition-colors hover:text-[#c9a84c]">
+                  <a href="mailto:info@yourhealthfirst.uk" className="text-[16px] font-bold text-white transition-colors hover:text-[#c9a84c]">
                     info@yourhealthfirst.uk
                   </a>
                 </div>
@@ -112,7 +112,7 @@ export default function BookingSection() {
                 </div>
                 <div>
                   <p className="text-[12px] tracking-[1px] text-white/65 uppercase">Address</p>
-                  <p className="text-[16px] font-medium leading-[24px] text-cream">
+                  <p className="text-[16px] font-medium leading-[24px] text-white">
                     2 Wimpole Street, London W1G 0EB
                   </p>
                 </div>
@@ -128,7 +128,7 @@ export default function BookingSection() {
                 {hours.map(({ day, time, note }) => (
                   <li key={day} className="flex items-start justify-between gap-4 border-b border-white/8 pb-3 last:border-0 last:pb-0">
                     <div>
-                      <p className="text-[14px] font-medium text-cream">{day}</p>
+                      <p className="text-[14px] font-medium text-white">{day}</p>
                       {note && <p className="text-[12px] text-white/65 italic">{note}</p>}
                     </div>
                     <p className="shrink-0 text-[14px] text-[#c9a84c]">{time}</p>
@@ -147,7 +147,7 @@ export default function BookingSection() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <h3 className="font-subheading text-[24px] font-medium tracking-[-1px] text-cream uppercase">
+                <h3 className="font-subheading text-[24px] font-medium tracking-[-1px] text-white uppercase">
                   Enquiry Sent
                 </h3>
                 <p className="max-w-[340px] text-[15px] leading-[24px] text-white/80">
@@ -158,7 +158,7 @@ export default function BookingSection() {
             ) : (
               <>
                 <div>
-                  <h3 className="font-subheading text-[22px] font-semibold leading-[28px] tracking-[-1px] text-cream uppercase">
+                  <h3 className="font-subheading text-[22px] font-semibold leading-[28px] tracking-[-1px] text-white uppercase">
                     Request a Consultation
                   </h3>
                   <p className="mt-1 text-[14px] leading-[22px] text-white/85">
@@ -176,7 +176,7 @@ export default function BookingSection() {
                         type="text"
                         required
                         placeholder="Jane"
-                        className="h-12 rounded-[8px] border border-white/10 bg-white/5 px-4 text-[15px] text-cream placeholder:text-white/60 focus:border-tan/60 focus:outline-none"
+                        className="h-12 rounded-[8px] border border-white/10 bg-white/5 px-4 text-[15px] text-white placeholder:text-white/60 focus:border-tan/60 focus:outline-none"
                       />
                     </div>
                     <div className="flex flex-1 flex-col gap-2">
@@ -186,7 +186,7 @@ export default function BookingSection() {
                       <input
                         type="text"
                         placeholder="Smith"
-                        className="h-12 rounded-[8px] border border-white/10 bg-white/5 px-4 text-[15px] text-cream placeholder:text-white/60 focus:border-tan/60 focus:outline-none"
+                        className="h-12 rounded-[8px] border border-white/10 bg-white/5 px-4 text-[15px] text-white placeholder:text-white/60 focus:border-tan/60 focus:outline-none"
                       />
                     </div>
                   </div>
@@ -200,7 +200,7 @@ export default function BookingSection() {
                         type="email"
                         required
                         placeholder="jane@example.com"
-                        className="h-12 rounded-[8px] border border-white/10 bg-white/5 px-4 text-[15px] text-cream placeholder:text-white/60 focus:border-tan/60 focus:outline-none"
+                        className="h-12 rounded-[8px] border border-white/10 bg-white/5 px-4 text-[15px] text-white placeholder:text-white/60 focus:border-tan/60 focus:outline-none"
                       />
                     </div>
                     <div className="flex flex-1 flex-col gap-2">
@@ -210,7 +210,7 @@ export default function BookingSection() {
                       <input
                         type="tel"
                         placeholder="+44 7700 000000"
-                        className="h-12 rounded-[8px] border border-white/10 bg-white/5 px-4 text-[15px] text-cream placeholder:text-white/60 focus:border-tan/60 focus:outline-none"
+                        className="h-12 rounded-[8px] border border-white/10 bg-white/5 px-4 text-[15px] text-white placeholder:text-white/60 focus:border-tan/60 focus:outline-none"
                       />
                     </div>
                   </div>
@@ -219,7 +219,7 @@ export default function BookingSection() {
                     <label className="text-[12px] font-semibold tracking-[1px] text-white/85 uppercase">
                       Treatment of Interest
                     </label>
-                    <select className="h-12 rounded-[8px] border border-white/10 bg-white/5 px-4 text-[15px] text-cream focus:border-tan/60 focus:outline-none">
+                    <select className="h-12 rounded-[8px] border border-white/10 bg-white/5 px-4 text-[15px] text-white focus:border-tan/60 focus:outline-none">
                       <option value="" className="bg-white text-forest">Select a treatment...</option>
                       {treatments.map((t) => (
                         <option key={t} value={t} className="bg-white text-forest">{t}</option>
@@ -231,15 +231,15 @@ export default function BookingSection() {
                     <label className="text-[12px] font-semibold tracking-[1px] text-white/85 uppercase">
                       How did you hear about us?
                     </label>
-                    <select className="h-12 rounded-[8px] border border-white/10 bg-white/5 px-4 text-[15px] text-cream focus:border-tan/60 focus:outline-none">
-                      <option value="">Please select...</option>
-                      <option>Google Search</option>
-                      <option>Google Maps</option>
-                      <option>Instagram</option>
-                      <option>Facebook</option>
-                      <option>Friend / Family Referral</option>
-                      <option>Returning Patient</option>
-                      <option>Other</option>
+                    <select className="h-12 rounded-[8px] border border-white/10 bg-white/5 px-4 text-[15px] text-white focus:border-tan/60 focus:outline-none">
+                      <option value="" className="bg-white text-forest">Please select...</option>
+                      <option className="bg-white text-forest">Google Search</option>
+                      <option className="bg-white text-forest">Google Maps</option>
+                      <option className="bg-white text-forest">Instagram</option>
+                      <option className="bg-white text-forest">Facebook</option>
+                      <option className="bg-white text-forest">Friend / Family Referral</option>
+                      <option className="bg-white text-forest">Returning Patient</option>
+                      <option className="bg-white text-forest">Other</option>
                     </select>
                   </div>
 
@@ -250,7 +250,7 @@ export default function BookingSection() {
                     <textarea
                       rows={4}
                       placeholder="Tell us about your concerns or questions..."
-                      className="resize-none rounded-[8px] border border-white/10 bg-white/5 px-4 py-3 text-[15px] text-cream placeholder:text-white/60 focus:border-tan/60 focus:outline-none"
+                      className="resize-none rounded-[8px] border border-white/10 bg-white/5 px-4 py-3 text-[15px] text-white placeholder:text-white/60 focus:border-tan/60 focus:outline-none"
                     />
                   </div>
 

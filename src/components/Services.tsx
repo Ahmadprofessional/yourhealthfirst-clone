@@ -154,18 +154,18 @@ function ServiceIcon({ icon, bg }: { icon?: string; bg?: string }) {
 /* ── GHP Award Badge (real certificate design) ── */
 function GhpBadge() {
   return (
-    <div className="flex items-center gap-3 rounded-[8px] border border-tan/30 bg-tan/8 px-4 py-3">
+    <div className="flex items-center gap-4 rounded-[8px] border border-tan/30 bg-tan/8 px-5 py-4">
       {/* Hexagon */}
-      <svg viewBox="0 0 60 70" className="h-[42px] w-[36px] shrink-0" fill="#7ec8cc">
+      <svg viewBox="0 0 60 70" className="h-[64px] w-[55px] shrink-0" fill="#7ec8cc">
         <path d="M30 2L58 17v36L30 68 2 53V17z" />
         <text x="30" y="40" textAnchor="middle" fontSize="16" fontWeight="700" fill="white" fontFamily="sans-serif">ghp</text>
       </svg>
       <div className="min-w-0">
-        <p className="font-nav text-[9px] font-semibold tracking-[2px] text-tan/70 uppercase">Healthcare &amp; Pharmaceutical Awards</p>
-        <p className="font-subheading text-[12px] font-semibold leading-[16px] tracking-[-0.3px] text-forest">
+        <p className="font-nav text-[10px] font-semibold tracking-[2px] text-tan/70 uppercase">Healthcare &amp; Pharmaceutical Awards</p>
+        <p className="font-subheading text-[14px] font-semibold leading-[18px] tracking-[-0.3px] text-forest">
           Best Non-Invasive Cosmetic &amp; Medical Clinic
         </p>
-        <p className="font-nav text-[10px] text-body-text/60">London 2019</p>
+        <p className="font-nav text-[11px] text-body-text/60">London 2019</p>
       </div>
     </div>
   );

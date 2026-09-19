@@ -43,7 +43,7 @@ export default function BookingSection() {
   }
 
   return (
-    <section className="w-full bg-[linear-gradient(90deg,#1c1813_0%,#2b2217_50%,#3a2e1a_100%)] px-5" id="book">
+    <section className="w-full bg-[linear-gradient(90deg,#4a3826_0%,#6b5540_50%,#8f7355_100%)] px-5" id="book">
       <div className="mx-auto max-w-[1400px] py-[100px]">
         <div className="flex flex-col gap-12 lg:flex-row lg:gap-16">
 
@@ -219,7 +219,7 @@ export default function BookingSection() {
                     <label className="text-[12px] font-semibold tracking-[1px] text-white/50 uppercase">
                       Treatment of Interest
                     </label>
-                    <select className="h-12 rounded-[8px] border border-white/10 bg-[#2b2217] px-4 text-[15px] text-cream focus:border-tan/60 focus:outline-none">
+                    <select className="h-12 rounded-[8px] border border-white/10 bg-[#6b5540] px-4 text-[15px] text-cream focus:border-tan/60 focus:outline-none">
                       <option value="">Select a treatment...</option>
                       {treatments.map((t) => (
                         <option key={t} value={t}>{t}</option>
@@ -231,7 +231,7 @@ export default function BookingSection() {
                     <label className="text-[12px] font-semibold tracking-[1px] text-white/50 uppercase">
                       How did you hear about us?
                     </label>
-                    <select className="h-12 rounded-[8px] border border-white/10 bg-[#2b2217] px-4 text-[15px] text-cream focus:border-tan/60 focus:outline-none">
+                    <select className="h-12 rounded-[8px] border border-white/10 bg-[#6b5540] px-4 text-[15px] text-cream focus:border-tan/60 focus:outline-none">
                       <option value="">Please select...</option>
                       <option>Google Search</option>
                       <option>Google Maps</option>

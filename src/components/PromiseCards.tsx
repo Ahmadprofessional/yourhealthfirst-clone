@@ -2,7 +2,7 @@ export default function PromiseCards() {
   return (
     <section className="w-full px-5 pb-[100px]">
       <div className="mx-auto max-w-[1400px]">
-        <div className="relative flex flex-col justify-center gap-6 overflow-hidden rounded-[8px] bg-[#2b2217] bg-[url('/images/promise-bg.jpg')] bg-cover bg-center p-4 lg:h-[450px] lg:flex-row">
+        <div className="relative flex flex-col justify-center gap-6 overflow-hidden rounded-[8px] bg-[#6b5540] bg-[url('/images/promise-bg.jpg')] bg-cover bg-center p-4 lg:h-[450px] lg:flex-row">
           {/* Dark overlay */}
           <div
             aria-hidden="true"

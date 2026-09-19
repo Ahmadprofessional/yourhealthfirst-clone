@@ -39,7 +39,7 @@ export default async function TreatmentPage({ params }: Props) {
       <Header />
 
       {/* Page hero */}
-      <section className="relative w-full bg-[linear-gradient(90deg,#1c1813_0%,#2b2217_50%,#3a2e1a_100%)] pt-[111px]">
+      <section className="relative w-full bg-[linear-gradient(90deg,#4a3826_0%,#6b5540_50%,#8f7355_100%)] pt-[111px]">
         <div className="mx-auto max-w-[1400px] px-5 py-[80px] lg:py-[100px]">
           <div className="flex flex-col gap-4">
             <div className="flex flex-wrap items-center gap-2">
@@ -140,7 +140,7 @@ export default async function TreatmentPage({ params }: Props) {
               </div>
 
               {/* Book CTA */}
-              <div className="rounded-[12px] bg-[linear-gradient(135deg,#1c1813_0%,#3a2e1a_100%)] p-6">
+              <div className="rounded-[12px] bg-[linear-gradient(135deg,#4a3826_0%,#8f7355_100%)] p-6">
                 <h3 className="font-subheading text-[15px] font-semibold tracking-[1px] text-cream uppercase">
                   Book a Consultation
                 </h3>
@@ -235,7 +235,7 @@ export default async function TreatmentPage({ params }: Props) {
             <div className="mt-8 text-center">
               <Link
                 href="/gallery"
-                className="inline-flex h-12 items-center justify-center rounded-[8px] bg-[#2b2217] px-7 font-nav text-[14px] font-semibold tracking-[-0.3px] text-cream transition-opacity hover:opacity-90"
+                className="inline-flex h-12 items-center justify-center rounded-[8px] bg-[#6b5540] px-7 font-nav text-[14px] font-semibold tracking-[-0.3px] text-cream transition-opacity hover:opacity-90"
               >
                 View Full Gallery →
               </Link>

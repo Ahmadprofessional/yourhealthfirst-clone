@@ -39,13 +39,13 @@ export default function Hero() {
           className="absolute inset-0 hidden lg:block"
           style={{
             background:
-              "linear-gradient(90deg, #1c1813 0%, #1e1a14 16%, rgba(38,30,20,0.93) 28%, rgba(58,46,26,0.6) 40%, rgba(58,46,26,0.2) 50%, rgba(58,46,26,0) 58%)",
+              "linear-gradient(90deg, #4a3826 0%, #1e1a14 16%, rgba(38,30,20,0.93) 28%, rgba(58,46,26,0.6) 40%, rgba(58,46,26,0.2) 50%, rgba(58,46,26,0) 58%)",
           }}
         />
       </div>
 
       {/* Text column */}
-      <div className="relative z-10 order-1 flex w-full flex-col gap-[10px] bg-[linear-gradient(90deg,#1c1813_0%,#3a2e1a_100%)] px-5 pt-[150px] pb-16 sm:px-[60px] sm:pt-[160px] lg:w-[680px] lg:bg-none lg:pb-0 xl:px-[120px] xl:pt-[150px]">
+      <div className="relative z-10 order-1 flex w-full flex-col gap-[10px] bg-[linear-gradient(90deg,#4a3826_0%,#8f7355_100%)] px-5 pt-[150px] pb-16 sm:px-[60px] sm:pt-[160px] lg:w-[680px] lg:bg-none lg:pb-0 xl:px-[120px] xl:pt-[150px]">
         <div className="flex flex-col gap-4">
           <h2 className="font-display text-[46px] leading-[46px] font-medium text-white uppercase lg:text-[52px] lg:leading-[52px]">
             AWARD WINNING
@@ -87,7 +87,7 @@ export default function Hero() {
           <div>
             <a
               href="/about-us"
-              className="inline-flex items-center gap-3 rounded-[8px] border-[2px] border-[#c9a84c] px-[28px] py-[14px] font-display text-[15px] font-semibold tracking-[1px] text-[#c9a84c] uppercase transition-all duration-200 hover:bg-[#c9a84c] hover:text-[#1c1813]"
+              className="inline-flex items-center gap-3 rounded-[8px] border-[2px] border-[#c9a84c] px-[28px] py-[14px] font-display text-[15px] font-semibold tracking-[1px] text-[#c9a84c] uppercase transition-all duration-200 hover:bg-[#c9a84c] hover:text-[#4a3826]"
             >
               Discover More
               <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
@@ -131,7 +131,7 @@ export default function Hero() {
                   alt=""
                   width={52}
                   height={52}
-                  className={`h-[52px] w-[52px] rounded-full object-cover ring-2 ring-[#1c1813] ${
+                  className={`h-[52px] w-[52px] rounded-full object-cover ring-2 ring-[#4a3826] ${
                     index > 0 ? "-ml-[28px]" : ""
                   }`}
                 />

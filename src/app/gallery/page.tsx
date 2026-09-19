@@ -56,13 +56,13 @@ function BeforeAfterGrid({ images }: { images: { src: string; alt: string }[] })
 
 function ComingSoonPlaceholder({ title }: { title: string }) {
   return (
-    <div className="flex flex-col items-center justify-center gap-3 rounded-[12px] border border-dashed border-[#2b2217]/20 bg-cream/60 px-8 py-16 text-center">
-      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#2b2217]/8">
-        <svg className="h-6 w-6 text-[#2b2217]/40" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+    <div className="flex flex-col items-center justify-center gap-3 rounded-[12px] border border-dashed border-[#6b5540]/20 bg-cream/60 px-8 py-16 text-center">
+      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#6b5540]/8">
+        <svg className="h-6 w-6 text-[#6b5540]/40" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M9 9.75h.008v.008H9V9.75zm6.75 0h.008v.008h-.008V9.75z" />
         </svg>
       </div>
-      <p className="font-subheading text-[13px] font-semibold tracking-[1px] text-[#2b2217]/50 uppercase">
+      <p className="font-subheading text-[13px] font-semibold tracking-[1px] text-[#6b5540]/50 uppercase">
         {title}
       </p>
       <p className="text-[13px] leading-[20px] text-body-text/50">
@@ -78,7 +78,7 @@ export default function GalleryPage() {
       <Header />
 
       {/* Page hero */}
-      <section className="relative w-full bg-[linear-gradient(90deg,#1c1813_0%,#2b2217_50%,#3a2e1a_100%)] pt-[111px]">
+      <section className="relative w-full bg-[linear-gradient(90deg,#4a3826_0%,#6b5540_50%,#8f7355_100%)] pt-[111px]">
         <div className="mx-auto max-w-[1400px] px-5 py-[80px] lg:py-[100px]">
           <div className="w-fit rounded-full border-[0.8px] border-white/20 px-3 py-2">
             <p className="text-[13px] font-semibold leading-[20.8px] tracking-[3px] text-tan uppercase">
@@ -197,7 +197,7 @@ export default function GalleryPage() {
             <div className="mt-6 flex flex-wrap justify-center gap-4">
               <a
                 href="tel:02072253582"
-                className="inline-flex h-12 items-center justify-center rounded-[8px] bg-[#2b2217] px-7 font-nav text-[14px] font-semibold tracking-[-0.3px] text-cream transition-opacity hover:opacity-90"
+                className="inline-flex h-12 items-center justify-center rounded-[8px] bg-[#6b5540] px-7 font-nav text-[14px] font-semibold tracking-[-0.3px] text-cream transition-opacity hover:opacity-90"
               >
                 Call 0207 225 3582
               </a>

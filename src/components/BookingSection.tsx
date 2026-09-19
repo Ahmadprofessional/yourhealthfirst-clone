@@ -52,13 +52,13 @@ export default function BookingSection() {
 
             {/* Badge */}
             <div className="w-fit rounded-full border-[0.8px] border-tan/40 px-3 py-2">
-              <p className="text-[13px] font-semibold leading-[20.8px] tracking-[3px] text-tan uppercase">
+              <p className="text-[13px] font-semibold leading-[20.8px] tracking-[3px] text-[#c9a84c] uppercase">
                 book an appointment
               </p>
             </div>
 
             <div className="flex flex-col gap-3">
-              <h2 className="font-subheading text-[34px] leading-[38px] font-medium tracking-[-1.8px] text-tan uppercase lg:text-[48px] lg:leading-[53px]">
+              <h2 className="font-subheading text-[34px] leading-[38px] font-medium tracking-[-1.8px] text-[#c9a84c] uppercase lg:text-[48px] lg:leading-[53px]">
                 Begin Your
               </h2>
               <h2 className="-mt-2 font-subheading text-[34px] leading-[38px] font-medium tracking-[-1.8px] text-cream uppercase lg:text-[48px] lg:leading-[53px]">
@@ -75,40 +75,40 @@ export default function BookingSection() {
             <ul className="flex flex-col gap-4">
               <li className="flex items-center gap-3">
                 <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-tan/10">
-                  <PhoneIcon className="h-4 w-4 text-tan" />
+                  <PhoneIcon className="h-4 w-4 text-[#c9a84c]" />
                 </div>
                 <div>
                   <p className="text-[12px] tracking-[1px] text-white/40 uppercase">Telephone</p>
-                  <a href="tel:02072253582" className="text-[16px] font-medium text-cream transition-colors hover:text-tan">
+                  <a href="tel:02072253582" className="text-[16px] font-medium text-cream transition-colors hover:text-[#c9a84c]">
                     0207 225 3582
                   </a>
                 </div>
               </li>
               <li className="flex items-center gap-3">
                 <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-tan/10">
-                  <MobileIcon className="h-4 w-4 text-tan" />
+                  <MobileIcon className="h-4 w-4 text-[#c9a84c]" />
                 </div>
                 <div>
                   <p className="text-[12px] tracking-[1px] text-white/40 uppercase">Mobile</p>
-                  <a href="tel:07818474041" className="text-[16px] font-medium text-cream transition-colors hover:text-tan">
+                  <a href="tel:07818474041" className="text-[16px] font-medium text-cream transition-colors hover:text-[#c9a84c]">
                     078 1847 4041
                   </a>
                 </div>
               </li>
               <li className="flex items-center gap-3">
                 <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-tan/10">
-                  <EnvelopeIcon className="h-4 w-4 text-tan" />
+                  <EnvelopeIcon className="h-4 w-4 text-[#c9a84c]" />
                 </div>
                 <div>
                   <p className="text-[12px] tracking-[1px] text-white/40 uppercase">Email</p>
-                  <a href="mailto:info@yourhealthfirst.uk" className="text-[16px] font-medium text-cream transition-colors hover:text-tan">
+                  <a href="mailto:info@yourhealthfirst.uk" className="text-[16px] font-medium text-cream transition-colors hover:text-[#c9a84c]">
                     info@yourhealthfirst.uk
                   </a>
                 </div>
               </li>
               <li className="flex items-start gap-3">
                 <div className="mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-tan/10">
-                  <MapPinIcon className="h-4 w-4 text-tan" />
+                  <MapPinIcon className="h-4 w-4 text-[#c9a84c]" />
                 </div>
                 <div>
                   <p className="text-[12px] tracking-[1px] text-white/40 uppercase">Address</p>
@@ -121,7 +121,7 @@ export default function BookingSection() {
 
             {/* Opening hours */}
             <div className="flex flex-col gap-4 rounded-[12px] border border-white/10 p-6">
-              <h3 className="font-subheading text-[13px] font-semibold tracking-[2px] text-tan uppercase">
+              <h3 className="font-subheading text-[13px] font-semibold tracking-[2px] text-[#c9a84c] uppercase">
                 Opening Hours
               </h3>
               <ul className="flex flex-col gap-3">
@@ -131,7 +131,7 @@ export default function BookingSection() {
                       <p className="text-[14px] font-medium text-cream">{day}</p>
                       {note && <p className="text-[12px] text-white/40 italic">{note}</p>}
                     </div>
-                    <p className="shrink-0 text-[14px] text-tan">{time}</p>
+                    <p className="shrink-0 text-[14px] text-[#c9a84c]">{time}</p>
                   </li>
                 ))}
               </ul>
@@ -143,7 +143,7 @@ export default function BookingSection() {
             {submitted ? (
               <div className="flex flex-1 flex-col items-center justify-center gap-4 py-16 text-center">
                 <div className="flex h-16 w-16 items-center justify-center rounded-full bg-tan/20">
-                  <svg className="h-8 w-8 text-tan" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <svg className="h-8 w-8 text-[#c9a84c]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
@@ -169,57 +169,57 @@ export default function BookingSection() {
                 <form onSubmit={handleSubmit} className="flex flex-col gap-4">
                   <div className="flex flex-col gap-4 sm:flex-row">
                     <div className="flex flex-1 flex-col gap-2">
-                      <label className="text-[12px] font-semibold tracking-[1px] text-white/50 uppercase">
-                        First Name <span className="text-tan">*</span>
+                      <label className="text-[12px] font-semibold tracking-[1px] text-white/70 uppercase">
+                        First Name <span className="text-[#c9a84c]">*</span>
                       </label>
                       <input
                         type="text"
                         required
                         placeholder="Jane"
-                        className="h-12 rounded-[8px] border border-white/10 bg-white/5 px-4 text-[15px] text-cream placeholder:text-white/20 focus:border-tan/60 focus:outline-none"
+                        className="h-12 rounded-[8px] border border-white/10 bg-white/5 px-4 text-[15px] text-cream placeholder:text-white/45 focus:border-tan/60 focus:outline-none"
                       />
                     </div>
                     <div className="flex flex-1 flex-col gap-2">
-                      <label className="text-[12px] font-semibold tracking-[1px] text-white/50 uppercase">
+                      <label className="text-[12px] font-semibold tracking-[1px] text-white/70 uppercase">
                         Last Name
                       </label>
                       <input
                         type="text"
                         placeholder="Smith"
-                        className="h-12 rounded-[8px] border border-white/10 bg-white/5 px-4 text-[15px] text-cream placeholder:text-white/20 focus:border-tan/60 focus:outline-none"
+                        className="h-12 rounded-[8px] border border-white/10 bg-white/5 px-4 text-[15px] text-cream placeholder:text-white/45 focus:border-tan/60 focus:outline-none"
                       />
                     </div>
                   </div>
 
                   <div className="flex flex-col gap-4 sm:flex-row">
                     <div className="flex flex-1 flex-col gap-2">
-                      <label className="text-[12px] font-semibold tracking-[1px] text-white/50 uppercase">
-                        Email <span className="text-tan">*</span>
+                      <label className="text-[12px] font-semibold tracking-[1px] text-white/70 uppercase">
+                        Email <span className="text-[#c9a84c]">*</span>
                       </label>
                       <input
                         type="email"
                         required
                         placeholder="jane@example.com"
-                        className="h-12 rounded-[8px] border border-white/10 bg-white/5 px-4 text-[15px] text-cream placeholder:text-white/20 focus:border-tan/60 focus:outline-none"
+                        className="h-12 rounded-[8px] border border-white/10 bg-white/5 px-4 text-[15px] text-cream placeholder:text-white/45 focus:border-tan/60 focus:outline-none"
                       />
                     </div>
                     <div className="flex flex-1 flex-col gap-2">
-                      <label className="text-[12px] font-semibold tracking-[1px] text-white/50 uppercase">
+                      <label className="text-[12px] font-semibold tracking-[1px] text-white/70 uppercase">
                         Phone
                       </label>
                       <input
                         type="tel"
                         placeholder="+44 7700 000000"
-                        className="h-12 rounded-[8px] border border-white/10 bg-white/5 px-4 text-[15px] text-cream placeholder:text-white/20 focus:border-tan/60 focus:outline-none"
+                        className="h-12 rounded-[8px] border border-white/10 bg-white/5 px-4 text-[15px] text-cream placeholder:text-white/45 focus:border-tan/60 focus:outline-none"
                       />
                     </div>
                   </div>
 
                   <div className="flex flex-col gap-2">
-                    <label className="text-[12px] font-semibold tracking-[1px] text-white/50 uppercase">
+                    <label className="text-[12px] font-semibold tracking-[1px] text-white/70 uppercase">
                       Treatment of Interest
                     </label>
-                    <select className="h-12 rounded-[8px] border border-white/10 bg-[#6b5540] px-4 text-[15px] text-cream focus:border-tan/60 focus:outline-none">
+                    <select className="h-12 rounded-[8px] border border-white/10 bg-white/5 px-4 text-[15px] text-cream focus:border-tan/60 focus:outline-none">
                       <option value="">Select a treatment...</option>
                       {treatments.map((t) => (
                         <option key={t} value={t}>{t}</option>
@@ -228,10 +228,10 @@ export default function BookingSection() {
                   </div>
 
                   <div className="flex flex-col gap-2">
-                    <label className="text-[12px] font-semibold tracking-[1px] text-white/50 uppercase">
+                    <label className="text-[12px] font-semibold tracking-[1px] text-white/70 uppercase">
                       How did you hear about us?
                     </label>
-                    <select className="h-12 rounded-[8px] border border-white/10 bg-[#6b5540] px-4 text-[15px] text-cream focus:border-tan/60 focus:outline-none">
+                    <select className="h-12 rounded-[8px] border border-white/10 bg-white/5 px-4 text-[15px] text-cream focus:border-tan/60 focus:outline-none">
                       <option value="">Please select...</option>
                       <option>Google Search</option>
                       <option>Google Maps</option>
@@ -244,13 +244,13 @@ export default function BookingSection() {
                   </div>
 
                   <div className="flex flex-col gap-2">
-                    <label className="text-[12px] font-semibold tracking-[1px] text-white/50 uppercase">
+                    <label className="text-[12px] font-semibold tracking-[1px] text-white/70 uppercase">
                       Message
                     </label>
                     <textarea
                       rows={4}
                       placeholder="Tell us about your concerns or questions..."
-                      className="resize-none rounded-[8px] border border-white/10 bg-white/5 px-4 py-3 text-[15px] text-cream placeholder:text-white/20 focus:border-tan/60 focus:outline-none"
+                      className="resize-none rounded-[8px] border border-white/10 bg-white/5 px-4 py-3 text-[15px] text-cream placeholder:text-white/45 focus:border-tan/60 focus:outline-none"
                     />
                   </div>
 

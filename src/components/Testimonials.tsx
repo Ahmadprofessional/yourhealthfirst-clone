@@ -43,21 +43,21 @@ export default function Testimonials() {
         </div>
 
         {/* Cards */}
-        <div className="grid flex-1 gap-[15px] sm:grid-cols-2">
+        <div className="grid flex-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {testimonials.map((item) => (
             <article
               key={item.name}
-              className="relative flex flex-col rounded-[8px] border-[1.6px] border-tan p-[30px] shadow-[9px_11px_14px_0_rgba(0,0,0,0.1)] lg:min-h-[354px]"
+              className="relative flex flex-col rounded-[8px] border-[1.6px] border-tan p-4 shadow-[9px_11px_14px_0_rgba(0,0,0,0.1)] lg:min-h-[260px]"
             >
-              <ul className="flex h-[25.6px] items-center">
+              <ul className="flex h-[18px] items-center">
                 {Array.from({ length: 5 }).map((_, index) => (
-                  <li key={index} className="mr-[5px] last:mr-0">
-                    <StarIcon className="h-4 w-4 text-[#fec42d]" />
+                  <li key={index} className="mr-[3px] last:mr-0">
+                    <StarIcon className="h-3 w-3 text-[#fec42d]" />
                   </li>
                 ))}
               </ul>
 
-              <p className="my-[30px] text-[16px] leading-[25.6px] font-medium tracking-[-0.2px] text-white">
+              <p className="my-4 line-clamp-5 text-[13px] leading-[20px] font-medium tracking-[-0.2px] text-white">
                 {item.quote}
               </p>
 
@@ -65,15 +65,15 @@ export default function Testimonials() {
                 <Image
                   src={item.avatar}
                   alt={item.name}
-                  width={70}
-                  height={70}
-                  className="mr-5 h-[70px] w-[70px] rounded-full object-cover"
+                  width={44}
+                  height={44}
+                  className="mr-3 h-[44px] w-[44px] rounded-full object-cover"
                 />
                 <div>
-                  <strong className="block font-display text-[21px] leading-[25.2px] font-medium tracking-[-1px] text-tan uppercase">
+                  <strong className="block font-display text-[15px] leading-[18px] font-medium tracking-[-0.5px] text-tan uppercase">
                     {item.name}
                   </strong>
-                  <span className="text-[13px] leading-[25.6px] font-normal tracking-[-0.2px] text-white">
+                  <span className="text-[11px] leading-[18px] font-normal tracking-[-0.2px] text-white">
                     {item.role}
                   </span>
                 </div>
@@ -81,7 +81,7 @@ export default function Testimonials() {
 
               <QuoteIcon
                 aria-hidden="true"
-                className="absolute right-[30px] bottom-[30px] h-[37px] w-[35px] text-tan"
+                className="absolute right-4 bottom-4 h-5 w-5 text-tan"
               />
             </article>
           ))}

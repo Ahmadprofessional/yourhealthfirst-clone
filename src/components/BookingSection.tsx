@@ -139,7 +139,7 @@ export default function BookingSection() {
           </div>
 
           {/* ── Right column: form ── */}
-          <div className="flex flex-1 flex-col gap-6 rounded-[16px] bg-white/5 p-8 lg:p-10 border border-white/10">
+          <div className="flex flex-1 flex-col gap-6 rounded-[16px] bg-black p-8 lg:p-10 border border-white/10">
             {submitted ? (
               <div className="flex flex-1 flex-col items-center justify-center gap-4 py-16 text-center">
                 <div className="flex h-16 w-16 items-center justify-center rounded-full bg-tan/20">

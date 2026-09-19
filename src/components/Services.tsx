@@ -161,8 +161,15 @@ function GhpBadge() {
       className="flex items-center gap-4 rounded-[8px] border border-tan/30 bg-tan/8 px-5 py-4 transition-colors hover:bg-tan/15"
     >
       {/* Hexagon */}
-      <svg viewBox="0 0 60 70" className="h-[64px] w-[55px] shrink-0" fill="#7ec8cc">
-        <path d="M30 2L58 17v36L30 68 2 53V17z" />
+      <svg viewBox="0 0 60 70" className="h-[64px] w-[55px] shrink-0">
+        <defs>
+          <linearGradient id="ghpGold" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stopColor="#e0c08a" />
+            <stop offset="50%" stopColor="#c9a84c" />
+            <stop offset="100%" stopColor="#8a6a30" />
+          </linearGradient>
+        </defs>
+        <path d="M30 2L58 17v36L30 68 2 53V17z" fill="url(#ghpGold)" />
         <text x="30" y="40" textAnchor="middle" fontSize="16" fontWeight="700" fill="white" fontFamily="sans-serif">ghp</text>
       </svg>
       <div className="min-w-0">

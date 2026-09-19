@@ -219,7 +219,7 @@ export default function BookingSection() {
                     <label className="text-[12px] font-semibold tracking-[1px] text-white/50 uppercase">
                       Treatment of Interest
                     </label>
-                    <select className="h-12 rounded-[8px] border border-white/10 bg-[#0c2c1d] px-4 text-[15px] text-cream focus:border-tan/60 focus:outline-none">
+                    <select className="h-12 rounded-[8px] border border-white/10 bg-[#2b2217] px-4 text-[15px] text-cream focus:border-tan/60 focus:outline-none">
                       <option value="">Select a treatment...</option>
                       {treatments.map((t) => (
                         <option key={t} value={t}>{t}</option>
@@ -231,7 +231,7 @@ export default function BookingSection() {
                     <label className="text-[12px] font-semibold tracking-[1px] text-white/50 uppercase">
                       How did you hear about us?
                     </label>
-                    <select className="h-12 rounded-[8px] border border-white/10 bg-[#0c2c1d] px-4 text-[15px] text-cream focus:border-tan/60 focus:outline-none">
+                    <select className="h-12 rounded-[8px] border border-white/10 bg-[#2b2217] px-4 text-[15px] text-cream focus:border-tan/60 focus:outline-none">
                       <option value="">Please select...</option>
                       <option>Google Search</option>
                       <option>Google Maps</option>

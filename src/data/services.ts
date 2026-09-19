@@ -54,7 +54,7 @@ export const services: ServiceCard[] = [
     image: "/images/services/emsculpt-neo.png",
     href: "/treatments/emsculpt-neo",
     icon: "lightning",
-    iconBg: "#0c2c1d",
+    iconBg: "#6b4a2e",
   },
   {
     slug: "phlebotomy",

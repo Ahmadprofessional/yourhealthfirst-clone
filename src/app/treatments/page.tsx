@@ -127,7 +127,7 @@ export default function TreatmentsPage() {
       </section>
 
       {/* Longevity — Coming Soon */}
-      <section className="w-full bg-forest px-5">
+      <section className="w-full bg-[linear-gradient(90deg,#1c1813_0%,#2b2217_50%,#3a2e1a_100%)] px-5">
         <div className="mx-auto max-w-[1400px] py-[60px] lg:py-[80px]">
           <div className="flex items-center gap-4 mb-8">
             <div className="w-fit rounded-full border-[0.8px] border-white/20 px-3 py-2">
@@ -168,7 +168,7 @@ export default function TreatmentsPage() {
       </section>
 
       {/* CTA */}
-      <section className="w-full bg-forest px-5">
+      <section className="w-full bg-[linear-gradient(90deg,#1c1813_0%,#2b2217_50%,#3a2e1a_100%)] px-5">
         <div className="mx-auto flex max-w-[1400px] flex-col items-center gap-6 py-[80px] text-center">
           <h2 className="font-subheading text-[32px] font-medium leading-[38px] tracking-[-1.5px] text-cream uppercase lg:text-[40px] lg:leading-[46px]">
             Not sure which treatment is right for you?

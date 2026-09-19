@@ -14,7 +14,7 @@ export default function LongevityPage() {
       <Header />
 
       {/* Hero */}
-      <section className="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden bg-forest px-5 pt-[111px]">
+      <section className="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden bg-[linear-gradient(90deg,#1c1813_0%,#2b2217_50%,#3a2e1a_100%)] px-5 pt-[111px]">
         {/* Background decorative rings */}
         <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
           <div className="h-[600px] w-[600px] rounded-full border border-tan/8" />

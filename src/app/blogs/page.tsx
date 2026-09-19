@@ -82,7 +82,7 @@ const posts = [
 const categoryColors: Record<string, string> = {
   "Hair Restoration": "text-tan bg-tan/10",
   "Body Contouring": "text-rust bg-rust/10",
-  "Face & Anti-Aging": "text-forest bg-forest/10",
+  "Face & Anti-Aging": "text-[#5c4425] bg-[#5c4425]/10",
 };
 
 export default function BlogsPage() {
@@ -91,7 +91,7 @@ export default function BlogsPage() {
       <Header />
 
       {/* Page hero */}
-      <section className="relative w-full bg-forest pt-[111px]">
+      <section className="relative w-full bg-[linear-gradient(90deg,#1c1813_0%,#2b2217_50%,#3a2e1a_100%)] pt-[111px]">
         <div className="mx-auto max-w-[1400px] px-5 py-[80px] lg:py-[100px]">
           <div className="w-fit rounded-full border-[0.8px] border-white/20 px-3 py-2">
             <p className="text-[13px] font-semibold leading-[20.8px] tracking-[3px] text-tan uppercase">
@@ -203,7 +203,7 @@ export default function BlogsPage() {
           </p>
           <a
             href="/contact-us"
-            className="inline-flex h-14 items-center justify-center rounded-[8px] bg-forest px-8 font-nav text-[15px] font-semibold tracking-[-0.3px] text-cream transition-opacity hover:opacity-90"
+            className="inline-flex h-14 items-center justify-center rounded-[8px] bg-[#2b2217] px-8 font-nav text-[15px] font-semibold tracking-[-0.3px] text-cream transition-opacity hover:opacity-90"
           >
             Contact Us
           </a>

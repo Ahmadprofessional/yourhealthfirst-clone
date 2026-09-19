@@ -140,7 +140,7 @@ export default async function TreatmentPage({ params }: Props) {
               </div>
 
               {/* Book CTA */}
-              <div className="rounded-[12px] bg-forest p-6">
+              <div className="rounded-[12px] bg-[linear-gradient(135deg,#1c1813_0%,#3a2e1a_100%)] p-6">
                 <h3 className="font-subheading text-[15px] font-semibold tracking-[1px] text-cream uppercase">
                   Book a Consultation
                 </h3>
@@ -235,7 +235,7 @@ export default async function TreatmentPage({ params }: Props) {
             <div className="mt-8 text-center">
               <Link
                 href="/gallery"
-                className="inline-flex h-12 items-center justify-center rounded-[8px] bg-forest px-7 font-nav text-[14px] font-semibold tracking-[-0.3px] text-cream transition-opacity hover:opacity-90"
+                className="inline-flex h-12 items-center justify-center rounded-[8px] bg-[#2b2217] px-7 font-nav text-[14px] font-semibold tracking-[-0.3px] text-cream transition-opacity hover:opacity-90"
               >
                 View Full Gallery →
               </Link>

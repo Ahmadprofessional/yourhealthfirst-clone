@@ -33,7 +33,7 @@ export default function FaqAccordion() {
                     type="button"
                     onClick={() => setOpenIndex(isOpen ? null : index)}
                     aria-expanded={isOpen}
-                    className="flex w-full items-center justify-between rounded-[8px] border-[0.8px] border-transparent bg-[linear-gradient(90deg,#7a6248_0%,#d9c4a5_50%,#7a6248_100%)] px-[30px] py-[14px] text-left font-serif text-[21px] leading-[25.2px] text-white uppercase"
+                    className="flex w-full items-center justify-between rounded-[8px] border-[0.8px] border-transparent bg-[linear-gradient(90deg,#7a6248_0%,#b49b7d_50%,#7a6248_100%)] px-[30px] py-[14px] text-left font-serif text-[21px] leading-[25.2px] text-white uppercase"
                   >
                     <span className="pr-[10px]">{faq.question}</span>
                     <svg

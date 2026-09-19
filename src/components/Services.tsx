@@ -159,7 +159,7 @@ function GhpBadge() {
       target="_blank"
       rel="noopener noreferrer"
       className="flex items-center gap-4 rounded-[8px] border border-tan/30 px-5 py-4 transition-opacity hover:opacity-90"
-      style={{ background: "linear-gradient(135deg, #7a6248 0%, #d9c4a5 50%, #7a6248 100%)" }}
+      style={{ background: "linear-gradient(135deg, #7a6248 0%, #b49b7d 50%, #7a6248 100%)" }}
     >
       {/* Hexagon */}
       <svg viewBox="0 0 60 70" className="h-[64px] w-[55px] shrink-0" fill="#7ec8cc">

@@ -39,7 +39,7 @@ export default async function TreatmentPage({ params }: Props) {
       <Header />
 
       {/* Page hero */}
-      <section className="relative w-full bg-[linear-gradient(90deg,#7a6248_0%,#d9c4a5_50%,#7a6248_100%)] pt-[111px]">
+      <section className="relative w-full bg-[linear-gradient(90deg,#7a6248_0%,#b49b7d_50%,#7a6248_100%)] pt-[111px]">
         <div className="mx-auto max-w-[1400px] px-5 py-[80px] lg:py-[100px]">
           <div className="flex flex-col gap-4">
             <div className="flex flex-wrap items-center gap-2">
@@ -140,7 +140,7 @@ export default async function TreatmentPage({ params }: Props) {
               </div>
 
               {/* Book CTA */}
-              <div className="rounded-[12px] bg-[linear-gradient(135deg,#7a6248_0%,#d9c4a5_50%,#7a6248_100%)] p-6">
+              <div className="rounded-[12px] bg-[linear-gradient(135deg,#7a6248_0%,#b49b7d_50%,#7a6248_100%)] p-6">
                 <h3 className="font-subheading text-[15px] font-semibold tracking-[1px] text-cream uppercase">
                   Book a Consultation
                 </h3>

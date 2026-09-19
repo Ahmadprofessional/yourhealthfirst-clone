@@ -32,7 +32,7 @@ export default function Testimonials() {
 
           <div>
             <a
-              href="https://g.page/r/Cb6ITM0VC4YBEAE/review"
+              href="https://www.google.com/search?q=YourHealthFirst+Clinic&oq=&gs_lcrp=EgZjaHJvbWUqCQgBEEUYOxjCAzIJCAAQRRg7GMIDMgkIARBFGDsYwgMyCQgCEEUYOxjCAzIJCAMQRRg7GMIDMgkIBBBFGDsYwgMyCQgFEEUYOxjCAzIJCAYQRRg7GMIDMgkIBxBFGDsYwgPSAQkyNzAwajBqMTWoAgiwAgHxBds1lDsBAJhh&sourceid=chrome&source=chrome.rb&ie=UTF-8#mpd=~15060418522766184397/customers/reviews"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block rounded-[8px] border-[2.4px] border-tan px-[26px] py-4 text-center font-display text-[18px] leading-[18px] font-semibold tracking-[0.6px] text-tan uppercase transition-colors duration-200 hover:bg-tan hover:text-black"

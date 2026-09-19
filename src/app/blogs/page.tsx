@@ -91,7 +91,7 @@ export default function BlogsPage() {
       <Header />
 
       {/* Page hero */}
-      <section className="relative w-full bg-[linear-gradient(90deg,#4a3826_0%,#8f7355_50%,#4a3826_100%)] pt-[111px]">
+      <section className="relative w-full bg-[linear-gradient(90deg,#7a6248_0%,#d9c4a5_50%,#7a6248_100%)] pt-[111px]">
         <div className="mx-auto max-w-[1400px] px-5 py-[80px] lg:py-[100px]">
           <div className="w-fit rounded-full border-[0.8px] border-white/20 px-3 py-2">
             <p className="text-[13px] font-semibold leading-[20.8px] tracking-[3px] text-tan uppercase">
@@ -203,7 +203,7 @@ export default function BlogsPage() {
           </p>
           <a
             href="/contact-us"
-            className="inline-flex h-14 items-center justify-center rounded-[8px] bg-[#6b5540] px-8 font-nav text-[15px] font-semibold tracking-[-0.3px] text-cream transition-opacity hover:opacity-90"
+            className="inline-flex h-14 items-center justify-center rounded-[8px] bg-[#a8896a] px-8 font-nav text-[15px] font-semibold tracking-[-0.3px] text-cream transition-opacity hover:opacity-90"
           >
             Contact Us
           </a>

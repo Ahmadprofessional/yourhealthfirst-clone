@@ -340,7 +340,7 @@ export default function PriceListPage() {
       <Header />
 
       {/* ── HERO ── */}
-      <section className="relative w-full overflow-hidden bg-[linear-gradient(90deg,#4a3826_0%,#8f7355_50%,#4a3826_100%)] pt-[111px]">
+      <section className="relative w-full overflow-hidden bg-[linear-gradient(90deg,#7a6248_0%,#d9c4a5_50%,#7a6248_100%)] pt-[111px]">
         {/* Decorative glow */}
         <div className="pointer-events-none absolute right-0 top-0 h-[500px] w-[500px] rounded-full bg-tan/6 blur-[120px]" />
 
@@ -522,7 +522,7 @@ export default function PriceListPage() {
             </Link>
             <Link
               href="/contact-us"
-              className="inline-flex h-14 items-center gap-2 rounded-[8px] border-[1.5px] border-forest/30 px-8 font-nav text-[14px] font-semibold tracking-[-0.3px] text-forest transition-colors hover:border-[#8f7355] hover:bg-[#8f7355] hover:text-cream"
+              className="inline-flex h-14 items-center gap-2 rounded-[8px] border-[1.5px] border-forest/30 px-8 font-nav text-[14px] font-semibold tracking-[-0.3px] text-forest transition-colors hover:border-[#d9c4a5] hover:bg-[#d9c4a5] hover:text-cream"
             >
               Contact Us
             </Link>

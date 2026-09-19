@@ -43,7 +43,7 @@ export default function BookingSection() {
   }
 
   return (
-    <section className="w-full bg-[linear-gradient(90deg,#4a3826_0%,#8f7355_50%,#4a3826_100%)] px-5" id="book">
+    <section className="w-full bg-[linear-gradient(90deg,#7a6248_0%,#d9c4a5_50%,#7a6248_100%)] px-5" id="book">
       <div className="mx-auto max-w-[1400px] py-[100px]">
         <div className="flex flex-col gap-12 lg:flex-row lg:gap-16">
 

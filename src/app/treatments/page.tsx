@@ -50,7 +50,7 @@ export default function TreatmentsPage() {
       <Header />
 
       {/* Page hero */}
-      <section className="relative w-full bg-[linear-gradient(90deg,#4a3826_0%,#8f7355_50%,#4a3826_100%)] pt-[111px]">
+      <section className="relative w-full bg-[linear-gradient(90deg,#7a6248_0%,#d9c4a5_50%,#7a6248_100%)] pt-[111px]">
         <div className="mx-auto max-w-[1400px] px-5 py-[80px] lg:py-[100px]">
           <div className="w-fit rounded-full border-[0.8px] border-white/20 px-3 py-2">
             <p className="text-[13px] font-semibold leading-[20.8px] tracking-[3px] text-tan uppercase">
@@ -127,7 +127,7 @@ export default function TreatmentsPage() {
       </section>
 
       {/* Longevity — Coming Soon */}
-      <section className="w-full bg-[linear-gradient(90deg,#4a3826_0%,#8f7355_50%,#4a3826_100%)] px-5">
+      <section className="w-full bg-[linear-gradient(90deg,#7a6248_0%,#d9c4a5_50%,#7a6248_100%)] px-5">
         <div className="mx-auto max-w-[1400px] py-[60px] lg:py-[80px]">
           <div className="flex items-center gap-4 mb-8">
             <div className="w-fit rounded-full border-[0.8px] border-white/20 px-3 py-2">
@@ -168,7 +168,7 @@ export default function TreatmentsPage() {
       </section>
 
       {/* CTA */}
-      <section className="w-full bg-[linear-gradient(90deg,#4a3826_0%,#8f7355_50%,#4a3826_100%)] px-5">
+      <section className="w-full bg-[linear-gradient(90deg,#7a6248_0%,#d9c4a5_50%,#7a6248_100%)] px-5">
         <div className="mx-auto flex max-w-[1400px] flex-col items-center gap-6 py-[80px] text-center">
           <h2 className="font-subheading text-[32px] font-medium leading-[38px] tracking-[-1.5px] text-cream uppercase lg:text-[40px] lg:leading-[46px]">
             Not sure which treatment is right for you?

@@ -105,7 +105,7 @@ export default function AboutMePage() {
       <Header />
 
       {/* ── HERO — SPLIT LAYOUT ── */}
-      <section className="relative flex w-full flex-col overflow-hidden bg-[linear-gradient(90deg,#4a3826_0%,#8f7355_50%,#4a3826_100%)] pt-[111px] lg:flex-row lg:items-stretch">
+      <section className="relative flex w-full flex-col overflow-hidden bg-[linear-gradient(90deg,#7a6248_0%,#d9c4a5_50%,#7a6248_100%)] pt-[111px] lg:flex-row lg:items-stretch">
 
         {/* Left — text */}
         <div className="relative z-10 flex w-full flex-col justify-start gap-6 px-5 py-12 lg:w-[52%] lg:shrink-0 lg:px-[60px] lg:py-[70px] xl:px-[80px]">
@@ -244,7 +244,7 @@ export default function AboutMePage() {
       </section>
 
       {/* ── STATS BAR ── */}
-      <section className="w-full bg-[linear-gradient(90deg,#4a3826_0%,#8f7355_50%,#4a3826_100%)] px-5">
+      <section className="w-full bg-[linear-gradient(90deg,#7a6248_0%,#d9c4a5_50%,#7a6248_100%)] px-5">
         <div className="mx-auto max-w-[1400px]">
           <div className="grid grid-cols-2 divide-x divide-white/10 lg:grid-cols-4">
             {stats.map((s) => (
@@ -280,7 +280,7 @@ export default function AboutMePage() {
             </div>
             <Link
               href="/treatments"
-              className="inline-flex h-12 shrink-0 items-center gap-2 rounded-[8px] border-[1.5px] border-forest/30 px-6 font-nav text-[13px] font-semibold tracking-[0.5px] text-forest transition-colors hover:border-[#8f7355] hover:bg-[#8f7355] hover:text-cream"
+              className="inline-flex h-12 shrink-0 items-center gap-2 rounded-[8px] border-[1.5px] border-forest/30 px-6 font-nav text-[13px] font-semibold tracking-[0.5px] text-forest transition-colors hover:border-[#d9c4a5] hover:bg-[#d9c4a5] hover:text-cream"
             >
               View All Treatments →
             </Link>
@@ -323,7 +323,7 @@ export default function AboutMePage() {
             alt=""
             className="h-full w-full object-cover object-center"
           />
-          <div className="absolute inset-0 bg-[#4a3826]/85" />
+          <div className="absolute inset-0 bg-[#7a6248]/85" />
         </div>
         <div className="relative mx-auto max-w-[1400px] py-[100px] lg:py-[120px]">
           <div className="flex flex-col gap-6 lg:max-w-[680px]">
@@ -521,7 +521,7 @@ export default function AboutMePage() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="w-full bg-[linear-gradient(90deg,#4a3826_0%,#8f7355_50%,#4a3826_100%)] px-5">
+      <section className="w-full bg-[linear-gradient(90deg,#7a6248_0%,#d9c4a5_50%,#7a6248_100%)] px-5">
         <div className="mx-auto flex max-w-[1400px] flex-col items-center gap-6 py-[80px] text-center lg:py-[100px]">
           <div className="w-fit rounded-full border-[0.8px] border-white/20 px-3 py-2">
             <p className="font-nav text-[12px] font-semibold tracking-[3px] text-tan uppercase">Get Started</p>

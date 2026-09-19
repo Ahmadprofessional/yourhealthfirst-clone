@@ -32,7 +32,9 @@ export default function Testimonials() {
 
           <div>
             <a
-              href="#"
+              href="https://g.page/r/Cb6ITM0VC4YBEAE/review"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-block rounded-[8px] border-[2.4px] border-tan px-[26px] py-4 text-center font-display text-[18px] leading-[18px] font-semibold tracking-[0.6px] text-tan uppercase transition-colors duration-200 hover:bg-tan hover:text-black"
             >
               more testimonials
@@ -45,7 +47,7 @@ export default function Testimonials() {
           {testimonials.map((item) => (
             <article
               key={item.name}
-              className="relative flex flex-col rounded-[8px] border-[1.6px] border-tan p-[30px] shadow-[9px_11px_14px_0_rgba(0,0,0,0.1)] lg:h-[354px]"
+              className="relative flex flex-col rounded-[8px] border-[1.6px] border-tan p-[30px] shadow-[9px_11px_14px_0_rgba(0,0,0,0.1)] lg:min-h-[354px]"
             >
               <ul className="flex h-[25.6px] items-center">
                 {Array.from({ length: 5 }).map((_, index) => (

@@ -45,7 +45,7 @@ export default function Hero() {
       </div>
 
       {/* Text column */}
-      <div className="relative z-10 order-1 flex w-full flex-col gap-[10px] bg-[linear-gradient(90deg,#4a3826_0%,#8f7355_100%)] px-5 pt-[150px] pb-16 sm:px-[60px] sm:pt-[160px] lg:w-[680px] lg:bg-none lg:pb-0 xl:px-[120px] xl:pt-[150px]">
+      <div className="relative z-10 order-1 flex w-full flex-col gap-[10px] bg-[linear-gradient(90deg,#4a3826_0%,#8f7355_50%,#4a3826_100%)] px-5 pt-[150px] pb-16 sm:px-[60px] sm:pt-[160px] lg:w-[680px] lg:bg-none lg:pb-0 xl:px-[120px] xl:pt-[150px]">
         <div className="flex flex-col gap-4">
           <h2 className="font-display text-[46px] leading-[46px] font-medium text-white uppercase lg:text-[52px] lg:leading-[52px]">
             AWARD WINNING

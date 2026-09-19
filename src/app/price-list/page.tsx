@@ -340,7 +340,7 @@ export default function PriceListPage() {
       <Header />
 
       {/* ── HERO ── */}
-      <section className="relative w-full overflow-hidden bg-[linear-gradient(90deg,#4a3826_0%,#6b5540_50%,#8f7355_100%)] pt-[111px]">
+      <section className="relative w-full overflow-hidden bg-[linear-gradient(90deg,#4a3826_0%,#8f7355_50%,#4a3826_100%)] pt-[111px]">
         {/* Decorative glow */}
         <div className="pointer-events-none absolute right-0 top-0 h-[500px] w-[500px] rounded-full bg-tan/6 blur-[120px]" />
 

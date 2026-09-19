@@ -105,7 +105,7 @@ export default function AboutMePage() {
       <Header />
 
       {/* ── HERO — SPLIT LAYOUT ── */}
-      <section className="relative flex w-full flex-col overflow-hidden bg-[linear-gradient(90deg,#4a3826_0%,#6b5540_50%,#8f7355_100%)] pt-[111px] lg:flex-row lg:items-stretch">
+      <section className="relative flex w-full flex-col overflow-hidden bg-[linear-gradient(90deg,#4a3826_0%,#8f7355_50%,#4a3826_100%)] pt-[111px] lg:flex-row lg:items-stretch">
 
         {/* Left — text */}
         <div className="relative z-10 flex w-full flex-col justify-start gap-6 px-5 py-12 lg:w-[52%] lg:shrink-0 lg:px-[60px] lg:py-[70px] xl:px-[80px]">
@@ -244,7 +244,7 @@ export default function AboutMePage() {
       </section>
 
       {/* ── STATS BAR ── */}
-      <section className="w-full bg-[linear-gradient(90deg,#4a3826_0%,#6b5540_50%,#8f7355_100%)] px-5">
+      <section className="w-full bg-[linear-gradient(90deg,#4a3826_0%,#8f7355_50%,#4a3826_100%)] px-5">
         <div className="mx-auto max-w-[1400px]">
           <div className="grid grid-cols-2 divide-x divide-white/10 lg:grid-cols-4">
             {stats.map((s) => (
@@ -521,7 +521,7 @@ export default function AboutMePage() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="w-full bg-[linear-gradient(90deg,#4a3826_0%,#6b5540_50%,#8f7355_100%)] px-5">
+      <section className="w-full bg-[linear-gradient(90deg,#4a3826_0%,#8f7355_50%,#4a3826_100%)] px-5">
         <div className="mx-auto flex max-w-[1400px] flex-col items-center gap-6 py-[80px] text-center lg:py-[100px]">
           <div className="w-fit rounded-full border-[0.8px] border-white/20 px-3 py-2">
             <p className="font-nav text-[12px] font-semibold tracking-[3px] text-tan uppercase">Get Started</p>

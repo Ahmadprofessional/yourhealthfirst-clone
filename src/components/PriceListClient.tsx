@@ -86,7 +86,7 @@ export default function PriceListClient({ categories }: Props) {
               <button
                 type="button"
                 onClick={() => setOpen(open === cat.id ? null : cat.id)}
-                className="flex w-full items-center gap-4 bg-[linear-gradient(90deg,#4a3826_0%,#6b5540_50%,#8f7355_100%)] px-5 py-4 text-left transition-opacity hover:opacity-90"
+                className="flex w-full items-center gap-4 bg-[linear-gradient(90deg,#4a3826_0%,#8f7355_50%,#4a3826_100%)] px-5 py-4 text-left transition-opacity hover:opacity-90"
               >
                 <div className="relative h-[44px] w-[44px] shrink-0 overflow-hidden rounded-[6px]">
                   <Image src={cat.image} alt={cat.title} fill className="object-cover" />

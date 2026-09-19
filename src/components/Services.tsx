@@ -154,7 +154,12 @@ function ServiceIcon({ icon, bg }: { icon?: string; bg?: string }) {
 /* ── GHP Award Badge (real certificate design) ── */
 function GhpBadge() {
   return (
-    <div className="flex items-center gap-4 rounded-[8px] border border-tan/30 bg-tan/8 px-5 py-4">
+    <a
+      href="https://ghpnews.digital/winners/yourhealthfirst-clinic/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex items-center gap-4 rounded-[8px] border border-tan/30 bg-tan/8 px-5 py-4 transition-colors hover:bg-tan/15"
+    >
       {/* Hexagon */}
       <svg viewBox="0 0 60 70" className="h-[64px] w-[55px] shrink-0" fill="#7ec8cc">
         <path d="M30 2L58 17v36L30 68 2 53V17z" />
@@ -167,7 +172,7 @@ function GhpBadge() {
         </p>
         <p className="font-nav text-[11px] text-body-text/60">London 2019</p>
       </div>
-    </div>
+    </a>
   );
 }
 

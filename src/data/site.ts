@@ -85,24 +85,28 @@ export const testimonials: Testimonial[] = [
     role: "PRP Hair Loss · Harley Street",
     quote:
       "Amazing experience! Dr Sophia was brilliant and helpful. I had 2 sessions of PRP hair — the clinic is in a great location just off Oxford Street and easy to get to. I am very happy with my results. I have stopped losing hair and am getting thicker hair! Highly recommend!",
+    avatar: "/images/testimonials/fariah-khan.png",
   },
   {
     name: "Maria Carla",
     role: "Cryolipolysis · Harley Street",
     quote:
       "I had a fantastic cryo treatment with Dr Sofia — she is a true expert in medical aesthetics. I treated three areas and felt completely at ease thanks to her extensive experience, warm approach, and professionalism.",
+    avatar: "/images/testimonials/maria-carla.png",
   },
   {
     name: "Robin Pearce",
     role: "Blood Tests · Harley Street",
     quote:
       "I cannot recommend Sofia enough. She is very professional, very personable, and her knowledge and expertise is a great comfort when having blood drawn for multiple complex tests. Thank you so much Sofia.",
+    avatar: "/images/testimonials/robin-pearce.png",
   },
   {
     name: "David V",
     role: "Skin Tag Removal · Harley Street",
     quote:
       "I visited YourHealthFirst Clinic to have a skin tag removed near my eye, and I couldn't be happier. The procedure was very quick and genuinely painless. Everyone was friendly, calm and professional, and I never felt rushed.",
+    avatar: "/images/testimonials/david-v.png",
   },
 ];
 

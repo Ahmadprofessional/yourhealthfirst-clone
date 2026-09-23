@@ -365,10 +365,23 @@ export const treatmentDetails: TreatmentDetail[] = [
     image: "/images/services/sunekos.png",
     intro:
       "Sunekos is an injectable treatment combining amino acids and hyaluronic acid to stimulate the skin's own production of collagen and elastin. It is suitable for the face, neck, décolleté and hands, delivering a naturally plumped, firmer and more luminous complexion.",
+    diagramImage: {
+      src: "/images/treatments/sunekos/ecm-elastin-benefits.webp",
+      alt: "Sunekos 200 — produces new ECM and reproduces elastin, Day 0 to Day 28",
+    },
+    processDiagrams: [
+      {
+        src: "/images/treatments/sunekos/treatment-protocol.webp",
+        alt: "Sunekos Treatment Protocol for natural skin regeneration",
+      },
+    ],
     body: [
-      "Unlike traditional fillers, Sunekos works biologically — the unique patented formula of six amino acids and hyaluronic acid activates fibroblasts in the dermis to produce new collagen and elastin. The result is structural skin improvement from within, not just surface-level hydration.",
+      "Unlike traditional fillers, Sunekos works biologically — the unique patented formula of six amino acids and hyaluronic acid activates fibroblasts in the dermis to produce new collagen and elastin, the main structural components of the Extra Cellular Matrix (ECM). By repairing damaged skin and boosting your own natural production of collagen and elastin, it rebuilds the skin through a process called dermal biogenesis — literally, skin regeneration. It's an effective treatment for skin ageing, loss of hydration, acne scarring, sun damage, dark circles under the eyes, fine lines and wrinkles, and areas including the neck, décolletage and arms.",
+      "Sunekos comes in two types. Sunekos 200 is suitable for clients with less visible wrinkles — it helps create elastin in the skin so it becomes tighter and smoother, and also improves collagen and fine lines for a more youthful look. Sunekos 1200 is perfect for more visible signs of ageing: an injectable treatment with an antioxidant action for severe wrinkles and damaged skin, promoting youthful, natural features by improving facial volume loss, reducing wrinkles and hydrating the skin. The two can also be combined to provide the best results — both use a patent-protected formula containing hyaluronic acid and a combination of amino acids, precursors of collagen and elastin.",
       "Sunekos is particularly effective for treating fine lines, crepey skin, loss of elasticity and dullness in the face, neck, eye area and hands. It is also an excellent treatment for younger patients as a preventative measure to maintain skin quality.",
       "A standard course consists of 4 sessions spaced 7–10 days apart, with results continuing to improve for several weeks after the final treatment. Maintenance sessions every 3–6 months are recommended to sustain results.",
+      "To reduce the risk of bruising, patients should stop taking aspirin, ibuprofen, Ginkgo Biloba and ginseng one week prior to their appointment (with their GP's consent), and avoid laser treatments and chemical peels for 6 weeks beforehand. For the first 6 hours after treatment, avoid make-up, alcohol, rubbing or massaging the treated area, lying down, and touching the area — remain upright. For the first 24 hours, avoid vigorous exercise, facials and extreme facial expressions. For 2 weeks after treatment, avoid extreme heat or cold (such as saunas, ice application or sunbeds) and laser or radiofrequency treatments in the area.",
+      "The treated area may feel tender and firm for up to eight weeks after treatment, and red, tight or itchy skin with swelling is common and expected. Pain or discharge are not normal — please contact the clinic immediately for advice if you experience either. A complimentary review is scheduled six weeks after your final treatment, and all side effects should have fully resolved before any further treatment.",
     ],
     benefits: [
       "Stimulates natural collagen and elastin production",
@@ -377,6 +390,8 @@ export const treatmentDetails: TreatmentDetail[] = [
       "Suitable for face, neck, décolleté, eye area and hands",
       "Natural results with no risk of overfilling",
       "Suitable from age 25 as a preventative treatment",
+      "Reduces dark circles and eye bags",
+      "Proven safe with no known contraindications for most patients",
     ],
     suitableFor: [
       "Adults with loss of skin elasticity and fine lines",
@@ -386,7 +401,18 @@ export const treatmentDetails: TreatmentDetail[] = [
     ],
     results: "Visible improvement after course of 4, lasting 6–9 months",
     priceFrom: "£200 per session / £600 course of 4",
+    gallery: {
+      folder: "/images/gallery/sculptra",
+      prefix: "sculptra",
+      count: 3,
+      ext: "jpeg",
+    },
     faqs: [
+      {
+        question: "What is Sunekos?",
+        answer:
+          "Sunekos is an injectable treatment containing amino acids and hyaluronic acid. It works by stimulating the fibroblasts in the skin to produce collagen and elastin, and has been proven very safe with no contraindications for most patients — it can be used on all skin types.",
+      },
       {
         question: "How many sessions will I need?",
         answer:
@@ -426,6 +452,30 @@ export const treatmentDetails: TreatmentDetail[] = [
         question: "Who is suitable for Sunekos?",
         answer:
           "Anyone with loss of elasticity, dullness, crepey skin or early fine lines on the face, neck, décolleté or hands. It is also suitable for younger patients wanting preventative skin maintenance.",
+      },
+      {
+        question: "Is Sunekos a filler?",
+        answer:
+          "No — Sunekos is not a dermal filler. While it contains hyaluronic acid like traditional fillers, it works differently: it stimulates your own fibroblasts to regenerate collagen and elastin through a process called dermal biogenesis, essentially triggering your skin to regenerate itself rather than simply adding volume.",
+      },
+      {
+        question: "What is Sunekos eye treatment used for?",
+        answer:
+          "Sunekos can be used around the eye area to help reduce dark circles by thickening the skin, and its elastin-stimulating effect can help reduce the appearance of eye bags and hollowness.",
+      },
+      {
+        question: "How long does the appointment take?",
+        answer: "The treatment itself takes around 30 minutes.",
+      },
+      {
+        question: "Who should not be treated with Sunekos?",
+        answer:
+          "Sunekos should not be used on patients who are pregnant or breastfeeding, those with a history of severe allergies or anaphylaxis, or patients with a compromised immune system. Dr Sofia will confirm suitability at your consultation.",
+      },
+      {
+        question: "What should I expect from the treatment?",
+        answer:
+          "Patients typically benefit from a lifting and tightening effect, reduced volume loss, reduced wrinkle severity, improved deep and surface skin hydration, and improved facial definition.",
       },
     ],
   },

@@ -239,6 +239,18 @@ export default function AboutMePage() {
                   Cairo, Egypt.
                 </p>
                 <p>
+                  In addition, through our affiliated qualified First Contact Physician, we offer a range of
+                  private healthcare services, including Health Screening and Medical Assessments,
+                  Pre-employment Medicals for individuals and corporate clients, Ultrasound Scans, X-rays,
+                  Saudi Arabia Work Medical Examinations and Visa Medical Services, as well as other
+                  diagnostic and screening services.
+                </p>
+                <p className="text-[14px] leading-[24px] text-body-text/70 italic">
+                  Where appropriate, certain procedures and medical services may be referred to or carried
+                  out by our affiliated clinic under the supervision of a registered medical practitioner
+                  working within a CQC-regulated service.
+                </p>
+                <p>
                   Sofia is an associate member of the Royal Society of Medicine, a member of the British
                   Association of Sclerotherapists, and is accredited by the Royal Society for Public Health.
                   She also maintains professional affiliations with the European Academy for Environmental
@@ -485,18 +497,6 @@ export default function AboutMePage() {
                   Our priority is you. Our doctors and specialists pledge honesty, integrity and a
                   commitment to finding the right treatment for you — using state-of-the-art technologies
                   and the most advanced techniques to achieve optimal results with minimal disruption to your life.
-                </p>
-                <p>
-                  In addition, through our affiliated qualified First Contact Physician, we offer a range of
-                  private healthcare services, including Health Screening and Medical Assessments,
-                  Pre-employment Medicals for individuals and corporate clients, Ultrasound Scans, X-rays,
-                  Saudi Arabia Work Medical Examinations and Visa Medical Services, as well as other
-                  diagnostic and screening services.
-                </p>
-                <p className="text-[14px] leading-[24px] text-body-text/70 italic">
-                  Where appropriate, certain procedures and medical services may be referred to or carried
-                  out by our affiliated clinic under the supervision of a registered medical practitioner
-                  working within a CQC-regulated service.
                 </p>
               </div>
             </div>

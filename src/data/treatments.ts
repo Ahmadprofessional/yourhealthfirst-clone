@@ -1888,66 +1888,134 @@ export const treatmentDetails: TreatmentDetail[] = [
   {
     slug: "sclerotherapy",
     title: "Sclerotherapy",
-    tagline: "Remove spider veins and small varicose veins safely and effectively",
+    tagline: "Non-invasive spider vein removal — give your skin a better look",
     category: "Skin & Health",
     image: "/images/services/placeholder.png",
     intro:
-      "Sclerotherapy is a well-established and highly effective treatment for spider veins and small varicose veins. A sclerosant solution is injected directly into the affected vessels, causing them to collapse and fade from view. Dr Sofia is a member of the British Association of Sclerotherapists.",
+      "Sclerotherapy is one of the most effective treatments for spider veins and small varicose veins on the legs. A very fine needle injects a sclerosing solution into the vein, irritating its lining so the walls stick together — blood stops flowing through the vein, which is gradually absorbed by the body over a few weeks. Dr Sofia is a member of the British Association of Sclerotherapists.",
+    imageTextSections: [
+      {
+        image: "/images/treatments/sclerotherapy/intro.jpg",
+        alt: "Close-up of spider veins on the leg before sclerotherapy treatment",
+        heading: "What Is Sclerotherapy?",
+        body: [
+          "The sclerotherapy procedure obliterates and destroys varicose veins by injecting them with a solution called a sclerosant. The sclerosant scars the vein and makes it collapse, rerouting blood to more advantageous veins nearby — your body gradually destroys and absorbs the treated vein until it vanishes. The solution used is sodium tetradecyl sulfate, and this technique typically treats small varicose veins found near the surface of the skin, known as \"bug veins\", while also improving the overall appearance of the leg.",
+          "For bigger veins, foam sclerotherapy is used instead — the sclerosant is transformed into a foam before being injected, since foam covers a larger surface area than fluid.",
+        ],
+        imagePosition: "right",
+      },
+      {
+        image: "/images/treatments/sclerotherapy/treatment.jpg",
+        alt: "Sclerotherapy injection being administered to the leg",
+        heading: "What Happens During a Microsclerotherapy Treatment?",
+        body: [
+          "At your first visit, a detailed discussion with the practitioner will clearly highlight your expectations of the cosmetic effects of treatment, followed by a medical history review to confirm there's no reason you're not suited to Microsclerotherapy. You'll then be asked to sign a consent form confirming you understand the procedure and its potential side effects.",
+          "The injections are performed while you're lying down. A solution is injected with a very fine needle, superficially into the veins, causing the lining to become sticky and swell. Compression is then applied to close the veins — over time, the vein heals closed, is absorbed into the body, and fades away.",
+        ],
+        imagePosition: "left",
+      },
+    ],
+    diagramImage: {
+      src: "/images/treatments/sclerotherapy/diagram.jpg",
+      alt: "Diagram showing the sclerotherapy injection technique and vein collapse",
+    },
     body: [
-      "During sclerotherapy, a very fine needle is used to inject a sclerosant solution into the visible vein. The solution irritates the vessel wall, causing it to swell shut and preventing blood from flowing through it. The closed vein is gradually absorbed by the body over several weeks and disappears.",
-      "The treatment is most commonly used for thread veins and spider veins on the legs, but can also treat veins on the face and body. Most patients require 2–4 sessions for optimal results, depending on the extent of the vessels.",
-      "Compression stockings are recommended after treatment to support the process. There is minimal downtime, and patients can return to normal activities the same day, avoiding strenuous exercise for 48 hours.",
+      "Bruising can last anywhere from two weeks to three months depending on the size of the blood vessels treated, and the treated areas can look worse before they improve as a result of the bruising — with patience, a good result is achieved. High-compression stockings are worn for up to three days to help reduce bruising, and it's best to leave a two-week gap between treatments on the same area.",
+      "Sclerotherapy is not painful, though depending on the solution used you may occasionally feel some discomfort in areas of the leg — this varies from person to person. Normal exercise, including swimming, can resume after 24 hours. Air travel is best undertaken at least 48 hours after treatment; on journeys over four hours it's advisable to drink plenty of water and wear class 2 medical compression stockings. Photographs may also be taken by the practitioner for a \"before and after\" comparison of your results.",
     ],
     benefits: [
       "Effectively removes spider veins and small varicose veins",
-      "Quick treatment with no surgery required",
-      "Treats legs, ankles and other body areas",
+      "Quick, non-surgical treatment",
+      "Foam sclerotherapy available for larger veins",
+      "Treats the legs and other areas of the body",
       "Progressive fading as vessels are absorbed by the body",
       "Dr Sofia is a member of the British Association of Sclerotherapists",
-      "Minimal downtime",
+      "Minimal downtime — normal exercise resumes after 24 hours",
     ],
     suitableFor: [
-      "Adults with visible spider veins or thread veins on the legs",
-      "Those with small varicose veins",
-      "Patients seeking a non-surgical vein removal option",
+      "Self-care treatment has not been successful",
+      "The appearance of your leg is causing you distress",
+      "You experience pain or cramping",
+      "Blood clots form frequently",
+      "Phlebitis occurs",
+      "Ulcers or sores form",
+      "The fatty tissue under your skin hardens due to blood pressure from the vein (lipodermatosclerosis)",
     ],
-    results: "Progressive fading over 4–8 weeks per session",
+    results: "Visible improvement from 4 weeks, true effect at 2–3 months",
     priceFrom: "£350 per session (up to 4–5 veins)",
+    careInstructions: {
+      title: "Recovery & Aftercare",
+      groups: [
+        {
+          heading: "Recommendations After the Procedure",
+          points: [
+            "Take a 10-minute walk immediately after treatment",
+            "Wear your graduated medical compression stockings as advised — worn during the day for up to 3 weeks helps achieve the best outcome",
+            "Stockings may be taken off at night and for showers or baths",
+            "Don't be alarmed if the thread veins look worse at first — this is normal at this stage and will improve with time",
+            "Avoid sun exposure on the treated area for the first few weeks, as suntanning can extend how long the dark colour takes to fade",
+          ],
+        },
+        {
+          heading: "As You Heal",
+          points: [
+            "Marks from the needle or bruising are normal, and veins may change colour from red/blue to black/brown over a few weeks — Arnica can help improve bruising",
+            "Legs may feel slightly tender for the first few days; an anti-inflammatory such as ibuprofen and walking can help",
+            "Improvement is often visible after about 4 weeks, with the true effect seen between 2–3 months; larger, darker flares may take up to 6 months to fade",
+          ],
+        },
+        {
+          heading: "Preventing Further Veins",
+          points: [
+            "Maintain a healthy weight",
+            "Avoid standing or sitting for long periods — active muscles help squeeze blood through the veins",
+            "Wear compression hosiery to improve circulation and manage aches or swelling",
+            "Give up smoking",
+          ],
+        },
+      ],
+    },
+    gallery: {
+      folder: "/images/gallery/sclerotherapy",
+      prefix: "sclerotherapy",
+      count: 4,
+      ext: "jpeg",
+    },
     faqs: [
+      {
+        question: "What are the side effects of Microsclerotherapy?",
+        answer:
+          "Some mild side effects of sclerotherapy include itching for a day or two after the procedure, raised red areas at the injection site, and bruising around the injection site that can last several days to weeks.",
+      },
+      {
+        question: "What are the causes of varicose veins and thread veins?",
+        answer:
+          "They are usually inherited. Hormonal changes — for example with pregnancy and HRT — may increase their likelihood, and trauma or surgery to the legs can cause an eruption of thread veins. They also become more prominent and numerous with increasing age.",
+      },
+      {
+        question: "What are spider veins?",
+        answer:
+          "Spider veins are twisted, swollen veins that load and fill with blood, mostly developing in the legs and easily visible through the skin. They aren't life-threatening but can cause discomfort and self-consciousness. Modern minimally invasive techniques like sclerotherapy have replaced older surgical vein stripping, using only small, superficial injections rather than incisions.",
+      },
       {
         question: "How many sessions will I need?",
         answer:
-          "Most patients require 2–4 sessions, depending on the number and extent of the veins being treated.",
+          "Most patients require 2–4 sessions, depending on the number and extent of the veins being treated, with a two-week gap recommended between treatments on the same area.",
       },
       {
         question: "What results can I expect?",
         answer:
-          "A progressive fading and eventual disappearance of the treated spider veins or small varicose veins as they are absorbed by the body.",
+          "The total treatment cost and number of sessions required depend on the extent and number of veins treated — normally around 80% disappearance is expected as the veins are progressively absorbed by the body.",
       },
       {
         question: "Is the treatment painful?",
         answer:
-          "A very fine needle is used, and most patients describe only a mild stinging or burning sensation as the solution is injected.",
-      },
-      {
-        question: "What are the side-effects?",
-        answer:
-          "Mild bruising, redness or minor swelling around the treated veins is common and typically settles within a couple of weeks.",
-      },
-      {
-        question: "What aftercare is required?",
-        answer:
-          "Compression stockings are recommended after treatment to support the healing process, and strenuous exercise should be avoided for 48 hours.",
-      },
-      {
-        question: "When will I see results?",
-        answer:
-          "Treated veins fade progressively over 4–8 weeks per session as the body gradually absorbs the closed vessels.",
+          "Sclerotherapy is not painful, though depending on the solution used you may occasionally feel some discomfort in areas of the leg — this varies from person to person.",
       },
       {
         question: "Can sclerotherapy treat areas other than the legs?",
         answer:
-          "Yes — while most commonly used on the legs, sclerotherapy can also be used to treat visible veins on other areas of the face and body.",
+          "Yes — while most commonly used on the legs, sclerotherapy can also be used to treat visible veins on other areas of the body.",
       },
       {
         question: "Who is suitable for sclerotherapy?",

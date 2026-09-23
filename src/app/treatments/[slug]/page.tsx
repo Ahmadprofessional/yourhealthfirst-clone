@@ -532,29 +532,40 @@ export default async function TreatmentPage({ params }: Props) {
             <p className="mx-auto mt-3 max-w-[520px] text-center text-[15px] leading-[24px] text-body-text">
               Real before &amp; after results from patients treated at YourHealthFirst Clinic.
             </p>
-            <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-3">
-              {Array.from({ length: Math.min(3, treatment.gallery.count) }, (_, i) => {
-                const g = treatment.gallery!;
-                const src = `${g.folder}/${g.prefix}-${i + 1}.${g.ext}`;
-                return (
-                  <div
-                    key={src}
-                    className="group relative overflow-hidden rounded-[12px] shadow-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg"
-                  >
-                    <div className="relative aspect-square w-full">
-                      <Image
-                        src={src}
-                        alt={`${treatment.title} before & after — result ${i + 1}`}
-                        fill
-                        sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                        className="object-cover object-top"
-                        loading="eager"
-                      />
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
+            {(() => {
+              const shown = Math.min(3, treatment.gallery.count);
+              const gridClass =
+                shown === 1
+                  ? "grid-cols-1 max-w-[560px]"
+                  : shown === 2
+                    ? "grid-cols-1 sm:grid-cols-2"
+                    : "grid-cols-1 sm:grid-cols-3";
+              return (
+                <div className={`mx-auto mt-10 grid gap-5 ${gridClass}`}>
+                  {Array.from({ length: shown }, (_, i) => {
+                    const g = treatment.gallery!;
+                    const src = `${g.folder}/${g.prefix}-${i + 1}.${g.ext}`;
+                    return (
+                      <div
+                        key={src}
+                        className="group relative overflow-hidden rounded-[12px] shadow-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg"
+                      >
+                        <div className="relative aspect-square w-full">
+                          <Image
+                            src={src}
+                            alt={`${treatment.title} before & after — result ${i + 1}`}
+                            fill
+                            sizes={shown === 2 ? "(min-width: 640px) 50vw, 100vw" : "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"}
+                            className="object-cover object-top"
+                            loading="eager"
+                          />
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              );
+            })()}
             <div className="mt-8 text-center">
               <Link
                 href="/gallery"

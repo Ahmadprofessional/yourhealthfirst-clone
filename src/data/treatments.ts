@@ -1299,17 +1299,48 @@ export const treatmentDetails: TreatmentDetail[] = [
       "If you're already coming in for Cryo slimming or fat freezing, Emsculpt Neo is the next-level upgrade — tightening and toning muscle post-Cryo, sculpting a more defined athletic look, and burning even more fat while enhancing muscle growth for a complete transformation.",
       "During treatment you'll feel intense but painless muscle contractions from the HIFEM+ technology, similar to an intense workout but without the effort, along with a warming sensation from the radiofrequency component — often described as similar to a hot stone massage. The treatment is generally well-tolerated and practitioners can adjust settings for your comfort, with no downtime so you return to normal activities immediately.",
       "Afterwards you might experience some muscle soreness, similar to the feeling after a strenuous workout, along with temporary redness or mild swelling in the treated area — both usually mild and short-lived. Many people notice visible results after the first treatment, but optimal results are typically achieved after a full series of sessions.",
-      "The treatment is comfortable — patients typically feel an intense muscle contraction (like an extreme workout) and warmth from the radiofrequency, with no pain. A course of 4 sessions is recommended, spaced 5–10 days apart, though some practices offer up to 6 sessions depending on individual goals.",
+      "The treatment is comfortable — patients typically feel an intense muscle contraction (like an extreme workout) and warmth from the radiofrequency, with no pain. A course of 4 sessions is recommended, spaced 5–10 days apart, though some practices offer up to 6 sessions depending on individual goals. Optional maintenance sessions every 3–6 months help sustain your results.",
+      "Our Emsculpt Neo treatments are budget-friendly, and we also offer double-area sessions for simultaneous treatment of two body parts in one appointment, with no hidden fees.",
     ],
+    advantages: {
+      title: "Why Choose YourHealthFirst for Emsculpt Neo",
+      items: [
+        {
+          title: "Certified Practitioners",
+          description: "Every treatment is carried out by fully certified, experienced practitioners.",
+        },
+        {
+          title: "Expert Consultations",
+          description: "A thorough consultation ensures the treatment plan is right for your goals and body.",
+        },
+        {
+          title: "Flexible Scheduling",
+          description: "Appointments to fit around busy professional and family schedules.",
+        },
+        {
+          title: "Convenience of Online Booking",
+          description: "Book your consultation or session online, whenever suits you.",
+        },
+        {
+          title: "Transparent Service",
+          description: "Clear pricing with no hidden fees, including for double-area sessions.",
+        },
+        {
+          title: "Dedicated Aftercare",
+          description: "Ongoing support and guidance throughout your treatment course.",
+        },
+      ],
+    },
     benefits: [
       "Simultaneously burns fat AND builds muscle",
       "30-minute sessions — equivalent to 20,000 muscle contractions",
       "25% average increase in muscle volume (clinical studies)",
       "30% average reduction in subcutaneous fat (clinical studies)",
-      "Non-invasive — no surgery, no downtime",
+      "Non-invasive, painless procedure — no surgery, no downtime",
       "Treats abdomen, buttocks, arms, thighs and calves",
       "FDA-approved and clinically proven",
       "Suitable for all skin types and different body shapes",
+      "Quick, visible results",
     ],
     suitableFor: [
       "Adults wanting to define and tone the body",

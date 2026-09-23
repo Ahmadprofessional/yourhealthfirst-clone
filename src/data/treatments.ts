@@ -467,9 +467,9 @@ export const treatmentDetails: TreatmentDetail[] = [
     results: "Visible improvement after course of 4, lasting 6–9 months",
     priceFrom: "£200 per session / £600 course of 4",
     gallery: {
-      folder: "/images/gallery/sculptra",
-      prefix: "sculptra",
-      count: 3,
+      folder: "/images/gallery/sunekos",
+      prefix: "sunekos",
+      count: 2,
       ext: "jpeg",
     },
     faqs: [

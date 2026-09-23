@@ -1356,6 +1356,12 @@ export const treatmentDetails: TreatmentDetail[] = [
     ],
     results: "Visible improvement after 2–3 sessions; best results after full course",
     priceFrom: "£250 per session / £800 course of 4",
+    gallery: {
+      folder: "/images/gallery/microneedling",
+      prefix: "microneedling",
+      count: 2,
+      ext: "jpeg",
+    },
     faqs: [
       {
         question: "How many sessions will I need?",

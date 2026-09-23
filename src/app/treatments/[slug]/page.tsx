@@ -99,7 +99,7 @@ export default async function TreatmentPage({ params }: Props) {
                   src={treatment.videoUrl}
                   controls
                   playsInline
-                  className="w-full rounded-[12px] bg-black"
+                  className="mx-auto max-h-[480px] w-auto max-w-full rounded-[12px] bg-black"
                 />
               )}
 

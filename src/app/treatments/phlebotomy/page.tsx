@@ -165,35 +165,36 @@ export default function PhlebotomyPage() {
       <Header />
 
       {/* Hero */}
-      <section className="relative w-full overflow-hidden pt-[111px]">
-        <div className="absolute inset-0">
-          <Image
-            src="/images/treatments/phlebotomy/hero-banner.jpg"
-            alt="Private phlebotomy blood draw at YourHealthFirst Clinic"
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(12,44,29,0.94)_0%,rgba(12,44,29,0.55)_45%,rgba(12,44,29,0.15)_75%)]" />
-        </div>
-        <div className="relative mx-auto max-w-[1400px] px-5 py-[70px] lg:py-[100px]">
-          <div className="flex flex-col gap-5 lg:max-w-[560px]">
-            <div className="flex items-center gap-3">
-              <span className="h-px w-10 bg-tan/60" />
-              <span className="font-nav text-[12px] font-semibold tracking-[3px] text-tan uppercase">
-                Phlebotomy &amp; Health Tests
+      <section className="relative w-full bg-[linear-gradient(90deg,#7a6248_0%,#b49b7d_50%,#7a6248_100%)] pt-[111px]">
+        <div className="mx-auto max-w-[1400px] px-5 py-[80px] lg:py-[100px]">
+          <div className="flex flex-col gap-4">
+            <div className="flex flex-wrap items-center gap-2">
+              <Link
+                href="/treatments"
+                className="font-nav text-[13px] tracking-[1px] text-white/40 uppercase transition-colors hover:text-tan"
+              >
+                Treatments
+              </Link>
+              <span className="text-white/30">/</span>
+              <span className="font-nav text-[13px] tracking-[1px] text-tan/70 uppercase">
+                {treatment.category}
               </span>
             </div>
-            <h1 className="font-display text-[38px] font-bold leading-[42px] tracking-[-1px] text-cream uppercase lg:text-[52px] lg:leading-[56px]">
-              Phlebotomy &amp; Blood Centrifugate
+            <div className="w-fit rounded-full border-[0.8px] border-white/20 px-3 py-2">
+              <p className="text-[13px] font-semibold leading-[20.8px] tracking-[3px] text-tan uppercase">
+                {treatment.category}
+              </p>
+            </div>
+            <h1 className="font-display text-[38px] leading-[42px] font-bold tracking-[-1px] text-cream uppercase lg:text-[58px] lg:leading-[64px]">
+              {treatment.title}
             </h1>
-            <p className="text-[17px] leading-[27px] text-white/70">
-              We offer private phlebotomy services for the comfort of our clients.
+            <p className="max-w-[560px] font-serif text-[20px] leading-[30px] text-white/70 italic">
+              {treatment.tagline}
             </p>
             <div className="mt-3 flex flex-wrap gap-6">
               {heroBadges.map((b) => (
                 <div key={b.label} className="flex items-center gap-3">
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-tan/15 text-tan">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/10 text-tan">
                     <Icon name={b.icon} className="h-5 w-5" />
                   </span>
                   <span className="font-nav text-[13px] font-semibold tracking-[0.3px] text-white/85">
@@ -204,6 +205,7 @@ export default function PhlebotomyPage() {
             </div>
           </div>
         </div>
+        <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-tan/40 to-transparent" />
       </section>
 
       {/* Intro */}

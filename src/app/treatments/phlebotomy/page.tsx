@@ -154,6 +154,12 @@ function Icon({ name, className }: { name: string; className?: string }) {
           <path d="M3 8v9l9 5 9-5V8M12 13v9" />
         </svg>
       );
+    case "phone":
+      return (
+        <svg className={className} {...common}>
+          <path d="M5 4h3.5l1.5 5-2.5 1.5a11 11 0 0 0 5 5L14 13l5 1.5V18a2 2 0 0 1-2 2C10.5 20 4 13.5 4 6a2 2 0 0 1 1-2Z" />
+        </svg>
+      );
     default:
       return null;
   }
@@ -263,49 +269,89 @@ export default function PhlebotomyPage() {
       </section>
 
       {/* Prior to your blood test / On the day */}
-      <section className="w-full bg-cream px-5">
-        <div className="mx-auto max-w-[1400px] py-[70px] lg:py-[90px]">
-          <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-            <div className="flex flex-col gap-5 rounded-[16px] bg-white p-8 shadow-sm">
-              <div className="flex items-center gap-3">
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-tan/15 text-tan">
-                  <Icon name="clipboard" className="h-5 w-5" />
-                </span>
-                <h3 className="font-subheading text-[17px] font-semibold tracking-[0.5px] text-forest uppercase">
-                  Prior to Your Blood Test
-                </h3>
+      <section className="relative w-full overflow-hidden bg-[linear-gradient(135deg,#faf4ea_0%,#f0e0c8_100%)] px-5">
+        <div className="pointer-events-none absolute -left-[10%] -top-[20%] h-[500px] w-[500px] rounded-full bg-tan/15 blur-[110px]" />
+        <div className="pointer-events-none absolute -right-[10%] bottom-[-20%] h-[500px] w-[500px] rounded-full bg-white/40 blur-[110px]" />
+        <div className="relative mx-auto max-w-[1400px] py-[70px] lg:py-[90px]">
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+            {/* Prior to your blood test */}
+            <div className="relative overflow-hidden rounded-[24px] border border-tan/25 bg-white/70 p-8 shadow-lg backdrop-blur-sm lg:p-10">
+              <div className="pointer-events-none absolute inset-y-0 right-0 w-[42%]">
+                <Image
+                  src="/images/treatments/phlebotomy/blood-draw.jpg"
+                  alt=""
+                  fill
+                  className="object-cover opacity-90"
+                />
+                <div className="absolute inset-0 bg-[linear-gradient(90deg,#faf4ea_0%,rgba(250,244,234,0.55)_55%,rgba(250,244,234,0)_100%)]" />
               </div>
-              {priorSteps.map((step, i) => (
-                <div key={i} className="flex gap-4">
-                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-forest font-nav text-[13px] font-semibold text-cream">
-                    {i + 1}
-                  </span>
-                  <div className="flex flex-col gap-3">
-                    <p className="text-[15px] leading-[24px] text-body-text">{step.text}</p>
-                    <p className="text-[14px] leading-[22px] text-body-text/70">{step.note}</p>
-                  </div>
+              <div className="relative flex max-w-[68%] flex-col gap-6 lg:max-w-[60%]">
+                <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-tan text-white shadow-sm">
+                  <Icon name="clipboard" className="h-6 w-6" />
+                </span>
+                <div className="flex flex-col gap-2">
+                  <span className="h-[3px] w-12 rounded-full bg-tan" />
+                  <h3 className="font-display text-[26px] font-bold leading-[30px] tracking-[-0.5px] text-forest uppercase lg:text-[30px] lg:leading-[34px]">
+                    Prior to Your <span className="text-tan">Blood Test</span>
+                  </h3>
                 </div>
-              ))}
-            </div>
-
-            <div className="flex flex-col gap-5 rounded-[16px] bg-white p-8 shadow-sm">
-              <div className="flex items-center gap-3">
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-tan/15 text-tan">
-                  <Icon name="calendar" className="h-5 w-5" />
-                </span>
-                <h3 className="font-subheading text-[17px] font-semibold tracking-[0.5px] text-forest uppercase">
-                  On the Day
-                </h3>
-              </div>
-              <div className="flex flex-col gap-4">
-                {onTheDaySteps.map((step, i) => (
+                {priorSteps.map((step, i) => (
                   <div key={i} className="flex gap-4">
-                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-forest font-nav text-[13px] font-semibold text-cream">
+                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-tan font-nav text-[13px] font-semibold text-white">
                       {i + 1}
                     </span>
-                    <p className="text-[15px] leading-[24px] text-body-text">{step}</p>
+                    <p className="text-[15px] leading-[24px] text-body-text">{step.text}</p>
                   </div>
                 ))}
+                <div className="flex items-start gap-3 rounded-[12px] bg-white/70 p-4">
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-tan/20 text-tan">
+                    <Icon name="phone" className="h-4 w-4" />
+                  </span>
+                  <p className="text-[13px] leading-[21px] text-body-text">
+                    To arrange your clinic appointment, please contact us on{" "}
+                    <strong className="text-tan">0207 225 3582</strong> or via WhatsApp on{" "}
+                    <strong className="text-tan">07818 474041</strong>.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* On the day */}
+            <div className="relative overflow-hidden rounded-[24px] border border-tan/25 bg-white/70 p-8 shadow-lg backdrop-blur-sm lg:p-10">
+              <div className="pointer-events-none absolute inset-y-0 right-0 w-[38%]">
+                <Image
+                  src="/images/treatments/phlebotomy/hero-banner.jpg"
+                  alt=""
+                  fill
+                  className="object-cover opacity-90"
+                />
+                <div className="absolute inset-0 bg-[linear-gradient(90deg,#faf4ea_0%,rgba(250,244,234,0.5)_50%,rgba(250,244,234,0)_100%)]" />
+              </div>
+              <div className="relative flex max-w-[72%] flex-col gap-6 lg:max-w-[64%]">
+                <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-tan text-white shadow-sm">
+                  <Icon name="calendar" className="h-6 w-6" />
+                </span>
+                <div className="flex flex-col gap-2">
+                  <span className="h-[3px] w-12 rounded-full bg-tan" />
+                  <h3 className="font-display text-[26px] font-bold leading-[30px] tracking-[-0.5px] text-forest uppercase lg:text-[30px] lg:leading-[34px]">
+                    On the <span className="text-tan">Day</span>
+                  </h3>
+                </div>
+                <div className="flex flex-col">
+                  {onTheDaySteps.map((step, i) => (
+                    <div key={i} className="flex gap-4">
+                      <div className="flex flex-col items-center">
+                        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-tan font-nav text-[13px] font-semibold text-white">
+                          {i + 1}
+                        </span>
+                        {i < onTheDaySteps.length - 1 && (
+                          <span className="my-1 w-px flex-1 bg-tan/30" />
+                        )}
+                      </div>
+                      <p className="pb-5 text-[15px] leading-[24px] text-body-text">{step}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
@@ -313,25 +359,38 @@ export default function PhlebotomyPage() {
       </section>
 
       {/* Why it matters */}
-      <section className="w-full px-5">
-        <div className="mx-auto max-w-[1400px] py-[70px] lg:py-[90px]">
-          <div className="flex items-center gap-3">
-            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-tan/15 text-tan">
-              <Icon name="drop" className="h-5 w-5" />
-            </span>
-            <h2 className="font-display text-[26px] font-bold leading-[32px] tracking-[-1px] text-forest lg:text-[30px] lg:leading-[36px]">
-              Why It Matters
-            </h2>
+      <section className="relative w-full overflow-hidden bg-[linear-gradient(135deg,#faf4ea_0%,#f0e0c8_100%)] px-5">
+        <div className="pointer-events-none absolute -right-[10%] -top-[10%] h-[450px] w-[450px] rounded-full bg-tan/15 blur-[110px]" />
+        <div className="pointer-events-none absolute -left-[10%] bottom-[-15%] h-[450px] w-[450px] rounded-full bg-white/40 blur-[110px]" />
+        <div className="relative mx-auto max-w-[1400px] py-[70px] lg:py-[90px]">
+          <div className="flex flex-col items-start justify-between gap-4 lg:flex-row lg:items-end">
+            <div className="flex flex-col gap-2">
+              <span className="h-[3px] w-12 rounded-full bg-tan" />
+              <h2 className="font-display text-[30px] font-bold leading-[36px] tracking-[-1px] text-forest uppercase lg:text-[36px] lg:leading-[42px]">
+                Why It <span className="text-tan">Matters</span>
+              </h2>
+              <span className="h-[3px] w-12 rounded-full bg-tan" />
+            </div>
+            <p className="max-w-[420px] text-[15px] leading-[24px] text-body-text lg:text-right">
+              Following a few simple guidelines helps ensure a smoother blood draw and more reliable test results.
+            </p>
           </div>
-          <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-3">
+
+          <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-3">
             {whyItMatters.map((item) => (
-              <div key={item.title} className="flex flex-col items-start gap-3 rounded-[14px] border border-black/8 bg-cream p-6">
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white text-tan shadow-sm">
-                  <Icon name={item.icon} className="h-5 w-5" />
+              <div
+                key={item.title}
+                className="flex flex-col items-start gap-3 rounded-[20px] border border-tan/25 bg-white/70 p-7 shadow-sm backdrop-blur-sm"
+              >
+                <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-tan text-white shadow-sm">
+                  <Icon name={item.icon} className="h-6 w-6" />
                 </span>
-                <h3 className="font-subheading text-[15px] font-semibold leading-[20px] text-forest uppercase">
-                  {item.title}
-                </h3>
+                <div className="flex flex-col gap-2">
+                  <h3 className="font-display text-[18px] font-bold leading-[22px] text-forest uppercase">
+                    {item.title}
+                  </h3>
+                  <span className="h-[2px] w-8 rounded-full bg-tan/50" />
+                </div>
                 <p className="text-[14px] leading-[22px] text-body-text">{item.description}</p>
               </div>
             ))}
@@ -339,16 +398,16 @@ export default function PhlebotomyPage() {
 
           {/* Kids + Courier */}
           <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2">
-            <div className="flex items-start gap-4 rounded-[14px] border border-black/8 p-6">
-              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-tan/15 text-tan">
+            <div className="flex items-start gap-4 rounded-[20px] border border-tan/25 bg-white/70 p-7 shadow-sm backdrop-blur-sm">
+              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-tan/15 text-tan">
                 <Icon name="child" className="h-5 w-5" />
               </span>
               <p className="text-[15px] leading-[24px] text-body-text">
                 <strong className="text-forest">5. For kids</strong> — please apply numbing cream in both arms 30 minutes before arrival.
               </p>
             </div>
-            <div className="flex items-start gap-4 rounded-[14px] border border-black/8 p-6">
-              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-tan/15 text-tan">
+            <div className="flex items-start gap-4 rounded-[20px] border border-tan/25 bg-white/70 p-7 shadow-sm backdrop-blur-sm">
+              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-tan/15 text-tan">
                 <Icon name="truck" className="h-5 w-5" />
               </span>
               <p className="text-[15px] leading-[24px] text-body-text">

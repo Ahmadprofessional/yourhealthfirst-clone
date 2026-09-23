@@ -1293,6 +1293,16 @@ export const treatmentDetails: TreatmentDetail[] = [
       src: "/images/treatments/emsculpt-neo/hero-abdomen.png",
       alt: "Emsculpt Neo abdomen treatment applicator",
     },
+    processDiagrams: [
+      {
+        src: "/images/treatments/emsculpt-neo/chest-applicator.jpg",
+        alt: "Emsculpt Neo chest and core applicator",
+      },
+      {
+        src: "/images/treatments/emsculpt-neo/abdomen-dual-applicator.jpg",
+        alt: "Emsculpt Neo dual applicator on the abdomen and love handles",
+      },
+    ],
     body: [
       "The radiofrequency component raises the temperature of fat cells to a level that permanently damages them, while the HIFEM+ energy forces the underlying muscles to contract at a level impossible to achieve through voluntary exercise. This dual-action results in measurable fat reduction and significant muscle growth in the same treatment.",
       "Clinical studies show on average a 25% increase in muscle volume and 30% reduction in subcutaneous fat after a course of 4 sessions. Emsculpt Neo is cleared for use on the abdomen (core), buttocks (non-surgical lift), arms, outer thighs, inner thighs, front thighs, back thighs, biceps, triceps and calves.",
@@ -1355,12 +1365,6 @@ export const treatmentDetails: TreatmentDetail[] = [
     ],
     results: "Visible improvements after 2–4 sessions, optimal at 12 weeks",
     priceFrom: "From £500 per session",
-    gallery: {
-      folder: "/images/gallery/emsculpt-neo",
-      prefix: "emsculpt",
-      count: 3,
-      ext: "jpg",
-    },
     faqs: [
       {
         question: "How many sessions will I need?",

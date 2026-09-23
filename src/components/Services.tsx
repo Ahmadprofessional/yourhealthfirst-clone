@@ -180,7 +180,7 @@ function GhpBadge() {
 export default function Services() {
   return (
     <section className="w-full px-5">
-      <div className="mx-auto flex max-w-[1400px] flex-col gap-8 pt-[50px] pb-[100px]">
+      <div className="mx-auto flex max-w-[1400px] flex-col gap-8 pt-[20px] pb-[100px]">
         {/* Header */}
         <div className="flex flex-col items-center gap-5">
           <div className="w-fit rounded-full border-[0.8px] border-[rgba(11,23,4,0.2)] px-4 py-2">

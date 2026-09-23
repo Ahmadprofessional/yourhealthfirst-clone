@@ -229,6 +229,13 @@ export default function AboutMePage() {
                   by the Global Healthcare &amp; Pharmaceutical (GHP) Awards.
                 </p>
                 <p>
+                  Sofia was also invited as a speaker on Alopecia and Hair Loss at{" "}
+                  <strong className="font-semibold text-forest">Sharm Derma 2022</strong>, the American
+                  Association of Continuing Medical Education, in collaboration with the Egyptian Society
+                  of Aesthetic Dermatology and the International Society for Dermatologic Surgery, held in
+                  Cairo, Egypt.
+                </p>
+                <p>
                   Sofia is an associate member of the Royal Society of Medicine, a member of the British
                   Association of Sclerotherapists, and is accredited by the Royal Society for Public Health.
                   She also maintains professional affiliations with the European Academy for Environmental

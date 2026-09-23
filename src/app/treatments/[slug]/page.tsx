@@ -82,6 +82,19 @@ export default async function TreatmentPage({ params }: Props) {
                 {treatment.intro}
               </p>
 
+              {/* Explainer video */}
+              {treatment.videoId && (
+                <div className="relative w-full overflow-hidden rounded-[12px]" style={{ aspectRatio: "16/9" }}>
+                  <iframe
+                    src={`https://www.youtube.com/embed/${treatment.videoId}`}
+                    title={`${treatment.title} — explainer video`}
+                    className="absolute inset-0 h-full w-full"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+              )}
+
               {/* Body paragraphs */}
               <div className="flex flex-col gap-5">
                 {treatment.body.map((para, i) => (
@@ -181,6 +194,68 @@ export default async function TreatmentPage({ params }: Props) {
           </div>
         </div>
       </section>
+
+      {/* How It Works */}
+      {treatment.howItWorks && (
+        <section className="w-full bg-cream px-5">
+          <div className="mx-auto max-w-[1400px] py-[80px] lg:py-[100px]">
+            <h2 className="text-center font-subheading text-[26px] font-medium leading-[32px] tracking-[-1px] text-forest uppercase lg:text-[32px] lg:leading-[38px]">
+              {treatment.howItWorks.title}
+            </h2>
+            <p className="mx-auto mt-3 max-w-[720px] text-center text-[15px] leading-[24px] text-body-text">
+              {treatment.howItWorks.intro}
+            </p>
+
+            {treatment.processDiagrams && treatment.processDiagrams.length > 0 && (
+              <div className="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-2">
+                {treatment.processDiagrams.map((diagram) => (
+                  <div
+                    key={diagram.src}
+                    className="relative overflow-hidden rounded-[12px] bg-white p-4 shadow-sm"
+                  >
+                    <Image
+                      src={diagram.src}
+                      alt={diagram.alt}
+                      width={800}
+                      height={600}
+                      className="h-auto w-full object-contain"
+                    />
+                  </div>
+                ))}
+              </div>
+            )}
+
+            <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-3">
+              {treatment.howItWorks.steps.map((step) => (
+                <div
+                  key={step.title}
+                  className="flex flex-col items-center gap-4 rounded-[12px] bg-white p-7 text-center shadow-sm"
+                >
+                  <div className="flex h-16 w-16 items-center justify-center rounded-full bg-tan/12">
+                    <Image src={step.icon} alt={step.title} width={40} height={40} className="h-10 w-10 object-contain" />
+                  </div>
+                  <h3 className="font-subheading text-[14px] font-semibold tracking-[1px] text-forest uppercase">
+                    {step.title}
+                  </h3>
+                  <p className="text-[14px] leading-[22px] text-body-text">{step.description}</p>
+                </div>
+              ))}
+            </div>
+
+            {treatment.diagramImage && (
+              <div className="relative mx-auto mt-12 max-w-[900px] overflow-hidden rounded-[12px] shadow-sm">
+                <Image
+                  src={treatment.diagramImage.src}
+                  alt={treatment.diagramImage.alt}
+                  width={900}
+                  height={600}
+                  className="h-auto w-full object-contain"
+                />
+              </div>
+            )}
+          </div>
+        </section>
+      )}
 
       {/* FAQs */}
       {treatment.faqs.length > 0 && (

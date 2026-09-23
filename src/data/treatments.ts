@@ -10,6 +10,12 @@ export interface TreatmentGallery {
   ext: string;
 }
 
+export interface HowItWorksStep {
+  icon: string;
+  title: string;
+  description: string;
+}
+
 export interface TreatmentDetail {
   slug: string;
   title: string;
@@ -24,6 +30,24 @@ export interface TreatmentDetail {
   priceFrom?: string;
   faqs: TreatmentFaq[];
   gallery?: TreatmentGallery;
+  /** YouTube video ID shown as an embedded explainer video */
+  videoId?: string;
+  /** "How it works" 3-step feature grid, shown below the video */
+  howItWorks?: {
+    title: string;
+    intro: string;
+    steps: HowItWorksStep[];
+  };
+  /** Supporting diagram image (e.g. treatment areas chart) */
+  diagramImage?: {
+    src: string;
+    alt: string;
+  };
+  /** Process diagrams shown under the how-it-works intro (e.g. step-by-step, before/during/after) */
+  processDiagrams?: {
+    src: string;
+    alt: string;
+  }[];
 }
 
 export const treatmentDetails: TreatmentDetail[] = [
@@ -732,10 +756,56 @@ export const treatmentDetails: TreatmentDetail[] = [
     category: "Body Contouring",
     image: "/images/services/cryolipolysis.png",
     intro:
-      "Cryolipolysis is a clinically proven, non-surgical fat reduction treatment that uses precisely controlled cooling to freeze and permanently destroy targeted fat cells. It is the gold-standard non-invasive body contouring treatment, and Dr Sofia has over a decade of experience performing it.",
+      "Cryolipolysis is the procedure for you if you want to avoid surgery, eliminate stubborn fat, lose weight and return to your life within a few hours. It effectively targets problem areas including your belly, inner and outer thighs, back and more — a popular alternative to liposuction that zeroes in on fat cells with controlled cooling, freezes them and initiates their elimination.",
+    videoId: "V4K0z6c9vVU",
+    howItWorks: {
+      title: "Cryolipolysis — How Does It Work",
+      intro:
+        "In the weeks after your treatment, your body naturally processes and eliminates the treated fat cells. Once the fat cells are gone, they are gone forever, leaving you to enjoy the long-term benefits of a leaner, more sculpted figure.",
+      steps: [
+        {
+          icon: "/images/treatments/cryolipolysis/fat-cell.png",
+          title: "The Body's Fat Cells Are Frozen",
+          description:
+            "The body's fat cells are targeted and frozen until they reach a temperature that initiates their permanent removal.",
+        },
+        {
+          icon: "/images/treatments/cryolipolysis/multiple-treatment.png",
+          title: "Multiple Treatment",
+          description:
+            "It can be used to effectively treat multiple areas including your belly, inner and outer thighs, back, and more.",
+        },
+        {
+          icon: "/images/treatments/cryolipolysis/non-surgical-method.png",
+          title: "Non-Surgical Method",
+          description:
+            "You will be able to return to your normal activities right away. Your body will naturally eliminate the fat cells in the weeks that follow.",
+        },
+      ],
+    },
+    processDiagrams: [
+      {
+        src: "/images/treatments/cryolipolysis/how-it-works-1.jpg",
+        alt: "Cryolipolysis process — from stubborn fat bulges through cooling, apoptosis and fat layer reduction",
+      },
+      {
+        src: "/images/treatments/cryolipolysis/how-it-works-2.jpg",
+        alt: "Cryolipolysis before, during and after treatment — fat cell cross-section",
+      },
+      {
+        src: "/images/treatments/cryolipolysis/light-therapy.jpg",
+        alt: "Cryolipolysis Colour Light Therapy — seven-colour LED wavelengths and their benefits",
+      },
+    ],
+    diagramImage: {
+      src: "/images/treatments/cryolipolysis/treatment-areas.jpg",
+      alt: "Cryolipolysis treatment areas — female and male",
+    },
     body: [
       "Fat cells are more susceptible to cold temperatures than surrounding skin and tissue. During cryolipolysis, a specialised applicator draws the fatty tissue into contact with controlled cooling panels. The fat cells crystallise and die, then are naturally eliminated by the body's lymphatic system over the following weeks.",
       "Dr Sofia has worked with cryolipolysis since its early days at one of Harley Street's pioneering clinics, and has successfully treated thousands of patients. Areas commonly treated include the abdomen, flanks, inner and outer thighs, upper arms, bra area, back, knees, chin and small fatty deposits.",
+      "Light therapy works in two ways to speed up results: ATP is the spark that ignites the metabolism, so the body burns more fat while maintaining its muscle mass, and it improves detoxification and removal of waste products that encourage retention of water. Our advanced cryolipolysis machine uses the latest technology, which not only freezes the fat but also offers Colour Light Therapy — a completely holistic, non-invasive treatment using coloured LEDs to stimulate, activate or calm the skin and muscles, encouraging the body to begin to heal itself.",
+      "All areas are treated with large cups, rather than the combination of medium and large cups used by many other clinics — a larger cup treats a larger area in each session. One area refers to any unpaired part of the body (e.g. upper or lower abdomen, or an uneven part of the body to even it out); two areas refers to paired parts of the body (e.g. arms, inner thighs, outer thighs, love handles).",
       "Results are visible from 8 weeks, with optimal results at 12–16 weeks. The treated fat cells are permanently destroyed and will not return — provided a stable weight is maintained. Multiple areas can be treated in one session.",
     ],
     benefits: [
@@ -779,7 +849,17 @@ export const treatmentDetails: TreatmentDetail[] = [
       {
         question: "What are the side-effects?",
         answer:
-          "Temporary redness, numbness, tingling, bruising or mild swelling in the treated area is common and typically resolves within 1–2 weeks.",
+          "Temporary redness, numbness, tingling, bruising or mild swelling in the treated area is common and typically resolves within 1–2 weeks. There have been no serious side effects reported, and studies have shown no changes in blood lipid levels or liver function.",
+      },
+      {
+        question: "What about frostbite?",
+        answer:
+          "Cryolipolysis temperatures are not cold enough to cause frostbite or other skin damage — that requires temperatures of around -10°C. Cryolipolysis uses controlled temperatures that don't immediately destroy the fat cells, but rather trigger the natural process of cell death (apoptosis), and a special anti-freezing membrane protects the skin throughout treatment.",
+      },
+      {
+        question: "Is cryolipolysis permanent?",
+        answer:
+          "Yes — cryolipolysis eliminates the treated fat cells permanently and they do not come back. If you gain weight afterwards, any remaining fat cells can still grow, so maintaining a good diet and exercise regimen helps you enjoy lasting results.",
       },
       {
         question: "Does the fat come back afterwards?",

@@ -53,6 +53,11 @@ export interface TreatmentDetail {
     src: string;
     alt: string;
   }[];
+  /** Detailed price breakdown by treatment area, shown as its own section */
+  priceList?: {
+    area: string;
+    price: string;
+  }[];
 }
 
 export const treatmentDetails: TreatmentDetail[] = [
@@ -179,6 +184,27 @@ export const treatmentDetails: TreatmentDetail[] = [
     image: "/images/services/placeholder.png",
     intro:
       "Dermal fillers are injectable treatments using hyaluronic acid to restore lost volume, smooth deep lines and sculpt facial features. From subtle lip enhancement to full facial revolumisation, fillers deliver immediate, natural-looking results.",
+    diagramImage: {
+      src: "/images/treatments/dermal-fillers/injection-points-diagram.jpeg",
+      alt: "Dermal fillers — common facial injection points",
+    },
+    priceList: [
+      { area: "Lip Enhancement (Russian Lips) — 1ml", price: "£250 – £350" },
+      { area: "Lip Enhancement (Russian Lips) — 2ml", price: "£550" },
+      { area: "Nasolabial Folds / Marionette Lines — 1ml", price: "£375" },
+      { area: "Nasolabial Folds / Marionette Lines — 2ml", price: "£700" },
+      { area: "Chin Enhancement — 1ml", price: "£500" },
+      { area: "Chin Enhancement — 2ml", price: "£700" },
+      { area: "Cheeks / Mid Face — 1ml", price: "£500" },
+      { area: "Cheeks / Mid Face — 2ml", price: "£700" },
+      { area: "Non-Surgical Nose Job (Rhinoplasty)", price: "£500" },
+      { area: "Glabellar Lines (Frown)", price: "£350" },
+      { area: "Tear Trough / Under Eyes / Dark Circles", price: "£550" },
+      { area: "Jaw-Line", price: "£450" },
+      { area: "Hands Fillers", price: "£600" },
+      { area: "Dissolving Filler — from another consultant", price: "£325" },
+      { area: "Dissolving Filler — administered at YHF", price: "£150 (no consultation fee)" },
+    ],
     body: [
       "As we age, our skin loses collagen, elastin and hyaluronic acid, leading to hollowing, sagging and deeper lines. Dermal fillers replenish this lost volume and stimulate collagen production, creating a refreshed and youthful appearance without surgery.",
       "At YourHealthFirst, Dr Sofia specialises in a wide range of filler treatments: lip enhancement using the Russian lips technique, tear trough treatment for dark circles and hollow eyes, non-surgical rhinoplasty, cheek augmentation, jawline contouring, nasolabial folds and marionette lines correction, and hand rejuvenation.",
@@ -247,6 +273,16 @@ export const treatmentDetails: TreatmentDetail[] = [
         question: "Who is suitable for dermal fillers?",
         answer:
           "Adults with volume loss, hollowing or asymmetry seeking a non-surgical improvement are generally suitable. A full medical history is taken at consultation to rule out any contraindications before treatment.",
+      },
+      {
+        question: "What are dermal fillers made of?",
+        answer:
+          "Most fillers used at YourHealthFirst are hyaluronic acid-based — a substance naturally found in the skin — chosen for their effective, natural-looking results and because they can be dissolved if needed. Collagen, fat-based and other synthetic fillers exist, but hyaluronic acid remains the most widely used and best-suited option for the majority of patients.",
+      },
+      {
+        question: "What are the possible lip filler side-effects?",
+        answer:
+          "The most common side-effects are swelling, tenderness, bruising and slight lumpiness at the injection site, which typically settle within a few days to a week — lips in particular can look noticeably swollen for the first 24–48 hours. Less commonly, patients may experience cold-sore flare-ups, asymmetry that needs a top-up, or a very rare allergic reaction or vascular complication, which is why a full medical history and an experienced injector matter.",
       },
     ],
   },

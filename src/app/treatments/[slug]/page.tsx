@@ -242,18 +242,52 @@ export default async function TreatmentPage({ params }: Props) {
               ))}
             </div>
 
+          </div>
+        </section>
+      )}
 
-            {treatment.diagramImage && (
-              <div className="relative mx-auto mt-12 max-w-[900px] overflow-hidden rounded-[12px] shadow-sm">
-                <Image
-                  src={treatment.diagramImage.src}
-                  alt={treatment.diagramImage.alt}
-                  width={900}
-                  height={600}
-                  className="h-auto w-full object-contain"
-                />
-              </div>
-            )}
+      {/* Supporting diagram (standalone, independent of How It Works) */}
+      {treatment.diagramImage && (
+        <section className={`w-full px-5 ${treatment.howItWorks ? "" : "bg-cream"}`}>
+          <div className="mx-auto max-w-[1400px] py-[60px] lg:py-[80px]">
+            <div className="relative mx-auto max-w-[900px] overflow-hidden rounded-[12px] bg-white p-4 shadow-sm">
+              <Image
+                src={treatment.diagramImage.src}
+                alt={treatment.diagramImage.alt}
+                width={900}
+                height={600}
+                className="h-auto w-full object-contain"
+              />
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Price list */}
+      {treatment.priceList && treatment.priceList.length > 0 && (
+        <section className="w-full border-t border-black/8 px-5">
+          <div className="mx-auto max-w-[900px] py-[80px] lg:py-[100px]">
+            <h2 className="text-center font-subheading text-[26px] font-medium leading-[32px] tracking-[-1px] text-forest uppercase lg:text-[32px] lg:leading-[38px]">
+              {treatment.title} Price List
+            </h2>
+            <p className="mx-auto mt-3 max-w-[560px] text-center text-[15px] leading-[24px] text-body-text">
+              Prices vary by treatment area and the amount of product used — confirmed exactly at your consultation.
+            </p>
+            <div className="mt-10 overflow-hidden rounded-[12px] border border-black/8">
+              {treatment.priceList.map((item, i) => (
+                <div
+                  key={item.area}
+                  className={`flex items-center justify-between gap-4 px-6 py-4 ${
+                    i % 2 === 0 ? "bg-cream/50" : "bg-white"
+                  }`}
+                >
+                  <span className="text-[15px] leading-[22px] text-forest">{item.area}</span>
+                  <span className="shrink-0 font-subheading text-[15px] font-semibold text-tan">
+                    {item.price}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
       )}

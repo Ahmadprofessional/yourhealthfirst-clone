@@ -58,6 +58,15 @@ export interface TreatmentDetail {
     area: string;
     price: string;
   }[];
+  /** Detailed advantages section — title + full description cards */
+  advantages?: {
+    title: string;
+    intro?: string;
+    items: {
+      title: string;
+      description: string;
+    }[];
+  };
 }
 
 export const treatmentDetails: TreatmentDetail[] = [
@@ -209,7 +218,45 @@ export const treatmentDetails: TreatmentDetail[] = [
       "As we age, our skin loses collagen, elastin and hyaluronic acid, leading to hollowing, sagging and deeper lines. Dermal fillers replenish this lost volume and stimulate collagen production, creating a refreshed and youthful appearance without surgery.",
       "At YourHealthFirst, Dr Sofia specialises in a wide range of filler treatments: lip enhancement using the Russian lips technique, tear trough treatment for dark circles and hollow eyes, non-surgical rhinoplasty, cheek augmentation, jawline contouring, nasolabial folds and marionette lines correction, and hand rejuvenation.",
       "All fillers used are CE/FDA-approved premium hyaluronic acid products. Treatments are performed with the utmost care for symmetry and proportion, ensuring a result that looks refreshed, not overdone. Dissolving (hyaluronidase) is also available should a correction be needed.",
+      "Following a quick consultation, most dermal filler appointments take around 25 to 50 minutes from start to finish, depending on how many areas are being treated. On average, most patients choose to repeat their filler course after 4–6 months to maintain results — lip fillers in particular, when performed with premium products, tend to hold their volume for a longer-lasting effect.",
     ],
+    advantages: {
+      title: "Advantages of Dermal Fillers",
+      intro:
+        "Dermal fillers harness your body's natural hyaluronic acid to combat the signs of ageing. Here are six key advantages of choosing dermal fillers at YourHealthFirst.",
+      items: [
+        {
+          title: "Wrinkle Reduction",
+          description:
+            "Dermal fillers effectively smooth out wrinkles and fine lines, restoring a more youthful appearance.",
+        },
+        {
+          title: "Volume Restoration",
+          description:
+            "They add volume to areas of the face — including lips, cheeks, under eyes and jawline — that have lost fullness due to ageing, resulting in a plumper and rejuvenated look.",
+        },
+        {
+          title: "Non-Surgical",
+          description:
+            "Dermal fillers offer a non-invasive alternative to surgical procedures, with little to no downtime and minimal discomfort.",
+        },
+        {
+          title: "Natural Results",
+          description:
+            "When performed by a skilled professional, dermal fillers provide natural-looking results, enhancing facial features — including lip fillers — without appearing overdone.",
+        },
+        {
+          title: "Long-Lasting Effects",
+          description:
+            "Depending on the type of filler used, results can last from several months to over a year.",
+        },
+        {
+          title: "Versatility",
+          description:
+            "Dermal fillers offer a versatile and comprehensive treatment, suitable for addressing various areas of the face and providing a full facial rejuvenation experience.",
+        },
+      ],
+    },
     benefits: [
       "Immediate volume restoration and contouring",
       "Softens nasolabial folds and marionette lines",

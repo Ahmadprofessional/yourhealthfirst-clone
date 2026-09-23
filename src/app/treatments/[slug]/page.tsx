@@ -246,9 +246,41 @@ export default async function TreatmentPage({ params }: Props) {
         </section>
       )}
 
+      {/* Advantages */}
+      {treatment.advantages && (
+        <section className="w-full bg-cream px-5">
+          <div className="mx-auto max-w-[1400px] py-[80px] lg:py-[100px]">
+            <h2 className="text-center font-subheading text-[26px] font-medium leading-[32px] tracking-[-1px] text-forest uppercase lg:text-[32px] lg:leading-[38px]">
+              {treatment.advantages.title}
+            </h2>
+            {treatment.advantages.intro && (
+              <p className="mx-auto mt-3 max-w-[720px] text-center text-[15px] leading-[24px] text-body-text">
+                {treatment.advantages.intro}
+              </p>
+            )}
+            <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {treatment.advantages.items.map((item) => (
+                <div
+                  key={item.title}
+                  className="flex flex-col gap-3 rounded-[12px] bg-white p-6 shadow-sm"
+                >
+                  <div className="flex items-center gap-3">
+                    <span className="h-[6px] w-[6px] shrink-0 rounded-full bg-tan" />
+                    <h3 className="font-subheading text-[14px] font-semibold tracking-[1.5px] text-forest uppercase">
+                      {item.title}
+                    </h3>
+                  </div>
+                  <p className="text-[14px] leading-[22px] text-body-text">{item.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Supporting diagram (standalone, independent of How It Works) */}
       {treatment.diagramImage && (
-        <section className={`w-full px-5 ${treatment.howItWorks ? "" : "bg-cream"}`}>
+        <section className={`w-full px-5 ${treatment.howItWorks || treatment.advantages ? "" : "bg-cream"}`}>
           <div className="mx-auto max-w-[1400px] py-[60px] lg:py-[80px]">
             <div className="relative mx-auto max-w-[900px] overflow-hidden rounded-[12px] bg-white p-4 shadow-sm">
               <Image

@@ -1,6 +1,14 @@
-import Image from "next/image";
 import { testimonials } from "@/data/site";
 import { StarIcon, QuoteIcon } from "@/components/icons";
+
+function getInitials(name: string) {
+  return name
+    .split(" ")
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((part) => part[0]?.toUpperCase())
+    .join("");
+}
 
 export default function Testimonials() {
   return (
@@ -57,13 +65,12 @@ export default function Testimonials() {
               </p>
 
               <div className="mt-auto flex items-center">
-                <Image
-                  src={item.avatar}
-                  alt={item.name}
-                  width={44}
-                  height={44}
-                  className="mr-3 h-[44px] w-[44px] rounded-full object-cover"
-                />
+                <div
+                  aria-hidden="true"
+                  className="mr-3 flex h-[44px] w-[44px] shrink-0 items-center justify-center rounded-full bg-tan font-subheading text-[15px] font-semibold text-forest"
+                >
+                  {getInitials(item.name)}
+                </div>
                 <div>
                   <strong className="block font-display text-[15px] leading-[18px] font-medium tracking-[-0.5px] text-tan uppercase">
                     {item.name}

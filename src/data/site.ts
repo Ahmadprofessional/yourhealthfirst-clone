@@ -81,32 +81,28 @@ export const trustBadges: TrustBadge[] = [
 
 export const testimonials: Testimonial[] = [
   {
-    name: "Dayana de Paula",
+    name: "Fariah Khan",
+    role: "PRP Hair Loss · Harley Street",
+    quote:
+      "Amazing experience! Dr Sophia was brilliant and helpful. I had 2 sessions of PRP hair — the clinic is in a great location just off Oxford Street and easy to get to. I am very happy with my results. I have stopped losing hair and am getting thicker hair! Highly recommend!",
+  },
+  {
+    name: "Maria Carla",
     role: "Cryolipolysis · Harley Street",
     quote:
-      "Sofia is exceptionally professional and has a way of making you feel very comfortable and relaxed during the procedure. She is very friendly and welcoming and explains everything you need to know in detail prior to and during the procedure. I did extensive research on different clinics in London before choosing this one — I am now convinced it is a place you can truly trust.",
-    avatar: "/images/testimonials/patient-1.jpg",
+      "I had a fantastic cryo treatment with Dr Sofia — she is a true expert in medical aesthetics. I treated three areas and felt completely at ease thanks to her extensive experience, warm approach, and professionalism.",
   },
   {
-    name: "Alfonso Iovine",
-    role: "Personal Trainer · Cryolipolysis",
+    name: "Robin Pearce",
+    role: "Blood Tests · Harley Street",
     quote:
-      "Being a Personal Trainer I train a lot and diet as well, but some stubborn fat deposits in certain areas seem like they will never leave no matter what you do. I decided to give cryolipolysis a try — I was very skeptical, but Sophia explained all the theory behind it and it worked amazingly well. Globally I highly recommend it.",
-    avatar: "/images/testimonials/patient-2.jpg",
+      "I cannot recommend Sofia enough. She is very professional, very personable, and her knowledge and expertise is a great comfort when having blood drawn for multiple complex tests. Thank you so much Sofia.",
   },
   {
-    name: "Timea Bear",
-    role: "Botox & Fat Freeze",
+    name: "David V",
+    role: "Skin Tag Removal · Harley Street",
     quote:
-      "Sofia is amazing. She provided me with all the information regarding the treatments and helped me all the way through. She is very professional and made me feel very comfortable. I had Botox and fat freeze on my tummy and inner thighs — the best treatments ever! Highly recommend her expertise. I am so pleased I found Sofia!",
-    avatar: "/images/testimonials/patient-1.jpg",
-  },
-  {
-    name: "Summer Zarin",
-    role: "Dermal Fillers · Harley Street",
-    quote:
-      "I loved having Sofia for my dermal fillers — she was super helpful and the process was completely pain free. I was insecure about my top lip but Sofia fixed that beautifully. I was comfortable and super pleased with the result. Loved my experience from start to finish.",
-    avatar: "/images/testimonials/patient-2.jpg",
+      "I visited YourHealthFirst Clinic to have a skin tag removed near my eye, and I couldn't be happier. The procedure was very quick and genuinely painless. Everyone was friendly, calm and professional, and I never felt rushed.",
   },
 ];
 

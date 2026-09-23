@@ -48,6 +48,14 @@ export interface TreatmentDetail {
     src: string;
     alt: string;
   }[];
+  /** Colour-coded benefit boxes shown in a row (e.g. LED light therapy benefits) */
+  colorBenefits?: {
+    title: string;
+    items: {
+      hex: string;
+      points: string[];
+    }[];
+  };
 }
 
 export const treatmentDetails: TreatmentDetail[] = [
@@ -792,11 +800,79 @@ export const treatmentDetails: TreatmentDetail[] = [
         src: "/images/treatments/cryolipolysis/how-it-works-2.jpg",
         alt: "Cryolipolysis before, during and after treatment — fat cell cross-section",
       },
-      {
-        src: "/images/treatments/cryolipolysis/light-therapy.jpg",
-        alt: "Cryolipolysis Colour Light Therapy — seven-colour LED wavelengths and their benefits",
-      },
     ],
+    colorBenefits: {
+      title: "Cryolipolysis with LED Lights — Skin Benefits",
+      items: [
+        {
+          hex: "#e02020",
+          points: [
+            "Warming",
+            "Rejuvenating",
+            "Energising",
+            "Increases collagen & elastin production",
+            "Increases blood flow & stimulates fibroblast — great for slimming",
+          ],
+        },
+        {
+          hex: "#f2c200",
+          points: [
+            "Soothes sensitive skin",
+            "Strengthens the immune system",
+            "Stimulates the lymphatic system",
+          ],
+        },
+        {
+          hex: "#7b2fd6",
+          points: [
+            "Combination of the red light and blue light",
+            "Useful to treat and repair acne scars",
+            "Increases the rate of skin renewal",
+          ],
+        },
+        {
+          hex: "#1f6fd6",
+          points: [
+            "Cooling",
+            "Calming",
+            "Relaxing",
+            "Soothing",
+            "Reduces swelling",
+            "Normalises sebum production",
+          ],
+        },
+        {
+          hex: "#0fb8c9",
+          points: [
+            "Calms skin tension",
+            "Aids healing of sun burns",
+            "Helps with skin inflammation",
+          ],
+        },
+        {
+          hex: "#2fa84f",
+          points: [
+            "Helps to relieve redness & treat pigmentation",
+            "Cooling effects",
+            "Regenerates",
+            "Anti-inflammatory",
+            "Helps to relax muscles",
+            "Promotes healing",
+            "Evens out pigmentation",
+          ],
+        },
+        {
+          hex: "#f4f1ea",
+          points: [
+            "Penetrates the deep layers of skin",
+            "Accelerates active tissue metabolism",
+            "Improves fine lines and flabby skin",
+            "Encourages lymphatic drainage",
+            "Assists in detoxifying the body",
+          ],
+        },
+      ],
+    },
     diagramImage: {
       src: "/images/treatments/cryolipolysis/treatment-areas.jpg",
       alt: "Cryolipolysis treatment areas — female and male",

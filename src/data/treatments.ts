@@ -1,6 +1,11 @@
 export interface TreatmentFaq {
   question: string;
   answer: string;
+  /** Optional structured sections (heading + bullet points) shown below the answer */
+  sections?: {
+    heading: string;
+    points: string[];
+  }[];
 }
 
 export interface TreatmentGallery {
@@ -880,6 +885,30 @@ export const treatmentDetails: TreatmentDetail[] = [
         question: "Who is suitable for cryolipolysis?",
         answer:
           "Adults at or near their ideal body weight with stubborn, diet-and-exercise-resistant fat pockets in specific areas. It is not a weight-loss treatment for those significantly overweight.",
+      },
+      {
+        question: "How do I prepare for cryolipolysis treatment?",
+        answer:
+          "A little preparation in the days before your appointment helps ensure a comfortable session and the best possible results.",
+        sections: [
+          {
+            heading: "Skin & Medical Prep",
+            points: [
+              "Stay out of the sun and avoid tanning beds for at least 48 hours to a week before your appointment, as irritated or sunburned skin is more sensitive.",
+              "Skip blood thinners: avoid NSAIDs like ibuprofen and aspirin, as well as supplements like fish oil and vitamin E, for a few days prior to reduce the risk of bruising.",
+              "Check your skin: ensure the treatment area is clean, dry and free of cuts, rashes or broken skin.",
+              "Share your health history: tell your provider about any medical conditions, pregnancy, hernias or cold sensitivities.",
+            ],
+          },
+          {
+            heading: "Diet & Hydration",
+            points: [
+              "Eat a light meal: have a light, healthy meal or snack before you go so you do not feel faint, but avoid heavy or greasy foods that cause indigestion.",
+              "Stay hydrated: drink plenty of water in the days leading up to your session to help your body process and flush out the treated fat cells.",
+              "Limit alcohol and caffeine: avoid alcohol for 24 hours and limit caffeine right before your session.",
+            ],
+          },
+        ],
       },
     ],
   },

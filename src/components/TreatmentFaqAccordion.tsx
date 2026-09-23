@@ -41,9 +41,24 @@ export default function TreatmentFaqAccordion({ items }: { items: TreatmentFaq[]
               }`}
             >
               <div className="overflow-hidden">
-                <p className="px-6 pb-5 text-[14px] leading-[24px] text-body-text">
-                  {item.answer}
-                </p>
+                <div className="flex flex-col gap-4 px-6 pb-5">
+                  <p className="text-[14px] leading-[24px] text-body-text">{item.answer}</p>
+                  {item.sections?.map((section) => (
+                    <div key={section.heading} className="flex flex-col gap-2">
+                      <h4 className="font-subheading text-[12px] font-semibold tracking-[1.5px] text-forest uppercase">
+                        {section.heading}
+                      </h4>
+                      <ul className="flex flex-col gap-2">
+                        {section.points.map((point) => (
+                          <li key={point} className="flex items-start gap-2.5 text-[14px] leading-[22px] text-body-text">
+                            <span className="mt-[8px] h-[5px] w-[5px] shrink-0 rounded-full bg-tan" />
+                            <span>{point}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>

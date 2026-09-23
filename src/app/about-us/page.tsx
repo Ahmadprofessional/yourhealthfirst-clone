@@ -233,16 +233,41 @@ export default function AboutMePage() {
                 <p>
                   With a medical career spanning more than 25 years, Sofia qualified in Spain in 1998 before
                   continuing her professional journey in London, where she has worked within both the NHS and
-                  private healthcare sectors. Her approach combines medical expertise with artistry — enhancing
-                  natural beauty, not changing who you are.
+                  private healthcare sectors. Working alongside some of Harley Street&apos;s most respected
+                  medical professionals inspired her passion for aesthetic and regenerative medicine, leading
+                  her to specialise in non-surgical treatments from 2013 onwards.
                 </p>
                 <p>
-                  Sofia&apos;s expertise lies in facial rejuvenation, body contouring and anti-ageing medicine,
-                  offering bespoke treatment plans tailored to each patient&apos;s individual needs and goals.
-                  She is committed to maintaining the highest standards of safety, care and ethical practice,
-                  ensuring every patient feels confident and supported throughout their journey.
+                  Sofia&apos;s expertise lies in facial rejuvenation, hair restoration, body contouring and
+                  anti-ageing medicine, offering bespoke treatment plans tailored to each patient&apos;s
+                  individual needs and goals. She is committed to enhancing natural beauty while preserving
+                  facial expressions and individuality, helping patients achieve refreshed, youthful results
+                  without looking over-treated.
+                </p>
+                <p>
+                  A recognised <strong className="font-semibold text-forest">PRP Hair Loss Specialist</strong>,
+                  Sofia has extensive experience treating male and female hair thinning and hair loss. By
+                  combining advanced regenerative therapies with personalised treatment protocols, she helps
+                  patients improve hair density, strengthen existing hair and support long-term scalp health —
+                  with expertise extending to exosome therapy and other non-surgical hair restoration solutions.
+                </p>
+                <p>
+                  Sofia is equally regarded for her expertise in{" "}
+                  <strong className="font-semibold text-forest">Cryolipolysis (Fat Freezing)</strong>, commonly
+                  known as CoolSculpting®. Having worked in one of the pioneering Harley Street clinics offering
+                  this treatment, she has over a decade of experience in non-surgical body contouring and fat
+                  reduction, and has treated thousands of patients since 2013 — earning her reputation through
+                  exceptional care and consistent, natural-looking results.
                 </p>
               </div>
+
+              <blockquote className="border-l-[3px] border-tan py-1 pl-5 font-serif text-[18px] leading-[28px] text-forest/80 italic">
+                &ldquo;My goal is to help patients look and feel their best through safe, natural-looking
+                treatments that enhance confidence while preserving individuality.&rdquo;
+                <span className="mt-2 block font-nav text-[13px] font-semibold tracking-[1px] text-tan not-italic uppercase">
+                  — Sofia Bouzian
+                </span>
+              </blockquote>
 
               <Link
                 href="/#book"

@@ -188,7 +188,7 @@ export default function Services() {
               services
             </h2>
           </div>
-          <h2 className="max-w-[760px] text-center font-subheading text-[26px] leading-[30px] font-medium tracking-[-1.2px] text-forest uppercase lg:text-[36px] lg:leading-[40px]">
+          <h2 className="max-w-[700px] text-center font-subheading text-[22px] leading-[26px] font-medium tracking-[-1px] text-forest uppercase lg:text-[28px] lg:leading-[32px]">
             Discover personalised skin care solutions
           </h2>
           <GhpBadge />
@@ -202,7 +202,7 @@ export default function Services() {
               className="flex flex-col justify-between gap-7 rounded-[10px] border-[1.6px] border-tan bg-[rgba(209,174,131,0.12)] p-7 transition-shadow duration-200 hover:shadow-md"
             >
               <div className="flex items-start justify-between gap-4">
-                <h3 className="font-display text-[25px] leading-[30px] font-medium text-forest uppercase">
+                <h3 className="font-display text-[26px] leading-[31px] font-medium text-forest uppercase lg:text-[32px] lg:leading-[37px]">
                   {service.title}
                 </h3>
                 <ServiceIcon icon={service.icon} bg={service.iconBg} />

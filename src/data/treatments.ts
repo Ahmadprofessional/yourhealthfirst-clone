@@ -1288,10 +1288,18 @@ export const treatmentDetails: TreatmentDetail[] = [
     image: "/images/services/emsculpt-neo.png",
     intro:
       "Emsculpt Neo is the world's first and only non-invasive treatment that simultaneously burns fat and builds muscle using a combination of radiofrequency heating and high-intensity focused electromagnetic energy (HIFEM+). One 30-minute session is equivalent to 20,000 muscle contractions.",
+    videoUrl: "/videos/treatments/emsculpt-neo-demo.mp4",
+    diagramImage: {
+      src: "/images/treatments/emsculpt-neo/hero-abdomen.png",
+      alt: "Emsculpt Neo abdomen treatment applicator",
+    },
     body: [
       "The radiofrequency component raises the temperature of fat cells to a level that permanently damages them, while the HIFEM+ energy forces the underlying muscles to contract at a level impossible to achieve through voluntary exercise. This dual-action results in measurable fat reduction and significant muscle growth in the same treatment.",
-      "Clinical studies show on average a 25% increase in muscle volume and 30% reduction in subcutaneous fat after a course of 4 sessions. Emsculpt Neo is cleared for use on the abdomen, buttocks, arms, calves and thighs.",
-      "The treatment is comfortable — patients typically feel an intense muscle contraction (like an extreme workout) and warmth from the radiofrequency, with no pain. A course of 4 sessions is recommended, spaced 5–10 days apart.",
+      "Clinical studies show on average a 25% increase in muscle volume and 30% reduction in subcutaneous fat after a course of 4 sessions. Emsculpt Neo is cleared for use on the abdomen (core), buttocks (non-surgical lift), arms, outer thighs, inner thighs, front thighs, back thighs, biceps, triceps and calves.",
+      "If you're already coming in for Cryo slimming or fat freezing, Emsculpt Neo is the next-level upgrade — tightening and toning muscle post-Cryo, sculpting a more defined athletic look, and burning even more fat while enhancing muscle growth for a complete transformation.",
+      "During treatment you'll feel intense but painless muscle contractions from the HIFEM+ technology, similar to an intense workout but without the effort, along with a warming sensation from the radiofrequency component — often described as similar to a hot stone massage. The treatment is generally well-tolerated and practitioners can adjust settings for your comfort, with no downtime so you return to normal activities immediately.",
+      "Afterwards you might experience some muscle soreness, similar to the feeling after a strenuous workout, along with temporary redness or mild swelling in the treated area — both usually mild and short-lived. Many people notice visible results after the first treatment, but optimal results are typically achieved after a full series of sessions.",
+      "The treatment is comfortable — patients typically feel an intense muscle contraction (like an extreme workout) and warmth from the radiofrequency, with no pain. A course of 4 sessions is recommended, spaced 5–10 days apart, though some practices offer up to 6 sessions depending on individual goals.",
     ],
     benefits: [
       "Simultaneously burns fat AND builds muscle",
@@ -1300,20 +1308,33 @@ export const treatmentDetails: TreatmentDetail[] = [
       "30% average reduction in subcutaneous fat (clinical studies)",
       "Non-invasive — no surgery, no downtime",
       "Treats abdomen, buttocks, arms, thighs and calves",
+      "FDA-approved and clinically proven",
+      "Suitable for all skin types and different body shapes",
     ],
     suitableFor: [
       "Adults wanting to define and tone the body",
       "Those looking to build muscle while reducing fat simultaneously",
       "Patients who exercise regularly but want to enhance results",
       "Anyone seeking buttock lifting without surgery",
+      "Busy professionals who can't commit to long gym hours",
+      "Post-pregnancy and postpartum clients seeking body contouring without surgery",
+      "Clients struggling with stubborn fat despite healthy lifestyle habits",
+      "Men and women near their ideal body weight with stubborn fat",
+      "Clients seeking to combine it with Cryo treatments for complete transformation",
     ],
     results: "Visible improvements after 2–4 sessions, optimal at 12 weeks",
     priceFrom: "From £500 per session",
+    gallery: {
+      folder: "/images/gallery/emsculpt-neo",
+      prefix: "emsculpt",
+      count: 3,
+      ext: "jpg",
+    },
     faqs: [
       {
         question: "How many sessions will I need?",
         answer:
-          "A course of 4 sessions, spaced 5–10 days apart, is recommended to achieve the clinically studied results of increased muscle volume and reduced fat.",
+          "A course of 4 sessions, spaced 5–10 days apart, is recommended to achieve the clinically studied results of increased muscle volume and reduced fat. Some practices offer up to 6 sessions, and the exact number may vary depending on your individual goals, body composition and targeted treatment areas.",
       },
       {
         question: "What results can I expect?",
@@ -1336,19 +1357,19 @@ export const treatmentDetails: TreatmentDetail[] = [
           "Emsculpt Neo complements, but doesn't replace, regular exercise. Many patients use it to enhance results they're already achieving through training, or to target areas that resist muscle definition.",
       },
       {
-        question: "When will I see results?",
+        question: "When will I see results, and how long do they last?",
         answer:
-          "Visible improvement is often noticed after 2–4 sessions, with optimal results — as muscle continues to build and fat continues to clear — seen around 12 weeks after the course.",
+          "Initial tone improvements often appear after 2–4 weeks, with fat reduction and muscle gain becoming more obvious by around 3 months (12 weeks) post-treatment. Muscle benefits can last 6–12 months, while permanent fat loss requires maintaining a stable weight afterwards.",
       },
       {
         question: "Which areas can be treated?",
         answer:
-          "Emsculpt Neo is cleared for the abdomen, buttocks, arms, calves and thighs, and can be used for both muscle toning and non-surgical buttock lifting.",
+          "Emsculpt Neo is cleared for the abdomen (core), buttocks (non-surgical lift), arms, outer/inner/front/back thighs, biceps, triceps and calves — and can be used for both muscle toning and non-surgical buttock lifting.",
       },
       {
         question: "Who is suitable for Emsculpt Neo?",
         answer:
-          "Adults wanting to build muscle definition and reduce fat simultaneously — particularly those who already exercise but want to enhance results, or anyone seeking a non-surgical alternative to buttock augmentation.",
+          "Adults wanting to build muscle definition and reduce fat simultaneously — particularly those who already exercise but want to enhance results, busy professionals short on gym time, post-pregnancy clients, or anyone seeking a non-surgical alternative to buttock augmentation.",
       },
     ],
   },

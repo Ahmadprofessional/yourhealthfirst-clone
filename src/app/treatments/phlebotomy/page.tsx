@@ -160,6 +160,14 @@ function Icon({ name, className }: { name: string; className?: string }) {
           <path d="M5 4h3.5l1.5 5-2.5 1.5a11 11 0 0 0 5 5L14 13l5 1.5V18a2 2 0 0 1-2 2C10.5 20 4 13.5 4 6a2 2 0 0 1 1-2Z" />
         </svg>
       );
+    case "tubes":
+      return (
+        <svg className={className} {...common}>
+          <path d="M7 3v14a2 2 0 0 0 4 0V3M7 8h4" />
+          <path d="M13 6v9a1.7 1.7 0 0 0 3.4 0V6M13 9.5h3.4" />
+          <path d="M18 9v6a1.3 1.3 0 0 0 2.6 0V9M18 11.5h2.6" />
+        </svg>
+      );
     default:
       return null;
   }
@@ -451,35 +459,52 @@ export default function PhlebotomyPage() {
       {/* Spinning Science — dark CTA band */}
       <section className="relative w-full overflow-hidden bg-[#061a10] px-5">
         <div className="pointer-events-none absolute left-1/2 top-0 h-[400px] w-[400px] -translate-x-1/2 rounded-full bg-tan/8 blur-[100px]" />
-        <div className="relative mx-auto max-w-[1400px] py-[70px] lg:py-[90px]">
-          <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
-            <div className="flex flex-col gap-5">
-              <div className="flex flex-col gap-2">
-                <h2 className="font-display text-[26px] font-bold leading-[32px] tracking-[-1px] text-cream uppercase lg:text-[32px] lg:leading-[38px]">
-                  Spinning Science: Unveiling the Power of Centrifugation
-                </h2>
-                <span className="h-[3px] w-16 rounded-full bg-tan" />
+        <div className="relative mx-auto max-w-[1400px] py-[80px] lg:py-[100px]">
+          <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2 lg:gap-20">
+            <div className="flex flex-col gap-6">
+              <div className="flex items-center gap-3">
+                <span className="font-nav text-[12px] font-semibold tracking-[3px] text-tan uppercase">
+                  Phlebotomy
+                </span>
+                <span className="h-px w-16 bg-tan/40" />
               </div>
-              <p className="text-[15px] leading-[24px] text-white/70">
+              <h2 className="font-display text-[32px] font-bold leading-[38px] tracking-[-1px] text-cream uppercase lg:text-[42px] lg:leading-[48px]">
+                Spinning Science:{" "}
+                <span className="text-tan">Unveiling the Power of Centrifugation</span>
+              </h2>
+              <p className="text-[15px] leading-[25px] text-white/70">
                 At YHF, we specifically work with venous blood draws that have been centrifuged to ensure the biomarkers are safeguarded and to maintain complete accuracy within our complex and comprehensive reports.
               </p>
-              <p className="text-[15px] leading-[24px] text-white/70">
+              <p className="text-[15px] leading-[25px] text-white/70">
                 Centrifugation is a method of separating solids from liquids using rotational forces (spun). When blood is centrifuged, the red cell portion and plasma are separated, leaving the delicate biomarkers stable and intact, and suitable for transportation to the lab. Without centrifuging, many of the biomarkers become unstable and deteriorate over time, which can result in incorrect results.
               </p>
               <a
                 href="#faqs"
-                className="mt-1 inline-flex w-fit items-center gap-2 font-nav text-[14px] font-semibold tracking-[0.5px] text-tan uppercase transition-opacity hover:opacity-80"
+                className="mt-2 inline-flex h-14 w-fit items-center gap-3 rounded-[10px] bg-tan px-7 font-nav text-[14px] font-semibold tracking-[0.5px] text-forest uppercase transition-opacity hover:opacity-90"
               >
-                Read More About Phlebotomy →
+                Read More About Phlebotomy
+                <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth={2.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12h15m0 0-6-6m6 6-6 6" />
+                </svg>
               </a>
             </div>
-            <div className="relative w-full overflow-hidden rounded-[16px] shadow-lg" style={{ aspectRatio: "4/3" }}>
-              <Image
-                src="/images/treatments/phlebotomy/centrifuge.jpg"
-                alt="Blood sample being placed in the centrifuge at YourHealthFirst Clinic"
-                fill
-                className="object-cover"
-              />
+
+            <div className="relative mx-auto w-full max-w-[520px]">
+              <div className="pointer-events-none absolute -right-8 -top-8 h-full w-full rounded-full border border-tan/30" />
+              <div className="relative w-full overflow-hidden rounded-[24px] shadow-xl" style={{ aspectRatio: "4/3" }}>
+                <Image
+                  src="/images/treatments/phlebotomy/centrifuge.jpg"
+                  alt="Blood sample being placed in the centrifuge at YourHealthFirst Clinic"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <span className="absolute -left-6 -top-6 flex h-16 w-16 items-center justify-center rounded-full bg-tan text-forest shadow-lg">
+                <Icon name="drop" className="h-7 w-7" />
+              </span>
+              <span className="absolute -right-6 -bottom-6 flex h-16 w-16 items-center justify-center rounded-full bg-tan text-forest shadow-lg">
+                <Icon name="tubes" className="h-7 w-7" />
+              </span>
             </div>
           </div>
         </div>

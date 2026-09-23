@@ -60,6 +60,16 @@ const accreditations = [
   "Affiliated — European Academy for Environmental Medicine",
 ];
 
+const areasOfExpertise = [
+  "Facial Rejuvenation & Anti-Ageing Treatments",
+  "PRP Hair Restoration & Hair Loss Treatments",
+  "Exosome Therapy for Hair & Skin Regeneration",
+  "Body Rejuvenation & Skin Tightening",
+  "Cryolipolysis (Fat Freezing) & Body Contouring",
+  "Regenerative & Preventative Aesthetic Medicine",
+  "Personalised Wellness & Longevity Treatments",
+];
+
 const stats = [
   {
     value: "25+",
@@ -233,6 +243,75 @@ export default function AboutMePage() {
             alt="Sofia Bouzian — YourHealthFirst Clinic"
             className="h-full w-full object-cover object-[center_10%]"
           />
+        </div>
+      </section>
+
+      {/* ── RECOGNITION & EXPERTISE ── */}
+      <section className="w-full px-5">
+        <div className="mx-auto max-w-[1400px] py-[80px] lg:py-[100px]">
+          <div className="flex flex-col gap-12 lg:flex-row lg:gap-16">
+
+            {/* Left — image card */}
+            <div className="relative lg:w-[420px] lg:shrink-0">
+              <div className="relative overflow-hidden rounded-[14px]" style={{ aspectRatio: "4/5" }}>
+                <SafeImage
+                  src="/images/about us second image.jpeg"
+                  alt="Sofia Bouzian — YourHealthFirst Clinic"
+                  className="h-full w-full object-cover object-top"
+                />
+              </div>
+            </div>
+
+            {/* Right — recognition text */}
+            <div className="flex flex-col gap-7 lg:flex-1">
+              <div>
+                <div className="w-fit rounded-full border-[0.8px] border-forest/20 px-3 py-2">
+                  <p className="font-nav text-[12px] font-semibold tracking-[3px] text-forest uppercase">Recognition</p>
+                </div>
+                <h2 className="mt-4 font-subheading text-[26px] leading-[32px] font-bold tracking-[-1px] text-forest uppercase lg:text-[34px] lg:leading-[40px]">
+                  Award-Winning Care &amp;<br />Professional Standing
+                </h2>
+              </div>
+
+              <div className="flex flex-col gap-4 text-[16px] leading-[28px] tracking-[-0.2px] text-body-text">
+                <p>
+                  In recognition of her commitment to excellence, Sofia was awarded{" "}
+                  <strong className="font-semibold text-forest">
+                    Best Non-Invasive Cosmetic &amp; Medical Clinic in London 2019
+                  </strong>{" "}
+                  by the Global Healthcare &amp; Pharmaceutical (GHP) Awards.
+                </p>
+                <p>
+                  Sofia is an associate member of the Royal Society of Medicine, a member of the British
+                  Association of Sclerotherapists, and is accredited by the Royal Society for Public Health.
+                  She also maintains professional affiliations with the European Academy for Environmental
+                  Medicine, reflecting her ongoing commitment to professional excellence, patient safety, and
+                  continuous education.
+                </p>
+              </div>
+
+              <div className="flex flex-col gap-4">
+                <h3 className="font-subheading text-[16px] font-bold tracking-[-0.3px] text-forest uppercase">
+                  Areas of Expertise
+                </h3>
+                <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                  {areasOfExpertise.map((item) => (
+                    <li key={item} className="flex items-start gap-3">
+                      <span className="mt-[9px] h-[6px] w-[6px] shrink-0 rounded-full bg-tan" />
+                      <span className="text-[15px] leading-[24px] text-body-text">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <Link
+                href="/#book"
+                className="inline-flex w-fit items-center gap-2 rounded-[8px] bg-tan px-8 py-4 font-nav text-[14px] font-semibold tracking-[-0.3px] text-forest transition-opacity hover:opacity-90"
+              >
+                Book a Consultation →
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 

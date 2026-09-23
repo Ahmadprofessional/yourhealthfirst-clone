@@ -104,6 +104,36 @@ export const treatmentDetails: TreatmentDetail[] = [
         answer:
           "Most healthy adults concerned about dynamic lines, jaw clenching, gummy smiles or excessive sweating are good candidates. Pregnant or breastfeeding women, and those with certain neuromuscular conditions, are not suitable — this is confirmed during your consultation.",
       },
+      {
+        question: "Does it leave my face numb?",
+        answer:
+          "No. Anti-wrinkle injections relax the targeted muscles but don't affect sensation — your skin remains fully able to feel touch, temperature and pressure as normal.",
+      },
+      {
+        question: "When will I notice a difference?",
+        answer:
+          "Most patients begin to see softening within 3–5 days, with the full effect visible by day 14. If an area still looks under-treated after 2 weeks, a top-up can be arranged.",
+      },
+      {
+        question: "How will I look after the treatment?",
+        answer:
+          "You may have small bumps or slight redness at the injection points for a few hours, which settles quickly. There is no visible downtime, so most patients return straight to work or normal activities.",
+      },
+      {
+        question: "How does anti-wrinkle treatment work?",
+        answer:
+          "Botulinum toxin is injected into specific facial muscles, temporarily blocking the nerve signals that cause them to contract. With the muscle at rest, the skin above it smooths out and existing lines soften over the following days.",
+      },
+      {
+        question: "Is it safe?",
+        answer:
+          "Yes, when performed by an experienced, appropriately qualified practitioner using licensed products. Sofia carries out a full medical assessment at consultation to confirm suitability and agree the right dose and placement for you.",
+      },
+      {
+        question: "What is anti-wrinkle treatment used for?",
+        answer:
+          "Beyond softening forehead, frown and crow's feet lines, it's also used for a non-surgical brow lift, jawline slimming, gummy smile correction and treating excessive sweating (hyperhidrosis) in the underarms, palms or feet.",
+      },
     ],
   },
   {

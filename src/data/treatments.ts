@@ -726,10 +726,6 @@ export const treatmentDetails: TreatmentDetail[] = [
     intro:
       "PRP (Platelet-Rich Plasma) hair loss treatment is a three-step medical treatment in which a patient's blood is drawn, processed, and then injected into the scalp. It volumises hair, naturally grows new roots, increases the survival and strengthening of existing hair, increases vascularisation of the scalp, and improves the vitality, colour and shine of your hair — improving overall hair quality through an entirely natural process. PRP is the only non-surgical and non-pharmaceutical treatment that has proven its efficacy and safety.",
     videoId: "qG-TFBGfxkM",
-    diagramImage: {
-      src: "/images/treatments/prp-hair-loss/hero-photo.png",
-      alt: "PRP Hair Restoration at YourHealthFirst Clinic",
-    },
     body: [
       "Dr Sofia is a recognised PRP Hair Loss Specialist with extensive experience treating both male pattern baldness and female hair thinning. The treatment uses your own blood — processed to concentrate the platelets — which are then injected precisely into the thinning areas of the scalp. In collaboration with Regen Lab's original and patented technologies, a one-step closed system is used to prepare your own blood cells, and the Advanced PRP Cellular Matrix is injected using the pain-free U225 latest intradermal medical injector.",
       "There are two major forms of alopecia affecting the population that can be improved with PRP. Androgenic Alopecia is the most common cause of male pattern baldness, due to hormonal imbalance, genetic predisposition, age and metabolic syndromes — treatments are generally challenging, and previous therapies have often shown limited effectiveness or side-effects. Androgenetic alopecia affects up to 30% of men over 30 and 50% of men over 50, as well as many women, and PRP shows excellent results for male and female patients from initial to intermediate stages (I–V on the Norwood scale).",
@@ -785,10 +781,10 @@ export const treatmentDetails: TreatmentDetail[] = [
       ],
     },
     processDiagrams: [
-      { src: "/images/treatments/prp-hair-loss/cellular-matrix-title.jpg", alt: "Cellular Matrix technology" },
-      { src: "/images/treatments/prp-hair-loss/regenkit-bct.jpg", alt: "RegenKit BCT — Advanced PRP Cellular Matrix kit" },
-      { src: "/images/treatments/prp-hair-loss/bct-tubes.png", alt: "PRP Cellular Matrix BCT collection tubes" },
-      { src: "/images/treatments/prp-hair-loss/blu-tubes.png", alt: "PRP collection tubes" },
+      {
+        src: "/images/treatments/prp-hair-loss/cellular-matrix-regenkit.webp",
+        alt: "Cellular Matrix technology — RegenKit A-PRP hydration and regeneration",
+      },
     ],
     advantages: {
       title: "Advantages of PRFM Treatment",

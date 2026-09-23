@@ -828,10 +828,10 @@ export const treatmentDetails: TreatmentDetail[] = [
       ],
     },
     gallery: {
-      folder: "/images/gallery/prp-hair-loss",
-      prefix: "prp-hair",
-      count: 6,
-      ext: "jpg",
+      folder: "/images/gallery/prp-men",
+      prefix: "prp-men",
+      count: 4,
+      ext: "jpeg",
     },
     benefits: [
       "Stimulates dormant follicles and promotes new hair growth",

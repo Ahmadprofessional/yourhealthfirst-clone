@@ -206,8 +206,101 @@ export default async function TreatmentPage({ params }: Props) {
         </div>
       </section>
 
-      {/* Treatment areas + Who is it for — prominent two-column list */}
-      {treatment.treatmentAreas && treatment.treatmentAreas.length > 0 && (
+      {/* Treatment areas + Who is it for — hero card layout (with photo + floating cards) */}
+      {treatment.treatmentAreas && treatment.treatmentAreas.length > 0 && treatment.treatmentAreasImage && treatment.treatmentAreasHeading && (
+        <section className="relative w-full overflow-hidden bg-[linear-gradient(135deg,#f8f2e8_0%,#ecdcc3_100%)] px-5">
+          <div className="mx-auto max-w-[1400px] py-[70px] lg:py-[90px]">
+            <div className="grid grid-cols-1 gap-10 lg:grid-cols-[0.85fr_1.45fr] lg:items-stretch">
+              <div className="relative min-h-[320px] w-full overflow-hidden rounded-[20px] shadow-lg">
+                <Image
+                  src={treatment.treatmentAreasImage.src}
+                  alt={treatment.treatmentAreasImage.alt}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="flex flex-col justify-center gap-8">
+                <div className="flex flex-col gap-3">
+                  <div className="flex items-center gap-3">
+                    <span className="font-nav text-[12px] font-semibold tracking-[3px] text-tan uppercase">
+                      {treatment.title}
+                    </span>
+                    <span className="h-px w-full max-w-[100px] bg-tan/40" />
+                  </div>
+                  <h2 className="font-display text-[32px] font-bold leading-[38px] tracking-[-1px] text-forest uppercase lg:text-[42px] lg:leading-[46px]">
+                    {treatment.treatmentAreasHeading.main}{" "}
+                    <span className="text-tan">{treatment.treatmentAreasHeading.accent}</span>
+                  </h2>
+                  <p className="text-[15px] leading-[24px] text-body-text">
+                    {treatment.treatmentAreasHeading.subtitle}
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+                  {/* Treatment areas card */}
+                  <div className="flex flex-col gap-4 rounded-[16px] border border-tan/25 bg-white/70 p-6 shadow-sm backdrop-blur-sm">
+                    <div className="flex items-center gap-3">
+                      <span className="font-nav text-[11px] font-semibold tracking-[2px] text-tan uppercase">
+                        Treatment Areas
+                      </span>
+                      <span className="h-px flex-1 bg-tan/30" />
+                    </div>
+                    <h3 className="font-subheading text-[19px] font-semibold leading-[24px] text-forest">
+                      Where {treatment.title} Can Be Used
+                    </h3>
+                    <ul className="grid grid-cols-1 gap-x-4 gap-y-3 sm:grid-cols-2">
+                      {treatment.treatmentAreas.map((area) => (
+                        <li key={area} className="flex items-center gap-2.5">
+                          <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-tan/15 text-tan">
+                            <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth={2.5}>
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12h15m0 0-6-6m6 6-6 6" />
+                            </svg>
+                          </span>
+                          <span className="text-[14px] leading-[20px] text-body-text">{area}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Who is it for card */}
+                  <div className="flex flex-col gap-4 rounded-[16px] border border-tan/25 bg-white/70 p-6 shadow-sm backdrop-blur-sm">
+                    <div className="flex items-center gap-3">
+                      <span className="font-nav text-[11px] font-semibold tracking-[2px] text-tan uppercase">
+                        Is {treatment.title} Right For You?
+                      </span>
+                      <span className="h-px flex-1 bg-tan/30" />
+                    </div>
+                    <h3 className="font-subheading text-[19px] font-semibold leading-[24px] text-forest">
+                      Who Is It For?
+                    </h3>
+                    <ul className="flex flex-col gap-2.5">
+                      {treatment.suitableFor.map((item) => (
+                        <li key={item} className="flex items-start gap-2.5">
+                          <span className="mt-[1px] flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-tan/15 text-tan">
+                            <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth={2.5}>
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12h15m0 0-6-6m6 6-6 6" />
+                            </svg>
+                          </span>
+                          <span className="text-[14px] leading-[20px] text-body-text">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <a
+                      href="/contact-us"
+                      className="mt-1 flex h-11 w-full items-center justify-center rounded-[8px] bg-tan px-6 font-nav text-[13px] font-semibold tracking-[0.5px] text-forest uppercase transition-opacity hover:opacity-90"
+                    >
+                      Book a Consultation Now
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Fallback plain layout for treatments with areas but no hero image/heading */}
+      {treatment.treatmentAreas && treatment.treatmentAreas.length > 0 && !(treatment.treatmentAreasImage && treatment.treatmentAreasHeading) && (
         <section className="w-full border-t border-black/8 px-5">
           <div className="mx-auto max-w-[1400px] py-[70px] lg:py-[90px]">
             <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
@@ -303,6 +396,11 @@ export default async function TreatmentPage({ params }: Props) {
               <h2 className="font-display text-[28px] font-bold leading-[34px] tracking-[-1px] text-cream uppercase lg:text-[38px] lg:leading-[44px]">
                 {treatment.careInstructions.title}
               </h2>
+              {treatment.careInstructions.intro && (
+                <p className="max-w-[720px] text-[15px] leading-[24px] text-white/70">
+                  {treatment.careInstructions.intro}
+                </p>
+              )}
             </div>
 
             <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">

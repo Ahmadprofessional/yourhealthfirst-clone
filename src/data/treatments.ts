@@ -33,6 +33,9 @@ export interface TreatmentDetail {
   suitableFor: string[];
   /** Specific body areas the treatment can be applied to, shown as its own list alongside "Who Is It For?" */
   treatmentAreas?: string[];
+  /** Supporting photo + heading for the treatment-areas hero card section (falls back to a plain layout if omitted) */
+  treatmentAreasImage?: { src: string; alt: string };
+  treatmentAreasHeading?: { main: string; accent: string; subtitle: string };
   results: string;
   priceFrom?: string;
   faqs: TreatmentFaq[];
@@ -104,6 +107,7 @@ export interface TreatmentDetail {
   /** Prominent before/aftercare instructions section, grouped by timeframe */
   careInstructions?: {
     title: string;
+    intro?: string;
     groups: {
       heading: string;
       points: string[];
@@ -1299,17 +1303,16 @@ export const treatmentDetails: TreatmentDetail[] = [
     intro:
       "Emsculpt Neo is the world's first and only non-invasive treatment that simultaneously burns fat and builds muscle using a combination of radiofrequency heating and high-intensity focused electromagnetic energy (HIFEM+). One 30-minute session is equivalent to 20,000 muscle contractions.",
     videoUrl: "/videos/treatments/emsculpt-neo-demo.mp4",
+    treatmentAreasImage: {
+      src: "/images/treatments/emsculpt-neo/hero-abdomen.png",
+      alt: "Emsculpt Neo abdomen treatment applicator",
+    },
+    treatmentAreasHeading: {
+      main: "Targeted",
+      accent: "Body Contouring",
+      subtitle: "A non-surgical approach to muscle definition and body shaping.",
+    },
     imageTextSections: [
-      {
-        image: "/images/treatments/emsculpt-neo/hero-abdomen.png",
-        alt: "Emsculpt Neo abdomen treatment applicator",
-        heading: "What Is Emsculpt Neo, and How Does It Work?",
-        body: [
-          "Emsculpt Neo is a non-invasive device that merges radiofrequency (RF) to heat and destroy fat cells with HIFEM+ energy to induce powerful muscle contractions.",
-          "Together, they target fat reduction and muscle building at the same time — the only device in the world that delivers both benefits simultaneously, with FDA clearance and clinical studies supporting its effectiveness.",
-        ],
-        imagePosition: "right",
-      },
       {
         image: "/images/treatments/emsculpt-neo/chest-applicator.jpg",
         alt: "Emsculpt Neo chest and core applicator in use",
@@ -1332,7 +1335,9 @@ export const treatmentDetails: TreatmentDetail[] = [
       },
     ],
     careInstructions: {
-      title: "What to Expect With Emsculpt Neo",
+      title: "What Can You Expect During Each Treatment?",
+      intro:
+        "During an Emsculpt Neo treatment, you can expect to feel intense but painless muscle contractions and a warming sensation in the treated area. The treatment is non-invasive and typically lasts for 30 minutes per session. You might experience some muscle soreness afterward, similar to post-exercise, but there's no downtime.",
       groups: [
         {
           heading: "During Treatment",

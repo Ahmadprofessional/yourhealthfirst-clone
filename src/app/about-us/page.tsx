@@ -129,10 +129,22 @@ export default function AboutMePage() {
               </p>
             </div>
 
-            <p className="max-w-[480px] text-[16px] leading-[27px] text-white/55">
-              Specialist in Facial Rejuvenation, Hair Restoration &amp; Body Contouring —
-              practising from Harley Street &amp; Wimpole Street, London since 2013.
-            </p>
+            <div className="flex max-w-[480px] flex-col gap-4 text-[15px] leading-[26px] text-white/55">
+              <p>
+                Specialist in Facial Rejuvenation, Hair Restoration &amp; Body Contouring —
+                practising from Harley Street &amp; Wimpole Street, London since 2013.
+              </p>
+              <p>
+                With a medical career spanning more than 25 years, Sofia qualified in Spain
+                in 1998 before continuing her professional journey across the NHS and private
+                healthcare in London — a foundation that shapes every treatment she delivers today.
+              </p>
+              <p>
+                A recognised PRP Hair Loss Specialist and pioneer of Cryolipolysis (Fat Freezing)
+                on Harley Street, Sofia has treated thousands of patients since 2013, earning her
+                reputation through exceptional care and consistent, natural-looking results.
+              </p>
+            </div>
 
             {/* Mini stat badges */}
             <div className="flex flex-wrap gap-3">

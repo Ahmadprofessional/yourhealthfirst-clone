@@ -785,12 +785,12 @@ export const treatmentDetails: TreatmentDetail[] = [
     },
     processDiagrams: [
       {
-        src: "/images/treatments/cryolipolysis/how-it-works-1.jpg",
-        alt: "Cryolipolysis process — from stubborn fat bulges through cooling, apoptosis and fat layer reduction",
+        src: "/images/treatments/cryolipolysis/how-cryolipolysis-works-steps.jpg",
+        alt: "How Cryolipolysis Works — stubborn fat, controlled cooling, fat cells crystallise, natural elimination, visible results",
       },
       {
-        src: "/images/treatments/cryolipolysis/how-it-works-2.jpg",
-        alt: "Cryolipolysis before, during and after treatment — fat cell cross-section",
+        src: "/images/treatments/cryolipolysis/how-cryolipolysis-works-cross-section.webp",
+        alt: "Cryolipolysis before, during and after treatment — skin, fat layer and muscle cross-section",
       },
       {
         src: "/images/treatments/cryolipolysis/led-light-therapy-benefits.webp",
@@ -798,7 +798,7 @@ export const treatmentDetails: TreatmentDetail[] = [
       },
     ],
     diagramImage: {
-      src: "/images/treatments/cryolipolysis/treatment-areas.jpg",
+      src: "/images/treatments/cryolipolysis/treatment-areas-new.jpg",
       alt: "Cryolipolysis treatment areas — female and male",
     },
     body: [

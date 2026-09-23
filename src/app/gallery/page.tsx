@@ -34,6 +34,26 @@ const sclerotherapyImages = Array.from({ length: 4 }, (_, i) => ({
   alt: `Sclerotherapy before & after — result ${i + 1}`,
 }));
 
+const prpMenImages = Array.from({ length: 4 }, (_, i) => ({
+  src: `/images/gallery/prp-men/prp-men-${i + 1}.jpeg`,
+  alt: `PRP hair loss (men) before & after — result ${i + 1}`,
+}));
+
+const prpFemaleImages = Array.from({ length: 3 }, (_, i) => ({
+  src: `/images/gallery/prp-female/prp-female-${i + 1}.jpeg`,
+  alt: `PRP hair loss (women) before & after — result ${i + 1}`,
+}));
+
+const prpBeardImages = Array.from({ length: 2 }, (_, i) => ({
+  src: `/images/gallery/prp-beard/prp-beard-${i + 1}.jpeg`,
+  alt: `PRP patchy beard restoration before & after — result ${i + 1}`,
+}));
+
+const sculptraImages = Array.from({ length: 3 }, (_, i) => ({
+  src: `/images/gallery/sculptra/sculptra-${i + 1}.jpeg`,
+  alt: `Sculptra before & after — result ${i + 1}`,
+}));
+
 function BeforeAfterGrid({ images }: { images: { src: string; alt: string }[] }) {
   return (
     <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -211,6 +231,78 @@ export default function GalleryPage() {
         </div>
       </section>
 
+      {/* PRP Hair Loss (Men) section */}
+      <section className="w-full border-t border-black/8 bg-cream/40 px-5">
+        <div className="mx-auto max-w-[1400px] py-[80px] lg:py-[100px]">
+          <div className="mb-10 flex flex-col gap-2">
+            <div className="flex items-center gap-4">
+              <h2 className="font-subheading text-[24px] font-medium leading-[30px] tracking-[-1px] text-forest uppercase lg:text-[30px] lg:leading-[36px]">
+                PRP Hair Loss (Men) — Before &amp; After
+              </h2>
+              <div className="flex-1 border-t border-black/8" />
+            </div>
+            <p className="text-[15px] text-body-text">
+              Platelet-rich plasma hair restoration results for male hair thinning and hair loss.
+            </p>
+          </div>
+          <BeforeAfterGrid images={prpMenImages} />
+        </div>
+      </section>
+
+      {/* PRP Hair Loss (Women) section */}
+      <section className="w-full border-t border-black/8 px-5">
+        <div className="mx-auto max-w-[1400px] py-[80px] lg:py-[100px]">
+          <div className="mb-10 flex flex-col gap-2">
+            <div className="flex items-center gap-4">
+              <h2 className="font-subheading text-[24px] font-medium leading-[30px] tracking-[-1px] text-forest uppercase lg:text-[30px] lg:leading-[36px]">
+                PRP Hair Loss (Women) — Before &amp; After
+              </h2>
+              <div className="flex-1 border-t border-black/8" />
+            </div>
+            <p className="text-[15px] text-body-text">
+              Platelet-rich plasma hair restoration results for female hair thinning and hair loss.
+            </p>
+          </div>
+          <BeforeAfterGrid images={prpFemaleImages} />
+        </div>
+      </section>
+
+      {/* PRP Patchy Beard section */}
+      <section className="w-full border-t border-black/8 bg-cream/40 px-5">
+        <div className="mx-auto max-w-[1400px] py-[80px] lg:py-[100px]">
+          <div className="mb-10 flex flex-col gap-2">
+            <div className="flex items-center gap-4">
+              <h2 className="font-subheading text-[24px] font-medium leading-[30px] tracking-[-1px] text-forest uppercase lg:text-[30px] lg:leading-[36px]">
+                PRP Patchy Beard — Before &amp; After
+              </h2>
+              <div className="flex-1 border-t border-black/8" />
+            </div>
+            <p className="text-[15px] text-body-text">
+              Platelet-rich plasma results for patchy beard growth and facial hair density.
+            </p>
+          </div>
+          <BeforeAfterGrid images={prpBeardImages} />
+        </div>
+      </section>
+
+      {/* Sculptra section */}
+      <section className="w-full border-t border-black/8 px-5">
+        <div className="mx-auto max-w-[1400px] py-[80px] lg:py-[100px]">
+          <div className="mb-10 flex flex-col gap-2">
+            <div className="flex items-center gap-4">
+              <h2 className="font-subheading text-[24px] font-medium leading-[30px] tracking-[-1px] text-forest uppercase lg:text-[30px] lg:leading-[36px]">
+                Sculptra — Before &amp; After
+              </h2>
+              <div className="flex-1 border-t border-black/8" />
+            </div>
+            <p className="text-[15px] text-body-text">
+              Collagen bio-stimulator results — facial volume restoration and skin quality improvement.
+            </p>
+          </div>
+          <BeforeAfterGrid images={sculptraImages} />
+        </div>
+      </section>
+
       {/* Other Treatments section */}
       <section className="w-full border-t border-black/8 bg-cream/40 px-5">
         <div className="mx-auto max-w-[1400px] py-[80px] lg:py-[100px]">
@@ -222,7 +314,7 @@ export default function GalleryPage() {
               <div className="flex-1 border-t border-black/8" />
             </div>
             <p className="text-[15px] text-body-text">
-              Hair loss regrowth, alopecia and additional treatment results.
+              Alopecia and additional treatment results.
             </p>
           </div>
           <ComingSoonPlaceholder title="Other Treatment Before & After Photos" />

@@ -457,7 +457,7 @@ export default function PhlebotomyPage() {
       </section>
 
       {/* Spinning Science — dark CTA band */}
-      <section className="relative w-full overflow-hidden bg-[#061a10] px-5">
+      <section className="relative w-full overflow-hidden bg-[linear-gradient(120deg,#3a2c1a_0%,#241a0f_100%)] px-5">
         <div className="pointer-events-none absolute left-1/2 top-0 h-[400px] w-[400px] -translate-x-1/2 rounded-full bg-tan/8 blur-[100px]" />
         <div className="relative mx-auto max-w-[1400px] py-[80px] lg:py-[100px]">
           <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2 lg:gap-20">

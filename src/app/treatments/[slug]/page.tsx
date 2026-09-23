@@ -94,6 +94,14 @@ export default async function TreatmentPage({ params }: Props) {
                   />
                 </div>
               )}
+              {treatment.videoUrl && (
+                <video
+                  src={treatment.videoUrl}
+                  controls
+                  playsInline
+                  className="w-full rounded-[12px] bg-black"
+                />
+              )}
 
               {/* Body paragraphs */}
               <div className="flex flex-col gap-5">
@@ -271,6 +279,73 @@ export default async function TreatmentPage({ params }: Props) {
                     </h3>
                   </div>
                   <p className="text-[14px] leading-[22px] text-body-text">{item.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Feature images (2-up benefit cards with supporting image) */}
+      {treatment.featureImages && treatment.featureImages.length > 0 && (
+        <section className="w-full px-5">
+          <div className="mx-auto max-w-[1400px] py-[80px] lg:py-[100px]">
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+              {treatment.featureImages.map((feature) => (
+                <div
+                  key={feature.title}
+                  className="overflow-hidden rounded-[12px] border border-black/8 shadow-sm"
+                >
+                  <div className="relative w-full" style={{ aspectRatio: "4/3" }}>
+                    <Image
+                      src={feature.image}
+                      alt={feature.title}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <h3 className="font-subheading text-[16px] font-semibold leading-[22px] text-forest">
+                      {feature.title}
+                    </h3>
+                    <p className="mt-2 text-[14px] leading-[22px] text-body-text">
+                      {feature.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Before / After pairs */}
+      {treatment.beforeAfterPairs && treatment.beforeAfterPairs.length > 0 && (
+        <section className="w-full border-t border-black/8 bg-cream px-5">
+          <div className="mx-auto max-w-[1400px] py-[80px] lg:py-[100px]">
+            <h2 className="text-center font-subheading text-[26px] font-medium leading-[32px] tracking-[-1px] text-forest uppercase lg:text-[32px] lg:leading-[38px]">
+              Before &amp; After
+            </h2>
+            <div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2">
+              {treatment.beforeAfterPairs.map((pair, i) => (
+                <div key={i} className="flex flex-col gap-3">
+                  <div className="grid grid-cols-2 gap-2">
+                    <div className="relative overflow-hidden rounded-[10px]" style={{ aspectRatio: "1/1" }}>
+                      <Image src={pair.before} alt={`${pair.label} — before`} fill className="object-cover" />
+                      <span className="absolute left-2 top-2 rounded-[4px] bg-forest/80 px-2 py-1 text-[10px] font-semibold tracking-[1px] text-cream uppercase">
+                        Before
+                      </span>
+                    </div>
+                    <div className="relative overflow-hidden rounded-[10px]" style={{ aspectRatio: "1/1" }}>
+                      <Image src={pair.after} alt={`${pair.label} — after`} fill className="object-cover" />
+                      <span className="absolute left-2 top-2 rounded-[4px] bg-tan px-2 py-1 text-[10px] font-semibold tracking-[1px] text-forest uppercase">
+                        After
+                      </span>
+                    </div>
+                  </div>
+                  <p className="text-center font-subheading text-[13px] font-semibold tracking-[1px] text-forest uppercase">
+                    {pair.label}
+                  </p>
                 </div>
               ))}
             </div>

@@ -37,6 +37,20 @@ export interface TreatmentDetail {
   gallery?: TreatmentGallery;
   /** YouTube video ID shown as an embedded explainer video */
   videoId?: string;
+  /** Self-hosted video file (mp4) shown as an embedded explainer video, used instead of videoId */
+  videoUrl?: string;
+  /** Two-up feature cards with a supporting image (e.g. benefit highlights) */
+  featureImages?: {
+    title: string;
+    description: string;
+    image: string;
+  }[];
+  /** Labelled before/after image pairs shown side by side */
+  beforeAfterPairs?: {
+    label: string;
+    before: string;
+    after: string;
+  }[];
   /** "How it works" 3-step feature grid, shown below the video */
   howItWorks?: {
     title: string;
@@ -1290,18 +1304,49 @@ export const treatmentDetails: TreatmentDetail[] = [
     image: "/images/services/placeholder.png",
     intro:
       "Mesotherapy combined with microneedling is a powerful skin rejuvenation technique that delivers tailored cocktails of vitamins, amino acids, hyaluronic acid and antioxidants directly into the skin using a pain-free micro-injector. It is effective for a wide range of skin concerns from dullness and dehydration to acne scarring and hair loss.",
+    videoUrl: "/videos/treatments/microneedling-demo.mp4",
+    featureImages: [
+      {
+        title: "Fight Against the Signs of Ageing",
+        description:
+          "By diminishing acne scars, fine lines/wrinkles, stretch marks and sun damage, it can rejuvenate your skin and make it look more youthful, healthy and fresh. It also helps to balance your skin tone.",
+        image: "/images/treatments/mesotherapy/fight-aging.webp",
+      },
+      {
+        title: "Long-Lasting Effects",
+        description:
+          "Durable microneedling is a treatment with long-lasting effects, making it a cost-effective option that allows you to enjoy its benefits for an extended period.",
+        image: "/images/treatments/mesotherapy/long-lasting-effect.webp",
+      },
+    ],
     body: [
+      "Microneedling, provided at YourHealthFirst Clinic, uses small, sanitised needles to puncture the skin in a controlled manner. This stimulates new skin tissue and collagen production, resulting in smoother, firmer and more toned skin for all skin types, including olive skin tones.",
+      "The controlled treatment minimises downtime and side-effects while effectively addressing concerns like acne scars, fine lines, wrinkles and hyperpigmentation, leading to improved skin texture and complexion. It is mainly used on the face to reduce the visibility of acne, scars, dark spots, wrinkles and clogged pores.",
       "At YourHealthFirst, we use the U225 — a state-of-the-art pain-free intradermal medical injector — to deliver the MesoOx treatment precisely and comfortably. The device delivers micro-doses of active ingredients at a controlled depth, maximising absorption without the discomfort of manual injections.",
       "Mesotherapy is a highly versatile treatment. Different cocktail formulas can be used depending on the specific concern: anti-ageing, skin brightening, slimming, firming, stretch mark reduction, hair stimulation, and more. Dr Sofia creates a bespoke treatment plan based on your skin assessment.",
       "A course of 4–6 sessions is recommended for best results, spaced 1–2 weeks apart, followed by maintenance sessions. There is no downtime — minor redness may occur for a few hours after treatment.",
     ],
+    beforeAfterPairs: [
+      {
+        label: "Microneedling",
+        before: "/images/gallery/microneedling/microneedling-1-before.jpeg",
+        after: "/images/gallery/microneedling/microneedling-1-after.jpeg",
+      },
+      {
+        label: "Microneedling",
+        before: "/images/gallery/microneedling/microneedling-2-before.jpg",
+        after: "/images/gallery/microneedling/microneedling-2-after.png",
+      },
+    ],
     benefits: [
+      "Boosts collagen, fades scars, smooths wrinkles, evens tone and enhances skincare absorption",
       "Delivers active ingredients directly to the target depth",
       "Pain-free using the advanced U225 micro-injector",
       "Improves skin hydration, radiance and firmness",
       "Treats acne scarring, pigmentation and stretch marks",
       "Available formulas for face, body slimming and hair",
       "No downtime — return to normal activities same day",
+      "Long-lasting, cost-effective results",
     ],
     suitableFor: [
       "Adults with dull, dehydrated or uneven skin",
@@ -1351,6 +1396,31 @@ export const treatmentDetails: TreatmentDetail[] = [
         question: "Who is suitable for mesotherapy?",
         answer:
           "Adults with dull, dehydrated or uneven skin, acne scarring, fine lines or stretch marks who want a customised, multi-ingredient approach to skin improvement.",
+      },
+      {
+        question: "Who should not get microneedling?",
+        answer:
+          "If you are prone to scarring, are pregnant, or suffer from rosacea or eczema, it's important to consult with Dr Sofia at your consultation to confirm whether microneedling is safe for you.",
+      },
+      {
+        question: "Does microneedling hurt?",
+        answer:
+          "Patients undergo microneedling treatment after receiving a topical numbing cream, which prevents any pain associated with the procedure. There is also no downtime, so you can resume work right after treatment.",
+      },
+      {
+        question: "How does microneedling help acne scars?",
+        answer:
+          "Microneedling uses tiny needles to make controlled pin-pricks in the top layer of skin, and this controlled trauma helps promote new collagen production. Replenishing collagen in areas affected by acne scars reduces the pre-treatment damage, promoting skin texture rejuvenation. Results can be enhanced by combining treatment with rejuvenating topical serums — the newly created micro-channels in the skin improve serum absorption. Vitamin C serum and other de-pigmentation solutions are great additions for reducing hyperpigmentation, as is PRP (platelet-rich plasma) for general skin rejuvenation.",
+      },
+      {
+        question: "How many microneedling sessions are needed for acne scars?",
+        answer:
+          "This depends on the severity of your scars and your desired results. For mild to moderate scars, you may only need 3–6 sessions spaced 4–6 weeks apart. For more severe scars, you may need up to 12 sessions. It can take up to 6 months to see full results from microneedling.",
+      },
+      {
+        question: "How often should you microneedle for acne scars?",
+        answer:
+          "Typically, a 30-minute session every four weeks is effective for treating acne scars, though some patients are encouraged to wait up to six weeks between treatments to fully allow new collagen to form. Minimal downtime is required between sessions — most patients feel fully recovered within 24 hours.",
       },
     ],
   },

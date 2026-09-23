@@ -183,12 +183,12 @@ export default function Services() {
       <div className="mx-auto flex max-w-[1400px] flex-col gap-8 pt-[50px] pb-[100px]">
         {/* Header */}
         <div className="flex flex-col items-center gap-5">
-          <div className="w-fit rounded-full border-[0.8px] border-[rgba(11,23,4,0.2)] px-3 py-2">
-            <h2 className="text-[13px] leading-[20.8px] font-semibold tracking-[3px] text-forest uppercase">
+          <div className="w-fit rounded-full border-[0.8px] border-[rgba(11,23,4,0.2)] px-4 py-2">
+            <h2 className="text-[18px] leading-[24px] font-semibold tracking-[2px] text-forest uppercase lg:text-[22px] lg:leading-[28px]">
               services
             </h2>
           </div>
-          <h2 className="max-w-[700px] text-center font-subheading text-[22px] leading-[26px] font-medium tracking-[-1px] text-forest uppercase lg:text-[28px] lg:leading-[32px]">
+          <h2 className="max-w-[700px] text-center font-subheading text-[15px] leading-[19px] font-medium tracking-[-0.3px] text-forest uppercase lg:text-[17px] lg:leading-[21px]">
             Discover personalised skin care solutions
           </h2>
           <GhpBadge />

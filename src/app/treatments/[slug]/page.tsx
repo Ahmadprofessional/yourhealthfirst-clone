@@ -204,6 +204,61 @@ export default async function TreatmentPage({ params }: Props) {
         </div>
       </section>
 
+      {/* Care instructions — prominent before/aftercare */}
+      {treatment.careInstructions && (
+        <section className="relative w-full overflow-hidden bg-[#061a10] px-5">
+          <div className="pointer-events-none absolute left-1/2 top-0 h-[400px] w-[400px] -translate-x-1/2 rounded-full bg-tan/8 blur-[100px]" />
+          <div className="relative mx-auto max-w-[1400px] py-[80px] lg:py-[100px]">
+            <div className="flex flex-col items-center gap-4 text-center">
+              <div className="w-fit rounded-full border-[0.8px] border-tan/40 px-4 py-2">
+                <p className="font-nav text-[12px] font-semibold tracking-[3px] text-tan uppercase">
+                  Important
+                </p>
+              </div>
+              <h2 className="font-display text-[28px] font-bold leading-[34px] tracking-[-1px] text-cream uppercase lg:text-[38px] lg:leading-[44px]">
+                {treatment.careInstructions.title}
+              </h2>
+            </div>
+
+            <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {treatment.careInstructions.groups.map((group) => (
+                <div
+                  key={group.heading}
+                  className={`flex flex-col gap-3 rounded-[12px] p-6 ${
+                    group.warning
+                      ? "border-2 border-rust bg-rust/15"
+                      : "border border-white/10 bg-white/5"
+                  }`}
+                >
+                  <div className="flex items-center gap-2">
+                    {group.warning && (
+                      <svg className="h-5 w-5 shrink-0 text-rust" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" />
+                      </svg>
+                    )}
+                    <h3
+                      className={`font-subheading text-[14px] font-semibold tracking-[1.5px] uppercase ${
+                        group.warning ? "text-rust" : "text-tan"
+                      }`}
+                    >
+                      {group.heading}
+                    </h3>
+                  </div>
+                  <ul className="flex flex-col gap-2">
+                    {group.points.map((point) => (
+                      <li key={point} className="flex items-start gap-2.5 text-[14px] leading-[22px] text-white/70">
+                        <span className={`mt-[8px] h-[5px] w-[5px] shrink-0 rounded-full ${group.warning ? "bg-rust" : "bg-tan"}`} />
+                        <span>{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* How It Works */}
       {treatment.howItWorks && (
         <section className="w-full bg-cream px-5">

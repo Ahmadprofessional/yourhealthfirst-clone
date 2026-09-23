@@ -91,6 +91,15 @@ export interface TreatmentDetail {
       b: string;
     }[];
   };
+  /** Prominent before/aftercare instructions section, grouped by timeframe */
+  careInstructions?: {
+    title: string;
+    groups: {
+      heading: string;
+      points: string[];
+      warning?: boolean;
+    }[];
+  };
 }
 
 export const treatmentDetails: TreatmentDetail[] = [
@@ -380,9 +389,65 @@ export const treatmentDetails: TreatmentDetail[] = [
       "Sunekos comes in two types. Sunekos 200 is suitable for clients with less visible wrinkles — it helps create elastin in the skin so it becomes tighter and smoother, and also improves collagen and fine lines for a more youthful look. Sunekos 1200 is perfect for more visible signs of ageing: an injectable treatment with an antioxidant action for severe wrinkles and damaged skin, promoting youthful, natural features by improving facial volume loss, reducing wrinkles and hydrating the skin. The two can also be combined to provide the best results — both use a patent-protected formula containing hyaluronic acid and a combination of amino acids, precursors of collagen and elastin.",
       "Sunekos is particularly effective for treating fine lines, crepey skin, loss of elasticity and dullness in the face, neck, eye area and hands. It is also an excellent treatment for younger patients as a preventative measure to maintain skin quality.",
       "A standard course consists of 4 sessions spaced 7–10 days apart, with results continuing to improve for several weeks after the final treatment. Maintenance sessions every 3–6 months are recommended to sustain results.",
-      "To reduce the risk of bruising, patients should stop taking aspirin, ibuprofen, Ginkgo Biloba and ginseng one week prior to their appointment (with their GP's consent), and avoid laser treatments and chemical peels for 6 weeks beforehand. For the first 6 hours after treatment, avoid make-up, alcohol, rubbing or massaging the treated area, lying down, and touching the area — remain upright. For the first 24 hours, avoid vigorous exercise, facials and extreme facial expressions. For 2 weeks after treatment, avoid extreme heat or cold (such as saunas, ice application or sunbeds) and laser or radiofrequency treatments in the area.",
-      "The treated area may feel tender and firm for up to eight weeks after treatment, and red, tight or itchy skin with swelling is common and expected. Pain or discharge are not normal — please contact the clinic immediately for advice if you experience either. A complimentary review is scheduled six weeks after your final treatment, and all side effects should have fully resolved before any further treatment.",
     ],
+    careInstructions: {
+      title: "Sunekos Treatment — Before & Aftercare",
+      groups: [
+        {
+          heading: "Before the Treatment",
+          points: [
+            "To reduce the risk of bruising, stop taking Aspirin, Ibuprofen, Ginkgo Biloba and Ginseng one week prior to your appointment, with the consent of your GP.",
+            "Avoid laser treatments and chemical peels for 6 weeks prior to treatment.",
+          ],
+        },
+        {
+          heading: "For 6 Hours After Treatment",
+          points: [
+            "No make-up.",
+            "Avoid alcohol.",
+            "Do not rub or massage the treated area.",
+            "Do not lie down — remain in an upright position.",
+            "Do not touch the treated area.",
+          ],
+        },
+        {
+          heading: "For 24 Hours After Treatment",
+          points: [
+            "Avoid vigorous exercise.",
+            "No facials for two weeks.",
+            "Avoid extreme facial expressions.",
+          ],
+        },
+        {
+          heading: "For 2 Weeks After Treatment",
+          points: [
+            "Avoid extreme heat or cold (e.g. saunas, ice application, sunbeds).",
+            "Avoid laser or radiofrequency treatments in the area treated.",
+          ],
+        },
+        {
+          heading: "Common Side Effects",
+          points: [
+            "Red, tight, itchy skin and swelling.",
+            "The treated area may feel tender and firm for up to eight weeks after your treatment.",
+          ],
+        },
+        {
+          heading: "Adverse Reaction Awareness",
+          points: [
+            "Pain and discharge are not normal. If you experience these, please call the clinic immediately for advice.",
+          ],
+          warning: true,
+        },
+        {
+          heading: "Review Procedure",
+          points: [
+            "All side effects must have fully resolved before a further treatment can be performed.",
+            "Please schedule your complimentary review six weeks after your final treatment.",
+          ],
+        },
+      ],
+    },
     benefits: [
       "Stimulates natural collagen and elastin production",
       "Improves skin elasticity, firmness and hydration",

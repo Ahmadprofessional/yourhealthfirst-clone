@@ -126,10 +126,13 @@ export default function AboutMePage() {
               </p>
               <p>
                 With a medical career spanning more than 25 years, Sofia qualified in Spain in 1998 before
-                continuing her professional journey in London, where she has worked within both the NHS and
-                private healthcare sectors. Working alongside some of Harley Street&apos;s most respected
-                medical professionals inspired her passion for aesthetic and regenerative medicine, leading
-                her to specialise in non-surgical treatments from 2013 onwards.
+                continuing her professional journey in London, where{" "}
+                <strong className="font-semibold text-tan">
+                  she has worked within both the NHS and private healthcare sectors
+                </strong>
+                . Working alongside some of Harley Street&apos;s most respected medical professionals
+                inspired her passion for aesthetic and regenerative medicine, leading her to specialise in
+                non-surgical treatments from 2013 onwards.
               </p>
               <p>
                 Sofia&apos;s expertise lies in facial rejuvenation, hair restoration, body contouring and

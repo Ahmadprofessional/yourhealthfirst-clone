@@ -232,6 +232,11 @@ export default function AboutMePage() {
                   by the Global Healthcare &amp; Pharmaceutical (GHP) Awards.
                 </p>
                 <p>
+                  Sofia has specialist experience in phlebotomy, including blood sampling for vulnerable
+                  patients and children, with a compassionate and patient-centred approach for individuals
+                  with autism and cancer patients who may find blood tests challenging.
+                </p>
+                <p>
                   Sofia was also invited as a speaker on Alopecia and Hair Loss at{" "}
                   <strong className="font-semibold text-forest">Sharm Derma 2022</strong>, the American
                   Association of Continuing Medical Education, in collaboration with the Egyptian Society

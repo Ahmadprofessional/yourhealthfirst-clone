@@ -120,31 +120,67 @@ export default function AboutMePage() {
             </div>
 
             <div>
-              <h1 className="font-display text-[58px] leading-[62px] font-bold tracking-[-2px] text-cream uppercase lg:text-[76px] lg:leading-[80px]">
+              <h1 className="font-display text-[48px] leading-[52px] font-bold tracking-[-2px] text-cream uppercase lg:text-[62px] lg:leading-[66px]">
                 Sofia<br />
                 <span className="text-tan">Bouzian</span>
               </h1>
               <p className="mt-3 font-nav text-[13px] font-semibold tracking-[2px] text-white/60 uppercase">
-                MSc, PGDip (Aest) – Level 7 Aesthetics<br />Clinical Director
+                Aesthetic Practitioner &amp; Clinical Director
+              </p>
+              <p className="mt-2 max-w-[560px] text-[15px] leading-[24px] text-white/50">
+                Master of Science (MSc), Postgraduate Diploma (PGDip), and a Level 7 Qualification in
+                Aesthetic Medicine — Specialist in Facial, Hair &amp; Body Rejuvenation | PRP Hair
+                Restoration &amp; Anti-Ageing Medicine.
               </p>
             </div>
 
-            <div className="flex max-w-[480px] flex-col gap-4 text-[15px] leading-[26px] text-white/55">
+            <div className="flex max-w-[560px] flex-col gap-4 text-[15px] leading-[25px] text-white/55">
               <p>
-                Specialist in Facial Rejuvenation, Hair Restoration &amp; Body Contouring —
-                practising from Harley Street &amp; Wimpole Street, London since 2013.
+                <strong className="font-semibold text-cream">Sofia Bouzian</strong> is a highly experienced
+                Aesthetic Practitioner based in London&apos;s prestigious Harley Street and Wimpole Street
+                medical district since 2014. Holding a Master of Science (MSc), Postgraduate Diploma (PGDip),
+                and a Level 7 Qualification in Aesthetic Medicine, Sofia has dedicated her career to delivering
+                advanced, evidence-based aesthetic and regenerative treatments with a focus on natural,
+                elegant and long-lasting results.
               </p>
               <p>
-                With a medical career spanning more than 25 years, Sofia qualified in Spain
-                in 1998 before continuing her professional journey across the NHS and private
-                healthcare in London — a foundation that shapes every treatment she delivers today.
+                With a medical career spanning more than 25 years, Sofia qualified in Spain in 1998 before
+                continuing her professional journey in London, where she has worked within both the NHS and
+                private healthcare sectors. Working alongside some of Harley Street&apos;s most respected
+                medical professionals inspired her passion for aesthetic and regenerative medicine, leading
+                her to specialise in non-surgical treatments from 2013 onwards.
               </p>
               <p>
-                A recognised PRP Hair Loss Specialist and pioneer of Cryolipolysis (Fat Freezing)
-                on Harley Street, Sofia has treated thousands of patients since 2013, earning her
-                reputation through exceptional care and consistent, natural-looking results.
+                Sofia&apos;s expertise lies in facial rejuvenation, hair restoration, body contouring and
+                anti-ageing medicine, offering bespoke treatment plans tailored to each patient&apos;s
+                individual needs and goals. She is committed to enhancing natural beauty while preserving
+                facial expressions and individuality, helping patients achieve refreshed, youthful results
+                without looking over-treated.
+              </p>
+              <p>
+                A recognised <strong className="font-semibold text-tan">PRP Hair Loss Specialist</strong>,
+                Sofia has extensive experience treating male and female hair thinning and hair loss. By
+                combining advanced regenerative therapies with personalised treatment protocols, she helps
+                patients improve hair density, strengthen existing hair and support long-term scalp health —
+                with expertise extending to exosome therapy and other non-surgical hair restoration solutions.
+              </p>
+              <p>
+                Sofia is equally regarded for her expertise in{" "}
+                <strong className="font-semibold text-tan">Cryolipolysis (Fat Freezing)</strong>, commonly
+                known as CoolSculpting®. Having worked in one of the pioneering Harley Street clinics offering
+                this treatment, she has over a decade of experience in non-surgical body contouring and fat
+                reduction, and has treated thousands of patients since 2013 — earning her reputation through
+                exceptional care and consistent, natural-looking results.
               </p>
             </div>
+
+            <blockquote className="max-w-[560px] border-l-[3px] border-tan py-1 pl-5 font-serif text-[17px] leading-[27px] text-white/70 italic">
+              &ldquo;My goal is to help patients look and feel their best through safe, natural-looking
+              treatments that enhance confidence while preserving individuality.&rdquo;
+              <span className="mt-2 block font-nav text-[12px] font-semibold tracking-[1px] text-tan not-italic uppercase">
+                — Sofia Bouzian
+              </span>
+            </blockquote>
 
             {/* Mini stat badges */}
             <div className="flex flex-wrap gap-3">
@@ -160,6 +196,24 @@ export default function AboutMePage() {
                   </div>
                 </div>
               ))}
+              <div className="flex items-center gap-2 rounded-[8px] border border-white/15 bg-white/8 px-4 py-3">
+                <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-[4px] bg-[#1a1a2e]">
+                  <span className="text-[7px] font-serif font-bold italic leading-none text-white">GW</span>
+                </div>
+                <div>
+                  <p className="font-display text-[13px] font-bold leading-[16px] text-tan">Featured In</p>
+                  <p className="font-nav text-[10px] tracking-[1px] text-white/50 uppercase">Global Woman Mag.</p>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <Link
+                href="/#book"
+                className="inline-flex w-fit items-center gap-2 rounded-[8px] bg-tan px-8 py-4 font-nav text-[14px] font-semibold tracking-[-0.3px] text-forest transition-opacity hover:opacity-90"
+              >
+                Book a Consultation →
+              </Link>
             </div>
           </div>
         </div>
@@ -179,104 +233,6 @@ export default function AboutMePage() {
             alt="Sofia Bouzian — YourHealthFirst Clinic"
             className="h-full w-full object-cover object-[center_10%]"
           />
-        </div>
-      </section>
-
-      {/* ── BIO SECTION ── */}
-      <section className="w-full px-5">
-        <div className="mx-auto max-w-[1400px] py-[80px] lg:py-[100px]">
-          <div className="flex flex-col gap-12 lg:flex-row lg:gap-16">
-
-            {/* Left — image card */}
-            <div className="relative lg:w-[420px] lg:shrink-0">
-              <div className="relative overflow-hidden rounded-[14px]" style={{ aspectRatio: "4/5" }}>
-                <SafeImage
-                  src="/images/about us second image.jpeg"
-                  alt="Sofia Bouzian — YourHealthFirst Clinic"
-                  className="h-full w-full object-cover object-top"
-                />
-              </div>
-              {/* Global Woman badge */}
-              <div className="mt-4 rounded-[10px] border border-black/8 bg-white p-4">
-                <p className="font-nav text-[10px] font-semibold tracking-[2px] text-body-text/40 uppercase">Featured In</p>
-                <div className="mt-2 flex items-center gap-3">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[6px] bg-[#1a1a2e]">
-                    <span className="px-1 text-center font-serif text-[9px] font-bold italic leading-tight text-white">Global Woman</span>
-                  </div>
-                  <div>
-                    <p className="font-subheading text-[13px] font-bold tracking-[-0.3px] text-forest">&ldquo;The Beauty Doctor&rdquo;</p>
-                    <p className="font-nav text-[11px] text-body-text/50">Global Woman Magazine</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Right — bio text */}
-            <div className="flex flex-col gap-7 lg:flex-1">
-              <div>
-                <div className="w-fit rounded-full border-[0.8px] border-forest/20 px-3 py-2">
-                  <p className="font-nav text-[12px] font-semibold tracking-[3px] text-forest uppercase">About Sofia</p>
-                </div>
-                <h2 className="mt-4 font-subheading text-[26px] leading-[32px] font-bold tracking-[-1px] text-forest uppercase lg:text-[34px] lg:leading-[40px]">
-                  A Highly Experienced<br />Aesthetic Practitioner &amp;<br />Clinical Director
-                </h2>
-              </div>
-
-              <div className="flex flex-col gap-4 text-[16px] leading-[28px] tracking-[-0.2px] text-body-text">
-                <p>
-                  <strong className="font-semibold text-forest">Sofia Bouzian</strong> is a highly experienced Aesthetic Practitioner
-                  based in London&apos;s prestigious Harley Street and Wimpole Street medical district since 2014.
-                  Holding a Master of Science (MSc), Postgraduate Diploma (PGDip), and a Level 7 Qualification
-                  in Aesthetic Medicine, Sofia has dedicated her career to delivering advanced, evidence-based
-                  aesthetic and regenerative treatments with a focus on natural, elegant and long-lasting results.
-                </p>
-                <p>
-                  With a medical career spanning more than 25 years, Sofia qualified in Spain in 1998 before
-                  continuing her professional journey in London, where she has worked within both the NHS and
-                  private healthcare sectors. Working alongside some of Harley Street&apos;s most respected
-                  medical professionals inspired her passion for aesthetic and regenerative medicine, leading
-                  her to specialise in non-surgical treatments from 2013 onwards.
-                </p>
-                <p>
-                  Sofia&apos;s expertise lies in facial rejuvenation, hair restoration, body contouring and
-                  anti-ageing medicine, offering bespoke treatment plans tailored to each patient&apos;s
-                  individual needs and goals. She is committed to enhancing natural beauty while preserving
-                  facial expressions and individuality, helping patients achieve refreshed, youthful results
-                  without looking over-treated.
-                </p>
-                <p>
-                  A recognised <strong className="font-semibold text-forest">PRP Hair Loss Specialist</strong>,
-                  Sofia has extensive experience treating male and female hair thinning and hair loss. By
-                  combining advanced regenerative therapies with personalised treatment protocols, she helps
-                  patients improve hair density, strengthen existing hair and support long-term scalp health —
-                  with expertise extending to exosome therapy and other non-surgical hair restoration solutions.
-                </p>
-                <p>
-                  Sofia is equally regarded for her expertise in{" "}
-                  <strong className="font-semibold text-forest">Cryolipolysis (Fat Freezing)</strong>, commonly
-                  known as CoolSculpting®. Having worked in one of the pioneering Harley Street clinics offering
-                  this treatment, she has over a decade of experience in non-surgical body contouring and fat
-                  reduction, and has treated thousands of patients since 2013 — earning her reputation through
-                  exceptional care and consistent, natural-looking results.
-                </p>
-              </div>
-
-              <blockquote className="border-l-[3px] border-tan py-1 pl-5 font-serif text-[18px] leading-[28px] text-forest/80 italic">
-                &ldquo;My goal is to help patients look and feel their best through safe, natural-looking
-                treatments that enhance confidence while preserving individuality.&rdquo;
-                <span className="mt-2 block font-nav text-[13px] font-semibold tracking-[1px] text-tan not-italic uppercase">
-                  — Sofia Bouzian
-                </span>
-              </blockquote>
-
-              <Link
-                href="/#book"
-                className="inline-flex w-fit items-center gap-2 rounded-[8px] bg-tan px-8 py-4 font-nav text-[14px] font-semibold tracking-[-0.3px] text-forest transition-opacity hover:opacity-90"
-              >
-                Book a Consultation →
-              </Link>
-            </div>
-          </div>
         </div>
       </section>
 

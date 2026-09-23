@@ -24,6 +24,16 @@ const fillerImages = Array.from({ length: 14 }, (_, i) => ({
   alt: `Dermal filler before & after — result ${i + 1}`,
 }));
 
+const lipFillerImages = Array.from({ length: 3 }, (_, i) => ({
+  src: `/images/gallery/lip-fillers/lip-fillers-${i + 1}.jpeg`,
+  alt: `Lip fillers before & after — result ${i + 1}`,
+}));
+
+const sclerotherapyImages = Array.from({ length: 4 }, (_, i) => ({
+  src: `/images/gallery/sclerotherapy/sclerotherapy-${i + 1}.jpeg`,
+  alt: `Sclerotherapy before & after — result ${i + 1}`,
+}));
+
 function BeforeAfterGrid({ images }: { images: { src: string; alt: string }[] }) {
   return (
     <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -165,6 +175,42 @@ export default function GalleryPage() {
         </div>
       </section>
 
+      {/* Lip Fillers section */}
+      <section className="w-full border-t border-black/8 bg-cream/40 px-5">
+        <div className="mx-auto max-w-[1400px] py-[80px] lg:py-[100px]">
+          <div className="mb-10 flex flex-col gap-2">
+            <div className="flex items-center gap-4">
+              <h2 className="font-subheading text-[24px] font-medium leading-[30px] tracking-[-1px] text-forest uppercase lg:text-[30px] lg:leading-[36px]">
+                Lip Fillers — Before &amp; After
+              </h2>
+              <div className="flex-1 border-t border-black/8" />
+            </div>
+            <p className="text-[15px] text-body-text">
+              Lip enhancement results — natural volume, hydration and definition tailored to each patient.
+            </p>
+          </div>
+          <BeforeAfterGrid images={lipFillerImages} />
+        </div>
+      </section>
+
+      {/* Sclerotherapy section */}
+      <section className="w-full border-t border-black/8 px-5">
+        <div className="mx-auto max-w-[1400px] py-[80px] lg:py-[100px]">
+          <div className="mb-10 flex flex-col gap-2">
+            <div className="flex items-center gap-4">
+              <h2 className="font-subheading text-[24px] font-medium leading-[30px] tracking-[-1px] text-forest uppercase lg:text-[30px] lg:leading-[36px]">
+                Sclerotherapy — Before &amp; After
+              </h2>
+              <div className="flex-1 border-t border-black/8" />
+            </div>
+            <p className="text-[15px] text-body-text">
+              Spider vein and thread vein removal results — legs and other treated areas.
+            </p>
+          </div>
+          <BeforeAfterGrid images={sclerotherapyImages} />
+        </div>
+      </section>
+
       {/* Other Treatments section */}
       <section className="w-full border-t border-black/8 bg-cream/40 px-5">
         <div className="mx-auto max-w-[1400px] py-[80px] lg:py-[100px]">
@@ -176,7 +222,7 @@ export default function GalleryPage() {
               <div className="flex-1 border-t border-black/8" />
             </div>
             <p className="text-[15px] text-body-text">
-              Microsclerotherapy, hair loss regrowth, alopecia and additional treatment results.
+              Hair loss regrowth, alopecia and additional treatment results.
             </p>
           </div>
           <ComingSoonPlaceholder title="Other Treatment Before & After Photos" />

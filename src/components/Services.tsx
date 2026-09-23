@@ -143,7 +143,7 @@ function ServiceIcon({ icon, bg }: { icon?: string; bg?: string }) {
 
   return (
     <div
-      className="flex h-[52px] w-[52px] shrink-0 items-center justify-center rounded-full shadow-md"
+      className="flex h-[58px] w-[58px] shrink-0 items-center justify-center rounded-full shadow-md"
       style={{ backgroundColor: color }}
     >
       {paths[icon ?? "face"] ?? paths["face"]}
@@ -180,36 +180,36 @@ function GhpBadge() {
 export default function Services() {
   return (
     <section className="w-full px-5">
-      <div className="mx-auto flex max-w-[1400px] flex-col gap-10 py-[100px]">
+      <div className="mx-auto flex max-w-[1400px] flex-col gap-8 pt-[50px] pb-[100px]">
         {/* Header */}
-        <div className="flex flex-col items-center gap-6">
+        <div className="flex flex-col items-center gap-5">
           <div className="w-fit rounded-full border-[0.8px] border-[rgba(11,23,4,0.2)] px-3 py-2">
             <h2 className="text-[13px] leading-[20.8px] font-semibold tracking-[3px] text-forest uppercase">
               services
             </h2>
           </div>
-          <h2 className="max-w-[956px] text-center font-subheading text-[34px] leading-[38px] font-medium tracking-[-1.8px] text-forest uppercase lg:text-[50px] lg:leading-[55px]">
+          <h2 className="max-w-[760px] text-center font-subheading text-[26px] leading-[30px] font-medium tracking-[-1.2px] text-forest uppercase lg:text-[36px] lg:leading-[40px]">
             Discover personalised skin care solutions
           </h2>
           <GhpBadge />
         </div>
 
         {/* Cards */}
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-7 md:grid-cols-2 lg:grid-cols-3">
           {services.map((service) => (
             <article
               key={service.slug}
-              className="flex flex-col justify-between gap-6 rounded-[8px] border-[1.6px] border-tan bg-[rgba(209,174,131,0.12)] p-6 transition-shadow duration-200 hover:shadow-md"
+              className="flex flex-col justify-between gap-7 rounded-[10px] border-[1.6px] border-tan bg-[rgba(209,174,131,0.12)] p-7 transition-shadow duration-200 hover:shadow-md"
             >
               <div className="flex items-start justify-between gap-4">
-                <h3 className="font-display text-[22px] leading-[27px] font-medium text-forest uppercase">
+                <h3 className="font-display text-[25px] leading-[30px] font-medium text-forest uppercase">
                   {service.title}
                 </h3>
                 <ServiceIcon icon={service.icon} bg={service.iconBg} />
               </div>
 
-              <div className="flex flex-col gap-2">
-                <p className="text-[15px] leading-[25px] font-medium tracking-[-0.2px] text-body-text">
+              <div className="flex flex-col gap-3">
+                <p className="text-[16px] leading-[26px] font-medium tracking-[-0.2px] text-body-text">
                   {service.description.map((segment, index) =>
                     segment.bold ? (
                       <strong key={index} className="font-semibold text-forest">

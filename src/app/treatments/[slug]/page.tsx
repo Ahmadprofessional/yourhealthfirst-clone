@@ -204,6 +204,36 @@ export default async function TreatmentPage({ params }: Props) {
         </div>
       </section>
 
+      {/* Image / text split sections */}
+      {treatment.imageTextSections && treatment.imageTextSections.length > 0 && (
+        <section className="w-full bg-cream px-5">
+          <div className="mx-auto flex max-w-[1400px] flex-col gap-16 py-[80px] lg:gap-20 lg:py-[100px]">
+            {treatment.imageTextSections.map((item) => (
+              <div
+                key={item.heading}
+                className={`flex flex-col items-center gap-8 lg:flex-row lg:gap-14 ${
+                  item.imagePosition === "left" ? "lg:flex-row-reverse" : ""
+                }`}
+              >
+                <div className="relative w-full overflow-hidden rounded-[12px] shadow-sm lg:w-1/2" style={{ aspectRatio: "4/3" }}>
+                  <Image src={item.image} alt={item.alt} fill className="object-cover" />
+                </div>
+                <div className="flex w-full flex-col gap-4 lg:w-1/2">
+                  <h2 className="font-subheading text-[24px] font-medium leading-[30px] tracking-[-1px] text-forest uppercase lg:text-[30px] lg:leading-[36px]">
+                    {item.heading}
+                  </h2>
+                  {item.body.map((paragraph, i) => (
+                    <p key={i} className="text-[15px] leading-[24px] text-body-text">
+                      {paragraph}
+                    </p>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
       {/* Care instructions — prominent before/aftercare */}
       {treatment.careInstructions && (
         <section className="relative w-full overflow-hidden bg-[#061a10] px-5">

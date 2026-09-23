@@ -91,6 +91,14 @@ export interface TreatmentDetail {
       b: string;
     }[];
   };
+  /** Alternating image/text split sections (image on one side, heading + body on the other) */
+  imageTextSections?: {
+    image: string;
+    alt: string;
+    heading: string;
+    body: string[];
+    imagePosition?: "left" | "right";
+  }[];
   /** Prominent before/aftercare instructions section, grouped by timeframe */
   careInstructions?: {
     title: string;
@@ -1289,28 +1297,63 @@ export const treatmentDetails: TreatmentDetail[] = [
     intro:
       "Emsculpt Neo is the world's first and only non-invasive treatment that simultaneously burns fat and builds muscle using a combination of radiofrequency heating and high-intensity focused electromagnetic energy (HIFEM+). One 30-minute session is equivalent to 20,000 muscle contractions.",
     videoUrl: "/videos/treatments/emsculpt-neo-demo.mp4",
-    diagramImage: {
-      src: "/images/treatments/emsculpt-neo/hero-abdomen.png",
-      alt: "Emsculpt Neo abdomen treatment applicator",
-    },
-    processDiagrams: [
+    imageTextSections: [
       {
-        src: "/images/treatments/emsculpt-neo/chest-applicator.jpg",
-        alt: "Emsculpt Neo chest and core applicator",
+        image: "/images/treatments/emsculpt-neo/hero-abdomen.png",
+        alt: "Emsculpt Neo abdomen treatment applicator",
+        heading: "What Is Emsculpt Neo, and How Does It Work?",
+        body: [
+          "Emsculpt Neo is a non-invasive device that merges radiofrequency (RF) to heat and destroy fat cells with HIFEM+ energy to induce powerful muscle contractions.",
+          "Together, they target fat reduction and muscle building at the same time — the only device in the world that delivers both benefits simultaneously, with FDA clearance and clinical studies supporting its effectiveness.",
+        ],
+        imagePosition: "right",
       },
       {
-        src: "/images/treatments/emsculpt-neo/abdomen-dual-applicator.jpg",
+        image: "/images/treatments/emsculpt-neo/chest-applicator.jpg",
+        alt: "Emsculpt Neo chest and core applicator in use",
+        heading: "The Next-Level Upgrade to Cryo",
+        body: [
+          "If you're already coming in for Cryo slimming or fat freezing, Emsculpt Neo is the next-level upgrade — designed to:",
+          "Tighten and tone muscles post-Cryo. Sculpt a more defined, athletic look. Burn even more fat while enhancing muscle growth for a complete transformation.",
+        ],
+        imagePosition: "left",
+      },
+      {
+        image: "/images/treatments/emsculpt-neo/abdomen-dual-applicator.jpg",
         alt: "Emsculpt Neo dual applicator on the abdomen and love handles",
+        heading: "Recommended Sessions & Maintenance",
+        body: [
+          "A course of 4 sessions is recommended (the exact number may vary depending on individual goals, body composition and targeted treatment areas), with optional maintenance sessions every 3–6 months to sustain results.",
+          "Our Emsculpt Neo treatments are budget-friendly, and we also offer double-area sessions for simultaneous treatment of two body parts in one appointment, with no hidden fees.",
+        ],
+        imagePosition: "right",
       },
     ],
+    careInstructions: {
+      title: "What to Expect With Emsculpt Neo",
+      groups: [
+        {
+          heading: "During Treatment",
+          points: [
+            "Muscle Contractions: HIFEM+ technology induces powerful, intense but painless muscle contractions — similar to an intense workout, but without the effort.",
+            "Warmth: A warming sensation in the treated area from the radiofrequency component, often described as similar to a hot stone massage.",
+            "Comfortable Experience: While the contractions can be intense, the treatment is generally well-tolerated, and practitioners can adjust settings for your comfort.",
+            "No Downtime: You can return to your normal activities immediately after the treatment.",
+          ],
+        },
+        {
+          heading: "After Treatment",
+          points: [
+            "Potential Muscle Soreness: Similar to the feeling after a strenuous workout — usually mild and temporary.",
+            "Redness or Swelling: The treated area may appear red or slightly swollen, but this is temporary and subsides quickly.",
+            "Visible Results: Many people notice visible results after the first treatment, but optimal results are typically achieved after a full course of sessions.",
+          ],
+        },
+      ],
+    },
     body: [
       "The radiofrequency component raises the temperature of fat cells to a level that permanently damages them, while the HIFEM+ energy forces the underlying muscles to contract at a level impossible to achieve through voluntary exercise. This dual-action results in measurable fat reduction and significant muscle growth in the same treatment.",
       "Clinical studies show on average a 25% increase in muscle volume and 30% reduction in subcutaneous fat after a course of 4 sessions. Emsculpt Neo is cleared for use on the abdomen (core), buttocks (non-surgical lift), arms, outer thighs, inner thighs, front thighs, back thighs, biceps, triceps and calves.",
-      "If you're already coming in for Cryo slimming or fat freezing, Emsculpt Neo is the next-level upgrade — tightening and toning muscle post-Cryo, sculpting a more defined athletic look, and burning even more fat while enhancing muscle growth for a complete transformation.",
-      "During treatment you'll feel intense but painless muscle contractions from the HIFEM+ technology, similar to an intense workout but without the effort, along with a warming sensation from the radiofrequency component — often described as similar to a hot stone massage. The treatment is generally well-tolerated and practitioners can adjust settings for your comfort, with no downtime so you return to normal activities immediately.",
-      "Afterwards you might experience some muscle soreness, similar to the feeling after a strenuous workout, along with temporary redness or mild swelling in the treated area — both usually mild and short-lived. Many people notice visible results after the first treatment, but optimal results are typically achieved after a full series of sessions.",
-      "The treatment is comfortable — patients typically feel an intense muscle contraction (like an extreme workout) and warmth from the radiofrequency, with no pain. A course of 4 sessions is recommended, spaced 5–10 days apart, though some practices offer up to 6 sessions depending on individual goals. Optional maintenance sessions every 3–6 months help sustain your results.",
-      "Our Emsculpt Neo treatments are budget-friendly, and we also offer double-area sessions for simultaneous treatment of two body parts in one appointment, with no hidden fees.",
     ],
     advantages: {
       title: "Why Choose YourHealthFirst for Emsculpt Neo",

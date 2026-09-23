@@ -245,7 +245,7 @@ export default function AboutMePage() {
                   Saudi Arabia Work Medical Examinations and Visa Medical Services, as well as other
                   diagnostic and screening services.
                 </p>
-                <p className="text-[14px] leading-[24px] text-body-text/70 italic">
+                <p>
                   Where appropriate, certain procedures and medical services may be referred to or carried
                   out by our affiliated clinic under the supervision of a registered medical practitioner
                   working within a CQC-regulated service.

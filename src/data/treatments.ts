@@ -31,6 +31,8 @@ export interface TreatmentDetail {
   body: string[];
   benefits: string[];
   suitableFor: string[];
+  /** Specific body areas the treatment can be applied to, shown as its own list alongside "Who Is It For?" */
+  treatmentAreas?: string[];
   results: string;
   priceFrom?: string;
   faqs: TreatmentFaq[];
@@ -1353,7 +1355,7 @@ export const treatmentDetails: TreatmentDetail[] = [
     },
     body: [
       "The radiofrequency component raises the temperature of fat cells to a level that permanently damages them, while the HIFEM+ energy forces the underlying muscles to contract at a level impossible to achieve through voluntary exercise. This dual-action results in measurable fat reduction and significant muscle growth in the same treatment.",
-      "Clinical studies show on average a 25% increase in muscle volume and 30% reduction in subcutaneous fat after a course of 4 sessions. Emsculpt Neo is cleared for use on the abdomen (core), buttocks (non-surgical lift), arms, outer thighs, inner thighs, front thighs, back thighs, biceps, triceps and calves.",
+      "Clinical studies show on average a 25% increase in muscle volume and 30% reduction in subcutaneous fat after a course of 4 sessions.",
     ],
     advantages: {
       title: "Why Choose YourHealthFirst for Emsculpt Neo",
@@ -1405,6 +1407,18 @@ export const treatmentDetails: TreatmentDetail[] = [
       "Clients struggling with stubborn fat despite healthy lifestyle habits",
       "Men and women near their ideal body weight with stubborn fat",
       "Clients seeking to combine it with Cryo treatments for complete transformation",
+    ],
+    treatmentAreas: [
+      "Abdomen (Core)",
+      "Buttocks (Non-surgical lift)",
+      "Arms",
+      "Outer Thighs",
+      "Inner Thighs",
+      "Front Thighs",
+      "Back Thighs",
+      "Biceps",
+      "Triceps",
+      "Calves",
     ],
     results: "Visible improvements after 2–4 sessions, optimal at 12 weeks",
     priceFrom: "From £500 per session",

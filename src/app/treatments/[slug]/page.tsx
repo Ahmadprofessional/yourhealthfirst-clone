@@ -113,22 +113,24 @@ export default async function TreatmentPage({ params }: Props) {
                 ))}
               </div>
 
-              {/* Suitable for */}
-              <div className="flex flex-col gap-4">
-                <h2 className="font-subheading text-[20px] font-semibold leading-[26px] tracking-[-0.8px] text-forest uppercase">
-                  Suitable For
-                </h2>
-                <ul className="flex flex-col gap-3">
-                  {treatment.suitableFor.map((item) => (
-                    <li key={item} className="flex items-start gap-3">
-                      <span className="mt-[8px] h-[6px] w-[6px] shrink-0 rounded-full bg-tan" />
-                      <span className="text-[16px] leading-[26px] tracking-[-0.2px] text-body-text">
-                        {item}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              {/* Suitable for (shown here only when there's no dedicated treatment-areas list) */}
+              {!treatment.treatmentAreas && (
+                <div className="flex flex-col gap-4">
+                  <h2 className="font-subheading text-[20px] font-semibold leading-[26px] tracking-[-0.8px] text-forest uppercase">
+                    Suitable For
+                  </h2>
+                  <ul className="flex flex-col gap-3">
+                    {treatment.suitableFor.map((item) => (
+                      <li key={item} className="flex items-start gap-3">
+                        <span className="mt-[8px] h-[6px] w-[6px] shrink-0 rounded-full bg-tan" />
+                        <span className="text-[16px] leading-[26px] tracking-[-0.2px] text-body-text">
+                          {item}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
 
             {/* Sidebar */}
@@ -203,6 +205,59 @@ export default async function TreatmentPage({ params }: Props) {
           </div>
         </div>
       </section>
+
+      {/* Treatment areas + Who is it for — prominent two-column list */}
+      {treatment.treatmentAreas && treatment.treatmentAreas.length > 0 && (
+        <section className="w-full border-t border-black/8 px-5">
+          <div className="mx-auto max-w-[1400px] py-[70px] lg:py-[90px]">
+            <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
+              <div className="flex flex-col gap-5">
+                <h2 className="font-display text-[26px] font-bold leading-[32px] tracking-[-1px] text-forest lg:text-[30px] lg:leading-[36px]">
+                  What Areas Can Be Treated?
+                </h2>
+                <ul className="flex flex-col gap-3">
+                  {treatment.treatmentAreas.map((area) => (
+                    <li key={area} className="flex items-center gap-3">
+                      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-tan/15 text-tan">
+                        <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth={2.5}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12h15m0 0-6-6m6 6-6 6" />
+                        </svg>
+                      </span>
+                      <span className="text-[16px] leading-[24px] text-body-text">{area}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="flex flex-col gap-5">
+                <h2 className="font-display text-[26px] font-bold leading-[32px] tracking-[-1px] text-forest lg:text-[30px] lg:leading-[36px]">
+                  Who Is It For?
+                </h2>
+                <p className="text-[14px] tracking-[1px] text-body-text/60 uppercase">
+                  {treatment.title} is ideal for:
+                </p>
+                <ul className="flex flex-col gap-3">
+                  {treatment.suitableFor.map((item) => (
+                    <li key={item} className="flex items-start gap-3">
+                      <span className="mt-[2px] flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-tan/15 text-tan">
+                        <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth={2.5}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12h15m0 0-6-6m6 6-6 6" />
+                        </svg>
+                      </span>
+                      <span className="text-[16px] leading-[24px] text-body-text">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+                <a
+                  href="/contact-us"
+                  className="mt-2 flex h-12 w-fit items-center justify-center rounded-[8px] bg-tan px-6 font-nav text-[14px] font-semibold tracking-[-0.3px] text-forest transition-opacity hover:opacity-90"
+                >
+                  Book Consultation Now
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Image / text split sections */}
       {treatment.imageTextSections && treatment.imageTextSections.length > 0 && (

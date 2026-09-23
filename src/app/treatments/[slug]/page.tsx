@@ -11,14 +11,6 @@ interface Props {
   params: Promise<{ slug: string }>;
 }
 
-function isLightHex(hex: string) {
-  const r = parseInt(hex.slice(1, 3), 16);
-  const g = parseInt(hex.slice(3, 5), 16);
-  const b = parseInt(hex.slice(5, 7), 16);
-  const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
-  return luminance > 0.6;
-}
-
 export async function generateStaticParams() {
   return treatmentDetails.map((t) => ({ slug: t.slug }));
 }
@@ -252,29 +244,38 @@ export default async function TreatmentPage({ params }: Props) {
 
             {treatment.colorBenefits && (
               <div className="mt-12">
-                <h3 className="text-center font-subheading text-[18px] font-semibold tracking-[0.5px] text-forest uppercase">
+                <h3 className="text-center font-subheading text-[22px] font-medium leading-[28px] tracking-[-0.5px] text-forest uppercase lg:text-[26px] lg:leading-[32px]">
                   {treatment.colorBenefits.title}
                 </h3>
-                <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                  {treatment.colorBenefits.items.map((item, i) => {
-                    const textColor = isLightHex(item.hex) ? "#1f2a20" : "#ffffff";
-                    return (
-                      <div
-                        key={i}
-                        className="flex flex-col gap-2 rounded-[12px] border border-black/8 p-5"
-                        style={{ backgroundColor: item.hex }}
-                      >
-                        <ul className="flex flex-col gap-1.5">
-                          {item.points.map((point) => (
-                            <li key={point} className="flex items-start gap-2 text-[13px] leading-[19px]" style={{ color: textColor }}>
-                              <span className="mt-[3px] shrink-0">✓</span>
-                              <span>{point}</span>
-                            </li>
-                          ))}
-                        </ul>
+                <p className="mx-auto mt-2 max-w-[640px] text-center text-[14px] leading-[22px] text-body-text">
+                  Our machine comes with seven different LED wavelengths, each with its own therapeutic
+                  benefits for the skin and body.
+                </p>
+                <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                  {treatment.colorBenefits.items.map((item) => (
+                    <div
+                      key={item.label}
+                      className="flex flex-col gap-3 rounded-[12px] border border-black/8 bg-white p-6 shadow-sm"
+                    >
+                      <div className="flex items-center gap-3">
+                        <span
+                          className="h-[14px] w-[14px] shrink-0 rounded-full ring-1 ring-black/10"
+                          style={{ backgroundColor: item.hex }}
+                        />
+                        <h4 className="font-subheading text-[13px] font-semibold tracking-[1.5px] text-forest uppercase">
+                          {item.label}
+                        </h4>
                       </div>
-                    );
-                  })}
+                      <ul className="flex flex-col gap-2">
+                        {item.points.map((point) => (
+                          <li key={point} className="flex items-start gap-2.5 text-[14px] leading-[21px] text-body-text">
+                            <span className="mt-[7px] h-[5px] w-[5px] shrink-0 rounded-full bg-tan" />
+                            <span>{point}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
                 </div>
               </div>
             )}

@@ -53,6 +53,7 @@ export interface TreatmentDetail {
     title: string;
     items: {
       hex: string;
+      label: string;
       points: string[];
     }[];
   };
@@ -806,6 +807,7 @@ export const treatmentDetails: TreatmentDetail[] = [
       items: [
         {
           hex: "#e02020",
+          label: "Red Light",
           points: [
             "Warming",
             "Rejuvenating",
@@ -816,6 +818,7 @@ export const treatmentDetails: TreatmentDetail[] = [
         },
         {
           hex: "#f2c200",
+          label: "Yellow Light",
           points: [
             "Soothes sensitive skin",
             "Strengthens the immune system",
@@ -824,6 +827,7 @@ export const treatmentDetails: TreatmentDetail[] = [
         },
         {
           hex: "#7b2fd6",
+          label: "Purple Light",
           points: [
             "Combination of the red light and blue light",
             "Useful to treat and repair acne scars",
@@ -832,6 +836,7 @@ export const treatmentDetails: TreatmentDetail[] = [
         },
         {
           hex: "#1f6fd6",
+          label: "Blue Light",
           points: [
             "Cooling",
             "Calming",
@@ -843,6 +848,7 @@ export const treatmentDetails: TreatmentDetail[] = [
         },
         {
           hex: "#0fb8c9",
+          label: "Cyan Light",
           points: [
             "Calms skin tension",
             "Aids healing of sun burns",
@@ -851,6 +857,7 @@ export const treatmentDetails: TreatmentDetail[] = [
         },
         {
           hex: "#2fa84f",
+          label: "Green Light",
           points: [
             "Helps to relieve redness & treat pigmentation",
             "Cooling effects",
@@ -863,6 +870,7 @@ export const treatmentDetails: TreatmentDetail[] = [
         },
         {
           hex: "#f4f1ea",
+          label: "White Light",
           points: [
             "Penetrates the deep layers of skin",
             "Accelerates active tissue metabolism",

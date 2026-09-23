@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Fragment } from "react";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
@@ -214,25 +215,6 @@ export default async function TreatmentPage({ params }: Props) {
               {treatment.howItWorks.intro}
             </p>
 
-            {treatment.processDiagrams && treatment.processDiagrams.length > 0 && (
-              <div className="mt-10 flex flex-col gap-6">
-                {treatment.processDiagrams.map((diagram) => (
-                  <div
-                    key={diagram.src}
-                    className="relative mx-auto w-full max-w-[1100px] overflow-hidden rounded-[12px] bg-white p-4 shadow-sm"
-                  >
-                    <Image
-                      src={diagram.src}
-                      alt={diagram.alt}
-                      width={1600}
-                      height={600}
-                      className="h-auto w-full object-contain"
-                    />
-                  </div>
-                ))}
-              </div>
-            )}
-
             <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-3">
               {treatment.howItWorks.steps.map((step) => (
                 <div
@@ -250,6 +232,30 @@ export default async function TreatmentPage({ params }: Props) {
               ))}
             </div>
 
+          </div>
+        </section>
+      )}
+
+      {/* Process diagrams (standalone, independent of How It Works) */}
+      {treatment.processDiagrams && treatment.processDiagrams.length > 0 && (
+        <section className={`w-full px-5 ${treatment.howItWorks ? "" : "bg-cream"}`}>
+          <div className="mx-auto max-w-[1400px] py-[60px] lg:py-[80px]">
+            <div className="flex flex-col gap-6">
+              {treatment.processDiagrams.map((diagram) => (
+                <div
+                  key={diagram.src}
+                  className="relative mx-auto w-full max-w-[1100px] overflow-hidden rounded-[12px] bg-white p-4 shadow-sm"
+                >
+                  <Image
+                    src={diagram.src}
+                    alt={diagram.alt}
+                    width={1600}
+                    height={600}
+                    className="h-auto w-full object-contain"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </section>
       )}
@@ -365,6 +371,51 @@ export default async function TreatmentPage({ params }: Props) {
                 height={600}
                 className="h-auto w-full object-contain"
               />
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Comparison table */}
+      {treatment.comparisonTable && (
+        <section className="w-full border-t border-black/8 bg-cream px-5">
+          <div className="mx-auto max-w-[1100px] py-[80px] lg:py-[100px]">
+            <h2 className="text-center font-subheading text-[26px] font-medium leading-[32px] tracking-[-1px] text-forest uppercase lg:text-[32px] lg:leading-[38px]">
+              {treatment.comparisonTable.title}
+            </h2>
+            <div className="mt-10 overflow-hidden rounded-[12px] border border-black/8 bg-white">
+              {/* Header row */}
+              <div className="grid grid-cols-1 gap-px bg-black/8 sm:grid-cols-[160px_1fr_1fr]">
+                <div className="hidden bg-forest px-5 py-4 sm:block" />
+                <div className="bg-forest px-5 py-4">
+                  <p className="font-subheading text-[13px] font-semibold tracking-[1px] text-cream uppercase">
+                    {treatment.comparisonTable.columnLabels[0]}
+                  </p>
+                </div>
+                <div className="bg-forest px-5 py-4">
+                  <p className="font-subheading text-[13px] font-semibold tracking-[1px] text-tan uppercase">
+                    {treatment.comparisonTable.columnLabels[1]}
+                  </p>
+                </div>
+              </div>
+              {/* Rows */}
+              <div className="grid grid-cols-1 gap-px bg-black/8 sm:grid-cols-[160px_1fr_1fr]">
+                {treatment.comparisonTable.rows.map((row) => (
+                  <Fragment key={row.feature}>
+                    <div className="bg-cream/60 px-5 py-4 sm:flex sm:items-center">
+                      <p className="font-subheading text-[13px] font-semibold tracking-[0.5px] text-forest uppercase">
+                        {row.feature}
+                      </p>
+                    </div>
+                    <div className="bg-white px-5 py-4">
+                      <p className="text-[14px] leading-[22px] text-body-text">{row.a}</p>
+                    </div>
+                    <div className="bg-white px-5 py-4">
+                      <p className="text-[14px] leading-[22px] text-body-text">{row.b}</p>
+                    </div>
+                  </Fragment>
+                ))}
+              </div>
             </div>
           </div>
         </section>

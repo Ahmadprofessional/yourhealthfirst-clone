@@ -81,6 +81,16 @@ export interface TreatmentDetail {
       description: string;
     }[];
   };
+  /** Feature-by-feature comparison table between two methods/options */
+  comparisonTable?: {
+    title: string;
+    columnLabels: [string, string];
+    rows: {
+      feature: string;
+      a: string;
+      b: string;
+    }[];
+  };
 }
 
 export const treatmentDetails: TreatmentDetail[] = [
@@ -714,12 +724,119 @@ export const treatmentDetails: TreatmentDetail[] = [
     category: "Hair Restoration",
     image: "/images/services/placeholder.png",
     intro:
-      "PRP (Platelet-Rich Plasma) hair loss treatment is one of the most effective non-surgical options for male and female hair thinning, alopecia and hair loss. By injecting concentrated growth factors directly into the scalp, PRP stimulates dormant follicles, strengthens existing hair and supports new hair growth.",
+      "PRP (Platelet-Rich Plasma) hair loss treatment is a three-step medical treatment in which a patient's blood is drawn, processed, and then injected into the scalp. It volumises hair, naturally grows new roots, increases the survival and strengthening of existing hair, increases vascularisation of the scalp, and improves the vitality, colour and shine of your hair — improving overall hair quality through an entirely natural process. PRP is the only non-surgical and non-pharmaceutical treatment that has proven its efficacy and safety.",
+    videoId: "qG-TFBGfxkM",
+    diagramImage: {
+      src: "/images/treatments/prp-hair-loss/hero-photo.png",
+      alt: "PRP Hair Restoration at YourHealthFirst Clinic",
+    },
     body: [
-      "Dr Sofia is a recognised PRP Hair Loss Specialist with extensive experience treating both male pattern baldness and female hair thinning. The treatment uses your own blood — processed to concentrate the platelets — which are then injected precisely into the thinning areas of the scalp.",
-      "At YourHealthFirst, we offer both Standard PRP and the Advanced RegenKit-BCT (a superior double-centrifugation kit producing a higher concentration of growth factors). The latter is particularly recommended for patients with more advanced hair loss or for those who have had limited response to standard PRP.",
+      "Dr Sofia is a recognised PRP Hair Loss Specialist with extensive experience treating both male pattern baldness and female hair thinning. The treatment uses your own blood — processed to concentrate the platelets — which are then injected precisely into the thinning areas of the scalp. In collaboration with Regen Lab's original and patented technologies, a one-step closed system is used to prepare your own blood cells, and the Advanced PRP Cellular Matrix is injected using the pain-free U225 latest intradermal medical injector.",
+      "There are two major forms of alopecia affecting the population that can be improved with PRP. Androgenic Alopecia is the most common cause of male pattern baldness, due to hormonal imbalance, genetic predisposition, age and metabolic syndromes — treatments are generally challenging, and previous therapies have often shown limited effectiveness or side-effects. Androgenetic alopecia affects up to 30% of men over 30 and 50% of men over 50, as well as many women, and PRP shows excellent results for male and female patients from initial to intermediate stages (I–V on the Norwood scale).",
+      "Alopecia Areata is an auto-immune disease that causes spot baldness, generally due to genetic predisposition and triggered by a physiological change such as stress or nutrient deficiencies. In both types, male and female patients show excellent results in most cases of hair loss.",
+      "Standard PRP stimulates the scalp follicles and has the ability to repair and restore injuries within skin tissue, accelerating the healing of damaged tissue. It increases collagen production and enhances the skin's elasticity, tone and thickness — results begin to show after the second treatment, allowing cell angiogenesis and hair regrowth in the scalp, and increasing hair density and thickness within 6 months. Standard PRP, the traditional form of PRP, is injected manually.",
+      "The Advanced PRP Cellular Matrix (RegenKit-BCT) is the next generation of PRP. Unlike standard PRP, it contains a greater concentration of growth factors, and the Cellular Matrix acts as scaffolding to keep those growth factors in the treated area for longer — promoting more hair growth than standard PRP. It is injected using the pain-free U225 intradermal medical injector, which can deliver up to 500 micro-injections per minute, and represents a new breakthrough in hair regrowth.",
       "A course of 3 sessions is recommended, spaced 4–6 weeks apart, with annual maintenance sessions to sustain results. Most patients notice reduced hair shedding after the first session, with visible improvement in density and thickness from around 3 months.",
     ],
+    comparisonTable: {
+      title: "Manual PRP vs U225 PRP Injections",
+      columnLabels: ["Manual PRP Injections", "U225 PRP Injections"],
+      rows: [
+        {
+          feature: "Method",
+          a: "The practitioner uses a standard syringe and a fine needle to inject the PRP directly into the scalp.",
+          b: "An automated mesotherapy device, the U225 mesogun, is used to deliver a rapid series of micro-injections.",
+        },
+        {
+          feature: "Precision",
+          a: "Precision is entirely dependent on the practitioner's skill and technique. Manual injection allows for flexible, real-time depth adjustment to target different areas of the scalp.",
+          b: "The U225 device offers superior control over injection depth and volume, ensuring consistent delivery of the PRP.",
+        },
+        {
+          feature: "Patient Comfort",
+          a: "This method can be more uncomfortable or painful for some patients, and it often requires topical numbing cream to manage.",
+          b: "Due to its rapid, pneumatic injection mechanism, the U225 significantly reduces discomfort. Some patients find it virtually painless and do not require numbing cream.",
+        },
+        {
+          feature: "Speed & Efficiency",
+          a: "Manual injections can be more time-consuming, especially for treating larger areas of the scalp.",
+          b: "The U225 gun can perform hundreds of micro-injections per minute, making the overall treatment time much shorter.",
+        },
+        {
+          feature: "Consistency",
+          a: "The volume and pressure of each injection can vary based on human control, which can lead to less consistent results.",
+          b: "Automation ensures a uniform distribution of PRP across the treatment area, reducing the risk of human error.",
+        },
+        {
+          feature: "Cost",
+          a: "This technique eliminates the need for specialised equipment, which can make it a more cost-effective option.",
+          b: "The specialised U225 device and its disposable components can increase the overall treatment cost.",
+        },
+        {
+          feature: "Tactile Feedback",
+          a: "The practitioner receives immediate tactile feedback, allowing them to feel tissue resistance and adjust their technique as needed.",
+          b: "This method lacks the direct tactile feedback of manual injections.",
+        },
+        {
+          feature: "Downtime",
+          a: "Bruising and swelling may be more prominent compared to the gentle application of the mesogun.",
+          b: "Minimal bruising and swelling are typical, leading to reduced downtime.",
+        },
+      ],
+    },
+    processDiagrams: [
+      { src: "/images/treatments/prp-hair-loss/cellular-matrix-title.jpg", alt: "Cellular Matrix technology" },
+      { src: "/images/treatments/prp-hair-loss/regenkit-bct.jpg", alt: "RegenKit BCT — Advanced PRP Cellular Matrix kit" },
+      { src: "/images/treatments/prp-hair-loss/bct-tubes.png", alt: "PRP Cellular Matrix BCT collection tubes" },
+      { src: "/images/treatments/prp-hair-loss/blu-tubes.png", alt: "PRP collection tubes" },
+    ],
+    advantages: {
+      title: "Advantages of PRFM Treatment",
+      intro:
+        "PRFM presents more viable, intact and activated PRP in a fibrin matrix, which produces a more prolonged exposure to growth factors over a more natural time course. It is believed that this natural kinetics will yield more sustained hair growth.",
+      items: [
+        {
+          title: "Proven in Clinical Studies",
+          description:
+            "Studies show that PRFM is more effective in grade 3, 4 and 5 hair loss in men and grade 2 in women.",
+        },
+        {
+          title: "Well Tolerated",
+          description:
+            "All patients tolerated the procedure well, with no patients noting any significant bruising (ecchymosis).",
+        },
+        {
+          title: "No Worsened Shedding",
+          description: "Hair shedding didn't worsen in any case.",
+        },
+        {
+          title: "Visible in 3 Sessions",
+          description:
+            "Significant hair regrowth and improvement in thickness is seen after just 3 sessions of treatment.",
+        },
+        {
+          title: "Quick, Sustained-Release Procedure",
+          description:
+            "The procedure takes only around 20 minutes. It sustains release for up to 7 days afterwards, allowing cell angiogenesis and hair regrowth in the scalp, and increases hair density and thickness almost 2 times within 6 months.",
+        },
+        {
+          title: "Proven Regenerative Technology",
+          description:
+            "Platelet-rich fibrin matrix is extensively used by surgeons worldwide to treat chronic lower extremity ulcers, promoting wound healing via cell proliferation and new cell regrowth.",
+        },
+        {
+          title: "Enhances Hair Transplantation",
+          description:
+            "PRFM is very effective in combination with hair transplantation — it stimulates dermal angiogenesis and wound healing, helping the transplanted graft survive better, and also improves the density of thinning hair by stimulating cell proliferation.",
+        },
+      ],
+    },
+    gallery: {
+      folder: "/images/gallery/prp-hair-loss",
+      prefix: "prp-hair",
+      count: 6,
+      ext: "jpg",
+    },
     benefits: [
       "Stimulates dormant follicles and promotes new hair growth",
       "Reduces hair shedding and breakage",
@@ -727,6 +844,9 @@ export const treatmentDetails: TreatmentDetail[] = [
       "100% natural — uses your own growth factors",
       "Suitable for male and female hair loss and alopecia",
       "Can be combined with exosome therapy for enhanced results",
+      "Also reduces wrinkles and minimises acne scars",
+      "Improves skin texture, colour and overall complexion",
+      "Improves under-eye puffiness and dark circles",
     ],
     suitableFor: [
       "Adults experiencing hair thinning or early hair loss",
@@ -776,6 +896,46 @@ export const treatmentDetails: TreatmentDetail[] = [
         question: "Can PRP be combined with other treatments?",
         answer:
           "Yes — PRP is often combined with Exosome Therapy for an enhanced regenerative effect, particularly for patients with more advanced hair thinning.",
+      },
+      {
+        question: "What should I do after my PRP treatment?",
+        answer:
+          "It's not recommended to wash your hair, apply ice, or take anti-inflammatory medication within 24 hours of treatment.",
+      },
+      {
+        question: "Is PRP more effective combined with hair transplantation?",
+        answer:
+          "Yes — PRFM is very effective in combination with hair transplantation. It stimulates dermal angiogenesis and wound healing, which helps the transplanted graft survive better, and also improves the density of thinning hair by stimulating cell proliferation.",
+      },
+      {
+        question: "Is there scientific evidence for this treatment?",
+        answer:
+          "Platelet-rich fibrin matrix is extensively used by surgeons worldwide to treat chronic lower extremity ulcers. It promotes wound healing via cell proliferation and new cell regrowth, and the same regenerative mechanism supports hair follicle stimulation in the scalp.",
+      },
+      {
+        question: "Why is PRFM superior to standard PRP?",
+        answer:
+          "PRFM requires only around 4 sessions to see a visible result. Its sustained release, continuing for up to 7 days after the procedure, allows cell angiogenesis and hair regrowth in the scalp, and it increases hair density and thickness almost 2 times within 6 months.",
+      },
+      {
+        question: "How does this compare to other hair loss treatments?",
+        answer:
+          "PRF matrix releases growth factors into the scalp through a sustained mechanism — in vitro studies have shown growth factors are released for up to 7 days, which stimulates new hair growth. Pronounced results are typically seen after 3 months of treatment.",
+      },
+      {
+        question: "What is PRFM (Platelet-Rich Fibrin Matrix)?",
+        answer:
+          "PRFM is considered one of the latest innovations in hair treatment. A small amount of blood is collected from the patient and centrifuged, which separates and concentrates the patient's own PRP and fibrin into a matrix. This matrix is then injected into the thinning or bald scalp, stimulating cell proliferation and hair regrowth through targeted tissue regeneration.",
+      },
+      {
+        question: "How long does the appointment take?",
+        answer:
+          "The full appointment, including consultation and injection, takes around 60–90 minutes. No anaesthetic is required and there is no downtime, so you can return to your normal activities straight away if you wish.",
+      },
+      {
+        question: "Is PRP safe?",
+        answer:
+          "PRP is an especially safe treatment option with no risk of allergic reaction, because it is made from your own blood. As it's antimicrobial, there is also no risk of infection.",
       },
     ],
   },

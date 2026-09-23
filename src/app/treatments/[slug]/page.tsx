@@ -207,16 +207,16 @@ export default async function TreatmentPage({ params }: Props) {
             </p>
 
             {treatment.processDiagrams && treatment.processDiagrams.length > 0 && (
-              <div className="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-2">
+              <div className="mt-10 flex flex-col gap-6">
                 {treatment.processDiagrams.map((diagram) => (
                   <div
                     key={diagram.src}
-                    className="relative overflow-hidden rounded-[12px] bg-white p-4 shadow-sm"
+                    className="relative mx-auto w-full max-w-[1100px] overflow-hidden rounded-[12px] bg-white p-4 shadow-sm"
                   >
                     <Image
                       src={diagram.src}
                       alt={diagram.alt}
-                      width={800}
+                      width={1600}
                       height={600}
                       className="h-auto w-full object-contain"
                     />
@@ -242,43 +242,6 @@ export default async function TreatmentPage({ params }: Props) {
               ))}
             </div>
 
-            {treatment.colorBenefits && (
-              <div className="mt-12">
-                <h3 className="text-center font-subheading text-[22px] font-medium leading-[28px] tracking-[-0.5px] text-forest uppercase lg:text-[26px] lg:leading-[32px]">
-                  {treatment.colorBenefits.title}
-                </h3>
-                <p className="mx-auto mt-2 max-w-[640px] text-center text-[14px] leading-[22px] text-body-text">
-                  Our machine comes with seven different LED wavelengths, each with its own therapeutic
-                  benefits for the skin and body.
-                </p>
-                <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                  {treatment.colorBenefits.items.map((item) => (
-                    <div
-                      key={item.label}
-                      className="flex flex-col gap-3 rounded-[12px] border border-black/8 bg-white p-6 shadow-sm"
-                    >
-                      <div className="flex items-center gap-3">
-                        <span
-                          className="h-[14px] w-[14px] shrink-0 rounded-full ring-1 ring-black/10"
-                          style={{ backgroundColor: item.hex }}
-                        />
-                        <h4 className="font-subheading text-[13px] font-semibold tracking-[1.5px] text-forest uppercase">
-                          {item.label}
-                        </h4>
-                      </div>
-                      <ul className="flex flex-col gap-2">
-                        {item.points.map((point) => (
-                          <li key={point} className="flex items-start gap-2.5 text-[14px] leading-[21px] text-body-text">
-                            <span className="mt-[7px] h-[5px] w-[5px] shrink-0 rounded-full bg-tan" />
-                            <span>{point}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
 
             {treatment.diagramImage && (
               <div className="relative mx-auto mt-12 max-w-[900px] overflow-hidden rounded-[12px] shadow-sm">

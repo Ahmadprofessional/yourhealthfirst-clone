@@ -48,15 +48,6 @@ export interface TreatmentDetail {
     src: string;
     alt: string;
   }[];
-  /** Colour-coded benefit boxes shown in a row (e.g. LED light therapy benefits) */
-  colorBenefits?: {
-    title: string;
-    items: {
-      hex: string;
-      label: string;
-      points: string[];
-    }[];
-  };
 }
 
 export const treatmentDetails: TreatmentDetail[] = [
@@ -801,86 +792,11 @@ export const treatmentDetails: TreatmentDetail[] = [
         src: "/images/treatments/cryolipolysis/how-it-works-2.jpg",
         alt: "Cryolipolysis before, during and after treatment — fat cell cross-section",
       },
+      {
+        src: "/images/treatments/cryolipolysis/led-light-therapy-benefits.webp",
+        alt: "Cryolipolysis with LED Lights — skin benefits by colour",
+      },
     ],
-    colorBenefits: {
-      title: "Cryolipolysis with LED Lights — Skin Benefits",
-      items: [
-        {
-          hex: "#e02020",
-          label: "Red Light",
-          points: [
-            "Warming",
-            "Rejuvenating",
-            "Energising",
-            "Increases collagen & elastin production",
-            "Increases blood flow & stimulates fibroblast — great for slimming",
-          ],
-        },
-        {
-          hex: "#f2c200",
-          label: "Yellow Light",
-          points: [
-            "Soothes sensitive skin",
-            "Strengthens the immune system",
-            "Stimulates the lymphatic system",
-          ],
-        },
-        {
-          hex: "#7b2fd6",
-          label: "Purple Light",
-          points: [
-            "Combination of the red light and blue light",
-            "Useful to treat and repair acne scars",
-            "Increases the rate of skin renewal",
-          ],
-        },
-        {
-          hex: "#1f6fd6",
-          label: "Blue Light",
-          points: [
-            "Cooling",
-            "Calming",
-            "Relaxing",
-            "Soothing",
-            "Reduces swelling",
-            "Normalises sebum production",
-          ],
-        },
-        {
-          hex: "#0fb8c9",
-          label: "Cyan Light",
-          points: [
-            "Calms skin tension",
-            "Aids healing of sun burns",
-            "Helps with skin inflammation",
-          ],
-        },
-        {
-          hex: "#2fa84f",
-          label: "Green Light",
-          points: [
-            "Helps to relieve redness & treat pigmentation",
-            "Cooling effects",
-            "Regenerates",
-            "Anti-inflammatory",
-            "Helps to relax muscles",
-            "Promotes healing",
-            "Evens out pigmentation",
-          ],
-        },
-        {
-          hex: "#f4f1ea",
-          label: "White Light",
-          points: [
-            "Penetrates the deep layers of skin",
-            "Accelerates active tissue metabolism",
-            "Improves fine lines and flabby skin",
-            "Encourages lymphatic drainage",
-            "Assists in detoxifying the body",
-          ],
-        },
-      ],
-    },
     diagramImage: {
       src: "/images/treatments/cryolipolysis/treatment-areas.jpg",
       alt: "Cryolipolysis treatment areas — female and male",

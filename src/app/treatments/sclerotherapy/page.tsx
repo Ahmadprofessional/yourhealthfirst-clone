@@ -36,7 +36,10 @@ const afterProcedure = [
   { icon: "sock", text: "Wear your graduated medical compression stockings for up to 3 weeks (as advised)" },
   { icon: "moon", text: "Stockings may be taken off at night or for showers/baths" },
   { icon: "alert", text: "Do not be alarmed if treated veins look worse initially — this is normal and improves over time" },
-  { icon: "calendar", text: "You may require further treatment sessions for full results" },
+  { icon: "sun", text: "Avoid sun exposure on the treated area for the first few weeks, as suntanning can extend how long the dark colour takes to fade" },
+  { icon: "plane", text: "Air travel is generally acceptable during treatment, though you should wear your compression stockings during long-haul flights — discuss this with your practitioner beforehand" },
+  { icon: "calendar", text: "Attend for further treatment and review of progress at intervals suggested by your practitioner" },
+  { icon: "info", text: "Long-term wear of compression stockings hasn't been shown to minimise thread vein recurrence — there's no reliable way to prevent further veins forming, and occasional further treatment is likely to be required" },
 ];
 
 const tips = [
@@ -141,6 +144,26 @@ function Icon({ name, className }: { name: string; className?: string }) {
       return (
         <svg className={className} {...common}>
           <path d="M4.5 12h15m0 0-6-6m6 6-6 6" />
+        </svg>
+      );
+    case "sun":
+      return (
+        <svg className={className} {...common}>
+          <circle cx="12" cy="12" r="4" />
+          <path d="M12 2v2.5M12 19.5V22M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2 12h2.5M19.5 12H22M4.2 19.8 6 18M18 6l1.8-1.8" />
+        </svg>
+      );
+    case "plane":
+      return (
+        <svg className={className} {...common}>
+          <path d="M10.5 21 12 16l-7-2 1.5-2L14 13l3-7c.4-1 1.8-1 2.2 0 .3.8 0 1.7-.7 2.2l-4.8 3.6 1.5 6.2-2 1.5-2-3.7-1.8 4.2Z" />
+        </svg>
+      );
+    case "info":
+      return (
+        <svg className={className} {...common}>
+          <circle cx="12" cy="12" r="8.5" />
+          <path d="M12 11v5.5M12 8v.01" />
         </svg>
       );
     default:
@@ -290,46 +313,75 @@ export default function SclerotherapyPage() {
       </section>
 
       {/* Recommended if / Recommendations after */}
-      <section className="w-full bg-cream px-5">
-        <div className="mx-auto max-w-[1400px] py-[70px] lg:py-[90px]">
-          <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-            <div className="relative overflow-hidden rounded-[16px] bg-white p-8 shadow-sm">
-              <div className="flex flex-col gap-2">
-                <h3 className="font-display text-[22px] font-bold leading-[28px] text-forest">
-                  Noninvasive Treatment May Be Recommended if You:
-                </h3>
-                <span className="h-[3px] w-12 rounded-full bg-tan" />
+      <section className="relative w-full overflow-hidden bg-[linear-gradient(135deg,#faf4ea_0%,#f0e0c8_100%)] px-5">
+        <div className="pointer-events-none absolute -left-[10%] -top-[20%] h-[500px] w-[500px] rounded-full bg-tan/15 blur-[110px]" />
+        <div className="pointer-events-none absolute -right-[10%] bottom-[-20%] h-[500px] w-[500px] rounded-full bg-white/40 blur-[110px]" />
+        <div className="relative mx-auto max-w-[1400px] py-[70px] lg:py-[90px]">
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+            {/* When to consider treatment */}
+            <div className="relative overflow-hidden rounded-[24px] border border-tan/25 bg-white/70 p-8 shadow-lg backdrop-blur-sm lg:p-10">
+              <div className="pointer-events-none absolute inset-y-0 right-0 w-[38%]">
+                <Image src="/images/treatments/sclerotherapy/intro.jpg" alt="" fill className="object-cover opacity-90" />
+                <div className="absolute inset-0 bg-[linear-gradient(90deg,#faf4ea_0%,rgba(250,244,234,0.55)_55%,rgba(250,244,234,0)_100%)]" />
               </div>
-              <ul className="mt-6 flex flex-col gap-4">
-                {recommendedIf.map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <span className="mt-[1px] flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-tan/15 text-tan">
-                      <Icon name="check" className="h-3.5 w-3.5" />
-                    </span>
-                    <span className="text-[14px] leading-[22px] text-body-text">{item}</span>
-                  </li>
-                ))}
-              </ul>
+              <div className="relative flex max-w-[68%] flex-col gap-5 lg:max-w-[62%]">
+                <span className="font-nav text-[11px] font-semibold tracking-[2px] text-tan uppercase">When to Consider Treatment</span>
+                <span className="h-[3px] w-12 rounded-full bg-tan" />
+                <h3 className="font-display text-[24px] font-bold leading-[29px] tracking-[-0.5px] text-forest uppercase lg:text-[28px] lg:leading-[33px]">
+                  Noninvasive Treatment May Be <span className="text-tan">Recommended if You:</span>
+                </h3>
+                <ul className="flex flex-col gap-3">
+                  {recommendedIf.map((item) => (
+                    <li key={item} className="flex items-start gap-3 border-t border-tan/15 pt-3 first:border-t-0 first:pt-0">
+                      <span className="mt-[1px] flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-tan text-white shadow-sm">
+                        <Icon name="check" className="h-3.5 w-3.5" />
+                      </span>
+                      <span className="text-[14px] leading-[21px] text-body-text">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
 
-            <div className="rounded-[16px] bg-white p-8 shadow-sm">
-              <div className="flex flex-col gap-2">
-                <h3 className="font-display text-[22px] font-bold leading-[28px] text-forest">
-                  Recommendations After the Procedure
-                </h3>
-                <span className="h-[3px] w-12 rounded-full bg-tan" />
+            {/* Aftercare guidelines */}
+            <div className="relative overflow-hidden rounded-[24px] border border-tan/25 bg-white/70 p-8 shadow-lg backdrop-blur-sm lg:p-10">
+              <div className="pointer-events-none absolute inset-y-0 right-0 w-[34%]">
+                <Image src="/images/treatments/sclerotherapy/treatment.jpg" alt="" fill className="object-cover opacity-90" />
+                <div className="absolute inset-0 bg-[linear-gradient(90deg,#faf4ea_0%,rgba(250,244,234,0.5)_50%,rgba(250,244,234,0)_100%)]" />
               </div>
-              <ul className="mt-6 flex flex-col gap-4">
-                {afterProcedure.map((item) => (
-                  <li key={item.text} className="flex items-start gap-4">
-                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-tan/15 text-tan">
-                      <Icon name={item.icon} className="h-5 w-5" />
-                    </span>
-                    <span className="mt-2 text-[14px] leading-[22px] text-body-text">{item.text}</span>
-                  </li>
-                ))}
-              </ul>
+              <div className="relative flex max-w-[72%] flex-col gap-5 lg:max-w-[66%]">
+                <span className="font-nav text-[11px] font-semibold tracking-[2px] text-tan uppercase">Aftercare Guidelines</span>
+                <span className="h-[3px] w-12 rounded-full bg-tan" />
+                <h3 className="font-display text-[24px] font-bold leading-[29px] tracking-[-0.5px] text-forest uppercase lg:text-[28px] lg:leading-[33px]">
+                  Recommendations <span className="text-tan">After the Procedure</span>
+                </h3>
+                <ul className="flex flex-col gap-3">
+                  {afterProcedure.map((item) => (
+                    <li key={item.text} className="flex items-start gap-4 border-t border-tan/15 pt-3 first:border-t-0 first:pt-0">
+                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-tan/15 text-tan">
+                        <Icon name={item.icon} className="h-5 w-5" />
+                      </span>
+                      <span className="mt-2 text-[14px] leading-[21px] text-body-text">{item.text}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Supporting diagram — how the injection works */}
+      <section className="w-full px-5">
+        <div className="mx-auto max-w-[1400px] py-[60px] lg:py-[80px]">
+          <div className="relative mx-auto w-full max-w-[900px] overflow-hidden rounded-[12px] border border-black/8 bg-white p-4 shadow-sm">
+            <Image
+              src="/images/treatments/sclerotherapy/diagram.jpg"
+              alt="Diagram showing the sclerotherapy injection technique — the varicose vein is located with ultrasound and precisely injected with a sclerosant, causing it to collapse"
+              width={1300}
+              height={734}
+              className="h-auto w-full object-contain"
+            />
           </div>
         </div>
       </section>

@@ -236,7 +236,7 @@ export default function PhlebotomyPage() {
                 />
               </div>
               <div className="flex items-center gap-4 rounded-[10px] border border-black/8 bg-cream px-4 py-3">
-                <div className="relative h-12 w-24 shrink-0">
+                <div className="relative h-16 w-36 shrink-0">
                   <Image
                     src="/images/treatments/phlebotomy/npr-logo.png"
                     alt="National Phlebotomist Register"

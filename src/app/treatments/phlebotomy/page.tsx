@@ -265,35 +265,9 @@ export default function PhlebotomyPage() {
               <p className="text-[16px] leading-[27px] text-body-text">
                 At YourHealthFirst Clinic we offer phlebotomy service to both <strong className="text-forest">adults and children</strong>.
               </p>
-              <div className="flex flex-col gap-3 rounded-[14px] border border-tan/30 bg-[linear-gradient(120deg,#faf4ea_0%,#f0e0c8_100%)] p-5">
-                <p className="text-[16px] leading-[27px] text-body-text">
-                  We offer our services to <strong className="text-forest">different labs</strong> like:
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {[
-                    "Functional DX",
-                    "Regenerus Labs",
-                    "Cyrex",
-                    "Genova",
-                    "ArminLabs",
-                    "Nordic Lab",
-                    "Alletess Medical Laboratory",
-                    "FRAT",
-                    "Viva Health",
-                    "Key Clinic",
-                    "RGCC International",
-                    "Religen USA",
-                  ].map((lab) => (
-                    <span
-                      key={lab}
-                      className="rounded-full border border-tan/40 bg-white/80 px-3 py-1 text-[13px] font-semibold text-forest"
-                    >
-                      {lab}
-                    </span>
-                  ))}
-                  <span className="px-1 py-1 text-[13px] italic text-body-text">among others.</span>
-                </div>
-              </div>
+              <p className="text-[16px] leading-[27px] text-body-text">
+                We offer our services to different labs like <strong className="text-forest">Functional DX, Regenerus Labs, Cyrex, Genova, ArminLabs, Nordic Lab, Alletess Medical Laboratory, FRAT, Viva Health, Key Clinic, RGCC International and Religen USA</strong>, among others.
+              </p>
               <p className="text-[16px] leading-[27px] text-body-text">
                 For some cases, as per requisition form, <strong className="text-forest">we can also freeze the sample</strong> and keep it in the clinic until it is collected by DHL if needed.
               </p>

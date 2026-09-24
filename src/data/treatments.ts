@@ -54,6 +54,15 @@ export interface TreatmentDetail {
     description: string;
     image: string;
   }[];
+  /** Large technology/product showcase — photo with decorative ring + badge, feature icon row and CTA */
+  technologyShowcase?: {
+    eyebrow: string;
+    heading: { main: string; accent: string };
+    description: string;
+    image: { src: string; alt: string };
+    badge?: { src: string; alt: string };
+    features: { icon: string; label: string }[];
+  };
   /** Labelled before/after image pairs shown side by side */
   beforeAfterPairs?: {
     label: string;
@@ -792,14 +801,26 @@ export const treatmentDetails: TreatmentDetail[] = [
     intro:
       "Non-surgical lift and facial rejuvenation that corrects visual skin defects and promotes the reorganisation of its microstructure. PRP therapy involves injection of the patient's own PRP and fibrin for the cosmetic treatment of wrinkles or scars in the face, hands and neck. Known to some as the \"vampire facelift\", it is less invasive than plastic surgery, takes about 45 minutes for each treatment, and offers improvements for up to 12 to 18 months.",
     videoId: "fwAkk77SN2A",
-    featureImages: [
-      {
-        title: "Advanced PRP Cellular Matrix",
-        description:
-          "Our advanced PRP Cellular Matrix treatments are injected with RegenLab Laboratory (Switzerland) patented innovative products for the isolation of PRP-enriched therapy, using the pain-free, latest U225 intradermal medical injector.",
-        image: "/images/treatments/prp-face-body/regenlab.jpg",
+    technologyShowcase: {
+      eyebrow: "Our Technology",
+      heading: { main: "Advanced PRP", accent: "Cellular Matrix" },
+      description:
+        "Our advanced PRP Cellular Matrix treatments are injected with RegenLab Laboratory (Switzerland) patented innovative products for the isolation of PRP-enriched therapy, using the pain-free, latest U225 intradermal medical injector.",
+      image: {
+        src: "/images/treatments/prp-face-body/regenlab.jpg",
+        alt: "RegenLab Cellular Matrix BCT-HA Kit — HA PRP Tube, PRP Tube and Activator Tube",
       },
-    ],
+      badge: {
+        src: "/images/treatments/prp-face-body/title.jpg",
+        alt: "Cellular Matrix — Hydration & Regeneration",
+      },
+      features: [
+        { icon: "drop", label: "Natural Regeneration" },
+        { icon: "sparkle", label: "Patented Technology" },
+        { icon: "shield", label: "High Purity PRP" },
+        { icon: "leaf", label: "Safe & Minimally Invasive" },
+      ],
+    },
     body: [
       "PRP (Platelet-Rich Plasma) for the face is a cosmetic treatment that uses your own blood to rejuvenate the skin by stimulating collagen and elastin production. A small amount of blood is drawn, and a centrifuge separates the platelet-rich plasma, which is then applied to the skin or injected into the face, often combined with microneedling. This process helps to improve skin texture, reduce fine lines and wrinkles, minimise scars, and restore a more youthful, vibrant appearance.",
       "How it works — blood is drawn: a small amount of your blood is taken. Plasma is separated: the blood is placed in a centrifuge to separate the red blood cells from the plasma, and the resulting platelet-rich plasma, full of growth factors and proteins, is collected. Plasma is applied: the PRP is then either injected into the skin or applied topically, often over skin that has been pre-treated with a microneedling device. The body's healing is stimulated: the growth factors in the PRP trigger the body's natural healing response, stimulating new tissue growth and boosting collagen and elastin production.",

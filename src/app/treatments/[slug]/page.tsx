@@ -891,6 +891,81 @@ export default async function TreatmentPage({ params }: Props) {
         </section>
       )}
 
+      {/* Technology / product showcase — large photo with ring, badge, feature icons and CTA */}
+      {treatment.technologyShowcase && (
+        <section className="relative w-full overflow-hidden bg-[linear-gradient(120deg,#faf4ea_0%,#f0e0c8_100%)] px-5">
+          <div className="pointer-events-none absolute -right-[6%] -top-[20%] h-[420px] w-[420px] rounded-full bg-tan/15 blur-[110px]" />
+          <div className="pointer-events-none absolute -left-[8%] bottom-[-20%] h-[420px] w-[420px] rounded-full bg-white/40 blur-[110px]" />
+          <div className="relative mx-auto max-w-[1400px] py-[70px] lg:py-[90px]">
+            <div className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2 lg:gap-20">
+              <div className="flex flex-col gap-6">
+                <div className="flex items-center gap-3">
+                  <span className="font-nav text-[12px] font-semibold tracking-[3px] text-tan uppercase">{treatment.technologyShowcase.eyebrow}</span>
+                  <span className="h-px w-16 bg-tan/40" />
+                </div>
+                <h2 className="font-display text-[36px] font-bold leading-[42px] tracking-[-1px] text-forest lg:text-[44px] lg:leading-[50px]">
+                  {treatment.technologyShowcase.heading.main}
+                  <br />
+                  <span className="text-tan">{treatment.technologyShowcase.heading.accent}</span>
+                </h2>
+                <p className="max-w-[440px] text-[16px] leading-[26px] text-body-text">
+                  {treatment.technologyShowcase.description}
+                </p>
+                <div className="mt-2 grid grid-cols-2 gap-x-6 gap-y-6 sm:grid-cols-4">
+                  {treatment.technologyShowcase.features.map((feature) => (
+                    <div key={feature.label} className="flex flex-col items-start gap-2">
+                      <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-tan/15 text-tan">
+                        <AreaIcon name={feature.icon} className="h-5 w-5" />
+                      </span>
+                      <span className="text-[13px] font-semibold leading-[18px] text-forest">{feature.label}</span>
+                    </div>
+                  ))}
+                </div>
+                <Link
+                  href="/contact-us"
+                  className="mt-2 inline-flex h-14 w-fit items-center gap-2 rounded-[8px] bg-tan px-6 font-nav text-[13px] font-semibold tracking-[0.5px] text-forest uppercase transition-opacity hover:opacity-90"
+                >
+                  Book a Consultation
+                  <AreaIcon name="arrow" className="h-4 w-4" />
+                </Link>
+              </div>
+
+              <div className="relative mx-auto w-full max-w-[560px] py-10">
+                <div className="pointer-events-none absolute -left-8 -top-8 h-full w-full rounded-full border border-tan/30" />
+                {/* Podium */}
+                <div
+                  className="pointer-events-none absolute bottom-6 left-1/2 h-[60px] w-[85%] -translate-x-1/2 rounded-[50%] bg-[radial-gradient(ellipse_at_center,#e8d9c2_0%,rgba(232,217,194,0)_70%)]"
+                />
+                <div
+                  className="pointer-events-none absolute bottom-8 left-1/2 h-[36px] w-[70%] -translate-x-1/2 rounded-[50%] bg-black/10 blur-[10px]"
+                />
+                {/* Tilted 3D product shot */}
+                <div style={{ perspective: "1400px" }}>
+                  <div
+                    className="relative mx-auto w-[82%] overflow-hidden rounded-[10px] border border-black/10 bg-white shadow-[0_35px_45px_-15px_rgba(60,40,15,0.35)]"
+                    style={{
+                      aspectRatio: "3/2",
+                      transform: "rotateY(-16deg) rotateX(4deg) rotateZ(1deg)",
+                      transformStyle: "preserve-3d",
+                    }}
+                  >
+                    <Image src={treatment.technologyShowcase.image.src} alt={treatment.technologyShowcase.image.alt} fill className="object-cover" />
+                    <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(115deg,rgba(255,255,255,0.25)_0%,rgba(255,255,255,0)_35%)]" />
+                  </div>
+                </div>
+                {treatment.technologyShowcase.badge && (
+                  <div className="absolute -bottom-2 -right-2 flex h-32 w-32 items-center justify-center rounded-full border border-tan/30 bg-cream shadow-lg">
+                    <div className="relative h-20 w-20">
+                      <Image src={treatment.technologyShowcase.badge.src} alt={treatment.technologyShowcase.badge.alt} fill className="object-contain" />
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Feature images (2-up benefit cards with supporting image) */}
       {treatment.featureImages && treatment.featureImages.length > 0 && (
         <section className="w-full px-5">

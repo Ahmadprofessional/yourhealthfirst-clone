@@ -687,7 +687,7 @@ export default async function TreatmentPage({ params }: Props) {
           <div className="pointer-events-none absolute -right-[6%] -top-[20%] h-[420px] w-[420px] rounded-full bg-tan/15 blur-[110px]" />
           <div className="pointer-events-none absolute -left-[8%] bottom-[-20%] h-[420px] w-[420px] rounded-full bg-white/40 blur-[110px]" />
           <div className="relative mx-auto max-w-[1400px] py-[70px] lg:py-[90px]">
-            <div className="grid grid-cols-1 gap-10 lg:grid-cols-[0.85fr_1.4fr]">
+            <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-[0.85fr_1.4fr]">
               <div className="flex flex-col gap-5">
                 <div className="flex items-center gap-3">
                   <span className="font-nav text-[11px] font-semibold tracking-[2px] text-tan uppercase">Important Information</span>

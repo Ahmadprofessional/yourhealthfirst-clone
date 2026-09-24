@@ -271,32 +271,35 @@ export default function PhlebotomyPage() {
         </div>
       </section>
 
-      {/* Prior to your blood test / On the day */}
+      {/* Prior to your blood test + On the day — one box */}
       <section className="relative w-full overflow-hidden bg-[linear-gradient(135deg,#faf4ea_0%,#f0e0c8_100%)] px-5">
         <div className="pointer-events-none absolute -left-[10%] -top-[20%] h-[500px] w-[500px] rounded-full bg-tan/15 blur-[110px]" />
         <div className="pointer-events-none absolute -right-[10%] bottom-[-20%] h-[500px] w-[500px] rounded-full bg-white/40 blur-[110px]" />
         <div className="relative mx-auto max-w-[1400px] py-[70px] lg:py-[90px]">
-          <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
-            {/* Prior to your blood test */}
-            <div className="relative overflow-hidden rounded-[24px] border border-tan/25 bg-white/70 p-8 shadow-lg backdrop-blur-sm lg:p-10">
-              <div className="pointer-events-none absolute inset-y-0 right-0 w-[42%]">
-                <Image
-                  src="/images/treatments/phlebotomy/blood-draw.jpg"
-                  alt=""
-                  fill
-                  className="object-cover opacity-90"
-                />
-                <div className="absolute inset-0 bg-[linear-gradient(90deg,#faf4ea_0%,rgba(250,244,234,0.55)_55%,rgba(250,244,234,0)_100%)]" />
-              </div>
-              <div className="relative flex max-w-[68%] flex-col gap-6 lg:max-w-[60%]">
-                <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-tan text-white shadow-sm">
-                  <Icon name="clipboard" className="h-6 w-6" />
-                </span>
-                <div className="flex flex-col gap-2">
-                  <span className="h-[3px] w-12 rounded-full bg-tan" />
-                  <h3 className="font-display text-[26px] font-bold leading-[30px] tracking-[-0.5px] text-forest uppercase lg:text-[30px] lg:leading-[34px]">
-                    Prior to Your <span className="text-tan">Blood Test</span>
-                  </h3>
+          <div className="relative overflow-hidden rounded-[24px] border border-tan/25 bg-white/70 shadow-lg backdrop-blur-sm">
+            <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[36%] lg:block">
+              <Image
+                src="/images/treatments/phlebotomy/blood-draw.jpg"
+                alt=""
+                fill
+                className="object-cover opacity-90"
+              />
+              <div className="absolute inset-0 bg-[linear-gradient(90deg,#faf4ea_0%,rgba(250,244,234,0.55)_45%,rgba(250,244,234,0)_100%)]" />
+            </div>
+
+            <div className="relative flex flex-col gap-10 p-8 lg:max-w-[66%] lg:p-12">
+              {/* Prior */}
+              <div className="flex flex-col gap-6">
+                <div className="flex items-center gap-4">
+                  <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-tan text-white shadow-sm">
+                    <Icon name="clipboard" className="h-6 w-6" />
+                  </span>
+                  <div className="flex flex-col gap-2">
+                    <span className="h-[3px] w-12 rounded-full bg-tan" />
+                    <h3 className="font-display text-[26px] font-bold leading-[30px] tracking-[-0.5px] text-forest uppercase lg:text-[30px] lg:leading-[34px]">
+                      Prior to Your <span className="text-tan">Blood Test</span>
+                    </h3>
+                  </div>
                 </div>
                 {priorSteps.map((step, i) => (
                   <div key={i} className="flex gap-4">
@@ -306,7 +309,7 @@ export default function PhlebotomyPage() {
                     <p className="text-[15px] leading-[24px] text-body-text">{step.text}</p>
                   </div>
                 ))}
-                <div className="flex items-start gap-3 rounded-[12px] bg-white/70 p-4">
+                <div className="flex items-start gap-3 rounded-[12px] bg-white/80 p-4">
                   <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-tan/20 text-tan">
                     <Icon name="phone" className="h-4 w-4" />
                   </span>
@@ -317,28 +320,21 @@ export default function PhlebotomyPage() {
                   </p>
                 </div>
               </div>
-            </div>
 
-            {/* On the day */}
-            <div className="relative overflow-hidden rounded-[24px] border border-tan/25 bg-white/70 p-8 shadow-lg backdrop-blur-sm lg:p-10">
-              <div className="pointer-events-none absolute inset-y-0 right-0 w-[38%]">
-                <Image
-                  src="/images/treatments/phlebotomy/hero-banner.jpg"
-                  alt=""
-                  fill
-                  className="object-cover opacity-90"
-                />
-                <div className="absolute inset-0 bg-[linear-gradient(90deg,#faf4ea_0%,rgba(250,244,234,0.5)_50%,rgba(250,244,234,0)_100%)]" />
-              </div>
-              <div className="relative flex max-w-[72%] flex-col gap-6 lg:max-w-[64%]">
-                <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-tan text-white shadow-sm">
-                  <Icon name="calendar" className="h-6 w-6" />
-                </span>
-                <div className="flex flex-col gap-2">
-                  <span className="h-[3px] w-12 rounded-full bg-tan" />
-                  <h3 className="font-display text-[26px] font-bold leading-[30px] tracking-[-0.5px] text-forest uppercase lg:text-[30px] lg:leading-[34px]">
-                    On the <span className="text-tan">Day</span>
-                  </h3>
+              <span className="h-px w-full bg-tan/30" />
+
+              {/* On the day */}
+              <div className="flex flex-col gap-6">
+                <div className="flex items-center gap-4">
+                  <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-tan text-white shadow-sm">
+                    <Icon name="calendar" className="h-6 w-6" />
+                  </span>
+                  <div className="flex flex-col gap-2">
+                    <span className="h-[3px] w-12 rounded-full bg-tan" />
+                    <h3 className="font-display text-[26px] font-bold leading-[30px] tracking-[-0.5px] text-forest uppercase lg:text-[30px] lg:leading-[34px]">
+                      On the <span className="text-tan">Day</span>
+                    </h3>
+                  </div>
                 </div>
                 <div className="flex flex-col">
                   {onTheDaySteps.map((step, i) => (

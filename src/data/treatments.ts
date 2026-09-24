@@ -151,6 +151,14 @@ export interface TreatmentDetail {
   };
   /** Links to related standalone pages (e.g. supporting technology or explainer pages) */
   relatedLinks?: { label: string; href: string }[];
+  /** Premium icon-card grid — gradient bg, two-tone heading, icon cards (no photos) */
+  premiumFeatures?: {
+    eyebrow: string;
+    main: string;
+    accent: string;
+    subtitle?: string;
+    items: { icon: string; title: string; description: string }[];
+  };
 }
 
 export const treatmentDetails: TreatmentDetail[] = [
@@ -2362,6 +2370,80 @@ export const treatmentDetails: TreatmentDetail[] = [
     image: "/images/services/placeholder.png",
     intro:
       "CryoPen is a state-of-the-art cryotherapy device that delivers a precise jet of nitrous oxide at extremely low temperatures to destroy unwanted skin lesions. It is fast, accurate and effective for removing warts, skin tags, milia, age spots, cherry angiomas and viral verrucae.",
+    treatmentAreas: [
+      "Skin Tags",
+      "Warts",
+      "Age Spots",
+      "Sun Spots",
+      "Liver Spots",
+      "Milia",
+      "Cherry Angioma",
+      "Viral Verrucae",
+    ],
+    treatmentAreaIcons: {
+      "Skin Tags": "bandage",
+      Warts: "virus",
+      "Age Spots": "dots",
+      "Sun Spots": "dots",
+      "Liver Spots": "dots",
+      Milia: "dots",
+      "Cherry Angioma": "heart",
+      "Viral Verrucae": "virus",
+    },
+    trustBadges: [
+      { icon: "drop", label: "-89°C Ultra Cold" },
+      { icon: "gear", label: "725 PSI Pressure" },
+      { icon: "target", label: "1-10mm Precision" },
+    ],
+    premiumFeatures: {
+      eyebrow: "Cryo™ Technology",
+      main: "Advantages &",
+      accent: "Key Features",
+      subtitle:
+        "Cryo™ is an advanced cryotherapy innovation using disposable cartridges of liquefied N2O to deliver a fast, highly targeted treatment for benign skin lesions.",
+      items: [
+        {
+          icon: "drop",
+          title: "Ultra-Cold N2O",
+          description: "Delivered at an extreme -89°C to freeze and destroy targeted lesion cells almost instantly.",
+        },
+        {
+          icon: "gear",
+          title: "High-Pressure Delivery",
+          description: "A 725psi jet ensures fast, consistent freezing with no variation in treatment quality.",
+        },
+        {
+          icon: "target",
+          title: "Pinpoint Accuracy",
+          description: "Treats lesions from 1mm to 10mm in size, reaching a depth of up to 5mm with total precision.",
+        },
+        {
+          icon: "eye",
+          title: "Safe Near the Eyes",
+          description: "Gentle enough to safely treat lesions on the face and the delicate eye area.",
+        },
+        {
+          icon: "sparkle",
+          title: "Flexible Treatment",
+          description: "Adjustable settings suit a wide range of lesion types, sizes and skin tones.",
+        },
+        {
+          icon: "shield",
+          title: "Healthy Tissue Protected",
+          description: "Targets only the lesion itself, leaving the surrounding healthy skin untouched.",
+        },
+        {
+          icon: "clock",
+          title: "No Follow-Up Care",
+          description: "A quick in-clinic treatment with no special aftercare or downtime required.",
+        },
+        {
+          icon: "wave",
+          title: "Contact-Free Application",
+          description: "The N2O jet never touches the skin, keeping the treatment hygienic and comfortable.",
+        },
+      ],
+    },
     body: [
       "The CryoPen works by applying controlled extreme cold (-89°C) to a skin lesion, precisely targeting the tissue to be removed without damaging the surrounding healthy skin. Most lesions are treated in under 60 seconds per spot, with multiple lesions treatable in a single session.",
       "The procedure is performed without anaesthesia, with patients feeling a brief cold sensation and mild stinging during treatment. Most lesions require only 1–2 sessions. The treated area develops a small blister or crust that heals within 1–4 weeks, revealing clear skin beneath.",

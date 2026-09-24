@@ -12,6 +12,225 @@ interface Props {
   params: Promise<{ slug: string }>;
 }
 
+function contraindicationIcon(text: string): string {
+  const t = text.toLowerCase();
+  if (t.includes("smok") || t.includes("alcohol") || t.includes("drug")) return "ban";
+  if (t.includes("platelet") || t.includes("thrombocytopenia")) return "drop";
+  if (t.includes("fibrinogen")) return "drop";
+  if (t.includes("haemodynamic") || t.includes("hemodynamic")) return "pulse";
+  if (t.includes("sepsis") || t.includes("infection")) return "virus";
+  if (t.includes("liver")) return "liver";
+  if (t.includes("coagulation")) return "pill";
+  if (t.includes("cancer") || t.includes("skin disease")) return "user";
+  if (t.includes("metabolic") || t.includes("systemic")) return "gear";
+  return "shield";
+}
+
+function AreaIcon({ name, className }: { name: string; className?: string }) {
+  const common = { viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: 1.8, strokeLinecap: "round" as const, strokeLinejoin: "round" as const };
+  switch (name) {
+    case "sparkle":
+      return (
+        <svg className={className} {...common}>
+          <path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M18 6l-2.5 2.5M8.5 15.5 6 18" />
+        </svg>
+      );
+    case "eye":
+      return (
+        <svg className={className} {...common}>
+          <path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12Z" />
+          <circle cx="12" cy="12" r="2.8" />
+        </svg>
+      );
+    case "target":
+      return (
+        <svg className={className} {...common}>
+          <circle cx="12" cy="12" r="8" />
+          <circle cx="12" cy="12" r="4" />
+          <circle cx="12" cy="12" r="0.6" fill="currentColor" />
+        </svg>
+      );
+    case "face":
+      return (
+        <svg className={className} {...common}>
+          <circle cx="12" cy="12" r="8.5" />
+          <path d="M9.5 10.5h.01M14.5 10.5h.01M9 15c1 1 5 1 6 0" />
+        </svg>
+      );
+    case "neck":
+      return (
+        <svg className={className} {...common}>
+          <circle cx="12" cy="6" r="3" />
+          <path d="M9 8.5v3a3 3 0 0 0 6 0v-3M8 21c0-2.5 1.8-4 4-4s4 1.5 4 4" />
+        </svg>
+      );
+    case "jaw":
+      return (
+        <svg className={className} {...common}>
+          <path d="M6 5c-1 3-1 6 0 8 1.5 3.5 4.5 6 6 6s4.5-2.5 6-6c1-2 1-5 0-8" />
+          <path d="M9 15c1 1 5 1 6 0" />
+        </svg>
+      );
+    case "chest":
+      return (
+        <svg className={className} {...common}>
+          <path d="M12 20s-7-4.35-9.5-8.5C.8 8 2.5 4.5 6 4.5c2 0 3.5 1.2 6 4 2.5-2.8 4-4 6-4 3.5 0 5.2 3.5 3.5 7C19 15.65 12 20 12 20Z" />
+        </svg>
+      );
+    case "hand":
+      return (
+        <svg className={className} {...common}>
+          <path d="M8 13V5.5a1.5 1.5 0 0 1 3 0V12M11 12V4a1.5 1.5 0 0 1 3 0v8M14 12.5V5.5a1.5 1.5 0 0 1 3 0V13M17 8.5a1.5 1.5 0 0 1 3 0V15c0 3.5-2 7-6.5 7h-1C9 22 7 20 6 18l-2.5-4.5c-.5-1 0-2 1-2.2 1-.2 1.7.2 2.2 1L8 14" />
+        </svg>
+      );
+    case "body":
+      return (
+        <svg className={className} {...common}>
+          <circle cx="12" cy="4.5" r="2.2" />
+          <path d="M7 21l1.5-9L6 10l1-3c.5-1.5 1.5-2 2.5-2h5c1 0 2 .5 2.5 2l1 3-2.5 2 1.5 9" />
+        </svg>
+      );
+    case "bandage":
+      return (
+        <svg className={className} {...common}>
+          <rect x="3" y="9" width="18" height="6" rx="3" transform="rotate(-15 12 12)" />
+          <circle cx="9.5" cy="10.5" r="0.6" fill="currentColor" transform="rotate(-15 12 12)" />
+          <circle cx="14.5" cy="13.5" r="0.6" fill="currentColor" transform="rotate(-15 12 12)" />
+        </svg>
+      );
+    case "wave":
+      return (
+        <svg className={className} {...common}>
+          <path d="M3 9c1.5-2 3-2 4.5 0s3 2 4.5 0 3-2 4.5 0 3 2 4.5 0" />
+          <path d="M3 15c1.5-2 3-2 4.5 0s3 2 4.5 0 3-2 4.5 0 3 2 4.5 0" />
+        </svg>
+      );
+    case "dots":
+      return (
+        <svg className={className} {...common}>
+          <circle cx="8" cy="9" r="1" fill="currentColor" />
+          <circle cx="15" cy="8" r="1" fill="currentColor" />
+          <circle cx="11" cy="13" r="1" fill="currentColor" />
+          <circle cx="16" cy="15" r="1" fill="currentColor" />
+          <circle cx="8" cy="16" r="1" fill="currentColor" />
+          <circle cx="12" cy="12" r="8.5" />
+        </svg>
+      );
+    case "hair":
+      return (
+        <svg className={className} {...common}>
+          <path d="M5 12c0-4 3-7.5 7-7.5s7 3.5 7 7.5c0 1.5-.3 2.5-1 4" />
+          <path d="M7 11v6M10 10v8M14 10v8M17 11v5" />
+        </svg>
+      );
+    case "bone":
+      return (
+        <svg className={className} {...common}>
+          <path d="M6.5 6.5a2 2 0 1 0-2.83 2.83L14 19.67a2 2 0 1 0 2.83-2.83L6.5 6.5Z" />
+          <path d="M17.5 6.5a2 2 0 1 1 2.83 2.83M6.5 17.5a2 2 0 1 1-2.83-2.83" />
+        </svg>
+      );
+    case "user":
+      return (
+        <svg className={className} {...common}>
+          <circle cx="12" cy="8" r="3.5" />
+          <path d="M5 20a7 7 0 0 1 14 0" />
+        </svg>
+      );
+    case "heart":
+      return (
+        <svg className={className} {...common}>
+          <path d="M12 20s-7-4.35-9.5-8.5C.8 8 2.5 4.5 6 4.5c2 0 3.5 1.2 6 4 2.5-2.8 4-4 6-4 3.5 0 5.2 3.5 3.5 7C19 15.65 12 20 12 20Z" />
+        </svg>
+      );
+    case "leaf":
+      return (
+        <svg className={className} {...common}>
+          <path d="M20 4C10 4 4 10 4 18c8 0 14-6 14-14Z" />
+          <path d="M4 20 11 13" />
+        </svg>
+      );
+    case "shield":
+      return (
+        <svg className={className} {...common}>
+          <path d="M12 3 5 6v5c0 4.5 3 7.5 7 9 4-1.5 7-4.5 7-9V6l-7-3Z" />
+          <path d="m9.5 12 2 2 3.5-4" />
+        </svg>
+      );
+    case "clock":
+      return (
+        <svg className={className} {...common}>
+          <circle cx="12" cy="12" r="8.5" />
+          <path d="M12 7.5V12l3 2" />
+        </svg>
+      );
+    case "arrow":
+      return (
+        <svg className={className} {...common}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12h15m0 0-6-6m6 6-6 6" />
+        </svg>
+      );
+    case "ban":
+      return (
+        <svg className={className} {...common}>
+          <circle cx="12" cy="12" r="8" />
+          <path d="m6.5 6.5 11 11" />
+        </svg>
+      );
+    case "drop":
+      return (
+        <svg className={className} {...common}>
+          <path d="M12 3s6 7 6 11a6 6 0 0 1-12 0c0-4 6-11 6-11Z" />
+        </svg>
+      );
+    case "pulse":
+      return (
+        <svg className={className} {...common}>
+          <path d="M3 12h4l2-6 4 12 2-6h6" />
+        </svg>
+      );
+    case "virus":
+      return (
+        <svg className={className} {...common}>
+          <circle cx="12" cy="12" r="4.5" />
+          <path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.5 5.5l2 2M16.5 16.5l2 2M18.5 5.5l-2 2M7.5 16.5l-2 2" />
+        </svg>
+      );
+    case "liver":
+      return (
+        <svg className={className} {...common}>
+          <path d="M4 13c0-4 3-8 8-8 4 0 8 2 8 6 0 4-3 7-8 7-2 0-3.5-.5-4.5-1.5-1.5 1-3.5.5-3.5-1.5Z" />
+        </svg>
+      );
+    case "pill":
+      return (
+        <svg className={className} {...common}>
+          <rect x="3" y="9" width="18" height="6" rx="3" transform="rotate(-35 12 12)" />
+          <path d="M12 12 8.5 15.5" strokeWidth={1.2} />
+        </svg>
+      );
+    case "gear":
+      return (
+        <svg className={className} {...common}>
+          <circle cx="12" cy="12" r="3" />
+          <path d="M12 3v2.5M12 18.5V21M21 12h-2.5M5.5 12H3M18.36 5.64l-1.77 1.77M7.41 16.59l-1.77 1.77M18.36 18.36l-1.77-1.77M7.41 7.41 5.64 5.64" />
+        </svg>
+      );
+    case "alert":
+      return (
+        <svg className={className} {...common}>
+          <path d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" />
+        </svg>
+      );
+    default:
+      return (
+        <svg className={className} {...common}>
+          <circle cx="12" cy="12" r="8" />
+        </svg>
+      );
+  }
+}
+
 export async function generateStaticParams() {
   return treatmentDetails.map((t) => ({ slug: t.slug }));
 }
@@ -206,8 +425,91 @@ export default async function TreatmentPage({ params }: Props) {
         </div>
       </section>
 
+      {/* Treatment areas + Who is it for — icon card variant */}
+      {treatment.treatmentAreas && treatment.treatmentAreas.length > 0 && treatment.treatmentAreaIcons && (
+        <section className="relative w-full overflow-hidden bg-[linear-gradient(120deg,#faf4ea_0%,#f0e0c8_100%)] px-5">
+          <div className="pointer-events-none absolute -right-[6%] -top-[20%] h-[420px] w-[420px] rounded-full bg-tan/15 blur-[110px]" />
+          <div className="pointer-events-none absolute -left-[8%] bottom-[-20%] h-[420px] w-[420px] rounded-full bg-white/40 blur-[110px]" />
+          <div className="relative mx-auto max-w-[1400px] py-[70px] lg:py-[90px]">
+            <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+              {/* Treatment areas */}
+              <div className="rounded-[24px] border border-tan/25 bg-white/60 p-8 shadow-lg backdrop-blur-sm lg:p-10">
+                <div className="flex items-center gap-3">
+                  <span className="font-nav text-[11px] font-semibold tracking-[2px] text-tan uppercase">Treatment Areas</span>
+                  <span className="h-px flex-1 max-w-[60px] bg-tan/40" />
+                </div>
+                <h2 className="mt-3 font-display text-[28px] font-bold leading-[34px] tracking-[-1px] text-forest lg:text-[32px] lg:leading-[38px]">
+                  What Areas Can Be Treated?
+                </h2>
+                <p className="mt-3 text-[14px] leading-[22px] text-body-text">
+                  {treatment.title} can be used on various areas of the face and body to rejuvenate the skin, improve texture and stimulate natural healing.
+                </p>
+                <div className="mt-7 grid grid-cols-1 gap-3 sm:grid-cols-2">
+                  {treatment.treatmentAreas.map((area) => (
+                    <div key={area} className="flex items-center gap-3 rounded-[10px] bg-white/70 px-4 py-3">
+                      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-tan/15 text-tan">
+                        <AreaIcon name={treatment.treatmentAreaIcons![area] ?? "sparkle"} className="h-4.5 w-4.5" />
+                      </span>
+                      <span className="flex-1 text-[13px] leading-[18px] text-body-text">{area}</span>
+                      <AreaIcon name="arrow" className="h-4 w-4 shrink-0 text-tan/50" />
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Who is it for */}
+              <div className="flex flex-col gap-6 rounded-[24px] border border-tan/25 bg-white/60 p-8 shadow-lg backdrop-blur-sm lg:p-10">
+                <div>
+                  <div className="flex items-center gap-3">
+                    <span className="font-nav text-[11px] font-semibold tracking-[2px] text-tan uppercase">Ideal Candidates</span>
+                    <span className="h-px flex-1 max-w-[60px] bg-tan/40" />
+                  </div>
+                  <h2 className="mt-3 font-display text-[28px] font-bold leading-[34px] tracking-[-1px] text-forest lg:text-[32px] lg:leading-[38px]">
+                    Who Is It For?
+                  </h2>
+                  <p className="mt-3 text-[13px] tracking-[0.5px] text-body-text/60 uppercase">
+                    {treatment.title} is ideal for:
+                  </p>
+                </div>
+                <div className="flex flex-col gap-3">
+                  {treatment.suitableFor.map((item) => (
+                    <div key={item} className="flex items-start gap-4 rounded-[12px] bg-white/70 p-4">
+                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-tan/15 text-tan">
+                        <AreaIcon name="sparkle" className="h-5 w-5" />
+                      </span>
+                      <span className="mt-2 text-[14px] leading-[21px] text-body-text">{item}</span>
+                    </div>
+                  ))}
+                </div>
+                <Link
+                  href="/contact-us"
+                  className="inline-flex h-12 w-fit items-center gap-2 rounded-[8px] bg-tan px-6 font-nav text-[13px] font-semibold tracking-[0.5px] text-forest uppercase transition-opacity hover:opacity-90"
+                >
+                  Book a Consultation Now
+                  <AreaIcon name="arrow" className="h-4 w-4" />
+                </Link>
+                {treatment.trustBadges && treatment.trustBadges.length > 0 && (
+                  <div className="mt-1 flex flex-wrap gap-6 border-t border-tan/20 pt-5">
+                    {treatment.trustBadges.map((badge) => (
+                      <div key={badge.label} className="flex items-center gap-2">
+                        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-tan/15 text-tan">
+                          <AreaIcon name={badge.icon} className="h-4 w-4" />
+                        </span>
+                        <span className="font-nav text-[11px] font-semibold leading-[14px] tracking-[0.5px] text-forest uppercase">
+                          {badge.label}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Treatment areas + Who is it for — hero card layout (with photo + floating cards) */}
-      {treatment.treatmentAreas && treatment.treatmentAreas.length > 0 && treatment.treatmentAreasImage && treatment.treatmentAreasHeading && (
+      {treatment.treatmentAreas && treatment.treatmentAreas.length > 0 && !treatment.treatmentAreaIcons && treatment.treatmentAreasImage && treatment.treatmentAreasHeading && (
         <section className="relative w-full overflow-hidden bg-[linear-gradient(135deg,#f8f2e8_0%,#ecdcc3_100%)] px-5">
           <div className="mx-auto max-w-[1400px] py-[70px] lg:py-[90px]">
             <div className="grid grid-cols-1 gap-10 lg:grid-cols-[0.85fr_1.45fr] lg:items-stretch">
@@ -299,8 +601,8 @@ export default async function TreatmentPage({ params }: Props) {
         </section>
       )}
 
-      {/* Fallback plain layout for treatments with areas but no hero image/heading */}
-      {treatment.treatmentAreas && treatment.treatmentAreas.length > 0 && !(treatment.treatmentAreasImage && treatment.treatmentAreasHeading) && (
+      {/* Fallback plain layout for treatments with areas but no hero image/heading/icons */}
+      {treatment.treatmentAreas && treatment.treatmentAreas.length > 0 && !treatment.treatmentAreaIcons && !(treatment.treatmentAreasImage && treatment.treatmentAreasHeading) && (
         <section className="w-full border-t border-black/8 px-5">
           <div className="mx-auto max-w-[1400px] py-[70px] lg:py-[90px]">
             <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
@@ -354,27 +656,59 @@ export default async function TreatmentPage({ params }: Props) {
 
       {/* Contraindications — who should NOT have this treatment */}
       {treatment.contraindications && treatment.contraindications.items.length > 0 && (
-        <section className="w-full border-t border-black/8 bg-cream px-5">
-          <div className="mx-auto max-w-[1400px] py-[60px] lg:py-[80px]">
-            <div className="flex items-center gap-3">
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-rust/15 text-rust">
-                <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth={2}>
-                  <circle cx="12" cy="12" r="9" />
-                  <path strokeLinecap="round" d="m6.5 6.5 11 11" />
-                </svg>
-              </span>
-              <h2 className="font-display text-[24px] font-bold leading-[30px] tracking-[-1px] text-forest lg:text-[28px] lg:leading-[34px]">
-                {treatment.contraindications.title}
-              </h2>
+        <section className="relative w-full overflow-hidden bg-[linear-gradient(120deg,#faf4ea_0%,#f0e0c8_100%)] px-5">
+          <div className="pointer-events-none absolute -right-[6%] -top-[20%] h-[420px] w-[420px] rounded-full bg-tan/15 blur-[110px]" />
+          <div className="pointer-events-none absolute -left-[8%] bottom-[-20%] h-[420px] w-[420px] rounded-full bg-white/40 blur-[110px]" />
+          <div className="relative mx-auto max-w-[1400px] py-[70px] lg:py-[90px]">
+            <div className="grid grid-cols-1 gap-10 lg:grid-cols-[0.85fr_1.4fr]">
+              <div className="flex flex-col gap-5">
+                <div className="flex items-center gap-3">
+                  <span className="font-nav text-[11px] font-semibold tracking-[2px] text-tan uppercase">Important Information</span>
+                  <span className="h-px flex-1 max-w-[60px] bg-tan/40" />
+                </div>
+                <h2 className="font-display text-[30px] font-bold leading-[36px] tracking-[-1px] text-forest lg:text-[34px] lg:leading-[40px]">
+                  {(() => {
+                    const parts = treatment.contraindications!.title.split(" Have ");
+                    if (parts.length < 2) return treatment.contraindications!.title;
+                    return (
+                      <>
+                        {parts[0]} <span className="text-tan">Have {parts.slice(1).join(" Have ")}</span>
+                      </>
+                    );
+                  })()}
+                </h2>
+                <p className="text-[15px] leading-[24px] text-body-text">
+                  This treatment may not be suitable for everyone. It is not recommended for individuals with the following conditions, to ensure your safety and the best possible results.
+                </p>
+                <div className="mt-2 flex flex-col gap-3 rounded-[16px] border border-tan/25 bg-white/70 p-6 backdrop-blur-sm">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-tan/15 text-tan">
+                    <AreaIcon name="alert" className="h-5 w-5" />
+                  </span>
+                  <h3 className="font-subheading text-[16px] font-semibold text-forest">Not sure if you&apos;re suitable?</h3>
+                  <p className="text-[13px] leading-[20px] text-body-text">
+                    Book a consultation with our specialist to discuss your medical history and find out if this treatment is right for you.
+                  </p>
+                  <Link
+                    href="/contact-us"
+                    className="mt-1 inline-flex h-11 w-fit items-center gap-2 rounded-[8px] bg-tan px-5 font-nav text-[13px] font-semibold tracking-[0.3px] text-forest uppercase transition-opacity hover:opacity-90"
+                  >
+                    Book a Consultation
+                    <AreaIcon name="arrow" className="h-4 w-4" />
+                  </Link>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {treatment.contraindications.items.map((item) => (
+                  <div key={item} className="flex items-center gap-4 rounded-[14px] border border-tan/20 bg-white/70 p-5 backdrop-blur-sm">
+                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-tan/15 text-tan">
+                      <AreaIcon name={contraindicationIcon(item)} className="h-5 w-5" />
+                    </span>
+                    <span className="text-[14px] leading-[19px] text-body-text">{item}</span>
+                  </div>
+                ))}
+              </div>
             </div>
-            <ul className="mt-8 grid grid-cols-1 gap-x-8 gap-y-3 sm:grid-cols-2 lg:grid-cols-3">
-              {treatment.contraindications.items.map((item) => (
-                <li key={item} className="flex items-start gap-3">
-                  <span className="mt-[7px] h-[5px] w-[5px] shrink-0 rounded-full bg-rust" />
-                  <span className="text-[14px] leading-[22px] text-body-text">{item}</span>
-                </li>
-              ))}
-            </ul>
           </div>
         </section>
       )}

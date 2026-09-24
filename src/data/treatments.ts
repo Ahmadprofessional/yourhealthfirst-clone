@@ -36,6 +36,10 @@ export interface TreatmentDetail {
   /** Supporting photo + heading for the treatment-areas hero card section (falls back to a plain layout if omitted) */
   treatmentAreasImage?: { src: string; alt: string };
   treatmentAreasHeading?: { main: string; accent: string; subtitle: string };
+  /** Icon-card variant of the treatment-areas section — maps each treatmentAreas label to an icon name */
+  treatmentAreaIcons?: Record<string, string>;
+  /** Small trust badges shown under the "Who Is It For" card in the icon-card variant */
+  trustBadges?: { icon: string; label: string }[];
   results: string;
   priceFrom?: string;
   faqs: TreatmentFaq[];
@@ -838,6 +842,29 @@ export const treatmentDetails: TreatmentDetail[] = [
       "Acne Marks",
       "Hair Loss/Alopecia",
       "Joints and Muscular Problems",
+    ],
+    treatmentAreaIcons: {
+      "Skin Texture": "sparkle",
+      "Crinkling Skin Around the Eyes": "eye",
+      "Dark Circles Around Eyes": "target",
+      "Cheeks and Mid Face": "face",
+      "Face (Nasolabial Folds, Cheek and Jaw, Periorbital Areas, Crow's Feet, Upper Lip, Nose and Forehead)": "face",
+      "Neck": "neck",
+      "Jawline": "jaw",
+      "Chest and Décolletage": "chest",
+      "Breast Lift": "heart",
+      "Back of Hands and Arms": "hand",
+      "Other Body Areas with Stretch Marks": "body",
+      "Healing Scars": "bandage",
+      "Stretch Marks": "wave",
+      "Acne Marks": "dots",
+      "Hair Loss/Alopecia": "hair",
+      "Joints and Muscular Problems": "bone",
+    },
+    trustBadges: [
+      { icon: "leaf", label: "Natural Rejuvenation" },
+      { icon: "shield", label: "Safe & Minimally Invasive" },
+      { icon: "clock", label: "Suitable for Face & Body" },
     ],
     contraindications: {
       title: "People Who Should NOT Have PRP Treatment",

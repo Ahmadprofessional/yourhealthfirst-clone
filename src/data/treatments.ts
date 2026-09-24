@@ -33,7 +33,9 @@ export interface TreatmentDetail {
   /** Photos woven into the main body copy — paragraphs are split into rows, alternating image left/right */
   /** Show Key Benefits as a full-width brown banner mid-page instead of in the sidebar */
   benefitsBanner?: boolean;
-  bodyImages?: { src: string; alt: string; position?: string }[];
+  /** "stacked" puts all body images in one column beside the full text so nothing leaves empty space */
+  bodyImagesLayout?: "rows" | "stacked";
+  bodyImages?: { src: string; alt: string; position?: string; row?: number }[];
   body: string[];
   benefits: string[];
   suitableFor: string[];
@@ -336,6 +338,24 @@ export const treatmentDetails: TreatmentDetail[] = [
     tagline: "Restore volume, define contours, refresh your look",
     category: "Face & Anti-Aging",
     image: "/images/services/placeholder.png",
+    bodyImagesLayout: "stacked",
+    bodyImages: [
+      {
+        src: "/images/treatments/dermal-fillers/cheek-injection.webp",
+        alt: "Dr Sofia carefully placing dermal filler in the cheek",
+        position: "50% 62%",
+      },
+      {
+        src: "/images/treatments/dermal-fillers/lip-filler.webp",
+        alt: "Lip enhancement with dermal filler at YourHealthFirst Clinic",
+        position: "60% 58%",
+      },
+      {
+        src: "/images/treatments/dermal-fillers/mirror-result.webp",
+        alt: "A patient admiring her natural-looking filler results in the mirror",
+        position: "65% 40%",
+      },
+    ],
     intro:
       "Dermal fillers are injectable treatments using hyaluronic acid to restore lost volume, smooth deep lines and sculpt facial features. From subtle lip enhancement to full facial revolumisation, fillers deliver immediate, natural-looking results.",
     diagramImage: {

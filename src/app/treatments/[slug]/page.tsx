@@ -345,29 +345,86 @@ export default async function TreatmentPage({ params }: Props) {
               )}
 
               {/* Body paragraphs (image, when present, floats alongside the text) */}
-              {treatment.bodyImages && treatment.bodyImages.length > 0 ? (
+              {treatment.bodyImages && treatment.bodyImages.length > 0 && treatment.bodyImagesLayout === "stacked" ? (
+                <div className="flex flex-col gap-8 sm:flex-row sm:items-stretch sm:gap-10">
+                  <div className="flex flex-1 flex-col gap-5">
+                    {treatment.body.map((para, j) => (
+                      <p key={j} className="text-[16px] leading-[27px] tracking-[-0.2px] text-body-text">
+                        {para}
+                      </p>
+                    ))}
+                    {!treatment.treatmentAreas && (
+                      <div className="mt-2 flex flex-col gap-4">
+                        <h2 className="font-subheading text-[20px] font-semibold leading-[26px] tracking-[-0.8px] text-forest uppercase">
+                          Suitable For
+                        </h2>
+                        <ul className="flex flex-col gap-3">
+                          {treatment.suitableFor.map((item) => (
+                            <li key={item} className="flex items-start gap-3">
+                              <span className="mt-[8px] h-[6px] w-[6px] shrink-0 rounded-full bg-tan" />
+                              <span className="text-[16px] leading-[26px] tracking-[-0.2px] text-body-text">{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+                  <div className="flex w-full flex-col gap-4 sm:w-[300px] sm:shrink-0">
+                    {treatment.bodyImages.map((img) => (
+                      <div
+                        key={img.src}
+                        className="relative aspect-[4/3] w-full overflow-hidden rounded-[14px] border border-black/8 shadow-md sm:aspect-auto sm:min-h-[180px] sm:flex-1"
+                      >
+                        <Image src={img.src} alt={img.alt} fill className="object-cover" style={img.position ? { objectPosition: img.position } : undefined} />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ) : treatment.bodyImages && treatment.bodyImages.length > 0 ? (
                 <div className="flex flex-col gap-10">
                   {(() => {
-                    const size = Math.ceil(treatment.body.length / treatment.bodyImages.length);
-                    return treatment.bodyImages.map((img, i) => {
+                    const imgs = treatment.bodyImages!;
+                    const rows: { src: string; alt: string; position?: string }[][] = [];
+                    const rowKeys: number[] = [];
+                    imgs.forEach((img, i) => {
+                      const key = img.row ?? i;
+                      const at = rowKeys.indexOf(key);
+                      if (at === -1) {
+                        rowKeys.push(key);
+                        rows.push([img]);
+                      } else {
+                        rows[at].push(img);
+                      }
+                    });
+                    const size = Math.ceil(treatment.body.length / rows.length);
+                    const renderImage = (img: { src: string; alt: string; position?: string }, narrow: boolean) => (
+                      <div
+                        key={img.src}
+                        className={`relative aspect-[4/5] w-full max-w-[280px] shrink-0 overflow-hidden rounded-[14px] border border-black/8 shadow-md sm:aspect-auto sm:min-h-[200px] ${narrow ? "sm:w-[190px]" : "sm:w-[260px]"}`}
+                      >
+                        <Image src={img.src} alt={img.alt} fill className="object-cover" style={img.position ? { objectPosition: img.position } : undefined} />
+                      </div>
+                    );
+                    return rows.map((row, i) => {
                       const paras = treatment.body.slice(i * size, (i + 1) * size);
-                      if (paras.length === 0) return null;
+                      const isLast = i === rows.length - 1;
+                      const showSuitable = isLast && !treatment.treatmentAreas;
+                      if (paras.length === 0 && !showSuitable) return null;
+                      const narrow = row.length > 1;
                       return (
                         <div
-                          key={img.src}
-                          className={`flex flex-col items-start gap-6 sm:flex-row sm:gap-8 ${i % 2 === 1 ? "sm:flex-row-reverse" : ""}`}
+                          key={row[0].src}
+                          className={`flex flex-col items-start gap-6 sm:flex-row sm:items-stretch sm:gap-8 ${!narrow && i % 2 === 1 ? "sm:flex-row-reverse" : ""}`}
                         >
-                          <div className="relative w-full max-w-[280px] shrink-0 overflow-hidden rounded-[14px] border border-black/8 shadow-md sm:w-[260px]" style={{ aspectRatio: "4/5" }}>
-                            <Image src={img.src} alt={img.alt} fill className="object-cover" style={img.position ? { objectPosition: img.position } : undefined} />
-                          </div>
+                          {renderImage(row[0], narrow)}
                           <div className="flex flex-1 flex-col gap-5">
                             {paras.map((para, j) => (
                               <p key={j} className="text-[16px] leading-[27px] tracking-[-0.2px] text-body-text">
                                 {para}
                               </p>
                             ))}
-                            {i === treatment.bodyImages!.length - 1 && !treatment.treatmentAreas && (
-                              <div className="mt-2 flex flex-col gap-4">
+                            {showSuitable && (
+                              <div className={`flex flex-col gap-4 ${paras.length ? "mt-2" : ""}`}>
                                 <h2 className="font-subheading text-[20px] font-semibold leading-[26px] tracking-[-0.8px] text-forest uppercase">
                                   Suitable For
                                 </h2>
@@ -382,6 +439,7 @@ export default async function TreatmentPage({ params }: Props) {
                               </div>
                             )}
                           </div>
+                          {row[1] && renderImage(row[1], true)}
                         </div>
                       );
                     });

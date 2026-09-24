@@ -1965,18 +1965,127 @@ export const treatmentDetails: TreatmentDetail[] = [
     title: "Mounjaro (Weight Loss Injection)",
     tagline: "The clinically approved breakthrough in medical weight loss",
     category: "Body Contouring",
-    image: "/images/services/placeholder.png",
+    image: "/images/treatments/mounjaro/product-card.jpg",
+    introImage: {
+      src: "/images/treatments/mounjaro/product-card.jpg",
+      alt: "Mounjaro (tirzepatide) once-weekly injection pen and dose strengths",
+    },
     intro:
       "Mounjaro (tirzepatide) is a clinically approved weekly injection for weight management, representing a significant advance in medical treatment for obesity. By mimicking two natural gut hormones that regulate appetite and blood sugar, it supports substantial and sustained weight loss alongside a healthy lifestyle.",
     body: [
-      "Tirzepatide acts as a dual GIP and GLP-1 receptor agonist — meaning it activates two separate hormone pathways simultaneously. This dual action reduces appetite, slows stomach emptying and improves insulin sensitivity, resulting in a more significant reduction in caloric intake and body weight than single-hormone treatments.",
-      "Clinical trials have shown patients losing an average of 15–22% of their body weight over 72 weeks. At YourHealthFirst, Mounjaro is prescribed as part of a supervised weight management programme. An initial consultation and health assessment are required to confirm suitability, and ongoing monitoring ensures safety throughout the treatment.",
-      "Mounjaro is self-administered once weekly via a simple pre-filled pen injector. The dose is gradually increased over time to optimise results while minimising any side effects.",
+      "Tirzepatide acts as a dual GIP and GLP-1 receptor agonist — meaning it activates two separate hormone pathways simultaneously. This dual action reduces appetite, slows stomach emptying and improves insulin sensitivity, resulting in a more significant reduction in caloric intake and body weight than single-hormone treatments. It has surpassed the effectiveness of Semaglutide (Ozempic/Wegovy), with patients seeing as much as 22.5% body weight loss.",
+      "Clinical trials have shown patients losing an average of 15–22% of their body weight over 72 weeks — in a study of more than 2,500 adults with obesity, those taking 5mg for 72 weeks lost an average of 15% of their body weight, with higher doses associated with even greater loss. In a separate 72-week trial, 96% of participants taking the highest dose lost 5% or more of their initial body weight. Mounjaro is manufactured by Eli Lilly and has been rigorously tested and approved for weight loss management.",
+      "At YourHealthFirst, Mounjaro is prescribed as part of a supervised weight management programme. An initial consultation and health assessment are required to confirm suitability, and ongoing monitoring ensures safety throughout the treatment.",
+      "Mounjaro is self-administered once weekly via a simple pre-filled pen injector, as a subcutaneous injection into the abdomen, thigh or upper arm. The dose starts at 2.5mg once weekly for four weeks, then increases to 5mg, before being gradually increased further in 2.5mg increments up to an optimal dose of 15mg — rotating the injection site each week to avoid skin irritation.",
+    ],
+    treatmentAreas: ["Abdomen", "Thigh", "Upper Arm"],
+    treatmentAreaIcons: {
+      Abdomen: "body",
+      Thigh: "wave",
+      "Upper Arm": "hand",
+    },
+    premiumFeatures: {
+      eyebrow: "How It Works",
+      main: "How Does Mounjaro",
+      accent: "Work?",
+      subtitle: "Tirzepatide targets appetite and digestion through three complementary mechanisms.",
+      items: [
+        {
+          icon: "shield",
+          title: "Appetite Suppression",
+          description: "Mounjaro curbs your cravings, making it easier to resist unhealthy snacks and overeating.",
+        },
+        {
+          icon: "clock",
+          title: "Feeling Fuller for Longer",
+          description: "By mimicking GLP-1, Mounjaro helps you feel satisfied after meals, reducing the urge to snack between them.",
+        },
+        {
+          icon: "gear",
+          title: "Slowing Gastric Emptying",
+          description: "Mounjaro slows the rate food leaves your stomach, promoting better digestion and prolonged satiety.",
+        },
+      ],
+    },
+    advantages: {
+      title: "Why Choose Mounjaro?",
+      intro: "A rigorously tested, clinically proven weight-loss treatment from a trusted manufacturer.",
+      items: [
+        {
+          title: "Proven Effectiveness",
+          description: "In a 72-week clinical trial, 96% of participants taking the highest dose lost 5% or more of their initial body weight.",
+        },
+        {
+          title: "Trusted Manufacturer",
+          description: "Mounjaro is manufactured by the reputable pharmaceutical company Eli Lilly.",
+        },
+        {
+          title: "Rigorously Tested",
+          description: "Mounjaro has been rigorously tested and approved for weight loss management.",
+        },
+        {
+          title: "Strong Clinical Evidence",
+          description: "In a study of over 2,500 adults with obesity, those on a 5mg dose for 72 weeks lost an average of 15% of their body weight.",
+        },
+      ],
+    },
+    contraindications: {
+      title: "Who Should Not Take Mounjaro",
+      items: [
+        "Known allergy to any ingredient in Mounjaro",
+        "Pregnant, breastfeeding or planning to conceive",
+        "Under 18 or over 75 years old",
+        "Severe heart failure",
+        "Diabetes with other GLP-1 medications or hypoglycaemia",
+        "Severe gut conditions such as IBD or gastroparesis",
+        "Severe kidney or liver disease, or on dialysis",
+      ],
+    },
+    careInstructions: {
+      title: "Mounjaro — Injection Sites & Storage",
+      intro:
+        "Mounjaro is injected subcutaneously (under the skin). Rotate the injection site every week to avoid skin irritation.",
+      groups: [
+        {
+          heading: "Injection Sites",
+          points: [
+            "Abdomen — into the fatty tissue on either side of the navel, avoiding the waistband area or any damaged, bruised or scarred skin.",
+            "Thigh — into the fatty tissue on the front of the thigh, at least 10cm (4 inches) above the knee.",
+            "Upper arm — into the fatty tissue on the back of the arm, at least 5cm (2 inches) below the shoulder.",
+          ],
+        },
+        {
+          heading: "Storage",
+          points: [
+            "Keep refrigerated. If needed, it may be stored unrefrigerated for up to 30 days at a temperature not above 30°C, after which it must be discarded.",
+          ],
+        },
+        {
+          heading: "Conditions to Disclose to Your Doctor",
+          warning: true,
+          points: [
+            "Pancreatic diseases",
+            "Diabetes",
+            "Gallstones or an inflamed gallbladder",
+            "A racing heart or heart palpitations",
+            "Thyroid disease, including thyroid nodules",
+            "Mild to moderate kidney or liver disease",
+            "Taking anticoagulants such as warfarin",
+          ],
+        },
+      ],
+    },
+    processDiagrams: [
+      {
+        src: "/images/treatments/mounjaro/dosing-timeline.jpg",
+        alt: "Mounjaro treatment timeline — weekly dose escalation from 2.5mg to 15mg",
+      },
     ],
     benefits: [
       "Clinically approved and extensively studied for weight loss",
       "Dual-hormone action — more effective than single-agent treatments",
       "Average 15–22% body weight reduction in clinical trials",
+      "Outperforms Semaglutide (Ozempic/Wegovy) in head-to-head results",
       "Improves blood sugar and metabolic health alongside weight loss",
       "Weekly self-injection — simple and convenient",
       "Medically supervised programme for safety and results",
@@ -1988,7 +2097,15 @@ export const treatmentDetails: TreatmentDetail[] = [
       "Anyone seeking clinically proven medical weight management",
     ],
     results: "Significant weight reduction over 12–72 weeks",
-    priceFrom: "From £199 per month (programme-based)",
+    priceList: [
+      { area: "2.5mg", price: "£250" },
+      { area: "5mg", price: "£275" },
+      { area: "7.5mg", price: "£350" },
+      { area: "10mg", price: "£500" },
+      { area: "12.5mg", price: "£550" },
+      { area: "15mg", price: "£575" },
+    ],
+    priceFrom: "From £250 per pen",
     faqs: [
       {
         question: "How does the programme work?",
@@ -2008,7 +2125,7 @@ export const treatmentDetails: TreatmentDetail[] = [
       {
         question: "What are the side-effects?",
         answer:
-          "The most commonly reported side effects are gastrointestinal — nausea, mild digestive upset or reduced appetite — particularly when starting or increasing the dose. These often settle as your body adjusts.",
+          "The most common side effects are gastrointestinal — nausea, vomiting, constipation and diarrhoea — particularly when starting or increasing the dose. Most aren't severe and settle as your body adjusts.",
       },
       {
         question: "Is the injection painful?",
@@ -2018,7 +2135,7 @@ export const treatmentDetails: TreatmentDetail[] = [
       {
         question: "How is the dose managed?",
         answer:
-          "Treatment starts at a low dose which is gradually increased over subsequent weeks, allowing your body to adjust and minimising the likelihood of side effects while optimising results.",
+          "Treatment starts at 2.5mg once weekly for four weeks, then increases to 5mg, before being gradually increased further in 2.5mg increments up to an optimal maintenance dose of 15mg — allowing your body to adjust and minimising the likelihood of side effects.",
       },
       {
         question: "When will I see results?",

@@ -1126,21 +1126,24 @@ export default async function TreatmentPage({ params }: Props) {
             </div>
 
             <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              {treatment.premiumFeatures.items.map((item) => (
-                <div
-                  key={item.title}
-                  className="flex flex-col gap-4 rounded-[20px] border border-tan/25 bg-white/70 p-7 shadow-sm backdrop-blur-sm"
-                >
-                  <span className="relative flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-tan/15 text-tan">
-                    <svg className="pointer-events-none absolute -inset-2" viewBox="0 0 72 72" fill="none">
-                      <path d="M6 40A30 30 0 0 1 40 6" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" className="text-tan/30" />
-                    </svg>
-                    <AreaIcon name={item.icon} className="h-6 w-6" />
-                  </span>
-                  <h3 className="font-subheading text-[16px] font-semibold leading-[22px] text-forest">{item.title}</h3>
-                  <p className="text-[14px] leading-[22px] text-body-text">{item.description}</p>
-                </div>
-              ))}
+              {treatment.premiumFeatures.items.map((item, i) => {
+                const color = iconPaletteColor(i);
+                return (
+                  <div
+                    key={item.title}
+                    className="flex flex-col gap-4 rounded-[20px] border border-tan/25 bg-white/70 p-7 shadow-sm backdrop-blur-sm"
+                  >
+                    <span className={`relative flex h-14 w-14 shrink-0 items-center justify-center rounded-full ${color.bg} ${color.text}`}>
+                      <svg className="pointer-events-none absolute -inset-2" viewBox="0 0 72 72" fill="none">
+                        <path d="M6 40A30 30 0 0 1 40 6" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" className="opacity-30" />
+                      </svg>
+                      <AreaIcon name={item.icon} className="h-6 w-6" />
+                    </span>
+                    <h3 className="font-subheading text-[16px] font-semibold leading-[22px] text-forest">{item.title}</h3>
+                    <p className="text-[14px] leading-[22px] text-body-text">{item.description}</p>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </section>

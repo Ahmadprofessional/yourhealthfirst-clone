@@ -43,10 +43,39 @@ const afterProcedure = [
 ];
 
 const tips = [
-  { icon: "walk", text: "Maintain a healthy weight" },
-  { icon: "standing", text: "Avoid standing or sitting for long periods" },
-  { icon: "sock", text: "Wear compression stockings as advised" },
-  { icon: "ban", text: "Give up smoking" },
+  {
+    icon: "walk",
+    title: "Maintain a Healthy Weight",
+    description: "Helps reduce pressure on your veins and supports better circulation.",
+  },
+  {
+    icon: "standing",
+    title: "Avoid Prolonged Sitting or Standing",
+    description: "Move around regularly to keep blood flowing in your legs.",
+  },
+  {
+    icon: "sock",
+    title: "Wear Compression Stockings",
+    description: "Use as advised by your practitioner to support healing and prevent new veins.",
+  },
+  {
+    icon: "ban",
+    title: "Give Up Smoking",
+    description: "Smoking can damage blood vessels and increase the risk of vein problems.",
+  },
+];
+
+const treatmentSteps = [
+  {
+    image: "/images/treatments/sclerotherapy/step1.jpg",
+    alt: "Using ultrasound guidance to locate the varicose vein for precision injection",
+    caption: "Using ultrasound guidance, the varicose vein is located to allow for precise injection of the sclerosant solution.",
+  },
+  {
+    image: "/images/treatments/sclerotherapy/step2.jpg",
+    alt: "The sclerosant agent causing the varicose vein to collapse",
+    caption: "Once the sclerosant is injected, it irritates the vein lining, causing the varicose vein to collapse and be reabsorbed by the body.",
+  },
 ];
 
 const galleryPairs = [
@@ -216,16 +245,25 @@ export default function SclerotherapyPage() {
                 What Is Sclerotherapy?
               </h2>
               <p className="text-[15px] leading-[25px] text-body-text">
-                Sclerotherapy is one of the most effective treatments for spider veins on the legs. It involves injecting a solution (sclerosant) into the affected veins, which irritates the vein lining and causes it to collapse. The blood is then redirected to healthier veins, and the treated veins gradually fade over a few weeks.
+                Sclerotherapy is one of the most effective treatments for spider veins on the legs — a technique used for the removal of surface and spider veins. It involves injections with a very fine needle of a sclerosing drug which irritates the lining of the veins, causing the walls to stick together. Blood stops flowing through the veins, which are then absorbed by the body over a period of a few weeks, with the blood directed back to the deeper veins.
               </p>
               <p className="text-[15px] leading-[25px] text-body-text">
-                High-compression stockings are worn for up to three days to help reduce bruising. Normal activities can usually be resumed after 24 hours, including swimming.
+                Bruising can last anything from two weeks to three months depending on the size of the blood vessels treated. The treated areas can look worse before they improve as a result of the bruising — with patience, a good result is achieved.
               </p>
               <p className="text-[15px] leading-[25px] text-body-text">
-                A travel interval may be required, and patients are advised to drink plenty of water and wear class 2 medical compression stockings when flying.
+                High-compression stockings are worn for up to three days to help reduce the amount of bruising. It's best to leave a two-week period between treatments on the same area to allow bruising to settle. Normal exercise can be resumed after 24 hours, including swimming.
               </p>
               <p className="text-[15px] leading-[25px] text-body-text">
-                Sclerotherapy is generally well tolerated, though some areas may feel tender. Photographs may be taken before and after treatment to monitor progress.
+                Air travel may be undertaken straight away, but it's recommended to wait at least 48 hours — on journeys over four hours it's advisable to drink plenty of water and wear class 2 medical compression stockings.
+              </p>
+              <p className="text-[15px] leading-[25px] text-body-text">
+                Sclerotherapy is not painful, but depending on the solution used, occasionally there may be a feeling of discomfort in some areas of the leg (this varies from person to person). Photographs may also be taken by the practitioner, used as a &ldquo;before and after&rdquo; comparison to show you how successful your treatment has been.
+              </p>
+              <p className="text-[15px] leading-[25px] text-body-text">
+                There are a few minimally invasive strategies for treating varicose veins, and sclerotherapy is among the most established. The procedure obliterates and destroys varicose veins by injecting them with a solution called a sclerosant. The sclerosant scars the vein and makes it collapse, rerouting blood to more advantageous veins nearby — your body gradually destroys and absorbs the treated vein until it vanishes. The solution used is sodium tetradecyl sulfate, and this technique typically treats small varicose veins found near the surface of the skin, known as &ldquo;bug veins&rdquo;, while also improving the overall appearance of the leg.
+              </p>
+              <p className="text-[15px] leading-[25px] text-body-text">
+                For bigger veins, foam sclerotherapy is used instead — the sclerosant is transformed into a foam before being injected, since foam covers a larger surface area than fluid.
               </p>
             </div>
           </div>
@@ -314,7 +352,7 @@ export default function SclerotherapyPage() {
       </section>
 
       {/* The Treatment Process — dark band */}
-      <section className="relative w-full overflow-hidden bg-[#061a10] px-5">
+      <section className="relative w-full overflow-hidden bg-[linear-gradient(120deg,#3a2c1a_0%,#241a0f_100%)] px-5">
         <div className="pointer-events-none absolute left-1/2 top-0 h-[400px] w-[400px] -translate-x-1/2 rounded-full bg-tan/8 blur-[100px]" />
         <div className="relative mx-auto max-w-[1400px] py-[70px] lg:py-[90px]">
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
@@ -330,10 +368,48 @@ export default function SclerotherapyPage() {
                 What Happens During a Microsclerotherapy Treatment?
               </h2>
               <p className="text-[15px] leading-[25px] text-white/70">
-                Your practitioner will assess the affected veins and explain the expected cosmetic outcome. A fine needle is used to inject the sclerosant, superficially into the veins. You may feel a mild stinging sensation. Compression is then applied to close the vein.
+                The first time you visit a clinic, a detailed discussion with the practitioner should clearly highlight your expectations of the cosmetic effects of this treatment. The practitioner may then take a medical history to make sure that there are no reasons why you are not suited to be treated with Microsclerotherapy. You will normally then be asked to sign a consent form, confirming that you have understood the procedure and the potential side effects.
               </p>
               <p className="text-[15px] leading-[25px] text-white/70">
-                The procedure is usually quick and well tolerated. Most patients can return to normal activities the same day.
+                The injections are performed while you are lying down. A solution is injected with a very tiny needle, superficially into the veins. This causes the lining of the vein to become sticky and swell. Compression is then applied to close the veins. Over a period of time, the vein will heal closed, be absorbed into the body, and fade away.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* After treatment — recovery timeline */}
+      <section className="w-full px-5">
+        <div className="mx-auto max-w-[1400px] py-[70px] lg:py-[90px]">
+          <div className="flex flex-col gap-2">
+            <h2 className="font-display text-[26px] font-bold leading-[32px] tracking-[-1px] text-forest lg:text-[30px] lg:leading-[36px]">
+              After Treatment
+            </h2>
+            <span className="h-[3px] w-14 rounded-full bg-tan" />
+          </div>
+          <div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="flex flex-col gap-3 border-t-2 border-tan pt-4">
+              <span className="font-nav text-[12px] font-semibold tracking-[2px] text-tan uppercase">Immediately After</span>
+              <p className="text-[14px] leading-[22px] text-body-text">
+                Once you remove the stockings there may be marks from the needle, or bruising, and the veins may change from their normal red/blue colour to black/brown — this is all normal and may take a few weeks to settle, depending on how quickly you normally heal. &lsquo;Arnica&rsquo; helps to improve bruising.
+              </p>
+            </div>
+            <div className="flex flex-col gap-3 border-t-2 border-tan pt-4">
+              <span className="font-nav text-[12px] font-semibold tracking-[2px] text-tan uppercase">First Few Days</span>
+              <p className="text-[14px] leading-[22px] text-body-text">
+                The legs may feel slightly tender for the first few days following treatment. An anti-inflammatory drug such as ibuprofen is often helpful, and walking may help.
+              </p>
+            </div>
+            <div className="flex flex-col gap-3 border-t-2 border-tan pt-4">
+              <span className="font-nav text-[12px] font-semibold tracking-[2px] text-tan uppercase">After 4 Weeks</span>
+              <p className="text-[14px] leading-[22px] text-body-text">
+                The veins may show some signs of improvement, though results can be seen straight away — for large veins, this takes around two months after your first treatment.
+              </p>
+            </div>
+            <div className="flex flex-col gap-3 border-t-2 border-tan pt-4">
+              <span className="font-nav text-[12px] font-semibold tracking-[2px] text-tan uppercase">2–6 Months</span>
+              <p className="text-[14px] leading-[22px] text-body-text">
+                The true effect of treatment is seen between two and three months. Some larger, darker flares may continue to fade for up to six months after the procedure.
               </p>
             </div>
           </div>
@@ -399,37 +475,76 @@ export default function SclerotherapyPage() {
         </div>
       </section>
 
-      {/* Supporting diagram — how the injection works */}
-      <section className="w-full px-5">
-        <div className="mx-auto max-w-[1400px] py-[60px] lg:py-[80px]">
-          <div className="relative mx-auto w-full max-w-[900px] overflow-hidden rounded-[12px] border border-black/8 bg-white p-4 shadow-sm">
-            <Image
-              src="/images/treatments/sclerotherapy/diagram.jpg"
-              alt="Diagram showing the sclerotherapy injection technique — the varicose vein is located with ultrasound and precisely injected with a sclerosant, causing it to collapse"
-              width={1300}
-              height={734}
-              className="h-auto w-full object-contain"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Additional tips */}
-      <section className="w-full px-5">
-        <div className="mx-auto max-w-[1400px] py-[70px] lg:py-[90px]">
-          <div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
-            <h2 className="max-w-[320px] font-display text-[26px] font-bold leading-[32px] text-forest lg:text-[28px] lg:leading-[34px]">
-              Additional Tips to Help Avoid the Reappearance of Veins
-            </h2>
-            <div className="grid flex-1 grid-cols-2 gap-5 lg:grid-cols-4">
-              {tips.map((tip) => (
-                <div key={tip.text} className="flex flex-col items-center gap-3 rounded-[14px] border border-tan/20 bg-cream p-6 text-center">
-                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-tan/15 text-tan">
-                    <Icon name={tip.icon} className="h-5 w-5" />
-                  </span>
-                  <p className="text-[13px] leading-[19px] text-body-text">{tip.text}</p>
+      {/* How Sclerotherapy Works & Helpful Tips — combined process + tips */}
+      <section className="relative w-full overflow-hidden bg-[linear-gradient(120deg,#faf4ea_0%,#f0e0c8_100%)] px-5">
+        <div className="pointer-events-none absolute -right-[8%] -top-[15%] h-[420px] w-[420px] rounded-full bg-tan/15 blur-[110px]" />
+        <div className="pointer-events-none absolute -left-[8%] bottom-[-20%] h-[420px] w-[420px] rounded-full bg-white/40 blur-[110px]" />
+        <div className="relative mx-auto max-w-[1400px] py-[70px] lg:py-[90px]">
+          <div className="overflow-hidden rounded-[24px] border border-tan/25 bg-white/60 p-8 shadow-lg backdrop-blur-sm lg:p-12">
+            <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-0 lg:divide-x lg:divide-tan/20">
+              {/* Left — treatment process */}
+              <div className="flex flex-col gap-6 lg:pr-12">
+                <div className="flex flex-col gap-2">
+                  <div className="flex items-center gap-3">
+                    <span className="font-nav text-[11px] font-semibold tracking-[2px] text-tan uppercase">The Treatment Process</span>
+                    <span className="h-px w-12 bg-tan/40" />
+                  </div>
+                  <h2 className="font-display text-[26px] font-bold leading-[31px] tracking-[-0.5px] text-forest lg:text-[30px] lg:leading-[35px]">
+                    How Sclerotherapy <span className="text-tan">Works &amp; Helpful Tips</span>
+                  </h2>
+                  <p className="mt-1 text-[14px] leading-[22px] text-body-text">
+                    Sclerotherapy is a minimally invasive treatment for spider veins. A special solution (sclerosant) is injected into the affected veins, causing them to collapse and gradually fade, leaving your skin clearer and healthier.
+                  </p>
                 </div>
-              ))}
+                <div className="grid grid-cols-2 gap-4">
+                  {treatmentSteps.map((step, i) => (
+                    <div key={step.image} className="flex flex-col gap-2">
+                      <div className="relative w-full overflow-hidden rounded-[10px] border border-tan/20" style={{ aspectRatio: "4/3" }}>
+                        <Image src={step.image} alt={step.alt} fill className="object-cover" />
+                        <span className="absolute left-2 top-2 flex h-6 w-6 items-center justify-center rounded-full bg-tan font-nav text-[12px] font-semibold text-white shadow-sm">
+                          {i + 1}
+                        </span>
+                        {i < treatmentSteps.length - 1 && (
+                          <span className="absolute right-1.5 top-1/2 hidden h-6 w-6 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-tan shadow-sm sm:flex">
+                            <Icon name="arrow" className="h-3.5 w-3.5" />
+                          </span>
+                        )}
+                      </div>
+                      <span className="font-nav text-[10px] font-semibold tracking-[1.5px] text-tan uppercase">Step {i + 1}</span>
+                      <p className="text-[12px] leading-[18px] text-body-text">{step.caption}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Right — additional tips */}
+              <div className="flex flex-col gap-6 lg:pl-12">
+                <div className="flex flex-col gap-2">
+                  <div className="flex items-center gap-3">
+                    <span className="font-nav text-[11px] font-semibold tracking-[2px] text-tan uppercase">Tips for Best Results</span>
+                    <span className="h-px w-12 bg-tan/40" />
+                  </div>
+                  <h2 className="font-display text-[26px] font-bold leading-[31px] tracking-[-0.5px] text-forest lg:text-[30px] lg:leading-[35px]">
+                    Additional Tips to Help Avoid <span className="text-tan">the Reappearance of Veins</span>
+                  </h2>
+                  <p className="mt-1 text-[14px] leading-[22px] text-body-text">
+                    Following these simple steps can help improve circulation, support healing and reduce the risk of new or recurring veins.
+                  </p>
+                </div>
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                  {tips.map((tip) => (
+                    <div key={tip.title} className="flex items-start gap-4 rounded-[14px] border border-tan/20 bg-white/70 p-5">
+                      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-tan/15 text-tan">
+                        <Icon name={tip.icon} className="h-5 w-5" />
+                      </span>
+                      <div className="flex flex-col gap-1">
+                        <h3 className="font-subheading text-[12px] font-semibold tracking-[0.5px] text-forest uppercase">{tip.title}</h3>
+                        <p className="text-[12px] leading-[18px] text-body-text">{tip.description}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>

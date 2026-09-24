@@ -725,8 +725,9 @@ export const treatmentDetails: TreatmentDetail[] = [
       "Polynucleotides (PDRN — Polydeoxyribonucleotide) are a cutting-edge biostimulatory treatment derived from highly purified salmon DNA. They trigger deep skin repair, reduce inflammation and stimulate the production of new collagen, making them particularly effective for dark circles, thin skin and aged or damaged tissue.",
     body: [
       "Polynucleotides work at a cellular level by activating growth factors and stimulating fibroblast activity. This leads to genuine tissue regeneration — not just surface hydration — resulting in thicker, more elastic skin with improved texture and tone.",
+      "The treatment also has anti-free-radical properties, helping to protect the skin from damaging factors such as stress and sun exposure. In essence, Polynucleotides are a truly regenerative treatment — they modify DNA expression to encourage the body's own natural mechanisms to generate healthier skin cells.",
       "At YourHealthFirst, we use Polynucleotides to treat under-eye dark circles and tear trough hollowing, facial skin quality, acne scarring, and hair restoration. The treatment is particularly popular for the delicate under-eye area where traditional fillers may not be suitable.",
-      "A course of 3–4 sessions is typically recommended, spaced 2–4 weeks apart. Results develop gradually as new collagen forms, with the full effect visible 4–8 weeks after the final session.",
+      "A course of 3–4 sessions is typically recommended, spaced 2–4 weeks apart. Most patients notice an initial improvement in skin texture and hydration within 2–4 weeks, with full results developing over the following months as new collagen forms.",
     ],
     benefits: [
       "Stimulates genuine tissue regeneration and repair",
@@ -734,6 +735,7 @@ export const treatmentDetails: TreatmentDetail[] = [
       "Thickens and strengthens thin, crepey skin",
       "Reduces inflammation and redness",
       "Improves acne scarring texture",
+      "Helps protect skin from sun and environmental damage",
       "Complements other treatments including fillers and PRP",
     ],
     suitableFor: [
@@ -742,48 +744,103 @@ export const treatmentDetails: TreatmentDetail[] = [
       "Patients seeking to improve acne scarring",
       "Anyone wanting a deep regenerative skin boost",
     ],
-    results: "Gradual improvement over 4–8 weeks, sustained with maintenance",
+    premiumFeatures: {
+      eyebrow: "Treatment Areas",
+      main: "Polynucleotides for",
+      accent: "Every Concern",
+      subtitle: "A versatile regenerative treatment tailored to four key areas of concern.",
+      items: [
+        {
+          icon: "eye",
+          title: "Eyes",
+          description:
+            "Deep hydration and improved elasticity around the delicate eye area — minimising fine lines, dark circles, puffiness and fatigue marks.",
+        },
+        {
+          icon: "face",
+          title: "Face",
+          description:
+            "Regenerates skin cells while boosting hydration, tone and texture — feeding the skin with what it needs for natural repair and renewal.",
+        },
+        {
+          icon: "neck",
+          title: "Neck",
+          description:
+            "Lifts and tightens sagging, crepey skin by stimulating fibroblast activity and increasing hydration for a firmer, smoother neckline.",
+        },
+        {
+          icon: "hair",
+          title: "Hair & Scalp",
+          description:
+            "Rejuvenates hair follicles and improves scalp condition, boosting blood supply to support thicker, healthier hair growth.",
+        },
+      ],
+    },
+    careInstructions: {
+      title: "Polynucleotides — Aftercare",
+      groups: [
+        {
+          heading: "Do",
+          points: [
+            "Avoid the sun and use a broad-spectrum sunscreen daily, ideally SPF 30+.",
+            "Use collagen-stimulating peptides as recommended by your practitioner.",
+            "Keep well hydrated.",
+          ],
+        },
+        {
+          heading: "Don't",
+          warning: true,
+          points: [
+            "Use 'active' skincare products (retinols, AHAs, acids) until recommended by your practitioner.",
+            "Wear makeup for 24–48 hours after treatment.",
+            "Engage in strenuous exercise — sweating can let bacteria into the channels created during treatment.",
+            "Take NSAIDs (e.g. ibuprofen) unless advised otherwise.",
+          ],
+        },
+      ],
+    },
+    results: "Initial improvement in 2–4 weeks, full results over a few months, lasting 6–12 months",
     priceFrom: "From £399 per session",
     faqs: [
       {
-        question: "How many sessions will I need?",
+        question: "What are Polynucleotides, and how do they work?",
         answer:
-          "A course of 3–4 sessions is typically recommended, spaced 2–4 weeks apart, to allow the regenerative effect to build progressively.",
+          "Polynucleotides work by stimulating the skin's own regeneration processes — boosting collagen production and hydration at a cellular level. This repairs damaged tissue, improving skin elasticity and the overall health of skin and hair.",
       },
       {
-        question: "What results can I expect?",
+        question: "What areas can be treated with Polynucleotides?",
         answer:
-          "Thicker, more elastic and better-toned skin, with a visible reduction in under-eye dark circles and improved texture in areas affected by acne scarring or sun damage.",
+          "Polynucleotide treatment is very versatile and can rejuvenate several areas: Eyes — fine lines, dark circles and puffiness. Face — hydration, firmness and evening out skin tone. Neck — tightening, softening and reducing wrinkles. Hair & Scalp — stimulating growth and strengthening follicles.",
       },
       {
-        question: "Is this treatment safe — it's derived from salmon DNA?",
+        question: "Who is a good candidate for Polynucleotide treatment?",
         answer:
-          "Yes. The DNA fragments used are highly purified and processed to remove any protein material, leaving only the polynucleotide chains that trigger tissue repair. It has an excellent safety profile and is not a fish allergen risk.",
-      },
-      {
-        question: "What are the side-effects?",
-        answer:
-          "Mild swelling, redness or small bumps at the injection sites are common straight after treatment, particularly around the delicate under-eye area, and usually settle within a day or two.",
+          "Polynucleotides are ideal for anyone wanting to improve skin texture, reduce signs of ageing or improve hair health — including those with fine lines, wrinkles or sagging skin, dull or dehydrated skin, thinning hair or weak follicles, and anyone seeking a natural, non-invasive rejuvenation option.",
       },
       {
         question: "Is the treatment painful?",
         answer:
-          "A topical numbing cream is applied beforehand, especially for the under-eye area, making the treatment comfortable for most patients.",
+          "Polynucleotide treatments involve a series of microinjections, but they are not very painful. A topical anaesthetic cream is applied beforehand for a comfortable experience.",
       },
       {
-        question: "When will I notice a difference?",
+        question: "How soon can I see results from Polynucleotide therapy?",
         answer:
-          "Improvement builds gradually as new collagen forms, with the full effect typically visible 4–8 weeks after the final session in the course.",
+          "Results vary by individual, but most people notice an improvement in skin texture and moisture within 2–4 weeks. Full results develop over a few months as collagen production and skin regeneration continue.",
       },
       {
-        question: "How long will results last?",
+        question: "Are there any side effects?",
         answer:
-          "Results are sustained with periodic maintenance sessions, generally every 4–6 months, as the regenerative effect on tissue quality gradually fades over time.",
+          "Polynucleotide treatments are very safe and well tolerated, with few side effects. Some patients experience mild redness, swelling or bruising, which settles within a few hours to a few days.",
       },
       {
-        question: "Who is suitable for Polynucleotides?",
+        question: "How long do the results last?",
         answer:
-          "Adults with under-eye hollowing and dark circles, thin or sun-damaged skin, or acne scarring who want a regenerative rather than volumising treatment.",
+          "Results typically last 6–12 months, depending on individual skin health and lifestyle factors. Maintenance treatments are recommended to prolong results.",
+      },
+      {
+        question: "Can Polynucleotides be combined with other treatments?",
+        answer:
+          "Yes — Polynucleotides combine well with other anti-ageing and skin rejuvenation treatments such as microneedling, dermal fillers, laser treatments and chemical peels. Your practitioner will recommend the best combination for your goals.",
       },
     ],
   },
@@ -1265,23 +1322,52 @@ export const treatmentDetails: TreatmentDetail[] = [
   },
   {
     slug: "exosome",
-    title: "Exosome Therapy",
+    title: "Exosome Therapy (EXO OX)",
     tagline: "Next-generation regenerative medicine for hair and skin",
     category: "Hair Restoration",
-    image: "/images/services/placeholder.png",
+    image: "/images/treatments/exosome/hair-loss-hero.jpg",
+    introImage: {
+      src: "/images/treatments/exosome/anti-aging-peel.jpg",
+      alt: "Exosome skin regeneration — visualising younger, smoother skin beneath signs of ageing",
+    },
     intro:
-      "Exosome therapy represents the frontier of regenerative aesthetics. Exosomes are nano-sized vesicles that carry proteins, growth factors and genetic information between cells, triggering powerful repair and regeneration. At YourHealthFirst, we use exosomes to accelerate hair restoration and enhance skin renewal.",
+      "Exosome therapy represents the frontier of regenerative aesthetics. Exosomes are nano-sized vesicles that carry proteins, growth factors and genetic information between cells, triggering powerful repair and regeneration. At YourHealthFirst, we use pure Exosomes EXO OX — with 75 billion exosomes per vial, the highest concentration available on the market — to accelerate hair restoration and enhance skin renewal.",
     body: [
-      "Unlike PRP which relies on the patient's own platelet count (which varies by individual), exosomes deliver a standardised, highly concentrated payload of growth factors and signalling molecules. This makes them particularly effective for patients who have not achieved optimal results from PRP alone, or for those wanting a more powerful regenerative treatment.",
-      "For hair restoration, exosomes are injected into the scalp where they activate stem cells in the hair follicle, promoting growth, reducing inflammation and extending the anagen (growth) phase of the hair cycle. For skin, they are applied via microneedling to stimulate deep regeneration, collagen production and repair of sun-damaged or aged tissue.",
-      "Exosome therapy can be used as a standalone treatment or combined with PRP for a synergistic regenerative effect. Many patients choose this combination for maximum hair restoration results.",
+      "Exosomes are tiny extracellular vesicles, roughly 30–150 nanometres in diameter, that originate in the cytoplasm of various cells. They carry biomolecules including proteins, lipids and nucleic acids (RNA and DNA), and play a crucial role in intercellular communication — transferring biological information between cells.",
+      "Unlike PRP which relies on the patient's own platelet count (which varies by individual), exosomes deliver a standardised, highly concentrated payload of growth factors and signalling molecules — up to 1,000 times more potent than PRP. This makes them particularly effective for patients who have not achieved optimal results from PRP alone, or for those wanting a more powerful regenerative treatment. Delivered through microneedling, exosomes increase cell turnover and give the skin an enhanced ability to self-regenerate, increasing collagen production by up to 600% and elastin by up to 300%.",
+      "For hair restoration, exosomes are injected into the scalp — via microneedling or direct injection — where they deliver growth factors and molecules (including regulatory miRNAs) to the follicle. This promotes growth, reduces inflammation and helps rebuild and repair damaged follicles without surgery or hormones, treating conditions including androgenic alopecia (both female and male-pattern hair loss). Exosomes stimulate follicles in the resting (telogen) phase to enter the growth (anagen) phase and extend it, allowing follicles to produce stronger, healthier and longer hair.",
+      "For skin, exosomes are applied via microneedling to stimulate deep regeneration, collagen and elastin production, and repair of sun-damaged or aged tissue — also speeding up healing, which is why the treatment is often used for psoriasis, atopic dermatitis and other inflammatory skin conditions. Exosome therapy can be used as a standalone treatment or combined with PRP for a synergistic regenerative effect. Many patients choose this combination for maximum hair restoration results.",
     ],
+    treatmentAreas: [
+      "Fine Lines & Wrinkles",
+      "Sagging Skin & Elasticity",
+      "Dull & Dehydrated Skin",
+      "Acne & Acne Scarring",
+      "Dark Circles & Melasma",
+      "Rosacea & Redness",
+      "Hair Loss & Regrowth",
+      "Fatigue Recovery",
+    ],
+    treatmentAreaIcons: {
+      "Fine Lines & Wrinkles": "sparkle",
+      "Sagging Skin & Elasticity": "face",
+      "Dull & Dehydrated Skin": "drop",
+      "Acne & Acne Scarring": "bandage",
+      "Dark Circles & Melasma": "eye",
+      "Rosacea & Redness": "alert",
+      "Hair Loss & Regrowth": "hair",
+      "Fatigue Recovery": "pulse",
+    },
     benefits: [
-      "Highly concentrated regenerative signal far beyond standard PRP",
+      "75 billion exosomes per vial — the highest concentration on the market",
+      "Up to 1,000 times more potent than standard PRP",
+      "Increases collagen production by up to 600% and elastin by up to 300%",
       "Activates stem cells in hair follicles to promote growth",
       "Reduces scalp inflammation that contributes to hair loss",
       "Improves skin texture, tone and deep regeneration",
+      "Reconstructs the skin barrier — beneficial for eczema, rosacea and psoriasis",
       "Suitable for both hair restoration and skin rejuvenation",
+      "Reduced post-treatment downtime versus other regenerative treatments",
       "Can be combined with PRP for enhanced results",
     ],
     suitableFor: [
@@ -1290,9 +1376,14 @@ export const treatmentDetails: TreatmentDetail[] = [
       "Adults wanting cutting-edge skin regeneration",
       "Anyone looking for a powerful, science-backed regenerative treatment",
     ],
-    results: "Progressive improvement over 3–6 months",
+    results: "Initial improvement within a few weeks, progressing further over 3–6 months",
     priceFrom: "From £699 per session",
     faqs: [
+      {
+        question: "Are exosomes a form of stem cell therapy?",
+        answer:
+          "No — exosomes are derived from stem cells and carry their regenerative properties, but they don't introduce any live stem cells or cellular material into your body, so there's no risk of immune rejection.",
+      },
       {
         question: "How many sessions will I need?",
         answer:
@@ -1746,17 +1837,69 @@ export const treatmentDetails: TreatmentDetail[] = [
     title: "Lemon Bottle (Fat Dissolving)",
     tagline: "Fast, effective fat dissolving with minimal downtime",
     category: "Body Contouring",
-    image: "/images/services/placeholder.png",
+    image: "/images/treatments/lemon-bottle/product-hero.png",
+    introImage: {
+      src: "/images/treatments/lemon-bottle/product-torso.png",
+      alt: "Lemon Bottle fat-dissolving vials with abdominal fat pinch",
+    },
     intro:
       "Lemon Bottle is a premium fat-dissolving injectable solution — the fastest and most potent treatment in its category. It targets and reduces stubborn body fat quickly and conveniently, with effective results and minimal downtime compared to traditional fat-dissolving methods.",
     body: [
-      "Lemon Bottle contains a high-concentration formula including Riboflavin (Vitamin B2), Lecithin and Bromelain, which work together to break down fat cells rapidly. The unique formulation is known for producing results faster than other fat-dissolving injectables, with less swelling and discomfort post-treatment.",
-      "The treatment is suitable for areas including the chin, jowls, abdomen, flanks, arms, inner thighs, knees and back. It can be used on the face for delicate areas such as jowls and buccal fat reduction.",
-      "Most patients require 2–4 sessions spaced 2–4 weeks apart, making it a faster overall course than many comparable treatments.",
+      "Lemon Bottle contains a high-concentration formula including Riboflavin (Vitamin B2), Lecithin and Bromelain (derived from pineapple), which work together to break down fat cells rapidly — it's almost pain-free, with minimal swelling and redness in the treated area. The formula contains no PPC, hormones or sodium deoxycholate, unlike many other fat-dissolving injectables.",
+      "As well as breaking down fat cells, the formula decreases adipocytes and produces collagen to increase skin elasticity, and improves lymphatic circulation to help reduce oedema and eliminate cellulite. Once injected, fat cells begin breaking down immediately, with fat reduction noticeable within 24 hours and optimal results developing over 3–12 weeks.",
+      "A single session destroys up to 30% of fat cells in the treated area. To maximise results, we can advise a further session or a combination treatment with Cryolipolysis to help eliminate the dissolved fat cells from the body. Drinking around 2 litres of water after treatment is recommended to support this natural elimination process.",
+      "The treatment is suitable for areas including the abdomen, flanks, arms, double chin, male chest, inner and outer thighs, bra line and back fat. It can also be used on the face for delicate areas such as jowls and buccal fat reduction.",
+    ],
+    treatmentAreas: [
+      "Abdomen",
+      "Flanks",
+      "Arms",
+      "Double Chin",
+      "Male Chest",
+      "Inner Thighs",
+      "Outer Thighs",
+      "Bra Line",
+      "Back Fat",
+    ],
+    treatmentAreaIcons: {
+      Abdomen: "body",
+      Flanks: "target",
+      Arms: "hand",
+      "Double Chin": "jaw",
+      "Male Chest": "chest",
+      "Inner Thighs": "drop",
+      "Outer Thighs": "drop",
+      "Bra Line": "dots",
+      "Back Fat": "body",
+    },
+    processDiagrams: [
+      {
+        src: "/images/treatments/lemon-bottle/treatment-areas-diagram.png",
+        alt: "Lemon Bottle treatable areas — abdomen and body contour zones",
+      },
+      {
+        src: "/images/treatments/lemon-bottle/before-after-abdomen.png",
+        alt: "Lemon Bottle before and after — abdomen",
+      },
+      {
+        src: "/images/treatments/lemon-bottle/before-after-braline.png",
+        alt: "Lemon Bottle before and after — bra line and back fat",
+      },
+      {
+        src: "/images/treatments/lemon-bottle/before-after-thighs.png",
+        alt: "Lemon Bottle before and after — thighs and cellulite",
+      },
+      {
+        src: "/images/treatments/lemon-bottle/before-after-chin.png",
+        alt: "Lemon Bottle before and after — double chin",
+      },
     ],
     benefits: [
       "Rapid fat dissolution — faster acting than traditional methods",
-      "Less post-treatment swelling than comparable fat dissolvers",
+      "Almost pain-free, with less post-treatment swelling than comparable fat dissolvers",
+      "Contains no PPC, hormones or sodium deoxycholate",
+      "Boosts collagen production to improve skin elasticity",
+      "Helps reduce oedema and eliminate cellulite",
       "Suitable for face and body fat pockets",
       "Convenient — short sessions with minimal downtime",
       "Effective for chin, arms, abdomen, thighs and more",
@@ -1767,23 +1910,23 @@ export const treatmentDetails: TreatmentDetail[] = [
       "Patients seeking face and body fat reduction",
       "Anyone looking for a convenient, effective fat-reduction treatment",
     ],
-    results: "Results visible from 2–4 weeks after each session",
+    results: "Initial reduction visible within 24 hours, optimal results in 3–12 weeks",
     priceFrom: "From £250 per session",
     faqs: [
       {
         question: "How many sessions will I need?",
         answer:
-          "Most patients need 2–4 sessions spaced 2–4 weeks apart — a faster overall course than many other fat-dissolving treatments.",
+          "A single session destroys up to 30% of fat cells in the treated area. Most patients need 2–4 sessions spaced 2–4 weeks apart for optimal results — a faster overall course than many other fat-dissolving treatments. Combining Lemon Bottle with a Cryolipolysis session can help eliminate the dissolved fat cells for even better results.",
       },
       {
         question: "What results can I expect?",
         answer:
-          "A visible reduction in the treated fat pocket, with the Riboflavin, Lecithin and Bromelain formula working faster than traditional fat-dissolving injectables.",
+          "A visible reduction in the treated fat pocket, with the Riboflavin, Lecithin and Bromelain formula working faster than traditional fat-dissolving injectables. Fat reduction is noticeable within 24 hours, with optimal results developing over 3–12 weeks.",
       },
       {
         question: "Is it more comfortable than other fat-dissolving injections?",
         answer:
-          "Yes — Lemon Bottle's formulation is known for producing less post-treatment swelling and discomfort compared with older fat-dissolving solutions, while still working quickly.",
+          "Yes — Lemon Bottle's formulation is almost pain-free and known for producing less post-treatment swelling and discomfort compared with older fat-dissolving solutions, while still working quickly.",
       },
       {
         question: "What are the side-effects?",
@@ -1793,17 +1936,22 @@ export const treatmentDetails: TreatmentDetail[] = [
       {
         question: "Which areas can be treated?",
         answer:
-          "Lemon Bottle is suitable for the chin, jowls, abdomen, flanks, arms, inner thighs, knees and back, including delicate facial areas such as buccal fat.",
+          "Lemon Bottle is suitable for the abdomen, flanks, arms, double chin, male chest, inner and outer thighs, bra line and back fat, including delicate facial areas such as buccal fat.",
       },
       {
         question: "When will I see results?",
         answer:
-          "Results become visible from around 2–4 weeks after each session as the body processes the treated fat cells.",
+          "Fat reduction is noticeable within 24 hours of treatment, with optimal results developing over 3–12 weeks as the body naturally eliminates the dissolved fat cells. Drinking plenty of water helps support this process.",
       },
       {
         question: "Is the treatment painful?",
         answer:
-          "Most patients find the treatment quick and well-tolerated, with only mild discomfort during the injections.",
+          "Most patients find the treatment quick and almost pain-free, with only mild discomfort during the injections.",
+      },
+      {
+        question: "How do I know I'm getting a genuine Lemon Bottle product?",
+        answer:
+          "Always choose an authorised clinic — genuine Lemon Bottle vials carry an authentication tag. At YourHealthFirst, we only use verified, authentic product for every treatment.",
       },
       {
         question: "Who is suitable for Lemon Bottle?",
@@ -2634,13 +2782,18 @@ export const treatmentDetails: TreatmentDetail[] = [
       "Vitamin B12 injections deliver a direct, highly bioavailable dose of this essential vitamin straight into the muscle, bypassing the digestive system for immediate absorption. They are ideal for those with a B12 deficiency or anyone seeking improved energy, mental clarity and immune support.",
     body: [
       "Vitamin B12 (cobalamin) plays a crucial role in red blood cell formation, neurological function, DNA synthesis and energy metabolism. Deficiency is surprisingly common — particularly in vegans, vegetarians, older adults and those taking certain medications — and can cause fatigue, brain fog, low mood and weakness.",
-      "An intramuscular B12 injection delivers the vitamin far more effectively than oral supplements, especially for those with absorption issues. At YourHealthFirst, we offer single booster shots and courses of 4 or 6 injections for sustained benefit.",
-      "Many patients report feeling a noticeable improvement in energy levels and mental clarity within days of their injection. B12 injections are also popular as part of a broader wellness or weight management programme.",
+      "As an essential nutrient, B12 supports several core bodily functions, including making red blood cells, supporting DNA production and preventing megaloblastic anaemia. Because it's only found naturally in animal products such as meat, eggs, shellfish and dairy, vegans, vegetarians and coeliacs often struggle to get enough through diet alone.",
+      "An intramuscular B12 injection delivers the vitamin far more effectively than oral supplements, especially for those with absorption issues. At YourHealthFirst, we offer single booster shots and courses of 4 or 6 injections for sustained benefit. Injections are typically given into the deltoid muscle of the arm, the thigh, hip or buttock, depending on what's most comfortable for you.",
+      "Many patients report feeling a noticeable improvement in energy levels and mental clarity within around 24 hours of their injection. B12 injections are also popular as part of a broader wellness or weight management programme.",
     ],
     benefits: [
       "Rapid boost to energy levels and mental clarity",
       "Supports metabolism, red blood cell production and nervous system",
       "Far more bioavailable than oral supplements",
+      "Supports digestion, heart health and healthy cholesterol levels",
+      "Essential for healthy skin, hair and nails",
+      "Benefits cognitive function and helps reduce stress",
+      "Helps reduce anaemia and supports immune function",
       "Suitable for vegans, vegetarians and those with deficiency",
       "Short appointment — injection takes just a few minutes",
       "Available as single shots or courses of 4 or 6",
@@ -2651,7 +2804,30 @@ export const treatmentDetails: TreatmentDetail[] = [
       "Those experiencing fatigue, brain fog or low mood",
       "Anyone seeking a metabolic and immune system boost",
     ],
-    results: "Energy improvement often felt within days",
+    advantages: {
+      title: "Did You Know? — Causes of B12 Deficiency",
+      intro:
+        "Vitamin B12 deficiency is more common than most people realise, and can be triggered by a range of everyday factors.",
+      items: [
+        {
+          title: "Early Warning Signs",
+          description: "Weakness and fatigue are often the very first symptoms of B12 deficiency.",
+        },
+        {
+          title: "Certain Medications",
+          description: "Long-term heartburn medication and birth control pills can both increase your risk of deficiency.",
+        },
+        {
+          title: "Heavy Drinking",
+          description: "Regular heavy alcohol consumption raises the odds of developing a deficiency.",
+        },
+        {
+          title: "Linked Conditions",
+          description: "Deficiency is linked to pernicious anaemia, immune system issues and digestive problems.",
+        },
+      ],
+    },
+    results: "Noticeable within 24 hours, effects typically last about a week",
     priceFrom: "£50 single shot / £190 course of 4 / £260 course of 6",
     faqs: [
       {
@@ -2662,12 +2838,17 @@ export const treatmentDetails: TreatmentDetail[] = [
       {
         question: "What results can I expect?",
         answer:
-          "Many patients report a noticeable improvement in energy levels, mental clarity and overall wellbeing within days of their injection.",
+          "Many patients report a noticeable improvement in energy levels, mental clarity and overall wellbeing within around 24 hours of their injection.",
       },
       {
         question: "Why is an injection better than a B12 supplement tablet?",
         answer:
           "An intramuscular injection bypasses the digestive system entirely, delivering the vitamin directly into the bloodstream. This makes it far more bioavailable than oral tablets, especially for those with absorption issues.",
+      },
+      {
+        question: "How long does the effect of a B12 injection last?",
+        answer:
+          "About a week. Effects vary between individuals, but B12 is the one water-soluble vitamin your body is able to store, so any excess is kept for later use rather than being lost straight away.",
       },
       {
         question: "Is the injection painful?",
@@ -2677,17 +2858,22 @@ export const treatmentDetails: TreatmentDetail[] = [
       {
         question: "What are the side-effects?",
         answer:
-          "Vitamin B12 injections are very well tolerated. Mild redness or tenderness at the injection site is the most commonly reported effect.",
+          "Vitamin B12 injections are very well tolerated. Mild redness or tenderness at the injection site is the most commonly reported effect; occasionally patients notice mild diarrhoea, itching or a feeling of swelling, which settles quickly.",
       },
       {
         question: "How often should I have injections?",
         answer:
-          "This depends on your individual needs — those with a diagnosed deficiency may benefit from a course of 4–6 injections, while others use single top-up shots periodically for an energy boost.",
+          "This depends on your individual needs — for a diagnosed deficiency, a typical protocol starts with more frequent injections before tapering to a monthly maintenance shot. Others prefer single top-up shots periodically for an energy boost. Dr Sofia will advise a schedule suited to you.",
       },
       {
-        question: "When will I notice a difference?",
+        question: "Do B12 injections help with weight loss?",
         answer:
-          "Many patients notice an improvement in energy and mental clarity within just a few days of their injection.",
+          "B12 injections are sometimes included in weight-loss programmes, as they can boost energy and support metabolism — but they aren't a standalone weight-loss solution. They work best alongside a healthy diet and regular exercise.",
+      },
+      {
+        question: "What happens if my B12 is low?",
+        answer:
+          "Low B12 reduces your body's ability to produce healthy red blood cells, which carry oxygen around the body — leaving you feeling tired, weak and low on energy.",
       },
       {
         question: "Who is suitable for B12 injections?",

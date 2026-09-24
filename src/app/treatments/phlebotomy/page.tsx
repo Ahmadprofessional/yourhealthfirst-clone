@@ -279,10 +279,10 @@ export default function PhlebotomyPage() {
           <div className="relative overflow-hidden rounded-[24px] border border-tan/25 bg-white/70 shadow-lg backdrop-blur-sm">
             <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[36%] lg:block">
               <Image
-                src="/images/treatments/phlebotomy/blood-draw.jpg"
+                src="/images/treatments/phlebotomy/hero-banner.jpg"
                 alt=""
                 fill
-                className="object-cover opacity-90"
+                className="object-cover object-[70%_50%] opacity-90"
               />
               <div className="absolute inset-0 bg-[linear-gradient(90deg,#faf4ea_0%,rgba(250,244,234,0.55)_45%,rgba(250,244,234,0)_100%)]" />
             </div>

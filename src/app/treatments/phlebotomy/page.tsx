@@ -225,8 +225,8 @@ export default function PhlebotomyPage() {
       {/* Intro */}
       <section className="w-full px-5">
         <div className="mx-auto max-w-[1400px] py-[70px] lg:py-[90px]">
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:gap-16">
-            <div className="flex flex-col gap-4">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-[0.5fr_1.5fr] lg:gap-16">
+            <div className="flex w-full max-w-[380px] flex-col gap-4">
               <div className="relative w-full overflow-hidden rounded-[14px] shadow-sm" style={{ aspectRatio: "3/4" }}>
                 <Image
                   src="/images/treatments/phlebotomy/blood-draw.jpg"
@@ -235,8 +235,8 @@ export default function PhlebotomyPage() {
                   className="object-cover"
                 />
               </div>
-              <div className="flex items-center gap-3 rounded-[10px] border border-black/8 bg-cream px-4 py-3">
-                <div className="relative h-9 w-9 shrink-0">
+              <div className="flex items-center gap-4 rounded-[10px] border border-black/8 bg-cream px-4 py-3">
+                <div className="relative h-12 w-24 shrink-0">
                   <Image
                     src="/images/treatments/phlebotomy/npr-logo.png"
                     alt="National Phlebotomist Register"
@@ -244,7 +244,7 @@ export default function PhlebotomyPage() {
                     className="object-contain"
                   />
                 </div>
-                <span className="text-[12px] leading-[16px] text-body-text/70">
+                <span className="text-[15px] font-semibold leading-[20px] text-forest">
                   National Phlebotomist Register
                 </span>
               </div>

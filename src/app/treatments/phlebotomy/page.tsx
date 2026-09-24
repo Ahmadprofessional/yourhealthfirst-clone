@@ -205,13 +205,13 @@ export default function PhlebotomyPage() {
             <p className="max-w-[560px] font-serif text-[20px] leading-[30px] text-white/70 italic">
               {treatment.tagline}
             </p>
-            <div className="mt-3 flex flex-wrap gap-6">
+            <div className="mt-4 flex flex-wrap gap-x-8 gap-y-4">
               {heroBadges.map((b) => (
-                <div key={b.label} className="flex items-center gap-3">
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/10 text-tan">
-                    <Icon name={b.icon} className="h-5 w-5" />
+                <div key={b.label} className="flex items-center gap-4">
+                  <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-white/15 text-tan">
+                    <Icon name={b.icon} className="h-7 w-7" />
                   </span>
-                  <span className="font-nav text-[13px] font-semibold tracking-[0.3px] text-white/85">
+                  <span className="font-nav text-[18px] font-semibold tracking-[0.3px] text-white">
                     {b.label}
                   </span>
                 </div>

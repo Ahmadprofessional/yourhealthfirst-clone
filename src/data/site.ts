@@ -70,6 +70,7 @@ export const navLinks: NavLink[] = [
   { label: "Price List", href: "/price-list" },
   { label: "Gallery", href: "/gallery" },
   { label: "Blogs", href: "/blogs" },
+  { label: "Press", href: "/press" },
   { label: "Contact Us", href: "/contact-us" },
 ];
 

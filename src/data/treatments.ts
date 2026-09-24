@@ -131,6 +131,8 @@ export interface TreatmentDetail {
   contraindications?: {
     title: string;
     items: string[];
+    /** Optional supporting photo — fills the layout when there are only 1-2 items */
+    image?: { src: string; alt: string };
   };
   /** Premium card grid explaining sizing/dosage tiers (e.g. small/medium/large treatment areas) */
   areaSizeGuide?: {
@@ -2158,6 +2160,10 @@ export const treatmentDetails: TreatmentDetail[] = [
     contraindications: {
       title: "Who Should Not Have This Treatment",
       items: ["Extremely sensitive skin"],
+      image: {
+        src: "/images/treatments/photo-aging/photobiodynamic/fotoage_layer.jpg",
+        alt: "Facial treatment zone mapping for Skinox photodynamic therapy",
+      },
     },
     benefits: [
       "Solution for acne, wrinkles, redness and dark spots",

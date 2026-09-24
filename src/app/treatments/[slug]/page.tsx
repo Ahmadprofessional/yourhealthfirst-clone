@@ -725,15 +725,27 @@ export default async function TreatmentPage({ params }: Props) {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                {treatment.contraindications.items.map((item) => (
-                  <div key={item} className="flex items-center gap-4 rounded-[14px] border border-tan/20 bg-white/70 p-5 backdrop-blur-sm">
-                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-tan/15 text-tan">
-                      <AreaIcon name={contraindicationIcon(item)} className="h-5 w-5" />
-                    </span>
-                    <span className="text-[14px] leading-[19px] text-body-text">{item}</span>
+              <div className="flex flex-col gap-4">
+                {treatment.contraindications.image && (
+                  <div className="relative w-full overflow-hidden rounded-[16px] border border-tan/20 shadow-sm" style={{ aspectRatio: "16/9" }}>
+                    <Image
+                      src={treatment.contraindications.image.src}
+                      alt={treatment.contraindications.image.alt}
+                      fill
+                      className="object-cover"
+                    />
                   </div>
-                ))}
+                )}
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                  {treatment.contraindications.items.map((item) => (
+                    <div key={item} className="flex items-center gap-4 rounded-[14px] border border-tan/20 bg-white/70 p-5 backdrop-blur-sm">
+                      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-tan/15 text-tan">
+                        <AreaIcon name={contraindicationIcon(item)} className="h-5 w-5" />
+                      </span>
+                      <span className="text-[14px] leading-[19px] text-body-text">{item}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>

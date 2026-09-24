@@ -849,13 +849,125 @@ export const treatmentDetails: TreatmentDetail[] = [
     title: "Sculptra",
     tagline: "Celebrity's favourite — the liquid facelift",
     category: "Face & Anti-Aging",
-    image: "/images/services/placeholder.png",
+    image: "/images/treatments/sculptra/practitioner-vial.jpg",
+    introImage: {
+      src: "/images/treatments/sculptra/product-box.jpg",
+      alt: "Sculptra (poly-L-lactic acid) vial and packaging",
+    },
     intro:
-      "Sculptra (poly-L-lactic acid) is an injectable collagen stimulator that gradually rebuilds lost facial volume and structure over time. Often described as the 'liquid facelift', it produces subtle, nuanced results that look completely natural — as if you've simply aged gracefully.",
+      "Sculptra (poly-L-lactic acid) is an injectable collagen stimulator that gradually rebuilds lost facial volume and structure over time. Often described as the 'liquid facelift', it produces subtle, nuanced results that look completely natural — as if you've simply aged gracefully. It's a firm favourite among celebrities including Bella Hadid, Demi Moore, Kendall Jenner, Ariana Grande and the Kardashians.",
     body: [
-      "Unlike hyaluronic acid fillers that add immediate volume, Sculptra works by stimulating your body's own collagen production. The poly-L-lactic acid microparticles act as a scaffold for new collagen growth, gradually replacing lost tissue over 3–6 months.",
-      "Sculptra is ideal for patients with significant facial volume loss, particularly in the cheeks, temples, jawline and lower face. It is also highly effective for improving skin laxity and overall facial contour. The natural, progressive nature of the results means there is no dramatic change — just a softer, more youthful version of yourself.",
-      "Treatment usually consists of 2–3 sessions spaced 6 weeks apart. Results can last up to 2 years or more, making Sculptra an excellent long-term investment in skin quality.",
+      "Unlike hyaluronic acid fillers that add immediate volume, Sculptra works by stimulating your body's own collagen production. The poly-L-lactic acid microparticles act as a scaffold for new collagen growth, gradually replacing lost tissue over 3–6 months. Sculptra has been used since 1999 for more than 150,000 patients in over 30 countries.",
+      "Sculptra is ideal for patients with significant facial volume loss, particularly in the cheeks, temples, jawline and lower face — it's also effective for creases, wrinkles, folds, scars, hollow under-eyes, lip atrophy and general skin laxity. The natural, progressive nature of the results means there is no dramatic change — just a softer, more youthful version of yourself.",
+      "Sculptra's active ingredient — poly-L-lactic acid (PLA) — is biocompatible and fully absorbable, and has a long track record of safe use in medicine, including suture thread and orthopaedic pins and screws. No skin test is required before treatment.",
+      "Treatment usually consists of 2–3 sessions spaced 6 weeks apart. Results build gradually over the following weeks and months as new collagen forms, and can last up to 2 years or more — making Sculptra an excellent long-term investment in skin quality.",
+    ],
+    treatmentAreas: ["Cheeks", "Temples", "Jawline", "Lower Face & Laxity", "Under-Eyes", "Lips", "Scars & Depressions"],
+    treatmentAreaIcons: {
+      Cheeks: "face",
+      Temples: "target",
+      Jawline: "jaw",
+      "Lower Face & Laxity": "wave",
+      "Under-Eyes": "eye",
+      Lips: "lips",
+      "Scars & Depressions": "bandage",
+    },
+    premiumFeatures: {
+      eyebrow: "Why Choose Sculptra",
+      main: "The Benefits of",
+      accent: "Sculptra",
+      subtitle: "A gradual, natural-looking approach to facial rejuvenation with results that last.",
+      items: [
+        {
+          icon: "sparkle",
+          title: "Natural-Looking Results",
+          description: "Because Sculptra works gradually to stimulate collagen, improvements are subtle and build over time — no tell-tale signs of having had work done.",
+        },
+        {
+          icon: "clock",
+          title: "Long-Lasting Effects",
+          description: "Results can last up to two years — 95% of patients report improved skin glow even two years after treatment.",
+        },
+        {
+          icon: "shield",
+          title: "Comprehensive Rejuvenation",
+          description: "By restoring the skin's underlying structure, Sculptra delivers a more complete, natural rejuvenation than surface-level treatments.",
+        },
+        {
+          icon: "pulse",
+          title: "Minimal Downtime",
+          description: "Most patients return to normal activities quickly, with any swelling or redness typically subsiding within a few days.",
+        },
+      ],
+    },
+    advantages: {
+      title: "Your Sculptra Treatment Journey",
+      intro: "What to expect from consultation through to results.",
+      items: [
+        {
+          title: "1. Consultation",
+          description: "We discuss your concerns, goals and expectations, and establish a treatment plan tailored to your individual needs.",
+        },
+        {
+          title: "2. Anaesthesia",
+          description: "A topical anaesthetic may be applied to the treatment area beforehand to keep you comfortable throughout.",
+        },
+        {
+          title: "3. Procedure",
+          description: "A non-invasive, advanced injectable treatment — your practitioner carefully targets each area of concern with precision.",
+        },
+        {
+          title: "4. Be Patient",
+          description: "Sculptra works gradually to stimulate collagen production, so results build over several weeks to months rather than appearing immediately.",
+        },
+      ],
+    },
+    contraindications: {
+      title: "Who Should Not Have This Treatment",
+      items: ["Pregnant or breastfeeding women"],
+      image: {
+        src: "/images/treatments/sculptra/before-after-profile.jpg",
+        alt: "Sculptra before and after — cheek and jawline lift",
+      },
+    },
+    careInstructions: {
+      title: "Sculptra — Aftercare",
+      intro:
+        "Following the right aftercare helps optimise results and minimise side effects — gentle massage, avoiding strenuous activity and sun exposure, and cold compresses to manage swelling are all part of the process.",
+      groups: [
+        {
+          heading: "Immediately After Treatment",
+          points: [
+            "Avoid touching, rubbing or applying makeup to the treated area for the first few hours.",
+            "Apply ice packs, wrapped in a cloth, in short intervals to reduce swelling as advised by your practitioner.",
+          ],
+        },
+        {
+          heading: "First Few Days",
+          points: [
+            "Massage the treated area 5 times a day for 5 minutes, for the first 5 days (the 'rule of 5s'), as recommended by your practitioner.",
+            "Avoid strenuous exercise, excessive sun exposure and extreme temperatures (e.g. saunas) for at least 24 hours.",
+            "Avoid alcohol and blood-thinning medication such as aspirin or ibuprofen for a few days, as these can increase bruising and swelling.",
+          ],
+        },
+        {
+          heading: "Longer-Term",
+          points: [
+            "Attend all scheduled follow-up appointments to monitor progress and determine if further treatment is needed.",
+            "Continue to protect your skin with daily sunscreen, even after the initial recovery period.",
+          ],
+        },
+      ],
+    },
+    processDiagrams: [
+      {
+        src: "/images/treatments/sculptra/comparison-chart.jpg",
+        alt: "Sculptra compared to Radiesse and Ellanse — ingredient, action, longevity and best-for comparison",
+      },
+      {
+        src: "/images/treatments/sculptra/before-after-front.jpg",
+        alt: "Sculptra before and after — front-facing results",
+      },
     ],
     benefits: [
       "Gradually rebuilds facial volume and collagen naturally",
@@ -864,6 +976,7 @@ export const treatmentDetails: TreatmentDetail[] = [
       "Long-lasting results of up to 2+ years",
       "Gradual onset means no sudden dramatic change",
       "Ideal for patients with significant volume loss",
+      "Trusted since 1999 — 150,000+ patients treated in 30+ countries",
     ],
     suitableFor: [
       "Adults with significant facial volume loss",
@@ -875,14 +988,39 @@ export const treatmentDetails: TreatmentDetail[] = [
     priceFrom: "From £600 per session",
     faqs: [
       {
+        question: "How soon will I notice results?",
+        answer:
+          "An improvement in skin firmness is usually noticeable 2–3 weeks after treatment. Sculptra then stimulates gradual collagen production, with progressive, natural-looking results developing over the following weeks after each session — typically around 3 sessions, spaced at least 4–6 weeks apart.",
+      },
+      {
+        question: "How long does Sculptra last?",
+        answer:
+          "Results last much longer than many other cosmetic treatments because your own collagen is stimulated — typically more than two years. (Sculptra's clinical trial ran for 25 months; individual results and treatment plans may vary.)",
+      },
+      {
+        question: "What should I expect during treatment?",
+        answer:
+          "Each session takes about 30–45 minutes. Sculptra is injected in a pattern to evenly fill the treatment area, then the area is massaged for a few minutes to distribute the product evenly and prevent bumps. Some redness or bruising is normal and fades quickly; an ice pack can help with any discomfort.",
+      },
+      {
+        question: "How safe is Sculptra?",
+        answer:
+          "Sculptra's active ingredient, poly-L-lactic acid (PLA), is biocompatible, fully absorbable, and has a long track record of safe use in medicine — including suture thread and orthopaedic pins and screws. No skin test is required before treatment.",
+      },
+      {
+        question: "Will the injections hurt?",
+        answer:
+          "Sculptra contains a built-in local anaesthetic, lidocaine. You may feel a slight sting as it's injected, but there's usually little to no discomfort afterwards.",
+      },
+      {
         question: "How many sessions will I need?",
         answer:
           "Most patients need 2–3 sessions spaced roughly 6 weeks apart, allowing each round of collagen stimulation to build on the last.",
       },
       {
-        question: "What results can I expect?",
+        question: "What's the difference between Sculptra and dermal fillers?",
         answer:
-          "A gradual restoration of facial volume and structure, particularly in the cheeks, temples and jawline, that looks like a natural improvement in skin quality rather than an obvious 'filled' change.",
+          "Sculptra uses poly-L-lactic acid to replace lost collagen rather than simply adding volume, so its effects build gradually and subtly replenish volume over time — and results can last up to two years, longer than most traditional fillers.",
       },
       {
         question: "Why does it take longer to see results than fillers?",
@@ -893,16 +1031,6 @@ export const treatmentDetails: TreatmentDetail[] = [
         question: "What are the side-effects?",
         answer:
           "Swelling, redness and small bumps at injection sites are common initially and usually settle within days. Very occasionally, small nodules can form under the skin, which is why post-treatment massage is important.",
-      },
-      {
-        question: "Is the treatment painful?",
-        answer:
-          "A local anaesthetic is mixed into the product and topical numbing can also be used, so most patients find the treatment comfortable.",
-      },
-      {
-        question: "What aftercare is required?",
-        answer:
-          "You'll be asked to massage the treated area for 5 minutes, 5 times a day, for 5 days after treatment (the 'rule of 5s') to help distribute the product evenly and reduce the risk of nodules.",
       },
       {
         question: "How long will results last?",
@@ -1765,20 +1893,114 @@ export const treatmentDetails: TreatmentDetail[] = [
     title: "Aqualyx (Fat Dissolving)",
     tagline: "Permanently dissolve stubborn fat — precisely targeted",
     category: "Body Contouring",
-    image: "/images/services/placeholder.png",
+    image: "/images/treatments/aqualyx/product-vials.jpg",
+    introImage: {
+      src: "/images/treatments/aqualyx/product-vials.jpg",
+      alt: "Aqualyx fat-dissolving injection vials",
+    },
     intro:
       "Aqualyx is a clinically proven fat-dissolving injection that permanently destroys fat cells in small, targeted areas. It is an ideal solution for localised fat deposits that are resistant to diet and exercise, such as a double chin, jowls, small abdominal pockets and inner thighs.",
     body: [
-      "Aqualyx contains a plant-derived compound that disrupts the membrane of fat cells on contact, causing them to break down and be naturally eliminated by the body's lymphatic system. The treatment is performed using a thin cannula to minimise discomfort, and results in a lasting reduction in the treated fat pocket.",
-      "At YourHealthFirst, Aqualyx is commonly used to treat the submental area (double chin), jowls, small abdominal areas, upper arms and inner thighs. It is particularly popular as a complement to cryolipolysis for smaller or more defined target zones.",
-      "2–4 sessions are typically needed, spaced 6 weeks apart. Mild swelling and redness after treatment is expected as the immune system processes the destroyed fat cells — this is a normal sign the treatment is working.",
+      "Aqualyx is an injectable, hydrous, micro-gelatinous solution that is biocompatible and biodegradable. It causes the dissolution of fat cells, after which the body expels the released fatty acids naturally. Administered directly into the fat tissue with a thin cannula, anaesthesia usually isn't required, there are no incisions or stitches, and scarring is unlikely.",
+      "Developed by aesthetic surgeon Prof. Pasquale Motolese in 2002, Aqualyx has been used for many years across Europe and beyond, with the manufacturer reporting sales of two million vials in two years and no major side effects recorded. Destroying the fat cells leads to a long-lasting solution provided patients remain at a stable weight — follow-up examinations seven years after therapy have still shown a relevant reduction in fat tissue in treated areas.",
+      "Aqualyx is intended for patients with localised fatty deposits that don't respond to diet or exercise — it is not a weight-loss treatment, but a way to improve and refine body contour. Results shouldn't be compared to liposuction, which surgically removes large amounts of fat in one procedure.",
+      "At YourHealthFirst, Aqualyx is commonly used to treat the submental area (double chin), jowls, small abdominal areas, upper arms and inner thighs. It is particularly popular as a complement to cryolipolysis for smaller or more defined target zones. Typically, 1–3 treatments are needed for small areas (e.g. jowls) and 2–8 for larger areas (e.g. thighs), spaced around 6 weeks apart. Aqualyx causes an inflammatory reaction in the fat cells that can result in swelling for 3–5 days — this is a normal sign the treatment is working.",
     ],
+    treatmentAreas: [
+      "Chin & Jawline",
+      "Cheeks",
+      "Shoulders & Arms",
+      "Armpit",
+      "Bra Strap Bulge",
+      "Waist & Abdomen",
+      "Hips & Buttock",
+      "Inner & Outer Thighs",
+      "Knees & Ankles",
+    ],
+    treatmentAreaIcons: {
+      "Chin & Jawline": "jaw",
+      Cheeks: "face",
+      "Shoulders & Arms": "hand",
+      Armpit: "hand",
+      "Bra Strap Bulge": "body",
+      "Waist & Abdomen": "body",
+      "Hips & Buttock": "body",
+      "Inner & Outer Thighs": "drop",
+      "Knees & Ankles": "bone",
+    },
+    processDiagrams: [
+      {
+        src: "/images/treatments/aqualyx/injection-points.png",
+        alt: "Aqualyx injection points — chin, cheeks, shoulders, waist, stomach, thighs and knees",
+      },
+      {
+        src: "/images/treatments/aqualyx/body-zones.jpg",
+        alt: "Aqualyx fat-deposit treatment zones, front and back",
+      },
+      {
+        src: "/images/treatments/aqualyx/before-after-hips.png",
+        alt: "Aqualyx before and after — hips and outer thighs",
+      },
+      {
+        src: "/images/treatments/aqualyx/before-after-back.png",
+        alt: "Aqualyx before and after — back and bra-strap bulge",
+      },
+      {
+        src: "/images/treatments/aqualyx/before-after-buttocks.png",
+        alt: "Aqualyx before and after — buttocks and thighs",
+      },
+      {
+        src: "/images/treatments/aqualyx/before-after-abdomen.png",
+        alt: "Aqualyx before and after — abdomen",
+      },
+      {
+        src: "/images/treatments/aqualyx/before-after-waist.png",
+        alt: "Aqualyx before and after — waist and hip",
+      },
+    ],
+    contraindications: {
+      title: "Who Should Not Have This Treatment",
+      items: [
+        "Pregnant or breastfeeding women",
+        "Patients with auto-immune disease",
+        "Diabetics",
+        "History of severe anaphylactic reactions or allergies",
+        "Anyone diagnosed with lipodystrophy or other pathological conditions",
+      ],
+    },
+    careInstructions: {
+      title: "Aqualyx — Before & Aftercare",
+      groups: [
+        {
+          heading: "Avoid For",
+          points: [
+            "3 days — extreme temperatures, swimming pools, spas and saunas.",
+            "10 days — strenuous physical exercise.",
+            "14 days — laser, cryolipolysis or radiofrequency treatments.",
+          ],
+        },
+        {
+          heading: "Common Side Effects",
+          points: [
+            "Red, tight, itchy skin and swelling.",
+            "The treated area may feel tender and firm for up to eight weeks after treatment.",
+          ],
+        },
+        {
+          heading: "Adverse Reaction Awareness",
+          warning: true,
+          points: ["Pain and discharge are not normal — please call the clinic immediately for advice if you experience these."],
+        },
+      ],
+    },
     benefits: [
       "Permanently destroys fat cells on contact",
       "Highly targeted — suitable for small, defined areas",
       "Excellent for double chin, jowls and small body pockets",
       "Minimally invasive — performed with a thin cannula",
+      "No incisions, stitches or scarring",
       "Natural elimination via lymphatic system",
+      "Long-term studies show results sustained 7+ years",
       "Can complement cryolipolysis for comprehensive body contouring",
     ],
     suitableFor: [
@@ -1787,13 +2009,23 @@ export const treatmentDetails: TreatmentDetail[] = [
       "Patients wanting to target small areas that cryolipolysis cannot reach",
       "Anyone looking for a non-surgical fat reduction option",
     ],
-    results: "Progressive fat reduction over 6–8 weeks per session",
+    results: "Progressive fat reduction over 6–8 weeks per session, sustained long-term",
     priceFrom: "£350 (chin/jaws) / From £450 (abdomen)",
     faqs: [
       {
+        question: "How does the treatment work?",
+        answer:
+          "Aqualyx is a water-based solution injected into stubborn fat areas around the body. It liquefies the fat cell membrane, which is then eliminated naturally by the body over the following weeks.",
+      },
+      {
+        question: "What happens during an Aqualyx treatment?",
+        answer:
+          "The solution is injected into the fat through a thin, flexible cannula. A local anaesthetic (lidocaine) can be added to the solution before injecting to improve comfort.",
+      },
+      {
         question: "How many sessions will I need?",
         answer:
-          "Most areas require 2–4 sessions spaced 6 weeks apart, allowing your body time to process and clear each round of destroyed fat cells before the next treatment.",
+          "Typically 1–3 sessions for small areas (like the jowls) and 2–8 sessions for larger areas (like the thighs), spaced around 6 weeks apart, allowing your body time to process and clear each round of destroyed fat cells before the next treatment.",
       },
       {
         question: "What results can I expect?",
@@ -1818,12 +2050,17 @@ export const treatmentDetails: TreatmentDetail[] = [
       {
         question: "When will I see results?",
         answer:
-          "Fat reduction develops progressively over 6–8 weeks per session as the body clears the treated tissue via the lymphatic system.",
+          "A reduction in fat deposits can be seen after just one treatment, though anything between 1 and 8 sessions may be needed for the optimal effect, developing progressively over 6–8 weeks per session as the body clears the treated tissue via the lymphatic system.",
       },
       {
         question: "Is the fat reduction permanent?",
         answer:
-          "Yes — the destroyed fat cells do not regenerate, so results are permanent provided a stable weight is maintained afterwards.",
+          "Yes — the destroyed fat cells do not regenerate. Long-term studies show a relevant reduction in fat tissue sustained even seven years after treatment, provided a stable weight is maintained afterwards.",
+      },
+      {
+        question: "What is the aftercare for Aqualyx?",
+        answer:
+          "Avoid make-up or skincare on the treated area for 12 hours. Avoid extreme temperatures, pools, spas and saunas for 3 days, strenuous exercise for 10 days, and laser, cryolipolysis or radiofrequency treatments for 14 days.",
       },
       {
         question: "Who is suitable for Aqualyx?",

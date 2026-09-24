@@ -235,21 +235,9 @@ export default function PhlebotomyPage() {
                   className="object-cover"
                 />
               </div>
-              <div className="flex items-center gap-4 rounded-[10px] border border-black/8 bg-cream px-4 py-3">
-                <div className="relative h-16 w-36 shrink-0">
-                  <Image
-                    src="/images/treatments/phlebotomy/npr-logo.png"
-                    alt="National Phlebotomist Register"
-                    fill
-                    className="object-contain"
-                  />
-                </div>
-                <span className="text-[15px] font-semibold leading-[20px] text-forest">
-                  National Phlebotomist Register
-                </span>
-              </div>
             </div>
-            <div className="flex flex-col gap-5">
+            <div className="flex flex-col gap-6 xl:flex-row xl:gap-10">
+            <div className="flex flex-1 flex-col gap-5">
               <div className="flex flex-col gap-2">
                 <h2 className="font-display text-[28px] font-bold leading-[34px] tracking-[-1px] text-forest lg:text-[34px] lg:leading-[40px]">
                   Phlebotomy (Blood Drawn)
@@ -271,6 +259,13 @@ export default function PhlebotomyPage() {
               <p className="text-[16px] leading-[27px] text-body-text">
                 For some cases, as per requisition form, <strong className="text-forest">we can also freeze the sample</strong> and keep it in the clinic until it is collected by DHL if needed.
               </p>
+            </div>
+            <div className="flex h-fit w-full shrink-0 flex-col items-center gap-4 rounded-[14px] border border-tan/30 bg-cream px-6 py-8 text-center shadow-sm xl:w-[280px]">
+              <div className="relative h-24 w-full">
+                <Image src="/images/treatments/phlebotomy/npr-logo.png" alt="National Phlebotomist Register" fill className="object-contain" />
+              </div>
+              <span className="text-[16px] font-semibold leading-[22px] text-forest">National Phlebotomist Register</span>
+            </div>
             </div>
           </div>
         </div>

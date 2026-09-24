@@ -149,6 +149,14 @@ export interface TreatmentDetail {
   };
   /** Links to related standalone pages (e.g. supporting technology or explainer pages) */
   relatedLinks?: { label: string; href: string }[];
+  /** Premium icon-card grid — gradient bg, two-tone heading, arc-ring icon cards (no photos) */
+  premiumFeatures?: {
+    eyebrow: string;
+    main: string;
+    accent: string;
+    subtitle?: string;
+    items: { icon: string; title: string; description: string }[];
+  };
 }
 
 export const treatmentDetails: TreatmentDetail[] = [
@@ -2125,32 +2133,39 @@ export const treatmentDetails: TreatmentDetail[] = [
       { label: "FOTOAGE Photodynamic Therapy", href: "/photobiodynamic-therapy" },
       { label: "1st Customizable Biophotonic Mask", href: "/fotoage" },
     ],
-    featureImages: [
-      {
-        title: "Wrinkles — Treatment of Photoaging",
-        description:
-          "Skinox Wrinkles promotes neocollagenesis and significantly improves the damage produced by the photo-environment. It is indicated as a facial rejuvenation therapy and for the correction of wrinkles. It is activated and reacts with the red HDD light (630nm ±10nm) of the Fotoage mask.",
-        image: "/images/treatments/photo-aging/wrinkles_box.jpg",
-      },
-      {
-        title: "Acne — Treatment of Type I and Type II Acne",
-        description:
-          "Skinox Blemish is a photosensitive treatment which is activated and reacts with the blue HDD light (410nm ±10nm) of the Fotoage mask. This non-invasive photobiodynamic technique stimulates, regenerates and repairs the skin.",
-        image: "/images/treatments/photo-aging/blemish_box.jpg",
-      },
-      {
-        title: "Dark Spots — Face and Neckline",
-        description:
-          "Skinox Dark Spots is a photosensitive treatment which is activated and reacts with the green HDD light (530nm ±10nm) of the Fotoage mask, targeting dark spots on the face and neckline.",
-        image: "/images/treatments/photo-aging/dark_spots_box.jpg",
-      },
-      {
-        title: "Redness — Stimulation of Elastin and Collagen",
-        description:
-          "Skinox Redness improves the appearance of the skin. It is a photosensitive product that is activated and reacts with the yellow HDD light (590nm ±10nm) of the Fotoage mask — a photobiodynamic technology that stimulates, regenerates and repairs the skin.",
-        image: "/images/treatments/photo-aging/redness_box.jpg",
-      },
-    ],
+    premiumFeatures: {
+      eyebrow: "Skinox Range",
+      main: "4 Skinox",
+      accent: "Treatments",
+      subtitle:
+        "Each Skinox product is photosensitive and activates with a specific HDD light colour from the Fotoage mask, targeting a different skin concern.",
+      items: [
+        {
+          icon: "wave",
+          title: "Wrinkles — Treatment of Photoaging",
+          description:
+            "Skinox Wrinkles promotes neocollagenesis and significantly improves the damage produced by the photo-environment. It is indicated as a facial rejuvenation therapy and for the correction of wrinkles. It is activated and reacts with the red HDD light (630nm ±10nm) of the Fotoage mask.",
+        },
+        {
+          icon: "target",
+          title: "Acne — Treatment of Type I and Type II Acne",
+          description:
+            "Skinox Blemish is a photosensitive treatment which is activated and reacts with the blue HDD light (410nm ±10nm) of the Fotoage mask. This non-invasive photobiodynamic technique stimulates, regenerates and repairs the skin.",
+        },
+        {
+          icon: "dots",
+          title: "Dark Spots — Face and Neckline",
+          description:
+            "Skinox Dark Spots is a photosensitive treatment which is activated and reacts with the green HDD light (530nm ±10nm) of the Fotoage mask, targeting dark spots on the face and neckline.",
+        },
+        {
+          icon: "drop",
+          title: "Redness — Stimulation of Elastin and Collagen",
+          description:
+            "Skinox Redness improves the appearance of the skin. It is a photosensitive product that is activated and reacts with the yellow HDD light (590nm ±10nm) of the Fotoage mask — a photobiodynamic technology that stimulates, regenerates and repairs the skin.",
+        },
+      ],
+    },
     body: [
       "The complete treatment consists of 4 simple phases and lasts about 45 minutes. Photodynamic therapy can be combined with other treatments including mesotherapy, fillers, anti-wrinkle treatment, microneedling, laser and carboxytherapy, among others.",
       "Once the treatment is finished, results can last from 1 to 3 years depending on the indication and the habits of the patient. It is advisable not to expose yourself to the sun during the 48 hours after treatment.",

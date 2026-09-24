@@ -1061,6 +1061,49 @@ export default async function TreatmentPage({ params }: Props) {
         </section>
       )}
 
+      {/* Premium feature cards — gradient bg, icon circles, no photos */}
+      {treatment.premiumFeatures && treatment.premiumFeatures.items.length > 0 && (
+        <section className="relative w-full overflow-hidden bg-[linear-gradient(120deg,#faf4ea_0%,#f0e0c8_100%)] px-5">
+          <div className="pointer-events-none absolute -right-[6%] -top-[20%] h-[420px] w-[420px] rounded-full bg-tan/15 blur-[110px]" />
+          <div className="pointer-events-none absolute -left-[8%] bottom-[-20%] h-[420px] w-[420px] rounded-full bg-white/40 blur-[110px]" />
+          <div className="relative mx-auto max-w-[1400px] py-[70px] lg:py-[90px]">
+            <div className="mx-auto flex max-w-[720px] flex-col items-center gap-4 text-center">
+              <div className="flex items-center gap-3">
+                <span className="h-px w-[30px] bg-tan/40" />
+                <span className="font-nav text-[11px] font-semibold tracking-[2px] text-tan uppercase">
+                  {treatment.premiumFeatures.eyebrow}
+                </span>
+                <span className="h-px w-[30px] bg-tan/40" />
+              </div>
+              <h2 className="font-display text-[30px] font-bold leading-[36px] tracking-[-1px] text-forest lg:text-[36px] lg:leading-[42px]">
+                {treatment.premiumFeatures.main} <span className="text-tan">{treatment.premiumFeatures.accent}</span>
+              </h2>
+              {treatment.premiumFeatures.subtitle && (
+                <p className="text-[15px] leading-[24px] text-body-text">{treatment.premiumFeatures.subtitle}</p>
+              )}
+            </div>
+
+            <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              {treatment.premiumFeatures.items.map((item) => (
+                <div
+                  key={item.title}
+                  className="flex flex-col gap-4 rounded-[20px] border border-tan/25 bg-white/70 p-7 shadow-sm backdrop-blur-sm"
+                >
+                  <span className="relative flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-tan/15 text-tan">
+                    <svg className="pointer-events-none absolute -inset-2" viewBox="0 0 72 72" fill="none">
+                      <path d="M6 40A30 30 0 0 1 40 6" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" className="text-tan/30" />
+                    </svg>
+                    <AreaIcon name={item.icon} className="h-6 w-6" />
+                  </span>
+                  <h3 className="font-subheading text-[16px] font-semibold leading-[22px] text-forest">{item.title}</h3>
+                  <p className="text-[14px] leading-[22px] text-body-text">{item.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Feature images (2-up benefit cards with supporting image) */}
       {treatment.featureImages && treatment.featureImages.length > 0 && (
         <section className="w-full px-5">

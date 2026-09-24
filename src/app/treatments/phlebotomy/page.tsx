@@ -485,11 +485,11 @@ export default function PhlebotomyPage() {
               </a>
             </div>
 
-            <div className="relative mx-auto w-full max-w-[520px]">
+            <div className="relative mx-auto w-full max-w-[440px]">
               <div className="pointer-events-none absolute -right-8 -top-8 h-full w-full rounded-full border border-tan/30" />
-              <div className="relative w-full overflow-hidden rounded-[24px] shadow-xl" style={{ aspectRatio: "4/3" }}>
+              <div className="relative w-full overflow-hidden rounded-[24px] shadow-xl" style={{ aspectRatio: "4/5" }}>
                 <Image
-                  src="/images/treatments/phlebotomy/centrifuge.jpg"
+                  src="/images/treatments/phlebotomy/centrifuge-machine.jpg"
                   alt="Blood sample being placed in the centrifuge at YourHealthFirst Clinic"
                   fill
                   className="object-cover"

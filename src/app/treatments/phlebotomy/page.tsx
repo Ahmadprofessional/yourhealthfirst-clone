@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import TreatmentFaqAccordion from "@/components/TreatmentFaqAccordion";
 import { treatmentDetails } from "@/data/treatments";
 
 export const metadata: Metadata = {
@@ -550,6 +551,23 @@ export default function PhlebotomyPage() {
           </div>
         </div>
       </section>
+
+      {/* FAQs */}
+      {treatment.faqs.length > 0 && (
+        <section id="faqs" className="w-full px-5">
+          <div className="mx-auto max-w-[900px] py-[80px] lg:py-[100px]">
+            <h2 className="text-center font-subheading text-[26px] font-medium leading-[32px] tracking-[-1px] text-forest uppercase lg:text-[32px] lg:leading-[38px]">
+              Frequently Asked Questions
+            </h2>
+            <p className="mx-auto mt-3 max-w-[520px] text-center text-[15px] leading-[24px] text-body-text">
+              Everything you need to know about phlebotomy at YourHealthFirst Clinic.
+            </p>
+            <div className="mt-10">
+              <TreatmentFaqAccordion items={treatment.faqs} />
+            </div>
+          </div>
+        </section>
+      )}
 
       <Footer />
     </div>

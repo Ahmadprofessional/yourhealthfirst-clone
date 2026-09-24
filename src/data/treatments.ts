@@ -147,6 +147,8 @@ export interface TreatmentDetail {
       chips: { icon: string; label: string }[];
     }[];
   };
+  /** Links to related standalone pages (e.g. supporting technology or explainer pages) */
+  relatedLinks?: { label: string; href: string }[];
 }
 
 export const treatmentDetails: TreatmentDetail[] = [
@@ -2119,6 +2121,10 @@ export const treatmentDetails: TreatmentDetail[] = [
     intro:
       "Skinox is a photosensitive medical peeling treatment for rejuvenation and/or for the treatment of skin correction. This non-invasive technique is the photobiodynamic therapy that stimulates, regenerates and repairs the skin.",
     videoId: "oKODPcIJGyE",
+    relatedLinks: [
+      { label: "FOTOAGE Photodynamic Therapy", href: "/photobiodynamic-therapy" },
+      { label: "1st Customizable Biophotonic Mask", href: "/fotoage" },
+    ],
     featureImages: [
       {
         title: "Wrinkles — Treatment of Photoaging",

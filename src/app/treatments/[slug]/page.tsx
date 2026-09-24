@@ -432,6 +432,26 @@ export default async function TreatmentPage({ params }: Props) {
         </div>
       </section>
 
+      {/* Related links — supporting technology / explainer pages */}
+      {treatment.relatedLinks && treatment.relatedLinks.length > 0 && (
+        <section className="w-full border-t border-black/8 bg-cream px-5">
+          <div className="mx-auto max-w-[1400px] py-[40px]">
+            <div className="flex flex-wrap gap-4">
+              {treatment.relatedLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="inline-flex h-12 items-center gap-2 rounded-[8px] bg-forest px-6 font-nav text-[14px] font-semibold tracking-[-0.3px] text-cream transition-opacity hover:opacity-90"
+                >
+                  Click here for {link.label}
+                  <AreaIcon name="arrow" className="h-4 w-4" />
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Treatment areas + Who is it for — icon card variant */}
       {treatment.treatmentAreas && treatment.treatmentAreas.length > 0 && treatment.treatmentAreaIcons && (
         <section className="relative w-full overflow-hidden bg-[linear-gradient(120deg,#faf4ea_0%,#f0e0c8_100%)] px-5">

@@ -613,6 +613,44 @@ export const treatmentDetails: TreatmentDetail[] = [
     image: "/images/services/placeholder.png",
     intro:
       "Profhilo is a revolutionary injectable treatment containing one of the highest concentrations of hyaluronic acid on the market. It flows beneath the skin to intensely hydrate and stimulate collagen and elastin production, remodelling the skin from the inside out.",
+    treatmentAreas: ["Face", "Neck", "Hands", "Décolletage", "Upper Arms"],
+    treatmentAreaIcons: {
+      Face: "face",
+      Neck: "neck",
+      Hands: "hand",
+      Décolletage: "chest",
+      "Upper Arms": "body",
+    },
+    processDiagrams: [
+      {
+        src: "/images/treatments/profhilo/bap-technique.jpg",
+        alt: "Profhilo BAP (Bio Aesthetic Points) technique — the 5 facial injection points",
+      },
+      {
+        src: "/images/treatments/profhilo/injection-areas.jpg",
+        alt: "Profhilo injection points for face, upper arm, neck and hand",
+      },
+      {
+        src: "/images/treatments/profhilo/before-after-1.png",
+        alt: "Profhilo before and after — 4 and 8 weeks, side profile",
+      },
+      {
+        src: "/images/treatments/profhilo/before-after-2.png",
+        alt: "Profhilo before and after — 4 and 8 weeks, front view",
+      },
+      {
+        src: "/images/treatments/profhilo/before-after-3.png",
+        alt: "Profhilo before and after results",
+      },
+      {
+        src: "/images/treatments/profhilo/before-after-4.png",
+        alt: "Profhilo before and after results",
+      },
+      {
+        src: "/images/treatments/profhilo/before-after-5.png",
+        alt: "Profhilo before and after results",
+      },
+    ],
     body: [
       "Unlike traditional fillers, Profhilo does not add volume in a specific area — instead it spreads throughout the tissue, boosting skin laxity and quality across a wider zone. It is injected at 5 specific Bio Aesthetic Points (BAP) on each side of the face, targeting optimal anatomical placement for skin tightening and lifting.",
       "Profhilo is particularly effective for patients who notice a loss of skin quality, fine lines, sagging skin and lack of radiance. It is also popular for the neck, décolleté, arms and knees where skin laxity can be difficult to treat otherwise.",

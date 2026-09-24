@@ -232,7 +232,17 @@ export const treatmentDetails: TreatmentDetail[] = [
       {
         question: "How many treatments will I need?",
         answer:
-          "Most areas are treated in a single session. Some patients — particularly those treating hyperhidrosis or a gummy smile — may need a short top-up 2 weeks later if the initial dose needs fine-tuning. After that, repeat sessions every 3–6 months keep results maintained.",
+          "You only need one session per treatment to see results, and it might need a top up after 2 weeks. However, because Botox is a temporary treatment, you will need maintenance sessions every 4 to 6 months to maintain your results.",
+        sections: [
+          {
+            heading: "What to Expect Over Time",
+            points: [
+              "Initial results: After your single appointment, the product takes 3 to 14 days to fully kick in.",
+              "Over time, some people find they can stretch their appointments out to every 6 to 8 months.",
+              "Safety interval: You should never get Botox more often than every 12 weeks (3 months). Getting touch-ups too frequently can cause your immune system to build up antibodies, making the treatment less effective over time.",
+            ],
+          },
+        ],
       },
       {
         question: "What results can I expect?",
@@ -260,9 +270,28 @@ export const treatmentDetails: TreatmentDetail[] = [
           "Results generally last 3–6 months depending on the area treated, your muscle strength and your individual metabolism. Areas like hyperhidrosis treatment can last up to 6–9 months.",
       },
       {
-        question: "What can and can't I do after treatment?",
+        question: "What can't I do after the treatment?",
         answer:
-          "Avoid lying down, rubbing the treated area, strenuous exercise or alcohol for the rest of the day. You can return to normal activities and makeup immediately afterwards.",
+          "Avoid touching, rubbing, or massaging the treated area for at least 24 hours to prevent the Botox from spreading to unintended muscles.",
+        sections: [
+          {
+            heading: "Immediate Restrictions (First 4 Hours)",
+            points: [
+              "Do not lie down: Stay upright for at least 4 hours to keep the product from migrating.",
+              "Avoid tight headwear: Skip hats, headbands, or tight goggles that put pressure on your forehead.",
+            ],
+          },
+          {
+            heading: "First 24 to 48 Hours",
+            points: [
+              "No intense exercise: Skip heavy lifting, high-intensity cardio, and hot yoga for 24 hours, as increased blood flow can disperse the product or worsen bruising.",
+              "Avoid heat exposure: Stay away from saunas, hot tubs, steam rooms, and direct sunbathing for 24 to 48 hours.",
+              "No alcohol: Skip alcohol for 24 hours, as it thins the blood and increases the risk of bruising.",
+              "Postpone skin treatments: Avoid facials, facial massages, chemical peels, and using facial tools for at least 24 hours (and up to two weeks for deep facial treatments).",
+              "Skip blood thinners: Avoid aspirin or ibuprofen unless prescribed by your doctor, as they increase bruising.",
+            ],
+          },
+        ],
       },
       {
         question: "Who is suitable for anti-wrinkle injections?",

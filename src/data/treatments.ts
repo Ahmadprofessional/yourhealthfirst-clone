@@ -118,6 +118,10 @@ export interface TreatmentDetail {
     heading: string;
     body: string[];
     imagePosition?: "left" | "right";
+    /** Optional CSS aspect ratio for portrait/custom photos (default 4/3); also narrows the image column */
+    aspect?: string;
+    /** Optional CSS object-position for cropping */
+    position?: string;
   }[];
   /** Prominent before/aftercare instructions section, grouped by timeframe */
   careInstructions?: {
@@ -177,7 +181,7 @@ export const treatmentDetails: TreatmentDetail[] = [
       "Wrinkles are a natural part of the ageing process. With age, our skin gets thinner and drier and we lose elastin. The ability of our skin to protect itself is reduced as we age. Eventually, wrinkles, creases and lines form on our skin.",
       "Continuous muscle contraction is also a major contributor to facial wrinkles. Continuous muscle movement causes 'dynamic wrinkles', which only appear when the muscle is used. Over time, if left untreated, these wrinkles become 'static wrinkles' — meaning they become difficult to remove and, over time, permanently etched into the skin.",
       "Anti-wrinkle treatments work by temporarily preventing muscles from contracting. For the underarms, the injections block the nerves responsible for your sweat glands — only stopping the nerves that are directly injected — reducing the amount of active sweat glands and leaving you feeling more confident and comfortable when you're sweat-free.",
-      "Dr Sofia carries out a thorough assessment at every consultation to ensure the right dose is placed in exactly the right location. Results typically become visible within 3–7 days and last between 3–6 months depending on the area and individual metabolism. With regular treatment, many patients find that results last longer over time.",
+      "Results typically become visible within 3–7 days and last between 3–6 months depending on the area and individual metabolism. With regular treatment, many patients find that results last longer over time.",
     ],
     benefits: [
       "Reverses the signs of ageing and dramatically diminishes the appearance of wrinkles",
@@ -200,6 +204,42 @@ export const treatmentDetails: TreatmentDetail[] = [
     ],
     results: "First results visible in 3–14 days, lasting 3–6 months",
     priceFrom: "£120",
+    imageTextSections: [
+      {
+        image: "/images/treatments/anti-wrinkles/sofia-consultation.jpg",
+        alt: "Dr Sofia carefully assessing a patient's face before anti-wrinkle treatment",
+        heading: "Tailored to Your Face",
+        aspect: "4/5",
+        position: "50% 30%",
+        body: [
+          "At YourHealthFirst, every treatment is carefully tailored to your facial anatomy and aesthetic goals.",
+          "Dr Sofia carries out a thorough assessment at every consultation to ensure the right dose is placed in exactly the right location.",
+        ],
+      },
+      {
+        image: "/images/treatments/anti-wrinkles/eye-area-injection.webp",
+        alt: "Precise anti-wrinkle injection around the eye area",
+        heading: "Precision Where It Matters",
+        imagePosition: "left",
+        aspect: "4/5",
+        position: "50% 55%",
+        body: [
+          "Crow's feet, forehead and frown lines are softened by relaxing only the specific muscles that cause them, while surrounding muscles continue to move naturally.",
+          "The needles used are very fine, and most patients describe the treatment as a series of quick, small pinpricks rather than pain.",
+        ],
+      },
+      {
+        image: "/images/treatments/anti-wrinkles/neck-injection.webp",
+        alt: "Anti-wrinkle treatment for platysmal bands on the neck",
+        heading: "Beyond the Face: The Neck",
+        aspect: "4/5",
+        position: "50% 75%",
+        body: [
+          "Anti-wrinkle injections can also be used to address platysmal bands ('turkey neck'), helping the neck look smoother and more youthful.",
+          "It's part of a natural approach to rejuvenation — subtle, balanced results with no downtime.",
+        ],
+      },
+    ],
     gallery: {
       folder: "/images/gallery/botox",
       prefix: "botox",

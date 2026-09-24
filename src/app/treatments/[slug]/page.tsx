@@ -793,13 +793,10 @@ export default async function TreatmentPage({ params }: Props) {
                   item.imagePosition === "left" ? "lg:flex-row-reverse" : ""
                 }`}
               >
-                <div
-                  className={`relative w-full overflow-hidden rounded-[12px] shadow-sm ${item.aspect ? "lg:w-[38%] lg:shrink-0" : "lg:w-1/2"}`}
-                  style={{ aspectRatio: item.aspect ?? "4/3" }}
-                >
-                  <Image src={item.image} alt={item.alt} fill className="object-cover" style={item.position ? { objectPosition: item.position } : undefined} />
+                <div className="relative w-full overflow-hidden rounded-[12px] shadow-sm lg:w-1/2" style={{ aspectRatio: "4/3" }}>
+                  <Image src={item.image} alt={item.alt} fill className="object-cover" />
                 </div>
-                <div className={`flex w-full flex-col gap-4 ${item.aspect ? "lg:flex-1" : "lg:w-1/2"}`}>
+                <div className="flex w-full flex-col gap-4 lg:w-1/2">
                   <h2 className="font-subheading text-[24px] font-medium leading-[30px] tracking-[-1px] text-forest uppercase lg:text-[30px] lg:leading-[36px]">
                     {item.heading}
                   </h2>

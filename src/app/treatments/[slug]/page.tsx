@@ -345,23 +345,67 @@ export default async function TreatmentPage({ params }: Props) {
               )}
 
               {/* Body paragraphs (image, when present, floats alongside the text) */}
-              <div className="flow-root">
-                {treatment.introImage && (
-                  <div className="relative float-right ml-6 mb-4 h-[260px] w-[190px] overflow-hidden rounded-[12px] border border-black/8 bg-cream sm:h-[300px] sm:w-[220px]">
-                    <Image src={treatment.introImage.src} alt={treatment.introImage.alt} fill className="object-contain p-4" />
-                  </div>
-                )}
-                <div className="flex flex-col gap-5">
-                  {treatment.body.map((para, i) => (
-                    <p key={i} className="text-[16px] leading-[27px] tracking-[-0.2px] text-body-text">
-                      {para}
-                    </p>
-                  ))}
+              {treatment.bodyImages && treatment.bodyImages.length > 0 ? (
+                <div className="flex flex-col gap-10">
+                  {(() => {
+                    const size = Math.ceil(treatment.body.length / treatment.bodyImages.length);
+                    return treatment.bodyImages.map((img, i) => {
+                      const paras = treatment.body.slice(i * size, (i + 1) * size);
+                      if (paras.length === 0) return null;
+                      return (
+                        <div
+                          key={img.src}
+                          className={`flex flex-col items-start gap-6 sm:flex-row sm:gap-8 ${i % 2 === 1 ? "sm:flex-row-reverse" : ""}`}
+                        >
+                          <div className="relative w-full max-w-[280px] shrink-0 overflow-hidden rounded-[14px] border border-black/8 shadow-md sm:w-[260px]" style={{ aspectRatio: "4/5" }}>
+                            <Image src={img.src} alt={img.alt} fill className="object-cover" style={img.position ? { objectPosition: img.position } : undefined} />
+                          </div>
+                          <div className="flex flex-1 flex-col gap-5">
+                            {paras.map((para, j) => (
+                              <p key={j} className="text-[16px] leading-[27px] tracking-[-0.2px] text-body-text">
+                                {para}
+                              </p>
+                            ))}
+                            {i === treatment.bodyImages!.length - 1 && !treatment.treatmentAreas && (
+                              <div className="mt-2 flex flex-col gap-4">
+                                <h2 className="font-subheading text-[20px] font-semibold leading-[26px] tracking-[-0.8px] text-forest uppercase">
+                                  Suitable For
+                                </h2>
+                                <ul className="flex flex-col gap-3">
+                                  {treatment.suitableFor.map((item) => (
+                                    <li key={item} className="flex items-start gap-3">
+                                      <span className="mt-[8px] h-[6px] w-[6px] shrink-0 rounded-full bg-tan" />
+                                      <span className="text-[16px] leading-[26px] tracking-[-0.2px] text-body-text">{item}</span>
+                                    </li>
+                                  ))}
+                                </ul>
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                      );
+                    });
+                  })()}
                 </div>
-              </div>
+              ) : (
+                <div className="flow-root">
+                  {treatment.introImage && (
+                    <div className="relative float-right ml-6 mb-4 h-[260px] w-[190px] overflow-hidden rounded-[12px] border border-black/8 bg-cream sm:h-[300px] sm:w-[220px]">
+                      <Image src={treatment.introImage.src} alt={treatment.introImage.alt} fill className="object-contain p-4" />
+                    </div>
+                  )}
+                  <div className="flex flex-col gap-5">
+                    {treatment.body.map((para, i) => (
+                      <p key={i} className="text-[16px] leading-[27px] tracking-[-0.2px] text-body-text">
+                        {para}
+                      </p>
+                    ))}
+                  </div>
+                </div>
+              )}
 
               {/* Suitable for (shown here only when there's no dedicated treatment-areas list) */}
-              {!treatment.treatmentAreas && (
+              {!treatment.treatmentAreas && !treatment.bodyImages && (
                 <div className="flex flex-col gap-4">
                   <h2 className="font-subheading text-[20px] font-semibold leading-[26px] tracking-[-0.8px] text-forest uppercase">
                     Suitable For
@@ -435,6 +479,7 @@ export default async function TreatmentPage({ params }: Props) {
               </div>
 
               {/* Benefits */}
+              {!treatment.benefitsBanner && (
               <div className="rounded-[12px] border border-black/8 p-6">
                 <h3 className="font-subheading text-[14px] font-semibold tracking-[2px] text-forest uppercase">
                   Key Benefits
@@ -448,10 +493,36 @@ export default async function TreatmentPage({ params }: Props) {
                   ))}
                 </ul>
               </div>
+              )}
             </div>
           </div>
         </div>
       </section>
+
+      {/* Key benefits banner — mid-page brown box */}
+      {treatment.benefitsBanner && treatment.benefits.length > 0 && (
+        <section className="w-full px-5">
+          <div className="mx-auto max-w-[1400px] pb-[70px] lg:pb-[90px]">
+            <div className="relative overflow-hidden rounded-[20px] bg-[linear-gradient(135deg,#7a6248_0%,#b49b7d_50%,#7a6248_100%)] p-8 shadow-lg lg:p-12">
+              <div className="pointer-events-none absolute -right-16 -top-16 h-[260px] w-[260px] rounded-full bg-white/10 blur-[60px]" />
+              <div className="relative flex flex-col gap-2">
+                <span className="h-[3px] w-12 rounded-full bg-tan" />
+                <h2 className="font-subheading text-[24px] font-semibold tracking-[2px] text-cream uppercase lg:text-[28px]">
+                  Key Benefits
+                </h2>
+              </div>
+              <ul className="relative mt-8 grid grid-cols-1 gap-x-10 gap-y-4 md:grid-cols-2">
+                {treatment.benefits.map((benefit) => (
+                  <li key={benefit} className="flex items-start gap-3">
+                    <span className="mt-[9px] h-[7px] w-[7px] shrink-0 rounded-full bg-tan" />
+                    <span className="text-[15px] leading-[24px] text-white/90">{benefit}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Related links — supporting technology / explainer pages */}
       {treatment.relatedLinks && treatment.relatedLinks.length > 0 && (

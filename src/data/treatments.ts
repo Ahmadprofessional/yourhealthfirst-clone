@@ -30,6 +30,10 @@ export interface TreatmentDetail {
   intro: string;
   /** Supporting photo shown alongside the body copy in the main content column */
   introImage?: { src: string; alt: string };
+  /** Photos woven into the main body copy — paragraphs are split into rows, alternating image left/right */
+  /** Show Key Benefits as a full-width brown banner mid-page instead of in the sidebar */
+  benefitsBanner?: boolean;
+  bodyImages?: { src: string; alt: string; position?: string }[];
   body: string[];
   benefits: string[];
   suitableFor: string[];
@@ -170,6 +174,24 @@ export const treatmentDetails: TreatmentDetail[] = [
     tagline: "Smooth, refresh and subtly lift — with expert precision",
     category: "Face & Anti-Aging",
     image: "/images/services/anti-wrinkles.png",
+    benefitsBanner: true,
+    bodyImages: [
+      {
+        src: "/images/treatments/anti-wrinkles/sofia-consultation.jpg",
+        alt: "Dr Sofia carefully assessing a patient's face before anti-wrinkle treatment",
+        position: "50% 30%",
+      },
+      {
+        src: "/images/treatments/anti-wrinkles/eye-area-injection.webp",
+        alt: "Precise anti-wrinkle injection around the eye area",
+        position: "50% 55%",
+      },
+      {
+        src: "/images/treatments/anti-wrinkles/neck-injection.webp",
+        alt: "Anti-wrinkle treatment for platysmal bands on the neck",
+        position: "50% 75%",
+      },
+    ],
     intro:
       "Anti-wrinkle injections are one of the most popular non-surgical treatments available, used to soften facial lines and wrinkles while preserving natural expression. At YourHealthFirst, every treatment is carefully tailored to your facial anatomy and aesthetic goals.",
     body: [

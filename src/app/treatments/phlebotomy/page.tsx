@@ -55,7 +55,7 @@ const postageOptions = [
   { icon: "building", title: "Post Office", description: "The nearest one from the clinic is less than a 10 minute walk from the clinic." },
   { icon: "pin", title: "UPS", description: "UPS dropping location just 5 minutes from the clinic." },
   { icon: "truck", title: "DHL", description: "Once we have confirmed your appointment, please call DHL and ask them to come and collect the kit from your home address or our clinic, between 3pm and 5pm." },
-  { icon: "ban", title: "FedEx", description: "Same steps as above." },
+  { icon: "truck", title: "FedEx", description: "Once we have confirmed your appointment, please call FedEx and ask them to come and collect the kit from your home address or our clinic, between 3pm and 5pm." },
 ];
 
 function Icon({ name, className }: { name: string; className?: string }) {

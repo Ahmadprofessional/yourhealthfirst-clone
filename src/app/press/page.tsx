@@ -84,9 +84,46 @@ export default function PressPage() {
         <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-tan/40 to-transparent" />
       </section>
 
+      {/* Video coverage */}
+      <section className="w-full bg-cream px-5">
+        <div className="mx-auto max-w-[1400px] py-[70px] lg:py-[90px]">
+          <div className="mb-10 flex items-center gap-4">
+            <h2 className="font-subheading text-[24px] font-medium leading-[30px] tracking-[-1px] text-forest uppercase lg:text-[30px] lg:leading-[36px]">
+              Video Coverage
+            </h2>
+            <div className="flex-1 border-t border-black/8" />
+          </div>
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+            <div className="relative w-full overflow-hidden rounded-[12px] shadow-sm" style={{ aspectRatio: "16/9" }}>
+              <iframe
+                src="https://www.youtube.com/embed/lmOWFIN02Gg"
+                title="YourHealthFirst Clinic — press video feature"
+                className="absolute inset-0 h-full w-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+            <div className="flex justify-center overflow-hidden rounded-[12px] bg-black shadow-sm">
+              <video
+                src="/videos/press/press-feature.mp4"
+                controls
+                playsInline
+                className="max-h-[480px] w-auto max-w-full"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Press masonry grid */}
       <section className="w-full px-5">
         <div className="mx-auto max-w-[1400px] py-[80px] lg:py-[100px]">
+          <div className="mb-10 flex items-center gap-4">
+            <h2 className="font-subheading text-[24px] font-medium leading-[30px] tracking-[-1px] text-forest uppercase lg:text-[30px] lg:leading-[36px]">
+              Press Gallery
+            </h2>
+            <div className="flex-1 border-t border-black/8" />
+          </div>
           <div className="columns-2 gap-4 sm:columns-3 lg:columns-4 [column-fill:_balance]">
             {pressImages.map((img, index) => (
               <div

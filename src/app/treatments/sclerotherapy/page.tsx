@@ -233,16 +233,44 @@ export default function SclerotherapyPage() {
       </section>
 
       {/* 4-up benefit cards */}
-      <section className="w-full bg-cream px-5">
-        <div className="mx-auto max-w-[1400px] py-[50px]">
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <section className="relative w-full overflow-hidden bg-[linear-gradient(135deg,#faf4ea_0%,#f0e0c8_100%)] px-5">
+        <div className="pointer-events-none absolute -left-[6%] -top-[15%] h-[420px] w-[420px] rounded-full bg-tan/15 blur-[110px]" />
+        <div className="pointer-events-none absolute -right-[8%] bottom-[-25%] h-[420px] w-[420px] rounded-full bg-white/40 blur-[110px]" />
+        <svg className="pointer-events-none absolute left-8 top-8 h-20 w-20 text-tan/40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.2}>
+          <path d="M20 4C10 4 4 10 4 18c8 0 14-6 14-14Z" />
+          <path d="M4 20 11 13" />
+        </svg>
+
+        <div className="relative mx-auto max-w-[1400px] py-[70px] lg:py-[90px]">
+          <div className="mx-auto flex max-w-[640px] flex-col items-center gap-3 text-center">
+            <div className="flex items-center gap-3">
+              <span className="h-px w-10 bg-tan/50" />
+              <span className="font-nav text-[12px] font-semibold tracking-[3px] text-tan uppercase">Key Benefits</span>
+              <span className="h-px w-10 bg-tan/50" />
+            </div>
+            <h2 className="font-display text-[32px] font-bold leading-[38px] tracking-[-1px] text-forest lg:text-[40px] lg:leading-[46px]">
+              Why Choose <span className="text-tan">Sclerotherapy?</span>
+            </h2>
+            <p className="text-[15px] leading-[24px] text-body-text">
+              Sclerotherapy is a safe, effective and minimally invasive treatment for spider veins, helping you achieve clearer, healthier-looking skin.
+            </p>
+          </div>
+
+          <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {benefitCards.map((b) => (
-              <div key={b.title} className="flex flex-col items-center gap-3 rounded-[16px] border border-tan/20 bg-white/70 p-7 text-center shadow-sm">
-                <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-tan/15 text-tan">
-                  <Icon name={b.icon} className="h-6 w-6" />
-                </span>
-                <h3 className="font-subheading text-[14px] font-semibold tracking-[1px] text-forest uppercase">{b.title}</h3>
-                <p className="text-[13px] leading-[20px] text-body-text">{b.description}</p>
+              <div key={b.title} className="relative flex flex-col items-center gap-3 overflow-hidden rounded-[16px] border border-tan/20 bg-white/70 p-7 pt-10 text-center shadow-sm backdrop-blur-sm">
+                <Icon name={b.icon} className="pointer-events-none absolute -bottom-4 -right-4 h-24 w-24 text-tan/10" />
+                <div className="relative flex h-14 w-14 shrink-0 items-center justify-center">
+                  <svg className="absolute -top-1.5 -right-1.5 h-[68px] w-[68px] text-tan/50" viewBox="0 0 80 80" fill="none">
+                    <path d="M20 8A32 32 0 0 1 72 40" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" />
+                  </svg>
+                  <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-tan/15 text-tan">
+                    <Icon name={b.icon} className="h-6 w-6" />
+                  </span>
+                </div>
+                <h3 className="relative font-subheading text-[14px] font-semibold tracking-[1px] text-forest uppercase">{b.title}</h3>
+                <span className="relative h-[2px] w-6 rounded-full bg-tan/50" />
+                <p className="relative text-[13px] leading-[20px] text-body-text">{b.description}.</p>
               </div>
             ))}
           </div>

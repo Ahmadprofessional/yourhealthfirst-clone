@@ -3,7 +3,6 @@ import Link from "next/link";
 import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import TreatmentFaqAccordion from "@/components/TreatmentFaqAccordion";
 import { treatmentDetails } from "@/data/treatments";
 
 export const metadata: Metadata = {
@@ -475,7 +474,9 @@ export default function PhlebotomyPage() {
                 Centrifugation is a method of separating solids from liquids using rotational forces (spun). When blood is centrifuged, the red cell portion and plasma are separated, leaving the delicate biomarkers stable and intact, and suitable for transportation to the lab. Without centrifuging, many of the biomarkers become unstable and deteriorate over time, which can result in incorrect results.
               </p>
               <a
-                href="#faqs"
+                href="https://www.webmd.com/a-to-z-guides/what-is-phlebotomy"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="mt-2 inline-flex h-14 w-fit items-center gap-3 rounded-[10px] bg-tan px-7 font-nav text-[14px] font-semibold tracking-[0.5px] text-forest uppercase transition-opacity hover:opacity-90"
               >
                 Read More About Phlebotomy
@@ -553,23 +554,6 @@ export default function PhlebotomyPage() {
           </div>
         </div>
       </section>
-
-      {/* FAQs */}
-      {treatment.faqs.length > 0 && (
-        <section id="faqs" className="w-full px-5">
-          <div className="mx-auto max-w-[900px] py-[80px] lg:py-[100px]">
-            <h2 className="text-center font-subheading text-[26px] font-medium leading-[32px] tracking-[-1px] text-forest uppercase lg:text-[32px] lg:leading-[38px]">
-              Frequently Asked Questions
-            </h2>
-            <p className="mx-auto mt-3 max-w-[520px] text-center text-[15px] leading-[24px] text-body-text">
-              Everything you need to know about phlebotomy at YourHealthFirst Clinic.
-            </p>
-            <div className="mt-10">
-              <TreatmentFaqAccordion items={treatment.faqs} />
-            </div>
-          </div>
-        </section>
-      )}
 
       <Footer />
     </div>

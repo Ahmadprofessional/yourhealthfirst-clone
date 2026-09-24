@@ -3105,7 +3105,7 @@ export const treatmentDetails: TreatmentDetail[] = [
           "The in-house centrifuge processes blood samples to separate components for clinical use, including preparation of PRP for our own hair and skin treatments, and specialist sample processing for external clinicians.",
       },
       {
-        question: "Is the treatment painful?",
+        question: "Is the procedure painful?",
         answer:
           "Blood draws involve a brief pinprick sensation from the needle, similar to any standard blood test, and are performed by an experienced practitioner to ensure comfort.",
       },

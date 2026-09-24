@@ -14,6 +14,12 @@ export const navLinks: NavLink[] = [
     href: "/treatments",
     dropdown: [
       {
+        category: "Phlebotomy (Blood Drawn & Centrifuge)",
+        items: [
+          { label: "Phlebotomy", href: "/treatments/phlebotomy" },
+        ],
+      },
+      {
         category: "Face & Anti-Aging",
         items: [
           { label: "Anti Wrinkles", href: "/treatments/anti-wrinkles" },
@@ -51,12 +57,6 @@ export const navLinks: NavLink[] = [
           { label: "Sclerotherapy", href: "/treatments/sclerotherapy" },
           { label: "CryoPen", href: "/treatments/cryopen" },
           { label: "Vitamin B12", href: "/treatments/vitamin-b12" },
-        ],
-      },
-      {
-        category: "Phlebotomy & Health Tests",
-        items: [
-          { label: "Phlebotomy", href: "/treatments/phlebotomy" },
         ],
       },
       {

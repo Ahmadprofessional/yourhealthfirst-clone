@@ -13,6 +13,10 @@ export const metadata: Metadata = {
 
 const categories = [
   {
+    label: "Phlebotomy (Blood Drawn & Centrifuge)",
+    slugs: ["phlebotomy"],
+  },
+  {
     label: "Face & Anti-Aging",
     slugs: ["anti-wrinkles", "dermal-fillers", "sunekos", "profhilo", "polynucleotides", "sculptra", "prp-ha"],
   },
@@ -27,10 +31,6 @@ const categories = [
   {
     label: "Skin & Health",
     slugs: ["microneedling", "mesotherapy", "photo-aging", "sclerotherapy", "cryopen", "vitamin-b12"],
-  },
-  {
-    label: "Phlebotomy & Health Tests",
-    slugs: ["phlebotomy"],
   },
 ];
 

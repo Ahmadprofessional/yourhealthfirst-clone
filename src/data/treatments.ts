@@ -1819,129 +1819,166 @@ export const treatmentDetails: TreatmentDetail[] = [
   },
   {
     slug: "mesotherapy",
-    title: "Microneedling & Mesotherapy",
-    tagline: "Revitalise your skin from the surface to the depths",
+    title: "Mesotherapy",
+    tagline: "Non-surgical cosmetic medicine for aesthetic medicine and dermatology",
     category: "Skin & Health",
     image: "/images/services/placeholder.png",
     intro:
-      "Mesotherapy combined with microneedling is a powerful skin rejuvenation technique that delivers tailored cocktails of vitamins, amino acids, hyaluronic acid and antioxidants directly into the skin using a pain-free micro-injector. It is effective for a wide range of skin concerns from dullness and dehydration to acne scarring and hair loss.",
-    videoUrl: "/videos/treatments/microneedling-demo.mp4",
+      "Mesotherapy is a non-surgical cosmetic medicine treatment. Mesotherapy employs multiple injections of pharmaceutical and homeopathic medications, plant extracts, vitamins, and other ingredients into subcutaneous fat, and is injected using the pain-free, U225 latest intradermal medical injector.",
+    videoId: "uic1pS9PGZo",
+    body: [
+      "Mesotherapy is a minimally invasive procedure where a series of superfine injections of vitamins, minerals, and amino acids cocktails are delivered into the meso-dermal layer of the skin.",
+      "This infusion of ingredients nourishes and rejuvenates the skin while also stimulating the production of collagen and elastin, both essential for the skin's natural elasticity.",
+      "Treatment time takes approximately thirty minutes and whilst not painful, it can be slightly uncomfortable, so an anaesthetic cream can be used if the skin is a little sensitive.",
+      "With minimal downtime — a little bruising and swelling may occur, but it will be short-lived and should settle within 24 hours — skin will become more radiant, hydrated, nourished, and firmer with an improved texture.",
+      "A course of 6–8 sessions is advised every two weeks for the first time, with maintenance treatments 1–2 times a year.",
+      "Mesotherapy can instantly improve dull, tired-looking skin and superficial wrinkles but can also help to improve sluggish blood circulation, aiding the body to flush out ageing toxins.",
+      "This treatment can also be used to address pigmentation problems, and treat acne scarring, and can be combined to enhance the effects of other aesthetic treatments such as PRP, Botox or fillers.",
+    ],
+    careInstructions: {
+      title: "Treatment Area Sizes",
+      groups: [
+        {
+          heading: "Small Area (Max 2.5ml)",
+          points: [
+            "To choose between e.g. under eyes, lips, chin, side of the eyes, e.g. for hair — crown area, receding hairline etc, or any other similar size.",
+          ],
+        },
+        {
+          heading: "Medium Area (Max 5ml)",
+          points: [
+            "To choose between e.g. full face, neck, hands, scalp, or any other similar size.",
+          ],
+        },
+        {
+          heading: "Large Area (Max 10ml)",
+          points: [
+            "To choose between e.g. full abdomen, inner thighs, full scalp, or any other similar size.",
+          ],
+        },
+      ],
+    },
     featureImages: [
       {
-        title: "Fight Against the Signs of Ageing",
+        title: "Mesox Aminoacids",
         description:
-          "By diminishing acne scars, fine lines/wrinkles, stretch marks and sun damage, it can rejuvenate your skin and make it look more youthful, healthy and fresh. It also helps to balance your skin tone.",
-        image: "/images/treatments/mesotherapy/fight-aging.webp",
+          "Formula created by the triple helix of collagen. Nourishes the fibroblast for the synthesis of collagen and other proteins. Indications: induction of protein synthesis of collagen, complement of growth factor inducing therapies, maintenance of results of therapies applied at other levels of cutaneous ageing.",
+        image: "/images/treatments/mesotherapy/mesox/aminoacids.jpg",
       },
       {
-        title: "Long-Lasting Effects",
+        title: "Mesox PPC (Phosphatidylcholine)",
         description:
-          "Durable microneedling is a treatment with long-lasting effects, making it a cost-effective option that allows you to enjoy its benefits for an extended period.",
-        image: "/images/treatments/mesotherapy/long-lasting-effect.webp",
-      },
-    ],
-    body: [
-      "Microneedling, provided at YourHealthFirst Clinic, uses small, sanitised needles to puncture the skin in a controlled manner. This stimulates new skin tissue and collagen production, resulting in smoother, firmer and more toned skin for all skin types, including olive skin tones.",
-      "The controlled treatment minimises downtime and side-effects while effectively addressing concerns like acne scars, fine lines, wrinkles and hyperpigmentation, leading to improved skin texture and complexion. It is mainly used on the face to reduce the visibility of acne, scars, dark spots, wrinkles and clogged pores.",
-      "At YourHealthFirst, we use the U225 — a state-of-the-art pain-free intradermal medical injector — to deliver the MesoOx treatment precisely and comfortably. The device delivers micro-doses of active ingredients at a controlled depth, maximising absorption without the discomfort of manual injections.",
-      "Mesotherapy is a highly versatile treatment. Different cocktail formulas can be used depending on the specific concern: anti-ageing, skin brightening, slimming, firming, stretch mark reduction, hair stimulation, and more. Dr Sofia creates a bespoke treatment plan based on your skin assessment.",
-      "A course of 4–6 sessions is recommended for best results, spaced 1–2 weeks apart, followed by maintenance sessions. There is no downtime — minor redness may occur for a few hours after treatment.",
-    ],
-    beforeAfterPairs: [
-      {
-        label: "Microneedling",
-        before: "/images/gallery/microneedling/microneedling-1-before.jpeg",
-        after: "/images/gallery/microneedling/microneedling-1-after.jpeg",
+          "Mesox PPC is the product specially indicated for localised fat and mesolipolysis. Indications: localised fat accumulation, mesolipolysis treatment.",
+        image: "/images/treatments/mesotherapy/mesox/ppc.jpg",
       },
       {
-        label: "Microneedling",
-        before: "/images/gallery/microneedling/microneedling-2-before.jpg",
-        after: "/images/gallery/microneedling/microneedling-2-after.png",
+        title: "Mesox Vitamin",
+        description:
+          "150 components constitute this powerful revitaliser of the skin. Mesox Vitamin is also the basis for any other aesthetic mesotherapy solution. Indications: dry and devitalised skin, prevent first signs of ageing, base for any other aesthetic mesotherapy solution.",
+        image: "/images/treatments/mesotherapy/mesox/vitamin.jpg",
+      },
+      {
+        title: "Mesox White",
+        description:
+          "Active mesotherapy against stains, dark circles and uneven skin tone. Indications: increased pigmentations, melasma, chloasma, age spots, uneven skin tone, dark circles under eyes. Complementary activity: anti-ageing.",
+        image: "/images/treatments/mesotherapy/mesox/white.jpg",
+      },
+      {
+        title: "Mesox Slimming",
+        description:
+          "Effective mesotherapy for increased drainage, in the treatment of cellulite and localised fat. Indications: cellulite, liposculpture, localised fat.",
+        image: "/images/treatments/mesotherapy/mesox/slimming.jpg",
+      },
+      {
+        title: "Mesox Stretch Marks",
+        description:
+          "Mesotherapy for the treatment of stretch marks and scars. Indications: newly formed stretch marks, old rough stretch marks, prevent stretch mark appearance, scar reduction.",
+        image: "/images/treatments/mesotherapy/mesox/strech-marcks.jpg",
+      },
+      {
+        title: "Mesox Hair",
+        description:
+          "Integrated mesotherapy for hair health, treating efficiently alopecia and female or male hair loss. Indications: non-androgenetic alopecia, stimulate new hair growth and health, female hair loss, dandruff and seborrhoea, hair transplants, thin hair.",
+        image: "/images/treatments/mesotherapy/mesox/hair.jpg",
+      },
+      {
+        title: "Mesox Firming",
+        description:
+          "A complete treatment to prevent skin atonia, strengthening firmness of skin and reversing skin sagging. Indications: prevention of skin atonia, strengthening firmness of skin, reversing skin sagging.",
+        image: "/images/treatments/mesotherapy/mesox/firming.jpg",
+      },
+      {
+        title: "Mesox Antiaging",
+        description:
+          "Mesotherapy indicated in cases of thinning of the skin, loss of tone and elasticity of the skin, as well as for the treatment of wrinkles. Indications: loss of skin tonicity and elasticity, thinning of the dermis, wrinkles.",
+        image: "/images/treatments/mesotherapy/mesox/antiaging.jpg",
+      },
+      {
+        title: "Mesox Hyaluronidase",
+        description:
+          "Post-filler hyaluronidase in case of adverse results of hyaluronic acid results. Indications: post-filler.",
+        image: "/images/treatments/mesotherapy/mesox/hyaluronidase.jpg",
+      },
+      {
+        title: "Mesox Hyal",
+        description:
+          "A complete treatment in case of brightness and tone loss, wrinkles and superficial lines, dry or irritated skin and skin photoageing. Indications: loss of glow, loss of tone, superficial lines and wrinkles, dry skin, irritated skin, sensitive skin, photoageing.",
+        image: "/images/treatments/mesotherapy/mesox/hyal.jpg",
       },
     ],
     benefits: [
-      "Boosts collagen, fades scars, smooths wrinkles, evens tone and enhances skincare absorption",
-      "Delivers active ingredients directly to the target depth",
-      "Pain-free using the advanced U225 micro-injector",
-      "Improves skin hydration, radiance and firmness",
-      "Treats acne scarring, pigmentation and stretch marks",
-      "Available formulas for face, body slimming and hair",
-      "No downtime — return to normal activities same day",
-      "Long-lasting, cost-effective results",
+      "Remove fat in areas like the stomach, thighs, buttocks, hips, legs, arms and face",
+      "Reduce cellulite and stretch marks",
+      "Fade superficial wrinkles and lines",
+      "Tighten loose skin, re-contour the body",
+      "Address loss of glow, loss of tone, dry and irritated skin",
+      "Lighten pigmented skin and age spots",
+      "Treat alopecia, a condition that causes hair loss",
+      "Reduce dark circles under eyes, pigmentation, melasma and chloasma",
     ],
     suitableFor: [
       "Adults with dull, dehydrated or uneven skin",
       "Those with acne scarring, fine lines or stretch marks",
       "Patients seeking skin brightening or anti-ageing treatment",
-      "Anyone wanting a customised, multi-ingredient skin booster",
+      "Anyone wanting a customised, multi-ingredient skin, body or hair booster",
     ],
-    results: "Visible improvement after 2–3 sessions; best results after full course",
+    results: "Visible improvement after 2–3 sessions; a course of 6–8 sessions is advised",
     priceFrom: "£250 per session / £800 course of 4",
     faqs: [
       {
         question: "How many sessions will I need?",
         answer:
-          "A course of 4–6 sessions spaced 1–2 weeks apart is recommended for best results, followed by periodic maintenance sessions.",
+          "A course of 6–8 sessions is advised every two weeks for the first time, with maintenance treatments 1–2 times a year.",
       },
       {
         question: "What results can I expect?",
         answer:
-          "Improved hydration, radiance and firmness, with visible improvement in acne scarring, pigmentation or stretch marks depending on the specific cocktail formula used.",
+          "Skin will become more radiant, hydrated, nourished and firmer with an improved texture. Mesotherapy can also improve dull, tired-looking skin and superficial wrinkles.",
       },
       {
         question: "What's in the mesotherapy cocktail?",
         answer:
-          "The formula is bespoke to your concern — options include vitamins, amino acids, hyaluronic acid and antioxidants, tailored for anti-ageing, brightening, firming, slimming, stretch mark reduction or hair stimulation.",
+          "The formula is bespoke to your concern — Mesox Aminoacids, PPC, Vitamin, White, Slimming, Stretch Marks, Hair, Firming, Antiaging, Hyaluronidase and Hyal formulas are available, each targeting a specific skin, body or hair concern.",
       },
       {
         question: "Is the treatment painful?",
         answer:
-          "The U225 pain-free micro-injector delivers ingredients at a controlled depth with minimal discomfort, making it far more comfortable than manual mesotherapy injections.",
+          "Treatment time takes approximately thirty minutes and whilst not painful, it can be slightly uncomfortable, so an anaesthetic cream can be used if the skin is a little sensitive.",
       },
       {
         question: "What are the side-effects?",
         answer:
-          "Minor redness may occur for a few hours after treatment. There is no significant downtime, and most patients return to normal activities immediately.",
-      },
-      {
-        question: "When will I notice a difference?",
-        answer:
-          "Visible improvement is typically noticed after 2–3 sessions, with the best overall results seen after completing the full course.",
+          "With minimal downtime, a little bruising and swelling may occur, but it will be short-lived and should settle within 24 hours.",
       },
       {
         question: "Can mesotherapy treat the body as well as the face?",
         answer:
-          "Yes — formulas are available for body slimming and hair stimulation in addition to facial skin concerns, all delivered with the same precise micro-injector.",
+          "Yes — mesotherapy can be used to remove fat in areas like the stomach, thighs, buttocks, hips, legs, arms and face, reduce cellulite and stretch marks, and treat alopecia, all delivered with the same precise micro-injector.",
       },
       {
         question: "Who is suitable for mesotherapy?",
         answer:
-          "Adults with dull, dehydrated or uneven skin, acne scarring, fine lines or stretch marks who want a customised, multi-ingredient approach to skin improvement.",
-      },
-      {
-        question: "Who should not get microneedling?",
-        answer:
-          "If you are prone to scarring, are pregnant, or suffer from rosacea or eczema, it's important to consult with Dr Sofia at your consultation to confirm whether microneedling is safe for you.",
-      },
-      {
-        question: "Does microneedling hurt?",
-        answer:
-          "Patients undergo microneedling treatment after receiving a topical numbing cream, which prevents any pain associated with the procedure. There is also no downtime, so you can resume work right after treatment.",
-      },
-      {
-        question: "How does microneedling help acne scars?",
-        answer:
-          "Microneedling uses tiny needles to make controlled pin-pricks in the top layer of skin, and this controlled trauma helps promote new collagen production. Replenishing collagen in areas affected by acne scars reduces the pre-treatment damage, promoting skin texture rejuvenation. Results can be enhanced by combining treatment with rejuvenating topical serums — the newly created micro-channels in the skin improve serum absorption. Vitamin C serum and other de-pigmentation solutions are great additions for reducing hyperpigmentation, as is PRP (platelet-rich plasma) for general skin rejuvenation.",
-      },
-      {
-        question: "How many microneedling sessions are needed for acne scars?",
-        answer:
-          "This depends on the severity of your scars and your desired results. For mild to moderate scars, you may only need 3–6 sessions spaced 4–6 weeks apart. For more severe scars, you may need up to 12 sessions. It can take up to 6 months to see full results from microneedling.",
-      },
-      {
-        question: "How often should you microneedle for acne scars?",
-        answer:
-          "Typically, a 30-minute session every four weeks is effective for treating acne scars, though some patients are encouraged to wait up to six weeks between treatments to fully allow new collagen to form. Minimal downtime is required between sessions — most patients feel fully recovered within 24 hours.",
+          "Adults with dull, dehydrated or uneven skin, acne scarring, fine lines, stretch marks or hair loss who want a customised, multi-ingredient approach to skin, body or hair improvement.",
       },
     ],
   },

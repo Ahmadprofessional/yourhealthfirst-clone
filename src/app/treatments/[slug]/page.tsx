@@ -339,6 +339,13 @@ export default async function TreatmentPage({ params }: Props) {
                 ))}
               </div>
 
+              {/* Supporting photo */}
+              {treatment.introImage && (
+                <div className="relative mx-auto h-[420px] w-full max-w-[320px] overflow-hidden rounded-[12px] border border-black/8 bg-cream">
+                  <Image src={treatment.introImage.src} alt={treatment.introImage.alt} fill className="object-contain p-4" />
+                </div>
+              )}
+
               {/* Suitable for (shown here only when there's no dedicated treatment-areas list) */}
               {!treatment.treatmentAreas && (
                 <div className="flex flex-col gap-4">

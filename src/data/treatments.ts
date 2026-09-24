@@ -28,6 +28,8 @@ export interface TreatmentDetail {
   category: string;
   image: string;
   intro: string;
+  /** Supporting photo shown alongside the body copy in the main content column */
+  introImage?: { src: string; alt: string };
   body: string[];
   benefits: string[];
   suitableFor: string[];
@@ -2370,6 +2372,10 @@ export const treatmentDetails: TreatmentDetail[] = [
     image: "/images/services/placeholder.png",
     intro:
       "CryoPen is a state-of-the-art cryotherapy device that delivers a precise jet of nitrous oxide at extremely low temperatures to destroy unwanted skin lesions. It is fast, accurate and effective for removing warts, skin tags, milia, age spots, cherry angiomas and viral verrucae.",
+    introImage: {
+      src: "/images/treatments/cryopen/cryopen-device.jpg",
+      alt: "The CryoPen device and its disposable N2O cartridges",
+    },
     treatmentAreas: [
       "Skin Tags",
       "Warts",

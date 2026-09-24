@@ -201,7 +201,7 @@ export const services: ServiceCard[] = [
   },
   {
     slug: "photo-aging",
-    title: "Photo-Aging Therapy",
+    title: "Photodynamic Therapy (Skinox)",
     description: [
       { text: "Skinox", bold: true },
       {

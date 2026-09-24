@@ -19,7 +19,7 @@ const treatments = [
   "Lemon Bottle",
   "Mounjaro",
   "Microneedling / Mesotherapy",
-  "Photo-Aging / Skinox",
+  "Photodynamic Therapy (Skinox)",
   "Sclerotherapy",
   "CryoPen",
   "Phlebotomy",

@@ -2112,73 +2112,100 @@ export const treatmentDetails: TreatmentDetail[] = [
   },
   {
     slug: "photo-aging",
-    title: "Photo-Aging Therapy (Skinox)",
-    tagline: "Advanced light-activated treatment for spots, redness and sun damage",
+    title: "Photodynamic Therapy (Skinox)",
+    tagline: "Photodynamic Therapy, Chemical Peel",
     category: "Skin & Health",
     image: "/images/services/placeholder.png",
     intro:
-      "Skinox Photo-Aging Therapy combines a photosensitive topical treatment with a High-Density Diodes (HDD) laser mask to target blemishes, dark spots, redness, rosacea and photodamage. It is a non-invasive treatment that significantly improves skin clarity and evenness.",
-    body: [
-      "The Skinox protocol involves the application of a photosensitive serum followed by activation using a specialised HDD laser mask. The combination creates a photodynamic effect that targets melanin-producing cells responsible for pigmentation, as well as the redness associated with rosacea and vascular irregularities.",
-      "This treatment is particularly effective for patients with sun damage, age spots, melasma, post-inflammatory hyperpigmentation and diffuse redness. It can also improve skin texture and help regulate sebum production in acne-prone skin.",
-      "A course of 4 sessions is recommended, with visible improvement in pigmentation and redness typically noticed after the second treatment.",
+      "Skinox is a photosensitive medical peeling treatment for rejuvenation and/or for the treatment of skin correction. This non-invasive technique is the photobiodynamic therapy that stimulates, regenerates and repairs the skin.",
+    videoId: "oKODPcIJGyE",
+    featureImages: [
+      {
+        title: "Wrinkles — Treatment of Photoaging",
+        description:
+          "Skinox Wrinkles promotes neocollagenesis and significantly improves the damage produced by the photo-environment. It is indicated as a facial rejuvenation therapy and for the correction of wrinkles. It is activated and reacts with the red HDD light (630nm ±10nm) of the Fotoage mask.",
+        image: "/images/treatments/photo-aging/wrinkles_box.jpg",
+      },
+      {
+        title: "Acne — Treatment of Type I and Type II Acne",
+        description:
+          "Skinox Blemish is a photosensitive treatment which is activated and reacts with the blue HDD light (410nm ±10nm) of the Fotoage mask. This non-invasive photobiodynamic technique stimulates, regenerates and repairs the skin.",
+        image: "/images/treatments/photo-aging/blemish_box.jpg",
+      },
+      {
+        title: "Dark Spots — Face and Neckline",
+        description:
+          "Skinox Dark Spots is a photosensitive treatment which is activated and reacts with the green HDD light (530nm ±10nm) of the Fotoage mask, targeting dark spots on the face and neckline.",
+        image: "/images/treatments/photo-aging/dark_spots_box.jpg",
+      },
+      {
+        title: "Redness — Stimulation of Elastin and Collagen",
+        description:
+          "Skinox Redness improves the appearance of the skin. It is a photosensitive product that is activated and reacts with the yellow HDD light (590nm ±10nm) of the Fotoage mask — a photobiodynamic technology that stimulates, regenerates and repairs the skin.",
+        image: "/images/treatments/photo-aging/redness_box.jpg",
+      },
     ],
+    processDiagrams: [
+      { src: "/images/treatments/photo-aging/photody01.jpg", alt: "Photodynamic therapy treatment in progress" },
+      { src: "/images/treatments/photo-aging/photody02.jpg", alt: "Photodynamic therapy treatment in progress" },
+      { src: "/images/treatments/photo-aging/photody03.jpg", alt: "Photodynamic therapy treatment in progress" },
+      { src: "/images/treatments/photo-aging/photody04.jpg", alt: "Photodynamic therapy treatment in progress" },
+    ],
+    body: [
+      "The complete treatment consists of 4 simple phases and lasts about 45 minutes. Photodynamic therapy can be combined with other treatments including mesotherapy, fillers, anti-wrinkle treatment, microneedling, laser and carboxytherapy, among others.",
+      "Once the treatment is finished, results can last from 1 to 3 years depending on the indication and the habits of the patient. It is advisable not to expose yourself to the sun during the 48 hours after treatment.",
+    ],
+    contraindications: {
+      title: "Who Should Not Have This Treatment",
+      items: ["Extremely sensitive skin"],
+    },
     benefits: [
-      "Reduces sun spots, age spots and dark patches",
-      "Improves redness and rosacea",
-      "Treats melasma and post-inflammatory pigmentation",
-      "Improves overall skin texture and clarity",
-      "Non-invasive with no significant downtime",
-      "Suitable for face and body areas",
+      "Solution for acne, wrinkles, redness and dark spots",
+      "Promotes neocollagenesis for facial rejuvenation",
+      "Non-invasive photobiodynamic technology",
+      "Stimulates, regenerates and repairs the skin",
+      "No significant side effects",
+      "Results last 1 to 3 years",
     ],
     suitableFor: [
-      "Adults with sun damage, age spots or melasma",
-      "Those with rosacea or persistent facial redness",
-      "Patients with uneven skin tone and texture",
-      "Anyone seeking non-invasive pigmentation correction",
+      "Adults with sun damage, wrinkles or photoaging",
+      "Those with type I or type II acne",
+      "Patients with dark spots on the face and neckline",
+      "Anyone with facial redness seeking non-invasive correction",
     ],
-    results: "Visible improvement after 2–3 sessions, best results after a course of 4",
-    priceFrom: "£250 per session / £600 course of 4",
+    results: "Results last from 1 to 3 years depending on indication and patient habits",
+    priceFrom: "Price varies by area treated — small, medium or large",
     faqs: [
       {
-        question: "How many sessions will I need?",
-        answer:
-          "A course of 4 sessions is recommended, with visible improvement in pigmentation and redness typically noticed from the second treatment onward.",
+        question: "Can you sunbathe after?",
+        answer: "It is advisable not to expose yourself to the sun during the 48 hours after treatment.",
       },
       {
-        question: "What results can I expect?",
+        question: "How much does the photodynamic therapy treatment cost?",
         answer:
-          "A visible reduction in sun spots, age spots, melasma and redness, along with improved overall skin texture and clarity.",
+          "The price will vary — check with your practitioner, as the price depends on the area being treated: small, medium or large.",
       },
       {
-        question: "How does the treatment work?",
-        answer:
-          "A photosensitive serum is applied to the skin and then activated with a High-Density Diodes (HDD) laser mask, creating a photodynamic effect that targets pigmentation and vascular redness.",
+        question: "Do you have contraindications?",
+        answer: "Extremely sensitive skin.",
       },
       {
-        question: "Is the treatment painful?",
+        question: "Can it be combined with other treatments?",
         answer:
-          "Most patients describe a mild warming or tingling sensation during the light activation phase, which is generally well tolerated without the need for anaesthetic.",
+          "Yes — it can be combined with mesotherapy, fillers, anti-wrinkle treatment, microneedling, laser and carboxytherapy, among others.",
       },
       {
-        question: "What are the side-effects?",
+        question: "When do you start to see the result?",
         answer:
-          "Mild redness or a warm sensation immediately after treatment is common and typically resolves within a few hours. Some pigmented spots may temporarily darken before flaking off over the following days.",
+          "Once the treatment is finished, results can last from 1 to 3 years depending on the indication and the habits of the patient.",
       },
       {
-        question: "When will I notice a difference?",
-        answer:
-          "Visible improvement is typically seen after 2–3 sessions, with the best overall results achieved after completing the full course of 4.",
+        question: "Does it have side effects?",
+        answer: "It does not have any side effects.",
       },
       {
-        question: "Can it help with rosacea, not just pigmentation?",
-        answer:
-          "Yes — the treatment also targets the vascular irregularities responsible for diffuse redness and rosacea, in addition to pigmentation concerns.",
-      },
-      {
-        question: "Who is suitable for Skinox Photo-Aging Therapy?",
-        answer:
-          "Adults with sun damage, age spots, melasma, rosacea or uneven skin tone and texture seeking a non-invasive correction option.",
+        question: "What is the treatment procedure of Fotoage and Skinox?",
+        answer: "The complete treatment consists of 4 simple phases and lasts about 45 minutes.",
       },
     ],
   },

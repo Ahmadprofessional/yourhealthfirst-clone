@@ -47,7 +47,7 @@ export const navLinks: NavLink[] = [
         items: [
           { label: "Microneedling", href: "/treatments/microneedling" },
           { label: "Mesotherapy", href: "/treatments/mesotherapy" },
-          { label: "Photo-Aging / Skinox", href: "/treatments/photo-aging" },
+          { label: "Photodynamic Therapy (Skinox)", href: "/treatments/photo-aging" },
           { label: "Sclerotherapy", href: "/treatments/sclerotherapy" },
           { label: "CryoPen", href: "/treatments/cryopen" },
           { label: "Vitamin B12", href: "/treatments/vitamin-b12" },

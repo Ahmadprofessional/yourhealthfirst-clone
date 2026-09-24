@@ -352,6 +352,33 @@ export default async function TreatmentPage({ params }: Props) {
         </section>
       )}
 
+      {/* Contraindications — who should NOT have this treatment */}
+      {treatment.contraindications && treatment.contraindications.items.length > 0 && (
+        <section className="w-full border-t border-black/8 bg-cream px-5">
+          <div className="mx-auto max-w-[1400px] py-[60px] lg:py-[80px]">
+            <div className="flex items-center gap-3">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-rust/15 text-rust">
+                <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth={2}>
+                  <circle cx="12" cy="12" r="9" />
+                  <path strokeLinecap="round" d="m6.5 6.5 11 11" />
+                </svg>
+              </span>
+              <h2 className="font-display text-[24px] font-bold leading-[30px] tracking-[-1px] text-forest lg:text-[28px] lg:leading-[34px]">
+                {treatment.contraindications.title}
+              </h2>
+            </div>
+            <ul className="mt-8 grid grid-cols-1 gap-x-8 gap-y-3 sm:grid-cols-2 lg:grid-cols-3">
+              {treatment.contraindications.items.map((item) => (
+                <li key={item} className="flex items-start gap-3">
+                  <span className="mt-[7px] h-[5px] w-[5px] shrink-0 rounded-full bg-rust" />
+                  <span className="text-[14px] leading-[22px] text-body-text">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
+
       {/* Image / text split sections */}
       {treatment.imageTextSections && treatment.imageTextSections.length > 0 && (
         <section className="w-full bg-cream px-5">

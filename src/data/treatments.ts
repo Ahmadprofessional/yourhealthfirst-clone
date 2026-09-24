@@ -114,6 +114,11 @@ export interface TreatmentDetail {
       warning?: boolean;
     }[];
   };
+  /** Medical contraindications — who should NOT have this treatment */
+  contraindications?: {
+    title: string;
+    items: string[];
+  };
 }
 
 export const treatmentDetails: TreatmentDetail[] = [
@@ -777,72 +782,151 @@ export const treatmentDetails: TreatmentDetail[] = [
   {
     slug: "prp-face-body",
     title: "PRP — Face & Body Rejuvenation",
-    tagline: "Your own plasma, supercharged for skin renewal",
+    tagline: "Non-surgical lift and facial rejuvenation using your own plasma",
     category: "Face & Anti-Aging",
     image: "/images/services/placeholder.png",
     intro:
-      "Platelet-Rich Plasma (PRP) therapy harnesses your own blood's healing and regenerative properties to rejuvenate the skin. By concentrating growth factors and injecting them precisely into target areas, PRP stimulates collagen production, improves skin texture and accelerates natural skin renewal.",
-    body: [
-      "During a PRP treatment, a small amount of blood is drawn from your arm, then processed in a centrifuge to separate and concentrate the platelet-rich plasma. This golden serum — rich in growth factors — is then injected into the skin using our pain-free U225 micro-injector or applied after microneedling.",
-      "At YourHealthFirst, we offer both standard PRP and the advanced A-PRP HA Cellular Matrix, which combines PRP with hyaluronic acid for enhanced skin rehydration alongside regeneration. Treatments are effective for facial rejuvenation, neck, hands, dark circles, fine lines, acne scarring and overall skin quality.",
-      "PRP is a natural, biocompatible treatment with minimal risk of adverse reaction since it uses your own plasma. A course of 3 sessions is recommended, followed by annual maintenance sessions.",
+      "Non-surgical lift and facial rejuvenation that corrects visual skin defects and promotes the reorganisation of its microstructure. PRP therapy involves injection of the patient's own PRP and fibrin for the cosmetic treatment of wrinkles or scars in the face, hands and neck. Known to some as the \"vampire facelift\", it is less invasive than plastic surgery, takes about 45 minutes for each treatment, and offers improvements for up to 12 to 18 months.",
+    videoId: "fwAkk77SN2A",
+    featureImages: [
+      {
+        title: "Advanced PRP Cellular Matrix",
+        description:
+          "Our advanced PRP Cellular Matrix treatments are injected with RegenLab Laboratory (Switzerland) patented innovative products for the isolation of PRP-enriched therapy, using the pain-free, latest U225 intradermal medical injector.",
+        image: "/images/treatments/prp-face-body/regenlab.jpg",
+      },
     ],
+    body: [
+      "PRP (Platelet-Rich Plasma) for the face is a cosmetic treatment that uses your own blood to rejuvenate the skin by stimulating collagen and elastin production. A small amount of blood is drawn, and a centrifuge separates the platelet-rich plasma, which is then applied to the skin or injected into the face, often combined with microneedling. This process helps to improve skin texture, reduce fine lines and wrinkles, minimise scars, and restore a more youthful, vibrant appearance.",
+      "How it works — blood is drawn: a small amount of your blood is taken. Plasma is separated: the blood is placed in a centrifuge to separate the red blood cells from the plasma, and the resulting platelet-rich plasma, full of growth factors and proteins, is collected. Plasma is applied: the PRP is then either injected into the skin or applied topically, often over skin that has been pre-treated with a microneedling device. The body's healing is stimulated: the growth factors in the PRP trigger the body's natural healing response, stimulating new tissue growth and boosting collagen and elastin production.",
+      "During the assessment on your treatment day, we will assess the area to be treated and the skin is cleansed and prepared. Blood is taken from your arm, then the PRP is prepared and activated. It is initially injected into any obvious lines or wrinkles, and the remainder of the PRP is then injected all over the rest of the skin area to be treated.",
+      "PRP facial rejuvenation can be a one-off treatment, but further micro-injections can be re-performed at 4–6 weekly intervals for lines and wrinkles. PRP is safe because we are using your own blood, and treatments can be used on all skin types and colours.",
+      "The way PRP rejuvenates skin is that, when injected into specific areas, it acts as a matrix that promotes your own collagen to grow and regenerates tissue — acting to naturally smooth and tighten the skin. In this way, PRP softens wrinkles and creates smoother skin texture and tone.",
+      "The treatment is an excellent method of encouraging cell reproduction, improving the growth factors of skin and hair. The process involves collecting blood from the patient's arm, separating the platelets from the rest of the blood components via a centrifuge, extracting the PRP and injecting the required area with the PRP. A course of treatments is required, and results are most successful when combined with Mesotherapy.",
+      "Results are visible at two weeks and improve gradually over ensuing months, with improvement in texture and tone. Full collagen regeneration takes three months.",
+    ],
+    advantages: {
+      title: "We Offer 2 Types of Skin PRP",
+      intro: "Traditional PRP and the advanced A-PRP-HA.",
+      items: [
+        {
+          title: "1.1 — Platelet Rich Plasma (Traditional), Injected Manually",
+          description:
+            "Has a proven role in the healing of tissues, with key roles in cell migration, proliferation and differentiation. Its mechanism of action comprises anti-inflammatory activity and activation of cell-signalling cascades, with a key role in the synthesis of new extracellular matrix for tissue regeneration. There is a growing body of evidence to support PRP as a treatment for osteoarthritis (OA).",
+        },
+        {
+          title: "1.2 — Hyaluronic Acid (A-PRP-HA) Advance U225",
+          description:
+            "Hyaluronic acid is a major component of synovial fluid, contributing to joint homeostasis. 25 years of clinical experience shows pain relief and functional improvement lasting 6 to 12 months in OA patients. It plays a major role in viscosupplementation and pain relief in OA, and the network of HA chains generates an ideal cell-friendly matrix when combined with PRP.",
+        },
+      ],
+    },
+    treatmentAreas: [
+      "Skin Texture",
+      "Crinkling Skin Around the Eyes",
+      "Dark Circles Around Eyes",
+      "Cheeks and Mid Face",
+      "Face (Nasolabial Folds, Cheek and Jaw, Periorbital Areas, Crow's Feet, Upper Lip, Nose and Forehead)",
+      "Neck",
+      "Jawline",
+      "Chest and Décolletage",
+      "Breast Lift",
+      "Back of Hands and Arms",
+      "Other Body Areas with Stretch Marks",
+      "Healing Scars",
+      "Stretch Marks",
+      "Acne Marks",
+      "Hair Loss/Alopecia",
+      "Joints and Muscular Problems",
+    ],
+    contraindications: {
+      title: "People Who Should NOT Have PRP Treatment",
+      items: [
+        "Heavy smokers, drug and alcohol users",
+        "Platelet Dysfunction Syndrome",
+        "Critical Thrombocytopenia",
+        "Hypofibrinogenaemia",
+        "Haemodynamic Instability",
+        "Sepsis",
+        "Acute and Chronic Infections",
+        "Chronic Liver Pathology",
+        "Anti-Coagulation Therapy",
+        "Person with Skin Disease or Cancer",
+        "Severe Metabolic and Systemic Disorders",
+      ],
+    },
     benefits: [
-      "100% natural — uses your own platelets and growth factors",
+      "PRP has been used successfully for facial rejuvenation around the world",
+      "100% natural — uses your own platelets, PRP and fibrin",
       "Stimulates collagen and elastin production",
       "Improves skin texture, tone and radiance",
-      "Reduces fine lines, wrinkles and acne scarring",
-      "Treats face, neck, hands and under-eye area",
-      "Minimal downtime and very low risk profile",
+      "Less invasive than plastic surgery — around 45 minutes per treatment",
+      "Improvements last for up to 12 to 18 months",
+      "Safe for all skin types and colours",
     ],
     suitableFor: [
-      "Adults seeking natural skin regeneration",
-      "Those with fine lines, acne scarring or dull skin",
-      "Patients wanting to improve overall skin quality",
-      "Anyone preferring natural treatments without synthetic ingredients",
+      "Adults seeking natural skin regeneration without synthetic ingredients",
+      "Those with fine lines, wrinkles, scars or dull skin",
+      "Patients wanting to improve overall skin texture and tone",
+      "Anyone considering a non-surgical alternative to a facelift",
     ],
-    results: "Improvement visible after first session, optimised after 3 sessions",
+    results: "Visible from 2 weeks, full collagen regeneration at 3 months, lasting up to 12–18 months",
     priceFrom: "£399 (Standard PRP) / £599 (A-PRP HA Cellular Matrix)",
     faqs: [
       {
-        question: "How many sessions will I need?",
+        question: "How long do results last?",
         answer:
-          "A course of 3 sessions is recommended for optimal results, followed by an annual maintenance session to sustain the improvement.",
+          "Treatment results vary, however in most patients the results last up to 18 months. Touch-up treatments will maintain the results.",
       },
       {
-        question: "What results can I expect?",
+        question: "Are facial PRP results immediate?",
         answer:
-          "Improved skin texture, tone and radiance, with a reduction in fine lines and acne scarring as your own growth factors stimulate new collagen production.",
+          "No. Swelling from the fluid is what you will see and feel first. Once the swelling has subsided you will not see much change at all. Over a few weeks the PRP will stimulate the growth factors, which will assist in more collagen growth.",
       },
       {
-        question: "What's the difference between Standard PRP and A-PRP HA Cellular Matrix?",
+        question: "How many PRP treatments are required?",
         answer:
-          "The A-PRP HA Cellular Matrix combines your concentrated plasma with hyaluronic acid for an added rehydration boost alongside regeneration, making it a step up for more dehydrated or lower-quality skin.",
+          "This will depend upon the health and age of your skin. Normally it is advised to have 2–3 treatments, 4–6 weeks apart. However, your clinician will determine your treatment protocol according to your skin condition.",
       },
       {
-        question: "What are the side-effects?",
+        question: "What are the possible side effects of PRP facial rejuvenation?",
         answer:
-          "Mild redness, swelling or bruising at the injection or microneedling sites is common and usually resolves within a couple of days.",
+          "Minimal — expect minimal swelling, bruising and redness for 12–24 hours. A bruise at the needle site may be visible for 2–3 days.",
       },
       {
-        question: "Is the treatment painful?",
+        question: "What is PRP Breast Therapy?",
         answer:
-          "The pain-free U225 micro-injector minimises discomfort considerably compared to manual injection, and topical numbing cream is used for microneedling applications.",
+          "The procedure is not an alternative to implants and will not increase your breast size, but will noticeably improve the shape and the visible effect of stretch marks.",
       },
       {
-        question: "Is it safe — it uses my own blood?",
+        question: "What results can I expect from PRP treatments?",
         answer:
-          "Yes — because PRP is derived entirely from your own blood, the risk of allergic reaction or rejection is extremely low compared with synthetic alternatives.",
+          "Improvement of skin texture and tone is noticeable within three weeks. Full collagen regeneration takes three months.",
       },
       {
-        question: "When will I notice a difference?",
+        question: "How many treatments are advised?",
         answer:
-          "Some improvement is visible after the very first session, with results building and becoming optimised after the full course of 3 sessions.",
+          "For the best result, we recommend up to three treatments, 4–6 weeks apart, with top-ups at 6–24 months.",
       },
       {
-        question: "Who is suitable for PRP?",
+        question: "How long does the PRP/vampire facelift last?",
         answer:
-          "Adults with fine lines, acne scarring, dull or fatigued skin who prefer a natural, biologically-derived treatment over synthetic injectables.",
+          "Since skin renewal and rejuvenation uses the body's own active regeneration components, facial skin renewal is continual for about 3 months after the procedure. The overall effects of the PRP/vampire facelift can last for over a year after the first treatment.",
+      },
+      {
+        question: "What does a PRP facial do?",
+        answer:
+          "PRP is taken from your blood and applied to (PRP facial) or injected into (PRP facelift) your skin. It utilises the nutrients and growth factors from a sample of the patient's own blood, combined with the benefits of microneedling, or, in the case of the PRP facelift, injected directly into the skin.",
+      },
+      {
+        question: "What is PRP facial rejuvenation?",
+        answer:
+          "PRP Skin Rejuvenation is an advanced anti-ageing treatment used to help repair damaged or injured tissue in the body — a procedure that uses your own blood to repair your cells.",
+      },
+      {
+        question: "What is PRP facial?",
+        answer:
+          "PRP therapy involves injection of the patient's own PRP and fibrin for the cosmetic treatment of wrinkles or scars in the face, hands and neck.",
       },
     ],
   },

@@ -3087,12 +3087,12 @@ export const treatmentDetails: TreatmentDetail[] = [
       {
         question: "Do I need a referral to book a blood draw?",
         answer:
-          "No referral is necessary for a standard private blood draw — you can book directly. If the sample is for external lab testing arranged through your GP or specialist, you'll simply bring their request form with you.",
+          "Yes, a referral is necessary for a new practitioner. Once you have received your kit by post with the referral and instructions, you can call us to book an appointment.",
       },
       {
         question: "How long does the appointment take?",
         answer:
-          "A standard blood draw appointment is quick, typically taking only 10–15 minutes including preparation.",
+          "A standard blood draw appointment is quick, typically taking only 10–15 minutes.",
       },
       {
         question: "Is the service suitable for children?",
@@ -3102,7 +3102,7 @@ export const treatmentDetails: TreatmentDetail[] = [
       {
         question: "What is the centrifugal service used for?",
         answer:
-          "The in-house centrifuge processes blood samples to separate components for clinical use, including preparation of PRP for our own hair and skin treatments, and specialist sample processing for external clinicians.",
+          "Centrifugation is a method of separating solids from liquids using rotational forces (spun). When blood is centrifuged, the red cell portion and plasma are separated, leaving the delicate biomarkers stable and intact, and suitable for transportation to the lab.",
       },
       {
         question: "Is the procedure painful?",
@@ -3112,17 +3112,12 @@ export const treatmentDetails: TreatmentDetail[] = [
       {
         question: "How quickly will I get my results?",
         answer:
-          "The blood draw itself is a same-day service. Turnaround for lab results depends on the specific test and external laboratory processing it.",
+          "Results will be sent to your practitioner, please contact them for this information.",
       },
       {
-        question: "Can I book a Saturday appointment?",
+        question: "When should the blood sample be taken?",
         answer:
-          "Yes — selected Saturday sessions are available in addition to weekday appointments to fit around your schedule.",
-      },
-      {
-        question: "Who is this service for?",
-        answer:
-          "Anyone requiring a private blood draw — whether for PRP treatment preparation, external lab testing outside the NHS, or specialist centrifugal processing for a clinician.",
+          "Blood samples are recommended to be taken between Monday and Wednesday to avoid any delays over the weekend, which could result in the sample being held up in transit with the courier.",
       },
     ],
   },

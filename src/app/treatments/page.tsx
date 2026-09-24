@@ -26,7 +26,7 @@ const categories = [
   },
   {
     label: "Skin & Health",
-    slugs: ["microneedling", "photo-aging", "sclerotherapy", "cryopen", "vitamin-b12"],
+    slugs: ["microneedling", "mesotherapy", "photo-aging", "sclerotherapy", "cryopen", "vitamin-b12"],
   },
   {
     label: "Phlebotomy & Health Tests",
@@ -36,7 +36,6 @@ const categories = [
 
 const slugToHref: Record<string, string> = {
   "prp-ha": "/treatments/prp-face-body",
-  "microneedling": "/treatments/mesotherapy",
   "photo-aging": "/treatments/photo-aging",
 };
 

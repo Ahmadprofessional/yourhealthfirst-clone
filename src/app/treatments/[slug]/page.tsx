@@ -222,6 +222,13 @@ function AreaIcon({ name, className }: { name: string; className?: string }) {
           <path d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" />
         </svg>
       );
+    case "lips":
+      return (
+        <svg className={className} {...common}>
+          <path d="M4 12c2-2.5 4.5-3 8-3s6 .5 8 3c-2 .5-3 2-8 2s-6-1.5-8-2Z" />
+          <path d="M6.5 12.2c1.5 1.3 3 1.8 5.5 1.8s4-.5 5.5-1.8" />
+        </svg>
+      );
     default:
       return (
         <svg className={className} {...common}>
@@ -796,6 +803,74 @@ export default async function TreatmentPage({ params }: Props) {
                       </li>
                     ))}
                   </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Area size guide — premium card grid for sizing/dosage tiers */}
+      {treatment.areaSizeGuide && (
+        <section className="relative w-full overflow-hidden bg-[linear-gradient(120deg,#faf4ea_0%,#f0e0c8_100%)] px-5">
+          <div className="pointer-events-none absolute -right-[6%] -top-[20%] h-[420px] w-[420px] rounded-full bg-tan/15 blur-[110px]" />
+          <div className="pointer-events-none absolute -left-[8%] bottom-[-20%] h-[420px] w-[420px] rounded-full bg-white/40 blur-[110px]" />
+          <svg className="pointer-events-none absolute left-8 top-8 h-20 w-20 text-tan/40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.2}>
+            <path d="M20 4C10 4 4 10 4 18c8 0 14-6 14-14Z" />
+            <path d="M4 20 11 13" />
+          </svg>
+
+          <div className="relative mx-auto max-w-[1400px] py-[70px] lg:py-[90px]">
+            <div className="mx-auto flex max-w-[720px] flex-col items-center gap-4 text-center">
+              <div className="w-fit rounded-full border-[0.8px] border-tan/40 px-4 py-2">
+                <p className="font-nav text-[12px] font-semibold tracking-[3px] text-tan uppercase">
+                  {treatment.areaSizeGuide.eyebrow}
+                </p>
+              </div>
+              <h2 className="font-display text-[32px] font-bold leading-[38px] tracking-[-1px] text-forest lg:text-[40px] lg:leading-[46px]">
+                {treatment.areaSizeGuide.title}
+              </h2>
+              <span className="h-[3px] w-14 rounded-full bg-tan" />
+              {treatment.areaSizeGuide.subtitle && (
+                <p className="text-[15px] leading-[24px] text-body-text">
+                  {treatment.areaSizeGuide.subtitle}
+                </p>
+              )}
+            </div>
+
+            <div className="mt-12 grid grid-cols-1 gap-6 lg:grid-cols-3">
+              {treatment.areaSizeGuide.groups.map((group) => (
+                <div
+                  key={group.heading}
+                  className="flex overflow-hidden rounded-[20px] border border-tan/25 bg-white/70 shadow-sm backdrop-blur-sm"
+                >
+                  <div className="flex min-w-0 flex-1 flex-col gap-3 p-6">
+                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-tan/15 text-tan">
+                      <AreaIcon name={group.icon} className="h-5 w-5" />
+                    </span>
+                    <div className="flex flex-col">
+                      <h3 className="font-display text-[18px] font-bold leading-[22px] text-forest">
+                        {group.heading}
+                      </h3>
+                      <span className="font-nav text-[11px] font-semibold tracking-[1px] text-tan uppercase">
+                        ({group.subheading})
+                      </span>
+                    </div>
+                    <p className="text-[13px] leading-[20px] text-body-text">{group.description}</p>
+                    <div className="mt-1 flex flex-wrap gap-x-3 gap-y-3 border-t border-tan/20 pt-3">
+                      {group.chips.map((chip) => (
+                        <div key={chip.label} className="flex flex-col items-center gap-1.5" style={{ width: "calc(33% - 8px)" }}>
+                          <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-tan/15 text-tan">
+                            <AreaIcon name={chip.icon} className="h-3.5 w-3.5" />
+                          </span>
+                          <span className="text-center text-[10px] leading-[12px] text-body-text">{chip.label}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="relative w-[34%] shrink-0">
+                    <Image src={group.image} alt={group.imageAlt} fill className="object-cover" />
+                  </div>
                 </div>
               ))}
             </div>

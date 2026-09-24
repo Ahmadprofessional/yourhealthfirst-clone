@@ -45,7 +45,8 @@ export const navLinks: NavLink[] = [
       {
         category: "Skin & Health",
         items: [
-          { label: "Microneedling / Mesotherapy", href: "/treatments/mesotherapy" },
+          { label: "Microneedling", href: "/treatments/microneedling" },
+          { label: "Mesotherapy", href: "/treatments/mesotherapy" },
           { label: "Photo-Aging / Skinox", href: "/treatments/photo-aging" },
           { label: "Sclerotherapy", href: "/treatments/sclerotherapy" },
           { label: "CryoPen", href: "/treatments/cryopen" },

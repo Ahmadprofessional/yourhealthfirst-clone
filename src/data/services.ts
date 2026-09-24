@@ -173,11 +173,25 @@ export const services: ServiceCard[] = [
   },
   {
     slug: "microneedling",
-    title: "Microneedling / Mesotherapy",
+    title: "Microneedling",
     description: [
-      { text: "Mesotherapy MesoOX", bold: true },
+      { text: "Microneedling", bold: true },
       {
-        text: " is injected using micro-needling with the pain-free U225 intradermal injector — a non-surgical cosmetic treatment delivering active ingredients directly into the skin.",
+        text: " uses small, sterilised needles to stimulate the skin's natural collagen production — improving elasticity, firmness and complexion while reducing scars and fine lines.",
+      },
+    ],
+    image: "/images/services/placeholder.png",
+    href: "/treatments/microneedling",
+    icon: "needle",
+    iconBg: "#4a7a7a",
+  },
+  {
+    slug: "mesotherapy",
+    title: "Mesotherapy",
+    description: [
+      { text: "Mesotherapy MesoOx", bold: true },
+      {
+        text: " is injected using the pain-free U225 intradermal injector — a non-surgical cosmetic treatment delivering tailored vitamin, amino acid and antioxidant cocktails directly into the skin.",
       },
     ],
     image: "/images/services/placeholder.png",

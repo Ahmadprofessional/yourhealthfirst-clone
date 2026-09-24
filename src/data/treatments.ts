@@ -132,6 +132,21 @@ export interface TreatmentDetail {
     title: string;
     items: string[];
   };
+  /** Premium card grid explaining sizing/dosage tiers (e.g. small/medium/large treatment areas) */
+  areaSizeGuide?: {
+    eyebrow: string;
+    title: string;
+    subtitle?: string;
+    groups: {
+      icon: string;
+      heading: string;
+      subheading: string;
+      description: string;
+      image: string;
+      imageAlt: string;
+      chips: { icon: string; label: string }[];
+    }[];
+  };
 }
 
 export const treatmentDetails: TreatmentDetail[] = [
@@ -1818,6 +1833,91 @@ export const treatmentDetails: TreatmentDetail[] = [
     ],
   },
   {
+    slug: "microneedling",
+    title: "Microneedling",
+    tagline: "Stimulate your skin's natural collagen production",
+    category: "Skin & Health",
+    image: "/images/services/placeholder.png",
+    intro:
+      "In London, microneedling performed at a medical-grade level is recognised for its ability to stimulate the skin's natural collagen production. With regular treatments over time, this can lead to enhanced skin elasticity, firmness, complexion, reduced hyperpigmentation, and diminished appearance of fine lines and scars.",
+    videoUrl: "/videos/treatments/microneedling-demo.mp4",
+    featureImages: [
+      {
+        title: "Fight Against the Signs of Ageing",
+        description:
+          "By diminishing acne scars, fine lines/wrinkles, stretch marks and sun damage, it can rejuvenate your skin and make it look more youthful, healthy and fresh. It also helps to balance your skin tone.",
+        image: "/images/treatments/microneedling/fight-aging.webp",
+      },
+      {
+        title: "Long-Lasting Effects",
+        description:
+          "Durable microneedling is a treatment with long-lasting effects, making it a cost-effective option that allows you to enjoy its benefits for an extended period.",
+        image: "/images/treatments/microneedling/long-lasting-effect.webp",
+      },
+    ],
+    body: [
+      "At YourHealthFirst Clinic, we offer micro-needling as a cosmetic treatment to promote collagen production through the use of small, sterilised needles. Consistent treatments over a period can result in improved skin elasticity, firmness, complexion, reduced hyperpigmentation, and a reduction in the appearance of fine lines and scars.",
+      "Micro-needling, a cosmetic procedure, utilises small, sanitised needles to puncture the skin in a controlled manner. It aims to stimulate new skin tissue and collagen production, resulting in smoother, firmer, and toned skin for all skin types, including olive skin tones.",
+      "The procedure uses small, sanitised needles for controlled treatment, minimising downtime and side effects. It effectively addresses concerns like acne scars, fine lines, wrinkles, and hyperpigmentation, leading to improved skin texture and complexion.",
+      "Micro-needling is mainly used on the face to reduce the visibility of acne, scars, dark spots, wrinkles, and clogged pores. It helps improve the overall appearance of the skin.",
+    ],
+    beforeAfterPairs: [
+      {
+        label: "Microneedling",
+        before: "/images/gallery/microneedling/microneedling-1-before.jpeg",
+        after: "/images/gallery/microneedling/microneedling-1-after.jpeg",
+      },
+      {
+        label: "Microneedling",
+        before: "/images/gallery/microneedling/microneedling-2-before.jpg",
+        after: "/images/gallery/microneedling/microneedling-2-after.png",
+      },
+    ],
+    benefits: [
+      "Boosts collagen production for smoother, firmer skin",
+      "Fades acne scars and reduces fine lines and wrinkles",
+      "Evens out skin tone and reduces hyperpigmentation",
+      "Enhances absorption of other skincare treatments",
+      "Suitable for all skin types, including olive skin tones",
+      "Minimal downtime and side effects",
+    ],
+    suitableFor: [
+      "Adults with acne scars, fine lines or wrinkles",
+      "Those with hyperpigmentation or uneven skin tone",
+      "Patients wanting improved skin elasticity and firmness",
+      "Anyone seeking a collagen-boosting skin treatment",
+    ],
+    results: "Visible improvement over a course of sessions; full results within 6 months",
+    priceFrom: "£150 per session",
+    faqs: [
+      {
+        question: "Who should not get micro-needling?",
+        answer:
+          "If you are prone to scarring, are pregnant, or suffer from rosacea or eczema, consult your dermatologist to see if micro-needling is safe for you.",
+      },
+      {
+        question: "Does micro-needling hurt?",
+        answer:
+          "Patients undergo microneedling treatment after receiving a topical numbing medication, which prevents any pain associated with the procedure. There is also no downtime, so you can resume work right after the treatment.",
+      },
+      {
+        question: "How does micro-needling help acne scars?",
+        answer:
+          "Microneedling devices contain tiny needles that make pin-pricks in the top layer of skin. When these microneedles puncture the skin, the controlled trauma helps promote new collagen production. Replenishing collagen in the areas affected by acne scars reduces the pre-treatment damage from acne, promoting skin texture rejuvenation. Most patients require a short series of microneedling treatment sessions to achieve optimal rejuvenation results, each spaced approximately 4 weeks apart. Treatment can also be enhanced by combining it with rejuvenating or restorative topical serums — the absorbency of such serums is enhanced through the newly created micro-channels in the skin. Vitamin C serum and other de-pigmentation solutions are great additions for reducing facial hyperpigmentation, as well as platelet-rich plasma treatment (PRP) for general skin rejuvenation.",
+      },
+      {
+        question: "How many micro-needling sessions are needed for acne scars?",
+        answer:
+          "This depends on the severity of your scars and your desired results. For mild to moderate scars, you may only need 3–6 sessions spaced 4–6 weeks apart. For more severe scars, you may need up to 12 sessions. It can take up to 6 months to see full results from microneedling.",
+      },
+      {
+        question: "How often should you micro-needle for acne scars?",
+        answer:
+          "Microneedling for acne scars should be done in a series of treatments. Typically, a 30-minute session every four weeks is effective for treating acne scars. The frequency of sessions will depend on the severity of scarring and other factors — some patients are encouraged to wait up to six weeks between treatments to fully allow the new collagen to form. Minimal downtime is required between sessions, and most patients feel fully recovered in as little as 24 hours.",
+      },
+    ],
+  },
+  {
     slug: "mesotherapy",
     title: "Mesotherapy",
     tagline: "Non-surgical cosmetic medicine for aesthetic medicine and dermatology",
@@ -1835,25 +1935,53 @@ export const treatmentDetails: TreatmentDetail[] = [
       "Mesotherapy can instantly improve dull, tired-looking skin and superficial wrinkles but can also help to improve sluggish blood circulation, aiding the body to flush out ageing toxins.",
       "This treatment can also be used to address pigmentation problems, and treat acne scarring, and can be combined to enhance the effects of other aesthetic treatments such as PRP, Botox or fillers.",
     ],
-    careInstructions: {
+    areaSizeGuide: {
+      eyebrow: "Important",
       title: "Treatment Area Sizes",
+      subtitle:
+        "The amount of product used depends on the size of the area being treated. Your practitioner will assess your needs and recommend the right amount for the best results.",
       groups: [
         {
-          heading: "Small Area (Max 2.5ml)",
-          points: [
+          icon: "eye",
+          heading: "Small Area",
+          subheading: "Max 2.5ml",
+          description:
             "To choose between e.g. under eyes, lips, chin, side of the eyes, e.g. for hair — crown area, receding hairline etc, or any other similar size.",
+          image: "/images/treatments/mesotherapy/areas/small-eye.jpg",
+          imageAlt: "Close-up of the under-eye area",
+          chips: [
+            { icon: "eye", label: "Under Eyes" },
+            { icon: "lips", label: "Lips" },
+            { icon: "hair", label: "Hair (Small Area)" },
           ],
         },
         {
-          heading: "Medium Area (Max 5ml)",
-          points: [
+          icon: "face",
+          heading: "Medium Area",
+          subheading: "Max 5ml",
+          description:
             "To choose between e.g. full face, neck, hands, scalp, or any other similar size.",
+          image: "/images/treatments/mesotherapy/areas/medium-neck.jpg",
+          imageAlt: "Close-up of the neck and jawline area",
+          chips: [
+            { icon: "face", label: "Full Face" },
+            { icon: "neck", label: "Neck" },
+            { icon: "hand", label: "Hands" },
+            { icon: "hair", label: "Scalp" },
           ],
         },
         {
-          heading: "Large Area (Max 10ml)",
-          points: [
+          icon: "body",
+          heading: "Large Area",
+          subheading: "Max 10ml",
+          description:
             "To choose between e.g. full abdomen, inner thighs, full scalp, or any other similar size.",
+          image: "/images/treatments/mesotherapy/areas/large-abdomen.jpg",
+          imageAlt: "Close-up of the abdomen area",
+          chips: [
+            { icon: "body", label: "Abdomen" },
+            { icon: "wave", label: "Inner Thighs" },
+            { icon: "hair", label: "Full Scalp" },
           ],
         },
       ],

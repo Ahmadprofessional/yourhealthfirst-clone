@@ -26,6 +26,20 @@ function contraindicationIcon(text: string): string {
   return "shield";
 }
 
+const ICON_PALETTE = [
+  { bg: "bg-rust/15", text: "text-rust" },
+  { bg: "bg-[#7c8a5c]/15", text: "text-[#7c8a5c]" },
+  { bg: "bg-tan/25", text: "text-tan" },
+  { bg: "bg-[#5b7c99]/15", text: "text-[#5b7c99]" },
+  { bg: "bg-[#c1666b]/15", text: "text-[#c1666b]" },
+  { bg: "bg-forest/10", text: "text-forest" },
+  { bg: "bg-[#c98a3e]/15", text: "text-[#c98a3e]" },
+];
+
+function iconPaletteColor(i: number) {
+  return ICON_PALETTE[i % ICON_PALETTE.length];
+}
+
 function AreaIcon({ name, className }: { name: string; className?: string }) {
   const common = { viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: 1.8, strokeLinecap: "round" as const, strokeLinejoin: "round" as const };
   switch (name) {
@@ -330,21 +344,21 @@ export default async function TreatmentPage({ params }: Props) {
                 />
               )}
 
-              {/* Body paragraphs */}
-              <div className="flex flex-col gap-5">
-                {treatment.body.map((para, i) => (
-                  <p key={i} className="text-[16px] leading-[27px] tracking-[-0.2px] text-body-text">
-                    {para}
-                  </p>
-                ))}
-              </div>
-
-              {/* Supporting photo */}
-              {treatment.introImage && (
-                <div className="relative mx-auto h-[420px] w-full max-w-[320px] overflow-hidden rounded-[12px] border border-black/8 bg-cream">
-                  <Image src={treatment.introImage.src} alt={treatment.introImage.alt} fill className="object-contain p-4" />
+              {/* Body paragraphs (image, when present, floats alongside the text) */}
+              <div className="flow-root">
+                {treatment.introImage && (
+                  <div className="relative float-right ml-6 mb-4 h-[260px] w-[190px] overflow-hidden rounded-[12px] border border-black/8 bg-cream sm:h-[300px] sm:w-[220px]">
+                    <Image src={treatment.introImage.src} alt={treatment.introImage.alt} fill className="object-contain p-4" />
+                  </div>
+                )}
+                <div className="flex flex-col gap-5">
+                  {treatment.body.map((para, i) => (
+                    <p key={i} className="text-[16px] leading-[27px] tracking-[-0.2px] text-body-text">
+                      {para}
+                    </p>
+                  ))}
                 </div>
-              )}
+              </div>
 
               {/* Suitable for (shown here only when there's no dedicated treatment-areas list) */}
               {!treatment.treatmentAreas && (
@@ -479,15 +493,18 @@ export default async function TreatmentPage({ params }: Props) {
                   {treatment.title} can be used on various areas of the face and body to rejuvenate the skin, improve texture and stimulate natural healing.
                 </p>
                 <div className="mt-7 grid grid-cols-1 gap-3 sm:grid-cols-2">
-                  {treatment.treatmentAreas.map((area) => (
-                    <div key={area} className="flex items-center gap-3 rounded-[10px] bg-white/70 px-4 py-3">
-                      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-tan/15 text-tan">
-                        <AreaIcon name={treatment.treatmentAreaIcons![area] ?? "sparkle"} className="h-4.5 w-4.5" />
-                      </span>
-                      <span className="flex-1 text-[13px] leading-[18px] text-body-text">{area}</span>
-                      <AreaIcon name="arrow" className="h-4 w-4 shrink-0 text-tan/50" />
-                    </div>
-                  ))}
+                  {treatment.treatmentAreas.map((area, i) => {
+                    const color = iconPaletteColor(i);
+                    return (
+                      <div key={area} className="flex items-center gap-3 rounded-[10px] bg-white/70 px-4 py-3">
+                        <span className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full ${color.bg} ${color.text}`}>
+                          <AreaIcon name={treatment.treatmentAreaIcons![area] ?? "sparkle"} className="h-4.5 w-4.5" />
+                        </span>
+                        <span className="flex-1 text-[13px] leading-[18px] text-body-text">{area}</span>
+                        <AreaIcon name="arrow" className="h-4 w-4 shrink-0 text-tan/50" />
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
 
@@ -506,14 +523,17 @@ export default async function TreatmentPage({ params }: Props) {
                   </p>
                 </div>
                 <div className="flex flex-col gap-3">
-                  {treatment.suitableFor.map((item) => (
-                    <div key={item} className="flex items-start gap-4 rounded-[12px] bg-white/70 p-4">
-                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-tan/15 text-tan">
-                        <AreaIcon name="sparkle" className="h-5 w-5" />
-                      </span>
-                      <span className="mt-2 text-[14px] leading-[21px] text-body-text">{item}</span>
-                    </div>
-                  ))}
+                  {treatment.suitableFor.map((item, i) => {
+                    const color = iconPaletteColor(i + 2);
+                    return (
+                      <div key={item} className="flex items-start gap-4 rounded-[12px] bg-white/70 p-4">
+                        <span className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full ${color.bg} ${color.text}`}>
+                          <AreaIcon name="sparkle" className="h-5 w-5" />
+                        </span>
+                        <span className="mt-2 text-[14px] leading-[21px] text-body-text">{item}</span>
+                      </div>
+                    );
+                  })}
                 </div>
                 <Link
                   href="/contact-us"
@@ -524,16 +544,19 @@ export default async function TreatmentPage({ params }: Props) {
                 </Link>
                 {treatment.trustBadges && treatment.trustBadges.length > 0 && (
                   <div className="mt-1 flex flex-wrap gap-6 border-t border-tan/20 pt-5">
-                    {treatment.trustBadges.map((badge) => (
+                    {treatment.trustBadges.map((badge, i) => {
+                      const color = iconPaletteColor(i + 4);
+                      return (
                       <div key={badge.label} className="flex items-center gap-2">
-                        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-tan/15 text-tan">
+                        <span className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full ${color.bg} ${color.text}`}>
                           <AreaIcon name={badge.icon} className="h-4 w-4" />
                         </span>
                         <span className="font-nav text-[11px] font-semibold leading-[14px] tracking-[0.5px] text-forest uppercase">
                           {badge.label}
                         </span>
                       </div>
-                    ))}
+                      );
+                    })}
                   </div>
                 )}
               </div>

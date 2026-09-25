@@ -558,44 +558,28 @@ export default async function TreatmentPage({ params }: Props) {
                 </a>
               )}
 
-              {/* Benefits */}
-              {!treatment.benefitsBanner && (
-              <div className="rounded-[12px] border border-black/8 p-6">
-                <h3 className="font-subheading text-[14px] font-semibold tracking-[2px] text-forest uppercase">
-                  Key Benefits
-                </h3>
-                <ul className="mt-4 flex flex-col gap-3">
-                  {treatment.benefits.map((benefit) => (
-                    <li key={benefit} className="flex items-start gap-3">
-                      <span className="mt-[8px] h-[5px] w-[5px] shrink-0 rounded-full bg-tan" />
-                      <span className="text-[14px] leading-[22px] text-body-text">{benefit}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              )}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Key benefits banner — mid-page brown box */}
-      {treatment.benefitsBanner && treatment.benefits.length > 0 && (
+      {/* Key benefits banner — mid-page gold box */}
+      {treatment.benefits.length > 0 && (
         <section className="w-full px-5">
           <div className="mx-auto max-w-[1400px] pb-[70px] lg:pb-[90px]">
-            <div className="relative overflow-hidden rounded-[20px] bg-[linear-gradient(135deg,#7a6248_0%,#b49b7d_50%,#7a6248_100%)] p-8 shadow-lg lg:p-12">
-              <div className="pointer-events-none absolute -right-16 -top-16 h-[260px] w-[260px] rounded-full bg-white/10 blur-[60px]" />
+            <div className="relative overflow-hidden rounded-[20px] bg-[linear-gradient(135deg,#b8925a_0%,#d1ae83_50%,#b8925a_100%)] p-8 shadow-lg lg:p-12">
+              <div className="pointer-events-none absolute -right-16 -top-16 h-[260px] w-[260px] rounded-full bg-white/25 blur-[60px]" />
               <div className="relative flex flex-col gap-2">
-                <span className="h-[3px] w-12 rounded-full bg-tan" />
-                <h2 className="font-subheading text-[24px] font-semibold tracking-[2px] text-cream uppercase lg:text-[28px]">
+                <span className="h-[3px] w-12 rounded-full bg-forest" />
+                <h2 className="font-subheading text-[24px] font-semibold tracking-[2px] text-forest uppercase lg:text-[28px]">
                   Key Benefits
                 </h2>
               </div>
               <ul className="relative mt-8 grid grid-cols-1 gap-x-10 gap-y-4 md:grid-cols-2">
                 {treatment.benefits.map((benefit) => (
                   <li key={benefit} className="flex items-start gap-3">
-                    <span className="mt-[9px] h-[7px] w-[7px] shrink-0 rounded-full bg-tan" />
-                    <span className="text-[15px] leading-[24px] text-white/90">{benefit}</span>
+                    <span className="mt-[9px] h-[7px] w-[7px] shrink-0 rounded-full bg-forest" />
+                    <span className="text-[15px] font-medium leading-[24px] text-forest">{benefit}</span>
                   </li>
                 ))}
               </ul>

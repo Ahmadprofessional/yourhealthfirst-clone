@@ -33,6 +33,8 @@ export interface TreatmentDetail {
   /** Photos woven into the main body copy — paragraphs are split into rows, alternating image left/right */
   /** Show Key Benefits as a full-width brown banner mid-page instead of in the sidebar */
   benefitsBanner?: boolean;
+  /** Image shown in the sidebar (e.g. in place of Key Benefits when benefitsBanner is on); click opens full size */
+  sidebarImage?: { src: string; alt: string };
   /** "stacked" puts all body images in one column beside the full text so nothing leaves empty space */
   bodyImagesLayout?: "rows" | "stacked";
   bodyImages?: { src: string; alt: string; position?: string; row?: number }[];
@@ -338,6 +340,11 @@ export const treatmentDetails: TreatmentDetail[] = [
     tagline: "Restore volume, define contours, refresh your look",
     category: "Face & Anti-Aging",
     image: "/images/services/placeholder.png",
+    benefitsBanner: true,
+    sidebarImage: {
+      src: "/images/treatments/dermal-fillers/treatment-areas.jpg",
+      alt: "Dermal fillers treatment areas — eyebrow lift, crow's feet, square jaw, dimpled chin, forehead lines, glabellar lines, bunny lines and smile lift",
+    },
     bodyImagesLayout: "stacked",
     bodyImages: [
       {

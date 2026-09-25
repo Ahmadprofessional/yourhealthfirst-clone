@@ -536,6 +536,19 @@ export default async function TreatmentPage({ params }: Props) {
                 </div>
               </div>
 
+              {/* Sidebar image */}
+              {treatment.sidebarImage && (
+                <a
+                  href={treatment.sidebarImage.src}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="relative block w-full overflow-hidden rounded-[12px] border border-black/8 shadow-md"
+                  style={{ aspectRatio: "1/1" }}
+                >
+                  <Image src={treatment.sidebarImage.src} alt={treatment.sidebarImage.alt} fill sizes="340px" className="object-cover" />
+                </a>
+              )}
+
               {/* Benefits */}
               {!treatment.benefitsBanner && (
               <div className="rounded-[12px] border border-black/8 p-6">

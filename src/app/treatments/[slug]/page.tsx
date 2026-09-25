@@ -347,14 +347,23 @@ export default async function TreatmentPage({ params }: Props) {
               {/* Body paragraphs (image, when present, floats alongside the text) */}
               {treatment.bodyImages && treatment.bodyImages.length > 0 && treatment.bodyImagesLayout === "stacked" ? (
                 <div className="flex flex-col gap-8 sm:flex-row sm:items-stretch sm:gap-10">
-                  <div className="flex flex-1 flex-col gap-5">
-                    {treatment.body.map((para, j) => (
-                      <p key={j} className="text-[16px] leading-[27px] tracking-[-0.2px] text-body-text">
-                        {para}
-                      </p>
-                    ))}
+                  <div className="flex-1">
+                    {(() => {
+                      const floated = treatment.bodyImages!.find((im) => im.float === "left");
+                      const floatAt = Math.min(1, treatment.body.length - 1);
+                      return treatment.body.map((para, j) => (
+                        <Fragment key={j}>
+                          {floated && j === floatAt && (
+                            <div className="relative float-left mb-4 mr-6 aspect-[4/5] w-[180px] overflow-hidden rounded-[14px] border border-black/8 shadow-md sm:w-[210px]">
+                              <Image src={floated.src} alt={floated.alt} fill className="object-cover" style={floated.position ? { objectPosition: floated.position } : undefined} />
+                            </div>
+                          )}
+                          <p className="mb-5 text-[16px] leading-[27px] tracking-[-0.2px] text-body-text">{para}</p>
+                        </Fragment>
+                      ));
+                    })()}
                     {!treatment.treatmentAreas && (
-                      <div className="mt-2 flex flex-col gap-4">
+                      <div className="mt-2 clear-both flex flex-col gap-4">
                         <h2 className="font-subheading text-[20px] font-semibold leading-[26px] tracking-[-0.8px] text-forest uppercase">
                           Suitable For
                         </h2>
@@ -370,7 +379,7 @@ export default async function TreatmentPage({ params }: Props) {
                     )}
                   </div>
                   <div className="flex w-full flex-col gap-4 sm:w-[300px] sm:shrink-0">
-                    {treatment.bodyImages.map((img) => (
+                    {treatment.bodyImages.filter((im) => im.float !== "left").map((img) => (
                       <div
                         key={img.src}
                         className="relative aspect-[4/3] w-full overflow-hidden rounded-[14px] border border-black/8 shadow-md sm:aspect-auto sm:min-h-[180px] sm:flex-1"

@@ -37,7 +37,7 @@ export interface TreatmentDetail {
   sidebarImage?: { src: string; alt: string };
   /** "stacked" puts all body images in one column beside the full text so nothing leaves empty space */
   bodyImagesLayout?: "rows" | "stacked";
-  bodyImages?: { src: string; alt: string; position?: string; row?: number }[];
+  bodyImages?: { src: string; alt: string; position?: string; row?: number; float?: "left" }[];
   body: string[];
   benefits: string[];
   suitableFor: string[];
@@ -356,6 +356,7 @@ export const treatmentDetails: TreatmentDetail[] = [
         src: "/images/treatments/dermal-fillers/lip-filler.webp",
         alt: "Lip enhancement with dermal filler at YourHealthFirst Clinic",
         position: "60% 58%",
+        float: "left",
       },
       {
         src: "/images/treatments/dermal-fillers/mirror-result.webp",

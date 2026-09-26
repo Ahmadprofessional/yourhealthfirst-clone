@@ -345,7 +345,39 @@ export default async function TreatmentPage({ params }: Props) {
               )}
 
               {/* Body paragraphs (image, when present, floats alongside the text) */}
-              {treatment.bodyImages && treatment.bodyImages.length > 0 && treatment.bodyImagesLayout === "stacked" ? (
+              {treatment.bodyImages && treatment.bodyImages.length > 0 && treatment.bodyImagesLayout === "float" ? (
+                <div className="flow-root">
+                  <div className="relative float-right mb-4 ml-8 w-[220px] overflow-hidden rounded-[14px] border border-black/8 shadow-md sm:w-[340px]" style={{ aspectRatio: "883/1214" }}>
+                    <Image
+                      src={treatment.bodyImages[0].src}
+                      alt={treatment.bodyImages[0].alt}
+                      fill
+                      className="object-cover"
+                      style={treatment.bodyImages[0].position ? { objectPosition: treatment.bodyImages[0].position } : undefined}
+                    />
+                  </div>
+                  {treatment.body.map((para, j) => (
+                    <p key={j} className="mb-5 text-[16px] leading-[27px] tracking-[-0.2px] text-body-text">
+                      {para}
+                    </p>
+                  ))}
+                  {!treatment.treatmentAreas && (
+                    <div className="mt-2 flex flex-col gap-4">
+                      <h2 className="font-subheading text-[20px] font-semibold leading-[26px] tracking-[-0.8px] text-forest uppercase">
+                        Suitable For
+                      </h2>
+                      <ul className="flex flex-col gap-3">
+                        {treatment.suitableFor.map((item) => (
+                          <li key={item} className="flex items-start gap-3">
+                            <span className="mt-[8px] h-[6px] w-[6px] shrink-0 rounded-full bg-tan" />
+                            <span className="text-[16px] leading-[26px] tracking-[-0.2px] text-body-text">{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </div>
+              ) : treatment.bodyImages && treatment.bodyImages.length > 0 && treatment.bodyImagesLayout === "stacked" ? (
                 <div className="flex flex-col gap-10">
                 <div className="flex flex-col gap-8 sm:flex-row sm:items-stretch sm:gap-10">
                   <div className="flex-1">
@@ -391,7 +423,7 @@ export default async function TreatmentPage({ params }: Props) {
                     {treatment.bodyImages.filter((im) => im.float !== "left").map((img) => (
                       <div
                         key={img.src}
-                        className="relative aspect-[4/3] w-full overflow-hidden rounded-[14px] border border-black/8 shadow-md sm:aspect-auto sm:h-auto sm:max-h-[440px] sm:min-h-[324px] sm:flex-1"
+                        className={`relative aspect-[4/3] w-full overflow-hidden rounded-[14px] border border-black/8 shadow-md sm:aspect-auto sm:h-auto sm:min-h-[324px] sm:flex-1 ${treatment.bodyImages!.length > 1 ? "sm:max-h-[440px]" : ""}`}
                       >
                         <Image src={img.src} alt={img.alt} fill className="object-cover" style={img.position ? { objectPosition: img.position } : undefined} />
                       </div>

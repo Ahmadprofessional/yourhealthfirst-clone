@@ -36,7 +36,7 @@ export interface TreatmentDetail {
   /** "stacked" puts all body images in one column beside the full text so nothing leaves empty space */
   /** With the stacked body layout: show Suitable For + Key Benefits as boxes beside the floated photo instead of the mid-page banner */
   benefitsInline?: boolean;
-  bodyImagesLayout?: "rows" | "stacked";
+  bodyImagesLayout?: "rows" | "stacked" | "float";
   bodyImages?: { src: string; alt: string; position?: string; row?: number; float?: "left" }[];
   body: string[];
   benefits: string[];
@@ -506,6 +506,14 @@ export const treatmentDetails: TreatmentDetail[] = [
     tagline: "Regenerate, hydrate and firm from within",
     category: "Face & Anti-Aging",
     image: "/images/services/sunekos.png",
+    bodyImagesLayout: "float",
+    bodyImages: [
+      {
+        src: "/images/treatments/sunekos/sofia-injecting.jpg",
+        alt: "Dr Sofia carefully treating the eye area with Sunekos",
+        position: "40% 35%",
+      },
+    ],
     intro:
       "Sunekos is an injectable treatment combining amino acids and hyaluronic acid to stimulate the skin's own production of collagen and elastin. It is suitable for the face, neck, décolleté and hands, delivering a naturally plumped, firmer and more luminous complexion.",
     diagramImage: {

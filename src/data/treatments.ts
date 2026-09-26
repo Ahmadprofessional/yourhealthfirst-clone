@@ -100,6 +100,9 @@ export interface TreatmentDetail {
     alt: string;
     /** Optional max display width in px (default 1100) — for tall portrait images */
     maxWidth?: number;
+    /** Natural pixel size — used by the side-by-side row layout so pictures share one height with no empty space */
+    width?: number;
+    height?: number;
   }[];
   /** Detailed price breakdown by treatment area, shown as its own section */
   priceList?: {
@@ -529,10 +532,14 @@ export const treatmentDetails: TreatmentDetail[] = [
         src: "/images/treatments/sunekos/treatment-comparison.webp",
         alt: "Sunekos treatment comparison — Sunekos 1200 vs Sunekos Performa: primary focus, best for, treatment areas and consistency",
         maxWidth: 640,
+        width: 1024,
+        height: 1536,
       },
       {
         src: "/images/treatments/sunekos/performa-200-timeline.jpg",
         alt: "Sunekos Performa 200 — produces new ECM and reproduces elastin, Day 0 to Day 28",
+        width: 1536,
+        height: 1024,
       },
     ],
     body: [

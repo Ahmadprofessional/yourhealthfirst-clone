@@ -338,8 +338,8 @@ export const treatmentDetails: TreatmentDetail[] = [
     category: "Face & Anti-Aging",
     image: "/images/services/placeholder.png",
     sidebarImage: {
-      src: "/images/treatments/dermal-fillers/treatment-areas-diagram.png",
-      alt: "Dermal fillers treatment areas — forehead lines, eyebrow lift, glabellar lines, crow's feet, bunny lines, square jaw, smile lift and dimpled chin",
+      src: "/images/treatments/dermal-fillers/treatment-areas.jpg",
+      alt: "Dermal fillers treatment areas — eyebrow lift, crow's feet, square jaw, dimpled chin, forehead lines, glabellar lines, bunny lines and smile lift",
     },
     bodyImagesLayout: "stacked",
     bodyImages: [

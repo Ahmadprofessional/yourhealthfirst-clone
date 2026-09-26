@@ -435,7 +435,7 @@ export const treatmentDetails: TreatmentDetail[] = [
       "Patients wanting to reduce under-eye hollowing",
       "Anyone looking for a non-surgical rhinoplasty",
     ],
-    results: "Immediate results, lasting 9–18 months depending on area",
+    results: "Immediate results, lasting 9–18 months",
     priceFrom: "£250",
     gallery: {
       folder: "/images/gallery/dermal-fillers",

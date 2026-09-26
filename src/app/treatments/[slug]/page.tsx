@@ -413,11 +413,11 @@ export default async function TreatmentPage({ params }: Props) {
                     </p>
                   ))}
                   {!treatment.treatmentAreas && treatment.suitableImage && (
-                    <div className="mt-4 clear-both grid grid-cols-1 gap-6 md:grid-cols-3">
-                      <div className="relative aspect-[2/3] w-full overflow-hidden rounded-[14px] border border-tan/30 bg-cream shadow-md">
-                        <Image src={treatment.suitableImage.src} alt={treatment.suitableImage.alt} fill sizes="(min-width: 768px) 33vw, 100vw" className="object-contain" />
+                    <div className="mt-4 clear-both grid grid-cols-1 gap-6 md:grid-cols-3 md:items-stretch">
+                      <div className="relative aspect-[2/3] w-full overflow-hidden rounded-[14px] border border-tan/30 bg-cream shadow-md md:aspect-auto md:min-h-[466px]">
+                        <Image src={treatment.suitableImage.src} alt={treatment.suitableImage.alt} fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover" />
                       </div>
-                      <div className="flex aspect-auto min-w-0 flex-col justify-center rounded-[14px] border border-tan/30 bg-cream p-6 md:aspect-[2/3]">
+                      <div className="flex min-w-0 flex-col justify-center rounded-[14px] border border-tan/30 bg-cream p-6">
                         <h2 className="mb-5 font-subheading text-[20px] font-semibold leading-[26px] tracking-[-0.8px] text-forest uppercase">
                           Suitable For
                         </h2>
@@ -430,9 +430,19 @@ export default async function TreatmentPage({ params }: Props) {
                           ))}
                         </ul>
                       </div>
-                      {treatment.suitableExtraImage && (
-                        <div className="relative aspect-[2/3] w-full overflow-hidden rounded-[14px] border border-tan/30 bg-cream shadow-md">
-                          <Image src={treatment.suitableExtraImage.src} alt={treatment.suitableExtraImage.alt} fill sizes="(min-width: 768px) 33vw, 100vw" className="object-contain" />
+                      {treatment.benefitsInline && (
+                        <div className="flex min-w-0 flex-col justify-center rounded-[14px] bg-[linear-gradient(135deg,#b8925a_0%,#d1ae83_50%,#b8925a_100%)] p-6 shadow-md">
+                          <h2 className="mb-5 font-subheading text-[20px] font-semibold leading-[26px] tracking-[2px] text-forest uppercase">
+                            Key Benefits
+                          </h2>
+                          <ul className="flex flex-col gap-3">
+                            {treatment.benefits.map((benefit) => (
+                              <li key={benefit} className="flex items-start gap-3">
+                                <span className="mt-[8px] h-[6px] w-[6px] shrink-0 rounded-full bg-forest" />
+                                <span className="text-[14px] font-medium leading-[21px] text-forest">{benefit}</span>
+                              </li>
+                            ))}
+                          </ul>
                         </div>
                       )}
                     </div>

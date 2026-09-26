@@ -551,10 +551,9 @@ export default async function TreatmentPage({ params }: Props) {
                   href={treatment.sidebarImage.src}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="relative block w-full overflow-hidden rounded-[12px] border border-black/8 shadow-md"
-                  style={{ aspectRatio: "1/1" }}
+                  className="block w-full overflow-hidden rounded-[12px] border border-black/8 bg-white shadow-md"
                 >
-                  <Image src={treatment.sidebarImage.src} alt={treatment.sidebarImage.alt} fill sizes="340px" className="object-cover" />
+                  <Image src={treatment.sidebarImage.src} alt={treatment.sidebarImage.alt} width={1385} height={818} sizes="340px" className="h-auto w-full" />
                 </a>
               )}
 

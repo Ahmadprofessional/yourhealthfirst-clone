@@ -38,6 +38,8 @@ export interface TreatmentDetail {
   benefitsInline?: boolean;
   /** With the float layout: photo on the left and Suitable For card on its right (photo shown uncropped) */
   suitableImage?: { src: string; alt: string; width: number; height: number };
+  /** Second picture shown under the Suitable For card, on the right of suitableImage */
+  suitableExtraImage?: { src: string; alt: string; width: number; height: number };
   bodyImagesLayout?: "rows" | "stacked" | "float";
   bodyImages?: { src: string; alt: string; position?: string; row?: number; float?: "left" }[];
   body: string[];
@@ -522,6 +524,12 @@ export const treatmentDetails: TreatmentDetail[] = [
       alt: "Sunekos treatment comparison — Sunekos 1200 vs Sunekos Performa: primary focus, best for, treatment areas and consistency",
       width: 1024,
       height: 1536,
+    },
+    suitableExtraImage: {
+      src: "/images/treatments/sunekos/performa-200-timeline.webp",
+      alt: "Sunekos Performa 200 — produces new ECM and reproduces elastin, Day 0 to Day 28",
+      width: 1536,
+      height: 1024,
     },
     bodyImagesLayout: "float",
     bodyImages: [

@@ -390,7 +390,7 @@ export default async function TreatmentPage({ params }: Props) {
                     {treatment.bodyImages.filter((im) => im.float !== "left").map((img) => (
                       <div
                         key={img.src}
-                        className="relative aspect-[4/3] w-full overflow-hidden rounded-[14px] border border-black/8 shadow-md sm:aspect-auto sm:min-h-[180px] sm:flex-1"
+                        className="relative aspect-[4/3] w-full overflow-hidden rounded-[14px] border border-black/8 shadow-md sm:aspect-auto sm:h-[324px] sm:flex-none"
                       >
                         <Image src={img.src} alt={img.alt} fill className="object-cover" style={img.position ? { objectPosition: img.position } : undefined} />
                       </div>

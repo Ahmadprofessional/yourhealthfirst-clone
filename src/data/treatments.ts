@@ -36,6 +36,8 @@ export interface TreatmentDetail {
   /** "stacked" puts all body images in one column beside the full text so nothing leaves empty space */
   /** With the stacked body layout: show Suitable For + Key Benefits as boxes beside the floated photo instead of the mid-page banner */
   benefitsInline?: boolean;
+  /** With the float layout: photo on the left and Suitable For card on its right (photo shown uncropped) */
+  suitableImage?: { src: string; alt: string; width: number; height: number };
   bodyImagesLayout?: "rows" | "stacked" | "float";
   bodyImages?: { src: string; alt: string; position?: string; row?: number; float?: "left" }[];
   body: string[];
@@ -515,6 +517,12 @@ export const treatmentDetails: TreatmentDetail[] = [
     tagline: "Regenerate, hydrate and firm from within",
     category: "Face & Anti-Aging",
     image: "/images/services/sunekos.png",
+    suitableImage: {
+      src: "/images/treatments/sunekos/treatment-comparison.webp",
+      alt: "Sunekos treatment comparison — Sunekos 1200 vs Sunekos Performa: primary focus, best for, treatment areas and consistency",
+      width: 1024,
+      height: 1536,
+    },
     bodyImagesLayout: "float",
     bodyImages: [
       {

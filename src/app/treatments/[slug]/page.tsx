@@ -412,7 +412,30 @@ export default async function TreatmentPage({ params }: Props) {
                       {para}
                     </p>
                   ))}
-                  {!treatment.treatmentAreas && (
+                  {!treatment.treatmentAreas && treatment.suitableImage && (
+                    <div className="mt-4 clear-both flex flex-col gap-6 sm:flex-row sm:items-stretch">
+                      <div
+                        className="relative w-full max-w-[340px] shrink-0 overflow-hidden rounded-[14px] border border-black/8 bg-white shadow-md sm:w-[320px]"
+                        style={{ aspectRatio: `${treatment.suitableImage.width} / ${treatment.suitableImage.height}` }}
+                      >
+                        <Image src={treatment.suitableImage.src} alt={treatment.suitableImage.alt} fill sizes="340px" className="object-cover" />
+                      </div>
+                      <div className="flex flex-1 flex-col justify-center rounded-[14px] border border-tan/30 bg-cream p-8">
+                        <h2 className="mb-6 font-subheading text-[22px] font-semibold leading-[28px] tracking-[-0.8px] text-forest uppercase">
+                          Suitable For
+                        </h2>
+                        <ul className="flex flex-col gap-4">
+                          {treatment.suitableFor.map((item) => (
+                            <li key={item} className="flex items-start gap-3">
+                              <span className="mt-[9px] h-[7px] w-[7px] shrink-0 rounded-full bg-tan" />
+                              <span className="text-[17px] leading-[27px] tracking-[-0.2px] text-body-text">{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  )}
+                  {!treatment.treatmentAreas && !treatment.suitableImage && (
                     <div className="mt-2 flex flex-col gap-4">
                       <h2 className="font-subheading text-[20px] font-semibold leading-[26px] tracking-[-0.8px] text-forest uppercase">
                         Suitable For

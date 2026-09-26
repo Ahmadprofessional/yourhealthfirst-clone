@@ -352,6 +352,7 @@ export const treatmentDetails: TreatmentDetail[] = [
         src: "/images/treatments/dermal-fillers/lip-filler.webp",
         alt: "Lip enhancement with dermal filler at YourHealthFirst Clinic",
         position: "60% 58%",
+        float: "left",
       },
     ],
     intro:

@@ -350,7 +350,7 @@ export default async function TreatmentPage({ params }: Props) {
                   <div className="flex-1">
                     {(() => {
                       const floated = treatment.bodyImages!.find((im) => im.float === "left");
-                      const floatAt = Math.min(1, treatment.body.length - 1);
+                      const floatAt = treatment.treatmentAreas ? Math.min(1, treatment.body.length - 1) : -1;
                       return treatment.body.map((para, j) => (
                         <Fragment key={j}>
                           {floated && j === floatAt && (
@@ -363,8 +363,16 @@ export default async function TreatmentPage({ params }: Props) {
                       ));
                     })()}
                     {!treatment.treatmentAreas && (
-                      <div className="mt-2 clear-both flex flex-col gap-4">
-                        <h2 className="font-subheading text-[20px] font-semibold leading-[26px] tracking-[-0.8px] text-forest uppercase">
+                      <div className="mt-2 clear-both flow-root">
+                        {(() => {
+                          const floated = treatment.bodyImages!.find((im) => im.float === "left");
+                          return floated ? (
+                            <div className="relative float-left mb-2 mr-8 aspect-[4/5] w-[180px] overflow-hidden rounded-[14px] border border-black/8 shadow-md sm:w-[220px]">
+                              <Image src={floated.src} alt={floated.alt} fill className="object-cover" style={floated.position ? { objectPosition: floated.position } : undefined} />
+                            </div>
+                          ) : null;
+                        })()}
+                        <h2 className="mb-4 font-subheading text-[20px] font-semibold leading-[26px] tracking-[-0.8px] text-forest uppercase">
                           Suitable For
                         </h2>
                         <ul className="flex flex-col gap-3">

@@ -734,35 +734,16 @@ export const treatmentDetails: TreatmentDetail[] = [
         width: 280,
       },
     ],
+    processDiagramsRow: true,
     processDiagrams: [
       {
-        src: "/images/treatments/profhilo/bap-technique.jpg",
-        alt: "Profhilo BAP (Bio Aesthetic Points) technique — the 5 facial injection points",
+        src: "/images/treatments/profhilo/profhilo-infographic.jpg",
+        alt: "Profhilo skin bioremodelling — benefits and injection points on face and neck",
+        width: 1078,
+        height: 1459,
       },
-      {
-        src: "/images/treatments/profhilo/injection-areas.jpg",
-        alt: "Profhilo injection points for face, upper arm, neck and hand",
-      },
-      {
-        src: "/images/treatments/profhilo/before-after-1.png",
-        alt: "Profhilo before and after — 4 and 8 weeks, side profile",
-      },
-      {
-        src: "/images/treatments/profhilo/before-after-2.png",
-        alt: "Profhilo before and after — 4 and 8 weeks, front view",
-      },
-      {
-        src: "/images/treatments/profhilo/before-after-3.png",
-        alt: "Profhilo before and after results",
-      },
-      {
-        src: "/images/treatments/profhilo/before-after-4.png",
-        alt: "Profhilo before and after results",
-      },
-      {
-        src: "/images/treatments/profhilo/before-after-5.png",
-        alt: "Profhilo before and after results",
-      },
+      // TODO: add Sofia injection photo here once the file is saved to disk, e.g.:
+      // { src: "/images/treatments/profhilo/sofia-injecting-lips.jpg", alt: "Sofia performing an injectable treatment", width: <real>, height: <real> },
     ],
     body: [
       "Unlike traditional fillers, Profhilo does not add volume in a specific area — instead it spreads throughout the tissue, boosting skin laxity and quality across a wider zone. It is injected at 5 specific Bio Aesthetic Points (BAP) on each side of the face, targeting optimal anatomical placement for skin tightening and lifting.",

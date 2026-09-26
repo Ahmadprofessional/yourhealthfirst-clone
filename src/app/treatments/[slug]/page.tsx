@@ -313,8 +313,8 @@ export default async function TreatmentPage({ params }: Props) {
                   <Image
                     src={diagram.src}
                     alt={diagram.alt}
-                    width={1600}
-                    height={600}
+                    width={diagram.width ?? 1600}
+                    height={diagram.height ?? 600}
                     className="h-auto w-full object-contain"
                   />
                 </div>

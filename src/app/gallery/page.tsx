@@ -59,6 +59,11 @@ const sunekosImages = Array.from({ length: 3 }, (_, i) => ({
   alt: `Sunekos tear trough before & after — result ${i + 1}`,
 }));
 
+const profhiloImages = Array.from({ length: 1 }, (_, i) => ({
+  src: `/images/gallery/profhilo/profhilo-${i + 1}.jpeg`,
+  alt: `Profhilo lower face & neck before & after — result ${i + 1}`,
+}));
+
 function BeforeAfterGrid({ images }: { images: { src: string; alt: string }[] }) {
   return (
     <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -323,6 +328,24 @@ export default function GalleryPage() {
             </p>
           </div>
           <BeforeAfterGrid images={sunekosImages} />
+        </div>
+      </section>
+
+      {/* Profhilo section */}
+      <section className="w-full border-t border-black/8 px-5">
+        <div className="mx-auto max-w-[1400px] py-[80px] lg:py-[100px]">
+          <div className="mb-10 flex flex-col gap-2">
+            <div className="flex items-center gap-4">
+              <h2 className="font-subheading text-[24px] font-medium leading-[30px] tracking-[-1px] text-forest uppercase lg:text-[30px] lg:leading-[36px]">
+                Profhilo — Before &amp; After
+              </h2>
+              <div className="flex-1 border-t border-black/8" />
+            </div>
+            <p className="text-[15px] text-body-text">
+              Skin remodelling and hydration results — lower face and neck, progressive over a course of treatments.
+            </p>
+          </div>
+          <BeforeAfterGrid images={profhiloImages} />
         </div>
       </section>
 

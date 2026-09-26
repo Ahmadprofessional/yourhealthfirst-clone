@@ -13,6 +13,8 @@ export interface TreatmentGallery {
   prefix: string;
   count: number;
   ext: string;
+  /** CSS aspect-ratio (e.g. "3/2") for wide composite images that shouldn't be cropped to a square */
+  aspect?: string;
 }
 
 export interface HowItWorksStep {
@@ -52,6 +54,26 @@ export interface TreatmentDetail {
   treatmentAreaIcons?: Record<string, string>;
   /** Small trust badges shown under the "Who Is It For" card in the icon-card variant */
   trustBadges?: { icon: string; label: string }[];
+  /** Skip the boxed icon-card Treatment Areas / Who Is It For section and instead render both as plain content in the upper body section */
+  treatmentAreasInline?: boolean;
+  /** Optional image shown alongside the inline Treatment Areas / Who Is It For content */
+  treatmentAreasInlineImage?: { src: string; alt: string };
+  /** Extended decision-guide section (who it's best for / when it's not right / results / booking CTA) rendered in the main content column */
+  extendedGuide?: {
+    heading: string;
+    subheading: string;
+    intro: string;
+    bestForHeading: string;
+    bestForIntro: string;
+    bestForItems: { title: string; description: string }[];
+    notRightHeading: string;
+    notRightIntro: string;
+    notRightItems: { title: string; description: string }[];
+    resultsHeading: string;
+    resultsBody: string;
+    ctaHeading: string;
+    ctaBody: string;
+  };
   results: string;
   priceFrom?: string;
   faqs: TreatmentFaq[];
@@ -719,8 +741,50 @@ export const treatmentDetails: TreatmentDetail[] = [
     tagline: "The ultimate skin remodelling biostimulator",
     category: "Face & Anti-Aging",
     image: "/images/services/placeholder.png",
+    gallery: {
+      folder: "/images/gallery/profhilo",
+      prefix: "profhilo",
+      count: 1,
+      ext: "jpeg",
+      aspect: "3/2",
+    },
     intro:
       "Profhilo is a revolutionary injectable treatment containing one of the highest concentrations of hyaluronic acid on the market. It flows beneath the skin to intensely hydrate and stimulate collagen and elastin production, remodelling the skin from the inside out.",
+    treatmentAreasInline: true,
+    treatmentAreasInlineImage: {
+      src: "/images/treatments/profhilo/profhilo-infographic-square.jpg",
+      alt: "Profhilo skin bioremodelling — benefits and injection points on face and neck",
+    },
+    extendedGuide: {
+      heading: "Is Profhilo the Right Treatment for You?",
+      subheading: "Discover whether Profhilo skin rejuvenation treatment is right for your skin concerns.",
+      intro:
+        "Profhilo is an injectable hyaluronic acid treatment designed to improve skin hydration, firmness, elasticity and overall skin quality. It helps restore a smoother, fresher and more radiant appearance without adding facial volume or changing your natural facial features. At YourHealthFirst Clinic in Wimpole Street, London, we offer personalised Profhilo treatments to help you achieve natural-looking skin rejuvenation tailored to your individual needs.",
+      bestForHeading: "Who Is Profhilo Best For?",
+      bestForIntro: "Profhilo may be suitable if you:",
+      bestForItems: [
+        { title: "Have dull, tired or dehydrated skin", description: "Improve skin hydration and achieve a fresher, more radiant complexion." },
+        { title: "Notice fine lines and reduced elasticity", description: "Address early signs of skin ageing and loss of skin firmness." },
+        { title: "Have skin that feels less smooth or plump", description: "Support improved skin texture and hydration." },
+        { title: "Want healthier-looking, glowing skin", description: "Enhance your skin's appearance without adding volume." },
+        { title: "Prefer natural-looking results", description: "Improve skin quality while maintaining your natural facial features." },
+        { title: "Are noticing early signs of ageing", description: "Take a proactive approach to maintaining skin hydration and elasticity." },
+      ],
+      notRightHeading: "When Might Profhilo Not Be the Right Treatment?",
+      notRightIntro: "Although Profhilo can improve skin quality, it is not designed to address every aesthetic concern. Depending on your goals, another treatment may be more appropriate.",
+      notRightItems: [
+        { title: "You want more facial volume or definition", description: "If your main concern is adding volume or enhancing facial contours, dermal fillers may be more suitable. They can be used to address areas such as the cheeks, lips and chin following a personalised consultation." },
+        { title: "You have significant skin laxity or sagging", description: "Profhilo can support skin firmness and elasticity, but it is not a surgical lifting treatment. If you have pronounced sagging, jowls or significant skin laxity, alternative treatments may be more appropriate." },
+        { title: "You want to treat under-eye hollows or dark circles", description: "Profhilo is not specifically designed to correct under-eye hollows or pigmentation. A consultation can help determine which treatment is most suitable for your individual concerns and the delicate eye area." },
+        { title: "You are looking for immediate results", description: "Profhilo works gradually, with improvements in hydration and skin quality developing over the weeks following treatment. It is not intended to provide an instant change in facial structure or a dramatic lifting effect." },
+      ],
+      resultsHeading: "What Results Can You Expect from Profhilo?",
+      resultsBody:
+        "Profhilo is designed to improve skin hydration, texture, radiance and firmness progressively. Results vary between individuals depending on skin condition, age and treatment response. Your practitioner will assess your skin, discuss your expectations and recommend an appropriate treatment plan, including the number and timing of sessions.",
+      ctaHeading: "Book Your Profhilo Consultation in London",
+      ctaBody:
+        "If you are considering Profhilo for skin rejuvenation, book a consultation at YourHealthFirst Clinic, 2 Wimpole Street, London, to discuss your skin concerns and find out whether this treatment is suitable for you.",
+    },
     treatmentAreas: ["Face", "Neck", "Hands", "Décolletage", "Upper Arms"],
     treatmentAreaIcons: {
       Face: "face",

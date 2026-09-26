@@ -1197,7 +1197,8 @@ export default async function TreatmentPage({ params }: Props) {
               {treatment.processDiagrams.map((diagram) => (
                 <div
                   key={diagram.src}
-                  className="relative mx-auto w-full max-w-[1100px] overflow-hidden rounded-[12px] bg-white p-4 shadow-sm"
+                  className="relative mx-auto w-full overflow-hidden rounded-[12px] bg-white p-4 shadow-sm"
+                  style={{ maxWidth: diagram.maxWidth ?? 1100 }}
                 >
                   <Image
                     src={diagram.src}

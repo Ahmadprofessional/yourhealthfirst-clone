@@ -94,6 +94,8 @@ export interface TreatmentDetail {
   processDiagrams?: {
     src: string;
     alt: string;
+    /** Optional max display width in px (default 1100) — for tall portrait images */
+    maxWidth?: number;
   }[];
   /** Detailed price breakdown by treatment area, shown as its own section */
   priceList?: {
@@ -522,8 +524,9 @@ export const treatmentDetails: TreatmentDetail[] = [
     },
     processDiagrams: [
       {
-        src: "/images/treatments/sunekos/treatment-protocol-performa.jpg",
-        alt: "Sunekos Performa Treatment Protocol for natural skin regeneration",
+        src: "/images/treatments/sunekos/treatment-comparison.webp",
+        alt: "Sunekos treatment comparison — Sunekos 1200 vs Sunekos Performa: primary focus, best for, treatment areas and consistency",
+        maxWidth: 640,
       },
     ],
     body: [

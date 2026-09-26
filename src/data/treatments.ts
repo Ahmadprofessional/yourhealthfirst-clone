@@ -798,25 +798,9 @@ export const treatmentDetails: TreatmentDetail[] = [
       {
         src: "/images/treatments/profhilo/sofia-injecting.jpg",
         alt: "Sofia administering Profhilo with the BAP technique",
-        aspect: "1163/1353",
-        width: 280,
-      },
-    ],
-    processDiagramsRow: true,
-    processDiagramsEqualSize: true,
-    processDiagrams: [
-      {
-        src: "/images/treatments/profhilo/profhilo-infographic.jpg",
-        alt: "Profhilo skin bioremodelling — benefits and injection points on face and neck",
-        width: 1078,
-        height: 1459,
-        objectPosition: "top",
-      },
-      {
-        src: "/images/treatments/profhilo/sofia-injecting-lips.jpg",
-        alt: "Sofia performing a dermal filler injection on a patient",
-        width: 990,
-        height: 758,
+        aspect: "1/1",
+        width: 340,
+        position: "50% 40%",
       },
     ],
     body: [

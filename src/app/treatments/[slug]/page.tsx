@@ -434,7 +434,7 @@ export default async function TreatmentPage({ params }: Props) {
                   )}
                   {treatment.treatmentAreasInline && (
                     <div className={`mt-2 clear-both ${treatment.treatmentAreasInlineImage ? "lg:grid lg:grid-cols-2 lg:items-start lg:gap-10" : ""}`}>
-                      <div className="flex flex-col gap-8">
+                      <div className="flex flex-col gap-8 lg:order-2 lg:self-center">
                         <div className="flex flex-col gap-4">
                           <h2 className="font-subheading text-[20px] font-semibold leading-[26px] tracking-[-0.8px] text-forest uppercase">
                             What Areas Can Be Treated?
@@ -463,7 +463,7 @@ export default async function TreatmentPage({ params }: Props) {
                         </div>
                       </div>
                       {treatment.treatmentAreasInlineImage && (
-                        <div className="relative mt-8 aspect-square w-full overflow-hidden rounded-[14px] border border-black/8 shadow-md lg:mt-0">
+                        <div className="relative mt-8 aspect-square w-full overflow-hidden rounded-[14px] border border-black/8 shadow-md lg:order-1 lg:mt-0">
                           <Image
                             src={treatment.treatmentAreasInlineImage.src}
                             alt={treatment.treatmentAreasInlineImage.alt}

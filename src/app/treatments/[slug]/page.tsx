@@ -705,7 +705,7 @@ export default async function TreatmentPage({ params }: Props) {
                 className="relative w-full overflow-hidden rounded-[16px] border border-tan/30 bg-cream shadow-md"
                 style={{ aspectRatio: `${treatment.suitableImage.width} / ${treatment.suitableImage.height}` }}
               >
-                <Image src={treatment.suitableImage.src} alt={treatment.suitableImage.alt} fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover" />
+                <Image src={treatment.suitableImage.src} alt={treatment.suitableImage.alt} fill sizes={treatment.benefitsInline ? "(min-width: 768px) 33vw, 100vw" : "(min-width: 768px) 1000px, 100vw"} quality={90} className="object-cover" />
               </div>
               <div className="flex min-w-0 flex-col justify-center rounded-[16px] border border-tan/30 bg-cream p-8 lg:p-10">
                 <h2 className="mb-7 font-subheading text-[26px] font-semibold leading-[32px] tracking-[-0.8px] text-forest uppercase">

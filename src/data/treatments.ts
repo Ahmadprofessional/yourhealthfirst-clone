@@ -518,7 +518,7 @@ export const treatmentDetails: TreatmentDetail[] = [
     category: "Face & Anti-Aging",
     image: "/images/services/sunekos.png",
     suitableImage: {
-      src: "/images/treatments/sunekos/treatment-comparison-wide.webp",
+      src: "/images/treatments/sunekos/treatment-comparison-v3.jpg",
       alt: "Sunekos treatment comparison — Sunekos 1200 vs Sunekos Performa: primary focus, best for, treatment areas and consistency",
       width: 1536,
       height: 1024,

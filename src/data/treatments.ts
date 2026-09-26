@@ -536,10 +536,10 @@ export const treatmentDetails: TreatmentDetail[] = [
         height: 1536,
       },
       {
-        src: "/images/treatments/sunekos/performa-200-timeline.jpg",
-        alt: "Sunekos Performa 200 — produces new ECM and reproduces elastin, Day 0 to Day 28",
-        width: 1536,
-        height: 1024,
+        src: "/images/treatments/sunekos/why-performa.jpg",
+        alt: "Why Sunekos Performa? Hydration boost, anti-aging effect, skin regeneration and natural glow",
+        width: 1254,
+        height: 1254,
       },
     ],
     body: [

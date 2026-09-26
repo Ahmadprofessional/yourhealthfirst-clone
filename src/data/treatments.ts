@@ -93,6 +93,8 @@ export interface TreatmentDetail {
   /** Process diagrams shown under the how-it-works intro (e.g. step-by-step, before/during/after) */
   /** Show processDiagrams side by side at equal height (wraps on small screens) */
   processDiagramsRow?: boolean;
+  /** Render the process diagrams before the care instructions section */
+  processDiagramsFirst?: boolean;
   processDiagrams?: {
     src: string;
     alt: string;
@@ -521,6 +523,7 @@ export const treatmentDetails: TreatmentDetail[] = [
     intro:
       "Sunekos is an injectable treatment combining amino acids and hyaluronic acid to stimulate the skin's own production of collagen and elastin. It is suitable for the face, neck, décolleté and hands, delivering a naturally plumped, firmer and more luminous complexion.",
     processDiagramsRow: true,
+    processDiagramsFirst: true,
     processDiagrams: [
       {
         src: "/images/treatments/sunekos/treatment-comparison.webp",

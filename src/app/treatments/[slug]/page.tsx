@@ -275,6 +275,52 @@ export default async function TreatmentPage({ params }: Props) {
     .filter((t) => t.category === treatment.category && t.slug !== treatment.slug)
     .slice(0, 3);
 
+  const processDiagramsSection = (
+    <>
+      {treatment.processDiagrams && treatment.processDiagrams.length > 0 && (
+        <section className={`w-full px-5 ${treatment.howItWorks ? "" : "bg-cream"}`}>
+          <div className="mx-auto max-w-[1400px] py-[60px] lg:py-[80px]">
+            {treatment.processDiagramsRow ? (
+              <div className="flex flex-col items-stretch gap-6 lg:flex-row">
+                {treatment.processDiagrams.map((diagram) => (
+                  <div
+                    key={diagram.src}
+                    className="relative h-[560px] w-full overflow-hidden rounded-[12px] bg-[#f6efe3] p-3 shadow-sm sm:h-[760px] lg:h-[900px] lg:flex-1"
+                  >
+                    <Image
+                      src={diagram.src}
+                      alt={diagram.alt}
+                      fill
+                      sizes="(min-width: 1024px) 50vw, 100vw"
+                      className="object-contain"
+                    />
+                  </div>
+                ))}
+              </div>
+            ) : (
+            <div className="flex flex-col gap-6">
+              {treatment.processDiagrams.map((diagram) => (
+                <div
+                  key={diagram.src}
+                  className="relative mx-auto w-full overflow-hidden rounded-[12px] bg-white p-4 shadow-sm"
+                  style={{ maxWidth: diagram.maxWidth ?? 1100 }}
+                >
+                  <Image
+                    src={diagram.src}
+                    alt={diagram.alt}
+                    width={1600}
+                    height={600}
+                    className="h-auto w-full object-contain"
+                  />
+                </div>
+              ))}
+            </div>
+            )}
+          </div>
+        </section>
+      )}</>
+  );
+
   return (
     <div className="flex flex-col">
       <Header />
@@ -1029,6 +1075,8 @@ export default async function TreatmentPage({ params }: Props) {
         </section>
       )}
 
+      {treatment.processDiagramsFirst && processDiagramsSection}
+
       {/* Care instructions — prominent before/aftercare */}
       {treatment.careInstructions && (
         <section className="relative w-full overflow-hidden bg-[#061a10] px-5">
@@ -1190,48 +1238,7 @@ export default async function TreatmentPage({ params }: Props) {
       )}
 
       {/* Process diagrams (standalone, independent of How It Works) */}
-      {treatment.processDiagrams && treatment.processDiagrams.length > 0 && (
-        <section className={`w-full px-5 ${treatment.howItWorks ? "" : "bg-cream"}`}>
-          <div className="mx-auto max-w-[1400px] py-[60px] lg:py-[80px]">
-            {treatment.processDiagramsRow ? (
-              <div className="flex flex-wrap items-stretch justify-center gap-6">
-                {treatment.processDiagrams.map((diagram) => (
-                  <div
-                    key={diagram.src}
-                    className="relative flex max-w-full items-center overflow-hidden rounded-[12px] bg-white p-4 shadow-sm"
-                  >
-                    <Image
-                      src={diagram.src}
-                      alt={diagram.alt}
-                      width={1600}
-                      height={1600}
-                      className="h-auto max-w-full object-contain lg:h-[560px] lg:w-auto"
-                    />
-                  </div>
-                ))}
-              </div>
-            ) : (
-            <div className="flex flex-col gap-6">
-              {treatment.processDiagrams.map((diagram) => (
-                <div
-                  key={diagram.src}
-                  className="relative mx-auto w-full overflow-hidden rounded-[12px] bg-white p-4 shadow-sm"
-                  style={{ maxWidth: diagram.maxWidth ?? 1100 }}
-                >
-                  <Image
-                    src={diagram.src}
-                    alt={diagram.alt}
-                    width={1600}
-                    height={600}
-                    className="h-auto w-full object-contain"
-                  />
-                </div>
-              ))}
-            </div>
-            )}
-          </div>
-        </section>
-      )}
+      {!treatment.processDiagramsFirst && processDiagramsSection}
 
       {/* Advantages */}
       {treatment.advantages && (

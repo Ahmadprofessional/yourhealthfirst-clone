@@ -346,6 +346,7 @@ export default async function TreatmentPage({ params }: Props) {
 
               {/* Body paragraphs (image, when present, floats alongside the text) */}
               {treatment.bodyImages && treatment.bodyImages.length > 0 && treatment.bodyImagesLayout === "stacked" ? (
+                <div className="flex flex-col gap-10">
                 <div className="flex flex-col gap-8 sm:flex-row sm:items-stretch sm:gap-10">
                   <div className="flex-1">
                     {(() => {
@@ -362,7 +363,7 @@ export default async function TreatmentPage({ params }: Props) {
                         </Fragment>
                       ));
                     })()}
-                    {!treatment.treatmentAreas && (
+                    {!treatment.treatmentAreas && !treatment.benefitsInline && (
                       <div className="mt-2 clear-both flow-root">
                         {(() => {
                           const floated = treatment.bodyImages!.find((im) => im.float === "left");
@@ -390,12 +391,53 @@ export default async function TreatmentPage({ params }: Props) {
                     {treatment.bodyImages.filter((im) => im.float !== "left").map((img) => (
                       <div
                         key={img.src}
-                        className="relative aspect-[4/3] w-full overflow-hidden rounded-[14px] border border-black/8 shadow-md sm:aspect-auto sm:h-[324px] sm:flex-none"
+                        className="relative aspect-[4/3] w-full overflow-hidden rounded-[14px] border border-black/8 shadow-md sm:aspect-auto sm:h-auto sm:max-h-[440px] sm:min-h-[324px] sm:flex-1"
                       >
                         <Image src={img.src} alt={img.alt} fill className="object-cover" style={img.position ? { objectPosition: img.position } : undefined} />
                       </div>
                     ))}
                   </div>
+                </div>
+        {!treatment.treatmentAreas && treatment.benefitsInline && treatment.bodyImages!.some((im) => im.float === "left") && (
+          <div className="flex flex-col gap-6 sm:flex-row sm:items-stretch">
+            {(() => {
+              const floated = treatment.bodyImages!.find((im) => im.float === "left")!;
+              return (
+                <div className="relative aspect-[4/5] w-full max-w-[280px] shrink-0 overflow-hidden rounded-[14px] border border-black/8 shadow-md sm:aspect-auto sm:w-[200px]">
+                  <Image src={floated.src} alt={floated.alt} fill className="object-cover" style={floated.position ? { objectPosition: floated.position } : undefined} />
+                </div>
+              );
+            })()}
+            <div className="flex flex-1 flex-col gap-4">
+              <div className="rounded-[14px] border border-tan/30 bg-cream p-6">
+                <h2 className="mb-4 font-subheading text-[18px] font-semibold leading-[24px] tracking-[-0.5px] text-forest uppercase">
+                  Suitable For
+                </h2>
+                <ul className="grid grid-cols-1 gap-x-8 gap-y-3 md:grid-cols-2">
+                  {treatment.suitableFor.map((item) => (
+                    <li key={item} className="flex items-start gap-3">
+                      <span className="mt-[8px] h-[6px] w-[6px] shrink-0 rounded-full bg-tan" />
+                      <span className="text-[15px] leading-[24px] text-body-text">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="rounded-[14px] bg-[linear-gradient(135deg,#b8925a_0%,#d1ae83_50%,#b8925a_100%)] p-6 shadow-md">
+                <h2 className="mb-4 font-subheading text-[18px] font-semibold leading-[24px] tracking-[2px] text-forest uppercase">
+                  Key Benefits
+                </h2>
+                <ul className="grid grid-cols-1 gap-x-8 gap-y-3 md:grid-cols-2">
+                  {treatment.benefits.map((benefit) => (
+                    <li key={benefit} className="flex items-start gap-3">
+                      <span className="mt-[9px] h-[6px] w-[6px] shrink-0 rounded-full bg-forest" />
+                      <span className="text-[15px] font-medium leading-[24px] text-forest">{benefit}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        )}
                 </div>
               ) : treatment.bodyImages && treatment.bodyImages.length > 0 ? (
                 <div className="flex flex-col gap-10">
@@ -572,7 +614,7 @@ export default async function TreatmentPage({ params }: Props) {
       </section>
 
       {/* Key benefits banner — mid-page gold box */}
-      {treatment.benefits.length > 0 && (
+      {treatment.benefits.length > 0 && !treatment.benefitsInline && (
         <section className="w-full px-5">
           <div className="mx-auto max-w-[1400px] pb-[70px] lg:pb-[90px]">
             <div className="relative overflow-hidden rounded-[20px] bg-[linear-gradient(135deg,#b8925a_0%,#d1ae83_50%,#b8925a_100%)] p-8 shadow-lg lg:p-12">

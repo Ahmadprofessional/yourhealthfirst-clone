@@ -34,6 +34,8 @@ export interface TreatmentDetail {
   /** Image shown in the sidebar under the booking box; click opens full size */
   sidebarImage?: { src: string; alt: string };
   /** "stacked" puts all body images in one column beside the full text so nothing leaves empty space */
+  /** With the stacked body layout: show Suitable For + Key Benefits as boxes beside the floated photo instead of the mid-page banner */
+  benefitsInline?: boolean;
   bodyImagesLayout?: "rows" | "stacked";
   bodyImages?: { src: string; alt: string; position?: string; row?: number; float?: "left" }[];
   body: string[];
@@ -341,6 +343,7 @@ export const treatmentDetails: TreatmentDetail[] = [
       src: "/images/treatments/dermal-fillers/consultation-mirror.jpg",
       alt: "Dr Sofia placing dermal filler while the patient watches in a hand mirror",
     },
+    benefitsInline: true,
     bodyImagesLayout: "stacked",
     bodyImages: [
       {

@@ -1405,7 +1405,7 @@ export default async function TreatmentPage({ params }: Props) {
       {treatment.diagramImage && (
         <section className={`w-full px-5 ${treatment.howItWorks || treatment.advantages ? "" : "bg-cream"}`}>
           <div className="mx-auto max-w-[1400px] py-[60px] lg:py-[80px]">
-            <div className="relative mx-auto w-full overflow-hidden rounded-[12px] bg-white p-4 shadow-sm" style={{ maxWidth: treatment.diagramImage.maxWidth ?? 900 }}>
+            <div className="relative mx-auto max-w-[900px] overflow-hidden rounded-[12px] bg-white p-4 shadow-sm">
               <Image
                 src={treatment.diagramImage.src}
                 alt={treatment.diagramImage.alt}

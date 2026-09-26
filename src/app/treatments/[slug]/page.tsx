@@ -700,7 +700,7 @@ export default async function TreatmentPage({ params }: Props) {
       {treatment.suitableImage && !treatment.treatmentAreas && (
         <section className="w-full px-5">
           <div className="mx-auto max-w-[1400px] pb-[70px] lg:pb-[90px]">
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-3 md:items-stretch">
+            <div className={`grid grid-cols-1 gap-6 md:items-stretch ${treatment.benefitsInline ? "md:grid-cols-3" : "md:grid-cols-[2fr_1fr]"}`}>
               <div
                 className="relative w-full overflow-hidden rounded-[16px] border border-tan/30 bg-cream shadow-md"
                 style={{ aspectRatio: `${treatment.suitableImage.width} / ${treatment.suitableImage.height}` }}

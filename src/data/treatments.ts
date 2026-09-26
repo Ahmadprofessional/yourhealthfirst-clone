@@ -517,12 +517,11 @@ export const treatmentDetails: TreatmentDetail[] = [
     tagline: "Regenerate, hydrate and firm from within",
     category: "Face & Anti-Aging",
     image: "/images/services/sunekos.png",
-    benefitsInline: true,
     suitableImage: {
-      src: "/images/treatments/sunekos/treatment-comparison.webp",
+      src: "/images/treatments/sunekos/treatment-comparison-wide.webp",
       alt: "Sunekos treatment comparison — Sunekos 1200 vs Sunekos Performa: primary focus, best for, treatment areas and consistency",
-      width: 1024,
-      height: 1536,
+      width: 1536,
+      height: 1024,
     },
     bodyImagesLayout: "float",
     bodyImages: [

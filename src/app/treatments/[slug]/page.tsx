@@ -412,41 +412,6 @@ export default async function TreatmentPage({ params }: Props) {
                       {para}
                     </p>
                   ))}
-                  {!treatment.treatmentAreas && treatment.suitableImage && (
-                    <div className="mt-4 clear-both grid grid-cols-1 gap-6 md:grid-cols-3 md:items-stretch">
-                      <div className="relative aspect-[2/3] w-full overflow-hidden rounded-[14px] border border-tan/30 bg-cream shadow-md md:aspect-auto md:min-h-[466px]">
-                        <Image src={treatment.suitableImage.src} alt={treatment.suitableImage.alt} fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover" />
-                      </div>
-                      <div className="flex min-w-0 flex-col justify-center rounded-[14px] border border-tan/30 bg-cream p-6">
-                        <h2 className="mb-5 font-subheading text-[20px] font-semibold leading-[26px] tracking-[-0.8px] text-forest uppercase">
-                          Suitable For
-                        </h2>
-                        <ul className="flex flex-col gap-4">
-                          {treatment.suitableFor.map((item) => (
-                            <li key={item} className="flex items-start gap-3">
-                              <span className="mt-[9px] h-[6px] w-[6px] shrink-0 rounded-full bg-tan" />
-                              <span className="text-[15px] leading-[24px] tracking-[-0.2px] text-body-text">{item}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                      {treatment.benefitsInline && (
-                        <div className="flex min-w-0 flex-col justify-center rounded-[14px] bg-[linear-gradient(135deg,#b8925a_0%,#d1ae83_50%,#b8925a_100%)] p-6 shadow-md">
-                          <h2 className="mb-5 font-subheading text-[20px] font-semibold leading-[26px] tracking-[2px] text-forest uppercase">
-                            Key Benefits
-                          </h2>
-                          <ul className="flex flex-col gap-3">
-                            {treatment.benefits.map((benefit) => (
-                              <li key={benefit} className="flex items-start gap-3">
-                                <span className="mt-[8px] h-[6px] w-[6px] shrink-0 rounded-full bg-forest" />
-                                <span className="text-[14px] font-medium leading-[21px] text-forest">{benefit}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      )}
-                    </div>
-                  )}
                   {!treatment.treatmentAreas && !treatment.suitableImage && (
                     <div className="mt-2 flex flex-col gap-4">
                       <h2 className="font-subheading text-[20px] font-semibold leading-[26px] tracking-[-0.8px] text-forest uppercase">
@@ -730,6 +695,50 @@ export default async function TreatmentPage({ params }: Props) {
           </div>
         </div>
       </section>
+
+      {/* Picture + Suitable For + Key Benefits — three equal boxes across the full page */}
+      {treatment.suitableImage && !treatment.treatmentAreas && (
+        <section className="w-full px-5">
+          <div className="mx-auto max-w-[1400px] pb-[70px] lg:pb-[90px]">
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-3 md:items-stretch">
+              <div
+                className="relative w-full overflow-hidden rounded-[16px] border border-tan/30 bg-cream shadow-md"
+                style={{ aspectRatio: `${treatment.suitableImage.width} / ${treatment.suitableImage.height}` }}
+              >
+                <Image src={treatment.suitableImage.src} alt={treatment.suitableImage.alt} fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover" />
+              </div>
+              <div className="flex min-w-0 flex-col justify-center rounded-[16px] border border-tan/30 bg-cream p-8 lg:p-10">
+                <h2 className="mb-7 font-subheading text-[26px] font-semibold leading-[32px] tracking-[-0.8px] text-forest uppercase">
+                  Suitable For
+                </h2>
+                <ul className="flex flex-col gap-6">
+                  {treatment.suitableFor.map((item) => (
+                    <li key={item} className="flex items-start gap-3">
+                      <span className="mt-[11px] h-[8px] w-[8px] shrink-0 rounded-full bg-tan" />
+                      <span className="text-[18px] leading-[28px] tracking-[-0.2px] text-body-text">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              {treatment.benefitsInline && (
+                <div className="flex min-w-0 flex-col justify-center rounded-[16px] bg-[linear-gradient(135deg,#b8925a_0%,#d1ae83_50%,#b8925a_100%)] p-8 shadow-md lg:p-10">
+                  <h2 className="mb-7 font-subheading text-[26px] font-semibold leading-[32px] tracking-[2px] text-forest uppercase">
+                    Key Benefits
+                  </h2>
+                  <ul className="flex flex-col gap-4">
+                    {treatment.benefits.map((benefit) => (
+                      <li key={benefit} className="flex items-start gap-3">
+                        <span className="mt-[10px] h-[7px] w-[7px] shrink-0 rounded-full bg-forest" />
+                        <span className="text-[16px] font-medium leading-[24px] text-forest">{benefit}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Key benefits banner — mid-page gold box */}
       {treatment.benefits.length > 0 && !treatment.benefitsInline && (

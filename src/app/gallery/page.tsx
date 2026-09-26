@@ -54,14 +54,14 @@ const sculptraImages = Array.from({ length: 3 }, (_, i) => ({
   alt: `Sculptra before & after — result ${i + 1}`,
 }));
 
-const sunekosImages = Array.from({ length: 2 }, (_, i) => ({
+const sunekosImages = Array.from({ length: 3 }, (_, i) => ({
   src: `/images/gallery/sunekos/sunekos-${i + 1}.jpeg`,
   alt: `Sunekos tear trough before & after — result ${i + 1}`,
 }));
 
-function BeforeAfterGrid({ images, twoUp = false }: { images: { src: string; alt: string }[]; twoUp?: boolean }) {
+function BeforeAfterGrid({ images }: { images: { src: string; alt: string }[] }) {
   return (
-    <div className={`grid grid-cols-1 gap-5 sm:grid-cols-2 ${twoUp ? "" : "lg:grid-cols-3"}`}>
+    <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
       {images.map((img, index) => (
         <div
           key={img.src}
@@ -322,7 +322,7 @@ export default function GalleryPage() {
               Tear trough, under-eye hollows and dark circles treated with Sunekos.
             </p>
           </div>
-          <BeforeAfterGrid images={sunekosImages} twoUp />
+          <BeforeAfterGrid images={sunekosImages} />
         </div>
       </section>
 

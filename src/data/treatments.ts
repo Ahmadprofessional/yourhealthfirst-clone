@@ -634,7 +634,7 @@ export const treatmentDetails: TreatmentDetail[] = [
     gallery: {
       folder: "/images/gallery/sunekos",
       prefix: "sunekos",
-      count: 2,
+      count: 3,
       ext: "jpeg",
     },
     faqs: [

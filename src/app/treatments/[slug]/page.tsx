@@ -366,7 +366,7 @@ export default async function TreatmentPage({ params }: Props) {
                       <h2 className="font-subheading text-[20px] font-semibold leading-[26px] tracking-[-0.8px] text-forest uppercase">
                         Suitable For
                       </h2>
-                      <ul className="flex flex-col gap-3">
+                      <ul className="grid grid-cols-1 gap-x-10 gap-y-3 sm:grid-cols-2">
                         {treatment.suitableFor.map((item) => (
                           <li key={item} className="flex items-start gap-3">
                             <span className="mt-[8px] h-[6px] w-[6px] shrink-0 rounded-full bg-tan" />

@@ -514,8 +514,8 @@ export const treatmentDetails: TreatmentDetail[] = [
     },
     processDiagrams: [
       {
-        src: "/images/treatments/sunekos/treatment-protocol.webp",
-        alt: "Sunekos Treatment Protocol for natural skin regeneration",
+        src: "/images/treatments/sunekos/treatment-protocol-performa.jpg",
+        alt: "Sunekos Performa Treatment Protocol for natural skin regeneration",
       },
     ],
     body: [

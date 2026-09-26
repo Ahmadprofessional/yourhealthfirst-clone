@@ -54,9 +54,14 @@ const sculptraImages = Array.from({ length: 3 }, (_, i) => ({
   alt: `Sculptra before & after — result ${i + 1}`,
 }));
 
-function BeforeAfterGrid({ images }: { images: { src: string; alt: string }[] }) {
+const sunekosImages = Array.from({ length: 2 }, (_, i) => ({
+  src: `/images/gallery/sunekos/sunekos-${i + 1}.jpeg`,
+  alt: `Sunekos tear trough before & after — result ${i + 1}`,
+}));
+
+function BeforeAfterGrid({ images, twoUp = false }: { images: { src: string; alt: string }[]; twoUp?: boolean }) {
   return (
-    <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+    <div className={`grid grid-cols-1 gap-5 sm:grid-cols-2 ${twoUp ? "" : "lg:grid-cols-3"}`}>
       {images.map((img, index) => (
         <div
           key={img.src}
@@ -300,6 +305,24 @@ export default function GalleryPage() {
             </p>
           </div>
           <BeforeAfterGrid images={sculptraImages} />
+        </div>
+      </section>
+
+      {/* Sunekos section */}
+      <section className="w-full border-t border-black/8 bg-cream/40 px-5">
+        <div className="mx-auto max-w-[1400px] py-[80px] lg:py-[100px]">
+          <div className="mb-10 flex flex-col gap-2">
+            <div className="flex items-center gap-4">
+              <h2 className="font-subheading text-[24px] font-medium leading-[30px] tracking-[-1px] text-forest uppercase lg:text-[30px] lg:leading-[36px]">
+                Sunekos — Before &amp; After
+              </h2>
+              <div className="flex-1 border-t border-black/8" />
+            </div>
+            <p className="text-[15px] text-body-text">
+              Tear trough, under-eye hollows and dark circles treated with Sunekos.
+            </p>
+          </div>
+          <BeforeAfterGrid images={sunekosImages} twoUp />
         </div>
       </section>
 

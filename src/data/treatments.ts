@@ -91,6 +91,8 @@ export interface TreatmentDetail {
     alt: string;
   };
   /** Process diagrams shown under the how-it-works intro (e.g. step-by-step, before/during/after) */
+  /** Show processDiagrams side by side at equal height (wraps on small screens) */
+  processDiagramsRow?: boolean;
   processDiagrams?: {
     src: string;
     alt: string;
@@ -518,15 +520,16 @@ export const treatmentDetails: TreatmentDetail[] = [
     ],
     intro:
       "Sunekos is an injectable treatment combining amino acids and hyaluronic acid to stimulate the skin's own production of collagen and elastin. It is suitable for the face, neck, décolleté and hands, delivering a naturally plumped, firmer and more luminous complexion.",
-    diagramImage: {
-      src: "/images/treatments/sunekos/performa-200-timeline.jpg",
-      alt: "Sunekos Performa 200 — produces new ECM and reproduces elastin, Day 0 to Day 28",
-    },
+    processDiagramsRow: true,
     processDiagrams: [
       {
         src: "/images/treatments/sunekos/treatment-comparison.webp",
         alt: "Sunekos treatment comparison — Sunekos 1200 vs Sunekos Performa: primary focus, best for, treatment areas and consistency",
         maxWidth: 640,
+      },
+      {
+        src: "/images/treatments/sunekos/performa-200-timeline.jpg",
+        alt: "Sunekos Performa 200 — produces new ECM and reproduces elastin, Day 0 to Day 28",
       },
     ],
     body: [

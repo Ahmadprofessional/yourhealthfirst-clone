@@ -1193,6 +1193,24 @@ export default async function TreatmentPage({ params }: Props) {
       {treatment.processDiagrams && treatment.processDiagrams.length > 0 && (
         <section className={`w-full px-5 ${treatment.howItWorks ? "" : "bg-cream"}`}>
           <div className="mx-auto max-w-[1400px] py-[60px] lg:py-[80px]">
+            {treatment.processDiagramsRow ? (
+              <div className="flex flex-wrap items-stretch justify-center gap-6">
+                {treatment.processDiagrams.map((diagram) => (
+                  <div
+                    key={diagram.src}
+                    className="relative flex max-w-full items-center overflow-hidden rounded-[12px] bg-white p-4 shadow-sm"
+                  >
+                    <Image
+                      src={diagram.src}
+                      alt={diagram.alt}
+                      width={1600}
+                      height={1600}
+                      className="h-auto max-w-full object-contain lg:h-[560px] lg:w-auto"
+                    />
+                  </div>
+                ))}
+              </div>
+            ) : (
             <div className="flex flex-col gap-6">
               {treatment.processDiagrams.map((diagram) => (
                 <div
@@ -1210,6 +1228,7 @@ export default async function TreatmentPage({ params }: Props) {
                 </div>
               ))}
             </div>
+            )}
           </div>
         </section>
       )}

@@ -281,22 +281,27 @@ export default async function TreatmentPage({ params }: Props) {
         <section className={`w-full px-5 ${treatment.howItWorks ? "" : "bg-cream"}`}>
           <div className="mx-auto max-w-[1400px] py-[60px] lg:py-[80px]">
             {treatment.processDiagramsRow ? (
-              <div className="flex flex-col items-center gap-6 lg:flex-row lg:items-start lg:justify-center">
+              <div className="flex flex-col items-center gap-6 lg:flex-row lg:items-stretch lg:justify-center">
                 {treatment.processDiagrams.map((diagram) => {
                   const w = diagram.width ?? 1600;
                   const h = diagram.height ?? 1000;
                   return (
                     <div
                       key={diagram.src}
-                      className="relative w-full overflow-hidden rounded-[12px] border border-black/8 bg-white shadow-sm lg:[flex:var(--g)_1_0]"
-                      style={{ aspectRatio: `${w} / ${h}`, ["--g" as string]: w / h }}
+                      className={
+                        treatment.processDiagramsEqualSize
+                          ? "relative aspect-square w-full overflow-hidden rounded-[12px] border border-black/8 bg-white shadow-sm lg:flex-1"
+                          : "relative w-full overflow-hidden rounded-[12px] border border-black/8 bg-white shadow-sm lg:[flex:var(--g)_1_0]"
+                      }
+                      style={treatment.processDiagramsEqualSize ? undefined : { aspectRatio: `${w} / ${h}`, ["--g" as string]: w / h }}
                     >
                       <Image
                         src={diagram.src}
                         alt={diagram.alt}
                         fill
-                        sizes="(min-width: 1024px) 60vw, 100vw"
+                        sizes="(min-width: 1024px) 50vw, 100vw"
                         className="object-cover"
+                        style={diagram.objectPosition ? { objectPosition: diagram.objectPosition } : undefined}
                       />
                     </div>
                   );

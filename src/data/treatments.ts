@@ -95,6 +95,8 @@ export interface TreatmentDetail {
   /** Process diagrams shown under the how-it-works intro (e.g. step-by-step, before/during/after) */
   /** Show processDiagrams side by side at equal height (wraps on small screens) */
   processDiagramsRow?: boolean;
+  /** With processDiagramsRow: force identical box width+height (crops each image via object-cover) instead of preserving each image's own aspect ratio */
+  processDiagramsEqualSize?: boolean;
   /** Render the process diagrams before the care instructions section */
   processDiagramsFirst?: boolean;
   processDiagrams?: {
@@ -105,6 +107,8 @@ export interface TreatmentDetail {
     /** Natural pixel size — used by the side-by-side row layout so pictures share one height with no empty space */
     width?: number;
     height?: number;
+    /** CSS object-position, used when processDiagramsEqualSize crops the image via object-cover */
+    objectPosition?: string;
   }[];
   /** Detailed price breakdown by treatment area, shown as its own section */
   priceList?: {
@@ -735,15 +739,21 @@ export const treatmentDetails: TreatmentDetail[] = [
       },
     ],
     processDiagramsRow: true,
+    processDiagramsEqualSize: true,
     processDiagrams: [
       {
         src: "/images/treatments/profhilo/profhilo-infographic.jpg",
         alt: "Profhilo skin bioremodelling — benefits and injection points on face and neck",
         width: 1078,
         height: 1459,
+        objectPosition: "top",
       },
-      // TODO: add Sofia injection photo here once the file is saved to disk, e.g.:
-      // { src: "/images/treatments/profhilo/sofia-injecting-lips.jpg", alt: "Sofia performing an injectable treatment", width: <real>, height: <real> },
+      {
+        src: "/images/treatments/profhilo/sofia-injecting-lips.jpg",
+        alt: "Sofia performing a dermal filler injection on a patient",
+        width: 990,
+        height: 758,
+      },
     ],
     body: [
       "Unlike traditional fillers, Profhilo does not add volume in a specific area — instead it spreads throughout the tissue, boosting skin laxity and quality across a wider zone. It is injected at 5 specific Bio Aesthetic Points (BAP) on each side of the face, targeting optimal anatomical placement for skin tightening and lifting.",

@@ -39,7 +39,7 @@ export interface TreatmentDetail {
   /** With the float layout: photo on the left and Suitable For card on its right (photo shown uncropped) */
   suitableImage?: { src: string; alt: string; width: number; height: number };
   bodyImagesLayout?: "rows" | "stacked" | "float";
-  bodyImages?: { src: string; alt: string; position?: string; row?: number; float?: "left" }[];
+  bodyImages?: { src: string; alt: string; position?: string; row?: number; float?: "left"; aspect?: string; width?: number }[];
   body: string[];
   benefits: string[];
   suitableFor: string[];
@@ -725,6 +725,15 @@ export const treatmentDetails: TreatmentDetail[] = [
       Décolletage: "chest",
       "Upper Arms": "body",
     },
+    bodyImagesLayout: "float",
+    bodyImages: [
+      {
+        src: "/images/treatments/profhilo/sofia-injecting.jpg",
+        alt: "Sofia administering Profhilo with the BAP technique",
+        aspect: "1163/1353",
+        width: 280,
+      },
+    ],
     processDiagrams: [
       {
         src: "/images/treatments/profhilo/bap-technique.jpg",

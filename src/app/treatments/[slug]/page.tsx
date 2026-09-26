@@ -398,7 +398,7 @@ export default async function TreatmentPage({ params }: Props) {
               {/* Body paragraphs (image, when present, floats alongside the text) */}
               {treatment.bodyImages && treatment.bodyImages.length > 0 && treatment.bodyImagesLayout === "float" ? (
                 <div className="flow-root">
-                  <div className="relative float-right mb-4 ml-8 w-[220px] overflow-hidden rounded-[14px] border border-black/8 shadow-md sm:w-[340px]" style={{ aspectRatio: "883/1214" }}>
+                  <div className="relative float-right mb-4 ml-8 w-[220px] overflow-hidden rounded-[14px] border border-black/8 shadow-md sm:w-[var(--fw,340px)]" style={{ aspectRatio: treatment.bodyImages[0].aspect ?? "883/1214", ...(treatment.bodyImages[0].width ? ({ "--fw": `${treatment.bodyImages[0].width}px` } as React.CSSProperties) : {}) }}>
                     <Image
                       src={treatment.bodyImages[0].src}
                       alt={treatment.bodyImages[0].alt}

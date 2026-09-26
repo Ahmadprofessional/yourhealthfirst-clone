@@ -363,8 +363,8 @@ export const treatmentDetails: TreatmentDetail[] = [
     intro:
       "Dermal fillers are injectable treatments using hyaluronic acid to restore lost volume, smooth deep lines and sculpt facial features. From subtle lip enhancement to full facial revolumisation, fillers deliver immediate, natural-looking results.",
     diagramImage: {
-      src: "/images/treatments/dermal-fillers/injection-points-diagram.jpeg",
-      alt: "Dermal fillers — common facial injection points",
+      src: "/images/treatments/dermal-fillers/treatment-areas.jpg",
+      alt: "Dermal fillers treatment areas — eyebrow lift, crow's feet, square jaw, dimpled chin, forehead lines, glabellar lines, bunny lines and smile lift",
     },
     priceList: [
       { area: "Lip Enhancement (Russian Lips) — 1ml", price: "£250 – £350" },

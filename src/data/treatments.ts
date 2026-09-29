@@ -3484,6 +3484,7 @@ export const treatmentDetails: TreatmentDetail[] = [
           src: "/images/treatments/cryopen/cryotherapy-device-cartridges.webp",
           alt: "CryoPen device with its N2O gas cartridges — targeted treatment for selected skin lesions",
         },
+        imageAspect: "1/1",
         imageSide: "right",
         heading: "What Is CryoPen?",
         body: [

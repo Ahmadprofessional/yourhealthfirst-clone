@@ -186,7 +186,7 @@ export default function AboutMePage() {
             alt="Sofia Bouzian — YourHealthFirst Clinic"
             fill
             sizes="(min-width: 1024px) 48vw, 100vw"
-            className="object-cover object-left"
+            className="object-cover object-[35%_center]"
             priority
           />
         </div>

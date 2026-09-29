@@ -3468,12 +3468,91 @@ export const treatmentDetails: TreatmentDetail[] = [
     image: "/images/services/placeholder.png",
     videoId: "vOsMKH-s6DQ",
     intro:
-      "CryoPen is a state-of-the-art cryotherapy device that delivers a precise jet of nitrous oxide at extremely low temperatures to destroy unwanted skin lesions. It is fast, accurate and effective for removing warts, skin tags, milia, age spots, cherry angiomas and viral verrucae.",
+      "CryoPen is an innovative, high-performance cryosurgery tool that uses advanced freezing technology to remove unsightly skin tags, warts, age spots and other benign skin lesions. Designed for fast, effective and precise treatment, CryoPen can be used on selected lesions on the face and body, including areas close to the eyes.",
     introImage: {
       src: "/images/treatments/cryopen/cryopen-device-v2.jpg",
       alt: "The CryoPen device and its disposable N2O cartridges",
     },
     introImageSize: { width: 340, height: 227 },
+    body: [
+      "At YourHealthFirst Clinic in Harley Street, London, we offer CryoPen treatment for a range of benign skin lesions. Your appointment begins with an assessment of the area to be treated, followed by a discussion of the procedure and aftercare.",
+    ],
+    introRowsShowLegacyBody: true,
+    introRows: [
+      {
+        image: {
+          src: "/images/treatments/cryopen/cryotherapy-considered-approach.jpg",
+          alt: "Cryotherapy: a considered approach to selected skin lesions",
+        },
+        imageSide: "right",
+        heading: "What Is CryoPen?",
+        body: [
+          "CryoPen is a precision cryosurgery device that delivers a controlled stream of extreme cold to a targeted skin lesion. The freezing process treats the selected tissue, which then gradually heals as the body sheds the treated area.",
+          "CryoPen is designed to provide pinpoint accuracy, helping to target the lesion while limiting exposure to the surrounding healthy skin. It is a non-surgical treatment that does not require cutting out the lesion.",
+          "Treatment time and the number of sessions required depend on the lesion's type, size and depth, as well as its location and individual response.",
+        ],
+      },
+      {
+        heading: "Skin Lesions Treated with CryoPen",
+        subheading: "The practitioner will assess the lesion and confirm its suitability before treatment.",
+        items: [
+          { title: "Common Warts", description: "Small, rough skin growths caused by a viral infection. They can appear on different parts of the body, including the hands and fingers." },
+          { title: "Verrucas", description: "Warts that develop on the soles of the feet. They may feel uncomfortable or painful, particularly when walking or standing." },
+          { title: "Skin Tags", description: "Small, soft growths that commonly develop in areas where skin rubs against skin or clothing, such as the neck, underarms and eyelids." },
+          { title: "Solar Lentigines — Age, Sun & Liver Spots", description: "Flat, pigmented spots that commonly appear on sun-exposed skin. They are often known as age spots, sun spots or liver spots." },
+          { title: "Seborrhoeic Keratosis", description: "Common, usually benign skin growths. They may have a waxy, rough or raised appearance and can vary in colour and size." },
+          { title: "Cherry Angiomas", description: "Small red or purple spots formed by clusters of tiny blood vessels, also called haemangiomata in some treatment lists." },
+          { title: "Angiofibroma — Fibrous Papules", description: "Small, firm, benign growths that commonly appear on the face, particularly around the nose." },
+          { title: "Dermatofibroma", description: "Firm, benign skin nodules that may appear as small raised or discoloured areas, often on the legs or arms." },
+          { title: "Molluscum Contagiosum — Water Warts", description: "A viral skin infection that causes small, raised bumps. These may have a central dimple and can occur in clusters." },
+          { title: "Porokeratosis", description: "A group of skin conditions that can cause patches or plaques with a raised, ridge-like edge. Assessment is important to establish the diagnosis and appropriate management." },
+          { title: "Ephelides — Freckles", description: "Small areas of increased pigmentation that often become more noticeable after sun exposure." },
+          { title: "Milia", description: "Tiny, firm, white or yellowish cysts that commonly appear on the face, particularly around the eyes and cheeks." },
+        ],
+        outro: [
+          "Other Lesion Types: your treatment list may also include actinic keratosis, fibroma, haemangioma, lentigo, seborrhoeic keratosis, skin tag and wart.",
+          "Important: lesions must be correctly identified before cosmetic treatment. Any lesion that is changing, bleeding, irregular, painful or otherwise suspicious should be referred for appropriate medical assessment before considering removal. Actinic keratosis requires a specific medical assessment and should not be treated as a routine cosmetic lesion.",
+        ],
+      },
+      {
+        heading: "How Does CryoPen Work?",
+        body: [
+          "CryoPen uses advanced freezing technology to target selected skin lesions. The device delivers a fine stream of extreme cold to the treatment area. The freezing process damages the targeted tissue, which then gradually dries, forms a blister or scab, and heals.",
+          "The device is designed for pinpoint accuracy and controlled application. The treatment time depends on the size and type of lesion, its depth and its location.",
+        ],
+      },
+      {
+        heading: "What Does CryoPen Treatment Feel Like?",
+        body: [
+          "CryoPen treatment is designed to cause minimal discomfort. You may feel a cold, stinging or sharp sensation during the freezing process. The level of sensation varies depending on the treatment area, the lesion and your individual sensitivity.",
+          "The treated area may feel tender or sensitive afterwards. Your practitioner will explain what you may experience and how to care for the area following treatment.",
+        ],
+      },
+      {
+        heading: "How Many CryoPen Treatments Will I Need?",
+        body: [
+          "The number of sessions depends on the type, size, depth and location of the lesion, as well as how it responds to treatment.",
+          "Some lesions may be treated in one session, while others may need additional treatment. Your practitioner will discuss the likely treatment plan during your assessment.",
+        ],
+      },
+      {
+        heading: "Why Choose YourHealthFirst Clinic for CryoPen?",
+        body: [
+          "At YourHealthFirst Clinic, we offer CryoPen treatment in Harley Street, London, for patients who wish to have selected benign skin lesions assessed and treated.",
+          "Your appointment includes an assessment of the area, an explanation of the treatment process and advice on what to expect afterwards. We aim to provide a professional, personalised service tailored to your skin concern.",
+        ],
+      },
+    ],
+    advantages: {
+      title: "Your CryoPen Treatment at YourHealthFirst Clinic",
+      intro: "Your CryoPen appointment is tailored to the lesion and the area being treated.",
+      items: [
+        { title: "1. Assessment", description: "The practitioner examines the lesion and assesses the area to be treated." },
+        { title: "2. Preparation", description: "The skin is prepared for treatment, and the procedure is explained." },
+        { title: "3. Targeted Freezing", description: "The CryoPen applicator is positioned close to the lesion and the stream of cold is directed at the treatment area." },
+        { title: "4. Aftercare Guidance", description: "Your practitioner explains what to expect as the area heals and provides any necessary aftercare advice." },
+      ],
+    },
     treatmentAreas: [
       "Skin Tags",
       "Warts",
@@ -3554,18 +3633,15 @@ export const treatmentDetails: TreatmentDetail[] = [
         },
       ],
     },
-    body: [
-      "The CryoPen works by applying controlled extreme cold (-89°C) to a skin lesion, precisely targeting the tissue to be removed without damaging the surrounding healthy skin. Most lesions are treated in under 60 seconds per spot, with multiple lesions treatable in a single session.",
-      "The procedure is performed without anaesthesia, with patients feeling a brief cold sensation and mild stinging during treatment. Most lesions require only 1–2 sessions. The treated area develops a small blister or crust that heals within 1–4 weeks, revealing clear skin beneath.",
-      "CryoPen is suitable for a wide range of benign skin lesions and is an alternative to surgical removal, laser treatment or electrocautery for many common conditions.",
-    ],
     benefits: [
-      "Removes skin tags, warts, milia, age spots and cherry angiomas",
-      "Precise application with no damage to surrounding tissue",
-      "Fast treatment — most lesions take under 60 seconds",
-      "No anaesthesia required",
-      "Multiple lesions treated in one session",
-      "Suitable for face, body and delicate areas",
+      "Versatile treatment options — treats lesions from 1mm to 10mm in size",
+      "Fast treatment — a 2mm lesion can be treated in as little as 10 seconds",
+      "Safe treatment near the eyes — can treat selected lesions close to the eyes",
+      "Pinpoint accuracy — targets the lesion rather than healthy surrounding tissue",
+      "No follow-up care needed for many treatments",
+      "Minimal discomfort during treatment",
+      "No direct skin contact — no messy buds, cones or apertures",
+      "Enhanced accuracy — a precise, targeted stream of cold to the treatment area",
     ],
     suitableFor: [
       "Adults with skin tags, warts or viral verrucae",
@@ -3573,48 +3649,77 @@ export const treatmentDetails: TreatmentDetail[] = [
       "Patients with cherry angiomas or benign skin lesions",
       "Anyone wanting rapid, precise, non-surgical lesion removal",
     ],
+    careInstructions: {
+      title: "CryoPen — Aftercare",
+      intro:
+        "Following CryoPen treatment, the skin may become red, swollen or tender. A blister or scab may develop as part of the healing process. The treated area gradually heals, and the time needed will vary depending on the lesion and its location. CryoPen is designed so that no follow-up care is needed for many treatments — your practitioner will explain whether a review or further session is recommended for your particular lesion.",
+      groups: [
+        {
+          heading: "Aftercare Advice",
+          points: [
+            "Keep the treated area clean and follow the aftercare instructions provided by your practitioner.",
+            "Avoid picking, scratching or removing any blister or scab.",
+            "Avoid unnecessary friction or rubbing over the treated area.",
+            "Follow your practitioner's advice about dressings and skincare products.",
+            "Protect the healing skin from sun exposure and use suitable sun protection as advised.",
+          ],
+        },
+        {
+          heading: "When to Seek Advice",
+          points: [
+            "If you experience increasing pain, spreading redness, worsening swelling, discharge or other symptoms that concern you, contact the clinic or seek appropriate medical advice.",
+          ],
+        },
+      ],
+    },
+    contraindications: {
+      title: "Who Should Not Have CryoPen Treatment",
+      items: [
+        "A known sensitivity to cold",
+        "Reduced skin sensation or circulation problems",
+        "A history of poor wound healing",
+        "An active infection or open wound in the treatment area",
+        "A medical condition or medication that may affect healing",
+        "A lesion that is changing, bleeding, irregular, painful or has not been medically assessed",
+      ],
+    },
     results: "Lesion falls away within 1–4 weeks post-treatment",
     priceFrom: "£20 per lesion / from £35 for age spots",
     faqs: [
       {
-        question: "How many sessions will I need?",
+        question: "What size of lesion can CryoPen treat?",
         answer:
-          "Most lesions require only 1–2 sessions. Larger or more stubborn lesions may occasionally need a further treatment once the initial site has healed.",
+          "CryoPen offers versatile treatment options for lesions from 1mm to 10mm in size. Your practitioner will assess whether your particular lesion is suitable.",
       },
       {
-        question: "What results can I expect?",
+        question: "How long does CryoPen take?",
         answer:
-          "The treated lesion forms a small blister or crust, which falls away within 1–4 weeks to reveal clear skin beneath.",
+          "Treatment time varies depending on the lesion. A 2mm lesion can be treated in as little as 10 seconds, although the overall appointment will also include assessment and preparation.",
       },
       {
-        question: "Is the treatment painful?",
+        question: "Can CryoPen be used on the face?",
         answer:
-          "No anaesthesia is required. Most patients feel a brief cold sensation and mild stinging during the treatment, which typically lasts under 60 seconds per lesion.",
+          "Yes. CryoPen can be used to treat selected benign skin lesions on the face, including areas close to the eyes, following an assessment.",
       },
       {
-        question: "What are the side-effects?",
+        question: "Does CryoPen touch the skin?",
         answer:
-          "A small blister or crust forms at the treatment site, which is a normal part of healing. Temporary redness or mild swelling around the area can also occur.",
+          "The CryoPen device is designed to deliver a stream of cold without directly touching the lesion. This avoids the use of messy buds, cones or apertures.",
       },
       {
-        question: "Can multiple lesions be treated in one visit?",
+        question: "Is CryoPen treatment uncomfortable?",
         answer:
-          "Yes — multiple lesions can be treated within the same session, making CryoPen a convenient option if you have several areas of concern.",
+          "CryoPen is designed to provide minimal discomfort. Sensation varies by person and treatment area, and some temporary stinging, tenderness or sensitivity may occur.",
       },
       {
-        question: "How long does healing take?",
+        question: "Will I need another appointment?",
         answer:
-          "The treated area typically heals within 1–4 weeks as the blister or crust naturally falls away, revealing the clear skin underneath.",
+          "CryoPen is designed to require no follow-up care for many treatments. However, some lesions may need further assessment or an additional session, depending on their type and response.",
       },
       {
-        question: "What types of lesions can be treated?",
+        question: "Which skin lesions can be treated?",
         answer:
-          "CryoPen effectively treats skin tags, warts, viral verrucae, milia, age spots, solar lentigo and cherry angiomas, among other benign skin lesions.",
-      },
-      {
-        question: "Who is suitable for CryoPen treatment?",
-        answer:
-          "Most adults with benign skin lesions such as skin tags, warts or age spots are suitable candidates. Dr Sofia will assess each lesion at consultation to confirm suitability.",
+          "CryoPen may be used for selected benign lesions such as skin tags, common warts, verrucas, solar lentigines, seborrhoeic keratoses, cherry angiomas and other lesions listed above. The practitioner must assess the lesion before treatment.",
       },
     ],
   },

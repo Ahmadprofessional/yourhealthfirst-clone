@@ -407,6 +407,17 @@ export default async function TreatmentPage({ params }: Props) {
                   />
                 </div>
               )}
+              {treatment.videoId2 && (
+                <div className="relative w-full overflow-hidden rounded-[12px]" style={{ aspectRatio: "16/9" }}>
+                  <iframe
+                    src={`https://www.youtube.com/embed/${treatment.videoId2}`}
+                    title={`${treatment.title} — explainer video 2`}
+                    className="absolute inset-0 h-full w-full"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+              )}
               {treatment.videoUrl && (
                 <video
                   src={treatment.videoUrl}

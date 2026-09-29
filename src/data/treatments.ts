@@ -113,6 +113,8 @@ export interface TreatmentDetail {
   gallery?: TreatmentGallery;
   /** YouTube video ID shown as an embedded explainer video */
   videoId?: string;
+  /** Optional second explainer video, shown directly below the first */
+  videoId2?: string;
   /** Self-hosted video file (mp4) shown as an embedded explainer video, used instead of videoId */
   videoUrl?: string;
   /** Two-up feature cards with a supporting image (e.g. benefit highlights) */
@@ -3467,6 +3469,7 @@ export const treatmentDetails: TreatmentDetail[] = [
     bookCTAHorizontal: true,
     image: "/images/services/placeholder.png",
     videoId: "vOsMKH-s6DQ",
+    videoId2: "kmUxKC4kaSc",
     intro:
       "CryoPen is an innovative, high-performance cryosurgery tool that uses advanced freezing technology to remove unsightly skin tags, warts, age spots and other benign skin lesions. Designed for fast, effective and precise treatment, CryoPen can be used on selected lesions on the face and body, including areas close to the eyes.",
     introImage: {

@@ -1498,8 +1498,8 @@ export const treatmentDetails: TreatmentDetail[] = [
   },
   {
     slug: "prp-face-body",
-    title: "PRP & A-PRP HA Cellular Matrix Face & Body Rejuvenation",
-    tagline: "Non-surgical lift and facial rejuvenation using your own plasma",
+    title: "PRP & A-PRP-HA Cellular Matrix",
+    tagline: "Skin rejuvenation using your own Platelet Rich Plasma to reverse & delay the signs of ageing",
     category: "Face & Anti-Aging",
     image: "/images/services/placeholder.png",
     intro:
@@ -1512,7 +1512,7 @@ export const treatmentDetails: TreatmentDetail[] = [
           alt: "PRP injection being administered to the cheek using the U225 injector",
         },
         imageSide: "right",
-        heading: "PRP Skin Rejuvenation Using Your Own Cells",
+        heading: "PRP & A-PRP HA Cellular Matrix Face & Body Rejuvenation",
         subheading: "Natural-looking facial and body rejuvenation with platelet-rich plasma",
         body: [
           "At YourHealthFirst Clinic, we offer PRP facial rejuvenation and selected body treatments designed to support the skin's natural repair processes and improve the appearance of skin quality.",

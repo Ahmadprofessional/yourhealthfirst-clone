@@ -3515,34 +3515,6 @@ export const treatmentDetails: TreatmentDetail[] = [
           "Important: lesions must be correctly identified before cosmetic treatment. Any lesion that is changing, bleeding, irregular, painful or otherwise suspicious should be referred for appropriate medical assessment before considering removal. Actinic keratosis requires a specific medical assessment and should not be treated as a routine cosmetic lesion.",
         ],
       },
-      {
-        heading: "How Does CryoPen Work?",
-        body: [
-          "CryoPen uses advanced freezing technology to target selected skin lesions. The device delivers a fine stream of extreme cold to the treatment area. The freezing process damages the targeted tissue, which then gradually dries, forms a blister or scab, and heals.",
-          "The device is designed for pinpoint accuracy and controlled application. The treatment time depends on the size and type of lesion, its depth and its location.",
-        ],
-      },
-      {
-        heading: "What Does CryoPen Treatment Feel Like?",
-        body: [
-          "CryoPen treatment is designed to cause minimal discomfort. You may feel a cold, stinging or sharp sensation during the freezing process. The level of sensation varies depending on the treatment area, the lesion and your individual sensitivity.",
-          "The treated area may feel tender or sensitive afterwards. Your practitioner will explain what you may experience and how to care for the area following treatment.",
-        ],
-      },
-      {
-        heading: "How Many CryoPen Treatments Will I Need?",
-        body: [
-          "The number of sessions depends on the type, size, depth and location of the lesion, as well as how it responds to treatment.",
-          "Some lesions may be treated in one session, while others may need additional treatment. Your practitioner will discuss the likely treatment plan during your assessment.",
-        ],
-      },
-      {
-        heading: "Why Choose YourHealthFirst Clinic for CryoPen?",
-        body: [
-          "At YourHealthFirst Clinic, we offer CryoPen treatment in Harley Street, London, for patients who wish to have selected benign skin lesions assessed and treated.",
-          "Your appointment includes an assessment of the area, an explanation of the treatment process and advice on what to expect afterwards. We aim to provide a professional, personalised service tailored to your skin concern.",
-        ],
-      },
     ],
     advantages: {
       title: "Your CryoPen Treatment at YourHealthFirst Clinic",
@@ -3585,12 +3557,6 @@ export const treatmentDetails: TreatmentDetail[] = [
       accent: "Key Features",
       subtitle:
         "Cryo™ is an advanced cryotherapy innovation using disposable cartridges of liquefied N2O to deliver a fast, highly targeted treatment for benign skin lesions.",
-      image: {
-        src: "/images/treatments/cryopen/cryotherapy-considered-approach.jpg",
-        alt: "Cryotherapy: A Considered Approach to Selected Skin Lesions — individual assessment, targeted application, tailored approach, delicate areas, possible skin reactions, aftercare advice, non-contact device, medical assessment",
-      },
-      imageAspect: "1526/1031",
-      imageMaxWidth: 820,
       items: [
         {
           icon: "drop",
@@ -3721,6 +3687,26 @@ export const treatmentDetails: TreatmentDetail[] = [
         question: "Which skin lesions can be treated?",
         answer:
           "CryoPen may be used for selected benign lesions such as skin tags, common warts, verrucas, solar lentigines, seborrhoeic keratoses, cherry angiomas and other lesions listed above. The practitioner must assess the lesion before treatment.",
+      },
+      {
+        question: "How does CryoPen work?",
+        answer:
+          "CryoPen uses advanced freezing technology to target selected skin lesions. The device delivers a fine stream of extreme cold to the treatment area. The freezing process damages the targeted tissue, which then gradually dries, forms a blister or scab, and heals. The device is designed for pinpoint accuracy and controlled application, and treatment time depends on the size and type of lesion, its depth and its location.",
+      },
+      {
+        question: "What does CryoPen treatment feel like?",
+        answer:
+          "CryoPen treatment is designed to cause minimal discomfort. You may feel a cold, stinging or sharp sensation during the freezing process, and the level of sensation varies depending on the treatment area, the lesion and your individual sensitivity. The treated area may feel tender or sensitive afterwards — your practitioner will explain what you may experience and how to care for the area following treatment.",
+      },
+      {
+        question: "How many CryoPen treatments will I need?",
+        answer:
+          "The number of sessions depends on the type, size, depth and location of the lesion, as well as how it responds to treatment. Some lesions may be treated in one session, while others may need additional treatment — your practitioner will discuss the likely treatment plan during your assessment.",
+      },
+      {
+        question: "Why choose YourHealthFirst Clinic for CryoPen?",
+        answer:
+          "At YourHealthFirst Clinic, we offer CryoPen treatment in Harley Street, London, for patients who wish to have selected benign skin lesions assessed and treated. Your appointment includes an assessment of the area, an explanation of the treatment process and advice on what to expect afterwards — we aim to provide a professional, personalised service tailored to your skin concern.",
       },
     ],
   },

@@ -3480,11 +3480,6 @@ export const treatmentDetails: TreatmentDetail[] = [
     introRowsShowLegacyBody: true,
     introRows: [
       {
-        image: {
-          src: "/images/treatments/cryopen/cryotherapy-considered-approach.jpg",
-          alt: "Cryotherapy: a considered approach to selected skin lesions",
-        },
-        imageSide: "right",
         heading: "What Is CryoPen?",
         body: [
           "CryoPen is a precision cryosurgery device that delivers a controlled stream of extreme cold to a targeted skin lesion. The freezing process treats the selected tissue, which then gradually heals as the body sheds the treated area.",

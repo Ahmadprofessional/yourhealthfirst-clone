@@ -3461,8 +3461,8 @@ export const treatmentDetails: TreatmentDetail[] = [
   },
   {
     slug: "cryopen",
-    title: "CryoPen",
-    tagline: "Precision removal of unwanted skin lesions in minutes",
+    title: "CryoPen, Precise Treatment for Benign Skin Lesions",
+    tagline: "CryoPen uses advanced freezing innovation that is fast, effective and safe for removal of benign skin lesions on face and body",
     category: "Skin & Health",
     bookCTAHorizontal: true,
     image: "/images/services/placeholder.png",

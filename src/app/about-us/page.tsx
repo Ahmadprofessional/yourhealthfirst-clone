@@ -183,7 +183,7 @@ export default function AboutMePage() {
           <SafeImage
             src="/images/about-us-page-image-v2.jpg"
             alt="Sofia Bouzian — YourHealthFirst Clinic"
-            className="h-full w-full object-cover"
+            className="h-full w-full object-cover object-[15%_center]"
           />
         </div>
       </section>

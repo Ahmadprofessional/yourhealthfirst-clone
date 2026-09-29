@@ -1676,65 +1676,6 @@ export default async function TreatmentPage({ params }: Props) {
         </section>
       )}
 
-      {/* Comparison table */}
-      {treatment.comparisonTable && (
-        <section className="w-full border-t border-black/8 bg-cream px-5">
-          <div className="mx-auto max-w-[1100px] py-[80px] lg:py-[100px]">
-            {treatment.comparisonTable.image ? (
-              <div className="relative w-full overflow-hidden rounded-[12px] shadow-sm" style={{ aspectRatio: "1727/910" }}>
-                <Image
-                  src={treatment.comparisonTable.image.src}
-                  alt={treatment.comparisonTable.image.alt}
-                  fill
-                  sizes="(min-width: 1100px) 1100px, 100vw"
-                  className="object-contain"
-                />
-              </div>
-            ) : (
-              <>
-                <h2 className="text-center font-subheading text-[26px] font-medium leading-[32px] tracking-[-1px] text-forest uppercase lg:text-[32px] lg:leading-[38px]">
-                  {treatment.comparisonTable.title}
-                </h2>
-                <div className="mt-10 overflow-hidden rounded-[12px] border border-black/8 bg-white">
-                  {/* Header row */}
-                  <div className="grid grid-cols-1 gap-px bg-black/8 sm:grid-cols-[160px_1fr_1fr]">
-                    <div className="hidden bg-forest px-5 py-4 sm:block" />
-                    <div className="bg-forest px-5 py-4">
-                      <p className="font-subheading text-[13px] font-semibold tracking-[1px] text-cream uppercase">
-                        {treatment.comparisonTable.columnLabels[0]}
-                      </p>
-                    </div>
-                    <div className="bg-forest px-5 py-4">
-                      <p className="font-subheading text-[13px] font-semibold tracking-[1px] text-tan uppercase">
-                        {treatment.comparisonTable.columnLabels[1]}
-                      </p>
-                    </div>
-                  </div>
-                  {/* Rows */}
-                  <div className="grid grid-cols-1 gap-px bg-black/8 sm:grid-cols-[160px_1fr_1fr]">
-                    {treatment.comparisonTable.rows.map((row) => (
-                      <Fragment key={row.feature}>
-                        <div className="bg-cream/60 px-5 py-4 sm:flex sm:items-center">
-                          <p className="font-subheading text-[13px] font-semibold tracking-[0.5px] text-forest uppercase">
-                            {row.feature}
-                          </p>
-                        </div>
-                        <div className="bg-white px-5 py-4">
-                          <p className="text-[14px] leading-[22px] text-body-text">{row.a}</p>
-                        </div>
-                        <div className="bg-white px-5 py-4">
-                          <p className="text-[14px] leading-[22px] text-body-text">{row.b}</p>
-                        </div>
-                      </Fragment>
-                    ))}
-                  </div>
-                </div>
-              </>
-            )}
-          </div>
-        </section>
-      )}
-
       {/* Technology / product showcase — large photo with ring, badge, feature icons and CTA */}
       {treatment.technologyShowcase && (
         <section className="relative w-full overflow-hidden bg-[linear-gradient(120deg,#faf4ea_0%,#f0e0c8_100%)] px-5">

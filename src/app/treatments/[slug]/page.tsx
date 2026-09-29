@@ -358,7 +358,18 @@ export default async function TreatmentPage({ params }: Props) {
             </div>
             <h1 className="font-display text-[38px] leading-[42px] font-bold tracking-[-1px] text-cream uppercase lg:text-[58px] lg:leading-[64px]">
               {treatment.title}
-              {treatment.taglineInHeading && treatment.tagline ? ` ${treatment.tagline}` : ""}
+              {treatment.taglineInHeading && treatment.tagline ? (
+                treatment.taglineHeadingAccent && treatment.tagline.endsWith(treatment.taglineHeadingAccent) ? (
+                  <>
+                    {" " + treatment.tagline.slice(0, treatment.tagline.length - treatment.taglineHeadingAccent.length)}
+                    <span className="text-black">{treatment.taglineHeadingAccent}</span>
+                  </>
+                ) : (
+                  ` ${treatment.tagline}`
+                )
+              ) : (
+                ""
+              )}
             </h1>
             {treatment.tagline && !treatment.taglineInHeading && (
               <p className="max-w-[560px] font-serif text-[20px] leading-[30px] text-white/70 italic">

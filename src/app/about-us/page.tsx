@@ -182,7 +182,7 @@ export default function AboutMePage() {
         {/* Right — full-height photo, stretched to match the text column's own height */}
         <div className="relative h-[400px] w-full lg:h-auto lg:min-h-[560px] lg:w-auto lg:flex-1 lg:self-stretch">
           <Image
-            src="/images/about-us-page-image-v2.jpg"
+            src="/images/about-us-page-image-v3.jpg"
             alt="Sofia Bouzian — YourHealthFirst Clinic"
             fill
             sizes="(min-width: 1024px) 48vw, 100vw"

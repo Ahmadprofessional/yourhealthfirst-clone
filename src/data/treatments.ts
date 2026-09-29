@@ -27,6 +27,8 @@ export interface TreatmentDetail {
   slug: string;
   title: string;
   tagline: string;
+  /** Render the tagline as part of the hero heading itself, with no separate italic subtext line below */
+  taglineInHeading?: boolean;
   category: string;
   image: string;
   intro: string;
@@ -1499,7 +1501,8 @@ export const treatmentDetails: TreatmentDetail[] = [
   {
     slug: "prp-face-body",
     title: "PRP & A-PRP-HA Cellular Matrix",
-    tagline: "Skin rejuvenation using your own Platelet Rich Plasma to reverse & delay the signs of ageing",
+    tagline: "Skin Rejuvenation Using your own Platelet Rich Plasma to reverse & delay the signs of ageing",
+    taglineInHeading: true,
     category: "Face & Anti-Aging",
     image: "/images/services/placeholder.png",
     intro:

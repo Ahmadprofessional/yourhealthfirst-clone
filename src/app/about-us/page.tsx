@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -178,12 +179,15 @@ export default function AboutMePage() {
           </div>
         </div>
 
-        {/* Right — full-height photo */}
-        <div className="relative h-[400px] w-full lg:h-auto lg:min-h-[560px] lg:flex-1">
-          <SafeImage
+        {/* Right — full-height photo, stretched to match the text column's own height */}
+        <div className="relative h-[400px] w-full lg:h-auto lg:min-h-[560px] lg:w-auto lg:flex-1 lg:self-stretch">
+          <Image
             src="/images/about-us-page-image-v2.jpg"
             alt="Sofia Bouzian — YourHealthFirst Clinic"
-            className="h-full w-full object-cover"
+            fill
+            sizes="(min-width: 1024px) 48vw, 100vw"
+            className="object-cover"
+            priority
           />
         </div>
       </section>

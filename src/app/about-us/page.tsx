@@ -180,18 +180,10 @@ export default function AboutMePage() {
 
         {/* Right — full-height photo */}
         <div className="relative h-[400px] w-full lg:h-auto lg:min-h-[560px] lg:flex-1">
-          {/* Italic overlay text */}
-          <div className="absolute right-6 top-1/3 z-10 text-right">
-            <p className="font-serif text-[22px] leading-[30px] text-white/80 italic lg:text-[28px] lg:leading-[38px]">
-              Aesthetic<br />Medicine<br />
-              <span className="text-tan">with Purpose</span>
-            </p>
-          </div>
-          <div className="absolute inset-0 bg-gradient-to-r from-forest via-forest/30 to-transparent lg:block" />
           <SafeImage
-            src="/images/About us page image.jpeg"
+            src="/images/about-us-page-image-v2.jpg"
             alt="Sofia Bouzian — YourHealthFirst Clinic"
-            className="h-full w-full object-cover object-[center_10%]"
+            className="h-full w-full object-cover"
           />
         </div>
       </section>

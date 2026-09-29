@@ -231,19 +231,17 @@ export default function SclerotherapyPage() {
       {/* What is Sclerotherapy? */}
       <section className="w-full px-5">
         <div className="mx-auto max-w-[1400px] py-[70px] lg:py-[90px]">
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16 lg:items-center">
-            <div className="relative w-full overflow-hidden rounded-[16px] shadow-lg" style={{ aspectRatio: "4/3" }}>
-              <Image src="/images/treatments/sclerotherapy/intro.jpg" alt="Sclerotherapy injection being administered to a spider vein on the leg" fill className="object-cover" />
-              <div className="pointer-events-none absolute left-[18%] top-[30%] h-[130px] w-[130px] rounded-full border-2 border-white/80 shadow-[0_0_0_3px_rgba(209,174,131,0.5)]" />
+          <div className="grid grid-cols-1 items-stretch gap-6 lg:grid-cols-2 lg:gap-12">
+            <div className="relative w-full overflow-hidden rounded-[16px] shadow-lg lg:order-2 lg:self-center" style={{ aspectRatio: "1660/815" }}>
+              <Image src="/images/treatments/sclerotherapy/microsclerotherapy-banner.jpg" alt="Microsclerotherapy — a treatment option for selected thread veins" fill className="object-cover" />
             </div>
-            <div className="flex flex-col gap-5">
-              <div className="flex items-center gap-3">
-                <span className="font-nav text-[12px] font-semibold tracking-[3px] text-tan uppercase">Overview</span>
-                <span className="h-px w-16 bg-tan/40" />
+            <div className="flex flex-col justify-center gap-5 lg:order-1">
+              <div className="flex flex-col gap-2">
+                <span className="h-[3px] w-12 rounded-full bg-tan" />
+                <h2 className="font-display text-[26px] font-bold leading-[32px] tracking-[-0.5px] text-forest uppercase lg:text-[30px] lg:leading-[36px]">
+                  What Is Sclerotherapy?
+                </h2>
               </div>
-              <h2 className="font-display text-[30px] font-bold leading-[36px] tracking-[-1px] text-forest lg:text-[36px] lg:leading-[42px]">
-                What Is Sclerotherapy?
-              </h2>
               <p className="text-[15px] leading-[25px] text-body-text">
                 Sclerotherapy is one of the most effective treatments for spider veins on the legs — a technique used for the removal of surface and spider veins. It involves injections with a very fine needle of a sclerosing drug which irritates the lining of the veins, causing the walls to stick together. Blood stops flowing through the veins, which are then absorbed by the body over a period of a few weeks, with the blood directed back to the deeper veins.
               </p>

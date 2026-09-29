@@ -54,12 +54,12 @@ const sculptraImages = Array.from({ length: 3 }, (_, i) => ({
   alt: `Sculptra before & after — result ${i + 1}`,
 }));
 
-const sunekosImages = Array.from({ length: 3 }, (_, i) => ({
+const sunekosImages = Array.from({ length: 4 }, (_, i) => ({
   src: `/images/gallery/sunekos/sunekos-${i + 1}.jpeg`,
   alt: `Sunekos tear trough before & after — result ${i + 1}`,
 }));
 
-const profhiloImages = Array.from({ length: 1 }, (_, i) => ({
+const profhiloImages = Array.from({ length: 6 }, (_, i) => ({
   src: `/images/gallery/profhilo/profhilo-${i + 1}.jpeg`,
   alt: `Profhilo lower face & neck before & after — result ${i + 1}`,
 }));

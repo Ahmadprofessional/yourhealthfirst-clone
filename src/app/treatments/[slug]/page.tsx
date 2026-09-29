@@ -375,9 +375,11 @@ export default async function TreatmentPage({ params }: Props) {
             {/* Main text */}
             <div className="flex flex-col gap-8 lg:flex-1">
               {/* Intro */}
-              <p className="text-[18px] leading-[30px] tracking-[-0.3px] text-forest font-medium">
-                {treatment.intro}
-              </p>
+              {!treatment.introInBody && (
+                <p className="text-[18px] leading-[30px] tracking-[-0.3px] text-forest font-medium">
+                  {treatment.intro}
+                </p>
+              )}
 
               {/* Explainer video */}
               {treatment.videoId && (
@@ -401,9 +403,14 @@ export default async function TreatmentPage({ params }: Props) {
               )}
 
               {/* Body paragraphs (image, when present, floats alongside the text) */}
-              {treatment.bodyImages && treatment.bodyImages.length > 0 && treatment.bodyImagesLayout === "float" ? (
+              {!treatment.introRows && (treatment.bodyImages && treatment.bodyImages.length > 0 && treatment.bodyImagesLayout === "float" ? (
                 <div className="flow-root">
-                  <div className="relative float-right mb-4 ml-8 w-[220px] overflow-hidden rounded-[14px] border border-black/8 shadow-md sm:w-[var(--fw,340px)]" style={{ aspectRatio: treatment.bodyImages[0].aspect ?? "883/1214", ...(treatment.bodyImages[0].width ? ({ "--fw": `${treatment.bodyImages[0].width}px` } as React.CSSProperties) : {}) }}>
+                  <div
+                    className={`relative mb-4 w-[220px] overflow-hidden rounded-[14px] border border-black/8 shadow-md sm:w-[var(--fw,340px)] ${
+                      treatment.bodyImages[0].float === "left" ? "float-left mr-8" : "float-right ml-8"
+                    }`}
+                    style={{ aspectRatio: treatment.bodyImages[0].aspect ?? "883/1214", ...(treatment.bodyImages[0].width ? ({ "--fw": `${treatment.bodyImages[0].width}px` } as React.CSSProperties) : {}) }}
+                  >
                     <Image
                       src={treatment.bodyImages[0].src}
                       alt={treatment.bodyImages[0].alt}
@@ -412,6 +419,11 @@ export default async function TreatmentPage({ params }: Props) {
                       style={treatment.bodyImages[0].position ? { objectPosition: treatment.bodyImages[0].position } : undefined}
                     />
                   </div>
+                  {treatment.introInBody && (
+                    <p className="mb-5 text-[18px] leading-[30px] tracking-[-0.3px] text-forest font-medium">
+                      {treatment.intro}
+                    </p>
+                  )}
                   {treatment.body.map((para, j) => (
                     <p key={j} className="mb-5 text-[16px] leading-[27px] tracking-[-0.2px] text-body-text">
                       {para}
@@ -433,33 +445,36 @@ export default async function TreatmentPage({ params }: Props) {
                     </div>
                   )}
                   {treatment.treatmentAreasInline && (
-                    <div className={`mt-2 clear-both ${treatment.treatmentAreasInlineImage ? "lg:grid lg:grid-cols-2 lg:items-start lg:gap-10" : ""}`}>
-                      <div className="flex flex-col gap-8 lg:order-2 lg:self-center">
-                        <div className="flex flex-col gap-4">
+                    <div className={`mt-2 clear-both ${treatment.treatmentAreasInlineImage ? "lg:grid lg:grid-cols-[1.6fr_1fr] lg:items-start lg:gap-10" : ""}`}>
+                      <div className="flex flex-col gap-4 lg:order-2 lg:self-center">
+                        <div className="flex flex-col gap-4 rounded-[14px] border border-tan/25 bg-cream/40 p-6">
                           <h2 className="font-subheading text-[20px] font-semibold leading-[26px] tracking-[-0.8px] text-forest uppercase">
                             What Areas Can Be Treated?
                           </h2>
-                          <ul className="grid grid-cols-1 gap-x-10 gap-y-3 sm:grid-cols-2">
+                          <div className="flex flex-wrap gap-3">
                             {treatment.treatmentAreas!.map((area) => (
-                              <li key={area} className="flex items-start gap-3">
-                                <span className="mt-[8px] h-[6px] w-[6px] shrink-0 rounded-full bg-tan" />
-                                <span className="text-[16px] leading-[26px] tracking-[-0.2px] text-body-text">{area}</span>
-                              </li>
+                              <span
+                                key={area}
+                                className="inline-flex items-center gap-2 rounded-full border border-tan/40 bg-white px-4 py-2 text-[14px] leading-[18px] text-body-text whitespace-nowrap"
+                              >
+                                <span className="h-[6px] w-[6px] shrink-0 rounded-full bg-tan" />
+                                {area}
+                              </span>
                             ))}
-                          </ul>
+                          </div>
                         </div>
-                        <div className="flex flex-col gap-4">
+                        <div className="flex flex-col gap-4 rounded-[14px] border border-tan/50 bg-tan/20 p-6">
                           <h2 className="font-subheading text-[20px] font-semibold leading-[26px] tracking-[-0.8px] text-forest uppercase">
                             Who Is It For?
                           </h2>
-                          <ul className="grid grid-cols-1 gap-x-10 gap-y-3 sm:grid-cols-2">
+                          <div className="flex flex-col gap-4">
                             {treatment.suitableFor.map((item) => (
-                              <li key={item} className="flex items-start gap-3">
-                                <span className="mt-[8px] h-[6px] w-[6px] shrink-0 rounded-full bg-tan" />
+                              <div key={item} className="flex items-start gap-3">
+                                <span className="mt-[8px] h-[6px] w-[6px] shrink-0 rounded-full bg-forest" />
                                 <span className="text-[16px] leading-[26px] tracking-[-0.2px] text-body-text">{item}</span>
-                              </li>
+                              </div>
                             ))}
-                          </ul>
+                          </div>
                         </div>
                       </div>
                       {treatment.treatmentAreasInlineImage && (
@@ -468,7 +483,7 @@ export default async function TreatmentPage({ params }: Props) {
                             src={treatment.treatmentAreasInlineImage.src}
                             alt={treatment.treatmentAreasInlineImage.alt}
                             fill
-                            sizes="(min-width: 1024px) 50vw, 100vw"
+                            sizes="(min-width: 1024px) 65vw, 100vw"
                             className="object-cover"
                           />
                         </div>
@@ -489,21 +504,38 @@ export default async function TreatmentPage({ params }: Props) {
                         </p>
                       </div>
 
-                      <div className="flex flex-col gap-4">
-                        <h3 className="font-subheading text-[19px] font-semibold leading-[25px] tracking-[-0.6px] text-forest uppercase">
-                          {treatment.extendedGuide.bestForHeading}
-                        </h3>
-                        <p className="text-[15px] leading-[24px] text-body-text">{treatment.extendedGuide.bestForIntro}</p>
-                        <ul className="flex flex-col gap-4">
-                          {treatment.extendedGuide.bestForItems.map((item) => (
-                            <li key={item.title} className="flex items-start gap-3">
-                              <span className="mt-[8px] h-[6px] w-[6px] shrink-0 rounded-full bg-tan" />
-                              <span className="text-[16px] leading-[26px] tracking-[-0.2px] text-body-text">
-                                <strong className="font-semibold text-forest">{item.title}:</strong> {item.description}
-                              </span>
-                            </li>
-                          ))}
-                        </ul>
+                      <div
+                        className={`flex flex-col gap-4 ${
+                          treatment.extendedGuide.bestForImage ? "lg:grid lg:grid-cols-[1.3fr_1fr] lg:items-stretch lg:gap-10" : ""
+                        }`}
+                      >
+                        <div className="flex flex-col gap-4">
+                          <h3 className="font-subheading text-[19px] font-semibold leading-[25px] tracking-[-0.6px] text-forest uppercase">
+                            {treatment.extendedGuide.bestForHeading}
+                          </h3>
+                          <p className="text-[15px] leading-[24px] text-body-text">{treatment.extendedGuide.bestForIntro}</p>
+                          <ul className="flex flex-col gap-4">
+                            {treatment.extendedGuide.bestForItems.map((item) => (
+                              <li key={item.title} className="flex items-start gap-3">
+                                <span className="mt-[8px] h-[6px] w-[6px] shrink-0 rounded-full bg-tan" />
+                                <span className="text-[16px] leading-[26px] tracking-[-0.2px] text-body-text">
+                                  <strong className="font-semibold text-forest">{item.title}:</strong> {item.description}
+                                </span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                        {treatment.extendedGuide.bestForImage && (
+                          <div className="relative mt-2 min-h-[280px] w-full overflow-hidden rounded-[14px] border border-black/8 shadow-md lg:mt-0 lg:h-full">
+                            <Image
+                              src={treatment.extendedGuide.bestForImage.src}
+                              alt={treatment.extendedGuide.bestForImage.alt}
+                              fill
+                              sizes="(min-width: 1024px) 45vw, 100vw"
+                              className="object-cover"
+                            />
+                          </div>
+                        )}
                       </div>
 
                       <div className="flex flex-col gap-4">
@@ -702,18 +734,171 @@ export default async function TreatmentPage({ params }: Props) {
                 </div>
               ) : (
                 <div className="flow-root">
+                  {treatment.introImageLeft && (
+                    <div
+                      className={`relative float-left mr-6 mb-4 overflow-hidden rounded-[12px] border border-black/8 ${
+                        treatment.introImage ? "mt-16 sm:mt-24" : ""
+                      } ${
+                        treatment.introImageSize
+                          ? "h-[220px] w-[160px] sm:h-[var(--ih)] sm:w-[var(--iw)]"
+                          : "h-[260px] w-[190px] bg-cream sm:h-[300px] sm:w-[220px]"
+                      }`}
+                      style={
+                        treatment.introImageSize
+                          ? ({
+                              "--iw": `${treatment.introImageSize.width}px`,
+                              "--ih": `${treatment.introImageSize.height}px`,
+                            } as React.CSSProperties)
+                          : undefined
+                      }
+                    >
+                      <Image
+                        src={treatment.introImageLeft.src}
+                        alt={treatment.introImageLeft.alt}
+                        fill
+                        className={treatment.introImageSize ? "object-cover" : "object-contain p-4"}
+                      />
+                    </div>
+                  )}
                   {treatment.introImage && (
-                    <div className="relative float-right ml-6 mb-4 h-[260px] w-[190px] overflow-hidden rounded-[12px] border border-black/8 bg-cream sm:h-[300px] sm:w-[220px]">
-                      <Image src={treatment.introImage.src} alt={treatment.introImage.alt} fill className="object-contain p-4" />
+                    <div
+                      className={`relative float-right ml-6 mb-4 overflow-hidden rounded-[12px] border border-black/8 ${
+                        treatment.introImageSize
+                          ? "h-[220px] w-[160px] sm:h-[var(--ih)] sm:w-[var(--iw)]"
+                          : "h-[260px] w-[190px] bg-cream sm:h-[300px] sm:w-[220px]"
+                      }`}
+                      style={
+                        treatment.introImageSize
+                          ? ({
+                              "--iw": `${treatment.introImageSize.width}px`,
+                              "--ih": `${treatment.introImageSize.height}px`,
+                            } as React.CSSProperties)
+                          : undefined
+                      }
+                    >
+                      <Image
+                        src={treatment.introImage.src}
+                        alt={treatment.introImage.alt}
+                        fill
+                        className={treatment.introImageSize ? "object-cover" : "object-contain p-4"}
+                      />
                     </div>
                   )}
                   <div className="flex flex-col gap-5">
+                    {treatment.introInBody && (
+                      <p className="text-[18px] leading-[30px] tracking-[-0.3px] text-forest font-medium">
+                        {treatment.intro}
+                      </p>
+                    )}
                     {treatment.body.map((para, i) => (
                       <p key={i} className="text-[16px] leading-[27px] tracking-[-0.2px] text-body-text">
                         {para}
                       </p>
                     ))}
                   </div>
+                </div>
+              ))}
+
+              {treatment.introRows && treatment.introRows.length > 0 && treatment.introRowsShowLegacyBody && (
+                <div className="flex flex-col gap-5">
+                  {treatment.body.map((para, i) => (
+                    <p key={i} className="text-[16px] leading-[27px] tracking-[-0.2px] text-body-text">
+                      {para}
+                    </p>
+                  ))}
+                </div>
+              )}
+
+              {treatment.introRows && treatment.introRows.length > 0 && (
+                <div className="flex flex-col gap-12">
+                  {treatment.introRows.map((row, i) => {
+                    const content = (
+                      <>
+                        {row.heading &&
+                          (i === 0 ? (
+                            <div className="flex flex-col gap-2">
+                              <span className="h-[3px] w-12 rounded-full bg-tan" />
+                              <h2 className="font-display text-[26px] font-bold leading-[32px] tracking-[-0.5px] text-forest uppercase lg:text-[30px] lg:leading-[36px]">
+                                {row.heading}
+                              </h2>
+                            </div>
+                          ) : (
+                            <h3 className="font-subheading text-[19px] font-semibold leading-[25px] tracking-[-0.6px] text-forest uppercase">
+                              {row.heading}
+                            </h3>
+                          ))}
+                        {row.subheading && (
+                          <p className="text-[15px] leading-[24px] text-body-text/80 italic">{row.subheading}</p>
+                        )}
+                        {(row.body ?? row.text)?.map((para, j) => (
+                          <p key={j} className="text-[16px] leading-[27px] tracking-[-0.2px] text-body-text">
+                            {para}
+                          </p>
+                        ))}
+                        {row.items && (
+                          <ul className="flex flex-col gap-3">
+                            {row.items.map((item, j) => (
+                              <li key={j} className="flex items-start gap-3">
+                                <span className="mt-[8px] h-[6px] w-[6px] shrink-0 rounded-full bg-tan" />
+                                <span className="text-[16px] leading-[26px] tracking-[-0.2px] text-body-text">
+                                  {typeof item === "string" ? (
+                                    item
+                                  ) : (
+                                    <>
+                                      <strong className="font-semibold text-forest">{item.title}:</strong> {item.description}
+                                    </>
+                                  )}
+                                </span>
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                        {row.outro &&
+                          (Array.isArray(row.outro) ? row.outro : [row.outro]).map((para, j) => (
+                            <p key={j} className="text-[16px] leading-[27px] tracking-[-0.2px] text-body-text">
+                              {para}
+                            </p>
+                          ))}
+                      </>
+                    );
+
+                    if (!row.image) {
+                      return (
+                        <div key={i} className="flex flex-col gap-4">
+                          {content}
+                        </div>
+                      );
+                    }
+
+                    return (
+                      <div key={i} className="grid grid-cols-1 items-stretch gap-6 lg:grid-cols-2 lg:gap-12">
+                        <div
+                          className={`relative w-full overflow-hidden rounded-[14px] border border-black/8 shadow-md ${
+                            row.imageMaxWidth
+                              ? "mx-auto aspect-[16/11] lg:aspect-auto lg:h-full lg:min-h-[300px]"
+                              : row.imageAspect
+                                ? "lg:self-center"
+                                : "aspect-[16/11] lg:aspect-auto lg:h-full lg:min-h-[300px]"
+                          } ${row.imageSide === "left" ? "lg:order-1" : "lg:order-2"}`}
+                          style={{
+                            aspectRatio: !row.imageMaxWidth && row.imageAspect ? row.imageAspect : undefined,
+                            maxWidth: row.imageMaxWidth ? `${row.imageMaxWidth}px` : undefined,
+                          }}
+                        >
+                          <Image
+                            src={row.image.src}
+                            alt={row.image.alt}
+                            fill
+                            sizes="(min-width: 1024px) 50vw, 100vw"
+                            className="object-cover"
+                          />
+                        </div>
+                        <div className={`flex flex-col justify-center gap-4 ${row.imageSide === "left" ? "lg:order-2" : "lg:order-1"}`}>
+                          {content}
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
               )}
 
@@ -768,28 +953,30 @@ export default async function TreatmentPage({ params }: Props) {
               </div>
 
               {/* Book CTA */}
-              <div className="rounded-[12px] bg-[linear-gradient(135deg,#7a6248_0%,#b49b7d_50%,#7a6248_100%)] p-6">
-                <h3 className="font-subheading text-[15px] font-semibold tracking-[1px] text-cream uppercase">
-                  Book a Consultation
-                </h3>
-                <p className="mt-2 text-[14px] leading-[22px] text-white/60">
-                  Begin with a personal consultation with Sofia to discuss your goals and confirm suitability.
-                </p>
-                <div className="mt-5 flex flex-col gap-3">
-                  <a
-                    href="tel:02072253582"
-                    className="flex h-12 items-center justify-center rounded-[8px] bg-tan font-nav text-[14px] font-semibold tracking-[-0.3px] text-forest transition-opacity hover:opacity-90"
-                  >
-                    Call 0207 225 3582
-                  </a>
-                  <a
-                    href="/contact-us"
-                    className="flex h-12 items-center justify-center rounded-[8px] border border-white/20 font-nav text-[14px] font-semibold tracking-[-0.3px] text-tan transition-colors hover:border-tan/60"
-                  >
-                    Send an Enquiry
-                  </a>
+              {!treatment.bookCTAHorizontal && (
+                <div className="rounded-[12px] bg-[linear-gradient(135deg,#7a6248_0%,#b49b7d_50%,#7a6248_100%)] p-6">
+                  <h3 className="font-subheading text-[15px] font-semibold tracking-[1px] text-cream uppercase">
+                    Book a Consultation
+                  </h3>
+                  <p className="mt-2 text-[14px] leading-[22px] text-white/60">
+                    Begin with a personal consultation with Sofia to discuss your goals and confirm suitability.
+                  </p>
+                  <div className="mt-5 flex flex-col gap-3">
+                    <a
+                      href="tel:02072253582"
+                      className="flex h-12 items-center justify-center rounded-[8px] bg-tan font-nav text-[14px] font-semibold tracking-[-0.3px] text-forest transition-opacity hover:opacity-90"
+                    >
+                      Call 0207 225 3582
+                    </a>
+                    <a
+                      href="/contact-us"
+                      className="flex h-12 items-center justify-center rounded-[8px] border border-white/20 font-nav text-[14px] font-semibold tracking-[-0.3px] text-tan transition-colors hover:border-tan/60"
+                    >
+                      Send an Enquiry
+                    </a>
+                  </div>
                 </div>
-              </div>
+              )}
 
               {/* Sidebar image */}
               {treatment.sidebarImage && (
@@ -853,6 +1040,42 @@ export default async function TreatmentPage({ params }: Props) {
         </section>
       )}
 
+      {/* Book a Consultation — horizontal banner (replaces the sidebar CTA on this page) */}
+      {treatment.bookCTAHorizontal && (
+        <section className="w-full px-5">
+          <div className="mx-auto max-w-[1400px] pb-[70px] lg:pb-[90px]">
+            <div className="relative overflow-hidden rounded-[20px] bg-[linear-gradient(135deg,#7a6248_0%,#b49b7d_50%,#7a6248_100%)] p-8 shadow-lg lg:p-12">
+              <div className="pointer-events-none absolute -right-16 -top-16 h-[260px] w-[260px] rounded-full bg-white/10 blur-[60px]" />
+              <div className="relative flex flex-col items-start gap-6 lg:flex-row lg:items-center lg:justify-between">
+                <div className="flex flex-col gap-2">
+                  <span className="h-[3px] w-12 rounded-full bg-cream" />
+                  <h2 className="font-subheading text-[24px] font-semibold tracking-[2px] text-cream uppercase lg:text-[28px]">
+                    Book a Consultation
+                  </h2>
+                  <p className="max-w-[480px] text-[15px] leading-[24px] text-white/70">
+                    Begin with a personal consultation with Sofia to discuss your goals and confirm suitability.
+                  </p>
+                </div>
+                <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
+                  <a
+                    href="tel:02072253582"
+                    className="flex h-12 items-center justify-center rounded-[8px] bg-tan px-6 font-nav text-[14px] font-semibold tracking-[-0.3px] text-forest transition-opacity hover:opacity-90"
+                  >
+                    Call 0207 225 3582
+                  </a>
+                  <a
+                    href="/contact-us"
+                    className="flex h-12 items-center justify-center rounded-[8px] border border-white/20 px-6 font-nav text-[14px] font-semibold tracking-[-0.3px] text-tan transition-colors hover:border-tan/60"
+                  >
+                    Send an Enquiry
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Key benefits banner — mid-page gold box */}
       {treatment.benefits.length > 0 && !treatment.benefitsInline && (
         <section className="w-full px-5">
@@ -877,6 +1100,8 @@ export default async function TreatmentPage({ params }: Props) {
           </div>
         </section>
       )}
+
+      {treatment.processDiagramsAfterBenefits && processDiagramsSection}
 
       {/* Related links — supporting technology / explainer pages */}
       {treatment.relatedLinks && treatment.relatedLinks.length > 0 && (
@@ -1182,7 +1407,10 @@ export default async function TreatmentPage({ params }: Props) {
 
               <div className="flex flex-col gap-4">
                 {treatment.contraindications.image && (
-                  <div className="relative w-full overflow-hidden rounded-[16px] border border-tan/20 shadow-sm" style={{ aspectRatio: "16/9" }}>
+                  <div
+                    className="relative w-full overflow-hidden rounded-[16px] border border-tan/20 shadow-sm"
+                    style={{ aspectRatio: treatment.contraindications.imageAspect ?? "16/9" }}
+                  >
                     <Image
                       src={treatment.contraindications.image.src}
                       alt={treatment.contraindications.image.alt}
@@ -1237,7 +1465,7 @@ export default async function TreatmentPage({ params }: Props) {
         </section>
       )}
 
-      {treatment.processDiagramsFirst && processDiagramsSection}
+      {treatment.processDiagramsFirst && !treatment.processDiagramsAfterBenefits && processDiagramsSection}
 
       {/* Care instructions — prominent before/aftercare */}
       {treatment.careInstructions && (
@@ -1400,36 +1628,109 @@ export default async function TreatmentPage({ params }: Props) {
       )}
 
       {/* Process diagrams (standalone, independent of How It Works) */}
-      {!treatment.processDiagramsFirst && processDiagramsSection}
+      {!treatment.processDiagramsFirst && !treatment.processDiagramsAfterBenefits && processDiagramsSection}
 
       {/* Advantages */}
       {treatment.advantages && (
         <section className="w-full bg-cream px-5">
           <div className="mx-auto max-w-[1400px] py-[80px] lg:py-[100px]">
-            <h2 className="text-center font-subheading text-[26px] font-medium leading-[32px] tracking-[-1px] text-forest uppercase lg:text-[32px] lg:leading-[38px]">
-              {treatment.advantages.title}
-            </h2>
-            {treatment.advantages.intro && (
-              <p className="mx-auto mt-3 max-w-[720px] text-center text-[15px] leading-[24px] text-body-text">
-                {treatment.advantages.intro}
-              </p>
-            )}
-            <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {treatment.advantages.items.map((item) => (
-                <div
-                  key={item.title}
-                  className="flex flex-col gap-3 rounded-[12px] bg-white p-6 shadow-sm"
-                >
-                  <div className="flex items-center gap-3">
-                    <span className="h-[6px] w-[6px] shrink-0 rounded-full bg-tan" />
-                    <h3 className="font-subheading text-[14px] font-semibold tracking-[1.5px] text-forest uppercase">
-                      {item.title}
-                    </h3>
-                  </div>
-                  <p className="text-[14px] leading-[22px] text-body-text">{item.description}</p>
+            {treatment.advantages.image ? (
+              <div className="relative mx-auto w-full max-w-[1100px] overflow-hidden rounded-[12px] shadow-sm" style={{ aspectRatio: "1774/887" }}>
+                <Image
+                  src={treatment.advantages.image.src}
+                  alt={treatment.advantages.image.alt}
+                  fill
+                  sizes="(min-width: 1100px) 1100px, 100vw"
+                  className="object-contain"
+                />
+              </div>
+            ) : (
+              <>
+                <h2 className="text-center font-subheading text-[26px] font-medium leading-[32px] tracking-[-1px] text-forest uppercase lg:text-[32px] lg:leading-[38px]">
+                  {treatment.advantages.title}
+                </h2>
+                {treatment.advantages.intro && (
+                  <p className="mx-auto mt-3 max-w-[720px] text-center text-[15px] leading-[24px] text-body-text">
+                    {treatment.advantages.intro}
+                  </p>
+                )}
+                <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                  {treatment.advantages.items.map((item) => (
+                    <div
+                      key={item.title}
+                      className="flex flex-col gap-3 rounded-[12px] bg-white p-6 shadow-sm"
+                    >
+                      <div className="flex items-center gap-3">
+                        <span className="h-[6px] w-[6px] shrink-0 rounded-full bg-tan" />
+                        <h3 className="font-subheading text-[14px] font-semibold tracking-[1.5px] text-forest uppercase">
+                          {item.title}
+                        </h3>
+                      </div>
+                      <p className="text-[14px] leading-[22px] text-body-text">{item.description}</p>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
+              </>
+            )}
+          </div>
+        </section>
+      )}
+
+      {/* Comparison table */}
+      {treatment.comparisonTable && (
+        <section className="w-full border-t border-black/8 bg-cream px-5">
+          <div className="mx-auto max-w-[1100px] py-[80px] lg:py-[100px]">
+            {treatment.comparisonTable.image ? (
+              <div className="relative w-full overflow-hidden rounded-[12px] shadow-sm" style={{ aspectRatio: "1727/910" }}>
+                <Image
+                  src={treatment.comparisonTable.image.src}
+                  alt={treatment.comparisonTable.image.alt}
+                  fill
+                  sizes="(min-width: 1100px) 1100px, 100vw"
+                  className="object-contain"
+                />
+              </div>
+            ) : (
+              <>
+                <h2 className="text-center font-subheading text-[26px] font-medium leading-[32px] tracking-[-1px] text-forest uppercase lg:text-[32px] lg:leading-[38px]">
+                  {treatment.comparisonTable.title}
+                </h2>
+                <div className="mt-10 overflow-hidden rounded-[12px] border border-black/8 bg-white">
+                  {/* Header row */}
+                  <div className="grid grid-cols-1 gap-px bg-black/8 sm:grid-cols-[160px_1fr_1fr]">
+                    <div className="hidden bg-forest px-5 py-4 sm:block" />
+                    <div className="bg-forest px-5 py-4">
+                      <p className="font-subheading text-[13px] font-semibold tracking-[1px] text-cream uppercase">
+                        {treatment.comparisonTable.columnLabels[0]}
+                      </p>
+                    </div>
+                    <div className="bg-forest px-5 py-4">
+                      <p className="font-subheading text-[13px] font-semibold tracking-[1px] text-tan uppercase">
+                        {treatment.comparisonTable.columnLabels[1]}
+                      </p>
+                    </div>
+                  </div>
+                  {/* Rows */}
+                  <div className="grid grid-cols-1 gap-px bg-black/8 sm:grid-cols-[160px_1fr_1fr]">
+                    {treatment.comparisonTable.rows.map((row) => (
+                      <Fragment key={row.feature}>
+                        <div className="bg-cream/60 px-5 py-4 sm:flex sm:items-center">
+                          <p className="font-subheading text-[13px] font-semibold tracking-[0.5px] text-forest uppercase">
+                            {row.feature}
+                          </p>
+                        </div>
+                        <div className="bg-white px-5 py-4">
+                          <p className="text-[14px] leading-[22px] text-body-text">{row.a}</p>
+                        </div>
+                        <div className="bg-white px-5 py-4">
+                          <p className="text-[14px] leading-[22px] text-body-text">{row.b}</p>
+                        </div>
+                      </Fragment>
+                    ))}
+                  </div>
+                </div>
+              </>
+            )}
           </div>
         </section>
       )}
@@ -1515,42 +1816,62 @@ export default async function TreatmentPage({ params }: Props) {
           <div className="pointer-events-none absolute -right-[6%] -top-[20%] h-[420px] w-[420px] rounded-full bg-tan/15 blur-[110px]" />
           <div className="pointer-events-none absolute -left-[8%] bottom-[-20%] h-[420px] w-[420px] rounded-full bg-white/40 blur-[110px]" />
           <div className="relative mx-auto max-w-[1400px] py-[70px] lg:py-[90px]">
-            <div className="mx-auto flex max-w-[720px] flex-col items-center gap-4 text-center">
-              <div className="flex items-center gap-3">
-                <span className="h-px w-[30px] bg-tan/40" />
-                <span className="font-nav text-[11px] font-semibold tracking-[2px] text-tan uppercase">
-                  {treatment.premiumFeatures.eyebrow}
-                </span>
-                <span className="h-px w-[30px] bg-tan/40" />
+            {treatment.premiumFeatures.image ? (
+              <div
+                className="relative mx-auto w-full overflow-hidden rounded-[12px] shadow-sm"
+                style={{
+                  aspectRatio: treatment.premiumFeatures.imageAspect ?? "1969/799",
+                  maxWidth: treatment.premiumFeatures.imageMaxWidth ?? 1100,
+                }}
+              >
+                <Image
+                  src={treatment.premiumFeatures.image.src}
+                  alt={treatment.premiumFeatures.image.alt}
+                  fill
+                  sizes="(min-width: 1100px) 1100px, 100vw"
+                  className="object-contain"
+                />
               </div>
-              <h2 className="font-display text-[30px] font-bold leading-[36px] tracking-[-1px] text-forest lg:text-[36px] lg:leading-[42px]">
-                {treatment.premiumFeatures.main} <span className="text-tan">{treatment.premiumFeatures.accent}</span>
-              </h2>
-              {treatment.premiumFeatures.subtitle && (
-                <p className="text-[15px] leading-[24px] text-body-text">{treatment.premiumFeatures.subtitle}</p>
-              )}
-            </div>
-
-            <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              {treatment.premiumFeatures.items.map((item, i) => {
-                const color = iconPaletteColor(i);
-                return (
-                  <div
-                    key={item.title}
-                    className="flex flex-col gap-4 rounded-[20px] border border-tan/25 bg-white/70 p-7 shadow-sm backdrop-blur-sm"
-                  >
-                    <span className={`relative flex h-14 w-14 shrink-0 items-center justify-center rounded-full ${color.bg} ${color.text}`}>
-                      <svg className="pointer-events-none absolute -inset-2" viewBox="0 0 72 72" fill="none">
-                        <path d="M6 40A30 30 0 0 1 40 6" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" className="opacity-30" />
-                      </svg>
-                      <AreaIcon name={item.icon} className="h-6 w-6" />
+            ) : (
+              <>
+                <div className="mx-auto flex max-w-[720px] flex-col items-center gap-4 text-center">
+                  <div className="flex items-center gap-3">
+                    <span className="h-px w-[30px] bg-tan/40" />
+                    <span className="font-nav text-[11px] font-semibold tracking-[2px] text-tan uppercase">
+                      {treatment.premiumFeatures.eyebrow}
                     </span>
-                    <h3 className="font-subheading text-[16px] font-semibold leading-[22px] text-forest">{item.title}</h3>
-                    <p className="text-[14px] leading-[22px] text-body-text">{item.description}</p>
+                    <span className="h-px w-[30px] bg-tan/40" />
                   </div>
-                );
-              })}
-            </div>
+                  <h2 className="font-display text-[30px] font-bold leading-[36px] tracking-[-1px] text-forest lg:text-[36px] lg:leading-[42px]">
+                    {treatment.premiumFeatures.main} <span className="text-tan">{treatment.premiumFeatures.accent}</span>
+                  </h2>
+                  {treatment.premiumFeatures.subtitle && (
+                    <p className="text-[15px] leading-[24px] text-body-text">{treatment.premiumFeatures.subtitle}</p>
+                  )}
+                </div>
+
+                <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                  {treatment.premiumFeatures.items.map((item, i) => {
+                    const color = iconPaletteColor(i);
+                    return (
+                      <div
+                        key={item.title}
+                        className="flex flex-col gap-4 rounded-[20px] border border-tan/25 bg-white/70 p-7 shadow-sm backdrop-blur-sm"
+                      >
+                        <span className={`relative flex h-14 w-14 shrink-0 items-center justify-center rounded-full ${color.bg} ${color.text}`}>
+                          <svg className="pointer-events-none absolute -inset-2" viewBox="0 0 72 72" fill="none">
+                            <path d="M6 40A30 30 0 0 1 40 6" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" className="opacity-30" />
+                          </svg>
+                          <AreaIcon name={item.icon} className="h-6 w-6" />
+                        </span>
+                        <h3 className="font-subheading text-[16px] font-semibold leading-[22px] text-forest">{item.title}</h3>
+                        <p className="text-[14px] leading-[22px] text-body-text">{item.description}</p>
+                      </div>
+                    );
+                  })}
+                </div>
+              </>
+            )}
           </div>
         </section>
       )}
@@ -1639,50 +1960,6 @@ export default async function TreatmentPage({ params }: Props) {
         </section>
       )}
 
-      {/* Comparison table */}
-      {treatment.comparisonTable && (
-        <section className="w-full border-t border-black/8 bg-cream px-5">
-          <div className="mx-auto max-w-[1100px] py-[80px] lg:py-[100px]">
-            <h2 className="text-center font-subheading text-[26px] font-medium leading-[32px] tracking-[-1px] text-forest uppercase lg:text-[32px] lg:leading-[38px]">
-              {treatment.comparisonTable.title}
-            </h2>
-            <div className="mt-10 overflow-hidden rounded-[12px] border border-black/8 bg-white">
-              {/* Header row */}
-              <div className="grid grid-cols-1 gap-px bg-black/8 sm:grid-cols-[160px_1fr_1fr]">
-                <div className="hidden bg-forest px-5 py-4 sm:block" />
-                <div className="bg-forest px-5 py-4">
-                  <p className="font-subheading text-[13px] font-semibold tracking-[1px] text-cream uppercase">
-                    {treatment.comparisonTable.columnLabels[0]}
-                  </p>
-                </div>
-                <div className="bg-forest px-5 py-4">
-                  <p className="font-subheading text-[13px] font-semibold tracking-[1px] text-tan uppercase">
-                    {treatment.comparisonTable.columnLabels[1]}
-                  </p>
-                </div>
-              </div>
-              {/* Rows */}
-              <div className="grid grid-cols-1 gap-px bg-black/8 sm:grid-cols-[160px_1fr_1fr]">
-                {treatment.comparisonTable.rows.map((row) => (
-                  <Fragment key={row.feature}>
-                    <div className="bg-cream/60 px-5 py-4 sm:flex sm:items-center">
-                      <p className="font-subheading text-[13px] font-semibold tracking-[0.5px] text-forest uppercase">
-                        {row.feature}
-                      </p>
-                    </div>
-                    <div className="bg-white px-5 py-4">
-                      <p className="text-[14px] leading-[22px] text-body-text">{row.a}</p>
-                    </div>
-                    <div className="bg-white px-5 py-4">
-                      <p className="text-[14px] leading-[22px] text-body-text">{row.b}</p>
-                    </div>
-                  </Fragment>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
 
       {/* Price list */}
       {treatment.priceList && treatment.priceList.length > 0 && (

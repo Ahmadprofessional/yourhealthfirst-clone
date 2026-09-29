@@ -32,16 +32,43 @@ export interface TreatmentDetail {
   intro: string;
   /** Supporting photo shown alongside the body copy in the main content column */
   introImage?: { src: string; alt: string };
+  /** Override the default introImage box size (px) */
+  introImageSize?: { width: number; height: number };
+  /** Second intro image, floated left (introImage floats right) so body text flows between the two */
+  introImageLeft?: { src: string; alt: string };
+  /** Show the legacy `body` paragraphs above introRows (kept for treatments that restored their original copy) */
+  introRowsShowLegacyBody?: boolean;
+  /** Stacked image+text rows, alternating image side, replacing the default float image layout */
+  introRows?: {
+    /** Optional — a row with no image yet renders as a full-width text block (add the image later once supplied) */
+    image?: { src: string; alt: string };
+    imageSide?: "left" | "right";
+    /** Plain paragraphs (use this OR heading/body/items below for a fuller headed block) */
+    text?: string[];
+    heading?: string;
+    subheading?: string;
+    body?: string[];
+    items?: (string | { title: string; description: string })[];
+    outro?: string | string[];
+    /** Lock the image box to this CSS aspect-ratio (e.g. "1/1") instead of stretching to match the text height — use when the image's own ratio must be preserved edge-to-edge (no crop, no letterboxing) */
+    imageAspect?: string;
+    /** Cap the image box width (px) and centre it in its column — use with imageAspect for a tall/narrow photo that would otherwise stretch too large */
+    imageMaxWidth?: number;
+  }[];
   /** Photos woven into the main body copy — paragraphs are split into rows, alternating image left/right */
   /** Image shown in the sidebar under the booking box; click opens full size */
   sidebarImage?: { src: string; alt: string };
   /** "stacked" puts all body images in one column beside the full text so nothing leaves empty space */
   /** With the stacked body layout: show Suitable For + Key Benefits as boxes beside the floated photo instead of the mid-page banner */
   benefitsInline?: boolean;
+  /** Move the "Book a Consultation" CTA out of the narrow sidebar and render it as a full-width horizontal gold banner instead (after Key Benefits) */
+  bookCTAHorizontal?: boolean;
   /** With the float layout: photo on the left and Suitable For card on its right (photo shown uncropped) */
   suitableImage?: { src: string; alt: string; width: number; height: number };
   bodyImagesLayout?: "rows" | "stacked" | "float";
   bodyImages?: { src: string; alt: string; position?: string; row?: number; float?: "left"; aspect?: string; width?: number }[];
+  /** With the float layout: wrap the intro paragraph around the floated image too, instead of showing it full-width above */
+  introInBody?: boolean;
   body: string[];
   benefits: string[];
   suitableFor: string[];
@@ -66,6 +93,8 @@ export interface TreatmentDetail {
     bestForHeading: string;
     bestForIntro: string;
     bestForItems: { title: string; description: string }[];
+    /** Optional image shown alongside the "Who Is X Best For?" list */
+    bestForImage?: { src: string; alt: string };
     notRightHeading: string;
     notRightIntro: string;
     notRightItems: { title: string; description: string }[];
@@ -121,6 +150,8 @@ export interface TreatmentDetail {
   processDiagramsEqualSize?: boolean;
   /** Render the process diagrams before the care instructions section */
   processDiagramsFirst?: boolean;
+  /** Render process diagrams after the Key Benefits (premiumFeatures) section instead of their default position */
+  processDiagramsAfterBenefits?: boolean;
   processDiagrams?: {
     src: string;
     alt: string;
@@ -145,6 +176,8 @@ export interface TreatmentDetail {
       title: string;
       description: string;
     }[];
+    /** Show this image instead of the card grid (e.g. a pre-designed branded graphic) */
+    image?: { src: string; alt: string };
   };
   /** Feature-by-feature comparison table between two methods/options */
   comparisonTable?: {
@@ -155,6 +188,8 @@ export interface TreatmentDetail {
       a: string;
       b: string;
     }[];
+    /** Show this image instead of the HTML table (e.g. a pre-designed branded graphic) */
+    image?: { src: string; alt: string };
   };
   /** Alternating image/text split sections (image on one side, heading + body on the other) */
   imageTextSections?: {
@@ -180,6 +215,8 @@ export interface TreatmentDetail {
     items: string[];
     /** Optional supporting photo — fills the layout when there are only 1-2 items */
     image?: { src: string; alt: string };
+    /** Override the default 16:9 image box to match the photo's own ratio (avoids cropping) */
+    imageAspect?: string;
   };
   /** Premium card grid explaining sizing/dosage tiers (e.g. small/medium/large treatment areas) */
   areaSizeGuide?: {
@@ -205,6 +242,12 @@ export interface TreatmentDetail {
     accent: string;
     subtitle?: string;
     items: { icon: string; title: string; description: string }[];
+    /** Show this image instead of the icon-card grid (e.g. a pre-designed branded graphic) */
+    image?: { src: string; alt: string };
+    /** CSS aspect-ratio matching the image's own dimensions (e.g. "1526/1031") — avoids letterboxing/cropping */
+    imageAspect?: string;
+    /** Override the default 1100px max width for the image */
+    imageMaxWidth?: number;
   };
 }
 
@@ -744,12 +787,13 @@ export const treatmentDetails: TreatmentDetail[] = [
     gallery: {
       folder: "/images/gallery/profhilo",
       prefix: "profhilo",
-      count: 1,
+      count: 6,
       ext: "jpeg",
       aspect: "3/2",
     },
     intro:
       "Profhilo is a revolutionary injectable treatment containing one of the highest concentrations of hyaluronic acid on the market. It flows beneath the skin to intensely hydrate and stimulate collagen and elastin production, remodelling the skin from the inside out.",
+    introInBody: true,
     treatmentAreasInline: true,
     treatmentAreasInlineImage: {
       src: "/images/treatments/profhilo/profhilo-infographic-square.jpg",
@@ -770,6 +814,10 @@ export const treatmentDetails: TreatmentDetail[] = [
         { title: "Prefer natural-looking results", description: "Improve skin quality while maintaining your natural facial features." },
         { title: "Are noticing early signs of ageing", description: "Take a proactive approach to maintaining skin hydration and elasticity." },
       ],
+      bestForImage: {
+        src: "/images/treatments/profhilo/sofia-injecting-lips.jpg",
+        alt: "Dr Sofia Bouzian administering a Profhilo injection near the lips",
+      },
       notRightHeading: "When Might Profhilo Not Be the Right Treatment?",
       notRightIntro: "Although Profhilo can improve skin quality, it is not designed to address every aesthetic concern. Depending on your goals, another treatment may be more appropriate.",
       notRightItems: [
@@ -799,7 +847,7 @@ export const treatmentDetails: TreatmentDetail[] = [
         src: "/images/treatments/profhilo/sofia-injecting.jpg",
         alt: "Sofia administering Profhilo with the BAP technique",
         aspect: "1/1",
-        width: 340,
+        width: 520,
         position: "50% 40%",
       },
     ],
@@ -875,11 +923,185 @@ export const treatmentDetails: TreatmentDetail[] = [
     image: "/images/services/placeholder.png",
     intro:
       "Polynucleotides (PDRN — Polydeoxyribonucleotide) are a cutting-edge biostimulatory treatment derived from highly purified salmon DNA. They trigger deep skin repair, reduce inflammation and stimulate the production of new collagen, making them particularly effective for dark circles, thin skin and aged or damaged tissue.",
+    introInBody: true,
     body: [
       "Polynucleotides work at a cellular level by activating growth factors and stimulating fibroblast activity. This leads to genuine tissue regeneration — not just surface hydration — resulting in thicker, more elastic skin with improved texture and tone.",
       "The treatment also has anti-free-radical properties, helping to protect the skin from damaging factors such as stress and sun exposure. In essence, Polynucleotides are a truly regenerative treatment — they modify DNA expression to encourage the body's own natural mechanisms to generate healthier skin cells.",
       "At YourHealthFirst, we use Polynucleotides to treat under-eye dark circles and tear trough hollowing, facial skin quality, acne scarring, and hair restoration. The treatment is particularly popular for the delicate under-eye area where traditional fillers may not be suitable.",
       "A course of 3–4 sessions is typically recommended, spaced 2–4 weeks apart. Most patients notice an initial improvement in skin texture and hydration within 2–4 weeks, with full results developing over the following months as new collagen forms.",
+    ],
+    introRows: [
+      {
+        image: {
+          src: "/images/treatments/polynucleotides/dna-skin-graphic.jpg",
+          alt: "Polynucleotide (PDRN) skin rejuvenation — DNA-based injectable biostimulator",
+        },
+        imageSide: "right",
+        heading: "What Are Polynucleotide Injections?",
+        body: [
+          "Polynucleotide injections are an advanced skin rejuvenation treatment designed to improve skin quality, hydration, texture and elasticity. Often referred to as polynucleotide skin boosters or regenerative skin treatments, they are used to support the skin's natural repair processes and address visible signs of ageing.",
+          "Polynucleotides are purified DNA fragments, commonly sourced from fish such as salmon or trout, depending on the product. They are used in aesthetic medicine for their potential to support tissue repair and improve the appearance of ageing skin.",
+          "Unlike traditional dermal fillers, which primarily add volume or contour facial features, polynucleotide treatments focus on improving the quality and appearance of the skin. They may be considered for concerns such as fine lines, dullness, uneven texture and reduced elasticity.",
+          "At YourHealthFirst Clinic in London, we offer personalised consultations to assess your skin and discuss whether polynucleotide treatment may be appropriate for your individual needs.",
+        ],
+      },
+      {
+        image: {
+          src: "/images/treatments/polynucleotides/sofia-injecting.jpg",
+          alt: "Sofia administering a polynucleotide injection at YourHealthFirst Clinic",
+        },
+        imageSide: "left",
+        heading: "How Do Polynucleotide Treatments Work?",
+        body: [
+          "Polynucleotides are injectable biostimulators that are being studied for their potential regenerative effects on the skin. They may support several processes involved in maintaining healthy-looking skin.",
+        ],
+        items: [
+          {
+            title: "Supporting collagen production",
+            description:
+              "Polynucleotides may influence fibroblast activity. Fibroblasts are cells involved in producing collagen and other components of the skin's supporting structure. Supporting these processes may help improve the appearance of skin firmness and elasticity over time.",
+          },
+          {
+            title: "Improving skin texture and elasticity",
+            description:
+              "Clinical research has reported promising improvements in skin texture, elasticity and the appearance of wrinkles following polynucleotide treatment. However, the available studies are still relatively small, and results can vary between individuals.",
+          },
+          {
+            title: "Supporting tissue repair",
+            description:
+              "Polynucleotides have been investigated for their role in tissue repair and regeneration. Their potential effects on cellular repair processes are one reason they are attracting interest in regenerative aesthetic medicine.",
+          },
+          {
+            title: "Promoting a healthier-looking complexion",
+            description:
+              "By targeting skin quality rather than simply adding volume, polynucleotide injections may help improve the appearance of dull, tired or uneven skin. The degree of improvement depends on the individual's skin condition, treatment area and selected product.",
+          },
+        ],
+      },
+      {
+        heading: "Benefits of Polynucleotide Skin Rejuvenation",
+        body: [
+          "Polynucleotide injections may be considered for people looking to improve the appearance of their skin without the primary aim of adding facial volume.",
+          "Potential benefits include:",
+        ],
+        items: [
+          { title: "Improved skin texture", description: "Support for smoother-looking skin and a more refined appearance." },
+          { title: "Skin hydration", description: "Improvements in skin hydration and overall skin quality have been reported in clinical studies." },
+          { title: "Fine line reduction", description: "Potential improvement in the appearance of fine lines and early wrinkles." },
+          { title: "Skin elasticity", description: "Support for skin firmness and elasticity." },
+          { title: "Under-eye rejuvenation", description: "A possible treatment option for selected concerns involving fine lines and crepey skin around the eyes." },
+          { title: "Natural-looking results", description: "Gradual improvements in skin quality rather than an immediate change in facial contours." },
+        ],
+        outro: "Individual results are not guaranteed, and the scientific evidence is still developing.",
+      },
+      {
+        heading: "Which Areas Can Polynucleotides Treat?",
+        body: ["Polynucleotide injections may be used in selected areas where skin quality, texture and elasticity are a concern."],
+        items: [
+          {
+            title: "Under-Eye Polynucleotide Treatment",
+            description:
+              "The delicate skin around the eyes can develop fine lines, crepiness and visible signs of ageing. Under-eye polynucleotide treatment may be considered to improve the appearance of fine lines and skin texture in appropriately selected patients. It is not a replacement for treatments designed to restore significant volume or correct pronounced tear-trough hollows. A consultation is essential to determine whether this treatment is appropriate for the eye area.",
+          },
+          {
+            title: "Face and Cheeks",
+            description:
+              "Polynucleotide injections may be used on selected areas of the face and cheeks to address fine lines and early wrinkles, uneven skin texture, dull or tired-looking skin, changes in skin elasticity, and visible signs of skin ageing. The treatment aims to improve skin quality without the principal purpose of reshaping the face.",
+          },
+          {
+            title: "Neck",
+            description:
+              "The neck can develop fine lines, uneven texture and reduced elasticity as the skin ages. Polynucleotide treatment may be considered to support improvements in the appearance of these concerns.",
+          },
+          {
+            title: "Décolletage",
+            description:
+              "The décolletage is frequently exposed to sunlight and may develop fine lines, uneven texture and other visible signs of ageing. Polynucleotides may be an option for selected patients seeking to improve skin quality in this area.",
+          },
+          {
+            title: "Hands",
+            description:
+              "Ageing hands can develop changes in skin texture, fine lines and reduced elasticity. Depending on the product and the individual's needs, polynucleotide treatment may be considered as part of a personalised skin rejuvenation plan.",
+          },
+        ],
+      },
+      {
+        heading: "What Happens During a Polynucleotide Treatment?",
+        body: [
+          "At YourHealthFirst Clinic, your treatment begins with an individual assessment and consultation to establish your suitability and discuss your desired outcomes.",
+        ],
+        items: [
+          {
+            title: "Step 1: Initial consultation",
+            description:
+              "Your practitioner will assess your skin, discuss your concerns and review your medical history, allergies, previous aesthetic treatments and treatment goals. A personalised plan will be recommended if appropriate.",
+          },
+          {
+            title: "Step 2: Skin preparation",
+            description:
+              "The treatment area will be cleansed and prepared. Depending on the product and treatment protocol, a topical anaesthetic may be offered to help improve comfort during the procedure.",
+          },
+          {
+            title: "Step 3: Polynucleotide injections",
+            description:
+              "Small quantities of the selected polynucleotide product are injected into the appropriate skin layer using a fine needle or another suitable injection technique. The injection method and treatment points depend on the area being treated and the product used.",
+          },
+          {
+            title: "Step 4: Aftercare and review",
+            description:
+              "You will receive personalised aftercare instructions, including advice on managing temporary swelling, redness or bruising. A follow-up appointment may be arranged to assess your progress and discuss any further treatment.",
+          },
+        ],
+      },
+      {
+        heading: "How Many Polynucleotide Sessions Will I Need?",
+        body: [
+          "Polynucleotide treatment is often delivered as a course of sessions rather than a single appointment.",
+          "Some treatment protocols recommend approximately three to four sessions, usually spaced two to four weeks apart. However, the recommended number of sessions and the interval between treatments depend on the selected product, treatment area and individual skin assessment.",
+          "Improvements may develop gradually over several weeks. Some people may notice changes in hydration and texture earlier, while other outcomes may take longer to become apparent.",
+        ],
+        outro:
+          "There is currently no universally established treatment schedule or guaranteed timeline for results. Your practitioner will discuss the expected course of treatment and appropriate review appointments during your consultation.",
+      },
+      {
+        heading: "Are There Any Side Effects or Downtime?",
+        body: [
+          "Polynucleotide injections are minimally invasive, but they carry potential risks and side effects, as do other injectable aesthetic procedures.",
+          "Common temporary effects may include:",
+        ],
+        items: [
+          "Small raised bumps or papules at the injection sites.",
+          "Redness and swelling.",
+          "Mild bruising.",
+          "Tenderness or discomfort.",
+          "Temporary itching.",
+        ],
+        outro: [
+          "These effects often settle over a few days, although recovery varies depending on the treatment area, product and individual.",
+          "Less common but potentially more serious complications can occur with injectable treatments. These may include infection, allergic reactions and other injection-related complications. Your practitioner will explain the relevant risks, precautions and aftercare before treatment.",
+          "If you have a known fish or seafood allergy, tell your practitioner before your appointment so that the ingredients and suitability of the specific product can be checked.",
+        ],
+      },
+      {
+        heading: "Who Is Suitable for Polynucleotide Treatment?",
+        body: [
+          "Polynucleotide skin rejuvenation may be suitable for adults who wish to address early signs of skin ageing, fine lines, dullness or changes in skin texture and elasticity.",
+          "It may appeal to people seeking gradual improvements in skin quality without adding significant facial volume.",
+          "However, it is not suitable for everyone. Your practitioner will review your medical history, current skin condition, allergies and any relevant contraindications before recommending treatment.",
+          "Treatment may need to be postponed or avoided in certain circumstances, including:",
+        ],
+        items: [
+          "Pregnancy or breastfeeding.",
+          "Active infection or inflammation at the intended injection site.",
+          "Known hypersensitivity to the product or its ingredients.",
+          "Other medical circumstances or contraindications specific to the selected product.",
+        ],
+        outro: "A consultation is required to establish whether treatment is appropriate for you.",
+      },
+      {
+        heading: "Polynucleotides vs Dermal Fillers: What's the Difference?",
+        body: ["Although both treatments involve injections, they have different purposes."],
+      },
     ],
     benefits: [
       "Stimulates genuine tissue regeneration and repair",
@@ -1002,9 +1224,11 @@ export const treatmentDetails: TreatmentDetail[] = [
     tagline: "Celebrity's favourite — the liquid facelift",
     category: "Face & Anti-Aging",
     image: "/images/treatments/sculptra/practitioner-vial.jpg",
-    introImage: {
-      src: "/images/treatments/sculptra/product-box.jpg",
-      alt: "Sculptra (poly-L-lactic acid) vial and packaging",
+    gallery: {
+      folder: "/images/gallery/sculptra",
+      prefix: "sculptra",
+      count: 3,
+      ext: "jpeg",
     },
     intro:
       "Sculptra (poly-L-lactic acid) is an injectable collagen stimulator that gradually rebuilds lost facial volume and structure over time. Often described as the 'liquid facelift', it produces subtle, nuanced results that look completely natural — as if you've simply aged gracefully. It's a firm favourite among celebrities including Bella Hadid, Demi Moore, Kendall Jenner, Ariana Grande and the Kardashians.",
@@ -1014,15 +1238,68 @@ export const treatmentDetails: TreatmentDetail[] = [
       "Sculptra's active ingredient — poly-L-lactic acid (PLA) — is biocompatible and fully absorbable, and has a long track record of safe use in medicine, including suture thread and orthopaedic pins and screws. No skin test is required before treatment.",
       "Treatment usually consists of 2–3 sessions spaced 6 weeks apart. Results build gradually over the following weeks and months as new collagen forms, and can last up to 2 years or more — making Sculptra an excellent long-term investment in skin quality.",
     ],
-    treatmentAreas: ["Cheeks", "Temples", "Jawline", "Lower Face & Laxity", "Under-Eyes", "Lips", "Scars & Depressions"],
+    introRowsShowLegacyBody: true,
+    introRows: [
+      {
+        image: {
+          src: "/images/treatments/sculptra/sofia-product.jpg",
+          alt: "Sofia holding a Sculptra vial and box at YourHealthFirst Clinic",
+        },
+        imageSide: "right",
+        heading: "Sculptra® Treatment in London",
+        subheading: "Restore facial volume and stimulate natural collagen production",
+        body: [
+          "Sculptra® is an injectable treatment containing poly-L-lactic acid (PLLA), designed to stimulate your body's natural collagen production. It is used to address age-related facial volume loss and improve the appearance of facial contours over time.",
+          "Sometimes referred to as a liquid facelift, Sculptra offers a gradual approach to facial rejuvenation, helping you achieve a refreshed appearance without adding the immediate volume associated with traditional dermal fillers.",
+          "At YourHealthFirst Clinic, London, we offer personalised consultations to assess your facial structure, skin concerns and suitability for Sculptra treatment.",
+        ],
+      },
+      {
+        image: {
+          src: "/images/treatments/sculptra/sofia-consultation.jpg",
+          alt: "Sofia discussing Sculptra treatment with a patient at YourHealthFirst Clinic",
+        },
+        imageSide: "left",
+        heading: "How does Sculptra work?",
+        body: [
+          "Sculptra works differently from conventional hyaluronic acid dermal fillers. Its active ingredient, poly-L-lactic acid, stimulates collagen production as the body gradually responds to treatment.",
+          "The aim is to support improvements in:",
+        ],
+        items: [
+          { title: "Facial volume", description: "Addressing the appearance of age-related volume loss." },
+          { title: "Skin firmness", description: "Helping improve the appearance of skin laxity." },
+          { title: "Facial contours", description: "Supporting a more balanced, refreshed-looking facial appearance." },
+          { title: "Fine lines and wrinkles", description: "Helping soften the appearance of lines associated with changes in skin quality and facial volume." },
+        ],
+        outro:
+          "Results develop progressively over several weeks and months, and multiple treatment sessions may be recommended depending on your individual needs. Sculptra has become a subject of interest in the world of aesthetic medicine and celebrity beauty discussions — its gradual approach to facial rejuvenation appeals to people interested in subtle changes rather than immediate, dramatic alterations.",
+      },
+      {
+        image: {
+          src: "/images/treatments/sculptra/areas-treated-infographic.jpg",
+          alt: "Areas Sculptra can treat — temples, cheeks & mid-face, nasolabial folds, marionette lines, jawline & chin, chin area",
+        },
+        imageAspect: "1/1",
+        imageSide: "right",
+        heading: "Who may be suitable for Sculptra?",
+        body: ["Sculptra may be considered by adults who:"],
+        items: [
+          "Have noticed a gradual loss of facial volume.",
+          "Want to improve the appearance of facial contours.",
+          "Are concerned about changes in skin firmness.",
+          "Prefer a gradual approach to facial rejuvenation.",
+          "Understand that results take time to develop and that more than one session may be needed.",
+        ],
+        outro:
+          "A consultation is essential to determine whether this treatment is suitable for your individual concerns and medical history.",
+      },
+    ],
+    treatmentAreas: ["Cheeks", "Temples", "Jawline", "Lower Face & Laxity"],
     treatmentAreaIcons: {
       Cheeks: "face",
       Temples: "target",
       Jawline: "jaw",
       "Lower Face & Laxity": "wave",
-      "Under-Eyes": "eye",
-      Lips: "lips",
-      "Scars & Depressions": "bandage",
     },
     premiumFeatures: {
       eyebrow: "Why Choose Sculptra",
@@ -1078,9 +1355,10 @@ export const treatmentDetails: TreatmentDetail[] = [
       title: "Who Should Not Have This Treatment",
       items: ["Pregnant or breastfeeding women"],
       image: {
-        src: "/images/treatments/sculptra/before-after-profile.jpg",
+        src: "/images/treatments/sculptra/before-after-profile-v2.jpg",
         alt: "Sculptra before and after — cheek and jawline lift",
       },
+      imageAspect: "3/2",
     },
     careInstructions: {
       title: "Sculptra — Aftercare",
@@ -1111,14 +1389,11 @@ export const treatmentDetails: TreatmentDetail[] = [
         },
       ],
     },
+    processDiagramsAfterBenefits: true,
     processDiagrams: [
       {
-        src: "/images/treatments/sculptra/comparison-chart.jpg",
-        alt: "Sculptra compared to Radiesse and Ellanse — ingredient, action, longevity and best-for comparison",
-      },
-      {
-        src: "/images/treatments/sculptra/before-after-front.jpg",
-        alt: "Sculptra before and after — front-facing results",
+        src: "/images/treatments/sculptra/collagen-biostimulators-chart-v2.jpg",
+        alt: "Collagen biostimulators comparison — Sculptra vs Radiesse vs Ellanse: ingredient, action, longevity and best-for",
       },
     ],
     benefits: [
@@ -1194,6 +1469,31 @@ export const treatmentDetails: TreatmentDetail[] = [
         answer:
           "Adults with significant facial volume loss who want a subtle, progressive improvement rather than an immediate dramatic change, and who are looking for a longer-lasting result from fewer overall sessions.",
       },
+      {
+        question: "How long does Sculptra take to work?",
+        answer:
+          "Sculptra works gradually. Improvements typically develop over several weeks to months as collagen production increases. The timing and extent of results vary between individuals.",
+      },
+      {
+        question: "How long do Sculptra results last?",
+        answer:
+          "Clinical studies and product information report that results may last up to two years or longer in some patients. Longevity varies depending on individual factors and the treatment plan.",
+      },
+      {
+        question: "Is Sculptra the same as dermal filler?",
+        answer:
+          "No. Sculptra is a collagen-stimulating injectable containing poly-L-lactic acid, whereas many conventional dermal fillers contain hyaluronic acid and provide more immediate volume. Your practitioner can explain which approach is appropriate for your treatment goals.",
+      },
+      {
+        question: "Does Sculptra give an instant facelift?",
+        answer:
+          "No. Sculptra is not a surgical facelift or an instant lifting treatment. It works progressively and is intended to improve facial volume and contours over time.",
+      },
+      {
+        question: "Book your Sculptra consultation in London",
+        answer:
+          "If you are considering Sculptra for facial rejuvenation, book a consultation at YourHealthFirst Clinic. We will discuss your concerns, assess your suitability and explain the expected benefits, limitations and potential risks of treatment.",
+      },
     ],
   },
   {
@@ -1204,6 +1504,75 @@ export const treatmentDetails: TreatmentDetail[] = [
     image: "/images/services/placeholder.png",
     intro:
       "Non-surgical lift and facial rejuvenation that corrects visual skin defects and promotes the reorganisation of its microstructure. PRP therapy involves injection of the patient's own PRP and fibrin for the cosmetic treatment of wrinkles or scars in the face, hands and neck. Known to some as the \"vampire facelift\", it is less invasive than plastic surgery, takes about 45 minutes for each treatment, and offers improvements for up to 12 to 18 months.",
+    introInBody: true,
+    introRows: [
+      {
+        image: {
+          src: "/images/treatments/prp-face-body/prp-injection-face.jpg",
+          alt: "PRP injection being administered to the cheek using the U225 injector",
+        },
+        imageSide: "right",
+        heading: "PRP Skin Rejuvenation Using Your Own Cells",
+        subheading: "Natural-looking facial and body rejuvenation with platelet-rich plasma",
+        body: [
+          "At YourHealthFirst Clinic, we offer PRP facial rejuvenation and selected body treatments designed to support the skin's natural repair processes and improve the appearance of skin quality.",
+          "Platelet-Rich Plasma (PRP) is an injectable treatment prepared from a small sample of your own blood. It contains a concentrated amount of platelets and associated growth factors involved in the body's normal healing response. In aesthetic medicine, PRP is used with the aim of improving the appearance of fine lines, wrinkles, skin texture and tone.",
+          "Sometimes called the vampire facial when used for facial rejuvenation, PRP is a minimally invasive treatment that may be considered for the face, under-eye area, neck, décolletage, hands and selected body concerns. It is also used in some clinical settings for certain types of hair loss.",
+          "Unlike traditional dermal fillers, which primarily add volume or enhance facial contours, PRP focuses on supporting skin quality and natural tissue repair. Improvements, if achieved, generally develop gradually and vary between individuals. PRP is not a surgical facelift and does not guarantee a specific degree of lifting or wrinkle reduction.",
+          "At YourHealthFirst Clinic, we offer two options for skin PRP: traditional PRP administered manually and advanced A-PRP-HA, which combines PRP with hyaluronic acid as part of an individualised treatment plan.",
+        ],
+      },
+      {
+        image: {
+          src: "/images/treatments/prp-face-body/sofia-u225-injector.jpg",
+          alt: "Sofia administering PRP with the U225 intradermal injector",
+        },
+        imageSide: "left",
+        heading: "What Is PRP Therapy?",
+        body: [
+          "PRP stands for Platelet-Rich Plasma. It is prepared by collecting a small amount of blood from your arm and processing it in a centrifuge to separate the platelet-rich component from other blood cells.",
+          "Platelets play an important role in normal tissue repair. They release growth factors and signalling molecules involved in cellular activity and healing. PRP is used in aesthetic medicine with the aim of supporting the skin's natural regenerative processes.",
+          "Clinical research has reported potential improvements in facial skin texture and the appearance of fine lines following PRP treatment. However, the quality of evidence is variable, and more well-designed studies are needed to establish its effectiveness and optimal treatment protocols.",
+        ],
+      },
+      {
+        image: {
+          src: "/images/treatments/prp-face-body/prp-syringe-vial.jpg",
+          alt: "Prepared PRP syringes ready for treatment",
+        },
+        imageSide: "right",
+        heading: "How Does PRP Skin Rejuvenation Work?",
+        body: [
+          "PRP contains concentrated platelets and associated proteins that participate in the body's normal repair and healing processes. When administered to a treatment area, these components may influence cellular signalling and tissue responses.",
+          "The intended treatment benefits include:",
+        ],
+        items: [
+          { title: "Supporting collagen-related processes", description: "PRP may help support processes involved in maintaining the skin's structure and appearance." },
+          { title: "Improving skin texture", description: "Treatment may help improve the appearance of uneven or dull-looking skin." },
+          { title: "Addressing fine lines", description: "PRP may soften the appearance of selected fine lines and early wrinkles." },
+          { title: "Supporting tissue repair", description: "PRP is being studied for its role in tissue regeneration and healing." },
+          { title: "Improving skin quality", description: "Treatment may be considered for people seeking gradual improvements in skin appearance without significant added facial volume." },
+        ],
+        outro:
+          "The effects of PRP depend on the preparation method, injection technique, treatment area and individual response. The exact biological mechanisms and cosmetic benefits are still being investigated.",
+      },
+      {
+        heading: "Benefits of PRP Facial Rejuvenation",
+        body: [
+          "PRP facial rejuvenation may be an option for adults looking to improve the appearance of their skin without undergoing surgery.",
+          "Potential cosmetic treatment goals include:",
+        ],
+        items: [
+          "Improving the appearance of fine lines and wrinkles.",
+          "Supporting smoother-looking skin texture.",
+          "Addressing dull or tired-looking skin.",
+          "Improving the appearance of selected superficial scars and acne marks.",
+          "Supporting skin quality around the eyes, where suitable.",
+          "Improving the appearance of selected areas of the neck, chest and hands.",
+        ],
+        outro: "Results are not guaranteed, and the degree of improvement varies.",
+      },
+    ],
     videoId: "fwAkk77SN2A",
     technologyShowcase: {
       eyebrow: "Our Technology",
@@ -1211,7 +1580,7 @@ export const treatmentDetails: TreatmentDetail[] = [
       description:
         "Our advanced PRP Cellular Matrix treatments are injected with RegenLab Laboratory (Switzerland) patented innovative products for the isolation of PRP-enriched therapy, using the pain-free, latest U225 intradermal medical injector.",
       image: {
-        src: "/images/treatments/prp-face-body/regenlab.jpg",
+        src: "/images/treatments/prp-face-body/regenlab-v2.jpg",
         alt: "RegenLab Cellular Matrix BCT-HA Kit — HA PRP Tube, PRP Tube and Activator Tube",
       },
       badge: {
@@ -1234,19 +1603,43 @@ export const treatmentDetails: TreatmentDetail[] = [
       "The treatment is an excellent method of encouraging cell reproduction, improving the growth factors of skin and hair. The process involves collecting blood from the patient's arm, separating the platelets from the rest of the blood components via a centrifuge, extracting the PRP and injecting the required area with the PRP. A course of treatments is required, and results are most successful when combined with Mesotherapy.",
       "Results are visible at two weeks and improve gradually over ensuing months, with improvement in texture and tone. Full collagen regeneration takes three months.",
     ],
-    advantages: {
-      title: "We Offer 2 Types of Skin PRP",
-      intro: "Traditional PRP and the advanced A-PRP-HA.",
-      items: [
+    comparisonTable: {
+      title: "Traditional PRP vs A-PRP-HA: What's the Difference?",
+      image: {
+        src: "/images/treatments/prp-face-body/prp-comparison-table.jpg",
+        alt: "Traditional PRP vs A-PRP-HA comparison table — key ingredients, delivery, treatment focus, cosmetic aims, expected results and suitability",
+      },
+      columnLabels: ["Traditional PRP", "Advanced A-PRP-HA"],
+      rows: [
         {
-          title: "1.1 — Platelet Rich Plasma (Traditional), Injected Manually",
-          description:
-            "Has a proven role in the healing of tissues, with key roles in cell migration, proliferation and differentiation. Its mechanism of action comprises anti-inflammatory activity and activation of cell-signalling cascades, with a key role in the synthesis of new extracellular matrix for tissue regeneration. There is a growing body of evidence to support PRP as a treatment for osteoarthritis (OA).",
+          feature: "What It Contains",
+          a: "Platelet-rich plasma prepared from your own blood",
+          b: "Your platelet-rich plasma combined with non-cross-linked hyaluronic acid",
         },
         {
-          title: "1.2 — Hyaluronic Acid (A-PRP-HA) Advance U225",
-          description:
-            "Hyaluronic acid is a major component of synovial fluid, contributing to joint homeostasis. 25 years of clinical experience shows pain relief and functional improvement lasting 6 to 12 months in OA patients. It plays a major role in viscosupplementation and pain relief in OA, and the network of HA chains generates an ideal cell-friendly matrix when combined with PRP.",
+          feature: "How It Is Delivered",
+          a: "Manually injected into selected areas",
+          b: "Administered using the selected clinical technique; U225 injector may be used where appropriate",
+        },
+        {
+          feature: "Main Treatment Focus",
+          a: "Supporting the skin's natural repair processes and improving the appearance of skin quality",
+          b: "Combining PRP with HA, which helps bind water and contributes to skin hydration",
+        },
+        {
+          feature: "Potential Cosmetic Aims",
+          a: "Addressing selected fine lines, uneven texture and dull-looking skin",
+          b: "Similar skin-quality aims, with the additional contribution of HA to hydration",
+        },
+        {
+          feature: "What To Expect",
+          a: "Gradual, variable changes in skin appearance; outcomes are not guaranteed",
+          b: "Gradual, variable changes; a clinical study of PRP and HA combined reported encouraging facial appearance and elasticity outcomes, but this does not guarantee an individual result",
+        },
+        {
+          feature: "Who It May Suit",
+          a: "Patients assessed as suitable for PRP who prefer a PRP-only option",
+          b: "Patients assessed as suitable for PRP and the specific HA preparation",
         },
       ],
     },
@@ -2920,31 +3313,35 @@ export const treatmentDetails: TreatmentDetail[] = [
   {
     slug: "sclerotherapy",
     title: "Sclerotherapy",
-    tagline: "Non-invasive spider vein removal — give your skin a better look",
+    tagline: "Non-invasive spider vein removal — give your skin a better look TESTMARKER",
     category: "Skin & Health",
     image: "/images/services/placeholder.png",
     intro:
       "Sclerotherapy is one of the most effective treatments for spider veins and small varicose veins on the legs. A very fine needle injects a sclerosing solution into the vein, irritating its lining so the walls stick together — blood stops flowing through the vein, which is gradually absorbed by the body over a few weeks. Dr Sofia is a member of the British Association of Sclerotherapists.",
-    imageTextSections: [
+    introRows: [
       {
-        image: "/images/treatments/sclerotherapy/intro.jpg",
-        alt: "Close-up of spider veins on the leg before sclerotherapy treatment",
+        image: {
+          src: "/images/treatments/sclerotherapy/microsclerotherapy-banner.jpg",
+          alt: "Microsclerotherapy — a treatment option for selected thread veins",
+        },
+        imageSide: "right",
         heading: "What Is Sclerotherapy?",
         body: [
           "The sclerotherapy procedure obliterates and destroys varicose veins by injecting them with a solution called a sclerosant. The sclerosant scars the vein and makes it collapse, rerouting blood to more advantageous veins nearby — your body gradually destroys and absorbs the treated vein until it vanishes. The solution used is sodium tetradecyl sulfate, and this technique typically treats small varicose veins found near the surface of the skin, known as \"bug veins\", while also improving the overall appearance of the leg.",
           "For bigger veins, foam sclerotherapy is used instead — the sclerosant is transformed into a foam before being injected, since foam covers a larger surface area than fluid.",
         ],
-        imagePosition: "right",
       },
       {
-        image: "/images/treatments/sclerotherapy/treatment.jpg",
-        alt: "Sclerotherapy injection being administered to the leg",
+        image: {
+          src: "/images/treatments/sclerotherapy/treatment.jpg",
+          alt: "Sclerotherapy injection being administered to the leg",
+        },
+        imageSide: "left",
         heading: "What Happens During a Microsclerotherapy Treatment?",
         body: [
           "At your first visit, a detailed discussion with the practitioner will clearly highlight your expectations of the cosmetic effects of treatment, followed by a medical history review to confirm there's no reason you're not suited to Microsclerotherapy. You'll then be asked to sign a consent form confirming you understand the procedure and its potential side effects.",
           "The injections are performed while you're lying down. A solution is injected with a very fine needle, superficially into the veins, causing the lining to become sticky and swell. Compression is then applied to close the veins — over time, the vein heals closed, is absorbed into the body, and fades away.",
         ],
-        imagePosition: "left",
       },
     ],
     diagramImage: {
@@ -3061,13 +3458,15 @@ export const treatmentDetails: TreatmentDetail[] = [
     title: "CryoPen",
     tagline: "Precision removal of unwanted skin lesions in minutes",
     category: "Skin & Health",
+    bookCTAHorizontal: true,
     image: "/images/services/placeholder.png",
     intro:
       "CryoPen is a state-of-the-art cryotherapy device that delivers a precise jet of nitrous oxide at extremely low temperatures to destroy unwanted skin lesions. It is fast, accurate and effective for removing warts, skin tags, milia, age spots, cherry angiomas and viral verrucae.",
     introImage: {
-      src: "/images/treatments/cryopen/cryopen-device.jpg",
+      src: "/images/treatments/cryopen/cryopen-device-v2.jpg",
       alt: "The CryoPen device and its disposable N2O cartridges",
     },
+    introImageSize: { width: 340, height: 227 },
     treatmentAreas: [
       "Skin Tags",
       "Warts",
@@ -3099,6 +3498,12 @@ export const treatmentDetails: TreatmentDetail[] = [
       accent: "Key Features",
       subtitle:
         "Cryo™ is an advanced cryotherapy innovation using disposable cartridges of liquefied N2O to deliver a fast, highly targeted treatment for benign skin lesions.",
+      image: {
+        src: "/images/treatments/cryopen/cryotherapy-considered-approach.jpg",
+        alt: "Cryotherapy: A Considered Approach to Selected Skin Lesions — individual assessment, targeted application, tailored approach, delicate areas, possible skin reactions, aftercare advice, non-contact device, medical assessment",
+      },
+      imageAspect: "1526/1031",
+      imageMaxWidth: 820,
       items: [
         {
           icon: "drop",
@@ -3281,6 +3686,52 @@ export const treatmentDetails: TreatmentDetail[] = [
     image: "/images/services/placeholder.png",
     intro:
       "Vitamin B12 injections deliver a direct, highly bioavailable dose of this essential vitamin straight into the muscle, bypassing the digestive system for immediate absorption. They are ideal for those with a B12 deficiency or anyone seeking improved energy, mental clarity and immune support.",
+    introInBody: true,
+    introRows: [
+      {
+        image: {
+          src: "/images/treatments/vitamin-b12/sofia-desk.jpg",
+          alt: "Sofia at YourHealthFirst Clinic, Harley Street",
+        },
+        imageSide: "right",
+        heading: "Vitamin B12 Deficiency: Symptoms, Causes and Diagnosis",
+        body: [
+          "Vitamin B12 is an essential nutrient that helps your body make red blood cells and DNA and supports normal nervous system function. B12 deficiency can cause a range of symptoms, but these can also have other causes. If you are concerned, speak to a healthcare professional about whether an assessment is right for you.",
+        ],
+      },
+      {
+        image: {
+          src: "/images/treatments/vitamin-b12/sofia-injecting-arm.jpg",
+          alt: "Sofia administering a Vitamin B12 injection at YourHealthFirst Clinic",
+        },
+        imageSide: "left",
+        heading: "Possible Symptoms of Vitamin B12 Deficiency",
+        body: ["Symptoms can vary from person to person. They may include:"],
+        items: ["Tiredness or weakness", "Pins and needles", "Problems with balance", "Changes in memory, understanding or concentration"],
+        outro:
+          "These symptoms do not necessarily mean you have a B12 deficiency. A healthcare professional can assess your symptoms and advise whether testing is appropriate.",
+      },
+      {
+        heading: "What Can Cause Low Vitamin B12?",
+        body: [
+          "Possible causes include not getting enough B12 in your diet, problems absorbing it, pernicious anaemia, some digestive conditions and certain medicines.",
+          "Vitamin B12 is found in foods such as meat, fish, eggs and dairy products. Some fortified foods also contain B12. People following a vegan diet may need to plan a reliable source of this vitamin.",
+        ],
+      },
+      {
+        heading: "How Is Vitamin B12 Deficiency Diagnosed?",
+        body: [
+          "A healthcare professional will consider your symptoms and health history and may recommend blood tests. If you are in London and are concerned about possible B12 deficiency, book your consultation with Sofia at YourHealthFirst Clinic.",
+        ],
+      },
+      {
+        heading: "How Is Vitamin B12 Deficiency Treated?",
+        body: [
+          "Treatment depends on the cause and your individual circumstances. It may involve vitamin B12 tablets or prescribed injections. A clinician can recommend an appropriate treatment plan following an assessment.",
+          "Do not assume that tiredness means you need a B12 injection. Persistent or worsening symptoms should be discussed with a healthcare professional.",
+        ],
+      },
+    ],
     body: [
       "Vitamin B12 (cobalamin) plays a crucial role in red blood cell formation, neurological function, DNA synthesis and energy metabolism. Deficiency is surprisingly common — particularly in vegans, vegetarians, older adults and those taking certain medications — and can cause fatigue, brain fog, low mood and weakness.",
       "As an essential nutrient, B12 supports several core bodily functions, including making red blood cells, supporting DNA production and preventing megaloblastic anaemia. Because it's only found naturally in animal products such as meat, eggs, shellfish and dairy, vegans, vegetarians and coeliacs often struggle to get enough through diet alone.",
@@ -3307,6 +3758,10 @@ export const treatmentDetails: TreatmentDetail[] = [
     ],
     advantages: {
       title: "Did You Know? — Causes of B12 Deficiency",
+      image: {
+        src: "/images/treatments/vitamin-b12/b12-deficiency-factors.jpg",
+        alt: "Did You Know? — Factors that can contribute to low Vitamin B12: possible early symptoms, dietary intake, absorption & health conditions, medicines & checks",
+      },
       intro:
         "Vitamin B12 deficiency is more common than most people realise, and can be triggered by a range of everyday factors.",
       items: [

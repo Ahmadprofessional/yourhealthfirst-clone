@@ -3515,6 +3515,11 @@ export const treatmentDetails: TreatmentDetail[] = [
         ],
       },
       {
+        image: {
+          src: "/images/treatments/cryopen/cryotherapy-device-cartridges.webp",
+          alt: "CryoPen device with its N2O gas cartridges — targeted treatment for selected skin lesions",
+        },
+        imageSide: "left",
         heading: "How Does CryoPen Work?",
         body: [
           "CryoPen uses advanced freezing technology to target selected skin lesions. The device delivers a fine stream of extreme cold to the treatment area. The freezing process damages the targeted tissue, which then gradually dries, forms a blister or scab, and heals.",

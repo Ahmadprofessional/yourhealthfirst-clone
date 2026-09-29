@@ -1498,7 +1498,7 @@ export const treatmentDetails: TreatmentDetail[] = [
   },
   {
     slug: "prp-face-body",
-    title: "PRP — Face & Body Rejuvenation",
+    title: "PRP & A-PRP HA Cellular Matrix Face & Body Rejuvenation",
     tagline: "Non-surgical lift and facial rejuvenation using your own plasma",
     category: "Face & Anti-Aging",
     image: "/images/services/placeholder.png",

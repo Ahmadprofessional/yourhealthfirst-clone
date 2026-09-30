@@ -44,7 +44,6 @@ export const navLinks: NavLink[] = [
           { label: "Cryolipolysis", href: "/treatments/cryolipolysis" },
           { label: "Emsculpt Neo", href: "/treatments/emsculpt-neo" },
           { label: "Aqualyx", href: "/treatments/aqualyx" },
-          { label: "Lemon Bottle", href: "/treatments/lemon-bottle" },
           { label: "Mounjaro", href: "/treatments/mounjaro" },
         ],
       },
@@ -144,7 +143,7 @@ export const faqs: FaqItem[] = [
   {
     question: "What treatments do you offer?",
     answer:
-      "We offer a comprehensive range of aesthetic and medical treatments including anti-wrinkle injections, dermal fillers, Profhilo, Polynucleotides, Sculptra, PRP therapy, Sunekos, Cryolipolysis (fat freezing), Emsculpt Neo, Aqualyx, Lemon Bottle, Mounjaro, hair loss treatments (PRP & Exosomes), Microneedling, Mesotherapy, Sclerotherapy, CryoPen, and Vitamin B12 injections.",
+      "We offer a comprehensive range of aesthetic and medical treatments including anti-wrinkle injections, dermal fillers, Profhilo, Polynucleotides, Sculptra, PRP therapy, Sunekos, Cryolipolysis (fat freezing), Emsculpt Neo, Aqualyx, Mounjaro, hair loss treatments (PRP & Exosomes), Microneedling, Mesotherapy, Sclerotherapy, CryoPen, and Vitamin B12 injections.",
   },
   {
     question: "Do I need a consultation before treatment?",

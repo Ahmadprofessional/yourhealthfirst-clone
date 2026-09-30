@@ -26,7 +26,7 @@ const categories = [
   },
   {
     label: "Body Contouring",
-    slugs: ["cryolipolysis", "emsculpt-neo", "aqualyx", "lemon-bottle", "mounjaro"],
+    slugs: ["cryolipolysis", "emsculpt-neo", "aqualyx", "mounjaro"],
   },
   {
     label: "Skin & Health",

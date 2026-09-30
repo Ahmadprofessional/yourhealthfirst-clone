@@ -49,6 +49,21 @@ const prpBeardImages = Array.from({ length: 2 }, (_, i) => ({
   alt: `PRP patchy beard restoration before & after — result ${i + 1}`,
 }));
 
+const cryopenImages = Array.from({ length: 2 }, (_, i) => ({
+  src: `/images/gallery/cryopen/cryopen-${i + 1}.jpeg`,
+  alt: `CryoPen skin lesion removal before & after — result ${i + 1}`,
+}));
+
+const exosomeImages = Array.from({ length: 4 }, (_, i) => ({
+  src: `/images/gallery/exosome/exosome-${i + 1}.jpg`,
+  alt: `EXO OX exosome therapy before & after — result ${i + 1}`,
+}));
+
+const aqualyxImages = Array.from({ length: 2 }, (_, i) => ({
+  src: `/images/gallery/aqualyx/aqualyx-${i + 1}.jpeg`,
+  alt: `Aqualyx fat-dissolving injections before & after — result ${i + 1}`,
+}));
+
 const sculptraImages = Array.from({ length: 3 }, (_, i) => ({
   src: `/images/gallery/sculptra/sculptra-${i + 1}.jpeg`,
   alt: `Sculptra before & after — result ${i + 1}`,
@@ -292,6 +307,60 @@ export default function GalleryPage() {
             </p>
           </div>
           <BeforeAfterGrid images={prpBeardImages} />
+        </div>
+      </section>
+
+      {/* CryoPen section */}
+      <section className="w-full border-t border-black/8 px-5">
+        <div className="mx-auto max-w-[1400px] py-[80px] lg:py-[100px]">
+          <div className="mb-10 flex flex-col gap-2">
+            <div className="flex items-center gap-4">
+              <h2 className="font-subheading text-[24px] font-medium leading-[30px] tracking-[-1px] text-forest uppercase lg:text-[30px] lg:leading-[36px]">
+                CryoPen — Before &amp; After
+              </h2>
+              <div className="flex-1 border-t border-black/8" />
+            </div>
+            <p className="text-[15px] text-body-text">
+              Precision skin lesion removal results — fibromas, actinic keratosis and other benign lesions.
+            </p>
+          </div>
+          <BeforeAfterGrid images={cryopenImages} />
+        </div>
+      </section>
+
+      {/* Exosome section */}
+      <section className="w-full border-t border-black/8 px-5">
+        <div className="mx-auto max-w-[1400px] py-[80px] lg:py-[100px]">
+          <div className="mb-10 flex flex-col gap-2">
+            <div className="flex items-center gap-4">
+              <h2 className="font-subheading text-[24px] font-medium leading-[30px] tracking-[-1px] text-forest uppercase lg:text-[30px] lg:leading-[36px]">
+                Exosomes — Before &amp; After
+              </h2>
+              <div className="flex-1 border-t border-black/8" />
+            </div>
+            <p className="text-[15px] text-body-text">
+              EXO OX exosome therapy results for skin rejuvenation and hair restoration.
+            </p>
+          </div>
+          <BeforeAfterGrid images={exosomeImages} />
+        </div>
+      </section>
+
+      {/* Aqualyx section */}
+      <section className="w-full border-t border-black/8 px-5">
+        <div className="mx-auto max-w-[1400px] py-[80px] lg:py-[100px]">
+          <div className="mb-10 flex flex-col gap-2">
+            <div className="flex items-center gap-4">
+              <h2 className="font-subheading text-[24px] font-medium leading-[30px] tracking-[-1px] text-forest uppercase lg:text-[30px] lg:leading-[36px]">
+                Aqualyx — Before &amp; After
+              </h2>
+              <div className="flex-1 border-t border-black/8" />
+            </div>
+            <p className="text-[15px] text-body-text">
+              Fat-dissolving injection results — double chin and jawline contouring.
+            </p>
+          </div>
+          <BeforeAfterGrid images={aqualyxImages} />
         </div>
       </section>
 

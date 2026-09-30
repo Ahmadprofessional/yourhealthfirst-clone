@@ -83,8 +83,9 @@ const categories: PriceCategory[] = [
     description: "Advanced solutions for stronger, healthier hair.",
     items: [
       { service: "Consultation", price: "£50", note: "Free if treatment booked" },
-      { service: "Standard PRP", price: "£399" },
-      { service: "Advanced RegenKit-BCT", price: "£599" },
+      { service: "Standard PRP Hair Restoration", price: "£400" },
+      { service: "Advanced PRP Cellular Matrix + Biotin", price: "£600" },
+      { service: "Supreme PRP Cellular Matrix + Biotin + Exosomes", price: "£800" },
     ],
   },
   {
@@ -271,18 +272,6 @@ const categories: PriceCategory[] = [
       { service: "2 sessions (bought together)", price: "£650 each" },
       { service: "3 sessions (bought together)", price: "£550 each" },
       { service: "4 sessions (bought together)", price: "£500 each" },
-    ],
-  },
-  {
-    id: "lemon-bottle",
-    title: "Lemon Bottle - Fat Dissolve",
-    image: "/images/treatments/body-contouring.jpg",
-    description: "Fast, effective fat dissolving with minimal downtime.",
-    items: [
-      { service: "Small area (chin, jaws or similar)", price: "£120 per session" },
-      { service: "Chin and jaws together", price: "£200" },
-      { service: "Medium area (inner/outer thighs, chest — men, or similar)", price: "£250 per session" },
-      { service: "Large area (upper/lower abdomen or similar)", price: "£350 per session" },
     ],
   },
   {

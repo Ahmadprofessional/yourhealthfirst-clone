@@ -34,6 +34,10 @@ export interface TreatmentDetail {
   category: string;
   image: string;
   intro: string;
+  /** Full standalone <title> tag override (falls back to `${title} | YourHealthFirst Clinic — Harley Street`) */
+  metaTitle?: string;
+  /** Override the meta description — falls back to `intro` */
+  metaDescription?: string;
   /** Supporting photo shown alongside the body copy in the main content column */
   introImage?: { src: string; alt: string };
   /** Override the default introImage box size (px) */
@@ -53,11 +57,19 @@ export interface TreatmentDetail {
     subheading?: string;
     body?: string[];
     items?: (string | { title: string; description: string })[];
+    /** Render `items` as a grid of individual card boxes instead of a bulleted list — use for short standalone phrases */
+    itemsLayout?: "list" | "boxes";
     outro?: string | string[];
+    /** Inline link shown after the outro text (e.g. a social profile) */
+    link?: { text: string; href: string };
     /** Lock the image box to this CSS aspect-ratio (e.g. "1/1") instead of stretching to match the text height — use when the image's own ratio must be preserved edge-to-edge (no crop, no letterboxing) */
     imageAspect?: string;
     /** Cap the image box width (px) and centre it in its column — use with imageAspect for a tall/narrow photo that would otherwise stretch too large */
     imageMaxWidth?: number;
+    /** Stretch the image frame to the text height but show the whole picture (object-contain on black) instead of cropping — for dark-edged graphics with baked-in text */
+    imageContain?: boolean;
+    /** Render this row as a single full-width branded graphic instead of the image/text column layout — use when the image already has all the row's text baked in (e.g. an infographic) */
+    fullImage?: { src: string; alt: string; aspectRatio: string; maxWidth?: number };
   }[];
   /** Photos woven into the main body copy — paragraphs are split into rows, alternating image left/right */
   /** Image shown in the sidebar under the booking box; click opens full size */
@@ -109,6 +121,16 @@ export interface TreatmentDetail {
   };
   results: string;
   priceFrom?: string;
+  /** Full-width "coming soon" launch section (badge, heading, copy, product image and its own FAQ accordion) shown above the main FAQs */
+  comingSoon?: {
+    badge: string;
+    heading: string;
+    subheading?: string;
+    paragraphs: string[];
+    image?: { src: string; alt: string; width: number; height: number };
+    faqsHeading: string;
+    faqs: TreatmentFaq[];
+  };
   faqs: TreatmentFaq[];
   gallery?: TreatmentGallery;
   /** YouTube video ID shown as an embedded explainer video */
@@ -196,6 +218,10 @@ export interface TreatmentDetail {
     }[];
     /** Show this image instead of the HTML table (e.g. a pre-designed branded graphic) */
     image?: { src: string; alt: string };
+    /** CSS aspect-ratio matching the image's own dimensions (e.g. "1253/1254") */
+    imageAspect?: string;
+    /** Optional lead-in paragraph shown above the table/image */
+    intro?: string;
   };
   /** Alternating image/text split sections (image on one side, heading + body on the other) */
   imageTextSections?: {
@@ -1527,7 +1553,6 @@ export const treatmentDetails: TreatmentDetail[] = [
           "Platelet-Rich Plasma (PRP) is an injectable treatment prepared from a small sample of your own blood. It contains a concentrated amount of platelets and associated growth factors involved in the body's normal healing response. In aesthetic medicine, PRP is used with the aim of improving the appearance of fine lines, wrinkles, skin texture and tone.",
           "Sometimes called the vampire facial when used for facial rejuvenation, PRP is a minimally invasive treatment that may be considered for the face, under-eye area, neck, décolletage, hands and selected body concerns. It is also used in some clinical settings for certain types of hair loss.",
           "Unlike traditional dermal fillers, which primarily add volume or enhance facial contours, PRP focuses on supporting skin quality and natural tissue repair. Improvements, if achieved, generally develop gradually and vary between individuals. PRP is not a surgical facelift and does not guarantee a specific degree of lifting or wrinkle reduction.",
-          "At YourHealthFirst Clinic, we offer two options for skin PRP: traditional PRP administered manually and advanced A-PRP-HA, which combines PRP with hyaluronic acid as part of an individualised treatment plan.",
         ],
       },
       {
@@ -1614,9 +1639,10 @@ export const treatmentDetails: TreatmentDetail[] = [
     comparisonTable: {
       title: "Traditional PRP vs A-PRP-HA: What's the Difference?",
       image: {
-        src: "/images/treatments/prp-face-body/prp-comparison-table.jpg",
-        alt: "Traditional PRP vs A-PRP-HA comparison table — key ingredients, delivery, treatment focus, cosmetic aims, expected results and suitability",
+        src: "/images/treatments/prp-face-body/prp-therapy-comparison-full.jpg",
+        alt: "PRP Therapy — Traditional PRP vs A-PRP-HA comparison table — key ingredients, delivery, treatment focus, cosmetic aims, expected results and suitability",
       },
+      imageAspect: "1253/1254",
       columnLabels: ["Traditional PRP", "Advanced A-PRP-HA"],
       rows: [
         {
@@ -1791,7 +1817,178 @@ export const treatmentDetails: TreatmentDetail[] = [
     image: "/images/services/placeholder.png",
     intro:
       "PRP (Platelet-Rich Plasma) hair loss treatment is a three-step medical treatment in which a patient's blood is drawn, processed, and then injected into the scalp. It volumises hair, naturally grows new roots, increases the survival and strengthening of existing hair, increases vascularisation of the scalp, and improves the vitality, colour and shine of your hair — improving overall hair quality through an entirely natural process. PRP is the only non-surgical and non-pharmaceutical treatment that has proven its efficacy and safety.",
-    videoId: "qG-TFBGfxkM",
+    introInBody: true,
+    introRows: [
+      {
+        image: {
+          src: "/images/treatments/prp-hair-loss/u225-scalp-treatment-1.jpg",
+          alt: "U225 intradermal injector being used to administer PRP to the scalp",
+        },
+        imageSide: "right",
+        heading: "PRP Hair Restoration & Hair Loss Treatment in London",
+        subheading: "Standard PRP & Advanced PRP Cellular Matrix with Biotin — Hair Restoration • Hair Regrowth • Scalp Rejuvenation",
+        body: [
+          "At YourHealthFirst Clinic in London, we offer personalised PRP hair restoration treatments designed to support scalp health, hair density and the appearance of thinning hair.",
+          "Our hair restoration treatments use your own blood to prepare platelet-rich plasma (PRP), which is then carefully administered into the scalp. PRP contains platelets and growth factors involved in tissue repair and cellular signalling.",
+          "For selected patients, we also offer an advanced PRP Cellular Matrix with Biotin treatment as part of an individualised hair restoration programme.",
+          "PRP has been studied particularly in androgenetic alopecia (male and female pattern hair loss), with systematic reviews reporting potential improvements in hair density, although results vary between individuals and treatment protocols.",
+        ],
+      },
+      {
+        image: {
+          src: "/images/treatments/prp-hair-loss/u225-scalp-treatment-2.jpg",
+          alt: "PRP being administered to the scalp using the U225 injector",
+        },
+        imageSide: "left",
+        heading: "What Is PRP Hair Restoration?",
+        body: [
+          "Platelet-Rich Plasma (PRP) therapy for hair loss is a minimally invasive treatment using a patient's own blood.",
+          "The treatment involves three main steps:",
+        ],
+        items: [
+          { title: "Blood collection", description: "A small amount of blood is taken from your arm." },
+          { title: "PRP preparation", description: "The blood is processed to separate and concentrate the platelet-rich plasma." },
+          { title: "Scalp treatment", description: "The prepared PRP is administered into selected areas of the scalp." },
+        ],
+        outro:
+          "Platelets contain growth factors and signalling proteins that are involved in tissue repair, cell activity and blood-vessel formation. These biological properties are one of the reasons PRP has been investigated as a treatment for hair loss.",
+      },
+      {
+        heading: "PRP for Hair Loss & Hair Regrowth",
+        body: [
+          "Hair loss can have many causes, including genetic, hormonal, autoimmune, nutritional and other medical factors.",
+          "PRP hair treatment may be considered as part of an individualised treatment plan for suitable patients experiencing:",
+        ],
+        itemsLayout: "boxes",
+        items: [
+          "Hair thinning",
+          "Reduced hair density",
+          "Male pattern hair loss",
+          "Female pattern hair loss",
+          "Androgenetic alopecia",
+          "Early to intermediate-stage hair loss",
+          "Reduced hair thickness",
+          "Scalp and follicle concerns",
+          "Hair weakening associated with ageing",
+          "PRP After Hair Transplant",
+        ],
+        outro: [
+          "The aim is to support the scalp environment and existing hair follicles rather than simply treating the visible symptom of hair loss.",
+          "Results vary from person to person, and PRP is not a guaranteed cure for hair loss.",
+        ],
+      },
+      {
+        image: {
+          src: "/images/treatments/prp-hair-loss/prp-after-hair-transplant.jpg",
+          alt: "PRP After Hair Transplant — supports graft survival, enhances healing, promotes earlier hair growth and improves hair density",
+        },
+        imageSide: "right",
+        imageAspect: "1536/1024",
+        heading: "PRP After Hair Transplantation",
+        subheading: "Supporting Your Hair Transplant Recovery",
+        body: [
+          "PRP can be used as an adjunctive treatment following hair transplantation, including after procedures such as FUE, as part of an individualised post-transplant hair restoration programme.",
+          "During a hair transplant, follicles are removed from a donor area and implanted into areas affected by hair loss. After transplantation, the newly placed grafts undergo a period of healing and gradual growth.",
+        ],
+      },
+      {
+        body: [
+          "PRP may be considered alongside your transplant programme to support the scalp environment and the recovery of transplanted follicles.",
+          "Research investigating PRP alongside hair transplantation has reported potential benefits including:",
+        ],
+        items: [
+          "Supporting follicle survival",
+          "Supporting the healing environment of the scalp",
+          "Earlier initiation of visible hair growth in some patients",
+          "Supporting hair density during the post-transplant growth period",
+          "Supporting the surrounding existing hair",
+          "Helping optimise the overall hair-restoration programme",
+        ],
+        outro:
+          "A 2025 systematic review found that the available controlled studies generally reported better outcomes when PRP was added to hair transplantation, including increased hair density, follicle survival and earlier hair growth. However, the authors also highlighted substantial differences between studies in PRP preparation, timing and treatment protocols.",
+      },
+      {
+        heading: "When Can PRP Be Used After a Hair Transplant?",
+        body: [
+          "The timing of PRP after transplantation should be determined by your hair-transplant surgeon or treating practitioner.",
+        ],
+      },
+      {
+        heading: "PRP for Androgenetic Alopecia — Male & Female Pattern Hair Loss",
+        body: [
+          "Androgenetic alopecia, also known as male or female pattern hair loss, is one of the most common forms of progressive hair thinning. It is influenced by genetic and hormonal factors and can affect both men and women.",
+          "PRP has been investigated extensively for androgenetic alopecia. A 2024 systematic review of clinical studies found that several studies reported improvements in hair density and hair count following PRP, while also highlighting limitations including heterogeneity and risk of bias.",
+          "Another 2024 systematic review and meta-analysis found evidence suggesting that autologous PRP may increase hair density in androgenetic alopecia, but described the evidence as low quality because of significant study heterogeneity and publication bias.",
+        ],
+        outro: "This means PRP can be a useful treatment option for selected patients, but results cannot be guaranteed.",
+      },
+      {
+        heading: "PRP & Alopecia Areata",
+        body: [
+          "Alopecia areata is an autoimmune condition that can cause sudden, patchy hair loss.",
+          "PRP has also been investigated for alopecia areata, but the evidence is less established than for androgenetic alopecia. A systematic review found PRP to be a promising treatment option, while another meta-analysis found no significant difference compared with corticosteroid treatment for the main outcome studied.",
+        ],
+        outro: "For this reason, patients with suspected or diagnosed alopecia areata should have an appropriate medical assessment before treatment.",
+      },
+      {
+        heading: "How Does PRP Hair Treatment Work?",
+        body: [
+          "PRP contains platelets and naturally occurring growth factors involved in tissue repair and cellular communication.",
+          "When PRP is introduced into selected areas of the scalp, the objective is to support the local tissue environment and potentially encourage activity around existing hair follicles.",
+        ],
+        outro:
+          "Research suggests PRP may improve measures such as hair density in some patients with androgenetic alopecia, but treatment protocols differ and individual outcomes vary.",
+      },
+      {
+        fullImage: {
+          src: "/images/treatments/prp-hair-loss/prp-treatment-process-steps.jpg",
+          alt: "What happens during your PRP hair treatment — consultation, blood collection, PRP preparation, scalp treatment, personalised treatment plan",
+          aspectRatio: "2000/704",
+        },
+      },
+      {
+        heading: "When Will I See Results?",
+        body: [
+          "PRP hair restoration is not an instant treatment.",
+          "Hair growth is a gradual biological process, so changes may develop progressively over several months. Some patients may notice changes earlier, while others require a longer course of treatment.",
+          "Your results will depend on factors including:",
+        ],
+        itemsLayout: "boxes",
+        items: [
+          "Cause of hair loss",
+          "Stage of hair loss",
+          "Age",
+          "Scalp health",
+          "Existing follicle activity",
+          "Treatment protocol",
+          "Number and timing of treatments",
+          "Individual response",
+        ],
+        outro: "No hair restoration treatment can guarantee regrowth in every patient.",
+      },
+      {
+        heading: "Why Choose YourHealthFirst Clinic for PRP Hair Restoration?",
+        body: [
+          "At YourHealthFirst Clinic, PRP hair restoration is approached as a personalised medical-aesthetic treatment rather than a one-size-fits-all procedure.",
+          "With over 10 years of experience in hair loss and PRP Hair Restoration, Sofia Bouzian combines extensive clinical experience with advanced regenerative treatment approaches to provide personalised care for patients experiencing hair thinning and hair loss.",
+          "Sofia's expertise has also been recognised internationally, having been a speaker on Alopecia and Hair Loss at Sharm Derma 2022 in Cairo, Egypt, through the American Association of Continuing Medical Education, in collaboration with the Egyptian Society of Aesthetic Dermatology and the International Society for Dermatologic Surgery.",
+          "Our approach focuses on:",
+        ],
+        items: [
+          { title: "Personalised assessment", description: "Every patient is assessed individually." },
+          { title: "Your own blood", description: "PRP is prepared from your own blood." },
+          { title: "Advanced PRP options", description: "Choose between traditional PRP and our advanced PRP Cellular Matrix + Biotin protocol where appropriate." },
+          { title: "Controlled scalp administration", description: "Manual injection or U225-assisted administration may be selected according to the treatment plan." },
+          { title: "London clinic location", description: "YourHealthFirst Clinic is based at 2 Wimpole Street, London W1G 0EB." },
+        ],
+        outro:
+          "If you are experiencing hair loss, thinning hair, reduced hair density or androgenetic alopecia, book a consultation at YourHealthFirst Clinic to discuss whether Standard PRP or Advanced PRP Cellular Matrix + Biotin may be appropriate for you.",
+        link: {
+          text: "Explore Sofia's PRP Hair Restoration work on Instagram",
+          href: "https://www.instagram.com/prp_hairlossspecialist_london_",
+        },
+      },
+    ],
     body: [
       "Dr Sofia is a recognised PRP Hair Loss Specialist with extensive experience treating both male pattern baldness and female hair thinning. The treatment uses your own blood — processed to concentrate the platelets — which are then injected precisely into the thinning areas of the scalp. In collaboration with Regen Lab's original and patented technologies, a one-step closed system is used to prepare your own blood cells, and the Advanced PRP Cellular Matrix is injected using the pain-free U225 latest intradermal medical injector.",
       "There are two major forms of alopecia affecting the population that can be improved with PRP. Androgenic Alopecia is the most common cause of male pattern baldness, due to hormonal imbalance, genetic predisposition, age and metabolic syndromes — treatments are generally challenging, and previous therapies have often shown limited effectiveness or side-effects. Androgenetic alopecia affects up to 30% of men over 30 and 50% of men over 50, as well as many women, and PRP shows excellent results for male and female patients from initial to intermediate stages (I–V on the Norwood scale).",
@@ -1853,43 +2050,24 @@ export const treatmentDetails: TreatmentDetail[] = [
       },
     ],
     advantages: {
-      title: "Advantages of PRFM Treatment",
+      title: "Your PRP Hair Restoration Options",
       intro:
-        "PRFM presents more viable, intact and activated PRP in a fibrin matrix, which produces a more prolonged exposure to growth factors over a more natural time course. It is believed that this natural kinetics will yield more sustained hair growth.",
+        "At YourHealthFirst Clinic, we offer three PRP-based approaches depending on your individual assessment, degree of hair loss and treatment objectives. A personalised assessment is carried out before treatment to determine whether PRP is appropriate for you.",
       items: [
         {
-          title: "Proven in Clinical Studies",
+          title: "1. Standard PRP Hair Restoration — £400",
           description:
-            "Studies show that PRFM is more effective in grade 3, 4 and 5 hair loss in men and grade 2 in women.",
+            "Our traditional platelet-rich plasma hair restoration treatment. Your own blood is processed to prepare PRP, which is then manually injected into selected areas of the scalp. PRP contains naturally occurring growth factors involved in tissue repair and cellular signalling — research into PRP for androgenetic alopecia has reported potential improvements in hair density and hair count, although the evidence remains variable and individual responses differ. May be used to support scalp and follicle health, hair density, hair thickness, the appearance of thinning hair and overall hair quality. Up to 10 mL platelet preparation, full scalp, manual administration.",
         },
         {
-          title: "Well Tolerated",
+          title: "2. Advanced PRP Cellular Matrix + Biotin — £600",
           description:
-            "All patients tolerated the procedure well, with no patients noting any significant bruising (ecchymosis).",
+            "For patients looking for a more advanced PRP-based approach. This treatment combines platelet-rich plasma with a Cellular Matrix approach (PRP combined with a non-cross-linked hyaluronic-acid matrix) and Biotin, as part of an individualised hair restoration protocol. Biotin supports normal hair and skin metabolic processes, but is presented here as part of a broader programme rather than a standalone cure. May be administered using the U225 intradermal medical injector, allowing controlled delivery through multiple micro-injections across the treatment area. Up to 10 mL platelet preparation, full scalp, advanced treatment protocol.",
         },
         {
-          title: "No Worsened Shedding",
-          description: "Hair shedding didn't worsen in any case.",
-        },
-        {
-          title: "Visible in 3 Sessions",
+          title: "3. Supreme PRP Cellular Matrix + Biotin + Exosomes — £800",
           description:
-            "Significant hair regrowth and improvement in thickness is seen after just 3 sessions of treatment.",
-        },
-        {
-          title: "Quick, Sustained-Release Procedure",
-          description:
-            "The procedure takes only around 20 minutes. It sustains release for up to 7 days afterwards, allowing cell angiogenesis and hair regrowth in the scalp, and increases hair density and thickness almost 2 times within 6 months.",
-        },
-        {
-          title: "Proven Regenerative Technology",
-          description:
-            "Platelet-rich fibrin matrix is extensively used by surgeons worldwide to treat chronic lower extremity ulcers, promoting wound healing via cell proliferation and new cell regrowth.",
-        },
-        {
-          title: "Enhances Hair Transplantation",
-          description:
-            "PRFM is very effective in combination with hair transplantation — it stimulates dermal angiogenesis and wound healing, helping the transplanted graft survive better, and also improves the density of thinning hair by stimulating cell proliferation.",
+            "Our most comprehensive PRP-based hair restoration option. The treatment combines the PRP Cellular Matrix protocol with Biotin and Exosomes, subject to individual assessment and suitability. As with all our treatments, we describe the expected benefits and evidence carefully — the regulatory status and clinical evidence for exosome-based hair treatments vary considerably, so this option is only recommended following a full consultation.",
         },
       ],
     },
@@ -1917,7 +2095,7 @@ export const treatmentDetails: TreatmentDetail[] = [
       "Those who want to strengthen existing hair before more advanced loss",
     ],
     results: "Reduced shedding from 4–6 weeks, density improvement from 3 months",
-    priceFrom: "£399 (Standard PRP) / £599 (Advanced RegenKit-BCT)",
+    priceFrom: "£400",
     faqs: [
       {
         question: "How many sessions will I need?",
@@ -1999,20 +2177,257 @@ export const treatmentDetails: TreatmentDetail[] = [
         answer:
           "PRP is an especially safe treatment option with no risk of allergic reaction, because it is made from your own blood. As it's antimicrobial, there is also no risk of infection.",
       },
+      {
+        question: "Is PRP good for hair loss?",
+        answer:
+          "PRP has been studied as a treatment for androgenetic alopecia, with research suggesting potential improvements in hair density in some patients. Results vary and treatment is not guaranteed.",
+      },
+      {
+        question: "Can PRP regrow hair?",
+        answer:
+          "PRP may support hair density and follicle activity in suitable patients, particularly in androgenetic alopecia. It is not a guaranteed method of restoring hair where follicles are permanently inactive or destroyed.",
+      },
+      {
+        question: "Is PRP suitable for men and women?",
+        answer:
+          "Yes. PRP has been studied in both male and female pattern hair loss, although the treatment plan should be individualised.",
+      },
+      {
+        question: "What is the difference between Standard PRP and PRP Cellular Matrix + Biotin?",
+        answer:
+          "Standard PRP uses platelet-rich plasma prepared from your own blood and is manually administered. PRP Cellular Matrix + Biotin is an advanced clinic treatment protocol combining PRP with a Cellular Matrix approach and Biotin, with U225-assisted administration where appropriate.",
+      },
+      {
+        question: "Can PRP stop hair loss permanently?",
+        answer:
+          "PRP should not be marketed as a permanent cure for hair loss. Hair-loss conditions can continue to progress, and ongoing management may be required.",
+      },
     ],
   },
   {
     slug: "exosome",
-    title: "Exosome Therapy (EXO OX)",
-    tagline: "Next-generation regenerative medicine for hair and skin",
+    title: "Exosomes: The Game-Changing Beauty Secret",
+    tagline: "One of the Most Talked-About Innovations in Regenerative Aesthetics",
     category: "Hair Restoration",
     image: "/images/treatments/exosome/hair-loss-hero.jpg",
-    introImage: {
-      src: "/images/treatments/exosome/anti-aging-peel.jpg",
-      alt: "Exosome skin regeneration — visualising younger, smoother skin beneath signs of ageing",
+    gallery: {
+      folder: "/images/gallery/exosome",
+      prefix: "exosome",
+      count: 4,
+      ext: "jpg",
     },
     intro:
-      "Exosome therapy represents the frontier of regenerative aesthetics. Exosomes are nano-sized vesicles that carry proteins, growth factors and genetic information between cells, triggering powerful repair and regeneration. At YourHealthFirst, we use pure Exosomes EXO OX — with 75 billion exosomes per vial, the highest concentration available on the market — to accelerate hair restoration and enhance skin renewal.",
+      "Exosome therapy represents the frontier of regenerative aesthetics. Exosomes are extracellular vesicles that act as biological messengers, carrying signalling molecules between cells. At YourHealthFirst, we use pure Exosomes EXO OX — with 75 billion exosomes per vial — to support hair restoration and skin renewal.",
+    metaTitle: "Exosome Therapy London | EXO OX Skin & Hair Restoration",
+    metaDescription:
+      "EXO OX Exosome Therapy in London for skin rejuvenation, hair restoration and scalp rejuvenation. Advanced exosome treatment at YourHealthFirst Clinic, Wimpole Street.",
+    introInBody: true,
+    introRows: [
+      {
+        image: {
+          src: "/images/treatments/exosome/anti-aging-peel.jpg",
+          alt: "Exosome skin regeneration — visualising younger, smoother skin beneath signs of ageing",
+        },
+        imageSide: "right",
+        heading: "Advanced Exosome Therapy for Skin Rejuvenation & Hair Restoration",
+        body: [
+          "Experience the next generation of regenerative aesthetics with EXO OX Exosome Therapy at YourHealthFirst Clinic in London.",
+          "EXO OX is an advanced exosome-based treatment designed to support skin rejuvenation, skin quality and hair restoration. With a highly concentrated formulation containing **75 billion exosomes** per vial, EXO OX is designed for professional aesthetic protocols targeting the skin and scalp.",
+        ],
+      },
+      {
+        image: {
+          src: "/images/treatments/exosome/sofia-facial-exosome-treatment.jpg",
+          alt: "Sofia Bouzian administering EXO OX exosome therapy to the face",
+        },
+        imageSide: "left",
+        imageAspect: "969/1081",
+        body: [
+          "Exosomes are microscopic extracellular vesicles involved in cell-to-cell communication. They contain biologically active molecules that are being investigated for their potential role in cellular signalling, tissue repair, inflammation and regenerative processes. Current clinical research has reported promising outcomes in skin rejuvenation and hair restoration, although further high-quality research is still required.",
+          "At YourHealthFirst Clinic, this advanced professional treatment is designed to support:",
+        ],
+        itemsLayout: "boxes",
+        items: [
+          "Skin rejuvenation and renewal",
+          "Improved skin quality and radiance",
+          "Smoother, healthier-looking skin",
+          "Scalp and hair rejuvenation",
+          "Support for hair density and thickness",
+          "Regenerative skin and hair protocols",
+        ],
+      },
+      {
+        heading: "What Are Exosomes?",
+        body: [
+          "Exosomes are tiny extracellular vesicles released by cells. Rather than being stem cells themselves, they act as biological messengers, carrying signalling molecules between cells.",
+          "Research suggests that exosomes may influence processes involved in:",
+        ],
+        itemsLayout: "boxes",
+        items: [
+          "Cellular communication",
+          "Skin repair and regeneration",
+          "Collagen and elastin production",
+          "Inflammatory signalling",
+          "Tissue remodelling",
+          "Hair-follicle activity",
+          "Scalp and skin health",
+        ],
+        outro:
+          "This has made exosome technology an increasingly researched area within regenerative medicine and aesthetic medicine.",
+      },
+      {
+        body: [
+          "Unlike PRP which relies on the patient's own platelet count (which varies by individual), exosomes deliver a standardised, highly concentrated payload of growth factors and signalling molecules. This makes them particularly effective for patients who have not achieved optimal results from PRP alone, or for those wanting a more powerful regenerative treatment. Delivered through microneedling, exosomes increase cell turnover and give the skin an enhanced ability to self-regenerate.",
+          "For hair restoration, exosomes are injected into the scalp — via microneedling or direct injection — where they deliver growth factors and molecules (including regulatory miRNAs) to the follicle. This promotes growth, reduces inflammation and helps rebuild and repair damaged follicles without surgery or hormones, treating conditions including androgenic alopecia (both female and male-pattern hair loss). Exosomes stimulate follicles in the resting (telogen) phase to enter the growth (anagen) phase and extend it, allowing follicles to produce stronger, healthier and longer hair.",
+          "For skin, exosomes are applied via microneedling to stimulate deep regeneration, collagen and elastin production, and repair of sun-damaged or aged tissue — also speeding up healing, which is why the treatment is often used for psoriasis, atopic dermatitis and other inflammatory skin conditions. Exosome therapy can be used as a standalone treatment or combined with PRP for a synergistic regenerative effect. Many patients choose this combination for maximum hair restoration results.",
+        ],
+      },
+      {
+        heading: "EXO OX for Skin Rejuvenation",
+        subheading: "Supporting healthier, brighter and more youthful-looking skin",
+        body: [
+          "EXO OX can be incorporated into personalised skin-rejuvenation protocols for patients concerned about skin ageing, pigmentation, uneven texture, dehydration, redness and loss of elasticity.",
+          "Potential aesthetic goals include:",
+        ],
+        items: [
+          { title: "Skin Rejuvenation", description: "Support improved skin quality, texture, hydration and radiance." },
+          { title: "Collagen & Elastin Support", description: "Exosome research has investigated effects on extracellular-matrix activity, including collagen and elastin production." },
+          { title: "Skin Elasticity", description: "Designed to support skin that appears less firm or has lost elasticity." },
+          { title: "Fine Lines & Wrinkles", description: "May help improve the appearance of fine lines and signs of photoageing as part of a personalised rejuvenation programme." },
+          { title: "Pigmentation & Uneven Skin Tone", description: "Exosome-based treatments are being investigated for their potential effects on pigmentation and overall skin appearance." },
+          { title: "Skin Barrier & Recovery", description: "Research has also explored potential roles in wound healing, inflammation and skin-barrier support." },
+        ],
+      },
+      {
+        heading: "What Skin Concerns Can EXO OX Target?",
+        body: ["EXO OX may be considered as part of an individualised treatment plan for:"],
+        itemsLayout: "boxes",
+        items: [
+          "Dull or tired-looking skin",
+          "Dry and dehydrated skin",
+          "Fine lines and wrinkles",
+          "Loss of elasticity",
+          "Uneven skin texture",
+          "Enlarged-looking pores",
+          "Uneven pigmentation",
+          "Melasma",
+          "Dark circles",
+          "Redness",
+          "Sensitive or compromised-looking skin",
+          "Acne-prone skin",
+          "Acne scarring",
+          "Signs of environmental or photoageing",
+          "Skin requiring regenerative support",
+        ],
+        outro: "Treatment suitability is assessed individually during consultation.",
+      },
+      {
+        heading: "Exosome Hair Restoration",
+        subheading: "Advanced Exosome Therapy for Hair Loss & Hair Thinning",
+        body: [
+          "Exosome technology is also being investigated as an innovative approach to hair restoration and scalp rejuvenation.",
+          "Research has explored exosomes for androgenetic alopecia, including male and female pattern hair loss. Early clinical studies have reported improvements in parameters such as hair density and hair shaft thickness, although the evidence remains limited by small studies, different exosome preparations and variations in treatment protocols.",
+        ],
+      },
+      {
+        image: {
+          src: "/images/treatments/exosome/sofia-scalp-exosome-treatment.jpg",
+          alt: "Sofia Bouzian administering EXO OX exosome therapy to the scalp",
+        },
+        imageSide: "right",
+        imageAspect: "933/990",
+        body: ["Exosome Hair Therapy may be considered for:"],
+        itemsLayout: "boxes",
+        items: [
+          "Male pattern hair loss",
+          "Female pattern hair loss",
+          "Androgenetic alopecia",
+          "Thinning hair",
+          "Reduced hair density",
+          "Weak or fine hair",
+          "Scalp rejuvenation",
+          "Hair restoration programmes",
+          "Selected patients following hair transplantation",
+        ],
+      },
+      {
+        body: ["The aim is to support the scalp environment and existing hair follicles, rather than create new follicles."],
+      },
+      {
+        heading: "How Does Exosome Hair Therapy Work?",
+        body: [
+          "Exosomes contain signalling molecules, proteins and nucleic acids, including microRNAs, which may influence cellular pathways associated with hair-follicle activity.",
+          "Research suggests that exosome-based approaches may influence pathways involved in the hair-growth cycle, follicular signalling and the scalp environment.",
+          "The hair-growth cycle:",
+        ],
+        items: [
+          { title: "1. Anagen — Growth Phase", description: "The active growth phase of the hair follicle." },
+          { title: "2. Catagen — Transition Phase", description: "A short transitional period when active growth slows." },
+          { title: "3. Telogen — Resting Phase", description: "The follicle enters a resting period." },
+          { title: "4. Exogen — Shedding Phase", description: "The existing hair is shed and the follicle can subsequently re-enter the growth cycle." },
+        ],
+        outro:
+          "Exosome therapy is being investigated for its potential to influence signalling involved in this cycle, particularly pathways associated with the active growth phase.",
+      },
+      {
+        heading: "How Is EXO OX Administered?",
+        body: [
+          "Following a detailed consultation, Sofia Bouzian will assess your skin or scalp and determine the most appropriate treatment approach.",
+          "Depending on the treatment area and individual protocol, EXO OX may be delivered using an appropriate professional aesthetic technique, such as microneedling or another selected delivery method.",
+          "The objective is to deliver the product to the appropriate treatment area while creating a personalised regenerative protocol for your specific concerns.",
+        ],
+      },
+      {
+        heading: "EXO OX for Skin & Hair",
+        subheading: "One advanced technology. Two areas of regenerative aesthetics.",
+        body: ["Skin:"],
+        itemsLayout: "boxes",
+        items: [
+          "Skin rejuvenation",
+          "Improved-looking texture",
+          "Hydration and radiance",
+          "Fine lines and wrinkles",
+          "Uneven pigmentation",
+          "Loss of elasticity",
+          "Scalp and skin regenerative protocols",
+        ],
+      },
+      {
+        body: ["Hair:"],
+        itemsLayout: "boxes",
+        items: [
+          "Hair thinning",
+          "Reduced hair density",
+          "Male pattern hair loss",
+          "Female pattern hair loss",
+          "Androgenetic alopecia",
+          "Scalp rejuvenation",
+          "Hair-restoration programmes",
+        ],
+      },
+      {
+        heading: "Why Choose YourHealthFirst Clinic?",
+        body: [
+          "At YourHealthFirst Clinic, EXO OX treatments are delivered as part of a personalised medical-aesthetic assessment, rather than a one-size-fits-all protocol.",
+          "Sofia Bouzian has more than 10 years of experience working with patients experiencing hair loss and thinning hair, with a particular interest in regenerative approaches to hair restoration.",
+          "Sofia has also been a speaker on Alopecia and Hair Loss at Sharm Derma 2022 in Cairo, Egypt, through the American Association of Continuing Medical Education, in collaboration with the Egyptian Society of Aesthetic Dermatology and the International Society for Dermatologic Surgery.",
+        ],
+      },
+      {
+        heading: "75 Billion Exosomes",
+        subheading: "EXO OX — Advanced Exosome Technology",
+        items: [
+          { title: "75 Billion Exosomes Per Vial", description: "A highly concentrated formulation designed for professional aesthetic protocols." },
+        ],
+        outro: "Experience advanced regenerative aesthetics at YourHealthFirst Clinic, Wimpole Street, London.",
+      },
+      {
+        heading: "Exosomes: What the Research Says",
+        body: [
+          "Exosome-based treatments are a rapidly developing area of aesthetic and regenerative medicine. Recent reviews have reported promising findings for both skin rejuvenation and hair restoration, including improvements in measures such as skin elasticity, texture, pigmentation, hair density and hair thickness. However, researchers continue to highlight the need for larger, well-designed clinical trials and greater standardisation between products and treatment protocols.",
+        ],
+      },
+    ],
     body: [
       "Exosomes are tiny extracellular vesicles, roughly 30–150 nanometres in diameter, that originate in the cytoplasm of various cells. They carry biomolecules including proteins, lipids and nucleic acids (RNA and DNA), and play a crucial role in intercellular communication — transferring biological information between cells.",
       "Unlike PRP which relies on the patient's own platelet count (which varies by individual), exosomes deliver a standardised, highly concentrated payload of growth factors and signalling molecules — up to 1,000 times more potent than PRP. This makes them particularly effective for patients who have not achieved optimal results from PRP alone, or for those wanting a more powerful regenerative treatment. Delivered through microneedling, exosomes increase cell turnover and give the skin an enhanced ability to self-regenerate, increasing collagen production by up to 600% and elastin by up to 300%.",
@@ -2040,10 +2455,10 @@ export const treatmentDetails: TreatmentDetail[] = [
       "Fatigue Recovery": "pulse",
     },
     benefits: [
-      "75 billion exosomes per vial — the highest concentration on the market",
-      "Up to 1,000 times more potent than standard PRP",
-      "Increases collagen production by up to 600% and elastin by up to 300%",
-      "Activates stem cells in hair follicles to promote growth",
+      "75 billion exosomes per vial — a highly concentrated formulation",
+      "A standardised, highly concentrated payload of growth factors and signalling molecules",
+      "Investigated for its potential role in supporting collagen and elastin production",
+      "Being researched for its potential role in supporting hair-follicle activity",
       "Reduces scalp inflammation that contributes to hair loss",
       "Improves skin texture, tone and deep regeneration",
       "Reconstructs the skin barrier — beneficial for eczema, rosacea and psoriasis",
@@ -2063,7 +2478,7 @@ export const treatmentDetails: TreatmentDetail[] = [
       {
         question: "Are exosomes a form of stem cell therapy?",
         answer:
-          "No — exosomes are derived from stem cells and carry their regenerative properties, but they don't introduce any live stem cells or cellular material into your body, so there's no risk of immune rejection.",
+          "No — exosomes are not stem cells themselves. They are extracellular vesicles that act as biological messengers, carrying signalling molecules between cells. They don't introduce any live stem cells or cellular material into your body, so there's no risk of immune rejection.",
       },
       {
         question: "How many sessions will I need?",
@@ -2397,7 +2812,7 @@ export const treatmentDetails: TreatmentDetail[] = [
       "Calves",
     ],
     results: "Visible improvements after 2–4 sessions, optimal at 12 weeks",
-    priceFrom: "From £500 per session",
+    priceFrom: "From £200 per session",
     faqs: [
       {
         question: "How many sessions will I need?",
@@ -2447,12 +2862,34 @@ export const treatmentDetails: TreatmentDetail[] = [
     tagline: "Permanently dissolve stubborn fat — precisely targeted",
     category: "Body Contouring",
     image: "/images/treatments/aqualyx/product-vials.jpg",
-    introImage: {
-      src: "/images/treatments/aqualyx/product-vials.jpg",
-      alt: "Aqualyx fat-dissolving injection vials",
+    gallery: {
+      folder: "/images/gallery/aqualyx",
+      prefix: "aqualyx",
+      count: 2,
+      ext: "jpeg",
     },
     intro:
       "Aqualyx is a clinically proven fat-dissolving injection that permanently destroys fat cells in small, targeted areas. It is an ideal solution for localised fat deposits that are resistant to diet and exercise, such as a double chin, jowls, small abdominal pockets and inner thighs.",
+    introRows: [
+      {
+        image: {
+          src: "/images/treatments/aqualyx/aqualyx-product-hero.jpg",
+          alt: "Aqualyx fat-dissolving injection boxes and vials — targeted, non-surgical fat reduction",
+        },
+        imageSide: "right",
+        imageContain: true,
+        body: [
+          "Aqualyx is an injectable, hydrous, micro-gelatinous solution that is biocompatible and biodegradable. It causes the dissolution of fat cells, after which the body expels the released fatty acids naturally. Administered directly into the fat tissue with a thin cannula, anaesthesia usually isn't required, there are no incisions or stitches, and scarring is unlikely.",
+          "Developed by aesthetic surgeon Prof. Pasquale Motolese in 2002, Aqualyx has been used for many years across Europe and beyond, with the manufacturer reporting sales of two million vials in two years and no major side effects recorded. Destroying the fat cells leads to a long-lasting solution provided patients remain at a stable weight — follow-up examinations seven years after therapy have still shown a relevant reduction in fat tissue in treated areas.",
+        ],
+      },
+      {
+        body: [
+          "Aqualyx is intended for patients with localised fatty deposits that don't respond to diet or exercise — it is not a weight-loss treatment, but a way to improve and refine body contour. Results shouldn't be compared to liposuction, which surgically removes large amounts of fat in one procedure.",
+          "At YourHealthFirst, Aqualyx is commonly used to treat the submental area (double chin), jowls, small abdominal areas, upper arms and inner thighs. It is particularly popular as a complement to cryolipolysis for smaller or more defined target zones. Typically, 1–3 treatments are needed for small areas (e.g. jowls) and 2–8 for larger areas (e.g. thighs), spaced around 6 weeks apart. Aqualyx causes an inflammatory reaction in the fat cells that can result in swelling for 3–5 days — this is a normal sign the treatment is working.",
+        ],
+      },
+    ],
     body: [
       "Aqualyx is an injectable, hydrous, micro-gelatinous solution that is biocompatible and biodegradable. It causes the dissolution of fat cells, after which the body expels the released fatty acids naturally. Administered directly into the fat tissue with a thin cannula, anaesthesia usually isn't required, there are no incisions or stitches, and scarring is unlikely.",
       "Developed by aesthetic surgeon Prof. Pasquale Motolese in 2002, Aqualyx has been used for many years across Europe and beyond, with the manufacturer reporting sales of two million vials in two years and no major side effects recorded. Destroying the fat cells leads to a long-lasting solution provided patients remain at a stable weight — follow-up examinations seven years after therapy have still shown a relevant reduction in fat tissue in treated areas.",
@@ -2483,32 +2920,16 @@ export const treatmentDetails: TreatmentDetail[] = [
     },
     processDiagrams: [
       {
-        src: "/images/treatments/aqualyx/injection-points.png",
-        alt: "Aqualyx injection points — chin, cheeks, shoulders, waist, stomach, thighs and knees",
+        src: "/images/treatments/aqualyx/treatment-areas.jpg",
+        alt: "Aqualyx treatment areas — double chin, cheeks, arms, waist, stomach, outer thighs, inner thighs and knees",
+        width: 1312,
+        height: 1199,
       },
       {
-        src: "/images/treatments/aqualyx/body-zones.jpg",
-        alt: "Aqualyx fat-deposit treatment zones, front and back",
-      },
-      {
-        src: "/images/treatments/aqualyx/before-after-hips.png",
-        alt: "Aqualyx before and after — hips and outer thighs",
-      },
-      {
-        src: "/images/treatments/aqualyx/before-after-back.png",
-        alt: "Aqualyx before and after — back and bra-strap bulge",
-      },
-      {
-        src: "/images/treatments/aqualyx/before-after-buttocks.png",
-        alt: "Aqualyx before and after — buttocks and thighs",
-      },
-      {
-        src: "/images/treatments/aqualyx/before-after-abdomen.png",
-        alt: "Aqualyx before and after — abdomen",
-      },
-      {
-        src: "/images/treatments/aqualyx/before-after-waist.png",
-        alt: "Aqualyx before and after — waist and hip",
+        src: "/images/treatments/aqualyx/treatment-areas-men-women.jpg",
+        alt: "Aqualyx treatment areas for women and men — front, back and side views",
+        width: 1536,
+        height: 1024,
       },
     ],
     contraindications: {
@@ -2623,134 +3044,6 @@ export const treatmentDetails: TreatmentDetail[] = [
     ],
   },
   {
-    slug: "lemon-bottle",
-    title: "Lemon Bottle (Fat Dissolving)",
-    tagline: "Fast, effective fat dissolving with minimal downtime",
-    category: "Body Contouring",
-    image: "/images/treatments/lemon-bottle/product-hero.png",
-    introImage: {
-      src: "/images/treatments/lemon-bottle/product-torso.png",
-      alt: "Lemon Bottle fat-dissolving vials with abdominal fat pinch",
-    },
-    intro:
-      "Lemon Bottle is a premium fat-dissolving injectable solution — the fastest and most potent treatment in its category. It targets and reduces stubborn body fat quickly and conveniently, with effective results and minimal downtime compared to traditional fat-dissolving methods.",
-    body: [
-      "Lemon Bottle contains a high-concentration formula including Riboflavin (Vitamin B2), Lecithin and Bromelain (derived from pineapple), which work together to break down fat cells rapidly — it's almost pain-free, with minimal swelling and redness in the treated area. The formula contains no PPC, hormones or sodium deoxycholate, unlike many other fat-dissolving injectables.",
-      "As well as breaking down fat cells, the formula decreases adipocytes and produces collagen to increase skin elasticity, and improves lymphatic circulation to help reduce oedema and eliminate cellulite. Once injected, fat cells begin breaking down immediately, with fat reduction noticeable within 24 hours and optimal results developing over 3–12 weeks.",
-      "A single session destroys up to 30% of fat cells in the treated area. To maximise results, we can advise a further session or a combination treatment with Cryolipolysis to help eliminate the dissolved fat cells from the body. Drinking around 2 litres of water after treatment is recommended to support this natural elimination process.",
-      "The treatment is suitable for areas including the abdomen, flanks, arms, double chin, male chest, inner and outer thighs, bra line and back fat. It can also be used on the face for delicate areas such as jowls and buccal fat reduction.",
-    ],
-    treatmentAreas: [
-      "Abdomen",
-      "Flanks",
-      "Arms",
-      "Double Chin",
-      "Male Chest",
-      "Inner Thighs",
-      "Outer Thighs",
-      "Bra Line",
-      "Back Fat",
-    ],
-    treatmentAreaIcons: {
-      Abdomen: "body",
-      Flanks: "target",
-      Arms: "hand",
-      "Double Chin": "jaw",
-      "Male Chest": "chest",
-      "Inner Thighs": "drop",
-      "Outer Thighs": "drop",
-      "Bra Line": "dots",
-      "Back Fat": "body",
-    },
-    processDiagrams: [
-      {
-        src: "/images/treatments/lemon-bottle/treatment-areas-diagram.png",
-        alt: "Lemon Bottle treatable areas — abdomen and body contour zones",
-      },
-      {
-        src: "/images/treatments/lemon-bottle/before-after-abdomen.png",
-        alt: "Lemon Bottle before and after — abdomen",
-      },
-      {
-        src: "/images/treatments/lemon-bottle/before-after-braline.png",
-        alt: "Lemon Bottle before and after — bra line and back fat",
-      },
-      {
-        src: "/images/treatments/lemon-bottle/before-after-thighs.png",
-        alt: "Lemon Bottle before and after — thighs and cellulite",
-      },
-      {
-        src: "/images/treatments/lemon-bottle/before-after-chin.png",
-        alt: "Lemon Bottle before and after — double chin",
-      },
-    ],
-    benefits: [
-      "Rapid fat dissolution — faster acting than traditional methods",
-      "Almost pain-free, with less post-treatment swelling than comparable fat dissolvers",
-      "Contains no PPC, hormones or sodium deoxycholate",
-      "Boosts collagen production to improve skin elasticity",
-      "Helps reduce oedema and eliminate cellulite",
-      "Suitable for face and body fat pockets",
-      "Convenient — short sessions with minimal downtime",
-      "Effective for chin, arms, abdomen, thighs and more",
-    ],
-    suitableFor: [
-      "Adults with localised fat deposits wanting fast results",
-      "Those wanting fat dissolving with minimal post-treatment swelling",
-      "Patients seeking face and body fat reduction",
-      "Anyone looking for a convenient, effective fat-reduction treatment",
-    ],
-    results: "Initial reduction visible within 24 hours, optimal results in 3–12 weeks",
-    priceFrom: "From £250 per session",
-    faqs: [
-      {
-        question: "How many sessions will I need?",
-        answer:
-          "A single session destroys up to 30% of fat cells in the treated area. Most patients need 2–4 sessions spaced 2–4 weeks apart for optimal results — a faster overall course than many other fat-dissolving treatments. Combining Lemon Bottle with a Cryolipolysis session can help eliminate the dissolved fat cells for even better results.",
-      },
-      {
-        question: "What results can I expect?",
-        answer:
-          "A visible reduction in the treated fat pocket, with the Riboflavin, Lecithin and Bromelain formula working faster than traditional fat-dissolving injectables. Fat reduction is noticeable within 24 hours, with optimal results developing over 3–12 weeks.",
-      },
-      {
-        question: "Is it more comfortable than other fat-dissolving injections?",
-        answer:
-          "Yes — Lemon Bottle's formulation is almost pain-free and known for producing less post-treatment swelling and discomfort compared with older fat-dissolving solutions, while still working quickly.",
-      },
-      {
-        question: "What are the side-effects?",
-        answer:
-          "Mild swelling, redness or tenderness at the injection sites can occur but is typically less pronounced and shorter-lived than with other fat-dissolving treatments.",
-      },
-      {
-        question: "Which areas can be treated?",
-        answer:
-          "Lemon Bottle is suitable for the abdomen, flanks, arms, double chin, male chest, inner and outer thighs, bra line and back fat, including delicate facial areas such as buccal fat.",
-      },
-      {
-        question: "When will I see results?",
-        answer:
-          "Fat reduction is noticeable within 24 hours of treatment, with optimal results developing over 3–12 weeks as the body naturally eliminates the dissolved fat cells. Drinking plenty of water helps support this process.",
-      },
-      {
-        question: "Is the treatment painful?",
-        answer:
-          "Most patients find the treatment quick and almost pain-free, with only mild discomfort during the injections.",
-      },
-      {
-        question: "How do I know I'm getting a genuine Lemon Bottle product?",
-        answer:
-          "Always choose an authorised clinic — genuine Lemon Bottle vials carry an authentication tag. At YourHealthFirst, we only use verified, authentic product for every treatment.",
-      },
-      {
-        question: "Who is suitable for Lemon Bottle?",
-        answer:
-          "Adults with localised fat pockets on the face or body who want a faster-acting treatment with less downtime than traditional fat-dissolving options.",
-      },
-    ],
-  },
-  {
     slug: "mounjaro",
     title: "Mounjaro (Weight Loss Injection)",
     tagline: "The clinically approved breakthrough in medical weight loss",
@@ -2761,12 +3054,12 @@ export const treatmentDetails: TreatmentDetail[] = [
       alt: "Mounjaro (tirzepatide) once-weekly injection pen and dose strengths",
     },
     intro:
-      "Mounjaro (tirzepatide) is a clinically approved weekly injection for weight management, representing a significant advance in medical treatment for obesity. By mimicking two natural gut hormones that regulate appetite and blood sugar, it supports substantial and sustained weight loss alongside a healthy lifestyle.",
+      "At YourHealthFirst Clinic, we provide medically supervised weight-management support for eligible patients seeking a structured and evidence-based approach to weight loss. Our Wimpole Street Weight Management Service in London is delivered by trained and experienced healthcare professionals, with an emphasis on appropriate patient assessment, treatment suitability, ongoing monitoring and safe use of prescription weight-management medicines.",
     body: [
-      "Tirzepatide acts as a dual GIP and GLP-1 receptor agonist — meaning it activates two separate hormone pathways simultaneously. This dual action reduces appetite, slows stomach emptying and improves insulin sensitivity, resulting in a more significant reduction in caloric intake and body weight than single-hormone treatments. It has surpassed the effectiveness of Semaglutide (Ozempic/Wegovy), with patients seeing as much as 22.5% body weight loss.",
-      "Clinical trials have shown patients losing an average of 15–22% of their body weight over 72 weeks — in a study of more than 2,500 adults with obesity, those taking 5mg for 72 weeks lost an average of 15% of their body weight, with higher doses associated with even greater loss. In a separate 72-week trial, 96% of participants taking the highest dose lost 5% or more of their initial body weight. Mounjaro is manufactured by Eli Lilly and has been rigorously tested and approved for weight loss management.",
-      "At YourHealthFirst, Mounjaro is prescribed as part of a supervised weight management programme. An initial consultation and health assessment are required to confirm suitability, and ongoing monitoring ensures safety throughout the treatment.",
-      "Mounjaro is self-administered once weekly via a simple pre-filled pen injector, as a subcutaneous injection into the abdomen, thigh or upper arm. The dose starts at 2.5mg once weekly for four weeks, then increases to 5mg, before being gradually increased further in 2.5mg increments up to an optimal dose of 15mg — rotating the injection site each week to avoid skin irritation.",
+      "Our clinicians assess your medical history, current medicines, health conditions, BMI and weight-management goals before deciding whether prescription treatment is appropriate.",
+      "Mounjaro contains tirzepatide, a prescription medicine that acts on two hormone receptors: GIP and GLP-1. For weight management, Mounjaro is used alongside a reduced-calorie diet and increased physical activity in eligible adults with obesity, or adults who are overweight and have weight-related health problems. Tirzepatide works partly by regulating appetite and increasing feelings of fullness, which can help reduce food intake and support weight loss.",
+      "Mounjaro has been studied extensively in large clinical trials. In the 72-week SURMOUNT-1 study involving 2,539 adults, average weight loss was approximately 16.0% with 5mg, 21.4% with 10mg and 22.5% with 15mg — compared with approximately 2.4% in the placebo group. Individual results vary, and clinical-trial results should not be interpreted as a guarantee of the amount of weight an individual patient will lose.",
+      "Treatment normally starts at 2.5mg once weekly. The UK product information states that the starting dose is 2.5mg once a week for four weeks, followed by an increase to 5mg once weekly. If clinically appropriate, your prescriber may increase the dose in 2.5mg increments, with patients remaining on each dose for at least four weeks before increasing. Available adult doses include 2.5mg, 5mg, 7.5mg, 10mg, 12.5mg and 15mg. Your dose should only be changed following advice from your prescribing clinician.",
     ],
     treatmentAreas: ["Abdomen", "Thigh", "Upper Arm"],
     treatmentAreaIcons: {
@@ -2778,107 +3071,120 @@ export const treatmentDetails: TreatmentDetail[] = [
       eyebrow: "How It Works",
       main: "How Does Mounjaro",
       accent: "Work?",
-      subtitle: "Tirzepatide targets appetite and digestion through three complementary mechanisms.",
+      subtitle: "Tirzepatide targets appetite and digestion through four complementary mechanisms.",
       items: [
         {
           icon: "shield",
-          title: "Appetite Suppression",
-          description: "Mounjaro curbs your cravings, making it easier to resist unhealthy snacks and overeating.",
+          title: "Appetite Regulation",
+          description: "Mounjaro can reduce hunger and food cravings, helping you manage portion sizes and overall food intake.",
         },
         {
           icon: "clock",
-          title: "Feeling Fuller for Longer",
-          description: "By mimicking GLP-1, Mounjaro helps you feel satisfied after meals, reducing the urge to snack between them.",
+          title: "Increased Satiety",
+          description: "The medicine can help you feel fuller for longer after eating.",
         },
         {
           icon: "gear",
-          title: "Slowing Gastric Emptying",
-          description: "Mounjaro slows the rate food leaves your stomach, promoting better digestion and prolonged satiety.",
+          title: "Slower Gastric Emptying",
+          description: "Tirzepatide can delay the movement of food from the stomach, contributing to feelings of fullness.",
+        },
+        {
+          icon: "pulse",
+          title: "Metabolic Effects",
+          description: "Tirzepatide also affects blood-glucose regulation through its GIP and GLP-1 activity.",
         },
       ],
     },
     advantages: {
-      title: "Why Choose Mounjaro?",
-      intro: "A rigorously tested, clinically proven weight-loss treatment from a trusted manufacturer.",
+      title: "Your Weight Management Journey",
+      intro: "Our approach is based on medical assessment rather than simply supplying a weight-loss injection.",
       items: [
         {
-          title: "Proven Effectiveness",
-          description: "In a 72-week clinical trial, 96% of participants taking the highest dose lost 5% or more of their initial body weight.",
+          title: "1. Initial Assessment",
+          description: "We review your health history, BMI, current medication, relevant medical conditions and weight-management goals.",
         },
         {
-          title: "Trusted Manufacturer",
-          description: "Mounjaro is manufactured by the reputable pharmaceutical company Eli Lilly.",
+          title: "2. Suitability Assessment",
+          description: "A qualified prescriber determines whether Mounjaro is clinically appropriate for you.",
         },
         {
-          title: "Rigorously Tested",
-          description: "Mounjaro has been rigorously tested and approved for weight loss management.",
+          title: "3. Treatment Plan",
+          description: "If prescribed, you receive guidance on the appropriate starting dose, administration, lifestyle measures and monitoring.",
         },
         {
-          title: "Strong Clinical Evidence",
-          description: "In a study of over 2,500 adults with obesity, those on a 5mg dose for 72 weeks lost an average of 15% of their body weight.",
+          title: "4. Ongoing Monitoring",
+          description: "Your progress, treatment response, side effects and dose requirements can be reviewed throughout your journey.",
+        },
+        {
+          title: "5. Long-Term Weight Management",
+          description: "Weight management involves more than medication. Nutrition, physical activity, behavioural factors and sustainable lifestyle changes remain important parts of treatment.",
         },
       ],
     },
     contraindications: {
-      title: "Who Should Not Take Mounjaro",
+      title: "Who May Not Be Suitable for Mounjaro",
       items: [
-        "Known allergy to any ingredient in Mounjaro",
-        "Pregnant, breastfeeding or planning to conceive",
-        "Under 18 or over 75 years old",
-        "Severe heart failure",
-        "Diabetes with other GLP-1 medications or hypoglycaemia",
-        "Severe gut conditions such as IBD or gastroparesis",
-        "Severe kidney or liver disease, or on dialysis",
+        "Pancreatitis or pancreatic disease",
+        "Diabetes",
+        "Gallstones or gallbladder disease",
+        "Kidney or liver problems",
+        "Thyroid disease or thyroid nodules",
+        "Significant gastrointestinal problems",
+        "A history of severe allergic reactions",
+        "Problems with a rapid heartbeat or palpitations",
+        "Conditions requiring anticoagulant medication",
+        "Other medicines for diabetes or weight management",
+        "Pregnant, planning pregnancy or breastfeeding",
       ],
     },
     careInstructions: {
-      title: "Mounjaro — Injection Sites & Storage",
+      title: "Mounjaro — Administration, Storage & Safety",
       intro:
-        "Mounjaro is injected subcutaneously (under the skin). Rotate the injection site every week to avoid skin irritation.",
+        "Mounjaro is administered as a subcutaneous injection. Please follow the official Mounjaro Instructions for Use and the advice provided by your prescriber.",
       groups: [
         {
-          heading: "Injection Sites",
+          heading: "Where Is Mounjaro Injected?",
           points: [
-            "Abdomen — into the fatty tissue on either side of the navel, avoiding the waistband area or any damaged, bruised or scarred skin.",
-            "Thigh — into the fatty tissue on the front of the thigh, at least 10cm (4 inches) above the knee.",
-            "Upper arm — into the fatty tissue on the back of the arm, at least 5cm (2 inches) below the shoulder.",
+            "Abdomen",
+            "Thigh",
+            "Back of the upper arm",
+            "Injection sites should be rotated. If another injectable medicine such as insulin is being used, your healthcare professional will advise you on appropriate injection sites.",
           ],
         },
         {
-          heading: "Storage",
+          heading: "How Should Mounjaro Be Stored?",
           points: [
-            "Keep refrigerated. If needed, it may be stored unrefrigerated for up to 30 days at a temperature not above 30°C, after which it must be discarded.",
+            "Unused Mounjaro KwikPens should be stored in a refrigerator at 2°C–8°C and must not be frozen.",
+            "After first use, the KwikPen can be stored unrefrigerated at a temperature not exceeding 30°C for up to 30 days, after which it must be discarded.",
           ],
         },
         {
-          heading: "Conditions to Disclose to Your Doctor",
+          heading: "Important Safety Information",
           warning: true,
           points: [
-            "Pancreatic diseases",
-            "Diabetes",
-            "Gallstones or an inflamed gallbladder",
-            "A racing heart or heart palpitations",
-            "Thyroid disease, including thyroid nodules",
-            "Mild to moderate kidney or liver disease",
-            "Taking anticoagulants such as warfarin",
+            "Most commonly reported side effects are gastrointestinal and can be more noticeable when treatment is started or the dose is increased.",
+            "Possible side effects include nausea, vomiting, diarrhoea, constipation, abdominal discomfort and reduced appetite.",
+            "Other adverse effects can occur, including gallstones, gallbladder inflammation, injection-site reactions and, less commonly, pancreatitis.",
+            "Severe, persistent abdominal pain — particularly if it radiates to the back and is accompanied by nausea or vomiting — requires urgent medical assessment because it may indicate acute pancreatitis.",
           ],
         },
       ],
     },
     processDiagrams: [
       {
-        src: "/images/treatments/mounjaro/dosing-timeline.jpg",
+        src: "/images/treatments/mounjaro/dosing-timeline-v2.jpg",
         alt: "Mounjaro treatment timeline — weekly dose escalation from 2.5mg to 15mg",
+        width: 1294,
+        height: 1216,
+        maxWidth: 780,
       },
     ],
     benefits: [
-      "Clinically approved and extensively studied for weight loss",
-      "Dual-hormone action — more effective than single-agent treatments",
-      "Average 15–22% body weight reduction in clinical trials",
-      "Outperforms Semaglutide (Ozempic/Wegovy) in head-to-head results",
-      "Improves blood sugar and metabolic health alongside weight loss",
-      "Weekly self-injection — simple and convenient",
-      "Medically supervised programme for safety and results",
+      "Medical-led weight management — treatment begins with an individual clinical assessment",
+      "Based at 2 Wimpole Street, London W1G 0EB — in the heart of London's medical district",
+      "Individualised treatment and dosing based on your clinical circumstances and response",
+      "Safety-focused care — screened for relevant conditions, medicines and contraindications",
+      "Ongoing clinical support and guidance throughout your treatment journey",
     ],
     suitableFor: [
       "Adults with a BMI of 30+ (or 27+ with a weight-related condition)",
@@ -2896,6 +3202,66 @@ export const treatmentDetails: TreatmentDetail[] = [
       { area: "15mg", price: "£575" },
     ],
     priceFrom: "From £250 per pen",
+    comingSoon: {
+      badge: "Investigational — Not Yet Available",
+      heading: "Retatrutide – What You Need to Know",
+      subheading: "An investigational next-generation treatment",
+      paragraphs: [
+        "Retatrutide is not the same medicine as Mounjaro. Retatrutide is an investigational once-weekly triple hormone receptor agonist that targets GLP-1, GIP and Glucagon. It is currently being investigated in Phase 3 clinical trials for obesity and related conditions.",
+        "Recent Phase 3 results have reported substantial weight loss in clinical-trial populations. For example, in TRIUMPH-1, participants receiving 12mg retatrutide had an average weight reduction of 28.3% at 80 weeks in the reported study population. These are investigational clinical-trial results and are not a guarantee of individual results.",
+        "Important: Retatrutide has not been approved for public use by a regulatory authority and is not currently available as a licensed prescription weight-management medicine. It is not marketed or offered as an available treatment at YourHealthFirst Clinic outside an authorised clinical trial.",
+      ],
+      image: {
+        src: "/images/treatments/mounjaro/retatrutide-pen-kit-v2.jpg",
+        alt: "Retatrutide 40mg injection pen kit — an investigational once-weekly triple agonist of GLP-1, GIP and glucagon receptors",
+        width: 1860,
+        height: 845,
+      },
+      faqsHeading: "Retatrutide — Frequently Asked Questions",
+      faqs: [
+        {
+          question: "How does Retatrutide work?",
+          answer:
+            "Retatrutide has been nicknamed ‘Triple G’ because it targets three different receptors and hormones – GLP-1, glucagon and GIP. Glucagon and GIP are naturally released when you eat food, and play a role in reducing appetite, lowering blood sugar and helping the body burn fat.",
+          sections: [
+            {
+              heading: "Three ways it may support weight loss",
+              points: [
+                "Suppressing appetite and slowing digestion, meaning you're not as hungry as often and feel fuller for longer",
+                "Increasing fat metabolism, so the body breaks down fat quicker",
+                "Increasing insulin sensitivity, which reduces blood sugar and encourages the breakdown of stored fat",
+              ],
+            },
+          ],
+        },
+        {
+          question: "How does Retatrutide compare with Mounjaro in clinical trials?",
+          answer:
+            "Mounjaro acts on two hormone receptors, GIP and GLP-1. Retatrutide is being investigated as a triple agonist, additionally targeting glucagon receptors. In the TRIUMPH-1 Phase 3 trial, participants receiving 12mg retatrutide had an average weight reduction of 28.3% at 80 weeks, compared with an average of 22.5% with the highest dose of Mounjaro over 72 weeks in the SURMOUNT-1 trial. These trials differ in design and duration, so a direct comparison should be treated with caution, and results are not a guarantee of individual outcomes.",
+        },
+        {
+          question: "How is Retatrutide administered in clinical trials?",
+          answer:
+            "In clinical trials, Retatrutide is given using a pen injector, delivered as a subcutaneous injection into the arm, thigh or stomach, once weekly, starting with a lower dose to minimise side effects.",
+        },
+        {
+          question: "What side effects have been reported with Retatrutide?",
+          answer:
+            "In clinical trials, Retatrutide has been associated with side effects similar to other GLP-1/GIP medicines. Always consult your doctor, nurse or pharmacist before using any new medication.",
+          sections: [
+            {
+              heading: "Commonly reported side effects",
+              points: ["Nausea", "Vomiting", "Constipation", "Diarrhoea"],
+            },
+          ],
+        },
+        {
+          question: "Is Retatrutide available to book at YourHealthFirst Clinic?",
+          answer:
+            "No. Retatrutide has not been approved for public use by a regulatory authority and is not currently available as a licensed prescription weight-management medicine. We are unable to prescribe or sell Retatrutide outside an authorised clinical trial. If you are interested in a currently available, clinically approved option, please ask us about Mounjaro.",
+        },
+      ],
+    },
     faqs: [
       {
         question: "How does the programme work?",
@@ -2905,7 +3271,7 @@ export const treatmentDetails: TreatmentDetail[] = [
       {
         question: "What results can I expect?",
         answer:
-          "Clinical trials show patients losing an average of 15–22% of their body weight over 72 weeks, alongside improvements in blood sugar and metabolic health.",
+          "In the 72-week SURMOUNT-1 study involving 2,539 adults, average weight loss was approximately 16.0% with 5mg, 21.4% with 10mg and 22.5% with 15mg — compared with approximately 2.4% in the placebo group. Individual results vary, and clinical-trial results should not be interpreted as a guarantee of the amount of weight an individual patient will lose.",
       },
       {
         question: "Is Mounjaro safe?",
@@ -2915,7 +3281,7 @@ export const treatmentDetails: TreatmentDetail[] = [
       {
         question: "What are the side-effects?",
         answer:
-          "The most common side effects are gastrointestinal — nausea, vomiting, constipation and diarrhoea — particularly when starting or increasing the dose. Most aren't severe and settle as your body adjusts.",
+          "Most commonly reported side effects are gastrointestinal — nausea, vomiting, diarrhoea, constipation, abdominal discomfort and reduced appetite — and can be more noticeable when treatment is started or the dose is increased. Other adverse effects can occur, including gallstones, gallbladder inflammation and injection-site reactions. Severe, persistent abdominal pain, particularly if it radiates to the back and is accompanied by nausea or vomiting, requires urgent medical assessment as it may indicate acute pancreatitis.",
       },
       {
         question: "Is the injection painful?",
@@ -2925,7 +3291,7 @@ export const treatmentDetails: TreatmentDetail[] = [
       {
         question: "How is the dose managed?",
         answer:
-          "Treatment starts at 2.5mg once weekly for four weeks, then increases to 5mg, before being gradually increased further in 2.5mg increments up to an optimal maintenance dose of 15mg — allowing your body to adjust and minimising the likelihood of side effects.",
+          "The starting dose is 2.5mg once a week for four weeks, followed by an increase to 5mg once weekly. If clinically appropriate, your prescriber may increase the dose in 2.5mg increments, with patients remaining on each dose for at least four weeks before increasing. Available adult doses include 2.5mg, 5mg, 7.5mg, 10mg, 12.5mg and 15mg. Your dose should only be changed following advice from your prescribing clinician.",
       },
       {
         question: "When will I see results?",
@@ -2935,7 +3301,7 @@ export const treatmentDetails: TreatmentDetail[] = [
       {
         question: "Who is suitable for Mounjaro?",
         answer:
-          "Adults with a BMI of 30+ (or 27+ with a weight-related health condition) who have not achieved sufficient results through diet and exercise alone, and who are confirmed medically suitable at assessment.",
+          "Adults with a BMI of 30+ (or 27+ with a weight-related health condition) who have not achieved sufficient results through diet and exercise alone, and who are confirmed medically suitable following a full assessment of medical history, current medicines, health conditions and weight-management goals.",
       },
     ],
   },
@@ -3468,6 +3834,12 @@ export const treatmentDetails: TreatmentDetail[] = [
     category: "Skin & Health",
     bookCTAHorizontal: true,
     image: "/images/services/placeholder.png",
+    gallery: {
+      folder: "/images/gallery/cryopen",
+      prefix: "cryopen",
+      count: 2,
+      ext: "jpeg",
+    },
     videoId: "vOsMKH-s6DQ",
     videoId2: "kmUxKC4kaSc",
     intro:
@@ -3497,6 +3869,11 @@ export const treatmentDetails: TreatmentDetail[] = [
         ],
       },
       {
+        image: {
+          src: "/images/treatments/cryopen/sofia-treating-neck.jpg",
+          alt: "Sofia using the CryoPen device to treat a skin lesion near the neck",
+        },
+        imageSide: "left",
         heading: "Skin Lesions Treated with CryoPen",
         subheading: "The practitioner will assess the lesion and confirm its suitability before treatment.",
         items: [
@@ -3504,6 +3881,10 @@ export const treatmentDetails: TreatmentDetail[] = [
           { title: "Verrucas", description: "Warts that develop on the soles of the feet. They may feel uncomfortable or painful, particularly when walking or standing." },
           { title: "Skin Tags", description: "Small, soft growths that commonly develop in areas where skin rubs against skin or clothing, such as the neck, underarms and eyelids." },
           { title: "Solar Lentigines — Age, Sun & Liver Spots", description: "Flat, pigmented spots that commonly appear on sun-exposed skin. They are often known as age spots, sun spots or liver spots." },
+        ],
+      },
+      {
+        items: [
           { title: "Seborrhoeic Keratosis", description: "Common, usually benign skin growths. They may have a waxy, rough or raised appearance and can vary in colour and size." },
           { title: "Cherry Angiomas", description: "Small red or purple spots formed by clusters of tiny blood vessels, also called haemangiomata in some treatment lists." },
           { title: "Angiofibroma — Fibrous Papules", description: "Small, firm, benign growths that commonly appear on the face, particularly around the nose." },

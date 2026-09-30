@@ -130,20 +130,6 @@ export const services: ServiceCard[] = [
     iconBg: "#5a4a8a",
   },
   {
-    slug: "lemon-bottle",
-    title: "Lemon Bottle (Fat Dissolving)",
-    description: [
-      { text: "Lemon Bottle", bold: true },
-      {
-        text: " is the non-surgical fastest and strongest fat-dissolving treatment in the industry — quick, convenient and effective with visible results from the first session.",
-      },
-    ],
-    image: "/images/services/placeholder.png",
-    href: "/treatments/lemon-bottle",
-    icon: "drop",
-    iconBg: "#c8a030",
-  },
-  {
     slug: "polynucleotides",
     title: "Polynucleotides",
     description: [

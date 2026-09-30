@@ -52,7 +52,6 @@ const treatments = [
   "Cryolipolysis (Fat Freezing)",
   "Emsculpt Neo",
   "Aqualyx",
-  "Lemon Bottle",
   "Mounjaro",
   "Microneedling / Mesotherapy",
   "Photodynamic Therapy (Skinox)",

@@ -29,8 +29,8 @@ export default function AboutUs() {
               </p>
               <p className="mt-[14.4px]">
                 We offer a range of treatments including; Phlebotomy Services
-                (blood draw) Cryolipolysis, Aqualyx and Lemon Bottle both fat
-                dissolving treatment, Botox – Anti-wrinkles injections, Dermal
+                (blood draw) Cryolipolysis and Aqualyx fat
+                dissolving treatments, Botox – Anti-wrinkles injections, Dermal
                 Fillers, Eye bags correction, Under eyes dark circles,
                 Rhinomodelation, Revoluminization, Neck rejuvenation, Peeling,
                 Micro-needling, Warts, Skin tags, Moles, Millia &amp; Cherry

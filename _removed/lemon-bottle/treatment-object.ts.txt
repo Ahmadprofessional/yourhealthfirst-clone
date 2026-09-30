@@ -1,0 +1,128 @@
+  {
+    slug: "lemon-bottle",
+    title: "Lemon Bottle (Fat Dissolving)",
+    tagline: "Fast, effective fat dissolving with minimal downtime",
+    category: "Body Contouring",
+    image: "/images/treatments/lemon-bottle/product-hero.png",
+    introImage: {
+      src: "/images/treatments/lemon-bottle/product-torso.png",
+      alt: "Lemon Bottle fat-dissolving vials with abdominal fat pinch",
+    },
+    intro:
+      "Lemon Bottle is a premium fat-dissolving injectable solution — the fastest and most potent treatment in its category. It targets and reduces stubborn body fat quickly and conveniently, with effective results and minimal downtime compared to traditional fat-dissolving methods.",
+    body: [
+      "Lemon Bottle contains a high-concentration formula including Riboflavin (Vitamin B2), Lecithin and Bromelain (derived from pineapple), which work together to break down fat cells rapidly — it's almost pain-free, with minimal swelling and redness in the treated area. The formula contains no PPC, hormones or sodium deoxycholate, unlike many other fat-dissolving injectables.",
+      "As well as breaking down fat cells, the formula decreases adipocytes and produces collagen to increase skin elasticity, and improves lymphatic circulation to help reduce oedema and eliminate cellulite. Once injected, fat cells begin breaking down immediately, with fat reduction noticeable within 24 hours and optimal results developing over 3–12 weeks.",
+      "A single session destroys up to 30% of fat cells in the treated area. To maximise results, we can advise a further session or a combination treatment with Cryolipolysis to help eliminate the dissolved fat cells from the body. Drinking around 2 litres of water after treatment is recommended to support this natural elimination process.",
+      "The treatment is suitable for areas including the abdomen, flanks, arms, double chin, male chest, inner and outer thighs, bra line and back fat. It can also be used on the face for delicate areas such as jowls and buccal fat reduction.",
+    ],
+    treatmentAreas: [
+      "Abdomen",
+      "Flanks",
+      "Arms",
+      "Double Chin",
+      "Male Chest",
+      "Inner Thighs",
+      "Outer Thighs",
+      "Bra Line",
+      "Back Fat",
+    ],
+    treatmentAreaIcons: {
+      Abdomen: "body",
+      Flanks: "target",
+      Arms: "hand",
+      "Double Chin": "jaw",
+      "Male Chest": "chest",
+      "Inner Thighs": "drop",
+      "Outer Thighs": "drop",
+      "Bra Line": "dots",
+      "Back Fat": "body",
+    },
+    processDiagrams: [
+      {
+        src: "/images/treatments/lemon-bottle/treatment-areas-diagram.png",
+        alt: "Lemon Bottle treatable areas — abdomen and body contour zones",
+      },
+      {
+        src: "/images/treatments/lemon-bottle/before-after-abdomen.png",
+        alt: "Lemon Bottle before and after — abdomen",
+      },
+      {
+        src: "/images/treatments/lemon-bottle/before-after-braline.png",
+        alt: "Lemon Bottle before and after — bra line and back fat",
+      },
+      {
+        src: "/images/treatments/lemon-bottle/before-after-thighs.png",
+        alt: "Lemon Bottle before and after — thighs and cellulite",
+      },
+      {
+        src: "/images/treatments/lemon-bottle/before-after-chin.png",
+        alt: "Lemon Bottle before and after — double chin",
+      },
+    ],
+    benefits: [
+      "Rapid fat dissolution — faster acting than traditional methods",
+      "Almost pain-free, with less post-treatment swelling than comparable fat dissolvers",
+      "Contains no PPC, hormones or sodium deoxycholate",
+      "Boosts collagen production to improve skin elasticity",
+      "Helps reduce oedema and eliminate cellulite",
+      "Suitable for face and body fat pockets",
+      "Convenient — short sessions with minimal downtime",
+      "Effective for chin, arms, abdomen, thighs and more",
+    ],
+    suitableFor: [
+      "Adults with localised fat deposits wanting fast results",
+      "Those wanting fat dissolving with minimal post-treatment swelling",
+      "Patients seeking face and body fat reduction",
+      "Anyone looking for a convenient, effective fat-reduction treatment",
+    ],
+    results: "Initial reduction visible within 24 hours, optimal results in 3–12 weeks",
+    priceFrom: "From £250 per session",
+    faqs: [
+      {
+        question: "How many sessions will I need?",
+        answer:
+          "A single session destroys up to 30% of fat cells in the treated area. Most patients need 2–4 sessions spaced 2–4 weeks apart for optimal results — a faster overall course than many other fat-dissolving treatments. Combining Lemon Bottle with a Cryolipolysis session can help eliminate the dissolved fat cells for even better results.",
+      },
+      {
+        question: "What results can I expect?",
+        answer:
+          "A visible reduction in the treated fat pocket, with the Riboflavin, Lecithin and Bromelain formula working faster than traditional fat-dissolving injectables. Fat reduction is noticeable within 24 hours, with optimal results developing over 3–12 weeks.",
+      },
+      {
+        question: "Is it more comfortable than other fat-dissolving injections?",
+        answer:
+          "Yes — Lemon Bottle's formulation is almost pain-free and known for producing less post-treatment swelling and discomfort compared with older fat-dissolving solutions, while still working quickly.",
+      },
+      {
+        question: "What are the side-effects?",
+        answer:
+          "Mild swelling, redness or tenderness at the injection sites can occur but is typically less pronounced and shorter-lived than with other fat-dissolving treatments.",
+      },
+      {
+        question: "Which areas can be treated?",
+        answer:
+          "Lemon Bottle is suitable for the abdomen, flanks, arms, double chin, male chest, inner and outer thighs, bra line and back fat, including delicate facial areas such as buccal fat.",
+      },
+      {
+        question: "When will I see results?",
+        answer:
+          "Fat reduction is noticeable within 24 hours of treatment, with optimal results developing over 3–12 weeks as the body naturally eliminates the dissolved fat cells. Drinking plenty of water helps support this process.",
+      },
+      {
+        question: "Is the treatment painful?",
+        answer:
+          "Most patients find the treatment quick and almost pain-free, with only mild discomfort during the injections.",
+      },
+      {
+        question: "How do I know I'm getting a genuine Lemon Bottle product?",
+        answer:
+          "Always choose an authorised clinic — genuine Lemon Bottle vials carry an authentication tag. At YourHealthFirst, we only use verified, authentic product for every treatment.",
+      },
+      {
+        question: "Who is suitable for Lemon Bottle?",
+        answer:
+          "Adults with localised fat pockets on the face or body who want a faster-acting treatment with less downtime than traditional fat-dissolving options.",
+      },
+    ],
+  },

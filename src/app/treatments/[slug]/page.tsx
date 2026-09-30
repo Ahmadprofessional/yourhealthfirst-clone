@@ -261,9 +261,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const treatment = treatmentDetails.find((t) => t.slug === slug);
   if (!treatment) return { title: "Treatment | YourHealthFirst Clinic" };
   return {
-    title: `${treatment.title} | YourHealthFirst Clinic — Harley Street`,
-    description: treatment.intro,
+    title: treatment.metaTitle ?? `${treatment.title} | YourHealthFirst Clinic — Harley Street`,
+    description: treatment.metaDescription ?? treatment.intro,
   };
+}
+
+function renderBold(text: string) {
+  return text.split("**").map((part, i) =>
+    i % 2 === 1 ? (
+      <strong key={i} className="font-semibold text-forest">
+        {part}
+      </strong>
+    ) : (
+      part
+    ),
+  );
 }
 
 export default async function TreatmentPage({ params }: Props) {
@@ -395,27 +407,35 @@ export default async function TreatmentPage({ params }: Props) {
                 </p>
               )}
 
-              {/* Explainer video */}
-              {treatment.videoId && (
-                <div className="relative w-full overflow-hidden rounded-[12px]" style={{ aspectRatio: "16/9" }}>
-                  <iframe
-                    src={`https://www.youtube.com/embed/${treatment.videoId}`}
-                    title={`${treatment.title} — explainer video`}
-                    className="absolute inset-0 h-full w-full"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  />
-                </div>
-              )}
-              {treatment.videoId2 && (
-                <div className="relative w-full overflow-hidden rounded-[12px]" style={{ aspectRatio: "16/9" }}>
-                  <iframe
-                    src={`https://www.youtube.com/embed/${treatment.videoId2}`}
-                    title={`${treatment.title} — explainer video 2`}
-                    className="absolute inset-0 h-full w-full"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  />
+              {/* Explainer video(s) — side by side when both are present */}
+              {(treatment.videoId || treatment.videoId2) && (
+                <div
+                  className={
+                    treatment.videoId && treatment.videoId2 ? "grid grid-cols-1 gap-4 sm:grid-cols-2" : undefined
+                  }
+                >
+                  {treatment.videoId && (
+                    <div className="relative w-full overflow-hidden rounded-[12px]" style={{ aspectRatio: "16/9" }}>
+                      <iframe
+                        src={`https://www.youtube.com/embed/${treatment.videoId}`}
+                        title={`${treatment.title} — explainer video`}
+                        className="absolute inset-0 h-full w-full"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      />
+                    </div>
+                  )}
+                  {treatment.videoId2 && (
+                    <div className="relative w-full overflow-hidden rounded-[12px]" style={{ aspectRatio: "16/9" }}>
+                      <iframe
+                        src={`https://www.youtube.com/embed/${treatment.videoId2}`}
+                        title={`${treatment.title} — explainer video 2`}
+                        className="absolute inset-0 h-full w-full"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      />
+                    </div>
+                  )}
                 </div>
               )}
               {treatment.videoUrl && (
@@ -765,7 +785,7 @@ export default async function TreatmentPage({ params }: Props) {
                         treatment.introImage ? "mt-16 sm:mt-24" : ""
                       } ${
                         treatment.introImageSize
-                          ? "h-[220px] w-[160px] sm:h-[var(--ih)] sm:w-[var(--iw)]"
+                          ? "h-[var(--mh)] w-[160px] sm:h-[var(--ih)] sm:w-[var(--iw)]"
                           : "h-[260px] w-[190px] bg-cream sm:h-[300px] sm:w-[220px]"
                       }`}
                       style={
@@ -773,6 +793,7 @@ export default async function TreatmentPage({ params }: Props) {
                           ? ({
                               "--iw": `${treatment.introImageSize.width}px`,
                               "--ih": `${treatment.introImageSize.height}px`,
+                              "--mh": `${Math.round((160 * treatment.introImageSize.height) / treatment.introImageSize.width)}px`,
                             } as React.CSSProperties)
                           : undefined
                       }
@@ -789,7 +810,7 @@ export default async function TreatmentPage({ params }: Props) {
                     <div
                       className={`relative float-right ml-6 mb-4 overflow-hidden rounded-[12px] border border-black/8 ${
                         treatment.introImageSize
-                          ? "h-[220px] w-[160px] sm:h-[var(--ih)] sm:w-[var(--iw)]"
+                          ? "h-[var(--mh)] w-[160px] sm:h-[var(--ih)] sm:w-[var(--iw)]"
                           : "h-[260px] w-[190px] bg-cream sm:h-[300px] sm:w-[220px]"
                       }`}
                       style={
@@ -797,6 +818,7 @@ export default async function TreatmentPage({ params }: Props) {
                           ? ({
                               "--iw": `${treatment.introImageSize.width}px`,
                               "--ih": `${treatment.introImageSize.height}px`,
+                              "--mh": `${Math.round((160 * treatment.introImageSize.height) / treatment.introImageSize.width)}px`,
                             } as React.CSSProperties)
                           : undefined
                       }
@@ -857,10 +879,31 @@ export default async function TreatmentPage({ params }: Props) {
                         )}
                         {(row.body ?? row.text)?.map((para, j) => (
                           <p key={j} className="text-[16px] leading-[27px] tracking-[-0.2px] text-body-text">
-                            {para}
+                            {renderBold(para)}
                           </p>
                         ))}
-                        {row.items && (
+                        {row.items && row.itemsLayout === "boxes" && (
+                          <div className={`grid grid-cols-1 gap-3 sm:grid-cols-2 ${row.image ? "lg:flex-1 lg:auto-rows-fr" : ""}`}>
+                            {row.items.map((item, j) => (
+                              <div
+                                key={j}
+                                className="flex items-center gap-3 rounded-[10px] border border-tan/25 bg-cream px-4 py-3"
+                              >
+                                <span className="h-[7px] w-[7px] shrink-0 rounded-full bg-tan" />
+                                <span className="text-[14px] font-medium leading-[20px] text-forest">
+                                  {typeof item === "string" ? (
+                                    item
+                                  ) : (
+                                    <>
+                                      <strong className="font-semibold">{item.title}:</strong> {item.description}
+                                    </>
+                                  )}
+                                </span>
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                        {row.items && row.itemsLayout !== "boxes" && (
                           <ul className="flex flex-col gap-3">
                             {row.items.map((item, j) => (
                               <li key={j} className="flex items-start gap-3">
@@ -884,8 +927,39 @@ export default async function TreatmentPage({ params }: Props) {
                               {para}
                             </p>
                           ))}
+                        {row.link && (
+                          <a
+                            href={row.link.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="font-nav text-[15px] font-semibold text-tan underline decoration-tan/40 underline-offset-4 transition-colors hover:text-forest"
+                          >
+                            {row.link.text}
+                          </a>
+                        )}
                       </>
                     );
+
+                    if (row.fullImage) {
+                      return (
+                        <div
+                          key={i}
+                          className="relative w-full overflow-hidden rounded-[14px] border border-black/8 shadow-md"
+                          style={{
+                            aspectRatio: row.fullImage.aspectRatio,
+                            maxWidth: row.fullImage.maxWidth ? `${row.fullImage.maxWidth}px` : undefined,
+                          }}
+                        >
+                          <Image
+                            src={row.fullImage.src}
+                            alt={row.fullImage.alt}
+                            fill
+                            sizes={row.fullImage.maxWidth ? `${row.fullImage.maxWidth}px` : "100vw"}
+                            className="object-cover"
+                          />
+                        </div>
+                      );
+                    }
 
                     if (!row.image) {
                       return (
@@ -899,14 +973,16 @@ export default async function TreatmentPage({ params }: Props) {
                       <div key={i} className="grid grid-cols-1 items-stretch gap-6 lg:grid-cols-2 lg:gap-12">
                         <div
                           className={`relative w-full overflow-hidden rounded-[14px] border border-black/8 shadow-md ${
-                            row.imageMaxWidth
-                              ? "mx-auto aspect-[16/11] lg:aspect-auto lg:h-full lg:min-h-[300px]"
-                              : row.imageAspect
-                                ? "lg:self-center"
+                            row.imageContain ? "bg-black " : ""
+                          }${
+                            row.imageAspect
+                              ? `lg:self-center ${row.imageMaxWidth ? "mx-auto" : ""}`
+                              : row.imageMaxWidth
+                                ? "mx-auto aspect-[16/11] lg:aspect-auto lg:h-full lg:min-h-[300px]"
                                 : "aspect-[16/11] lg:aspect-auto lg:h-full lg:min-h-[300px]"
                           } ${row.imageSide === "left" ? "lg:order-1" : "lg:order-2"}`}
                           style={{
-                            aspectRatio: !row.imageMaxWidth && row.imageAspect ? row.imageAspect : undefined,
+                            aspectRatio: row.imageAspect ?? undefined,
                             maxWidth: row.imageMaxWidth ? `${row.imageMaxWidth}px` : undefined,
                           }}
                         >
@@ -915,7 +991,7 @@ export default async function TreatmentPage({ params }: Props) {
                             alt={row.image.alt}
                             fill
                             sizes="(min-width: 1024px) 50vw, 100vw"
-                            className="object-cover"
+                            className={row.imageContain ? "object-contain" : "object-cover"}
                           />
                         </div>
                         <div className={`flex flex-col justify-center gap-4 ${row.imageSide === "left" ? "lg:order-2" : "lg:order-1"}`}>
@@ -1105,8 +1181,18 @@ export default async function TreatmentPage({ params }: Props) {
       {treatment.comparisonTable && (
         <section className="w-full border-t border-black/8 bg-cream px-5">
           <div className="mx-auto max-w-[1100px] py-[80px] lg:py-[100px]">
+            {treatment.comparisonTable.intro && (
+              <div className="mb-8 rounded-[14px] bg-black p-6 shadow-md lg:p-8">
+                <p className="text-center font-subheading text-[22px] font-bold leading-[30px] tracking-[-0.5px] text-tan lg:text-[26px] lg:leading-[34px]">
+                  {treatment.comparisonTable.intro}
+                </p>
+              </div>
+            )}
             {treatment.comparisonTable.image ? (
-              <div className="relative w-full overflow-hidden rounded-[12px] shadow-sm" style={{ aspectRatio: "1727/910" }}>
+              <div
+                className="relative w-full overflow-hidden rounded-[12px] shadow-sm"
+                style={{ aspectRatio: treatment.comparisonTable.imageAspect ?? "1727/910" }}
+              >
                 <Image
                   src={treatment.comparisonTable.image.src}
                   alt={treatment.comparisonTable.image.alt}
@@ -2011,6 +2097,60 @@ export default async function TreatmentPage({ params }: Props) {
                 </div>
               ))}
             </div>
+          </div>
+        </section>
+      )}
+
+      {/* Coming soon launch section */}
+      {treatment.comingSoon && (
+        <section className="relative w-full overflow-hidden bg-[linear-gradient(120deg,#faf4ea_0%,#f0e0c8_100%)] px-5">
+          <div className="pointer-events-none absolute left-1/2 top-0 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-tan/15 blur-[110px]" />
+          <div className="relative mx-auto max-w-[1100px] py-[80px] lg:py-[100px]">
+            <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-14">
+              <div className="flex flex-col gap-5">
+                <div className="w-fit rounded-full border-[0.8px] border-forest/20 px-4 py-2">
+                  <p className="font-nav text-[12px] font-semibold tracking-[3px] text-forest uppercase">
+                    {treatment.comingSoon.badge}
+                  </p>
+                </div>
+                <h2 className="font-display text-[30px] font-bold leading-[36px] tracking-[-1px] text-forest uppercase lg:text-[40px] lg:leading-[46px]">
+                  {treatment.comingSoon.heading}
+                </h2>
+                {treatment.comingSoon.subheading && (
+                  <p className="font-subheading text-[18px] italic text-rust">{treatment.comingSoon.subheading}</p>
+                )}
+                {treatment.comingSoon.paragraphs.map((para, i) => (
+                  <p key={i} className="text-[16px] leading-[27px] text-body-text">
+                    {para}
+                  </p>
+                ))}
+              </div>
+              {treatment.comingSoon.image && (
+                <div className="overflow-hidden rounded-[16px] border border-tan/25 shadow-lg">
+                  <Image
+                    src={treatment.comingSoon.image.src}
+                    alt={treatment.comingSoon.image.alt}
+                    width={treatment.comingSoon.image.width}
+                    height={treatment.comingSoon.image.height}
+                    sizes="(min-width: 1024px) 540px, 100vw"
+                    className="h-auto w-full"
+                  />
+                </div>
+              )}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Coming soon — FAQs (kept as its own section, separate from the launch intro above) */}
+      {treatment.comingSoon && (
+        <section className="relative w-full overflow-hidden border-t border-tan/20 bg-cream px-5">
+          <div className="pointer-events-none absolute right-0 bottom-0 h-[360px] w-[360px] translate-x-1/3 rounded-full bg-rust/10 blur-[110px]" />
+          <div className="relative mx-auto max-w-[900px] py-[70px] lg:py-[90px]">
+            <h3 className="mb-6 text-center font-subheading text-[20px] font-medium leading-[26px] tracking-[-0.5px] text-forest uppercase lg:text-[24px]">
+              {treatment.comingSoon.faqsHeading}
+            </h3>
+            <TreatmentFaqAccordion items={treatment.comingSoon.faqs} />
           </div>
         </section>
       )}

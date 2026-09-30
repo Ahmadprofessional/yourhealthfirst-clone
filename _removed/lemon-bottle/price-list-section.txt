@@ -1,0 +1,12 @@
+  {
+    id: "lemon-bottle",
+    title: "Lemon Bottle - Fat Dissolve",
+    image: "/images/treatments/body-contouring.jpg",
+    description: "Fast, effective fat dissolving with minimal downtime.",
+    items: [
+      { service: "Small area (chin, jaws or similar)", price: "£120 per session" },
+      { service: "Chin and jaws together", price: "£200" },
+      { service: "Medium area (inner/outer thighs, chest — men, or similar)", price: "£250 per session" },
+      { service: "Large area (upper/lower abdomen or similar)", price: "£350 per session" },
+    ],
+  },

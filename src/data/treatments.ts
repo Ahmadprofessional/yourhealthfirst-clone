@@ -3049,17 +3049,39 @@ export const treatmentDetails: TreatmentDetail[] = [
     tagline: "The clinically approved breakthrough in medical weight loss",
     category: "Body Contouring",
     image: "/images/treatments/mounjaro/product-card.jpg",
-    introImage: {
-      src: "/images/treatments/mounjaro/product-card.jpg",
-      alt: "Mounjaro (tirzepatide) once-weekly injection pen and dose strengths",
-    },
     intro:
       "At YourHealthFirst Clinic, we provide medically supervised weight-management support for eligible patients seeking a structured and evidence-based approach to weight loss. Our Wimpole Street Weight Management Service in London is delivered by trained and experienced healthcare professionals, with an emphasis on appropriate patient assessment, treatment suitability, ongoing monitoring and safe use of prescription weight-management medicines.",
     body: [
       "Our clinicians assess your medical history, current medicines, health conditions, BMI and weight-management goals before deciding whether prescription treatment is appropriate.",
-      "Mounjaro contains tirzepatide, a prescription medicine that acts on two hormone receptors: GIP and GLP-1. For weight management, Mounjaro is used alongside a reduced-calorie diet and increased physical activity in eligible adults with obesity, or adults who are overweight and have weight-related health problems. Tirzepatide works partly by regulating appetite and increasing feelings of fullness, which can help reduce food intake and support weight loss.",
-      "Mounjaro has been studied extensively in large clinical trials. In the 72-week SURMOUNT-1 study involving 2,539 adults, average weight loss was approximately 16.0% with 5mg, 21.4% with 10mg and 22.5% with 15mg — compared with approximately 2.4% in the placebo group. Individual results vary, and clinical-trial results should not be interpreted as a guarantee of the amount of weight an individual patient will lose.",
-      "Treatment normally starts at 2.5mg once weekly. The UK product information states that the starting dose is 2.5mg once a week for four weeks, followed by an increase to 5mg once weekly. If clinically appropriate, your prescriber may increase the dose in 2.5mg increments, with patients remaining on each dose for at least four weeks before increasing. Available adult doses include 2.5mg, 5mg, 7.5mg, 10mg, 12.5mg and 15mg. Your dose should only be changed following advice from your prescribing clinician.",
+    ],
+    introRowsShowLegacyBody: true,
+    introRows: [
+      {
+        image: {
+          src: "/images/treatments/mounjaro/treatment-pricing-infographic.jpg",
+          alt: "Mounjaro treatment and pricing — 2.5mg to 15mg, medical weight management at Wimpole Street, London",
+        },
+        imageAspect: "1/1",
+        imageSide: "right",
+        heading: "Mounjaro® (Tirzepatide) Weight Management",
+        body: [
+          "Mounjaro contains tirzepatide, a prescription medicine that acts on two hormone receptors: GIP and GLP-1. For weight management, Mounjaro is used alongside a reduced-calorie diet and increased physical activity in eligible adults with obesity, or adults who are overweight and have weight-related health problems. Tirzepatide works partly by regulating appetite and increasing feelings of fullness, which can help reduce food intake and support weight loss.",
+        ],
+      },
+      {
+        heading: "What Does the Clinical Evidence Show?",
+        body: [
+          "Mounjaro has been studied extensively in large clinical trials. In the 72-week SURMOUNT-1 study involving 2,539 adults, average weight loss was approximately 16.0% with 5mg, 21.4% with 10mg and 22.5% with 15mg — compared with approximately 2.4% in the placebo group.",
+          "Individual results vary, and clinical-trial results should not be interpreted as a guarantee of the amount of weight an individual patient will lose.",
+        ],
+      },
+      {
+        heading: "Mounjaro Dosage",
+        body: [
+          "Treatment normally starts at 2.5mg once weekly. The UK product information states that the starting dose is 2.5mg once a week for four weeks, followed by an increase to 5mg once weekly.",
+          "If clinically appropriate, your prescriber may increase the dose in 2.5mg increments, with patients remaining on each dose for at least four weeks before increasing. Available adult doses include 2.5mg, 5mg, 7.5mg, 10mg, 12.5mg and 15mg. Your dose should only be changed following advice from your prescribing clinician.",
+        ],
+      },
     ],
     treatmentAreas: ["Abdomen", "Thigh", "Upper Arm"],
     treatmentAreaIcons: {

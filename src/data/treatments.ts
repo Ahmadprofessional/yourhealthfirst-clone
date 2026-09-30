@@ -3083,16 +3083,16 @@ export const treatmentDetails: TreatmentDetail[] = [
     processDiagramsBeforeBenefits: true,
     processDiagrams: [
       {
-        src: "/images/treatments/mounjaro/treatment-pricing-infographic.jpg",
-        alt: "Mounjaro treatment and pricing — 2.5mg to 15mg, medical weight management at Wimpole Street, London",
-        width: 1254,
-        height: 1254,
-      },
-      {
         src: "/images/treatments/mounjaro/dosing-timeline-v2.jpg",
         alt: "Mounjaro treatment timeline — weekly dose escalation from 2.5mg to 15mg",
         width: 1294,
         height: 1216,
+      },
+      {
+        src: "/images/treatments/mounjaro/treatment-pricing-infographic.jpg",
+        alt: "Mounjaro treatment and pricing — 2.5mg to 15mg, medical weight management at Wimpole Street, London",
+        width: 1254,
+        height: 1254,
       },
     ],
     treatmentAreas: ["Abdomen", "Thigh", "Upper Arm"],

@@ -1246,6 +1246,8 @@ export default async function TreatmentPage({ params }: Props) {
         </section>
       )}
 
+      {treatment.processDiagramsBeforeBenefits && processDiagramsSection}
+
       {/* Key benefits banner — mid-page gold box */}
       {treatment.benefits.length > 0 && !treatment.benefitsInline && (
         <section className="w-full px-5">
@@ -1635,7 +1637,7 @@ export default async function TreatmentPage({ params }: Props) {
         </section>
       )}
 
-      {treatment.processDiagramsFirst && !treatment.processDiagramsAfterBenefits && processDiagramsSection}
+      {treatment.processDiagramsFirst && !treatment.processDiagramsAfterBenefits && !treatment.processDiagramsBeforeBenefits && processDiagramsSection}
 
       {/* Care instructions — prominent before/aftercare */}
       {treatment.careInstructions && (
@@ -1798,7 +1800,7 @@ export default async function TreatmentPage({ params }: Props) {
       )}
 
       {/* Process diagrams (standalone, independent of How It Works) */}
-      {!treatment.processDiagramsFirst && !treatment.processDiagramsAfterBenefits && processDiagramsSection}
+      {!treatment.processDiagramsFirst && !treatment.processDiagramsAfterBenefits && !treatment.processDiagramsBeforeBenefits && processDiagramsSection}
 
       {/* Advantages */}
       {treatment.advantages && (
@@ -2101,6 +2103,23 @@ export default async function TreatmentPage({ params }: Props) {
         </section>
       )}
 
+      {/* FAQs */}
+      {treatment.faqs.length > 0 && (
+        <section className="w-full bg-cream px-5">
+          <div className="mx-auto max-w-[900px] py-[80px] lg:py-[100px]">
+            <h2 className="text-center font-subheading text-[26px] font-medium leading-[32px] tracking-[-1px] text-forest uppercase lg:text-[32px] lg:leading-[38px]">
+              Frequently Asked Questions
+            </h2>
+            <p className="mx-auto mt-3 max-w-[520px] text-center text-[15px] leading-[24px] text-body-text">
+              Everything you need to know about {treatment.title.toLowerCase()} at YourHealthFirst Clinic.
+            </p>
+            <div className="mt-10">
+              <TreatmentFaqAccordion items={treatment.faqs} />
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Coming soon launch section */}
       {treatment.comingSoon && (
         <section className="relative w-full overflow-hidden bg-[linear-gradient(120deg,#faf4ea_0%,#f0e0c8_100%)] px-5">
@@ -2151,23 +2170,6 @@ export default async function TreatmentPage({ params }: Props) {
               {treatment.comingSoon.faqsHeading}
             </h3>
             <TreatmentFaqAccordion items={treatment.comingSoon.faqs} />
-          </div>
-        </section>
-      )}
-
-      {/* FAQs */}
-      {treatment.faqs.length > 0 && (
-        <section className="w-full bg-cream px-5">
-          <div className="mx-auto max-w-[900px] py-[80px] lg:py-[100px]">
-            <h2 className="text-center font-subheading text-[26px] font-medium leading-[32px] tracking-[-1px] text-forest uppercase lg:text-[32px] lg:leading-[38px]">
-              Frequently Asked Questions
-            </h2>
-            <p className="mx-auto mt-3 max-w-[520px] text-center text-[15px] leading-[24px] text-body-text">
-              Everything you need to know about {treatment.title.toLowerCase()} at YourHealthFirst Clinic.
-            </p>
-            <div className="mt-10">
-              <TreatmentFaqAccordion items={treatment.faqs} />
-            </div>
           </div>
         </section>
       )}

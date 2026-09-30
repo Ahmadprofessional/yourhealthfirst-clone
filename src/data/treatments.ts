@@ -180,6 +180,8 @@ export interface TreatmentDetail {
   processDiagramsFirst?: boolean;
   /** Render process diagrams after the Key Benefits (premiumFeatures) section instead of their default position */
   processDiagramsAfterBenefits?: boolean;
+  /** Render process diagrams directly above the Key Benefits gold banner */
+  processDiagramsBeforeBenefits?: boolean;
   processDiagrams?: {
     src: string;
     alt: string;
@@ -3057,13 +3059,6 @@ export const treatmentDetails: TreatmentDetail[] = [
     introRowsShowLegacyBody: true,
     introRows: [
       {
-        image: {
-          src: "/images/treatments/mounjaro/treatment-pricing-infographic.jpg",
-          alt: "Mounjaro treatment and pricing — 2.5mg to 15mg, medical weight management at Wimpole Street, London",
-        },
-        imageAspect: "1/1",
-        imageMaxWidth: 340,
-        imageSide: "right",
         heading: "Mounjaro® (Tirzepatide) Weight Management",
         body: [
           "Mounjaro contains tirzepatide, a prescription medicine that acts on two hormone receptors: GIP and GLP-1. For weight management, Mounjaro is used alongside a reduced-calorie diet and increased physical activity in eligible adults with obesity, or adults who are overweight and have weight-related health problems. Tirzepatide works partly by regulating appetite and increasing feelings of fullness, which can help reduce food intake and support weight loss.",
@@ -3082,6 +3077,22 @@ export const treatmentDetails: TreatmentDetail[] = [
           "Treatment normally starts at 2.5mg once weekly. The UK product information states that the starting dose is 2.5mg once a week for four weeks, followed by an increase to 5mg once weekly.",
           "If clinically appropriate, your prescriber may increase the dose in 2.5mg increments, with patients remaining on each dose for at least four weeks before increasing. Available adult doses include 2.5mg, 5mg, 7.5mg, 10mg, 12.5mg and 15mg. Your dose should only be changed following advice from your prescribing clinician.",
         ],
+      },
+    ],
+    processDiagramsRow: true,
+    processDiagramsBeforeBenefits: true,
+    processDiagrams: [
+      {
+        src: "/images/treatments/mounjaro/treatment-pricing-infographic.jpg",
+        alt: "Mounjaro treatment and pricing — 2.5mg to 15mg, medical weight management at Wimpole Street, London",
+        width: 1254,
+        height: 1254,
+      },
+      {
+        src: "/images/treatments/mounjaro/dosing-timeline-v2.jpg",
+        alt: "Mounjaro treatment timeline — weekly dose escalation from 2.5mg to 15mg",
+        width: 1294,
+        height: 1216,
       },
     ],
     treatmentAreas: ["Abdomen", "Thigh", "Upper Arm"],
@@ -3193,15 +3204,6 @@ export const treatmentDetails: TreatmentDetail[] = [
         },
       ],
     },
-    processDiagrams: [
-      {
-        src: "/images/treatments/mounjaro/dosing-timeline-v2.jpg",
-        alt: "Mounjaro treatment timeline — weekly dose escalation from 2.5mg to 15mg",
-        width: 1294,
-        height: 1216,
-        maxWidth: 780,
-      },
-    ],
     benefits: [
       "Medical-led weight management — treatment begins with an individual clinical assessment",
       "Based at 2 Wimpole Street, London W1G 0EB — in the heart of London's medical district",

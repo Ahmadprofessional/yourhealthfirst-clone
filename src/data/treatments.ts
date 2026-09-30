@@ -3062,6 +3062,7 @@ export const treatmentDetails: TreatmentDetail[] = [
           alt: "Mounjaro treatment and pricing — 2.5mg to 15mg, medical weight management at Wimpole Street, London",
         },
         imageAspect: "1/1",
+        imageMaxWidth: 340,
         imageSide: "right",
         heading: "Mounjaro® (Tirzepatide) Weight Management",
         body: [
@@ -3215,14 +3216,6 @@ export const treatmentDetails: TreatmentDetail[] = [
       "Anyone seeking clinically proven medical weight management",
     ],
     results: "Significant weight reduction over 12–72 weeks",
-    priceList: [
-      { area: "2.5mg", price: "£250" },
-      { area: "5mg", price: "£275" },
-      { area: "7.5mg", price: "£350" },
-      { area: "10mg", price: "£500" },
-      { area: "12.5mg", price: "£550" },
-      { area: "15mg", price: "£575" },
-    ],
     priceFrom: "From £250 per pen",
     comingSoon: {
       badge: "Investigational — Not Yet Available",

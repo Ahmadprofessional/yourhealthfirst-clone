@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ContactForm from "@/components/ContactForm";
 import {
   PhoneIcon,
   MobileIcon,
@@ -88,11 +89,11 @@ export default function ContactUsPage() {
 
       {/* Contact info + form */}
       <section className="w-full px-5">
-        <div className="mx-auto max-w-[1400px] py-[80px] lg:py-[100px]">
+        <div className="mx-auto max-w-[1100px] py-[80px] lg:py-[100px]">
           <div className="flex flex-col gap-12 lg:flex-row lg:gap-16">
 
             {/* Left — details */}
-            <div className="flex flex-col gap-10 lg:w-[400px] lg:shrink-0">
+            <div className="flex flex-col gap-10 lg:w-[380px] lg:shrink-0">
 
               {/* Contact details */}
               <div className="flex flex-col gap-5">
@@ -173,111 +174,7 @@ export default function ContactUsPage() {
             </div>
 
             {/* Right — contact form */}
-            <div className="flex flex-1 flex-col gap-6 rounded-[14px] bg-cream p-8 lg:p-10">
-              <div>
-                <h2 className="font-subheading text-[28px] font-medium leading-[34px] tracking-[-1.2px] text-forest uppercase">
-                  Book a Consultation
-                </h2>
-                <p className="mt-2 text-[15px] leading-[24px] text-body-text">
-                  Fill in the form below and we will get back to you as soon as possible.
-                </p>
-              </div>
-
-              <form className="flex flex-col gap-5" action="mailto:info@yourhealthfirst.uk" method="get">
-                <div className="flex flex-col gap-5 sm:flex-row">
-                  <div className="flex flex-1 flex-col gap-2">
-                    <label className="text-[13px] font-semibold tracking-[0.5px] text-forest uppercase">
-                      First Name <span className="text-rust">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      placeholder="Jane"
-                      className="h-12 rounded-[8px] border border-body-text/20 bg-white px-4 text-[15px] text-forest placeholder:text-body-text/40 focus:border-tan focus:outline-none"
-                    />
-                  </div>
-                  <div className="flex flex-1 flex-col gap-2">
-                    <label className="text-[13px] font-semibold tracking-[0.5px] text-forest uppercase">
-                      Last Name
-                    </label>
-                    <input
-                      type="text"
-                      placeholder="Smith"
-                      className="h-12 rounded-[8px] border border-body-text/20 bg-white px-4 text-[15px] text-forest placeholder:text-body-text/40 focus:border-tan focus:outline-none"
-                    />
-                  </div>
-                </div>
-
-                <div className="flex flex-col gap-2">
-                  <label className="text-[13px] font-semibold tracking-[0.5px] text-forest uppercase">
-                    Email Address <span className="text-rust">*</span>
-                  </label>
-                  <input
-                    type="email"
-                    required
-                    placeholder="jane@example.com"
-                    className="h-12 rounded-[8px] border border-body-text/20 bg-white px-4 text-[15px] text-forest placeholder:text-body-text/40 focus:border-tan focus:outline-none"
-                  />
-                </div>
-
-                <div className="flex flex-col gap-2">
-                  <label className="text-[13px] font-semibold tracking-[0.5px] text-forest uppercase">
-                    Telephone Number
-                  </label>
-                  <input
-                    type="tel"
-                    placeholder="+44 7700 000000"
-                    className="h-12 rounded-[8px] border border-body-text/20 bg-white px-4 text-[15px] text-forest placeholder:text-body-text/40 focus:border-tan focus:outline-none"
-                  />
-                </div>
-
-                <div className="flex flex-col gap-2">
-                  <label className="text-[13px] font-semibold tracking-[0.5px] text-forest uppercase">
-                    Treatment of Interest
-                  </label>
-                  <select className="h-12 rounded-[8px] border border-body-text/20 bg-white px-4 text-[15px] text-forest focus:border-tan focus:outline-none">
-                    <option value="">Select a treatment...</option>
-                    {treatments.map((t) => (
-                      <option key={t} value={t}>{t}</option>
-                    ))}
-                  </select>
-                </div>
-
-                <div className="flex flex-col gap-2">
-                  <label className="text-[13px] font-semibold tracking-[0.5px] text-forest uppercase">
-                    How did you hear about us?
-                  </label>
-                  <select className="h-12 rounded-[8px] border border-body-text/20 bg-white px-4 text-[15px] text-forest focus:border-tan focus:outline-none">
-                    <option value="">Please select...</option>
-                    <option>Google Search</option>
-                    <option>Google Maps</option>
-                    <option>Instagram</option>
-                    <option>Facebook</option>
-                    <option>Friend / Family Referral</option>
-                    <option>Returning Patient</option>
-                    <option>Other</option>
-                  </select>
-                </div>
-
-                <div className="flex flex-col gap-2">
-                  <label className="text-[13px] font-semibold tracking-[0.5px] text-forest uppercase">
-                    Message
-                  </label>
-                  <textarea
-                    rows={4}
-                    placeholder="Tell us a little about your concerns or questions..."
-                    className="resize-none rounded-[8px] border border-body-text/20 bg-white px-4 py-3 text-[15px] text-forest placeholder:text-body-text/40 focus:border-tan focus:outline-none"
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  className="mt-2 inline-flex h-14 items-center justify-center rounded-[8px] bg-[#a8896a] px-8 font-nav text-[15px] font-semibold tracking-[-0.3px] text-cream transition-opacity hover:opacity-90"
-                >
-                  Send Enquiry
-                </button>
-              </form>
-            </div>
+            <ContactForm />
           </div>
         </div>
       </section>

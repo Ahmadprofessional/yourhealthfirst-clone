@@ -1807,7 +1807,7 @@ export default async function TreatmentPage({ params }: Props) {
         <section className="w-full bg-cream px-5">
           <div className="mx-auto max-w-[1400px] py-[80px] lg:py-[100px]">
             {treatment.advantages.image ? (
-              <div className="relative mx-auto w-full max-w-[1100px] overflow-hidden rounded-[12px] shadow-sm" style={{ aspectRatio: "1774/887" }}>
+              <div className="relative mx-auto w-full max-w-[1100px] overflow-hidden rounded-[12px] shadow-sm" style={{ aspectRatio: treatment.advantages.imageAspect ?? "1774/887" }}>
                 <Image
                   src={treatment.advantages.image.src}
                   alt={treatment.advantages.image.alt}

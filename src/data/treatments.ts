@@ -208,6 +208,8 @@ export interface TreatmentDetail {
     }[];
     /** Show this image instead of the card grid (e.g. a pre-designed branded graphic) */
     image?: { src: string; alt: string };
+    /** CSS aspect-ratio matching the image's own dimensions (e.g. "1253/1254") */
+    imageAspect?: string;
   };
   /** Feature-by-feature comparison table between two methods/options */
   comparisonTable?: {
@@ -2001,6 +2003,11 @@ export const treatmentDetails: TreatmentDetail[] = [
     ],
     comparisonTable: {
       title: "Manual PRP vs U225 PRP Injections",
+      image: {
+        src: "/images/prp hair 1.jpeg",
+        alt: "Manual PRP vs U225 PRP Injections comparison",
+      },
+      imageAspect: "1254/1254",
       columnLabels: ["Manual PRP Injections", "U225 PRP Injections"],
       rows: [
         {
@@ -2055,6 +2062,11 @@ export const treatmentDetails: TreatmentDetail[] = [
       title: "Your PRP Hair Restoration Options",
       intro:
         "At YourHealthFirst Clinic, we offer three PRP-based approaches depending on your individual assessment, degree of hair loss and treatment objectives. A personalised assessment is carried out before treatment to determine whether PRP is appropriate for you.",
+      image: {
+        src: "/images/prp hair 2.jpeg",
+        alt: "Your PRP Hair Restoration Options graphic",
+      },
+      imageAspect: "1254/1254",
       items: [
         {
           title: "1. Standard PRP Hair Restoration — £400",

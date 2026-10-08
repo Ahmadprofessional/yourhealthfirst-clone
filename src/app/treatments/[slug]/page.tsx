@@ -1382,8 +1382,11 @@ export default async function TreatmentPage({ params }: Props) {
             )}
             {treatment.comparisonTable.image ? (
               <div
-                className="relative w-full overflow-hidden rounded-[12px] shadow-sm"
-                style={{ aspectRatio: treatment.comparisonTable.imageAspect ?? "1727/910" }}
+                className="relative mx-auto w-full overflow-hidden rounded-[12px] shadow-sm"
+                style={{
+                  aspectRatio: treatment.comparisonTable.imageAspect ?? "1727/910",
+                  maxWidth: treatment.comparisonTable.imageMaxWidth ? `${treatment.comparisonTable.imageMaxWidth}px` : undefined,
+                }}
               >
                 <Image
                   src={treatment.comparisonTable.image.src}
@@ -2048,7 +2051,7 @@ export default async function TreatmentPage({ params }: Props) {
         <section className="w-full bg-cream px-5">
           <div className="mx-auto max-w-[1400px] py-[80px] lg:py-[100px]">
             {treatment.advantages.image ? (
-              <div className="relative mx-auto w-full max-w-[1100px] overflow-hidden rounded-[12px] shadow-sm" style={{ aspectRatio: treatment.advantages.imageAspect ?? "1774/887" }}>
+              <div className="relative mx-auto w-full overflow-hidden rounded-[12px] shadow-sm" style={{ aspectRatio: treatment.advantages.imageAspect ?? "1774/887", maxWidth: treatment.advantages.imageMaxWidth ? `${treatment.advantages.imageMaxWidth}px` : "1100px" }}>
                 <Image
                   src={treatment.advantages.image.src}
                   alt={treatment.advantages.image.alt}

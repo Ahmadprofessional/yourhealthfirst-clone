@@ -230,6 +230,8 @@ export interface TreatmentDetail {
     image?: { src: string; alt: string };
     /** CSS aspect-ratio matching the image's own dimensions (e.g. "1253/1254") */
     imageAspect?: string;
+    /** Cap the image width (px) and centre it */
+    imageMaxWidth?: number;
   };
   /** Feature-by-feature comparison table between two methods/options */
   comparisonTable?: {
@@ -244,6 +246,8 @@ export interface TreatmentDetail {
     image?: { src: string; alt: string };
     /** CSS aspect-ratio matching the image's own dimensions (e.g. "1253/1254") */
     imageAspect?: string;
+    /** Cap the image width (px) and centre it */
+    imageMaxWidth?: number;
     /** Optional lead-in paragraph shown above the table/image */
     intro?: string;
   };
@@ -2032,6 +2036,7 @@ export const treatmentDetails: TreatmentDetail[] = [
         alt: "Manual PRP vs U225 PRP Injections comparison",
       },
       imageAspect: "1254/1254",
+      imageMaxWidth: 720,
       columnLabels: ["Manual PRP Injections", "U225 PRP Injections"],
       rows: [
         {
@@ -2091,6 +2096,7 @@ export const treatmentDetails: TreatmentDetail[] = [
         alt: "Your PRP Hair Restoration Options graphic",
       },
       imageAspect: "1254/1254",
+      imageMaxWidth: 720,
       items: [
         {
           title: "1. Standard PRP Hair Restoration — £400",

@@ -14,16 +14,36 @@ const categories: PriceCategory[] = [
   {
     id: "general-fees",
     title: "General Fees",
-    image: "/images/treatments/medical-wellness.jpg",
+    image: "/images/treatments/anti-wrinkles/sofia-consultation.jpg",
     description: "Standard consultation fee across treatments.",
     items: [
       { service: "Consultation", price: "£50", note: "Free of charge if you go ahead with treatment" },
     ],
   },
   {
+    id: "phlebotomy-adults",
+    title: "Phlebotomy Adults",
+    image: "/images/treatments/phlebotomy/blood-draw.jpg",
+    description: "Private blood draw and centrifugal service for adults.",
+    items: [
+      { service: "Blood draw", price: "From £80" },
+      { service: "Blood centrifugal (per tube)", price: "£10" },
+    ],
+  },
+  {
+    id: "phlebotomy-children",
+    title: "Phlebotomy Children Under 16",
+    image: "/images/treatments/phlebotomy/blood-draw.jpg",
+    description: "Private blood draw and centrifugal service for children.",
+    items: [
+      { service: "Blood draw", price: "From £120" },
+      { service: "Blood centrifugal (per tube)", price: "£10" },
+    ],
+  },
+  {
     id: "anti-wrinkle",
     title: "Anti-Wrinkle Injections",
-    image: "/images/treatments/anti-wrinkle.jpg",
+    image: "/images/treatments/anti-wrinkles/eye-area-injection.webp",
     description: "Soften fine lines and restore a youthful appearance.",
     items: [
       { service: "Consultation", price: "£50" },
@@ -47,7 +67,7 @@ const categories: PriceCategory[] = [
   {
     id: "cryolipolysis",
     title: "Cryolipolysis",
-    image: "/images/treatments/body-contouring.jpg",
+    image: "/images/treatments/cryolipolysis/treatment-areas-new.jpg",
     description: "Target stubborn fat and reshape your silhouette.",
     items: [
       { service: "Consultation", price: "£50" },
@@ -60,7 +80,7 @@ const categories: PriceCategory[] = [
   {
     id: "dermal-fillers",
     title: "Dermal Fillers",
-    image: "/images/treatments/dermal-fillers.jpg",
+    image: "/images/treatments/dermal-fillers/lip-filler.webp",
     description: "Enhance, restore and contour with precision.",
     items: [
       { service: "Lip enhancement / Russian lips", price: "£250–£350 (1ml) / £550 (2ml)" },
@@ -78,8 +98,8 @@ const categories: PriceCategory[] = [
   },
   {
     id: "hair-loss",
-    title: "Hair Loss",
-    image: "/images/treatments/hair-restoration.jpg",
+    title: "PRP Hair Loss",
+    image: "/images/treatments/prp-hair-loss/u225-scalp-treatment-1.jpg",
     description: "Advanced solutions for stronger, healthier hair.",
     items: [
       { service: "Consultation", price: "£50", note: "Free if treatment booked" },
@@ -91,7 +111,7 @@ const categories: PriceCategory[] = [
   {
     id: "sunekos",
     title: "Sunekos",
-    image: "/images/treatments/skin-boosters.jpg",
+    image: "/images/treatments/sunekos/sofia-injecting.jpg",
     description: "Regenerate, hydrate and firm the skin from within.",
     items: [
       { service: "Consultation", price: "£50", note: "Free with treatment" },
@@ -103,7 +123,7 @@ const categories: PriceCategory[] = [
   {
     id: "sculptra",
     title: "Sculptra",
-    image: "/images/treatments/skin-boosters.jpg",
+    image: "/images/treatments/sculptra/product-box.jpg",
     description: "The liquid facelift — gradual, natural collagen rebuilding.",
     items: [
       { service: "1 session", price: "£600" },
@@ -113,7 +133,7 @@ const categories: PriceCategory[] = [
   {
     id: "emsculpt-neo",
     title: "Emsculpt Neo",
-    image: "/images/treatments/body-contouring.jpg",
+    image: "/images/treatments/emsculpt-neo/hero-abdomen.png",
     description: "Build muscle and burn fat simultaneously.",
     items: [
       { service: "1 session", price: "£200" },
@@ -121,29 +141,9 @@ const categories: PriceCategory[] = [
     ],
   },
   {
-    id: "phlebotomy-adults",
-    title: "Phlebotomy Adults",
-    image: "/images/treatments/phlebotomy.jpg",
-    description: "Private blood draw and centrifugal service for adults.",
-    items: [
-      { service: "Blood draw", price: "From £80" },
-      { service: "Blood centrifugal (per tube)", price: "£10" },
-    ],
-  },
-  {
-    id: "phlebotomy-children",
-    title: "Phlebotomy Children Under 16",
-    image: "/images/treatments/phlebotomy.jpg",
-    description: "Private blood draw and centrifugal service for children.",
-    items: [
-      { service: "Blood draw", price: "From £120" },
-      { service: "Blood centrifugal (per tube)", price: "£10" },
-    ],
-  },
-  {
     id: "sclerotherapy",
     title: "Sclerotherapy",
-    image: "/images/treatments/medical-wellness.jpg",
+    image: "/images/treatments/sclerotherapy/sclerotherapy-treatment-room-2.jpg",
     description: "Remove spider veins and small varicose veins.",
     items: [
       { service: "Consultation", price: "£50" },
@@ -153,7 +153,7 @@ const categories: PriceCategory[] = [
   {
     id: "prp-face-body",
     title: "PRP, Face and Body Rejuvenation",
-    image: "/images/treatments/facial-treatments.jpg",
+    image: "/images/treatments/prp-face-body/prp-injection-face.jpg",
     description: "Your own plasma, supercharged for skin renewal.",
     items: [
       { service: "Consultation", price: "£50", note: "Free if treatment booked" },
@@ -162,9 +162,18 @@ const categories: PriceCategory[] = [
     ],
   },
   {
+    id: "microneedling",
+    title: "Microneedling",
+    image: "/images/treatments/microneedling/fight-aging.webp",
+    description: "Collagen induction therapy for smoother, firmer skin.",
+    items: [
+      { service: "Microneedling session", price: "£150" },
+    ],
+  },
+  {
     id: "mesotherapy",
     title: "Mesotherapy",
-    image: "/images/treatments/skin-rejuvenation.jpg",
+    image: "/images/treatments/mesotherapy/mesox/aminoacids-box-2.jpg",
     description: "Vitamin, amino acid and antioxidant skin boosters.",
     items: [
       { service: "Consultation", price: "£50", note: "Free if treatment booked" },
@@ -175,19 +184,23 @@ const categories: PriceCategory[] = [
   },
   {
     id: "photodynamic-therapy",
-    title: "Photodynamic Therapy",
-    image: "/images/treatments/skin-rejuvenation.jpg",
+    title: "Chemical Peels (Photodynamic Peel)",
+    image: "/images/treatments/photo-aging/skinox-wrinkles.jpg",
     description: "Light-activated treatment for spots, redness and sun damage.",
     items: [
       { service: "Consultation", price: "£50" },
-      { service: "1 treatment", price: "£250" },
+      { service: "Anti Wrinkles Peel", price: "£200" },
+      { service: "Dark Spots Peel", price: "£200" },
+      { service: "Rosacea Peel", price: "£200" },
+      { service: "Blemish Peel", price: "£200" },
+      { service: "1 treatment", price: "£200" },
       { service: "4 treatments", price: "£600" },
     ],
   },
   {
     id: "cryopen",
     title: "CryoPen",
-    image: "/images/treatments/facial-treatments.jpg",
+    image: "/images/treatments/cryopen/cryopen-device-v2.jpg",
     description: "Precision removal of unwanted skin lesions in minutes.",
     items: [
       { service: "Consultation", price: "£20" },
@@ -203,7 +216,7 @@ const categories: PriceCategory[] = [
   {
     id: "profhilo",
     title: "Profhilo",
-    image: "/images/treatments/skin-boosters.jpg",
+    image: "/images/treatments/profhilo/sofia-injecting-lips.jpg",
     description: "The ultimate skin remodelling biostimulator.",
     items: [
       { service: "Consultation", price: "£50", note: "Free with treatment" },
@@ -216,7 +229,7 @@ const categories: PriceCategory[] = [
   {
     id: "aqualyx",
     title: "Aqualyx",
-    image: "/images/treatments/body-contouring.jpg",
+    image: "/images/treatments/aqualyx/aqualyx-product-hero.jpg",
     description: "Permanently dissolve stubborn fat — precisely targeted.",
     items: [
       { service: "Consultation", price: "From £50", note: "Free with treatment" },
@@ -238,9 +251,23 @@ const categories: PriceCategory[] = [
     ],
   },
   {
+    id: "mounjaro",
+    title: "Mounjaro (Weight Loss)",
+    image: "/images/treatments/mounjaro/product-card.jpg",
+    description: "Medical weight management — prescription only. Eligibility assessment required.",
+    items: [
+      { service: "Mounjaro 2.5mg", price: "£250" },
+      { service: "Mounjaro 5mg", price: "£275" },
+      { service: "Mounjaro 7.5mg", price: "£350" },
+      { service: "Mounjaro 10mg", price: "£500" },
+      { service: "Mounjaro 12.5mg", price: "£550" },
+      { service: "Mounjaro 15mg", price: "£575" },
+    ],
+  },
+  {
     id: "vitamin-b12",
     title: "Vitamin B12",
-    image: "/images/treatments/iv-vitamin.jpg",
+    image: "/images/treatments/vitamin-b12/sofia-injecting-arm.jpg",
     description: "Boost energy, metabolism and wellbeing — fast.",
     items: [
       { service: "Consultation", price: "£50", note: "Free with treatment" },
@@ -253,7 +280,7 @@ const categories: PriceCategory[] = [
   {
     id: "exosomes-facial",
     title: "Exosomes Facial",
-    image: "/images/treatments/facial-treatments.jpg",
+    image: "/images/treatments/exosome/sofia-facial-exosome-treatment.jpg",
     description: "Next-generation regenerative medicine for the skin.",
     items: [
       { service: "1 session (1 vial HA solution + 1 vial exosome)", price: "£800" },
@@ -265,7 +292,7 @@ const categories: PriceCategory[] = [
   {
     id: "exosomes-hair",
     title: "Exosomes Hair",
-    image: "/images/treatments/hair-restoration.jpg",
+    image: "/images/treatments/exosome/sofia-scalp-exosome-treatment.jpg",
     description: "Next-generation regenerative medicine for hair restoration.",
     items: [
       { service: "1 session (1 vial HA solution + 1 vial exosome)", price: "£800" },
@@ -277,7 +304,7 @@ const categories: PriceCategory[] = [
   {
     id: "polynucleotides",
     title: "Polynucleotides",
-    image: "/images/treatments/dermal-fillers.jpg",
+    image: "/images/treatments/polynucleotides/sofia-injecting.jpg",
     description: "Advanced regenerative therapy for skin and under-eyes.",
     items: [
       { service: "Eyes", price: "£250" },

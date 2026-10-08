@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Header from "@/components/Header";
+import PressGrid from "@/components/PressGrid";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
@@ -10,55 +10,30 @@ export const metadata: Metadata = {
 };
 
 const pressImages = [
-  { src: "/images/press/press-01.jpg", alt: "Press coverage 1" },
-  { src: "/images/press/press-02.jpg", alt: "Press coverage 2" },
-  { src: "/images/press/press-03.jpg", alt: "Press coverage 3" },
-  { src: "/images/press/press-04.jpg", alt: "Press coverage 4" },
-  { src: "/images/press/press-05.jpg", alt: "Press coverage 5" },
-  { src: "/images/press/press-06.jpg", alt: "Press coverage 6" },
-  { src: "/images/press/press-07.jpg", alt: "Press coverage 7" },
-  { src: "/images/press/press-08.jpg", alt: "Press coverage 8" },
-  { src: "/images/press/press-09.jpg", alt: "Press coverage 9" },
-  { src: "/images/press/press-10.jpg", alt: "Press coverage 10" },
-  { src: "/images/press/press-11.jpg", alt: "Press coverage 11" },
-  { src: "/images/press/press-12.jpg", alt: "Cannes Film Festival feature" },
-  { src: "/images/press/press-13.jpg", alt: "Cannes Film Festival feature" },
-  { src: "/images/press/press-14.png", alt: "Press coverage 14" },
-  { src: "/images/press/press-15.jpg", alt: "Press coverage 15" },
-  { src: "/images/press/press-16.jpg", alt: "Press coverage 16" },
-  { src: "/images/press/press-17.jpg", alt: "Press coverage 17" },
-  { src: "/images/press/press-18.jpg", alt: "Press coverage 18" },
-  { src: "/images/press/press-19.jpg", alt: "Press coverage 19" },
-  { src: "/images/press/press-20.jpg", alt: "Press coverage 20" },
-  { src: "/images/press/press-21.jpg", alt: "Press coverage 21" },
-  { src: "/images/press/press-22.jpg", alt: "Press coverage 22" },
-  { src: "/images/press/press-23.jpg", alt: "Press coverage 23" },
-  { src: "/images/press/press-24.jpg", alt: "Press coverage 24" },
-  { src: "/images/press/press-25.jpg", alt: "Press coverage 25" },
-  { src: "/images/press/press-26.jpg", alt: "Press coverage 26" },
-  { src: "/images/press/press-27.jpg", alt: "Press coverage 27" },
-  { src: "/images/press/press-28.jpg", alt: "Press coverage 28" },
-  { src: "/images/press/press-29.jpg", alt: "Press coverage 29" },
-  { src: "/images/press/press-30.jpg", alt: "Press coverage 30" },
-  { src: "/images/press/press-31.jpg", alt: "Press coverage 31" },
-  { src: "/images/press/press-32.jpg", alt: "Press coverage 32" },
-  { src: "/images/press/press-33.jpg", alt: "Press coverage 33" },
-  { src: "/images/press/press-34.jpg", alt: "Press coverage 34" },
-  { src: "/images/press/press-35.jpeg", alt: "Press feature" },
-  { src: "/images/press/press-36.jpeg", alt: "Press feature" },
-  { src: "/images/press/press-37.jpeg", alt: "Press feature" },
-  { src: "/images/press/press-38.jpeg", alt: "Press feature" },
-  { src: "/images/press/press-39.jpeg", alt: "Press feature" },
-  { src: "/images/press/press-40.jpeg", alt: "Press feature" },
-  { src: "/images/press/press-41.jpeg", alt: "Press feature" },
-  { src: "/images/press/press-42.jpeg", alt: "Press feature" },
-  { src: "/images/press/press-43.jpeg", alt: "Press feature" },
-  { src: "/images/press/press-44.jpeg", alt: "Press feature" },
-  { src: "/images/press/press-45.jpeg", alt: "Press feature" },
-  { src: "/images/press/press-46.jpg", alt: "Press feature" },
-  { src: "/images/press/press-47.jpg", alt: "Press feature" },
-  { src: "/images/press/press-48.jpg", alt: "Press feature" },
-  { src: "/images/press/press-49.jpg", alt: "Press feature" },
+  { src: "/images/press/press-50.jpg", alt: "Global Woman Magazine cover — Sofia Bouzian, The Beauty Doctor" },
+  { src: "/images/press/press-51.jpg", alt: "Global Woman Magazine copies on display at a launch event" },
+  { src: "/images/press/press-52.jpg", alt: "Global Woman Magazine featuring Sofia Bouzian alongside other magazines" },
+  { src: "/images/press/press-53.jpg", alt: "Global Woman Magazine, November 2022 — Sofia Bouzian, The Beauty Doctor" },
+  { src: "/images/press/press-54.jpg", alt: "YourHealthFirst Clinic of Harley Street — official sponsor of the Women of Excellence Award" },
+  { src: "/images/press/press-55.jpg", alt: "Women of Excellence featured publication — House of Lords, Parliament, UK" },
+  { src: "/images/press/press-56.jpg", alt: "Sofia Bouzian speaking at Sharm Derma on androgenic alopecia — Europe and Middle East" },
+  { src: "/images/press/press-57.jpg", alt: "Sofia Bouzian presenting at Sharm Derma, Fall 2022, Cairo" },
+  { src: "/images/press/press-58.jpg", alt: "YourHealthFirst of Harley Street — thank you to all the frontline workers" },
+  { src: "/images/press/press-59.jpg", alt: "IMCAS World Congress 2023, Paris — Sofia Bouzian, Aesthetic Practitioner" },
+  { src: "/images/press/press-60.jpg", alt: "Sofia Bouzian attending IMCAS World Congress 2023, Paris" },
+  { src: "/images/press/press-61.jpg", alt: "AMWC Monaco 2023 — Sofia Bouzian, Aesthetic Practitioner" },
+  { src: "/images/press/press-62.jpg", alt: "Healthcare & Pharmaceutical Awards 2019 — Best Non-Invasive Cosmetic & Medical Treatments Clinic, London" },
+  { src: "/images/press/press-63.jpg", alt: "GHP Q4 2019 featured publication — A Leader in Non-Surgical Aesthetics" },
+  { src: "/images/press/press-64.jpg", alt: "Innovations That Could Make Reverse Aging — A-PRP Cellular Matrix feature" },
+  { src: "/images/press/press-65.jpg", alt: "Cannes Film Festival 2018 — YourHealthFirst of Harley Street mobile clinic" },
+  { src: "/images/press/press-66.jpeg", alt: "YourHealthFirst of Harley Street — proud sponsor of International Beauty Pageants, Miss Film Festival International" },
+  { src: "/images/press/press-67.jpeg", alt: "YourHealthFirst Clinic — official sponsor of the Queen's Platinum Jubilee by the Parliamentary Society of Arts" },
+  { src: "/images/press/press-68.jpg", alt: "Sofia Bouzian at Global Woman Club — featured media" },
+  { src: "/images/press/press-69.jpeg", alt: "A Perfect Beauty — Sofia Bouzian interviewed about the beauty business on Harley Street" },
+  { src: "/images/press/press-70.jpeg", alt: "Cryolipolysis — featured media and clinic coverage, sponsored by YourHealthFirst Clinic of Harley Street" },
+  { src: "/images/press/press-71.jpg", alt: "Global Woman featured publication — Sofia Bouzian, The Beauty Doctor" },
+  { src: "/images/press/press-72.jpg", alt: "Fat Freezer — featured press coverage of fat-freezing treatment" },
+  { src: "/images/press/press-74.jpg", alt: "Featured press — YourHealthFirst fat-freezing introductory offer" },
 ];
 
 export default function PressPage() {
@@ -124,24 +99,7 @@ export default function PressPage() {
             </h2>
             <div className="flex-1 border-t border-black/8" />
           </div>
-          <div className="columns-2 gap-4 sm:columns-3 lg:columns-4 [column-fill:_balance]">
-            {pressImages.map((img, index) => (
-              <div
-                key={img.src}
-                className="group relative mb-4 break-inside-avoid overflow-hidden rounded-[10px] border border-black/8 bg-cream shadow-sm transition-shadow duration-300 hover:shadow-lg"
-              >
-                <Image
-                  src={img.src}
-                  alt={img.alt}
-                  width={600}
-                  height={600}
-                  sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
-                  className="h-auto w-full object-cover"
-                  loading={index < 8 ? "eager" : "lazy"}
-                />
-              </div>
-            ))}
-          </div>
+          <PressGrid images={pressImages} />
         </div>
       </section>
 

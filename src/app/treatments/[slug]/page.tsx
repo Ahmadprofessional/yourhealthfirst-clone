@@ -40,6 +40,16 @@ function iconPaletteColor(i: number) {
   return ICON_PALETTE[i % ICON_PALETTE.length];
 }
 
+const VIVID_ICON_PALETTE = [
+  { bg: "bg-rust", text: "text-white" },
+  { bg: "bg-[#7c8a5c]", text: "text-white" },
+  { bg: "bg-[#c98a3e]", text: "text-white" },
+  { bg: "bg-[#5b7c99]", text: "text-white" },
+  { bg: "bg-[#c1666b]", text: "text-white" },
+  { bg: "bg-forest", text: "text-white" },
+  { bg: "bg-tan", text: "text-white" },
+];
+
 function AreaIcon({ name, className }: { name: string; className?: string }) {
   const common = { viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: 1.8, strokeLinecap: "round" as const, strokeLinejoin: "round" as const };
   switch (name) {
@@ -287,6 +297,19 @@ export default async function TreatmentPage({ params }: Props) {
     .filter((t) => t.category === treatment.category && t.slug !== treatment.slug)
     .slice(0, 3);
 
+  const contraChips = treatment.contraindications ? (
+    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {treatment.contraindications.items.map((item) => (
+        <div key={item} className="flex items-center gap-4 rounded-[14px] border border-tan/20 bg-white/70 p-5 backdrop-blur-sm">
+          <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-tan/15 text-tan">
+            <AreaIcon name={contraindicationIcon(item)} className="h-5 w-5" />
+          </span>
+          <span className="text-[14px] leading-[19px] text-body-text">{item}</span>
+        </div>
+      ))}
+    </div>
+  ) : null;
+
   const processDiagramsSection = (
     <>
       {treatment.processDiagrams && treatment.processDiagrams.length > 0 && (
@@ -341,6 +364,146 @@ export default async function TreatmentPage({ params }: Props) {
           </div>
         </section>
       )}</>
+  );
+
+  const premiumFeaturesSection = (
+    <>
+        {treatment.premiumFeatures && treatment.premiumFeatures.items.length > 0 && (
+          <section className="relative w-full overflow-hidden bg-[linear-gradient(120deg,#faf4ea_0%,#f0e0c8_100%)] px-5">
+            <div className="pointer-events-none absolute -right-[6%] -top-[20%] h-[420px] w-[420px] rounded-full bg-tan/15 blur-[110px]" />
+            <div className="pointer-events-none absolute -left-[8%] bottom-[-20%] h-[420px] w-[420px] rounded-full bg-white/40 blur-[110px]" />
+            <div className="relative mx-auto max-w-[1400px] py-[70px] lg:py-[90px]">
+              {treatment.premiumFeatures.image ? (
+                <div
+                  className="relative mx-auto w-full overflow-hidden rounded-[12px] shadow-sm"
+                  style={{
+                    aspectRatio: treatment.premiumFeatures.imageAspect ?? "1969/799",
+                    maxWidth: treatment.premiumFeatures.imageMaxWidth ?? 1100,
+                  }}
+                >
+                  <Image
+                    src={treatment.premiumFeatures.image.src}
+                    alt={treatment.premiumFeatures.image.alt}
+                    fill
+                    sizes="(min-width: 1100px) 1100px, 100vw"
+                    className="object-contain"
+                  />
+                </div>
+              ) : (
+                <>
+                  <div className="mx-auto flex max-w-[720px] flex-col items-center gap-4 text-center">
+                    <div className="flex items-center gap-3">
+                      <span className="h-px w-[30px] bg-tan/40" />
+                      <span className="font-nav text-[11px] font-semibold tracking-[2px] text-tan uppercase">
+                        {treatment.premiumFeatures.eyebrow}
+                      </span>
+                      <span className="h-px w-[30px] bg-tan/40" />
+                    </div>
+                    <h2 className="font-display text-[30px] font-bold leading-[36px] tracking-[-1px] text-forest lg:text-[36px] lg:leading-[42px]">
+                      {treatment.premiumFeatures.main} <span className="text-tan">{treatment.premiumFeatures.accent}</span>
+                    </h2>
+                    {treatment.premiumFeatures.subtitle && (
+                      <p className="text-[15px] leading-[24px] text-body-text">{treatment.premiumFeatures.subtitle}</p>
+                    )}
+                  </div>
+
+                  <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                    {treatment.premiumFeatures.items.map((item, i) => {
+                      const color = iconPaletteColor(i);
+                      return (
+                        <div
+                          key={item.title}
+                          className="flex flex-col gap-4 rounded-[20px] border border-tan/25 bg-white/70 p-7 shadow-sm backdrop-blur-sm"
+                        >
+                          <span className={`relative flex h-14 w-14 shrink-0 items-center justify-center rounded-full ${color.bg} ${color.text}`}>
+                            <svg className="pointer-events-none absolute -inset-2" viewBox="0 0 72 72" fill="none">
+                              <path d="M6 40A30 30 0 0 1 40 6" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" className="opacity-30" />
+                            </svg>
+                            <AreaIcon name={item.icon} className="h-6 w-6" />
+                          </span>
+                          <h3 className="font-subheading text-[16px] font-semibold leading-[22px] text-forest">{item.title}</h3>
+                          <p className="text-[14px] leading-[22px] text-body-text">{item.description}</p>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </>
+              )}
+            </div>
+          </section>
+        )}
+    </>
+  );
+
+  const areaSizeGuideSection = (
+    <>
+      {treatment.areaSizeGuide && (
+        <section className="relative w-full overflow-hidden bg-[linear-gradient(120deg,#faf4ea_0%,#f0e0c8_100%)] px-5">
+          <div className="pointer-events-none absolute -right-[6%] -top-[20%] h-[420px] w-[420px] rounded-full bg-tan/15 blur-[110px]" />
+          <div className="pointer-events-none absolute -left-[8%] bottom-[-20%] h-[420px] w-[420px] rounded-full bg-white/40 blur-[110px]" />
+          <svg className="pointer-events-none absolute left-8 top-8 h-20 w-20 text-tan/40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.2}>
+            <path d="M20 4C10 4 4 10 4 18c8 0 14-6 14-14Z" />
+            <path d="M4 20 11 13" />
+          </svg>
+
+          <div className="relative mx-auto max-w-[1400px] py-[70px] lg:py-[90px]">
+            <div className="mx-auto flex max-w-[720px] flex-col items-center gap-4 text-center">
+              <div className="w-fit rounded-full border-[0.8px] border-tan/40 px-4 py-2">
+                <p className="font-nav text-[12px] font-semibold tracking-[3px] text-tan uppercase">
+                  {treatment.areaSizeGuide.eyebrow}
+                </p>
+              </div>
+              <h2 className="font-display text-[32px] font-bold leading-[38px] tracking-[-1px] text-forest lg:text-[40px] lg:leading-[46px]">
+                {treatment.areaSizeGuide.title}
+              </h2>
+              <span className="h-[3px] w-14 rounded-full bg-tan" />
+              {treatment.areaSizeGuide.subtitle && (
+                <p className="text-[15px] leading-[24px] text-body-text">
+                  {treatment.areaSizeGuide.subtitle}
+                </p>
+              )}
+            </div>
+
+            <div className="mt-12 grid grid-cols-1 gap-6 lg:grid-cols-3">
+              {treatment.areaSizeGuide.groups.map((group) => (
+                <div
+                  key={group.heading}
+                  className="flex overflow-hidden rounded-[20px] border border-tan/25 bg-white/70 shadow-sm backdrop-blur-sm"
+                >
+                  <div className="flex min-w-0 flex-1 flex-col gap-3 p-6">
+                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-tan/15 text-tan">
+                      <AreaIcon name={group.icon} className="h-5 w-5" />
+                    </span>
+                    <div className="flex flex-col">
+                      <h3 className="font-display text-[18px] font-bold leading-[22px] text-forest">
+                        {group.heading}
+                      </h3>
+                      <span className="font-nav text-[11px] font-semibold tracking-[1px] text-tan uppercase">
+                        ({group.subheading})
+                      </span>
+                    </div>
+                    <p className="text-[13px] leading-[20px] text-body-text">{group.description}</p>
+                    <div className="mt-1 flex flex-wrap gap-x-3 gap-y-3 border-t border-tan/20 pt-3">
+                      {group.chips.map((chip) => (
+                        <div key={chip.label} className="flex flex-col items-center gap-1.5" style={{ width: "calc(33% - 8px)" }}>
+                          <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-tan/15 text-tan">
+                            <AreaIcon name={chip.icon} className="h-3.5 w-3.5" />
+                          </span>
+                          <span className="text-center text-[10px] leading-[12px] text-body-text">{chip.label}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="relative w-[34%] shrink-0">
+                    <Image src={group.image} alt={group.imageAlt} fill className="object-cover" />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+    </>
   );
 
   return (
@@ -904,7 +1067,7 @@ export default async function TreatmentPage({ params }: Props) {
                           </div>
                         )}
                         {row.items && row.itemsLayout !== "boxes" && (
-                          <ul className="flex flex-col gap-3">
+                          <ul className={row.itemsColumns === 2 ? "grid grid-cols-1 gap-x-4 gap-y-2.5 sm:grid-cols-2" : "flex flex-col gap-3"}>
                             {row.items.map((item, j) => (
                               <li key={j} className="flex items-start gap-3">
                                 <span className="mt-[8px] h-[6px] w-[6px] shrink-0 rounded-full bg-tan" />
@@ -961,7 +1124,7 @@ export default async function TreatmentPage({ params }: Props) {
                       );
                     }
 
-                    if (!row.image) {
+                    if (!row.image && !row.video) {
                       return (
                         <div key={i} className="flex flex-col gap-4">
                           {content}
@@ -971,29 +1134,58 @@ export default async function TreatmentPage({ params }: Props) {
 
                     return (
                       <div key={i} className="grid grid-cols-1 items-stretch gap-6 lg:grid-cols-2 lg:gap-12">
-                        <div
-                          className={`relative w-full overflow-hidden rounded-[14px] border border-black/8 shadow-md ${
-                            row.imageContain ? "bg-black " : ""
-                          }${
-                            row.imageAspect
-                              ? `lg:self-center ${row.imageMaxWidth ? "mx-auto" : ""}`
-                              : row.imageMaxWidth
-                                ? "mx-auto aspect-[16/11] lg:aspect-auto lg:h-full lg:min-h-[300px]"
-                                : "aspect-[16/11] lg:aspect-auto lg:h-full lg:min-h-[300px]"
-                          } ${row.imageSide === "left" ? "lg:order-1" : "lg:order-2"}`}
-                          style={{
-                            aspectRatio: row.imageAspect ?? undefined,
-                            maxWidth: row.imageMaxWidth ? `${row.imageMaxWidth}px` : undefined,
-                          }}
-                        >
-                          <Image
-                            src={row.image.src}
-                            alt={row.image.alt}
-                            fill
-                            sizes="(min-width: 1024px) 50vw, 100vw"
-                            className={row.imageContain ? "object-contain" : "object-cover"}
-                          />
-                        </div>
+                        {row.video ? (
+                          <div
+                            className={`relative w-full overflow-hidden rounded-[14px] border border-black/8 bg-black shadow-md lg:self-center ${row.imageMaxWidth ? "mx-auto" : ""} ${row.imageSide === "left" ? "lg:order-1" : "lg:order-2"}`}
+                            style={{
+                              aspectRatio: row.imageAspect ?? "16/9",
+                              maxWidth: row.imageMaxWidth ? `${row.imageMaxWidth}px` : undefined,
+                            }}
+                          >
+                            {row.video.src ? (
+                              <video
+                                src={row.video.src}
+                                controls
+                                playsInline
+                                preload="metadata"
+                                title={row.video.title}
+                                className="absolute inset-0 h-full w-full object-contain"
+                              />
+                            ) : (
+                              <iframe
+                                src={`https://www.youtube.com/embed/${row.video.id}`}
+                                title={row.video.title}
+                                className="absolute inset-0 h-full w-full"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                              />
+                            )}
+                          </div>
+                        ) : (
+                          <div
+                            className={`relative w-full overflow-hidden rounded-[14px] border border-black/8 shadow-md ${
+                              row.imageContain ? "bg-black " : ""
+                            }${
+                              row.imageAspect
+                                ? `lg:self-center ${row.imageMaxWidth ? "mx-auto" : ""}`
+                                : row.imageMaxWidth
+                                  ? "mx-auto aspect-[16/11] lg:aspect-auto lg:h-full lg:min-h-[300px]"
+                                  : "aspect-[16/11] lg:aspect-auto lg:h-full lg:min-h-[300px]"
+                            } ${row.imageSide === "left" ? "lg:order-1" : "lg:order-2"}`}
+                            style={{
+                              aspectRatio: row.imageAspect ?? undefined,
+                              maxWidth: row.imageMaxWidth ? `${row.imageMaxWidth}px` : undefined,
+                            }}
+                          >
+                            <Image
+                              src={row.image!.src}
+                              alt={row.image!.alt}
+                              fill
+                              sizes="(min-width: 1024px) 50vw, 100vw"
+                              className={row.imageContain ? "object-contain" : "object-cover"}
+                            />
+                          </div>
+                        )}
                         <div className={`flex flex-col justify-center gap-4 ${row.imageSide === "left" ? "lg:order-2" : "lg:order-1"}`}>
                           {content}
                         </div>
@@ -1275,19 +1467,32 @@ export default async function TreatmentPage({ params }: Props) {
 
       {treatment.processDiagramsAfterBenefits && processDiagramsSection}
 
+      {treatment.premiumFeaturesAfterBenefits && premiumFeaturesSection}
+
       {/* Related links — supporting technology / explainer pages */}
       {treatment.relatedLinks && treatment.relatedLinks.length > 0 && (
         <section className="w-full border-t border-black/8 bg-cream px-5">
-          <div className="mx-auto max-w-[1400px] py-[40px]">
-            <div className="flex flex-wrap gap-4">
+          <div className="mx-auto max-w-[1400px] py-[44px] lg:py-[56px]">
+            <div className="mb-5 flex items-center gap-3">
+              <span className="font-nav text-[12px] font-semibold tracking-[2px] text-tan uppercase">Discover more</span>
+              <span className="h-px max-w-[80px] flex-1 bg-tan/40" />
+            </div>
+            <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
               {treatment.relatedLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="inline-flex h-12 items-center gap-2 rounded-[8px] bg-forest px-6 font-nav text-[14px] font-semibold tracking-[-0.3px] text-cream transition-opacity hover:opacity-90"
+                  className="group flex min-h-[88px] items-center justify-between gap-5 rounded-[16px] border border-[#a37f4a]/40 bg-[linear-gradient(135deg,#b8925a_0%,#d9b98c_50%,#b8925a_100%)] px-7 py-5 shadow-[0_10px_28px_-10px_rgba(120,90,40,0.55)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_34px_-10px_rgba(120,90,40,0.7)]"
                 >
-                  Click here for {link.label}
-                  <AreaIcon name="arrow" className="h-4 w-4" />
+                  <span className="flex flex-col">
+                    <span className="font-nav text-[12px] font-semibold tracking-[1.5px] text-forest/70 uppercase">Click here for</span>
+                    <span className="mt-1 font-subheading text-[19px] font-semibold leading-[25px] text-forest lg:text-[22px] lg:leading-[28px]">
+                      {link.label}
+                    </span>
+                  </span>
+                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-forest text-cream transition-transform duration-300 group-hover:translate-x-1">
+                    <AreaIcon name="arrow" className="h-5 w-5" />
+                  </span>
                 </Link>
               ))}
             </div>
@@ -1303,6 +1508,7 @@ export default async function TreatmentPage({ params }: Props) {
           <div className="relative mx-auto max-w-[1400px] py-[70px] lg:py-[90px]">
             <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
               {/* Treatment areas */}
+              {!treatment.hideTreatmentAreasCard && (
               <div className="rounded-[24px] border border-tan/25 bg-white/60 p-8 shadow-lg backdrop-blur-sm lg:p-10">
                 <div className="flex items-center gap-3">
                   <span className="font-nav text-[11px] font-semibold tracking-[2px] text-tan uppercase">Treatment Areas</span>
@@ -1329,6 +1535,7 @@ export default async function TreatmentPage({ params }: Props) {
                   })}
                 </div>
               </div>
+              )}
 
               {/* Who is it for */}
               <div className="flex flex-col gap-6 rounded-[24px] border border-tan/25 bg-white/60 p-8 shadow-lg backdrop-blur-sm lg:p-10">
@@ -1382,6 +1589,40 @@ export default async function TreatmentPage({ params }: Props) {
                   </div>
                 )}
               </div>
+
+              {/* Advantages / journey — boxed card on the right */}
+              {treatment.advantagesInAreasSection && treatment.advantages && (
+                <div className="flex flex-col gap-6 rounded-[24px] border border-tan/25 bg-white/60 p-8 shadow-lg backdrop-blur-sm lg:p-10">
+                  <div>
+                    <div className="flex items-center gap-3">
+                      <span className="font-nav text-[11px] font-semibold tracking-[2px] text-tan uppercase">Our Approach</span>
+                      <span className="h-px flex-1 max-w-[60px] bg-tan/40" />
+                    </div>
+                    <h2 className="mt-3 font-display text-[28px] font-bold leading-[34px] tracking-[-1px] text-forest lg:text-[32px] lg:leading-[38px]">
+                      {treatment.advantages.title}
+                    </h2>
+                    {treatment.advantages.intro && (
+                      <p className="mt-3 text-[14px] leading-[22px] text-body-text">{treatment.advantages.intro}</p>
+                    )}
+                  </div>
+                  <div className="flex flex-col gap-3">
+                    {treatment.advantages.items.map((item, i) => {
+                      const color = iconPaletteColor(i);
+                      return (
+                        <div key={item.title} className="flex items-start gap-4 rounded-[12px] bg-white/70 p-4">
+                          <span className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full ${color.bg} ${color.text}`}>
+                            <AreaIcon name="sparkle" className="h-5 w-5" />
+                          </span>
+                          <div className="flex flex-col gap-1">
+                            <h3 className="font-subheading text-[14px] font-semibold leading-[20px] text-forest">{item.title}</h3>
+                            <p className="text-[13px] leading-[20px] text-body-text">{item.description}</p>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </section>
@@ -1539,7 +1780,18 @@ export default async function TreatmentPage({ params }: Props) {
           <div className="pointer-events-none absolute -right-[6%] -top-[20%] h-[420px] w-[420px] rounded-full bg-tan/15 blur-[110px]" />
           <div className="pointer-events-none absolute -left-[8%] bottom-[-20%] h-[420px] w-[420px] rounded-full bg-white/40 blur-[110px]" />
           <div className="relative mx-auto max-w-[1400px] py-[70px] lg:py-[90px]">
-            <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-[0.85fr_1.4fr]">
+            <div
+              className={`grid grid-cols-1 items-start gap-10 ${
+                treatment.contraindications.imageMaxWidth
+                  ? "lg:grid-cols-[minmax(0,1fr)_var(--ci-w)]"
+                  : "lg:grid-cols-[0.85fr_1.4fr]"
+              }`}
+              style={
+                treatment.contraindications.imageMaxWidth
+                  ? ({ "--ci-w": `${treatment.contraindications.imageMaxWidth}px` } as React.CSSProperties)
+                  : undefined
+              }
+            >
               <div className="flex flex-col gap-5">
                 <div className="flex items-center gap-3">
                   <span className="font-nav text-[11px] font-semibold tracking-[2px] text-tan uppercase">Important Information</span>
@@ -1559,6 +1811,7 @@ export default async function TreatmentPage({ params }: Props) {
                 <p className="text-[15px] leading-[24px] text-body-text">
                   This treatment may not be suitable for everyone. It is not recommended for individuals with the following conditions, to ensure your safety and the best possible results.
                 </p>
+                {treatment.contraindications.imageMaxWidth && contraChips}
                 <div className="mt-2 flex flex-col gap-3 rounded-[16px] border border-tan/25 bg-white/70 p-6 backdrop-blur-sm">
                   <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-tan/15 text-tan">
                     <AreaIcon name="alert" className="h-5 w-5" />
@@ -1580,7 +1833,7 @@ export default async function TreatmentPage({ params }: Props) {
               <div className="flex flex-col gap-4">
                 {treatment.contraindications.image && (
                   <div
-                    className="relative w-full overflow-hidden rounded-[16px] border border-tan/20 shadow-sm"
+                    className="relative w-full overflow-hidden rounded-[16px] border border-tan/20 bg-white shadow-sm"
                     style={{ aspectRatio: treatment.contraindications.imageAspect ?? "16/9" }}
                   >
                     <Image
@@ -1591,16 +1844,7 @@ export default async function TreatmentPage({ params }: Props) {
                     />
                   </div>
                 )}
-                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                  {treatment.contraindications.items.map((item) => (
-                    <div key={item} className="flex items-center gap-4 rounded-[14px] border border-tan/20 bg-white/70 p-5 backdrop-blur-sm">
-                      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-tan/15 text-tan">
-                        <AreaIcon name={contraindicationIcon(item)} className="h-5 w-5" />
-                      </span>
-                      <span className="text-[14px] leading-[19px] text-body-text">{item}</span>
-                    </div>
-                  ))}
-                </div>
+                {!treatment.contraindications.imageMaxWidth && contraChips}
               </div>
             </div>
           </div>
@@ -1641,25 +1885,87 @@ export default async function TreatmentPage({ params }: Props) {
 
       {/* Care instructions — prominent before/aftercare */}
       {treatment.careInstructions && (
-        <section className="relative w-full overflow-hidden bg-[#061a10] px-5">
+        <section
+          className={`relative w-full overflow-hidden px-5 ${
+            treatment.careInstructionsCompact
+              ? "bg-[linear-gradient(135deg,#b8925a_0%,#d1ae83_50%,#b8925a_100%)]"
+              : "bg-[#061a10]"
+          }`}
+        >
           <div className="pointer-events-none absolute left-1/2 top-0 h-[400px] w-[400px] -translate-x-1/2 rounded-full bg-tan/8 blur-[100px]" />
+          {treatment.careInstructionsCompact && (
+            <>
+              <div className="pointer-events-none absolute -right-16 -top-16 h-[320px] w-[320px] rounded-full bg-white/25 blur-[70px]" />
+              <div className="pointer-events-none absolute -left-16 bottom-0 h-[320px] w-[320px] rounded-full bg-white/20 blur-[80px]" />
+            </>
+          )}
           <div className="relative mx-auto max-w-[1400px] py-[80px] lg:py-[100px]">
             <div className="flex flex-col items-center gap-4 text-center">
-              <div className="w-fit rounded-full border-[0.8px] border-tan/40 px-4 py-2">
-                <p className="font-nav text-[12px] font-semibold tracking-[3px] text-tan uppercase">
+              <div
+                className={`w-fit rounded-full border-[0.8px] px-4 py-2 ${
+                  treatment.careInstructionsCompact ? "border-forest/40" : "border-tan/40"
+                }`}
+              >
+                <p
+                  className={`font-nav text-[12px] font-semibold tracking-[3px] uppercase ${
+                    treatment.careInstructionsCompact ? "text-forest" : "text-tan"
+                  }`}
+                >
                   Important
                 </p>
               </div>
-              <h2 className="font-display text-[28px] font-bold leading-[34px] tracking-[-1px] text-cream uppercase lg:text-[38px] lg:leading-[44px]">
+              <h2
+                className={`font-display text-[28px] font-bold leading-[34px] tracking-[-1px] uppercase lg:text-[38px] lg:leading-[44px] ${
+                  treatment.careInstructionsCompact ? "text-forest" : "text-cream"
+                }`}
+              >
                 {treatment.careInstructions.title}
               </h2>
               {treatment.careInstructions.intro && (
-                <p className="max-w-[720px] text-[15px] leading-[24px] text-white/70">
+                <p
+                  className={`max-w-[720px] text-[15px] leading-[24px] ${
+                    treatment.careInstructionsCompact ? "font-medium text-forest/85" : "text-white/70"
+                  }`}
+                >
                   {treatment.careInstructions.intro}
                 </p>
               )}
             </div>
 
+            {treatment.careInstructionsCompact ? (
+              <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+                {treatment.careInstructions.groups.map((group, gi) => (
+                  <div key={group.heading} className="flex flex-col gap-4">
+                    <div className="flex items-center gap-3">
+                      <span className="h-[3px] w-8 shrink-0 rounded-full bg-forest" />
+                      <h3 className="font-subheading text-[14px] font-semibold tracking-[1.5px] text-forest uppercase">
+                        {group.heading}
+                      </h3>
+                    </div>
+                    <div className="flex flex-col gap-3">
+                      {group.points.map((point, pi) => {
+                        const color = group.warning
+                          ? { bg: "bg-rust", text: "text-white" }
+                          : VIVID_ICON_PALETTE[(gi * 3 + pi + 1) % VIVID_ICON_PALETTE.length];
+                        return (
+                          <div
+                            key={point}
+                            className={`flex items-start gap-3 rounded-[12px] bg-white/90 p-4 shadow-md ${
+                              group.warning ? "border-2 border-rust/60" : "border border-white/70"
+                            }`}
+                          >
+                            <span className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full ${color.bg} ${color.text}`}>
+                              <AreaIcon name={group.icons?.[pi] ?? (group.warning ? "alert" : "sparkle")} className="h-5 w-5" />
+                            </span>
+                            <span className="mt-[2px] text-[13px] leading-[20px] text-body-text">{point}</span>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : (
             <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {treatment.careInstructions.groups.map((group) => (
                 <div
@@ -1695,77 +2001,12 @@ export default async function TreatmentPage({ params }: Props) {
                 </div>
               ))}
             </div>
+            )}
           </div>
         </section>
       )}
 
-      {/* Area size guide — premium card grid for sizing/dosage tiers */}
-      {treatment.areaSizeGuide && (
-        <section className="relative w-full overflow-hidden bg-[linear-gradient(120deg,#faf4ea_0%,#f0e0c8_100%)] px-5">
-          <div className="pointer-events-none absolute -right-[6%] -top-[20%] h-[420px] w-[420px] rounded-full bg-tan/15 blur-[110px]" />
-          <div className="pointer-events-none absolute -left-[8%] bottom-[-20%] h-[420px] w-[420px] rounded-full bg-white/40 blur-[110px]" />
-          <svg className="pointer-events-none absolute left-8 top-8 h-20 w-20 text-tan/40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.2}>
-            <path d="M20 4C10 4 4 10 4 18c8 0 14-6 14-14Z" />
-            <path d="M4 20 11 13" />
-          </svg>
-
-          <div className="relative mx-auto max-w-[1400px] py-[70px] lg:py-[90px]">
-            <div className="mx-auto flex max-w-[720px] flex-col items-center gap-4 text-center">
-              <div className="w-fit rounded-full border-[0.8px] border-tan/40 px-4 py-2">
-                <p className="font-nav text-[12px] font-semibold tracking-[3px] text-tan uppercase">
-                  {treatment.areaSizeGuide.eyebrow}
-                </p>
-              </div>
-              <h2 className="font-display text-[32px] font-bold leading-[38px] tracking-[-1px] text-forest lg:text-[40px] lg:leading-[46px]">
-                {treatment.areaSizeGuide.title}
-              </h2>
-              <span className="h-[3px] w-14 rounded-full bg-tan" />
-              {treatment.areaSizeGuide.subtitle && (
-                <p className="text-[15px] leading-[24px] text-body-text">
-                  {treatment.areaSizeGuide.subtitle}
-                </p>
-              )}
-            </div>
-
-            <div className="mt-12 grid grid-cols-1 gap-6 lg:grid-cols-3">
-              {treatment.areaSizeGuide.groups.map((group) => (
-                <div
-                  key={group.heading}
-                  className="flex overflow-hidden rounded-[20px] border border-tan/25 bg-white/70 shadow-sm backdrop-blur-sm"
-                >
-                  <div className="flex min-w-0 flex-1 flex-col gap-3 p-6">
-                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-tan/15 text-tan">
-                      <AreaIcon name={group.icon} className="h-5 w-5" />
-                    </span>
-                    <div className="flex flex-col">
-                      <h3 className="font-display text-[18px] font-bold leading-[22px] text-forest">
-                        {group.heading}
-                      </h3>
-                      <span className="font-nav text-[11px] font-semibold tracking-[1px] text-tan uppercase">
-                        ({group.subheading})
-                      </span>
-                    </div>
-                    <p className="text-[13px] leading-[20px] text-body-text">{group.description}</p>
-                    <div className="mt-1 flex flex-wrap gap-x-3 gap-y-3 border-t border-tan/20 pt-3">
-                      {group.chips.map((chip) => (
-                        <div key={chip.label} className="flex flex-col items-center gap-1.5" style={{ width: "calc(33% - 8px)" }}>
-                          <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-tan/15 text-tan">
-                            <AreaIcon name={chip.icon} className="h-3.5 w-3.5" />
-                          </span>
-                          <span className="text-center text-[10px] leading-[12px] text-body-text">{chip.label}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                  <div className="relative w-[34%] shrink-0">
-                    <Image src={group.image} alt={group.imageAlt} fill className="object-cover" />
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
+      {!treatment.areaSizeGuideAfterFeatures && areaSizeGuideSection}
 
       {/* How It Works */}
       {treatment.howItWorks && (
@@ -1803,7 +2044,7 @@ export default async function TreatmentPage({ params }: Props) {
       {!treatment.processDiagramsFirst && !treatment.processDiagramsAfterBenefits && !treatment.processDiagramsBeforeBenefits && processDiagramsSection}
 
       {/* Advantages */}
-      {treatment.advantages && (
+      {treatment.advantages && !treatment.advantagesInAreasSection && (
         <section className="w-full bg-cream px-5">
           <div className="mx-auto max-w-[1400px] py-[80px] lg:py-[100px]">
             {treatment.advantages.image ? (
@@ -1924,87 +2165,36 @@ export default async function TreatmentPage({ params }: Props) {
       )}
 
       {/* Premium feature cards — gradient bg, icon circles, no photos */}
-      {treatment.premiumFeatures && treatment.premiumFeatures.items.length > 0 && (
-        <section className="relative w-full overflow-hidden bg-[linear-gradient(120deg,#faf4ea_0%,#f0e0c8_100%)] px-5">
-          <div className="pointer-events-none absolute -right-[6%] -top-[20%] h-[420px] w-[420px] rounded-full bg-tan/15 blur-[110px]" />
-          <div className="pointer-events-none absolute -left-[8%] bottom-[-20%] h-[420px] w-[420px] rounded-full bg-white/40 blur-[110px]" />
-          <div className="relative mx-auto max-w-[1400px] py-[70px] lg:py-[90px]">
-            {treatment.premiumFeatures.image ? (
-              <div
-                className="relative mx-auto w-full overflow-hidden rounded-[12px] shadow-sm"
-                style={{
-                  aspectRatio: treatment.premiumFeatures.imageAspect ?? "1969/799",
-                  maxWidth: treatment.premiumFeatures.imageMaxWidth ?? 1100,
-                }}
-              >
-                <Image
-                  src={treatment.premiumFeatures.image.src}
-                  alt={treatment.premiumFeatures.image.alt}
-                  fill
-                  sizes="(min-width: 1100px) 1100px, 100vw"
-                  className="object-contain"
-                />
-              </div>
-            ) : (
-              <>
-                <div className="mx-auto flex max-w-[720px] flex-col items-center gap-4 text-center">
-                  <div className="flex items-center gap-3">
-                    <span className="h-px w-[30px] bg-tan/40" />
-                    <span className="font-nav text-[11px] font-semibold tracking-[2px] text-tan uppercase">
-                      {treatment.premiumFeatures.eyebrow}
-                    </span>
-                    <span className="h-px w-[30px] bg-tan/40" />
-                  </div>
-                  <h2 className="font-display text-[30px] font-bold leading-[36px] tracking-[-1px] text-forest lg:text-[36px] lg:leading-[42px]">
-                    {treatment.premiumFeatures.main} <span className="text-tan">{treatment.premiumFeatures.accent}</span>
-                  </h2>
-                  {treatment.premiumFeatures.subtitle && (
-                    <p className="text-[15px] leading-[24px] text-body-text">{treatment.premiumFeatures.subtitle}</p>
-                  )}
-                </div>
-
-                <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-                  {treatment.premiumFeatures.items.map((item, i) => {
-                    const color = iconPaletteColor(i);
-                    return (
-                      <div
-                        key={item.title}
-                        className="flex flex-col gap-4 rounded-[20px] border border-tan/25 bg-white/70 p-7 shadow-sm backdrop-blur-sm"
-                      >
-                        <span className={`relative flex h-14 w-14 shrink-0 items-center justify-center rounded-full ${color.bg} ${color.text}`}>
-                          <svg className="pointer-events-none absolute -inset-2" viewBox="0 0 72 72" fill="none">
-                            <path d="M6 40A30 30 0 0 1 40 6" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" className="opacity-30" />
-                          </svg>
-                          <AreaIcon name={item.icon} className="h-6 w-6" />
-                        </span>
-                        <h3 className="font-subheading text-[16px] font-semibold leading-[22px] text-forest">{item.title}</h3>
-                        <p className="text-[14px] leading-[22px] text-body-text">{item.description}</p>
-                      </div>
-                    );
-                  })}
-                </div>
-              </>
-            )}
-          </div>
-        </section>
-      )}
+      {!treatment.premiumFeaturesAfterBenefits && premiumFeaturesSection}
 
       {/* Feature images (2-up benefit cards with supporting image) */}
       {treatment.featureImages && treatment.featureImages.length > 0 && (
         <section className="w-full px-5">
-          <div className="mx-auto max-w-[1400px] py-[80px] lg:py-[100px]">
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-              {treatment.featureImages.map((feature) => (
+          <div className={`mx-auto max-w-[1400px] ${treatment.featureImagesHeading ? "pb-[80px] pt-[40px] lg:pb-[100px] lg:pt-[48px]" : "py-[80px] lg:py-[100px]"}`}>
+            {treatment.featureImagesHeading && (
+              <div className="mb-10 flex items-center gap-4">
+                <h2 className="font-subheading text-[24px] font-medium leading-[30px] tracking-[-1px] text-forest uppercase lg:text-[30px] lg:leading-[36px]">
+                  {treatment.featureImagesHeading}
+                </h2>
+                <div className="flex-1 border-t border-black/8" />
+              </div>
+            )}
+            <div className={`grid grid-cols-1 gap-6 sm:grid-cols-2 ${treatment.featureImagesFourUp ? "lg:grid-cols-4" : ""}`}>
+              {treatment.featureImages.filter((f) => !f.premiumGroup).map((feature) => (
                 <div
                   key={feature.title}
                   className="overflow-hidden rounded-[12px] border border-black/8 shadow-sm"
                 >
-                  <div className="relative w-full" style={{ aspectRatio: "4/3" }}>
+                  <div
+                    className={`relative w-full ${treatment.featureImagesContain ? "bg-white" : ""}`}
+                    style={{ aspectRatio: treatment.featureImagesContain ? "16/10" : "4/3" }}
+                  >
                     <Image
                       src={feature.image}
                       alt={feature.title}
                       fill
-                      className="object-cover"
+                      sizes={treatment.featureImagesFourUp ? "(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw" : "(min-width: 640px) 50vw, 100vw"}
+                      className={treatment.featureImagesContain ? "object-contain" : "object-cover"}
                     />
                   </div>
                   <div className="p-6">
@@ -2017,10 +2207,47 @@ export default async function TreatmentPage({ params }: Props) {
                   </div>
                 </div>
               ))}
+              {treatment.featureImages.some((f) => f.premiumGroup) && (
+                <div className="relative overflow-hidden rounded-[18px] border border-[#a37f4a]/40 bg-[linear-gradient(135deg,#b8925a_0%,#dcbf93_50%,#b8925a_100%)] p-5 shadow-[0_20px_50px_-20px_rgba(120,90,40,0.6)] sm:col-span-2 lg:col-span-4 lg:p-8">
+                  <div className="pointer-events-none absolute -right-[8%] -top-[40%] h-[320px] w-[320px] rounded-full bg-white/30 blur-[100px]" />
+                  <div className="relative mb-6 flex items-center gap-4">
+                    <span className="font-subheading text-[18px] font-semibold tracking-[3px] text-forest uppercase lg:text-[22px]">Our Most Popular Treatments</span>
+                    <span className="h-px flex-1 bg-forest/25" />
+                  </div>
+                  <div className="relative grid grid-cols-1 gap-5 md:grid-cols-3">
+                    {treatment.featureImages
+                      .filter((f) => f.premiumGroup)
+                      .map((feature) => (
+                        <div
+                          key={feature.title}
+                          className="overflow-hidden rounded-[14px] border border-white/60 bg-white shadow-md"
+                        >
+                          <div className="relative w-full bg-white" style={{ aspectRatio: "16/10" }}>
+                            <Image
+                              src={feature.image}
+                              alt={feature.title}
+                              fill
+                              sizes="(min-width: 1024px) 30vw, (min-width: 768px) 33vw, 100vw"
+                              className="object-contain"
+                            />
+                          </div>
+                          <div className="p-6">
+                            <h3 className="font-subheading text-[17px] font-semibold leading-[23px] text-forest">
+                              {feature.title}
+                            </h3>
+                            <p className="mt-2 text-[14px] leading-[22px] text-body-text">{feature.description}</p>
+                          </div>
+                        </div>
+                      ))}
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </section>
       )}
+
+      {treatment.areaSizeGuideAfterFeatures && areaSizeGuideSection}
 
       {/* Before / After pairs */}
       {treatment.beforeAfterPairs && treatment.beforeAfterPairs.length > 0 && (
@@ -2223,10 +2450,10 @@ export default async function TreatmentPage({ params }: Props) {
             })()}
             <div className="mt-8 text-center">
               <Link
-                href="/gallery"
+                href={`/gallery?treatment=${treatment.slug}`}
                 className="inline-flex h-12 items-center justify-center rounded-[8px] bg-[#a8896a] px-7 font-nav text-[14px] font-semibold tracking-[-0.3px] text-cream transition-opacity hover:opacity-90"
               >
-                View Full Gallery →
+                View All Results in Our Gallery →
               </Link>
             </div>
           </div>

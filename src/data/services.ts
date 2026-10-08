@@ -187,7 +187,7 @@ export const services: ServiceCard[] = [
   },
   {
     slug: "photo-aging",
-    title: "Photodynamic Therapy (Skinox)",
+    title: "Chemical Peels (Photodynamic Peel)",
     description: [
       { text: "Skinox", bold: true },
       {

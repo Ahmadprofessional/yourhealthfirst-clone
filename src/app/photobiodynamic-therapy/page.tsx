@@ -11,10 +11,10 @@ export const metadata: Metadata = {
 };
 
 const treatments = [
-  { title: "Rejuvenation", image: "/images/treatments/photo-aging/wrinkles_box.jpg" },
-  { title: "Blemishes", image: "/images/treatments/photo-aging/blemish_box.jpg" },
-  { title: "Redness", image: "/images/treatments/photo-aging/redness_box.jpg" },
-  { title: "Dark Spots", image: "/images/treatments/photo-aging/dark_spots_box.jpg" },
+  { title: "Rejuvenation", image: "/images/treatments/photo-aging/skinox-wrinkles.jpg" },
+  { title: "Blemishes", image: "/images/treatments/photo-aging/skinox-blemish.jpg" },
+  { title: "Redness", image: "/images/treatments/photo-aging/skinox-redness.jpg" },
+  { title: "Dark Spots", image: "/images/treatments/photo-aging/skinox-dark-spots.jpg" },
 ];
 
 export default function PhotobiodynamicTherapyPage() {
@@ -88,8 +88,8 @@ export default function PhotobiodynamicTherapyPage() {
           <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {treatments.map((t) => (
               <div key={t.title} className="overflow-hidden rounded-[12px] border border-black/8 bg-white shadow-sm">
-                <div className="relative w-full" style={{ aspectRatio: "4/3" }}>
-                  <Image src={t.image} alt={t.title} fill className="object-cover" />
+                <div className="relative w-full bg-white" style={{ aspectRatio: "16/10" }}>
+                  <Image src={t.image} alt={t.title} fill sizes="(min-width: 1024px) 25vw, 50vw" className="object-contain" />
                 </div>
                 <p className="py-4 text-center font-subheading text-[14px] font-semibold tracking-[1px] text-forest uppercase">
                   {t.title}
@@ -150,7 +150,7 @@ export default function PhotobiodynamicTherapyPage() {
               href="/treatments/photo-aging"
               className="inline-flex h-12 w-fit items-center gap-2 rounded-[8px] bg-tan px-6 font-nav text-[14px] font-semibold tracking-[-0.3px] text-forest transition-opacity hover:opacity-90"
             >
-              View Photodynamic Therapy (Skinox) →
+              View Chemical Peels (Photodynamic Peel) →
             </Link>
           </div>
         </div>

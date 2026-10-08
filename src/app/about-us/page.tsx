@@ -4,6 +4,20 @@ import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SafeImage from "@/components/SafeImage";
+import PhotoSlider, { type SliderPhoto } from "@/components/PhotoSlider";
+
+const trainingPhotos: SliderPhoto[] = [
+  { src: "/images/about-us/training/training-01.jpg", alt: "Sofia Bouzian — postgraduate training programme in aesthetic medicine: workshops, anatomy laboratory sessions and hands-on training", width: 1206, height: 1181 },
+  { src: "/images/about-us/training/training-02.jpg", alt: "The most advanced aesthetic live congress in Europe", width: 1000, height: 1000 },
+  { src: "/images/about-us/training/training-03.jpg", alt: "Sofia Bouzian outside the Institut Universitaire de la Face et du Cou, Nice", width: 1254, height: 1254 },
+  { src: "/images/about-us/training/training-04.jpg", alt: "Sofia Bouzian at the Faculté de Médecine, Nice", width: 1035, height: 1519 },
+  { src: "/images/about-us/training/training-05.jpg", alt: "Anatomy laboratory training group in surgical gowns", width: 1402, height: 1122 },
+  { src: "/images/about-us/training/training-06.jpg", alt: "Anatomy laboratory training group photo", width: 1378, height: 1142 },
+  { src: "/images/about-us/training/training-07.jpg", alt: "Sofia Bouzian during hands-on anatomy laboratory training", width: 750, height: 750 },
+  { src: "/images/about-us/training/training-08.jpg", alt: "Sofia Bouzian practising advanced aesthetic techniques in the anatomy laboratory", width: 750, height: 750 },
+  { src: "/images/about-us/training/training-09.jpg", alt: "Sofia Bouzian performing a hands-on procedure during training", width: 1254, height: 1254 },
+  { src: "/images/about-us/training/training-10.jpg", alt: "Sofia Bouzian at an anatomy laboratory session", width: 750, height: 750 },
+];
 
 export const metadata: Metadata = {
   title: "About Me — Sofia Bouzian | YourHealthFirst Clinic, Harley Street",
@@ -302,6 +316,19 @@ export default function AboutMePage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ── TRAINING & CONGRESS PHOTOS ── */}
+      <section className="-mb-[40px] w-full px-5 lg:-mb-[56px]">
+        <div className="mx-auto max-w-[1400px] pb-0 pt-[44px] lg:pt-[56px]">
+          <div className="mb-8 flex items-center gap-4">
+            <h2 className="font-subheading text-[24px] font-medium leading-[30px] tracking-[-1px] text-forest uppercase lg:text-[30px] lg:leading-[36px]">
+              Training &amp; Congresses
+            </h2>
+            <div className="flex-1 border-t border-black/8" />
+          </div>
+          <PhotoSlider photos={trainingPhotos} />
         </div>
       </section>
 

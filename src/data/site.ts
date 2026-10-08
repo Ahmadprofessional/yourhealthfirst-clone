@@ -24,6 +24,11 @@ export const navLinks: NavLink[] = [
         items: [
           { label: "Anti Wrinkles", href: "/treatments/anti-wrinkles" },
           { label: "Dermal Fillers", href: "/treatments/dermal-fillers" },
+        ],
+      },
+      {
+        category: "Biostimulators",
+        items: [
           { label: "Sunekos", href: "/treatments/sunekos" },
           { label: "Profhilo", href: "/treatments/profhilo" },
           { label: "Polynucleotides", href: "/treatments/polynucleotides" },
@@ -44,6 +49,11 @@ export const navLinks: NavLink[] = [
           { label: "Cryolipolysis", href: "/treatments/cryolipolysis" },
           { label: "Emsculpt Neo", href: "/treatments/emsculpt-neo" },
           { label: "Aqualyx", href: "/treatments/aqualyx" },
+        ],
+      },
+      {
+        category: "Weight Loss",
+        items: [
           { label: "Mounjaro", href: "/treatments/mounjaro" },
         ],
       },
@@ -52,7 +62,7 @@ export const navLinks: NavLink[] = [
         items: [
           { label: "Microneedling", href: "/treatments/microneedling" },
           { label: "Mesotherapy", href: "/treatments/mesotherapy" },
-          { label: "Photodynamic Therapy (Skinox)", href: "/treatments/photo-aging" },
+          { label: "Chemical Peels (Photodynamic Peel)", href: "/treatments/photo-aging" },
           { label: "Sclerotherapy", href: "/treatments/sclerotherapy" },
           { label: "CryoPen", href: "/treatments/cryopen" },
           { label: "Vitamin B12", href: "/treatments/vitamin-b12" },
@@ -66,6 +76,7 @@ export const navLinks: NavLink[] = [
       },
     ],
   },
+  { label: "Home Skincare", href: "/home-skincare" },
   { label: "Price List", href: "/price-list" },
   { label: "Gallery", href: "/gallery" },
   { label: "Blogs", href: "/blogs" },

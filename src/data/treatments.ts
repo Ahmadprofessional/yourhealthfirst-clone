@@ -51,6 +51,8 @@ export interface TreatmentDetail {
     /** Optional — a row with no image yet renders as a full-width text block (add the image later once supplied) */
     image?: { src: string; alt: string };
     imageSide?: "left" | "right";
+    /** YouTube embed shown in the image slot (16:9, no crop) instead of a photo */
+    video?: { id?: string; src?: string; title: string };
     /** Plain paragraphs (use this OR heading/body/items below for a fuller headed block) */
     text?: string[];
     heading?: string;
@@ -59,6 +61,8 @@ export interface TreatmentDetail {
     items?: (string | { title: string; description: string })[];
     /** Render `items` as a grid of individual card boxes instead of a bulleted list — use for short standalone phrases */
     itemsLayout?: "list" | "boxes";
+    /** Lay a plain bullet list out in two columns */
+    itemsColumns?: 2;
     outro?: string | string[];
     /** Inline link shown after the outro text (e.g. a social profile) */
     link?: { text: string; href: string };
@@ -99,6 +103,14 @@ export interface TreatmentDetail {
   trustBadges?: { icon: string; label: string }[];
   /** Skip the boxed icon-card Treatment Areas / Who Is It For section and instead render both as plain content in the upper body section */
   treatmentAreasInline?: boolean;
+  /** Show the premium feature cards section (e.g. "How Does X Work?") directly under the Key Benefits banner instead of lower on the page */
+  premiumFeaturesAfterBenefits?: boolean;
+  /** Render the care instructions section with each point as its own small card (instead of three large bullet-list panels) */
+  careInstructionsCompact?: boolean;
+  /** Show the `advantages` content as a boxed card on the right of the icon-card "Who Is It For?" section instead of as its own full-width section */
+  advantagesInAreasSection?: boolean;
+  /** In the icon-card variant, hide the "What Areas Can Be Treated?" box so the "Who Is It For?" box sits alone on the left */
+  hideTreatmentAreasCard?: boolean;
   /** Optional image shown alongside the inline Treatment Areas / Who Is It For content */
   treatmentAreasInlineImage?: { src: string; alt: string };
   /** Extended decision-guide section (who it's best for / when it's not right / results / booking CTA) rendered in the main content column */
@@ -140,10 +152,18 @@ export interface TreatmentDetail {
   /** Self-hosted video file (mp4) shown as an embedded explainer video, used instead of videoId */
   videoUrl?: string;
   /** Two-up feature cards with a supporting image (e.g. benefit highlights) */
+  featureImagesHeading?: string;
+  featureImagesContain?: boolean;
+  /** Show feature cards 4-up on large screens (smaller cards) */
+  featureImagesFourUp?: boolean;
+  /** Show the treatment-area size guide after the product/feature cards instead of before them */
+  areaSizeGuideAfterFeatures?: boolean;
   featureImages?: {
     title: string;
     description: string;
     image: string;
+    /** Render this card inside the shared dark premium box at the end of the grid */
+    premiumGroup?: boolean;
   }[];
   /** Large technology/product showcase — photo with decorative ring + badge, feature icon row and CTA */
   technologyShowcase?: {
@@ -243,6 +263,8 @@ export interface TreatmentDetail {
       heading: string;
       points: string[];
       warning?: boolean;
+      /** Icon name per point (compact style only) — same names as treatmentAreaIcons */
+      icons?: string[];
     }[];
   };
   /** Medical contraindications — who should NOT have this treatment */
@@ -253,6 +275,8 @@ export interface TreatmentDetail {
     image?: { src: string; alt: string };
     /** Override the default 16:9 image box to match the photo's own ratio (avoids cropping) */
     imageAspect?: string;
+    /** Cap the right-hand column (px) so a large image doesn't leave empty space beside the left text */
+    imageMaxWidth?: number;
   };
   /** Premium card grid explaining sizing/dosage tiers (e.g. small/medium/large treatment areas) */
   areaSizeGuide?: {
@@ -2088,8 +2112,8 @@ export const treatmentDetails: TreatmentDetail[] = [
     gallery: {
       folder: "/images/gallery/prp-men",
       prefix: "prp-men",
-      count: 4,
-      ext: "jpeg",
+      count: 3,
+      ext: "jpg",
     },
     benefits: [
       "Stimulates dormant follicles and promotes new hair growth",
@@ -2239,10 +2263,11 @@ export const treatmentDetails: TreatmentDetail[] = [
     introRows: [
       {
         image: {
-          src: "/images/treatments/exosome/anti-aging-peel.jpg",
-          alt: "Exosome skin regeneration — visualising younger, smoother skin beneath signs of ageing",
+          src: "/images/treatments/exosome/exosome-collage.jpg",
+          alt: "EXO OX exosome therapy — facial and scalp treatment with microneedling, exosome vial and hair-follicle illustration",
         },
         imageSide: "right",
+        imageAspect: "1536/1024",
         heading: "Advanced Exosome Therapy for Skin Rejuvenation & Hair Restoration",
         body: [
           "Experience the next generation of regenerative aesthetics with EXO OX Exosome Therapy at YourHealthFirst Clinic in London.",
@@ -3063,6 +3088,12 @@ export const treatmentDetails: TreatmentDetail[] = [
     tagline: "The clinically approved breakthrough in medical weight loss",
     category: "Body Contouring",
     image: "/images/treatments/mounjaro/product-card.jpg",
+    gallery: {
+      folder: "/images/gallery/mounjaro",
+      prefix: "mounjaro",
+      count: 3,
+      ext: "jpg",
+    },
     intro:
       "At YourHealthFirst Clinic, we provide medically supervised weight-management support for eligible patients seeking a structured and evidence-based approach to weight loss. Our Wimpole Street Weight Management Service in London is delivered by trained and experienced healthcare professionals, with an emphasis on appropriate patient assessment, treatment suitability, ongoing monitoring and safe use of prescription weight-management medicines.",
     body: [
@@ -3108,6 +3139,10 @@ export const treatmentDetails: TreatmentDetail[] = [
       },
     ],
     treatmentAreas: ["Abdomen", "Thigh", "Upper Arm"],
+    hideTreatmentAreasCard: true,
+    advantagesInAreasSection: true,
+    careInstructionsCompact: true,
+    premiumFeaturesAfterBenefits: true,
     treatmentAreaIcons: {
       Abdomen: "body",
       Thigh: "wave",
@@ -3190,6 +3225,7 @@ export const treatmentDetails: TreatmentDetail[] = [
       groups: [
         {
           heading: "Where Is Mounjaro Injected?",
+          icons: ["body", "wave", "hand", "target"],
           points: [
             "Abdomen",
             "Thigh",
@@ -3199,6 +3235,7 @@ export const treatmentDetails: TreatmentDetail[] = [
         },
         {
           heading: "How Should Mounjaro Be Stored?",
+          icons: ["shield", "clock"],
           points: [
             "Unused Mounjaro KwikPens should be stored in a refrigerator at 2°C–8°C and must not be frozen.",
             "After first use, the KwikPen can be stored unrefrigerated at a temperature not exceeding 30°C for up to 30 days, after which it must be discarded.",
@@ -3207,6 +3244,7 @@ export const treatmentDetails: TreatmentDetail[] = [
         {
           heading: "Important Safety Information",
           warning: true,
+          icons: ["pulse", "pill", "bandage", "alert"],
           points: [
             "Most commonly reported side effects are gastrointestinal and can be more noticeable when treatment is started or the dose is increased.",
             "Possible side effects include nausea, vomiting, diarrhoea, constipation, abdominal discomfort and reduced appetite.",
@@ -3341,8 +3379,127 @@ export const treatmentDetails: TreatmentDetail[] = [
     category: "Skin & Health",
     image: "/images/services/placeholder.png",
     intro:
-      "In London, microneedling performed at a medical-grade level is recognised for its ability to stimulate the skin's natural collagen production. With regular treatments over time, this can lead to enhanced skin elasticity, firmness, complexion, reduced hyperpigmentation, and diminished appearance of fine lines and scars.",
-    videoUrl: "/videos/treatments/microneedling-demo.mp4",
+      "Microneedling is a minimally invasive skin rejuvenation treatment designed to improve skin texture, firmness, hydration and overall skin quality. Also known as collagen induction therapy, microneedling uses a professional microneedling pen with fine sterile needles to create controlled microscopic channels in the skin.",
+    introRows: [
+      {
+        video: { src: "/videos/treatments/microneedling-demo.mp4", title: "Microneedling treatment demonstration" },
+        imageAspect: "9/16",
+        imageMaxWidth: 420,
+        imageSide: "right",
+        heading: "Microneedling London – Skin Rejuvenation & Collagen Induction",
+        body: [
+          "These tiny channels stimulate the skin's natural repair processes and can encourage the production of collagen and elastin, helping the skin become smoother, firmer and more refined over time.",
+          "At YourHealthFirst Clinic on Wimpole Street, London, microneedling can be tailored to your individual skin concerns, treatment area and desired outcome.",
+          "**What can Microneedling help with?** Microneedling may be suitable for a range of common skin concerns, including:",
+        ],
+        itemsColumns: 2,
+        items: [
+          "Fine lines and wrinkles",
+          "Uneven skin texture",
+          "Dull or tired-looking skin",
+          "Loss of skin firmness",
+          "Enlarged or visible pores",
+          "Acne scarring",
+          "Atrophic acne scars",
+          "Uneven skin tone",
+          "Sun-damaged and photoaged skin",
+          "Stretch marks",
+          "Overall skin rejuvenation and collagen stimulation",
+        ],
+        outro:
+          "Research supports microneedling as one of the treatment options used for acne scarring, although results can vary depending on the type and severity of scarring and the individual treatment plan.",
+      },
+      {
+        heading: "How does Microneedling work?",
+        body: [
+          "Microneedling uses a professional microneedling pen fitted with a sterile needle cartridge. The device creates controlled microscopic punctures in the skin at a depth selected according to the treatment area and your individual needs.",
+          "This controlled stimulation activates the skin's natural wound-healing response, supporting the production and remodelling of collagen and elastin.",
+          "As the skin heals, gradual improvements in texture, firmness, smoothness and overall skin quality may develop.",
+        ],
+      },
+      {
+        heading: "Microneedling with a Professional Microneedling Pen",
+        body: [
+          "At YourHealthFirst Clinic, microneedling is performed using a professional microneedling pen to allow controlled and consistent treatment across the selected area.",
+          "The treatment depth can be adjusted according to the area being treated and the patient's individual skin characteristics. This allows the procedure to be tailored rather than using the same settings for every patient.",
+        ],
+      },
+      {
+        heading: "Microneedling vs Mesotherapy",
+        body: ["Although these treatments can sometimes be combined, they are different procedures."],
+        items: [
+          {
+            title: "Microneedling",
+            description:
+              "Uses controlled microscopic channels created by fine needles to stimulate the skin's natural regenerative response.",
+          },
+          {
+            title: "Mesotherapy",
+            description:
+              "Uses micro-injections to introduce a selected formulation into the superficial layers of the skin. At YourHealthFirst Clinic, mesotherapy may be delivered using the U225 Meso Gun, manual micro-injection techniques or, where appropriate, incorporated into a microneedling treatment protocol.",
+          },
+        ],
+        itemsLayout: "boxes",
+        outro:
+          "This distinction is useful for patients who are searching for microneedling, mesotherapy or combination skin rejuvenation treatments in London.",
+      },
+      {
+        heading: "Microneedling for Acne Scars",
+        body: [
+          "Microneedling is commonly used as a treatment option for post-acne scarring, particularly atrophic acne scars.",
+          "By stimulating controlled skin remodelling, microneedling may help improve the appearance and texture of certain acne scars over a course of treatments. The most appropriate approach depends on the type, depth and distribution of the scars.",
+          "Recent research continues to support microneedling as a useful option for acne-scar treatment, while also emphasising that treatment should be individualised.",
+        ],
+      },
+      {
+        heading: "Microneedling for Fine Lines & Skin Rejuvenation",
+        body: [
+          "Microneedling can be used as part of a facial skin rejuvenation programme for patients concerned about early signs of ageing, fine lines, uneven texture and loss of firmness.",
+          "Rather than changing facial volume or expression, the aim is to improve the quality and appearance of the skin itself through controlled stimulation and gradual collagen remodelling.",
+        ],
+      },
+      {
+        heading: "Can Microneedling be combined with other treatments?",
+        body: [
+          "Depending on your individual treatment plan, microneedling may be combined with other aesthetic and regenerative treatments.",
+          "At YourHealthFirst Clinic, treatment combinations may include PRP, mesotherapy and selected topical formulations, where clinically appropriate.",
+          "Combination treatments should be selected following assessment rather than automatically applied to every patient.",
+        ],
+      },
+      {
+        heading: "Your Microneedling Questions Answered",
+        items: [
+          {
+            title: "Is Microneedling painful?",
+            description:
+              "Most patients describe microneedling as manageable, although some areas may feel more sensitive than others. A topical anaesthetic cream may be considered before treatment when appropriate to improve comfort. During treatment, you may experience a sensation of warmth, vibration, pressure or mild prickling.",
+          },
+          {
+            title: "Is there any downtime after Microneedling?",
+            description:
+              "Microneedling involves relatively little downtime compared with more invasive resurfacing procedures, but temporary skin reactions are expected. Immediately following treatment, the skin may appear red or flushed, warm, slightly swollen, or sensitive and tight. Mild redness can persist for a short period, depending on the treatment intensity and individual skin response. Your practitioner will provide personalised aftercare advice.",
+          },
+          {
+            title: "How many Microneedling treatments will I need?",
+            description:
+              "The number of treatments depends on your skin condition, treatment goals and the area being treated. For general skin rejuvenation, a course of treatments is often recommended rather than relying on a single session. Acne scarring and more established skin concerns may require a different treatment programme. Your treatment plan will be discussed following an individual skin assessment.",
+          },
+          {
+            title: "When will I see results?",
+            description:
+              "Some patients notice an initial improvement in skin radiance and smoothness, while more gradual changes in texture and firmness can develop as the skin remodels collagen. For concerns such as acne scarring, improvement generally requires a course of treatments and takes time.",
+          },
+        ],
+        itemsLayout: "boxes",
+      },
+      {
+        heading: "Why choose YourHealthFirst Clinic for Microneedling in London?",
+        body: [
+          "At YourHealthFirst Clinic, Wimpole Street, microneedling forms part of a personalised approach to skin rejuvenation and regenerative aesthetics.",
+          "Your treatment is selected according to your skin type, concerns, treatment area and desired outcome, rather than following a one-size-fits-all protocol.",
+        ],
+      },
+    ],
     featureImages: [
       {
         title: "Fight Against the Signs of Ageing",
@@ -3426,8 +3583,7 @@ export const treatmentDetails: TreatmentDetail[] = [
     category: "Skin & Health",
     image: "/images/services/placeholder.png",
     intro:
-      "Mesotherapy is a non-surgical cosmetic medicine treatment. Mesotherapy employs multiple injections of pharmaceutical and homeopathic medications, plant extracts, vitamins, and other ingredients into subcutaneous fat, and is injected using the pain-free, U225 latest intradermal medical injector.",
-    videoId: "uic1pS9PGZo",
+      "Mesotherapy is a minimally invasive skin rejuvenation treatment using a series of precise micro-injections to deliver a customised blend of active ingredients into the superficial layers of the skin. Depending on your individual treatment plan, the formulation may contain ingredients such as hyaluronic acid, vitamins, minerals, amino acids and other skin-supporting compounds.",
     body: [
       "Mesotherapy is a minimally invasive procedure where a series of superfine injections of vitamins, minerals, and amino acids cocktails are delivered into the meso-dermal layer of the skin.",
       "This infusion of ingredients nourishes and rejuvenates the skin while also stimulating the production of collagen and elastin, both essential for the skin's natural elasticity.",
@@ -3437,6 +3593,110 @@ export const treatmentDetails: TreatmentDetail[] = [
       "Mesotherapy can instantly improve dull, tired-looking skin and superficial wrinkles but can also help to improve sluggish blood circulation, aiding the body to flush out ageing toxins.",
       "This treatment can also be used to address pigmentation problems, and treat acne scarring, and can be combined to enhance the effects of other aesthetic treatments such as PRP, Botox or fillers.",
     ],
+    introRows: [
+      {
+        image: {
+          src: "/images/treatments/mesotherapy/hair-mesotherapy-nologo.jpg",
+          alt: "Hair mesotherapy with the U225 Meso Gun at YourHealthFirst Clinic — nourish, stimulate, strengthen",
+        },
+        imageAspect: "1/1",
+        imageMaxWidth: 330,
+        imageSide: "right",
+        heading: "Mesotherapy in London – Skin Rejuvenation & Hydration",
+        body: [
+          "At YourHealthFirst Clinic on Wimpole Street, London, mesotherapy can be performed using the U225 Meso Gun, a specialised medical mesotherapy device designed to deliver controlled, rapid micro-injections with a high degree of consistency and precision. The treatment can also be performed using a manual micro-injection technique, depending on the area being treated, the skin condition and the chosen formulation.",
+        ],
+      },
+      {
+        image: {
+          src: "/images/treatments/mesotherapy/face-skin-mesotherapy-nologo.jpg",
+          alt: "Face and skin mesotherapy with the U225 Meso Gun at YourHealthFirst Clinic — hydrate, rejuvenate, stimulate, restore",
+        },
+        imageAspect: "1/1",
+        imageMaxWidth: 330,
+        imageSide: "left",
+        heading: "How does Mesotherapy work?",
+        body: [
+          "Mesotherapy works by introducing small amounts of carefully selected ingredients directly into the skin rather than relying solely on topical skincare products. The aim is to improve skin hydration, radiance, texture and overall quality, while supporting the skin's natural regenerative processes.",
+          "The U225 Meso Gun delivers a rapid series of very fine micro-injections into the superficial skin layers. This allows the treatment to be administered evenly and precisely across the selected area.",
+        ],
+      },
+      {
+        video: { id: "uic1pS9PGZo", title: "Mesotherapy — Meso Gun U225 needle concept" },
+        imageSide: "right",
+        heading: "What can Mesotherapy help with?",
+        body: [
+          "Mesotherapy may be suitable for people concerned about dull or tired-looking skin, dehydration, uneven skin texture, fine lines and loss of skin radiance. Depending on the formulation selected, it may also form part of a personalised treatment plan for areas affected by pigmentation, superficial skin imperfections or signs of ageing.",
+          "The treatment can be tailored to different areas, including the face, neck, décolletage and other areas of the body, depending on your individual needs.",
+        ],
+      },
+      {
+        heading: "Mesotherapy with the U225 Meso Gun",
+        body: [
+          "At YourHealthFirst Clinic, we use the U225 Meso Gun when appropriate to provide controlled micro-injections over the treatment area. This technique allows the practitioner to deliver the selected mesotherapy formulation consistently and accurately while treating larger areas efficiently.",
+          "For some patients, manual micro-injection mesotherapy may be more appropriate. Your treatment technique and formulation are selected according to your skin, the area being treated and your desired outcome.",
+        ],
+      },
+      {
+        heading: "Mesotherapy and Microneedling Techniques",
+        body: ["Depending on your individual treatment plan, mesotherapy can be delivered using different techniques."],
+        items: [
+          {
+            title: "U225 Meso Gun",
+            description:
+              "Delivers a series of controlled, precise micro-injections into the superficial layers of the skin, allowing the selected mesotherapy formulation to be distributed evenly across the treatment area.",
+          },
+          {
+            title: "Manual Micro-Injections",
+            description:
+              "For certain areas and treatment protocols, mesotherapy can also be administered manually using a very fine needle, allowing precise placement of the selected formulation.",
+          },
+          {
+            title: "Microneedling Pen",
+            description:
+              "Where appropriate, selected mesotherapy formulations can also be incorporated into a microneedling treatment using a professional microneedling pen. The pen creates controlled microscopic channels in the skin, supporting the absorption of suitable topical formulations and stimulating the skin's natural regenerative response.",
+          },
+        ],
+        itemsLayout: "boxes",
+        outro: "The technique used will depend on your skin condition, treatment area, formulation and desired outcome.",
+      },
+      {
+        heading: "Your Mesotherapy Questions Answered",
+        items: [
+          {
+            title: "Is Mesotherapy painful?",
+            description:
+              "Mesotherapy is generally well tolerated. Because it involves multiple very fine injections, some patients may experience mild discomfort, particularly in more sensitive areas. A topical local anaesthetic cream can be considered where appropriate to improve comfort during treatment.",
+          },
+          {
+            title: "How long does Mesotherapy take?",
+            description:
+              "A typical mesotherapy treatment takes approximately 30–45 minutes, depending on the area being treated and the treatment protocol.",
+          },
+          {
+            title: "Is there any downtime?",
+            description:
+              "Mesotherapy usually involves minimal downtime, although temporary redness, mild swelling, tenderness or small areas of bruising can occur at the injection points. These effects generally settle relatively quickly, but recovery varies according to the individual and the treatment area.",
+          },
+          {
+            title: "When will I see results?",
+            description:
+              "Some patients notice an improvement in skin hydration and radiance relatively soon after treatment, while further improvements in skin quality may develop progressively following a course of treatments. The number and frequency of sessions will depend on your skin condition, the formulation used and your treatment goals. Rather than applying the same course to everyone, we recommend a personalised treatment plan following consultation and assessment.",
+          },
+        ],
+        itemsLayout: "boxes",
+      },
+      {
+        heading: "Can Mesotherapy be combined with other aesthetic treatments?",
+        body: [
+          "Yes. Mesotherapy can be incorporated into a broader skin rejuvenation programme and may be combined with treatments such as PRP therapy, microneedling, anti-wrinkle injections or dermal fillers, where clinically appropriate.",
+          "Your treatment plan will be designed around your skin concerns, treatment history and desired outcome.",
+          "At YourHealthFirst Clinic, mesotherapy is carried out as part of a personalised aesthetic and regenerative skin treatment approach. Each treatment is selected following an assessment of your skin and your individual objectives, with the aim of achieving natural-looking improvements in hydration, texture, radiance and overall skin quality.",
+        ],
+        outro: "Book a Mesotherapy consultation in London at YourHealthFirst Clinic, Wimpole Street.",
+      },
+    ],
+    areaSizeGuideAfterFeatures: true,
     areaSizeGuide: {
       eyebrow: "Important",
       title: "Treatment Area Sizes",
@@ -3488,72 +3748,102 @@ export const treatmentDetails: TreatmentDetail[] = [
         },
       ],
     },
+    featureImagesHeading: "Find the Mesox treatment that’s right for you",
+    featureImagesContain: true,
+    featureImagesFourUp: true,
     featureImages: [
       {
         title: "Mesox Aminoacids",
         description:
           "Formula created by the triple helix of collagen. Nourishes the fibroblast for the synthesis of collagen and other proteins. Indications: induction of protein synthesis of collagen, complement of growth factor inducing therapies, maintenance of results of therapies applied at other levels of cutaneous ageing.",
-        image: "/images/treatments/mesotherapy/mesox/aminoacids.jpg",
+        image: "/images/treatments/mesotherapy/mesox/aminoacids-box-2.jpg",
       },
       {
         title: "Mesox PPC (Phosphatidylcholine)",
         description:
           "Mesox PPC is the product specially indicated for localised fat and mesolipolysis. Indications: localised fat accumulation, mesolipolysis treatment.",
-        image: "/images/treatments/mesotherapy/mesox/ppc.jpg",
+        image: "/images/treatments/mesotherapy/mesox/ppc-box.jpg",
       },
       {
         title: "Mesox Vitamin",
         description:
           "150 components constitute this powerful revitaliser of the skin. Mesox Vitamin is also the basis for any other aesthetic mesotherapy solution. Indications: dry and devitalised skin, prevent first signs of ageing, base for any other aesthetic mesotherapy solution.",
-        image: "/images/treatments/mesotherapy/mesox/vitamin.jpg",
+        image: "/images/treatments/mesotherapy/mesox/vitamin-box.jpg",
       },
       {
         title: "Mesox White",
         description:
           "Active mesotherapy against stains, dark circles and uneven skin tone. Indications: increased pigmentations, melasma, chloasma, age spots, uneven skin tone, dark circles under eyes. Complementary activity: anti-ageing.",
-        image: "/images/treatments/mesotherapy/mesox/white.jpg",
+        image: "/images/treatments/mesotherapy/mesox/white-box.jpg",
       },
       {
         title: "Mesox Slimming",
         description:
           "Effective mesotherapy for increased drainage, in the treatment of cellulite and localised fat. Indications: cellulite, liposculpture, localised fat.",
-        image: "/images/treatments/mesotherapy/mesox/slimming.jpg",
+        image: "/images/treatments/mesotherapy/mesox/slimming-box.jpg",
       },
       {
         title: "Mesox Stretch Marks",
         description:
           "Mesotherapy for the treatment of stretch marks and scars. Indications: newly formed stretch marks, old rough stretch marks, prevent stretch mark appearance, scar reduction.",
-        image: "/images/treatments/mesotherapy/mesox/strech-marcks.jpg",
+        image: "/images/treatments/mesotherapy/mesox/stretch-marks-box.jpg",
       },
       {
-        title: "Mesox Hair",
+        title: "Meso Ox Hair",
         description:
-          "Integrated mesotherapy for hair health, treating efficiently alopecia and female or male hair loss. Indications: non-androgenetic alopecia, stimulate new hair growth and health, female hair loss, dandruff and seborrhoea, hair transplants, thin hair.",
-        image: "/images/treatments/mesotherapy/mesox/hair.jpg",
+          "Advanced scalp treatment for hair vitality and health. Strengthens hair follicles and improves scalp health. Indications: hair loss, thinning hair, androgenetic alopecia, telogen effluvium, dandruff and seborrhea.",
+        image: "/images/treatments/mesotherapy/mesox/meso-ox-hair-box.jpg",
       },
       {
         title: "Mesox Firming",
         description:
           "A complete treatment to prevent skin atonia, strengthening firmness of skin and reversing skin sagging. Indications: prevention of skin atonia, strengthening firmness of skin, reversing skin sagging.",
-        image: "/images/treatments/mesotherapy/mesox/firming.jpg",
+        image: "/images/treatments/mesotherapy/mesox/firming-box.jpg",
       },
       {
         title: "Mesox Antiaging",
         description:
           "Mesotherapy indicated in cases of thinning of the skin, loss of tone and elasticity of the skin, as well as for the treatment of wrinkles. Indications: loss of skin tonicity and elasticity, thinning of the dermis, wrinkles.",
-        image: "/images/treatments/mesotherapy/mesox/antiaging.jpg",
+        image: "/images/treatments/mesotherapy/mesox/antiaging-box.jpg",
       },
       {
         title: "Mesox Hyaluronidase",
         description:
           "Post-filler hyaluronidase in case of adverse results of hyaluronic acid results. Indications: post-filler.",
-        image: "/images/treatments/mesotherapy/mesox/hyaluronidase.jpg",
+        image: "/images/treatments/mesotherapy/mesox/hyaluronidase-box.jpg",
       },
       {
         title: "Mesox Hyal",
         description:
           "A complete treatment in case of brightness and tone loss, wrinkles and superficial lines, dry or irritated skin and skin photoageing. Indications: loss of glow, loss of tone, superficial lines and wrinkles, dry skin, irritated skin, sensitive skin, photoageing.",
-        image: "/images/treatments/mesotherapy/mesox/hyal.jpg",
+        image: "/images/treatments/mesotherapy/mesox/hyal-box.jpg",
+      },
+      {
+        title: "Meso Ox Enzymes",
+        description:
+          "Enzymatic anti-cellulite treatment for smoother, firmer skin. Collagenase enzymes break down structural collagen into smaller fragments that the body naturally eliminates, reducing the appearance of cellulite and stimulating new collagen production. Indications: cellulite, uneven skin texture, loss of firmness.",
+        image: "/images/treatments/mesotherapy/mesox/enzymes-box.jpg",
+      },
+      {
+        title: "Exo Ox",
+        description:
+          "High-concentration plant-based exosomes for advanced skin regeneration. Lyophilised Centella Asiatica exosomes combined with a hyaluronic acid solution, with 75 billion particles — the highest concentration on the market. Enhances skin appearance, promotes deep hydration, stimulates cellular regeneration and combats signs of ageing in the skin and hair.",
+        image: "/images/treatments/mesotherapy/mesox/exo-ox-box.jpg",
+        premiumGroup: true,
+      },
+      {
+        title: "Mesox PDRN + Niacinamide",
+        description:
+          "A regenerative mesotherapy formula combining PDRN with niacinamide and three molecular weights of hyaluronic acid. Indications: dull or tired-looking skin, loss of tone and hydration, uneven texture, skin in need of repair and revitalisation.",
+        image: "/images/treatments/mesotherapy/mesox/pdrn-niacinamide-box.jpg",
+        premiumGroup: true,
+      },
+      {
+        title: "Exo Ox Hair",
+        description:
+          "Advanced scalp and hair treatment with plant-based exosomes and a specialised peptide complex. Combines 75 billion lyophilised plant-based exosomes with the Regecapil (P4aa) peptide complex to nourish the scalp, strengthen hair fibres, stimulate growth and protect against environmental damage.",
+        image: "/images/treatments/mesotherapy/mesox/exo-ox-hair-box.jpg",
+        premiumGroup: true,
       },
     ],
     benefits: [
@@ -3614,7 +3904,7 @@ export const treatmentDetails: TreatmentDetail[] = [
   },
   {
     slug: "photo-aging",
-    title: "Photodynamic Therapy (Skinox)",
+    title: "Chemical Peels (Photodynamic Peel)",
     tagline: "Photodynamic Therapy, Chemical Peel",
     category: "Skin & Health",
     image: "/images/services/placeholder.png",
@@ -3625,30 +3915,33 @@ export const treatmentDetails: TreatmentDetail[] = [
       { label: "FOTOAGE Photodynamic Therapy", href: "/photobiodynamic-therapy" },
       { label: "1st Customizable Biophotonic Mask", href: "/fotoage" },
     ],
+    featureImagesHeading: "Chemical Peels (Photodynamic Peel)",
+    featureImagesContain: true,
+    featureImagesFourUp: true,
     featureImages: [
       {
-        title: "Wrinkles — Treatment of Photoaging",
+        title: "Anti Wrinkles Peel",
         description:
           "Skinox Wrinkles promotes neocollagenesis and significantly improves the damage produced by the photo-environment. It is indicated as a facial rejuvenation therapy and for the correction of wrinkles. It is activated and reacts with the red HDD light (630nm ±10nm) of the Fotoage mask.",
-        image: "/images/treatments/photo-aging/wrinkles_box.jpg",
+        image: "/images/treatments/photo-aging/skinox-wrinkles.jpg",
       },
       {
-        title: "Acne — Treatment of Type I and Type II Acne",
+        title: "Blemish Peel",
         description:
           "Skinox Blemish is a photosensitive treatment which is activated and reacts with the blue HDD light (410nm ±10nm) of the Fotoage mask. This non-invasive photobiodynamic technique stimulates, regenerates and repairs the skin.",
-        image: "/images/treatments/photo-aging/blemish_box.jpg",
+        image: "/images/treatments/photo-aging/skinox-blemish.jpg",
       },
       {
-        title: "Dark Spots — Face and Neckline",
+        title: "Dark Spots Peel",
         description:
           "Skinox Dark Spots is a photosensitive treatment which is activated and reacts with the green HDD light (530nm ±10nm) of the Fotoage mask, targeting dark spots on the face and neckline.",
-        image: "/images/treatments/photo-aging/dark_spots_box.jpg",
+        image: "/images/treatments/photo-aging/skinox-dark-spots.jpg",
       },
       {
-        title: "Redness — Stimulation of Elastin and Collagen",
+        title: "Rosacea Peel",
         description:
           "Skinox Redness improves the appearance of the skin. It is a photosensitive product that is activated and reacts with the yellow HDD light (590nm ±10nm) of the Fotoage mask — a photobiodynamic technology that stimulates, regenerates and repairs the skin.",
-        image: "/images/treatments/photo-aging/redness_box.jpg",
+        image: "/images/treatments/photo-aging/skinox-redness.jpg",
       },
     ],
     body: [
@@ -3659,9 +3952,11 @@ export const treatmentDetails: TreatmentDetail[] = [
       title: "Who Should Not Have This Treatment",
       items: ["Extremely sensitive skin"],
       image: {
-        src: "/images/treatments/photo-aging/photobiodynamic/fotoage_layer.jpg",
-        alt: "Facial treatment zone mapping for Skinox photodynamic therapy",
+        src: "/images/treatments/photo-aging/skinox-fotoage-kit-2.jpg",
+        alt: "Skinox photosensitive peel kits used with the Fotoage LED mask",
       },
+      imageAspect: "1443/1090",
+      imageMaxWidth: 600,
     },
     benefits: [
       "Solution for acne, wrinkles, redness and dark spots",

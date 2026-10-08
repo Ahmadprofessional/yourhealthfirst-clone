@@ -55,7 +55,7 @@ const treatments = [
   "Aqualyx",
   "Mounjaro",
   "Microneedling / Mesotherapy",
-  "Photodynamic Therapy (Skinox)",
+  "Chemical Peels (Photodynamic Peel)",
   "Sclerotherapy",
   "CryoPen",
   "Phlebotomy",

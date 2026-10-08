@@ -411,39 +411,34 @@ export default function PhlebotomyPage() {
                 <Icon name="truck" className="h-5 w-5" />
               </span>
               <p className="text-[15px] leading-[24px] text-body-text">
-                <strong className="text-forest">6. If your test requires a courier</strong> to an overseas laboratory, please book a morning appointment (Monday to Thursday) and arrange for the courier to pick up from YourHealthFirst Clinic the same afternoon.
+                <strong className="text-forest">6. If your test requires a courier</strong>, please book a morning appointment (Monday to Thursday) and arrange for the courier to pick up from YourHealthFirst Clinic the same day between 3pm and 5pm.
               </p>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* Postage */}
-      <section className="w-full bg-cream px-5">
-        <div className="mx-auto max-w-[1400px] py-[70px] lg:py-[90px]">
-          <div className="flex items-center gap-3">
-            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-tan/15 text-tan">
-              <Icon name="box" className="h-5 w-5" />
-            </span>
-            <h2 className="font-display text-[26px] font-bold leading-[32px] tracking-[-1px] text-forest lg:text-[30px] lg:leading-[36px]">
-              Postage
-            </h2>
-          </div>
-          <p className="mt-3 max-w-[720px] text-[15px] leading-[24px] text-body-text">
-            Inside your test kit you will find 4 options, depending on the laboratory you are using you will have to choose one of them:
-          </p>
-          <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {postageOptions.map((option) => (
-              <div key={option.title} className="flex flex-col gap-3 rounded-[14px] bg-white p-6 shadow-sm">
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-tan/15 text-tan">
-                  <Icon name={option.icon} className="h-5 w-5" />
-                </span>
-                <h3 className="font-subheading text-[14px] font-semibold tracking-[0.5px] text-forest uppercase">
-                  {option.title}
-                </h3>
-                <p className="text-[13px] leading-[20px] text-body-text">{option.description}</p>
-              </div>
-            ))}
+          {/* 7. Postage */}
+          <div className="mt-6 flex flex-col gap-6 rounded-[20px] border border-tan/25 bg-white/70 p-7 shadow-sm backdrop-blur-sm">
+            <div className="flex items-start gap-4">
+              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-tan/15 text-tan">
+                <Icon name="box" className="h-5 w-5" />
+              </span>
+              <p className="text-[15px] leading-[24px] text-body-text">
+                <strong className="text-forest">7. Postage</strong> — inside your test kit you will find 4 options, depending on the laboratory you are using you will have to choose one of them:
+              </p>
+            </div>
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+              {postageOptions.map((option) => (
+                <div key={option.title} className="flex flex-col gap-3 rounded-[14px] bg-white p-6 shadow-sm">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-tan/15 text-tan">
+                    <Icon name={option.icon} className="h-5 w-5" />
+                  </span>
+                  <h3 className="font-subheading text-[14px] font-semibold tracking-[0.5px] text-forest uppercase">
+                    {option.title}
+                  </h3>
+                  <p className="text-[13px] leading-[20px] text-body-text">{option.description}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import SafeImage from "@/components/SafeImage";
+import Image from "next/image";
 import { services } from "@/data/services";
 
 export const metadata: Metadata = {
@@ -18,7 +18,11 @@ const categories = [
   },
   {
     label: "Face & Anti-Aging",
-    slugs: ["anti-wrinkles", "dermal-fillers", "sunekos", "profhilo", "polynucleotides", "sculptra", "prp-ha"],
+    slugs: ["anti-wrinkles", "dermal-fillers"],
+  },
+  {
+    label: "Biostimulators",
+    slugs: ["sunekos", "profhilo", "polynucleotides", "sculptra", "prp-ha"],
   },
   {
     label: "Hair Restoration",
@@ -26,7 +30,11 @@ const categories = [
   },
   {
     label: "Body Contouring",
-    slugs: ["cryolipolysis", "emsculpt-neo", "aqualyx", "mounjaro"],
+    slugs: ["cryolipolysis", "emsculpt-neo", "aqualyx"],
+  },
+  {
+    label: "Weight Loss",
+    slugs: ["mounjaro"],
   },
   {
     label: "Skin & Health",
@@ -37,6 +45,29 @@ const categories = [
 const slugToHref: Record<string, string> = {
   "prp-ha": "/treatments/prp-face-body",
   "photo-aging": "/treatments/photo-aging",
+};
+
+const serviceImages: Record<string, string> = {
+  "phlebotomy": "/images/treatments/phlebotomy/blood-draw.jpg",
+  "anti-wrinkles": "/images/treatments/anti-wrinkles/eye-area-injection.webp",
+  "dermal-fillers": "/images/treatments/dermal-fillers/lip-filler.webp",
+  "sunekos": "/images/treatments/sunekos/sofia-injecting.jpg",
+  "profhilo": "/images/treatments/profhilo/sofia-injecting-lips.jpg",
+  "polynucleotides": "/images/treatments/polynucleotides/sofia-injecting.jpg",
+  "sculptra": "/images/treatments/sculptra/sofia-product.jpg",
+  "prp-ha": "/images/treatments/prp-face-body/prp-injection-face.jpg",
+  "prp-hair-loss": "/images/treatments/prp-hair-loss/u225-scalp-treatment-1.jpg",
+  "exosome": "/images/treatments/exosome/sofia-facial-exosome-treatment.jpg",
+  "cryolipolysis": "/images/treatments/cryolipolysis/treatment-areas-new.jpg",
+  "emsculpt-neo": "/images/treatments/emsculpt-neo/hero-abdomen.png",
+  "aqualyx": "/images/treatments/aqualyx/aqualyx-product-hero.jpg",
+  "mounjaro": "/images/treatments/mounjaro/product-card.jpg",
+  "microneedling": "/images/treatments/microneedling/fight-aging.webp",
+  "mesotherapy": "/images/treatments/mesotherapy/mesox/aminoacids-box-2.jpg",
+  "photo-aging": "/images/treatments/photo-aging/skinox-wrinkles.jpg",
+  "sclerotherapy": "/images/treatments/sclerotherapy/sclerotherapy-treatment-room-2.jpg",
+  "cryopen": "/images/treatments/cryopen/cryopen-device-v2.jpg",
+  "vitamin-b12": "/images/treatments/vitamin-b12/sofia-injecting-arm.jpg",
 };
 
 function getHref(slug: string) {
@@ -96,11 +127,15 @@ export default function TreatmentsPage() {
                       >
                         {/* Image */}
                         <div className="aspect-[4/3] w-full overflow-hidden bg-cream">
-                          <SafeImage
-                            src={service.image}
-                            alt={service.title}
-                            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                          />
+                          <div className="relative h-full w-full">
+                            <Image
+                              src={serviceImages[service.slug] ?? service.image}
+                              alt={service.title}
+                              fill
+                              sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                              className="object-cover transition-transform duration-500 group-hover:scale-105"
+                            />
+                          </div>
                         </div>
 
                         {/* Content */}

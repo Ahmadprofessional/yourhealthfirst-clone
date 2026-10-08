@@ -242,6 +242,8 @@ export interface TreatmentDetail {
       a: string;
       b: string;
     }[];
+    /** Show the advantages image beside this image in one row (the separate advantages section is then hidden) */
+    showAdvantagesImageBeside?: boolean;
     /** Show this image instead of the HTML table (e.g. a pre-designed branded graphic) */
     image?: { src: string; alt: string };
     /** CSS aspect-ratio matching the image's own dimensions (e.g. "1253/1254") */
@@ -2031,6 +2033,7 @@ export const treatmentDetails: TreatmentDetail[] = [
     ],
     comparisonTable: {
       title: "Manual PRP vs U225 PRP Injections",
+      showAdvantagesImageBeside: true,
       image: {
         src: "/images/prp hair 1.jpeg",
         alt: "Manual PRP vs U225 PRP Injections comparison",

@@ -1372,7 +1372,7 @@ export default async function TreatmentPage({ params }: Props) {
       {/* Comparison table */}
       {treatment.comparisonTable && (
         <section className="w-full border-t border-black/8 bg-cream px-5">
-          <div className="mx-auto max-w-[1100px] py-[80px] lg:py-[100px]">
+          <div className={`mx-auto py-[80px] lg:py-[100px] ${treatment.comparisonTable.showAdvantagesImageBeside && treatment.advantages?.image ? "max-w-[1400px]" : "max-w-[1100px]"}`}>
             {treatment.comparisonTable.intro && (
               <div className="mb-8 rounded-[14px] bg-black p-6 shadow-md lg:p-8">
                 <p className="text-center font-subheading text-[22px] font-bold leading-[30px] tracking-[-0.5px] text-tan lg:text-[26px] lg:leading-[34px]">
@@ -1380,7 +1380,22 @@ export default async function TreatmentPage({ params }: Props) {
                 </p>
               </div>
             )}
-            {treatment.comparisonTable.image ? (
+            {treatment.comparisonTable.image && treatment.comparisonTable.showAdvantagesImageBeside && treatment.advantages?.image ? (
+              <div className="grid grid-cols-1 items-start gap-6 md:grid-cols-2">
+                {[
+                  { img: treatment.comparisonTable.image, aspect: treatment.comparisonTable.imageAspect },
+                  { img: treatment.advantages.image, aspect: treatment.advantages.imageAspect },
+                ].map(({ img, aspect }) => (
+                  <div
+                    key={img.src}
+                    className="relative w-full overflow-hidden rounded-[12px] shadow-sm"
+                    style={{ aspectRatio: aspect ?? "1/1" }}
+                  >
+                    <Image src={img.src} alt={img.alt} fill sizes="(min-width: 1400px) 690px, (min-width: 768px) 50vw, 100vw" className="object-contain" />
+                  </div>
+                ))}
+              </div>
+            ) : treatment.comparisonTable.image ? (
               <div
                 className="relative mx-auto w-full overflow-hidden rounded-[12px] shadow-sm"
                 style={{
@@ -2047,7 +2062,7 @@ export default async function TreatmentPage({ params }: Props) {
       {!treatment.processDiagramsFirst && !treatment.processDiagramsAfterBenefits && !treatment.processDiagramsBeforeBenefits && processDiagramsSection}
 
       {/* Advantages */}
-      {treatment.advantages && !treatment.advantagesInAreasSection && (
+      {treatment.advantages && !treatment.advantagesInAreasSection && !(treatment.comparisonTable?.showAdvantagesImageBeside && treatment.advantages.image) && (
         <section className="w-full bg-cream px-5">
           <div className="mx-auto max-w-[1400px] py-[80px] lg:py-[100px]">
             {treatment.advantages.image ? (

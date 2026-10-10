@@ -13,8 +13,12 @@ const greatVibes = Great_Vibes({
   subsets: ["latin"],
   weight: ["400"],
 });
-import "./globals.css";
+import "../globals.css";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
+import {NextIntlClientProvider} from 'next-intl';
+import {getMessages} from 'next-intl/server';
+import {routing} from '@/i18n/routing';
+import {notFound} from 'next/navigation';
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -49,16 +53,31 @@ export const metadata: Metadata = {
     "Harley Street, London — Health, Dermatology, Hair Loss, Anti-Aging & Rejuvenation Clinic. Award winning clinic since 2013.",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default async function RootLayout({
+  children,
+  params
+}: {
+  children: React.ReactNode;
+  params: Promise<{locale: string}>;
+}) {
+  const {locale} = await params;
+  if (!routing.locales.includes(locale as any)) {
+    notFound();
+  }
+  const messages = await getMessages();
+
   return (
     <html
-      lang="en"
+      lang={locale}
+      dir={locale === 'ar' ? 'rtl' : 'ltr'}
       suppressHydrationWarning
       className={`${montserrat.variable} ${interTight.variable} ${jost.variable} ${playfairSC.variable} ${instrumentSerif.variable} ${greatVibes.variable} h-full antialiased`}
     >
       <body suppressHydrationWarning className="min-h-full flex flex-col overflow-x-hidden">
-        {children}
-        <WhatsAppFloat />
+        <NextIntlClientProvider messages={messages}>
+          {children}
+          <WhatsAppFloat />
+        </NextIntlClientProvider>
       </body>
     </html>
   );

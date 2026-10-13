@@ -239,7 +239,7 @@ export default function Header() {
 
         {/* Right side controls: Language switcher + CTA button (Desktop) + Hamburger (Mobile) */}
         <div className="relative z-50 flex items-center gap-2 xl:gap-3 shrink-0">
-          <div className="hidden shrink-0 lg:block">
+          <div className="shrink-0 flex items-center">
             <LanguageSwitcher align="right" />
           </div>
 

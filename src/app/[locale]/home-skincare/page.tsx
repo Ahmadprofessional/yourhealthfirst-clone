@@ -1,14 +1,29 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { getTranslations } from "next-intl/server";
 
-export const metadata: Metadata = {
-  title: "Home Skincare | YourHealthFirst Clinic — Coming Soon",
-  description:
-    "Home skincare is coming soon to YourHealthFirst Clinic, Wimpole Street, London. Register your interest to be the first to know.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "HomeSkincarePage" });
+  return {
+    title: `${t("heading")} ${t("subheading")} | YourHealthFirst Clinic — ${t("badge")}`,
+    description: t("tagline"),
+  };
+}
 
-export default function HomeSkincarePage() {
+export default async function HomeSkincarePage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "HomeSkincarePage" });
+
   return (
     <div className="flex flex-col">
       <Header />
@@ -30,22 +45,23 @@ export default function HomeSkincarePage() {
           {/* Coming soon badge */}
           <div className="flex items-center gap-3 rounded-full border-2 border-[#e3c79b] bg-forest px-8 py-3.5 shadow-[0_10px_30px_-8px_rgba(12,44,29,0.7)]">
             <span className="h-2.5 w-2.5 animate-pulse rounded-full bg-[#e3c79b]" />
-            <span className="font-nav text-[16px] font-bold tracking-[4px] text-cream uppercase lg:text-[18px]">Coming Soon</span>
+            <span className="font-nav text-[16px] font-bold tracking-[4px] text-cream uppercase lg:text-[18px]">
+              {t("badge")}
+            </span>
           </div>
 
           {/* Headline */}
           <div className="flex flex-col gap-3">
             <h1 className="font-display text-[44px] leading-[50px] font-bold tracking-[-2px] text-cream uppercase lg:text-[72px] lg:leading-[78px]">
-              Home
+              {t("heading")}
             </h1>
             <h2 className="font-display text-[28px] leading-[34px] font-medium tracking-[-1px] text-tan uppercase lg:text-[40px] lg:leading-[46px]">
-              Skincare
+              {t("subheading")}
             </h2>
           </div>
 
           <p className="max-w-[540px] font-serif text-[18px] leading-[30px] text-white/60 italic">
-            Professional skincare for your home routine, recommended for your skin at YourHealthFirst Clinic, Wimpole Street. Our range is
-            coming soon.
+            {t("tagline")}
           </p>
 
           {/* Divider */}
@@ -59,12 +75,14 @@ export default function HomeSkincarePage() {
 
           {/* Notify CTA */}
           <div className="flex flex-col items-center gap-4">
-            <p className="text-[14px] text-white/50">Be the first to know when we launch</p>
+            <p className="text-[14px] text-white/50">
+              {t("notifyTitle")}
+            </p>
             <a
               href="mailto:info@yourhealthfirst.uk?subject=Home Skincare — Notify Me"
               className="inline-flex h-14 items-center justify-center rounded-[8px] bg-tan px-10 font-nav text-[15px] font-semibold tracking-[-0.3px] text-forest transition-opacity hover:opacity-90"
             >
-              Register Your Interest
+              {t("registerCta")}
             </a>
           </div>
         </div>

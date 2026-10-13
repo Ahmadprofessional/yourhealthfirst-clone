@@ -1,0 +1,667 @@
+[
+  {
+    "id": "general-fees",
+    "title": "Общие сборы",
+    "image": "/images/treatments/anti-wrinkles/sofia-consultation.jpg",
+    "description": "Стандартная плата за консультацию по всем видам лечения.",
+    "items": [
+      {
+        "service": "Консультация",
+        "price": "£50",
+        "note": "Бесплатно, если вы продолжите лечение"
+      }
+    ]
+  },
+  {
+    "id": "phlebotomy-adults",
+    "title": "Флеботомия Взрослые",
+    "image": "/images/treatments/phlebotomy/blood-draw.jpg",
+    "description": "Частный забор крови и центрифугирование для взрослых.",
+    "items": [
+      {
+        "service": "Забор крови",
+        "price": "From £80"
+      },
+      {
+        "service": "Кровь центробежная (на пробирку)",
+        "price": "£10"
+      }
+    ]
+  },
+  {
+    "id": "phlebotomy-children",
+    "title": "Кровопускание для детей до 16 лет",
+    "image": "/images/treatments/phlebotomy/blood-draw.jpg",
+    "description": "Частный забор крови и центрифугирование для детей.",
+    "items": [
+      {
+        "service": "Забор крови",
+        "price": "From £120"
+      },
+      {
+        "service": "Кровь центробежная (на пробирку)",
+        "price": "£10"
+      }
+    ]
+  },
+  {
+    "id": "anti-wrinkle",
+    "title": "Инъекции против морщин",
+    "image": "/images/treatments/anti-wrinkles/eye-area-injection.webp",
+    "description": "Смягчите тонкие линии и восстановите молодой вид.",
+    "items": [
+      {
+        "service": "Консультация",
+        "price": "£50"
+      },
+      {
+        "service": "Лоб",
+        "price": "£200"
+      },
+      {
+        "service": "Нахмуриться",
+        "price": "£150"
+      },
+      {
+        "service": "Гусиные лапки",
+        "price": "£150"
+      },
+      {
+        "service": "Подтяжка бровей",
+        "price": "£100"
+      },
+      {
+        "service": "Линии кролика",
+        "price": "£100"
+      },
+      {
+        "service": "3 зоны (на выбор)",
+        "price": "£350"
+      },
+      {
+        "service": "4 зоны (на выбор)",
+        "price": "£400"
+      },
+      {
+        "service": "Сочетание любого из вышеперечисленного (5 направлений)",
+        "price": "£550"
+      },
+      {
+        "service": "Jawline/Masseter (похудение челюсти)",
+        "price": "£375"
+      },
+      {
+        "service": "Гумовая улыбка",
+        "price": "£175"
+      },
+      {
+        "service": "Скрежетание зубами/сжимание зубов",
+        "price": "£350"
+      },
+      {
+        "service": "Уменьшение икр",
+        "price": "£500"
+      },
+      {
+        "service": "Гипергидроз — под обеими руками",
+        "price": "£450–£600"
+      },
+      {
+        "service": "Гипергидроз — ладони обеих рук",
+        "price": "£450–£600"
+      },
+      {
+        "service": "Гипергидроз — подошвы обеих ног.",
+        "price": "£450–£600"
+      }
+    ]
+  },
+  {
+    "id": "cryolipolysis",
+    "title": "Криолиполиз",
+    "image": "/images/treatments/cryolipolysis/treatment-areas-new.jpg",
+    "description": "Уничтожьте стойкий жир и измените свой силуэт.",
+    "items": [
+      {
+        "service": "Консультация",
+        "price": "£50"
+      },
+      {
+        "service": "1 зона",
+        "price": "£400"
+      },
+      {
+        "service": "2 зоны",
+        "price": "£800"
+      },
+      {
+        "service": "3 зоны",
+        "price": "£1,000"
+      },
+      {
+        "service": "4 зоны",
+        "price": "£1,200"
+      }
+    ]
+  },
+  {
+    "id": "dermal-fillers",
+    "title": "Дермальные наполнители",
+    "image": "/images/treatments/dermal-fillers/lip-filler.webp",
+    "description": "Улучшайте, восстанавливайте и контурируйте с точностью.",
+    "items": [
+      {
+        "service": "Увеличение губ / Русские губы",
+        "price": "£250–£350 (1ml) / £550 (2ml)"
+      },
+      {
+        "service": "Носогубные складки/линии марионетки",
+        "price": "£375 (1ml) / £700 (2ml)"
+      },
+      {
+        "service": "Увеличение подбородка",
+        "price": "£500 (1ml) / £700 (2ml)"
+      },
+      {
+        "service": "Щеки / Середина лица",
+        "price": "£500 (1ml) / £700 (2ml)"
+      },
+      {
+        "service": "Безоперационная ринопластика (пластика носа)",
+        "price": "£500"
+      },
+      {
+        "service": "Межбровные морщины (хмурый взгляд)",
+        "price": "£350"
+      },
+      {
+        "service": "Слезы / Под глазами / Темные круги",
+        "price": "£550"
+      },
+      {
+        "service": "линия челюсти",
+        "price": "£450"
+      },
+      {
+        "service": "Филлеры для рук",
+        "price": "£600"
+      },
+      {
+        "service": "Растворяющиеся филлеры — реверс от другого консультанта",
+        "price": "£325"
+      },
+      {
+        "service": "Растворяющиеся филлеры — обратное введение в YHF",
+        "price": "£150",
+        "note": "Без платы за консультацию"
+      }
+    ]
+  },
+  {
+    "id": "hair-loss",
+    "title": "PRP-выпадение волос",
+    "image": "/images/treatments/prp-hair-loss/u225-scalp-treatment-1.jpg",
+    "description": "Передовые решения для более сильных и здоровых волос.",
+    "items": [
+      {
+        "service": "Консультация",
+        "price": "£50",
+        "note": "Бесплатно, если лечение забронировано"
+      },
+      {
+        "service": "Стандартное восстановление волос PRP",
+        "price": "£400"
+      },
+      {
+        "service": "Усовершенствованный клеточный матрикс PRP + биотин",
+        "price": "£600"
+      },
+      {
+        "service": "Высший клеточный матрикс PRP + биотин + экзосомы",
+        "price": "£800"
+      }
+    ]
+  },
+  {
+    "id": "sunekos",
+    "title": "Сунекос",
+    "image": "/images/treatments/sunekos/sofia-injecting.jpg",
+    "description": "Регенерирует, увлажняет и укрепляет кожу изнутри.",
+    "items": [
+      {
+        "service": "Консультация",
+        "price": "£50",
+        "note": "Бесплатно при условии лечения"
+      },
+      {
+        "service": "Однократное лечение",
+        "price": "£200"
+      },
+      {
+        "service": "Курс 4 (лицо)",
+        "price": "£600 (£150 each)"
+      },
+      {
+        "service": "Курс 4 (шея)",
+        "price": "£600 (£175 each)"
+      }
+    ]
+  },
+  {
+    "id": "sculptra",
+    "title": "Скульптра",
+    "image": "/images/treatments/sculptra/product-box.jpg",
+    "description": "Жидкий лифтинг — постепенное, естественное восстановление коллагена.",
+    "items": [
+      {
+        "service": "1 сеанс",
+        "price": "£600"
+      },
+      {
+        "service": "2 сеанса (пакет)",
+        "price": "£1,100"
+      }
+    ]
+  },
+  {
+    "id": "emsculpt-neo",
+    "title": "Эмскульпт Нео",
+    "image": "/images/treatments/emsculpt-neo/hero-abdomen.png",
+    "description": "Наращивайте мышцы и сжигайте жир одновременно.",
+    "items": [
+      {
+        "service": "1 сеанс",
+        "price": "£200"
+      },
+      {
+        "service": "4 сеанса",
+        "price": "£600"
+      }
+    ]
+  },
+  {
+    "id": "sclerotherapy",
+    "title": "Склеротерапия",
+    "image": "/images/treatments/sclerotherapy/sclerotherapy-treatment-room-2.jpg",
+    "description": "Удалить сосудистые звездочки и небольшие варикозные вены.",
+    "items": [
+      {
+        "service": "Консультация",
+        "price": "£50"
+      },
+      {
+        "service": "Лечение (за сеанс, до 4–5 вен)",
+        "price": "£350"
+      }
+    ]
+  },
+  {
+    "id": "prp-face-body",
+    "title": "PRP, омоложение лица и тела",
+    "image": "/images/treatments/prp-face-body/prp-injection-face.jpg",
+    "description": "Ваша собственная плазма, заряженная для обновления кожи.",
+    "items": [
+      {
+        "service": "Консультация",
+        "price": "£50",
+        "note": "Бесплатно, если лечение забронировано"
+      },
+      {
+        "service": "Стандартная PRP («вампирская процедура для лица»)",
+        "price": "£399 per treatment"
+      },
+      {
+        "service": "Клеточная матрица A-PRP (PRP + гиалуроновая кислота, микронидлинг)",
+        "price": "£599 per treatment"
+      }
+    ]
+  },
+  {
+    "id": "microneedling",
+    "title": "Микронидлинг",
+    "image": "/images/treatments/microneedling/fight-aging.webp",
+    "description": "Коллагеновая индукционная терапия для более гладкой и упругой кожи.",
+    "items": [
+      {
+        "service": "Сеанс микронидлинга",
+        "price": "£150"
+      }
+    ]
+  },
+  {
+    "id": "mesotherapy",
+    "title": "Мезотерапия",
+    "image": "/images/treatments/mesotherapy/mesox/aminoacids-box-2.jpg",
+    "description": "Витамины, аминокислоты и антиоксиданты для кожи.",
+    "items": [
+      {
+        "service": "Консультация",
+        "price": "£50",
+        "note": "Бесплатно, если лечение забронировано"
+      },
+      {
+        "service": "Небольшая площадь (например, под глазами, темные круги, пигментация, пигментные пятна)",
+        "price": "£200"
+      },
+      {
+        "service": "Средняя область (например, все лицо, руки, нижняя часть спины)",
+        "price": "£250"
+      },
+      {
+        "service": "Большая площадь (например, вся кожа головы, весь живот)",
+        "price": "£275"
+      }
+    ]
+  },
+  {
+    "id": "photodynamic-therapy",
+    "title": "Химический пилинг (Фотодинамический пилинг)",
+    "image": "/images/treatments/photo-aging/skinox-wrinkles.jpg",
+    "description": "Активируемое светом лечение пятен, покраснений и солнечных повреждений.",
+    "items": [
+      {
+        "service": "Консультация",
+        "price": "£50"
+      },
+      {
+        "service": "Пилинг против морщин",
+        "price": "£200"
+      },
+      {
+        "service": "Пилинг от темных пятен",
+        "price": "£200"
+      },
+      {
+        "service": "Розацеа Пил",
+        "price": "£200"
+      },
+      {
+        "service": "Пятнистый пилинг",
+        "price": "£200"
+      },
+      {
+        "service": "1 процедура",
+        "price": "£200"
+      },
+      {
+        "service": "4 процедуры",
+        "price": "£600"
+      }
+    ]
+  },
+  {
+    "id": "cryopen",
+    "title": "Криоручка",
+    "image": "/images/treatments/cryopen/cryopen-device-v2.jpg",
+    "description": "Точное удаление нежелательных образований кожи за считанные минуты.",
+    "items": [
+      {
+        "service": "Консультация",
+        "price": "£20"
+      },
+      {
+        "service": "Теги скинов",
+        "price": "From £20"
+      },
+      {
+        "service": "Солнечное лентиго",
+        "price": "From £35"
+      },
+      {
+        "service": "Пигментные пятна",
+        "price": "From £35"
+      },
+      {
+        "service": "Милия",
+        "price": "£20–£30"
+      },
+      {
+        "service": "Бородавки",
+        "price": "£25–£35"
+      },
+      {
+        "service": "Вишневая ангиома",
+        "price": "From £20"
+      },
+      {
+        "service": "Вирусные бородавки",
+        "price": "From £40"
+      }
+    ]
+  },
+  {
+    "id": "profhilo",
+    "title": "Профило",
+    "image": "/images/treatments/profhilo/sofia-injecting-lips.jpg",
+    "description": "Лучший биостимулятор ремоделирования кожи.",
+    "items": [
+      {
+        "service": "Консультация",
+        "price": "£50",
+        "note": "Бесплатно при условии лечения"
+      },
+      {
+        "service": "1 процедура (лицо)",
+        "price": "£400"
+      },
+      {
+        "service": "Курс 2 (лицо)",
+        "price": "£700"
+      },
+      {
+        "service": "1 процедура (шея)",
+        "price": "£400"
+      },
+      {
+        "service": "Курс 2 (шея)",
+        "price": "£700"
+      }
+    ]
+  },
+  {
+    "id": "aqualyx",
+    "title": "Акваликс",
+    "image": "/images/treatments/aqualyx/aqualyx-product-hero.jpg",
+    "description": "Навсегда растворите стойкий жир — точно и целенаправленно.",
+    "items": [
+      {
+        "service": "Консультация",
+        "price": "From £50",
+        "note": "Бесплатно при условии лечения"
+      },
+      {
+        "service": "подбородок",
+        "price": "£350"
+      },
+      {
+        "service": "Линии челюсти",
+        "price": "£350"
+      },
+      {
+        "service": "Нижняя часть живота",
+        "price": "From £450"
+      },
+      {
+        "service": "Верхняя часть живота",
+        "price": "From £350"
+      },
+      {
+        "service": "Верхняя/нижняя часть живота",
+        "price": "From £800"
+      },
+      {
+        "service": "Оружие",
+        "price": "From £350"
+      },
+      {
+        "service": "Подмышка",
+        "price": "From £250"
+      },
+      {
+        "service": "Выпуклость лямок бюстгальтера",
+        "price": "From £300"
+      },
+      {
+        "service": "Верхушки для маффинов",
+        "price": "From £300"
+      },
+      {
+        "service": "Под ягодицей",
+        "price": "From £250"
+      },
+      {
+        "service": "Бедра",
+        "price": "From £500"
+      },
+      {
+        "service": "Внешняя часть бедер",
+        "price": "From £300"
+      },
+      {
+        "service": "Внутренняя часть бедер",
+        "price": "From £350"
+      },
+      {
+        "service": "Колено",
+        "price": "From £250"
+      },
+      {
+        "service": "лодыжка",
+        "price": "From £250"
+      }
+    ]
+  },
+  {
+    "id": "mounjaro",
+    "title": "Муджаро (Похудение)",
+    "image": "/images/treatments/mounjaro/product-card.jpg",
+    "description": "Медицинский контроль веса — только по рецепту. Требуется оценка приемлемости.",
+    "items": [
+      {
+        "service": "Муджаро 2,5 мг",
+        "price": "£250"
+      },
+      {
+        "service": "Муджаро 5 мг",
+        "price": "£275"
+      },
+      {
+        "service": "Муджаро 7,5 мг",
+        "price": "£350"
+      },
+      {
+        "service": "Муджаро 10 мг",
+        "price": "£500"
+      },
+      {
+        "service": "Муджаро 12,5 мг",
+        "price": "£550"
+      },
+      {
+        "service": "Муджаро 15 мг",
+        "price": "£575"
+      }
+    ]
+  },
+  {
+    "id": "vitamin-b12",
+    "title": "Витамин В12",
+    "image": "/images/treatments/vitamin-b12/sofia-injecting-arm.jpg",
+    "description": "Быстро повысьте энергию, обмен веществ и хорошее самочувствие.",
+    "items": [
+      {
+        "service": "Консультация",
+        "price": "£50",
+        "note": "Бесплатно при условии лечения"
+      },
+      {
+        "service": "Бустерный выстрел с однократным впрыском",
+        "price": "£60"
+      },
+      {
+        "service": "Бустерный выстрел с двойным впрыском",
+        "price": "£80"
+      },
+      {
+        "service": "Курс из 4 однократных инъекций.",
+        "price": "£200"
+      },
+      {
+        "service": "Курс из 4 двойных инъекций.",
+        "price": "£280"
+      }
+    ]
+  },
+  {
+    "id": "exosomes-facial",
+    "title": "Экзосомы для лица",
+    "image": "/images/treatments/exosome/sofia-facial-exosome-treatment.jpg",
+    "description": "Регенеративное лекарство нового поколения для кожи.",
+    "items": [
+      {
+        "service": "1 сеанс (1 флакон раствора ГК + 1 флакон экзосомы)",
+        "price": "£800"
+      },
+      {
+        "service": "2 сеанса (покупаются вместе)",
+        "price": "£650 each"
+      },
+      {
+        "service": "3 сеанса (покупаются вместе)",
+        "price": "£550 each"
+      },
+      {
+        "service": "4 сеанса (покупаются вместе)",
+        "price": "£500 each"
+      }
+    ]
+  },
+  {
+    "id": "exosomes-hair",
+    "title": "Экзосомы для волос",
+    "image": "/images/treatments/exosome/sofia-scalp-exosome-treatment.jpg",
+    "description": "Регенеративная медицина нового поколения для восстановления волос.",
+    "items": [
+      {
+        "service": "1 сеанс (1 флакон раствора ГК + 1 флакон экзосомы)",
+        "price": "£800"
+      },
+      {
+        "service": "2 сеанса (покупаются вместе)",
+        "price": "£650 each"
+      },
+      {
+        "service": "3 сеанса (покупаются вместе)",
+        "price": "£550 each"
+      },
+      {
+        "service": "4 сеанса (покупаются вместе)",
+        "price": "£500 each"
+      }
+    ]
+  },
+  {
+    "id": "polynucleotides",
+    "title": "Полинуклеотиды",
+    "image": "/images/treatments/polynucleotides/sofia-injecting.jpg",
+    "description": "Передовая регенеративная терапия для кожи и под глазами.",
+    "items": [
+      {
+        "service": "Глаза",
+        "price": "£250"
+      },
+      {
+        "service": "Лицо",
+        "price": "£499"
+      },
+      {
+        "service": "Шея",
+        "price": "£499"
+      },
+      {
+        "service": "Волосы",
+        "price": "£250"
+      }
+    ]
+  }
+]

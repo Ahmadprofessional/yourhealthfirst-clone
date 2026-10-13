@@ -1,4 +1,6 @@
-import { whyChooseFeatures } from "@/data/site";
+"use client";
+
+import { useTranslations } from "next-intl";
 import {
   UserIcon,
   EditIcon,
@@ -7,32 +9,39 @@ import {
 } from "@/components/icons";
 
 const featureIcons = [UserIcon, EditIcon, CogIcon, CheckCircleIcon];
-
-// Cards 1 and 4 are black, 2 and 3 are white on the live site.
 const darkCard = [true, false, false, true];
 
+const featureKeys = [
+  { title: "feature1Title", desc: "feature1Desc" },
+  { title: "feature2Title", desc: "feature2Desc" },
+  { title: "feature3Title", desc: "feature3Desc" },
+  { title: "feature4Title", desc: "feature4Desc" },
+] as const;
+
 export default function WhyChooseUs() {
+  const t = useTranslations("WhyChooseUs");
+
   return (
     <section className="w-full bg-cream px-5">
       <div className="mx-auto flex max-w-[1400px] flex-col gap-10 py-[100px]">
         <div className="flex flex-col gap-6">
           <div className="w-fit rounded-full border-[0.8px] border-forest px-3 py-2">
             <h2 className="text-[13px] leading-[20.8px] font-semibold tracking-[3px] text-forest uppercase">
-              why choose us
+              {t("badge")}
             </h2>
           </div>
           <h2 className="max-w-[708px] font-subheading text-[34px] leading-[38px] font-medium tracking-[-1.8px] text-rust uppercase lg:text-[50px] lg:leading-[55px]">
-            Experience Trusted Dermatology Care With Sofia
+            {t("heading")}
           </h2>
         </div>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {whyChooseFeatures.map((feature, index) => {
+          {featureKeys.map((item, index) => {
             const Icon = featureIcons[index];
             const isDark = darkCard[index];
             return (
               <article
-                key={feature.title}
+                key={item.title}
                 className={`flex flex-col gap-6 rounded-[8px] p-6 ${
                   isDark ? "bg-black" : "bg-white"
                 }`}
@@ -45,14 +54,14 @@ export default function WhyChooseUs() {
                     isDark ? "text-cream" : "text-forest"
                   }`}
                 >
-                  {feature.title}
+                  {t(item.title)}
                 </h3>
                 <p
                   className={`text-[16px] leading-[25.6px] font-medium tracking-[-0.2px] ${
                     isDark ? "text-white" : "text-body-text"
                   }`}
                 >
-                  {feature.description}
+                  {t(item.desc)}
                 </p>
               </article>
             );

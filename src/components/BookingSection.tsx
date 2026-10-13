@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { PhoneIcon, MobileIcon, EnvelopeIcon, MapPinIcon } from "@/components/icons";
 
 const treatments = [
@@ -26,20 +27,21 @@ const treatments = [
   "General Enquiry",
 ];
 
-const hours = [
-  { day: "Monday – Friday", time: "10:00am – 6:00pm" },
-  { day: "Saturday", time: "12:00pm – 2:00pm", note: "Doctor appointments only" },
-  { day: "Sunday", time: "Closed", note: "By appointment or email only" },
-  { day: "Out of hours", time: "By appointment or email" },
-];
-
 export default function BookingSection() {
+  const t = useTranslations("Booking");
   const [submitted, setSubmitted] = useState(false);
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setSubmitted(true);
   }
+
+  const hours = [
+    { day: t("monFri"), time: t("monFriTime") },
+    { day: t("saturday"), time: t("saturdayTime"), note: t("saturdayNote") },
+    { day: t("sunday"), time: t("sundayTime"), note: t("sundayNote") },
+    { day: t("outOfHours"), time: t("outOfHoursTime") },
+  ];
 
   return (
     <section className="w-full bg-[linear-gradient(90deg,#7a6248_0%,#b49b7d_50%,#7a6248_100%)] px-5" id="book">
@@ -52,21 +54,19 @@ export default function BookingSection() {
             {/* Badge */}
             <div className="w-fit rounded-full border-[0.8px] border-tan/40 px-3 py-2">
               <p className="text-[13px] font-semibold leading-[20.8px] tracking-[3px] text-[#c9a84c] uppercase">
-                book an appointment
+                {t("badge")}
               </p>
             </div>
 
             <div className="flex flex-col gap-3">
               <h2 className="font-subheading text-[34px] leading-[38px] font-medium tracking-[-1.8px] text-[#c9a84c] uppercase lg:text-[48px] lg:leading-[53px]">
-                Begin Your
+                {t("heading1")}
               </h2>
               <h2 className="-mt-2 font-subheading text-[34px] leading-[38px] font-medium tracking-[-1.8px] text-white uppercase lg:text-[48px] lg:leading-[53px]">
-                Journey Today
+                {t("heading2")}
               </h2>
               <p className="mt-2 text-[16px] leading-[27px] tracking-[-0.2px] text-white/80">
-                Book a consultation with Sofia Bouzian to discuss your
-                goals and create a personalised treatment plan. No pressure —
-                just expert, honest guidance.
+                {t("description")}
               </p>
             </div>
 
@@ -77,8 +77,8 @@ export default function BookingSection() {
                   <PhoneIcon className="h-4 w-4 text-[#c9a84c]" />
                 </div>
                 <div>
-                  <p className="text-[12px] tracking-[1px] text-white/65 uppercase">Telephone</p>
-                  <a href="tel:02072253582" className="text-[16px] font-bold text-white transition-colors hover:text-[#c9a84c]">
+                  <p className="text-[12px] tracking-[1px] text-white/65 uppercase">{t("telephone")}</p>
+                  <a href="tel:02072253582" dir="ltr" className="text-[16px] font-bold text-white transition-colors hover:text-[#c9a84c]">
                     0207 225 3582
                   </a>
                 </div>
@@ -88,8 +88,8 @@ export default function BookingSection() {
                   <MobileIcon className="h-4 w-4 text-[#c9a84c]" />
                 </div>
                 <div>
-                  <p className="text-[12px] tracking-[1px] text-white/65 uppercase">Mobile</p>
-                  <a href="tel:07818474041" className="text-[16px] font-bold text-white transition-colors hover:text-[#c9a84c]">
+                  <p className="text-[12px] tracking-[1px] text-white/65 uppercase">{t("mobile")}</p>
+                  <a href="tel:07818474041" dir="ltr" className="text-[16px] font-bold text-white transition-colors hover:text-[#c9a84c]">
                     078 1847 4041
                   </a>
                 </div>
@@ -99,7 +99,7 @@ export default function BookingSection() {
                   <EnvelopeIcon className="h-4 w-4 text-[#c9a84c]" />
                 </div>
                 <div>
-                  <p className="text-[12px] tracking-[1px] text-white/65 uppercase">Email</p>
+                  <p className="text-[12px] tracking-[1px] text-white/65 uppercase">{t("email")}</p>
                   <a href="mailto:info@yourhealthfirst.uk" className="text-[16px] font-bold text-white transition-colors hover:text-[#c9a84c]">
                     info@yourhealthfirst.uk
                   </a>
@@ -110,7 +110,7 @@ export default function BookingSection() {
                   <MapPinIcon className="h-4 w-4 text-[#c9a84c]" />
                 </div>
                 <div>
-                  <p className="text-[12px] tracking-[1px] text-white/65 uppercase">Address</p>
+                  <p className="text-[12px] tracking-[1px] text-white/65 uppercase">{t("address")}</p>
                   <p className="text-[16px] font-medium leading-[24px] text-white">
                     2 Wimpole Street, London W1G 0EB
                   </p>
@@ -121,7 +121,7 @@ export default function BookingSection() {
             {/* Opening hours */}
             <div className="flex flex-col gap-4 rounded-[12px] border border-white/10 p-6">
               <h3 className="font-subheading text-[13px] font-semibold tracking-[2px] text-[#c9a84c] uppercase">
-                Opening Hours
+                {t("openingHours")}
               </h3>
               <ul className="flex flex-col gap-3">
                 {hours.map(({ day, time, note }) => (
@@ -147,21 +147,20 @@ export default function BookingSection() {
                   </svg>
                 </div>
                 <h3 className="font-subheading text-[24px] font-medium tracking-[-1px] text-white uppercase">
-                  Enquiry Sent
+                  {t("enquirySent")}
                 </h3>
                 <p className="max-w-[340px] text-[15px] leading-[24px] text-white/80">
-                  Thank you — we will be in touch shortly to confirm your
-                  appointment. You can also call us on 0207 225 3582.
+                  {t("thankYou")}
                 </p>
               </div>
             ) : (
               <>
                 <div>
                   <h3 className="font-subheading text-[22px] font-semibold leading-[28px] tracking-[-1px] text-white uppercase">
-                    Request a Consultation
+                    {t("formTitle")}
                   </h3>
                   <p className="mt-1 text-[14px] leading-[22px] text-white/85">
-                    Fill in the form and we&apos;ll get back to you as soon as possible.
+                    {t("formSubtitle")}
                   </p>
                 </div>
 
@@ -169,7 +168,7 @@ export default function BookingSection() {
                   <div className="flex flex-col gap-4 sm:flex-row">
                     <div className="flex flex-1 flex-col gap-2">
                       <label className="text-[12px] font-semibold tracking-[1px] text-white/85 uppercase">
-                        First Name <span className="text-[#c9a84c]">*</span>
+                        {t("firstName")} <span className="text-[#c9a84c]">*</span>
                       </label>
                       <input
                         type="text"
@@ -180,7 +179,7 @@ export default function BookingSection() {
                     </div>
                     <div className="flex flex-1 flex-col gap-2">
                       <label className="text-[12px] font-semibold tracking-[1px] text-white/85 uppercase">
-                        Last Name
+                        {t("lastName")}
                       </label>
                       <input
                         type="text"
@@ -193,7 +192,7 @@ export default function BookingSection() {
                   <div className="flex flex-col gap-4 sm:flex-row">
                     <div className="flex flex-1 flex-col gap-2">
                       <label className="text-[12px] font-semibold tracking-[1px] text-white/85 uppercase">
-                        Email <span className="text-[#c9a84c]">*</span>
+                        {t("email")} <span className="text-[#c9a84c]">*</span>
                       </label>
                       <input
                         type="email"
@@ -204,7 +203,7 @@ export default function BookingSection() {
                     </div>
                     <div className="flex flex-1 flex-col gap-2">
                       <label className="text-[12px] font-semibold tracking-[1px] text-white/85 uppercase">
-                        Phone
+                        {t("phone")}
                       </label>
                       <input
                         type="tel"
@@ -216,39 +215,39 @@ export default function BookingSection() {
 
                   <div className="flex flex-col gap-2">
                     <label className="text-[12px] font-semibold tracking-[1px] text-white/85 uppercase">
-                      Treatment of Interest
+                      {t("treatmentOfInterest")}
                     </label>
                     <select className="h-12 rounded-[8px] border border-white/10 bg-white/5 px-4 text-[15px] text-white focus:border-tan/60 focus:outline-none">
-                      <option value="" className="bg-white text-forest">Select a treatment...</option>
-                      {treatments.map((t) => (
-                        <option key={t} value={t} className="bg-white text-forest">{t}</option>
+                      <option value="" className="bg-white text-forest">{t("selectTreatment")}</option>
+                      {treatments.map((treatment) => (
+                        <option key={treatment} value={treatment} className="bg-white text-forest">{treatment}</option>
                       ))}
                     </select>
                   </div>
 
                   <div className="flex flex-col gap-2">
                     <label className="text-[12px] font-semibold tracking-[1px] text-white/85 uppercase">
-                      How did you hear about us?
+                      {t("howHeard")}
                     </label>
                     <select className="h-12 rounded-[8px] border border-white/10 bg-white/5 px-4 text-[15px] text-white focus:border-tan/60 focus:outline-none">
-                      <option value="" className="bg-white text-forest">Please select...</option>
-                      <option className="bg-white text-forest">Google Search</option>
-                      <option className="bg-white text-forest">Google Maps</option>
-                      <option className="bg-white text-forest">Instagram</option>
-                      <option className="bg-white text-forest">Facebook</option>
-                      <option className="bg-white text-forest">Friend / Family Referral</option>
-                      <option className="bg-white text-forest">Returning Patient</option>
-                      <option className="bg-white text-forest">Other</option>
+                      <option value="" className="bg-white text-forest">{t("pleaseSelect")}</option>
+                      <option className="bg-white text-forest">{t("googleSearch")}</option>
+                      <option className="bg-white text-forest">{t("googleMaps")}</option>
+                      <option className="bg-white text-forest">{t("instagram")}</option>
+                      <option className="bg-white text-forest">{t("facebook")}</option>
+                      <option className="bg-white text-forest">{t("friendReferral")}</option>
+                      <option className="bg-white text-forest">{t("returningPatient")}</option>
+                      <option className="bg-white text-forest">{t("other")}</option>
                     </select>
                   </div>
 
                   <div className="flex flex-col gap-2">
                     <label className="text-[12px] font-semibold tracking-[1px] text-white/85 uppercase">
-                      Message
+                      {t("message")}
                     </label>
                     <textarea
                       rows={4}
-                      placeholder="Tell us about your concerns or questions..."
+                      placeholder={t("messagePlaceholder")}
                       className="resize-none rounded-[8px] border border-white/10 bg-white/5 px-4 py-3 text-[15px] text-white placeholder:text-white/60 focus:border-tan/60 focus:outline-none"
                     />
                   </div>
@@ -257,7 +256,7 @@ export default function BookingSection() {
                     type="submit"
                     className="mt-2 inline-flex h-14 items-center justify-center rounded-[8px] bg-tan px-8 font-nav text-[15px] font-semibold tracking-[-0.3px] text-forest transition-opacity hover:opacity-90"
                   >
-                    Send Enquiry
+                    {t("sendEnquiry")}
                   </button>
                 </form>
               </>

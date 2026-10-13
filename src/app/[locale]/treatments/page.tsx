@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Image from "next/image";
 import { services } from "@/data/services";
+import { getTranslations } from "next-intl/server";
 
 export const metadata: Metadata = {
   title: "Treatments | YourHealthFirst Clinic — Harley Street, London",
@@ -11,33 +12,33 @@ export const metadata: Metadata = {
     "Explore all 20 aesthetic and medical treatments at YourHealthFirst Clinic — anti-wrinkle, fillers, Profhilo, cryolipolysis, PRP hair loss, Emsculpt Neo and more.",
 };
 
-const categories = [
+const categories: Array<{ key: string; slugs: string[] }> = [
   {
-    label: "Phlebotomy (Blood Drawn & Centrifuge)",
+    key: "phlebotomy",
     slugs: ["phlebotomy"],
   },
   {
-    label: "Face & Anti-Aging",
+    key: "faceAntiAging",
     slugs: ["anti-wrinkles", "dermal-fillers"],
   },
   {
-    label: "Biostimulators",
+    key: "biostimulators",
     slugs: ["sunekos", "profhilo", "polynucleotides", "sculptra", "prp-ha"],
   },
   {
-    label: "Hair Restoration",
+    key: "hairRestoration",
     slugs: ["prp-hair-loss", "exosome"],
   },
   {
-    label: "Body Contouring",
+    key: "bodyContouring",
     slugs: ["cryolipolysis", "emsculpt-neo", "aqualyx"],
   },
   {
-    label: "Weight Loss",
+    key: "weightLoss",
     slugs: ["mounjaro"],
   },
   {
-    label: "Skin & Health",
+    key: "skinHealth",
     slugs: ["microneedling", "mesotherapy", "photo-aging", "sclerotherapy", "cryopen", "vitamin-b12"],
   },
 ];
@@ -74,7 +75,11 @@ function getHref(slug: string) {
   return slugToHref[slug] ?? `/treatments/${slug}`;
 }
 
-export default function TreatmentsPage() {
+export default async function TreatmentsPage() {
+  const t = await getTranslations("Treatments");
+  const tCat = await getTranslations("Header.categories");
+  const tList = await getTranslations("ServiceList");
+
   return (
     <div className="flex flex-col">
       <Header />
@@ -84,16 +89,14 @@ export default function TreatmentsPage() {
         <div className="mx-auto max-w-[1400px] px-5 py-[80px] lg:py-[100px]">
           <div className="w-fit rounded-full border-[0.8px] border-white/20 px-3 py-2">
             <p className="text-[13px] font-semibold leading-[20.8px] tracking-[3px] text-tan uppercase">
-              our services
+              {t("badge")}
             </p>
           </div>
           <h1 className="mt-4 font-display text-[42px] leading-[46px] font-bold tracking-[-1px] text-cream uppercase lg:text-[64px] lg:leading-[70px]">
-            Treatments
+            {t("heading")}
           </h1>
           <p className="mt-3 max-w-[560px] font-nav text-[16px] leading-[26px] text-white/60">
-            From facial rejuvenation and hair restoration to body contouring and
-            skin health — all treatments are tailored to your individual goals by
-            Sofia Bouzian.
+            {t("description")}
           </p>
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-tan/40 to-transparent" />
@@ -105,13 +108,14 @@ export default function TreatmentsPage() {
           <div className="flex flex-col gap-16">
             {categories.map((cat) => {
               const catServices = services.filter((s) => cat.slugs.includes(s.slug));
+              const categoryLabel = tCat(cat.key as any);
               return (
-                <div key={cat.label} className="flex flex-col gap-8">
+                <div key={cat.key} className="flex flex-col gap-8">
                   {/* Category header */}
                   <div className="flex items-center gap-4">
                     <div className="w-fit rounded-full border-[0.8px] border-forest/20 px-3 py-2">
                       <h2 className="text-[13px] font-semibold leading-[20.8px] tracking-[3px] text-forest uppercase">
-                        {cat.label}
+                        {categoryLabel}
                       </h2>
                     </div>
                     <div className="flex-1 border-t border-black/8" />
@@ -119,39 +123,48 @@ export default function TreatmentsPage() {
 
                   {/* Cards grid */}
                   <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                    {catServices.map((service) => (
-                      <Link
-                        key={service.slug}
-                        href={getHref(service.slug)}
-                        className="group flex flex-col overflow-hidden rounded-[12px] border border-black/8 bg-white transition-shadow hover:shadow-lg"
-                      >
-                        {/* Image */}
-                        <div className="aspect-[4/3] w-full overflow-hidden bg-cream">
-                          <div className="relative h-full w-full">
-                            <Image
-                              src={serviceImages[service.slug] ?? service.image}
-                              alt={service.title}
-                              fill
-                              sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                              className="object-cover transition-transform duration-500 group-hover:scale-105"
-                            />
-                          </div>
-                        </div>
+                    {catServices.map((service) => {
+                      const serviceTitle = tList.has(`${service.slug}.title`)
+                        ? tList(`${service.slug}.title`)
+                        : service.title;
+                      const serviceDesc = tList.has(`${service.slug}.description`)
+                        ? tList(`${service.slug}.description`)
+                        : service.description.map((seg) => seg.text).join("");
 
-                        {/* Content */}
-                        <div className="flex flex-1 flex-col gap-3 p-5">
-                          <h3 className="font-subheading text-[15px] font-semibold leading-[20px] tracking-[-0.5px] text-forest uppercase">
-                            {service.title}
-                          </h3>
-                          <p className="flex-1 text-[14px] leading-[22px] text-body-text line-clamp-3">
-                            {service.description.map((seg) => seg.text).join("")}
-                          </p>
-                          <span className="mt-auto inline-flex items-center gap-1 font-nav text-[13px] font-semibold tracking-[0.5px] text-tan uppercase transition-opacity group-hover:opacity-70">
-                            Learn more →
-                          </span>
-                        </div>
-                      </Link>
-                    ))}
+                      return (
+                        <Link
+                          key={service.slug}
+                          href={getHref(service.slug)}
+                          className="group flex flex-col overflow-hidden rounded-[12px] border border-black/8 bg-white transition-shadow hover:shadow-lg"
+                        >
+                          {/* Image */}
+                          <div className="aspect-[4/3] w-full overflow-hidden bg-cream">
+                            <div className="relative h-full w-full">
+                              <Image
+                                src={serviceImages[service.slug] ?? service.image}
+                                alt={serviceTitle}
+                                fill
+                                sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                              />
+                            </div>
+                          </div>
+
+                          {/* Content */}
+                          <div className="flex flex-1 flex-col gap-3 p-5">
+                            <h3 className="font-subheading text-[15px] font-semibold leading-[20px] tracking-[-0.5px] text-forest uppercase">
+                              {serviceTitle}
+                            </h3>
+                            <p className="flex-1 text-[14px] leading-[22px] text-body-text line-clamp-3">
+                              {serviceDesc}
+                            </p>
+                            <span className="mt-auto inline-flex items-center gap-1 font-nav text-[13px] font-semibold tracking-[0.5px] text-tan uppercase transition-opacity group-hover:opacity-70">
+                              {t("learnMore")}
+                            </span>
+                          </div>
+                        </Link>
+                      );
+                    })}
                   </div>
                 </div>
               );
@@ -166,7 +179,7 @@ export default function TreatmentsPage() {
           <div className="flex items-center gap-4 mb-8">
             <div className="w-fit rounded-full border-[0.8px] border-white/20 px-3 py-2">
               <h2 className="text-[13px] font-semibold leading-[20.8px] tracking-[3px] text-tan uppercase">
-                Coming Soon
+                {t("comingSoon")}
               </h2>
             </div>
             <div className="flex-1 border-t border-white/10" />
@@ -178,7 +191,7 @@ export default function TreatmentsPage() {
             {/* Animated pulse */}
             <div className="pointer-events-none absolute top-6 right-6 flex items-center gap-2">
               <span className="h-2 w-2 animate-pulse rounded-full bg-tan" />
-              <span className="font-nav text-[11px] font-semibold tracking-[2px] text-tan uppercase">Coming Soon</span>
+              <span className="font-nav text-[11px] font-semibold tracking-[2px] text-tan uppercase">{t("comingSoon")}</span>
             </div>
             {/* Icon */}
             <div className="flex h-[80px] w-[80px] shrink-0 items-center justify-center rounded-full border border-tan/30 bg-tan/10">
@@ -188,13 +201,13 @@ export default function TreatmentsPage() {
             </div>
             <div className="flex flex-col gap-3">
               <h3 className="font-display text-[28px] leading-[34px] font-bold tracking-[-1px] text-cream uppercase lg:text-[36px] lg:leading-[42px]">
-                Longevity Programme
+                {t("longevityTitle")}
               </h3>
               <p className="max-w-[600px] text-[16px] leading-[27px] text-white/60">
-                Advanced health optimisation, preventative medicine and personalised wellness protocols — designed to help you live longer and live better. Register your interest to be notified at launch.
+                {t("longevityDesc")}
               </p>
               <span className="font-nav text-[13px] font-semibold tracking-[0.5px] text-tan uppercase transition-opacity group-hover:opacity-70">
-                Learn More & Register Interest →
+                {t("longevityCta")}
               </span>
             </div>
           </Link>
@@ -203,27 +216,26 @@ export default function TreatmentsPage() {
 
       {/* CTA */}
       <section className="w-full bg-[linear-gradient(90deg,#7a6248_0%,#b49b7d_50%,#7a6248_100%)] px-5">
-        <div className="mx-auto flex max-w-[1400px] flex-col items-center gap-6 py-[80px] text-center">
+        <div className="mx-auto max-w-[1400px] flex flex-col items-center gap-6 py-[80px] text-center">
           <h2 className="font-subheading text-[32px] font-medium leading-[38px] tracking-[-1.5px] text-cream uppercase lg:text-[40px] lg:leading-[46px]">
-            Not sure which treatment is right for you?
+            {t("ctaHeading")}
           </h2>
           <p className="max-w-[480px] text-[16px] leading-[27px] text-white/60">
-            Book a consultation with Sofia to discuss your concerns and design a
-            personalised treatment plan — no pressure, just expert guidance.
+            {t("ctaDescription")}
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a
               href="tel:02072253582"
               className="inline-flex h-14 items-center justify-center rounded-[8px] bg-tan px-8 font-nav text-[15px] font-semibold tracking-[-0.3px] text-forest transition-opacity hover:opacity-90"
             >
-              Call 0207 225 3582
+              {t("callCta")}
             </a>
-            <a
+            <Link
               href="/contact-us"
               className="inline-flex h-14 items-center justify-center rounded-[8px] border-[1.5px] border-tan/40 px-8 font-nav text-[15px] font-semibold tracking-[-0.3px] text-tan transition-colors hover:border-tan"
             >
-              Book a Consultation
-            </a>
+              {t("bookCta")}
+            </Link>
           </div>
         </div>
       </section>

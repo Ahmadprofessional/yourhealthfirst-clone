@@ -1,5 +1,7 @@
+"use client";
+
 import Image from "next/image";
-import { trustBadges } from "@/data/site";
+import { useTranslations } from "next-intl";
 import {
   SmileIcon,
   DnaIcon,
@@ -11,6 +13,7 @@ import {
 const GOLD = "#c9a84c";
 
 const trustIcons = [SmileIcon, DnaIcon, MapleLeafIcon, HandshakeIcon];
+const trustKeys = ["expertCare", "advanceTreatment", "naturalResults", "trustedConfidential"] as const;
 
 const avatars = [
   "/images/about/collage-1.jpg",
@@ -20,6 +23,8 @@ const avatars = [
 ];
 
 export default function Hero() {
+  const t = useTranslations("Hero");
+
   return (
     <section className="relative flex w-full flex-col overflow-hidden lg:block lg:h-[793px]">
       {/* Photo: stacked below the text on mobile, full-bleed behind it on desktop */}
@@ -48,13 +53,13 @@ export default function Hero() {
       <div className="relative z-10 order-1 flex w-full flex-col gap-[10px] bg-[linear-gradient(90deg,#4a3826_0%,#8f7355_50%,#4a3826_100%)] px-5 pt-[150px] pb-16 sm:px-[60px] sm:pt-[160px] lg:w-[680px] lg:bg-none lg:pb-0 xl:px-[120px] xl:pt-[150px]">
         <div className="flex flex-col gap-4">
           <h2 className="font-display text-[46px] leading-[46px] font-medium text-white uppercase lg:text-[52px] lg:leading-[52px]">
-            AWARD WINNING
+            {t("awardWinning")}
           </h2>
           <h2
             className="-mt-3 font-display text-[56px] leading-[56px] font-medium uppercase lg:text-[64px] lg:leading-[64px]"
             style={{ color: GOLD }}
           >
-            Clinic
+            {t("clinic")}
           </h2>
 
           <div className="flex h-6 items-center py-[2px]">
@@ -65,9 +70,8 @@ export default function Hero() {
             </span>
           </div>
 
-          <h2 className="font-display text-[22px] leading-[28px] font-medium text-white/85 uppercase lg:text-[24px]">
-            Health, Dermatology, Hair Loss,<br />
-            Anti-Aging &amp; Rejuvenation Clinic
+          <h2 className="font-display text-[22px] leading-[28px] font-medium text-white/85 uppercase lg:text-[24px] whitespace-pre-line">
+            {t("subtitle")}
           </h2>
         </div>
 
@@ -76,10 +80,10 @@ export default function Hero() {
             <MapPinIcon className="h-[28px] w-[28px] shrink-0" style={{ color: GOLD }} />
             <div>
               <h3 className="font-display text-[18px] font-medium tracking-[0.5px] uppercase" style={{ color: GOLD }}>
-                Harley Street, London
+                {t("harleyStreet")}
               </h3>
               <p className="text-[14px] leading-[22px] text-white/75">
-                Since 2013 &amp; currently in 2 Wimpole Street W1G 0EB
+                {t("since")}
               </p>
             </div>
           </div>
@@ -89,7 +93,7 @@ export default function Hero() {
               href="/about-us"
               className="inline-flex items-center gap-3 rounded-[8px] border-[2px] border-[#c9a84c] px-[28px] py-[14px] font-display text-[15px] font-semibold tracking-[1px] text-[#c9a84c] uppercase transition-all duration-200 hover:bg-[#c9a84c] hover:text-[#4a3826]"
             >
-              Discover More
+              {t("discoverMore")}
               <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
               </svg>
@@ -97,11 +101,11 @@ export default function Hero() {
           </div>
 
           <div className="grid grid-cols-2 gap-y-3 sm:flex sm:gap-0">
-            {trustBadges.map((badge, index) => {
+            {trustKeys.map((key, index) => {
               const Icon = trustIcons[index];
               return (
                 <div
-                  key={badge.title}
+                  key={key}
                   className="flex flex-col items-center border-r px-2 text-center sm:w-[138px]"
                   style={{ borderColor: `${GOLD}55` }}
                 >
@@ -112,7 +116,7 @@ export default function Hero() {
                     className="mt-1 font-subheading text-[11px] font-semibold tracking-[0.5px] uppercase"
                     style={{ color: GOLD }}
                   >
-                    {badge.title}
+                    {t(key)}
                   </h3>
                 </div>
               );
@@ -138,8 +142,8 @@ export default function Hero() {
               ))}
             </div>
             <div>
-              <p className="font-display text-[14px] font-medium text-white uppercase leading-[18px]">
-                Trusted by 10K+<br />Happy Patients
+              <p className="font-display text-[14px] font-medium text-white uppercase leading-[18px] whitespace-pre-line">
+                {t("trustedBy")}
               </p>
               <div className="mt-1 flex gap-[2px]">
                 {[...Array(5)].map((_, i) => (

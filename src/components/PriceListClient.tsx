@@ -19,6 +19,12 @@ export interface PriceCategory {
 
 interface Props {
   categories: PriceCategory[];
+  translations?: {
+    ourTreatments?: string;
+    exploreTitle?: string;
+    selectCategory?: string;
+    searchPlaceholder?: string;
+  };
 }
 
 function ChevronDown({ className }: { className?: string }) {
@@ -29,7 +35,7 @@ function ChevronDown({ className }: { className?: string }) {
   );
 }
 
-export default function PriceListClient({ categories }: Props) {
+export default function PriceListClient({ categories, translations }: Props) {
   const [open, setOpen] = useState<string | null>(categories[0]?.id ?? null);
   const [search, setSearch] = useState("");
 
@@ -52,14 +58,14 @@ export default function PriceListClient({ categories }: Props) {
           <div>
             <div className="mb-3 w-fit rounded-full border border-forest/20 px-4 py-2">
               <p className="font-nav text-[11px] font-semibold tracking-[3px] text-forest uppercase">
-                Our Treatments
+                {translations?.ourTreatments ?? "Our Treatments"}
               </p>
             </div>
             <h2 className="font-display text-[32px] leading-[38px] font-bold tracking-[-1px] text-forest uppercase lg:text-[44px] lg:leading-[50px]">
-              Explore Our Price List
+              {translations?.exploreTitle ?? "Explore Our Price List"}
             </h2>
             <p className="mt-2 text-[14px] leading-[22px] text-body-text/70">
-              Select a category below to view our treatment prices.
+              {translations?.selectCategory ?? "Select a category below to view our treatment prices."}
             </p>
           </div>
 
@@ -70,7 +76,7 @@ export default function PriceListClient({ categories }: Props) {
             </svg>
             <input
               type="text"
-              placeholder="Search treatments..."
+              placeholder={translations?.searchPlaceholder ?? "Search treatments..."}
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               className="w-full rounded-[8px] border border-black/12 bg-white py-3 pl-9 pr-4 font-nav text-[13px] text-forest placeholder:text-body-text/35 focus:border-tan focus:outline-none"

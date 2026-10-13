@@ -3,8 +3,9 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import { galleryGroups, gallerySections, type GalleryImage } from "@/data/gallery";
+import { useTranslations } from "next-intl";
 
-function BeforeAfterGrid({ images }: { images: GalleryImage[] }) {
+function BeforeAfterGrid({ images, resultLabel }: { images: GalleryImage[]; resultLabel: string }) {
   return (
     <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
       {images.map((img, index) => (
@@ -25,7 +26,7 @@ function BeforeAfterGrid({ images }: { images: GalleryImage[] }) {
           <div className="absolute inset-0 bg-gradient-to-t from-forest/60 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
           <div className="absolute bottom-0 left-0 right-0 translate-y-4 px-4 pb-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
             <p className="text-center font-subheading text-[12px] font-semibold tracking-[1px] text-cream uppercase">
-              Result {index + 1}
+              {resultLabel} {index + 1}
             </p>
           </div>
         </div>
@@ -34,7 +35,7 @@ function BeforeAfterGrid({ images }: { images: GalleryImage[] }) {
   );
 }
 
-function ComingSoonPlaceholder({ title }: { title: string }) {
+function ComingSoonPlaceholder({ title, comingSoonLabel }: { title: string; comingSoonLabel: string }) {
   return (
     <div className="flex flex-col items-center justify-center gap-3 rounded-[12px] border border-dashed border-[#a8896a]/20 bg-cream/60 px-8 py-16 text-center">
       <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#a8896a]/8">
@@ -43,7 +44,7 @@ function ComingSoonPlaceholder({ title }: { title: string }) {
         </svg>
       </div>
       <p className="font-subheading text-[13px] font-semibold tracking-[1px] text-[#a8896a]/50 uppercase">{title}</p>
-      <p className="text-[13px] leading-[20px] text-body-text/50">Photos coming soon</p>
+      <p className="text-[13px] leading-[20px] text-body-text/50">{comingSoonLabel}</p>
     </div>
   );
 }
@@ -52,6 +53,7 @@ const photoCount = (groupId: string) =>
   gallerySections.filter((s) => s.group === groupId).reduce((sum, s) => sum + s.images.length, 0);
 
 export default function GalleryExplorer({ initialGroup }: { initialGroup?: string }) {
+  const t = useTranslations("GalleryPage");
   const validInitial = galleryGroups.some((g) => g.id === initialGroup) ? (initialGroup as string) : null;
   const [selected, setSelected] = useState<string | null>(validInitial);
   const [query, setQuery] = useState("");
@@ -77,8 +79,8 @@ export default function GalleryExplorer({ initialGroup }: { initialGroup?: strin
 
   useEffect(() => {
     const onPop = () => {
-      const t = new URLSearchParams(window.location.search).get("treatment");
-      setSelected(galleryGroups.some((g) => g.id === t) ? t : null);
+      const param = new URLSearchParams(window.location.search).get("treatment");
+      setSelected(galleryGroups.some((g) => g.id === param) ? param : null);
     };
     window.addEventListener("popstate", onPop);
     return () => window.removeEventListener("popstate", onPop);
@@ -105,10 +107,10 @@ export default function GalleryExplorer({ initialGroup }: { initialGroup?: strin
         <div className="mx-auto flex max-w-[1400px] flex-col gap-5">
           <div className="flex flex-col gap-1">
             <h2 className="font-subheading text-[18px] font-semibold leading-[24px] tracking-[-0.3px] text-forest uppercase">
-              Find your treatment
+              {t("findTreatment")}
             </h2>
             <p className="text-[14px] text-body-text">
-              Search or choose a treatment to see only its before &amp; after results.
+              {t("findSubtitle")}
             </p>
           </div>
 
@@ -124,7 +126,7 @@ export default function GalleryExplorer({ initialGroup }: { initialGroup?: strin
                 aria-controls="gallery-treatment-list"
                 aria-label="Search treatments"
                 value={query}
-                placeholder={selectedGroup ? `Showing: ${selectedGroup.label} — search to change` : "Search treatments, e.g. botox, hair loss, fillers…"}
+                placeholder={selectedGroup ? `${t("showing")}: ${selectedGroup.label}` : t("searchPlaceholder")}
                 onFocus={() => setOpen(true)}
                 onChange={(e) => {
                   setQuery(e.target.value);
@@ -165,14 +167,16 @@ export default function GalleryExplorer({ initialGroup }: { initialGroup?: strin
                     onClick={() => choose(null)}
                     className="flex w-full items-center justify-between rounded-[8px] px-3 py-2.5 text-left text-[14px] font-semibold text-forest transition-colors hover:bg-cream"
                   >
-                    All treatments
+                    {t("allTreatments")}
                     <span className="text-[12px] font-normal text-body-text/70">
-                      {gallerySections.reduce((n, s) => n + s.images.length, 0)} photos
+                      {gallerySections.reduce((n, s) => n + s.images.length, 0)} {t("photos")}
                     </span>
                   </button>
                 </li>
                 {matches.length === 0 && (
-                  <li className="px-3 py-3 text-[14px] text-body-text">No treatments match “{query}”.</li>
+                  <li className="px-3 py-3 text-[14px] text-body-text">
+                    {t("noMatches")} “{query}”.
+                  </li>
                 )}
                 {matches.map((g) => (
                   <li key={g.id}>
@@ -186,7 +190,7 @@ export default function GalleryExplorer({ initialGroup }: { initialGroup?: strin
                       }`}
                     >
                       {g.label}
-                      <span className="text-[12px] text-body-text/70">{photoCount(g.id)} photos</span>
+                      <span className="text-[12px] text-body-text/70">{photoCount(g.id)} {t("photos")}</span>
                     </button>
                   </li>
                 ))}
@@ -203,7 +207,7 @@ export default function GalleryExplorer({ initialGroup }: { initialGroup?: strin
                 !selected ? "border-forest bg-forest text-cream" : "border-tan/40 text-forest hover:bg-cream"
               }`}
             >
-              All
+              {t("all")}
             </button>
             {galleryGroups.map((g) => (
               <button
@@ -227,14 +231,14 @@ export default function GalleryExplorer({ initialGroup }: { initialGroup?: strin
           <section className="w-full border-b border-black/8 bg-cream/60 px-5 py-5">
             <div className="mx-auto flex max-w-[1400px] flex-wrap items-center justify-between gap-3">
               <p className="text-[15px] text-body-text">
-                Showing <strong className="text-forest">{selectedGroup.label}</strong> — {photoCount(selectedGroup.id)} photos
+                {t("showing")} <strong className="text-forest">{selectedGroup.label}</strong> — {photoCount(selectedGroup.id)} {t("photos")}
               </p>
               <button
                 type="button"
                 onClick={() => choose(null)}
                 className="rounded-full border border-forest/30 px-4 py-1.5 text-[13px] font-semibold text-forest transition-colors hover:border-forest"
               >
-                ← Show all treatments
+                {t("showAllTreatments")}
               </button>
             </div>
           </section>
@@ -249,13 +253,13 @@ export default function GalleryExplorer({ initialGroup }: { initialGroup?: strin
               <div className="mb-10 flex flex-col gap-2">
                 <div className="flex items-center gap-4">
                   <h2 className="font-subheading text-[24px] font-medium leading-[30px] tracking-[-1px] text-forest uppercase lg:text-[30px] lg:leading-[36px]">
-                    {section.title} — Before &amp; After
+                    {section.title} — {t("viewBeforeAfter")}
                   </h2>
                   <div className="flex-1 border-t border-black/8" />
                 </div>
                 <p className="text-[15px] text-body-text">{section.description}</p>
               </div>
-              <BeforeAfterGrid images={section.images} />
+              <BeforeAfterGrid images={section.images} resultLabel={t("resultIndex")} />
             </div>
           </section>
         ))}
@@ -266,13 +270,15 @@ export default function GalleryExplorer({ initialGroup }: { initialGroup?: strin
               <div className="mb-10 flex flex-col gap-2">
                 <div className="flex items-center gap-4">
                   <h2 className="font-subheading text-[24px] font-medium leading-[30px] tracking-[-1px] text-forest uppercase lg:text-[30px] lg:leading-[36px]">
-                    Other Treatments — Before &amp; After
+                    {t("otherTreatmentsBeforeAfter")}
                   </h2>
                   <div className="flex-1 border-t border-black/8" />
                 </div>
-                <p className="text-[15px] text-body-text">Alopecia and additional treatment results.</p>
+                <p className="text-[15px] text-body-text">
+                  {t("otherTreatmentsDesc")}
+                </p>
               </div>
-              <ComingSoonPlaceholder title="Other Treatment Before & After Photos" />
+              <ComingSoonPlaceholder title={t("otherTreatmentsTitle")} comingSoonLabel={t("photosComingSoon")} />
             </div>
           </section>
         )}

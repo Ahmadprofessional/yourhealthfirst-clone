@@ -1,10 +1,21 @@
 "use client";
 
 import { useState } from "react";
-import { faqs, contact } from "@/data/site";
+import { useTranslations } from "next-intl";
+import { contact } from "@/data/site";
 import { PhoneIcon, EnvelopeIcon } from "@/components/icons";
 
+const faqKeys = [
+  { q: "q1", a: "a1" },
+  { q: "q2", a: "a2" },
+  { q: "q3", a: "a3" },
+  { q: "q4", a: "a4" },
+  { q: "q5", a: "a5" },
+  { q: "q6", a: "a6" },
+] as const;
+
 export default function FaqAccordion() {
+  const t = useTranslations("Faq");
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
@@ -14,28 +25,30 @@ export default function FaqAccordion() {
         <div className="flex flex-col gap-6">
           <div className="w-fit rounded-full border-[0.8px] border-[rgba(11,23,4,0.2)] px-3 py-2">
             <h2 className="text-[13px] leading-[20.8px] font-semibold tracking-[3px] text-forest uppercase">
-              faqs
+              {t("badge")}
             </h2>
           </div>
           <h2 className="font-subheading text-[34px] leading-[38px] font-medium tracking-[-1.8px] text-forest uppercase lg:text-[50px] lg:leading-[55px]">
-            frequently asked questions
+            {t("heading")}
           </h2>
         </div>
 
         <div className="flex flex-col gap-10 lg:flex-row">
           {/* Accordion */}
           <div className="flex flex-col lg:w-[953px] lg:shrink-0">
-            {faqs.map((faq, index) => {
+            {faqKeys.map((item, index) => {
               const isOpen = openIndex === index;
+              const question = t(item.q);
+              const answer = t(item.a);
               return (
-                <div key={faq.question} className="mb-[10px]">
+                <div key={item.q} className="mb-[10px]">
                   <button
                     type="button"
                     onClick={() => setOpenIndex(isOpen ? null : index)}
                     aria-expanded={isOpen}
-                    className="flex w-full items-center justify-between rounded-[8px] border-[0.8px] border-transparent bg-[linear-gradient(90deg,#7a6248_0%,#b49b7d_50%,#7a6248_100%)] px-[30px] py-[14px] text-left font-serif text-[21px] leading-[25.2px] text-white uppercase"
+                    className="flex w-full items-center justify-between rounded-[8px] border-[0.8px] border-transparent bg-[linear-gradient(90deg,#7a6248_0%,#b49b7d_50%,#7a6248_100%)] px-[30px] py-[14px] text-left font-serif text-[21px] leading-[25.2px] text-white uppercase rtl:text-right"
                   >
-                    <span className="pr-[10px]">{faq.question}</span>
+                    <span className="pr-[10px] rtl:pr-0 rtl:pl-[10px]">{question}</span>
                     <svg
                       viewBox="0 0 20 20"
                       fill="none"
@@ -63,7 +76,7 @@ export default function FaqAccordion() {
                   >
                     <div className="overflow-hidden">
                       <p className="p-8 text-[16px] leading-6 font-medium tracking-[-0.2px] text-body-text">
-                        {faq.answer}
+                        {answer}
                       </p>
                     </div>
                   </div>
@@ -85,8 +98,8 @@ export default function FaqAccordion() {
                   href={`tel:${contact.phone2.replace(/\s/g, "")}`}
                   className="flex items-center text-[20px] leading-8 font-medium tracking-[-0.2px] text-white"
                 >
-                  <PhoneIcon className="mr-[3.5px] h-[14px] w-[14px]" />
-                  {contact.phone2}
+                  <PhoneIcon className="mr-[3.5px] rtl:mr-0 rtl:ml-[3.5px] h-[14px] w-[14px]" />
+                  <span dir="ltr">{contact.phone2}</span>
                 </a>
               </li>
               <li className="flex items-center">
@@ -94,8 +107,8 @@ export default function FaqAccordion() {
                   href={`mailto:${contact.email}`}
                   className="flex items-center text-[20px] leading-8 font-medium tracking-[-0.2px] text-white"
                 >
-                  <EnvelopeIcon className="mr-[3.5px] h-[14px] w-[14px]" />
-                  {contact.email}
+                  <EnvelopeIcon className="mr-[3.5px] rtl:mr-0 rtl:ml-[3.5px] h-[14px] w-[14px]" />
+                  <span>{contact.email}</span>
                 </a>
               </li>
             </ul>

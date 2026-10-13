@@ -1,4 +1,7 @@
-import Link from "next/link";
+"use client";
+
+import { Link } from "@/i18n/routing";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { contact } from "@/data/site";
 import {
@@ -41,14 +44,16 @@ const socials = [
   },
 ];
 
-const quickLinks = [
-  { label: "Home", href: "/" },
-  { label: "About", href: "/about-us" },
-  { label: "Services", href: "/services" },
-  { label: "Contact", href: "/contact-us" },
-];
-
 export default function Footer() {
+  const t = useTranslations("Footer");
+
+  const quickLinks = [
+    { label: t("home"), href: "/" as const },
+    { label: t("about"), href: "/about-us" as const },
+    { label: t("services"), href: "/treatments" as const },
+    { label: t("contact"), href: "/contact-us" as const },
+  ];
+
   return (
     <>
       {/* Accreditation logos bar */}
@@ -74,7 +79,7 @@ export default function Footer() {
         {/* Brand + socials */}
         <div className="flex flex-col gap-2">
           <h2 className="text-center font-subheading text-[34px] leading-[38px] font-medium tracking-[-1.8px] text-cream uppercase lg:text-[50px] lg:leading-[55px]">
-            YourHealthFirst Clinic
+            {t("clinicName")}
           </h2>
           <div className="flex justify-center gap-[10px]">
             {socials.map(({ label, href, Icon }) => (
@@ -97,14 +102,13 @@ export default function Footer() {
           {/* CTA */}
           <div className="flex flex-col gap-6 lg:w-[716px] lg:shrink-0">
             <h2 className="max-w-[573px] font-subheading text-[25px] leading-[30px] font-bold tracking-[-1px] text-white uppercase">
-              NOT SURE EXACTLY WHO WOULD YOU LIKE TO SEE ?
+              {t("ctaHeading")}
             </h2>
 
             <div className="max-w-[394px] text-[16px] leading-[25.6px] font-medium tracking-[-0.2px] text-white">
-              <p>DON&rsquo;T WORRY!</p>
+              <p>{t("ctaSubtitle")}</p>
               <p>
-                Our adviser will be sure to book you in the right clinic with
-                the best medical practitioner to meet your needs.
+                {t("ctaDescription")}
               </p>
             </div>
 
@@ -113,16 +117,16 @@ export default function Footer() {
                 href="tel:02072253582"
                 className="flex h-14 w-[179px] items-center justify-center rounded-l-[7px] bg-rust p-[15px] text-[16px] font-bold tracking-[-0.2px] text-white"
               >
-                Call Now
+                {t("callNow")}
               </a>
               <span className="absolute left-1/2 z-10 flex h-10 w-10 -translate-x-1/2 items-center justify-center rounded-full bg-[#fafaf8] text-[14px] font-medium text-forest uppercase">
-                Or
+                {t("or")}
               </span>
               <a
                 href={`mailto:${contact.email}`}
                 className="flex h-14 w-[179px] items-center justify-center rounded-r-[7px] bg-cream p-[15px] text-[16px] font-bold tracking-[-0.2px] text-rust"
               >
-                Email Now
+                {t("emailNow")}
               </a>
             </div>
           </div>
@@ -131,7 +135,7 @@ export default function Footer() {
           <div className="flex flex-col gap-6 sm:flex-row lg:w-[645px] lg:shrink-0">
             <div className="flex flex-col gap-6 sm:w-[310px]">
               <h2 className="font-serif text-[25px] leading-[30px] tracking-[-1px] text-white uppercase">
-                Quick Link
+                {t("quickLink")}
               </h2>
               <ul className="flex flex-col gap-[9px]">
                 {quickLinks.map((link) => (
@@ -149,7 +153,7 @@ export default function Footer() {
 
             <div className="flex flex-col gap-6 sm:w-[310px]">
               <h2 className="font-serif text-[25px] leading-[30px] tracking-[-1px] text-white uppercase">
-                contact
+                {t("contact")}
               </h2>
               <ul className="flex flex-col gap-[9px] text-[16px] leading-[25.6px] font-medium tracking-[-0.2px] text-cream">
                 <li className="flex items-center">

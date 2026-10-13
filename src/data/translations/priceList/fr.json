@@ -1,0 +1,667 @@
+[
+  {
+    "id": "general-fees",
+    "title": "Frais généraux",
+    "image": "/images/treatments/anti-wrinkles/sofia-consultation.jpg",
+    "description": "Frais de consultation standard pour tous les traitements.",
+    "items": [
+      {
+        "service": "Consultation",
+        "price": "£50",
+        "note": "Gratuit si vous poursuivez le traitement"
+      }
+    ]
+  },
+  {
+    "id": "phlebotomy-adults",
+    "title": "Phlébotomie Adultes",
+    "image": "/images/treatments/phlebotomy/blood-draw.jpg",
+    "description": "Service privé de prises de sang et de centrifugation pour adultes.",
+    "items": [
+      {
+        "service": "Prise de sang",
+        "price": "From £80"
+      },
+      {
+        "service": "Centrifugeuse de sang (par tube)",
+        "price": "£10"
+      }
+    ]
+  },
+  {
+    "id": "phlebotomy-children",
+    "title": "Phlébotomie chez les enfants de moins de 16 ans",
+    "image": "/images/treatments/phlebotomy/blood-draw.jpg",
+    "description": "Service privé de prise de sang et de centrifugation pour enfants.",
+    "items": [
+      {
+        "service": "Prise de sang",
+        "price": "From £120"
+      },
+      {
+        "service": "Centrifugeuse de sang (par tube)",
+        "price": "£10"
+      }
+    ]
+  },
+  {
+    "id": "anti-wrinkle",
+    "title": "Injections Anti-rides",
+    "image": "/images/treatments/anti-wrinkles/eye-area-injection.webp",
+    "description": "Adoucit les ridules et redonne une apparence jeune.",
+    "items": [
+      {
+        "service": "Consultation",
+        "price": "£50"
+      },
+      {
+        "service": "Front",
+        "price": "£200"
+      },
+      {
+        "service": "Froncer les sourcils",
+        "price": "£150"
+      },
+      {
+        "service": "Pattes d'oie",
+        "price": "£150"
+      },
+      {
+        "service": "Lifting des sourcils",
+        "price": "£100"
+      },
+      {
+        "service": "Lignes de lapin",
+        "price": "£100"
+      },
+      {
+        "service": "3 zones (au choix)",
+        "price": "£350"
+      },
+      {
+        "service": "4 zones (au choix)",
+        "price": "£400"
+      },
+      {
+        "service": "Combinaison de l’un des éléments ci-dessus (5 domaines)",
+        "price": "£550"
+      },
+      {
+        "service": "Jawline / Masseter (amincissement de la mâchoire)",
+        "price": "£375"
+      },
+      {
+        "service": "Sourire gommeux",
+        "price": "£175"
+      },
+      {
+        "service": "Grincement/serrement des dents",
+        "price": "£350"
+      },
+      {
+        "service": "Réduction des mollets",
+        "price": "£500"
+      },
+      {
+        "service": "Hyperhidrose – sous les deux bras",
+        "price": "£450–£600"
+      },
+      {
+        "service": "Hyperhidrose – paumes des deux mains",
+        "price": "£450–£600"
+      },
+      {
+        "service": "Hyperhidrose – plante des deux pieds",
+        "price": "£450–£600"
+      }
+    ]
+  },
+  {
+    "id": "cryolipolysis",
+    "title": "Cryolipolyse",
+    "image": "/images/treatments/cryolipolysis/treatment-areas-new.jpg",
+    "description": "Ciblez les graisses tenaces et remodelez votre silhouette.",
+    "items": [
+      {
+        "service": "Consultation",
+        "price": "£50"
+      },
+      {
+        "service": "1 zone",
+        "price": "£400"
+      },
+      {
+        "service": "2 zones",
+        "price": "£800"
+      },
+      {
+        "service": "3 zones",
+        "price": "£1,000"
+      },
+      {
+        "service": "4 zones",
+        "price": "£1,200"
+      }
+    ]
+  },
+  {
+    "id": "dermal-fillers",
+    "title": "Produits de comblement cutané",
+    "image": "/images/treatments/dermal-fillers/lip-filler.webp",
+    "description": "Améliorez, restaurez et modelez avec précision.",
+    "items": [
+      {
+        "service": "Rehaussement des lèvres / lèvres russes",
+        "price": "£250–£350 (1ml) / £550 (2ml)"
+      },
+      {
+        "service": "Sillons nasogéniens / Lignes de marionnettes",
+        "price": "£375 (1ml) / £700 (2ml)"
+      },
+      {
+        "service": "Amélioration du menton",
+        "price": "£500 (1ml) / £700 (2ml)"
+      },
+      {
+        "service": "Joues / Milieu du visage",
+        "price": "£500 (1ml) / £700 (2ml)"
+      },
+      {
+        "service": "Rhinoplastie non chirurgicale (travail du nez)",
+        "price": "£500"
+      },
+      {
+        "service": "Rides glabellaires (fronçage des sourcils)",
+        "price": "£350"
+      },
+      {
+        "service": "Déchirure / Sous les yeux / Cernes",
+        "price": "£550"
+      },
+      {
+        "service": "Mâchoire",
+        "price": "£450"
+      },
+      {
+        "service": "Remplisseurs à main",
+        "price": "£600"
+      },
+      {
+        "service": "Dissolution des charges - inverse d'un autre consultant",
+        "price": "£325"
+      },
+      {
+        "service": "Produits de comblement dissolvants – administrés de manière inversée à YHF",
+        "price": "£150",
+        "note": "Pas de frais de consultation"
+      }
+    ]
+  },
+  {
+    "id": "hair-loss",
+    "title": "Perte de cheveux PRP",
+    "image": "/images/treatments/prp-hair-loss/u225-scalp-treatment-1.jpg",
+    "description": "Des solutions avancées pour des cheveux plus forts et plus sains.",
+    "items": [
+      {
+        "service": "Consultation",
+        "price": "£50",
+        "note": "Gratuit si soin réservé"
+      },
+      {
+        "service": "Restauration capillaire PRP standard",
+        "price": "£400"
+      },
+      {
+        "service": "Matrice cellulaire PRP avancée + biotine",
+        "price": "£600"
+      },
+      {
+        "service": "Matrice Cellulaire PRP Suprême + Biotine + Exosomes",
+        "price": "£800"
+      }
+    ]
+  },
+  {
+    "id": "sunekos",
+    "title": "Sunékos",
+    "image": "/images/treatments/sunekos/sofia-injecting.jpg",
+    "description": "Régénère, hydrate et raffermit la peau de l'intérieur.",
+    "items": [
+      {
+        "service": "Consultation",
+        "price": "£50",
+        "note": "Gratuit avec traitement"
+      },
+      {
+        "service": "Traitement unique",
+        "price": "£200"
+      },
+      {
+        "service": "Cours de 4 (visage)",
+        "price": "£600 (£150 each)"
+      },
+      {
+        "service": "Cours de 4 (cou)",
+        "price": "£600 (£175 each)"
+      }
+    ]
+  },
+  {
+    "id": "sculptra",
+    "title": "Sculpture",
+    "image": "/images/treatments/sculptra/product-box.jpg",
+    "description": "Le lifting liquide – reconstruction progressive et naturelle du collagène.",
+    "items": [
+      {
+        "service": "1 séance",
+        "price": "£600"
+      },
+      {
+        "service": "2 séances (forfait)",
+        "price": "£1,100"
+      }
+    ]
+  },
+  {
+    "id": "emsculpt-neo",
+    "title": "Emsculpt Néo",
+    "image": "/images/treatments/emsculpt-neo/hero-abdomen.png",
+    "description": "Développez vos muscles et brûlez les graisses simultanément.",
+    "items": [
+      {
+        "service": "1 séance",
+        "price": "£200"
+      },
+      {
+        "service": "4 séances",
+        "price": "£600"
+      }
+    ]
+  },
+  {
+    "id": "sclerotherapy",
+    "title": "Sclérothérapie",
+    "image": "/images/treatments/sclerotherapy/sclerotherapy-treatment-room-2.jpg",
+    "description": "Éliminez les varicosités et les petites varices.",
+    "items": [
+      {
+        "service": "Consultation",
+        "price": "£50"
+      },
+      {
+        "service": "Traitement (par séance, jusqu'à 4 à 5 veines)",
+        "price": "£350"
+      }
+    ]
+  },
+  {
+    "id": "prp-face-body",
+    "title": "PRP, Rajeunissement du Visage et du Corps",
+    "image": "/images/treatments/prp-face-body/prp-injection-face.jpg",
+    "description": "Votre propre plasma, suralimenté pour le renouvellement de la peau.",
+    "items": [
+      {
+        "service": "Consultation",
+        "price": "£50",
+        "note": "Gratuit si soin réservé"
+      },
+      {
+        "service": "PRP standard (« facial vampire »)",
+        "price": "£399 per treatment"
+      },
+      {
+        "service": "Matrice Cellulaire A-PRP (PRP + Acide Hyaluronique, micro-needling)",
+        "price": "£599 per treatment"
+      }
+    ]
+  },
+  {
+    "id": "microneedling",
+    "title": "Microneedling",
+    "image": "/images/treatments/microneedling/fight-aging.webp",
+    "description": "Thérapie d'induction de collagène pour une peau plus lisse et plus ferme.",
+    "items": [
+      {
+        "service": "Séance de microneedling",
+        "price": "£150"
+      }
+    ]
+  },
+  {
+    "id": "mesotherapy",
+    "title": "Mésothérapie",
+    "image": "/images/treatments/mesotherapy/mesox/aminoacids-box-2.jpg",
+    "description": "Boosters de peau en vitamines, acides aminés et antioxydants.",
+    "items": [
+      {
+        "service": "Consultation",
+        "price": "£50",
+        "note": "Gratuit si soin réservé"
+      },
+      {
+        "service": "Petite zone (par exemple sous les yeux, cernes, pigmentation, taches de vieillesse)",
+        "price": "£200"
+      },
+      {
+        "service": "Zone moyenne (par exemple visage complet, bras, bas du dos)",
+        "price": "£250"
+      },
+      {
+        "service": "Grande zone (par exemple, cuir chevelu complet, abdomen complet)",
+        "price": "£275"
+      }
+    ]
+  },
+  {
+    "id": "photodynamic-therapy",
+    "title": "Peelings chimiques (Peeling photodynamique)",
+    "image": "/images/treatments/photo-aging/skinox-wrinkles.jpg",
+    "description": "Traitement activé par la lumière pour les taches, les rougeurs et les dommages causés par le soleil.",
+    "items": [
+      {
+        "service": "Consultation",
+        "price": "£50"
+      },
+      {
+        "service": "Peeling Anti-Rides",
+        "price": "£200"
+      },
+      {
+        "service": "Peeling des taches brunes",
+        "price": "£200"
+      },
+      {
+        "service": "Peeling contre la rosacée",
+        "price": "£200"
+      },
+      {
+        "service": "Peeling des imperfections",
+        "price": "£200"
+      },
+      {
+        "service": "1 soin",
+        "price": "£200"
+      },
+      {
+        "service": "4 soins",
+        "price": "£600"
+      }
+    ]
+  },
+  {
+    "id": "cryopen",
+    "title": "CryoPen",
+    "image": "/images/treatments/cryopen/cryopen-device-v2.jpg",
+    "description": "Élimination précise des lésions cutanées indésirables en quelques minutes.",
+    "items": [
+      {
+        "service": "Consultation",
+        "price": "£20"
+      },
+      {
+        "service": "Acrochordons",
+        "price": "From £20"
+      },
+      {
+        "service": "Lentigo solaire",
+        "price": "From £35"
+      },
+      {
+        "service": "Taches de vieillesse",
+        "price": "From £35"
+      },
+      {
+        "service": "Milia",
+        "price": "£20–£30"
+      },
+      {
+        "service": "Verrues",
+        "price": "£25–£35"
+      },
+      {
+        "service": "Angiome cerise",
+        "price": "From £20"
+      },
+      {
+        "service": "Verrues virales",
+        "price": "From £40"
+      }
+    ]
+  },
+  {
+    "id": "profhilo",
+    "title": "Profil",
+    "image": "/images/treatments/profhilo/sofia-injecting-lips.jpg",
+    "description": "Le biostimulateur ultime pour le remodelage de la peau.",
+    "items": [
+      {
+        "service": "Consultation",
+        "price": "£50",
+        "note": "Gratuit avec traitement"
+      },
+      {
+        "service": "1 soin (visage)",
+        "price": "£400"
+      },
+      {
+        "service": "Cours de 2 (visage)",
+        "price": "£700"
+      },
+      {
+        "service": "1 soin (cou)",
+        "price": "£400"
+      },
+      {
+        "service": "Cours de 2 (cou)",
+        "price": "£700"
+      }
+    ]
+  },
+  {
+    "id": "aqualyx",
+    "title": "Aqualyx",
+    "image": "/images/treatments/aqualyx/aqualyx-product-hero.jpg",
+    "description": "Dissout définitivement les graisses tenaces – précisément ciblées.",
+    "items": [
+      {
+        "service": "Consultation",
+        "price": "From £50",
+        "note": "Gratuit avec traitement"
+      },
+      {
+        "service": "Menton",
+        "price": "£350"
+      },
+      {
+        "service": "Lignes de la mâchoire",
+        "price": "£350"
+      },
+      {
+        "service": "Bas-ventre",
+        "price": "From £450"
+      },
+      {
+        "service": "Haut de l'abdomen",
+        "price": "From £350"
+      },
+      {
+        "service": "Haut/bas de l'abdomen",
+        "price": "From £800"
+      },
+      {
+        "service": "Bras",
+        "price": "From £350"
+      },
+      {
+        "service": "Aisselle",
+        "price": "From £250"
+      },
+      {
+        "service": "Renflement de la bretelle du soutien-gorge",
+        "price": "From £300"
+      },
+      {
+        "service": "Dessus de muffins",
+        "price": "From £300"
+      },
+      {
+        "service": "Sous la fesse",
+        "price": "From £250"
+      },
+      {
+        "service": "Hanches",
+        "price": "From £500"
+      },
+      {
+        "service": "Extérieur des cuisses",
+        "price": "From £300"
+      },
+      {
+        "service": "Intérieur des cuisses",
+        "price": "From £350"
+      },
+      {
+        "service": "Genou",
+        "price": "From £250"
+      },
+      {
+        "service": "Cheville",
+        "price": "From £250"
+      }
+    ]
+  },
+  {
+    "id": "mounjaro",
+    "title": "Mounjaro (Perte de poids)",
+    "image": "/images/treatments/mounjaro/product-card.jpg",
+    "description": "Gestion médicale du poids – sur ordonnance uniquement. Évaluation d’éligibilité requise.",
+    "items": [
+      {
+        "service": "Mounjaro 2,5 mg",
+        "price": "£250"
+      },
+      {
+        "service": "Mounjaro 5mg",
+        "price": "£275"
+      },
+      {
+        "service": "Mounjaro 7,5 mg",
+        "price": "£350"
+      },
+      {
+        "service": "Mounjaro 10mg",
+        "price": "£500"
+      },
+      {
+        "service": "Mounjaro 12,5 mg",
+        "price": "£550"
+      },
+      {
+        "service": "Mounjaro 15mg",
+        "price": "£575"
+      }
+    ]
+  },
+  {
+    "id": "vitamin-b12",
+    "title": "Vitamine B12",
+    "image": "/images/treatments/vitamin-b12/sofia-injecting-arm.jpg",
+    "description": "Stimulez l’énergie, le métabolisme et le bien-être – rapidement.",
+    "items": [
+      {
+        "service": "Consultation",
+        "price": "£50",
+        "note": "Gratuit avec traitement"
+      },
+      {
+        "service": "Coup de rappel à injection unique",
+        "price": "£60"
+      },
+      {
+        "service": "Coup de rappel à double injection",
+        "price": "£80"
+      },
+      {
+        "service": "Séance de 4 injections uniques",
+        "price": "£200"
+      },
+      {
+        "service": "Séance de 4 doubles injections",
+        "price": "£280"
+      }
+    ]
+  },
+  {
+    "id": "exosomes-facial",
+    "title": "Exosomes du visage",
+    "image": "/images/treatments/exosome/sofia-facial-exosome-treatment.jpg",
+    "description": "Médecine régénératrice de nouvelle génération pour la peau.",
+    "items": [
+      {
+        "service": "1 séance (1 flacon de solution HA + 1 flacon d'exosome)",
+        "price": "£800"
+      },
+      {
+        "service": "2 séances (achetées ensemble)",
+        "price": "£650 each"
+      },
+      {
+        "service": "3 séances (achetées ensemble)",
+        "price": "£550 each"
+      },
+      {
+        "service": "4 séances (achetées ensemble)",
+        "price": "£500 each"
+      }
+    ]
+  },
+  {
+    "id": "exosomes-hair",
+    "title": "Exosomes Cheveux",
+    "image": "/images/treatments/exosome/sofia-scalp-exosome-treatment.jpg",
+    "description": "Médecine régénérative de nouvelle génération pour la restauration capillaire.",
+    "items": [
+      {
+        "service": "1 séance (1 flacon de solution HA + 1 flacon d'exosome)",
+        "price": "£800"
+      },
+      {
+        "service": "2 séances (achetées ensemble)",
+        "price": "£650 each"
+      },
+      {
+        "service": "3 séances (achetées ensemble)",
+        "price": "£550 each"
+      },
+      {
+        "service": "4 séances (achetées ensemble)",
+        "price": "£500 each"
+      }
+    ]
+  },
+  {
+    "id": "polynucleotides",
+    "title": "Polynucléotides",
+    "image": "/images/treatments/polynucleotides/sofia-injecting.jpg",
+    "description": "Thérapie régénérative avancée pour la peau et le dessous des yeux.",
+    "items": [
+      {
+        "service": "Yeux",
+        "price": "£250"
+      },
+      {
+        "service": "Visage",
+        "price": "£499"
+      },
+      {
+        "service": "Cou",
+        "price": "£499"
+      },
+      {
+        "service": "Cheveux",
+        "price": "£250"
+      }
+    ]
+  }
+]

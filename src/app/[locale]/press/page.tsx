@@ -2,12 +2,20 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import PressGrid from "@/components/PressGrid";
 import Footer from "@/components/Footer";
+import { getTranslations } from "next-intl/server";
 
-export const metadata: Metadata = {
-  title: "Press | YourHealthFirst Clinic — Harley Street",
-  description:
-    "Press coverage, features and event highlights for YourHealthFirst Clinic and Sofia Bouzian — Harley Street, London.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "PressPage" });
+  return {
+    title: `${t("heading")} | YourHealthFirst Clinic — Harley Street`,
+    description: t("subtitle"),
+  };
+}
 
 const pressImages = [
   { src: "/images/press/press-50.jpg", alt: "Global Woman Magazine cover — Sofia Bouzian, The Beauty Doctor" },
@@ -36,7 +44,14 @@ const pressImages = [
   { src: "/images/press/press-74.jpg", alt: "Featured press — YourHealthFirst fat-freezing introductory offer" },
 ];
 
-export default function PressPage() {
+export default async function PressPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "PressPage" });
+
   return (
     <div className="flex flex-col">
       <Header />
@@ -46,14 +61,14 @@ export default function PressPage() {
         <div className="mx-auto max-w-[1400px] px-5 py-[80px] lg:py-[100px]">
           <div className="w-fit rounded-full border-[0.8px] border-white/20 px-3 py-2">
             <p className="text-[13px] font-semibold leading-[20.8px] tracking-[3px] text-tan uppercase">
-              in the spotlight
+              {t("badge")}
             </p>
           </div>
           <h1 className="mt-4 font-display text-[42px] leading-[46px] font-bold tracking-[-1px] text-cream uppercase lg:text-[64px] lg:leading-[70px]">
-            Press
+            {t("heading")}
           </h1>
           <p className="mt-3 max-w-[560px] font-nav text-[16px] leading-[26px] text-white/60">
-            Press coverage, media features and event highlights for YourHealthFirst Clinic and Sofia Bouzian.
+            {t("subtitle")}
           </p>
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-tan/40 to-transparent" />
@@ -64,7 +79,7 @@ export default function PressPage() {
         <div className="mx-auto max-w-[1400px] py-[70px] lg:py-[90px]">
           <div className="mb-10 flex items-center gap-4">
             <h2 className="font-subheading text-[24px] font-medium leading-[30px] tracking-[-1px] text-forest uppercase lg:text-[30px] lg:leading-[36px]">
-              Video Coverage
+              {t("videoCoverage")}
             </h2>
             <div className="flex-1 border-t border-black/8" />
           </div>
@@ -95,7 +110,7 @@ export default function PressPage() {
         <div className="mx-auto max-w-[1400px] py-[80px] lg:py-[100px]">
           <div className="mb-10 flex items-center gap-4">
             <h2 className="font-subheading text-[24px] font-medium leading-[30px] tracking-[-1px] text-forest uppercase lg:text-[30px] lg:leading-[36px]">
-              Press Gallery
+              {t("pressGallery")}
             </h2>
             <div className="flex-1 border-t border-black/8" />
           </div>

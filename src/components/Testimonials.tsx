@@ -1,8 +1,21 @@
+"use client";
+
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { testimonials } from "@/data/site";
 import { StarIcon, QuoteIcon } from "@/components/icons";
 
+const testimonialKeys: Record<string, string> = {
+  "Fariah Khan": "fariah",
+  "Maria Carla": "maria",
+  "Robin Pearce": "robin",
+  "David V": "david",
+};
+
 export default function Testimonials() {
+  const t = useTranslations("Testimonials");
+  const tList = useTranslations("TestimonialsList");
+
   return (
     <section className="relative w-full bg-brown-gold bg-[url('/images/testimonials-bg.jpg')] bg-cover bg-left-top px-5">
       {/* Gold → black overlay */}
@@ -17,13 +30,13 @@ export default function Testimonials() {
           <div className="flex flex-col gap-6">
             <div className="w-fit rounded-[25px] border-[0.8px] border-white px-3 py-2">
               <h2 className="text-[13px] leading-[20.8px] font-semibold tracking-[3px] text-white uppercase">
-                testimonials
+                {t("badge")}
               </h2>
             </div>
 
             <h2 className="font-subheading text-[36px] leading-[40px] font-medium tracking-[-1.8px] text-black uppercase lg:text-[50px] lg:leading-[55px]">
-              <span className="block text-tan">what our</span>
-              patient say
+              <span className="block text-tan">{t("heading1")}</span>
+              {t("heading2")}
             </h2>
           </div>
 
@@ -33,53 +46,59 @@ export default function Testimonials() {
             rel="noopener noreferrer"
             className="inline-block w-fit rounded-[8px] border-[2.4px] border-tan px-[26px] py-4 text-center font-display text-[18px] leading-[18px] font-semibold tracking-[0.6px] text-tan uppercase transition-colors duration-200 hover:bg-tan hover:text-black"
           >
-            more testimonials
+            {t("moreTestimonials")}
           </a>
         </div>
 
         {/* Cards */}
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          {testimonials.map((item) => (
-            <article
-              key={item.name}
-              className="relative flex flex-col rounded-[8px] border-[1.6px] border-tan p-4 shadow-[9px_11px_14px_0_rgba(0,0,0,0.1)] lg:min-h-[260px]"
-            >
-              <ul className="flex h-[18px] items-center">
-                {Array.from({ length: 5 }).map((_, index) => (
-                  <li key={index} className="mr-[3px] last:mr-0">
-                    <StarIcon className="h-3 w-3 text-[#fec42d]" />
-                  </li>
-                ))}
-              </ul>
+          {testimonials.map((item) => {
+            const key = testimonialKeys[item.name];
+            const quote = key && tList.has(`${key}.quote`) ? tList(`${key}.quote`) : item.quote;
+            const role = key && tList.has(`${key}.role`) ? tList(`${key}.role`) : item.role;
 
-              <p className="my-4 line-clamp-5 text-[13px] leading-[20px] font-medium tracking-[-0.2px] text-white">
-                {item.quote}
-              </p>
+            return (
+              <article
+                key={item.name}
+                className="relative flex flex-col rounded-[8px] border-[1.6px] border-tan p-4 shadow-[9px_11px_14px_0_rgba(0,0,0,0.1)] lg:min-h-[260px]"
+              >
+                <ul className="flex h-[18px] items-center">
+                  {Array.from({ length: 5 }).map((_, index) => (
+                    <li key={index} className="mr-[3px] last:mr-0">
+                      <StarIcon className="h-3 w-3 text-[#fec42d]" />
+                    </li>
+                  ))}
+                </ul>
 
-              <div className="mt-auto flex items-center">
-                <Image
-                  src={item.avatar}
-                  alt={item.name}
-                  width={44}
-                  height={44}
-                  className="mr-3 h-[44px] w-[44px] shrink-0 rounded-full border border-tan/60 object-cover"
-                />
-                <div>
-                  <strong className="block font-display text-[15px] leading-[18px] font-medium tracking-[-0.5px] text-tan uppercase">
-                    {item.name}
-                  </strong>
-                  <span className="text-[11px] leading-[18px] font-normal tracking-[-0.2px] text-white">
-                    {item.role}
-                  </span>
+                <p className="my-4 line-clamp-5 text-[13px] leading-[20px] font-medium tracking-[-0.2px] text-white">
+                  {quote}
+                </p>
+
+                <div className="mt-auto flex items-center">
+                  <Image
+                    src={item.avatar}
+                    alt={item.name}
+                    width={44}
+                    height={44}
+                    className="mr-3 rtl:mr-0 rtl:ml-3 h-[44px] w-[44px] shrink-0 rounded-full border border-tan/60 object-cover"
+                  />
+                  <div>
+                    <strong className="block font-display text-[15px] leading-[18px] font-medium tracking-[-0.5px] text-tan uppercase">
+                      {item.name}
+                    </strong>
+                    <span className="text-[11px] leading-[18px] font-normal tracking-[-0.2px] text-white">
+                      {role}
+                    </span>
+                  </div>
                 </div>
-              </div>
 
-              <QuoteIcon
-                aria-hidden="true"
-                className="absolute right-4 bottom-4 h-5 w-5 text-tan"
-              />
-            </article>
-          ))}
+                <QuoteIcon
+                  aria-hidden="true"
+                  className="absolute right-4 bottom-4 rtl:right-auto rtl:left-4 h-5 w-5 text-tan"
+                />
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>

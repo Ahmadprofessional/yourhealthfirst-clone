@@ -7,9 +7,11 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import TreatmentFaqAccordion from "@/components/TreatmentFaqAccordion";
 import { treatmentDetails } from "@/data/treatments";
+import { getLocalizedTreatment } from "@/data/localizedTreatments";
+import { getTranslations } from "next-intl/server";
 
 interface Props {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 }
 
 function contraindicationIcon(text: string): string {
@@ -267,11 +269,11 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = await params;
-  const treatment = treatmentDetails.find((t) => t.slug === slug);
+  const { locale, slug } = await params;
+  const treatment = getLocalizedTreatment(slug, locale) ?? treatmentDetails.find((t) => t.slug === slug);
   if (!treatment) return { title: "Treatment | YourHealthFirst Clinic" };
   return {
-    title: treatment.metaTitle ?? `${treatment.title} | YourHealthFirst Clinic — Harley Street`,
+    title: `${treatment.title} | YourHealthFirst Clinic — Harley Street`,
     description: treatment.metaDescription ?? treatment.intro,
   };
 }
@@ -289,9 +291,57 @@ function renderBold(text: string) {
 }
 
 export default async function TreatmentPage({ params }: Props) {
-  const { slug } = await params;
-  const treatment = treatmentDetails.find((t) => t.slug === slug);
+  const { locale, slug } = await params;
+  const treatment = getLocalizedTreatment(slug, locale);
   if (!treatment) notFound();
+
+  const t = await getTranslations({ locale, namespace: "TreatmentDetail" });
+  const tServices = await getTranslations({ locale, namespace: "ServiceList" });
+  const tHeader = await getTranslations({ locale, namespace: "Header" });
+
+  const pageTitle = treatment.title;
+  const pageIntro = treatment.intro;
+  const pageTagline = treatment.tagline;
+
+  const categoryMap: Record<string, Record<string, string>> = {
+    'Face & Anti-Aging': {
+      en: 'Face & Anti-Aging',
+      fr: 'Visage & Anti-Âge',
+      es: 'Rostro y Antienvejecimiento',
+      ar: 'الوجه ومكافحة الشيخوخة',
+      ru: 'Лицо и Омоложение',
+    },
+    'Hair Restoration': {
+      en: 'Hair Restoration',
+      fr: 'Restauration Capillaire',
+      es: 'Restauración Capilar',
+      ar: 'استعادة الشعر',
+      ru: 'Восстановление Волос',
+    },
+    'Body Contouring': {
+      en: 'Body Contouring',
+      fr: 'Remodelage Corporel',
+      es: 'Remodelación Corporal',
+      ar: 'نحت القوام',
+      ru: 'Контурирование Тела',
+    },
+    'Skin & Health': {
+      en: 'Skin & Health',
+      fr: 'Peau & Santé',
+      es: 'Piel y Salud',
+      ar: 'البشرة والصحة',
+      ru: 'Кожа и Здоровье',
+    },
+    'Phlebotomy & Health Tests': {
+      en: 'Phlebotomy & Health Tests',
+      fr: 'Phlébotomie & Analyses Médicales',
+      es: 'Flebotomía y Pruebas Médicas',
+      ar: 'سحب الدم والفحوصات الطبية',
+      ru: 'Флеботомия и Анализы',
+    },
+  };
+
+  const pageCategory = categoryMap[treatment.category]?.[locale] || treatment.category;
 
   const relatedTreatments = treatmentDetails
     .filter((t) => t.category === treatment.category && t.slug !== treatment.slug)
@@ -519,36 +569,36 @@ export default async function TreatmentPage({ params }: Props) {
                 href="/treatments"
                 className="font-nav text-[13px] tracking-[1px] text-white/40 uppercase transition-colors hover:text-tan"
               >
-                Treatments
+                {tHeader("treatments")}
               </Link>
               <span className="text-white/30">/</span>
               <span className="font-nav text-[13px] tracking-[1px] text-tan/70 uppercase">
-                {treatment.category}
+                {pageCategory}
               </span>
             </div>
             <div className="w-fit rounded-full border-[0.8px] border-white/20 px-3 py-2">
               <p className="text-[13px] font-semibold leading-[20.8px] tracking-[3px] text-tan uppercase">
-                {treatment.category}
+                {pageCategory}
               </p>
             </div>
             <h1 className="font-display text-[38px] leading-[42px] font-bold tracking-[-1px] text-cream uppercase lg:text-[58px] lg:leading-[64px]">
-              {treatment.title}
-              {treatment.taglineInHeading && treatment.tagline ? (
-                treatment.taglineHeadingAccent && treatment.tagline.endsWith(treatment.taglineHeadingAccent) ? (
+              {pageTitle}
+              {treatment.taglineInHeading && pageTagline ? (
+                treatment.taglineHeadingAccent && pageTagline.endsWith(treatment.taglineHeadingAccent) ? (
                   <>
-                    {" " + treatment.tagline.slice(0, treatment.tagline.length - treatment.taglineHeadingAccent.length)}
+                    {" " + pageTagline.slice(0, pageTagline.length - treatment.taglineHeadingAccent.length)}
                     <span className="text-black">{treatment.taglineHeadingAccent}</span>
                   </>
                 ) : (
-                  ` ${treatment.tagline}`
+                  ` ${pageTagline}`
                 )
               ) : (
                 ""
               )}
             </h1>
-            {treatment.tagline && !treatment.taglineInHeading && (
+            {pageTagline && !treatment.taglineInHeading && (
               <p className="max-w-[560px] font-serif text-[20px] leading-[30px] text-white/70 italic">
-                {treatment.tagline}
+                {pageTagline}
               </p>
             )}
           </div>
@@ -566,7 +616,7 @@ export default async function TreatmentPage({ params }: Props) {
               {/* Intro */}
               {!treatment.introInBody && (
                 <p className="text-[18px] leading-[30px] tracking-[-0.3px] text-forest font-medium">
-                  {treatment.intro}
+                  {pageIntro}
                 </p>
               )}
 
@@ -640,7 +690,7 @@ export default async function TreatmentPage({ params }: Props) {
                   {!treatment.treatmentAreas && !treatment.suitableImage && (
                     <div className="mt-2 flex flex-col gap-4">
                       <h2 className="font-subheading text-[20px] font-semibold leading-[26px] tracking-[-0.8px] text-forest uppercase">
-                        Suitable For
+                        {t("suitableFor")}
                       </h2>
                       <ul className="grid grid-cols-1 gap-x-10 gap-y-3 sm:grid-cols-2">
                         {treatment.suitableFor.map((item) => (
@@ -657,7 +707,7 @@ export default async function TreatmentPage({ params }: Props) {
                       <div className="flex flex-col gap-4 lg:order-2 lg:self-center">
                         <div className="flex flex-col gap-4 rounded-[14px] border border-tan/25 bg-cream/40 p-6">
                           <h2 className="font-subheading text-[20px] font-semibold leading-[26px] tracking-[-0.8px] text-forest uppercase">
-                            What Areas Can Be Treated?
+                            {t("whatAreas")}
                           </h2>
                           <div className="flex flex-wrap gap-3">
                             {treatment.treatmentAreas!.map((area) => (
@@ -673,7 +723,7 @@ export default async function TreatmentPage({ params }: Props) {
                         </div>
                         <div className="flex flex-col gap-4 rounded-[14px] border border-tan/50 bg-tan/20 p-6">
                           <h2 className="font-subheading text-[20px] font-semibold leading-[26px] tracking-[-0.8px] text-forest uppercase">
-                            Who Is It For?
+                            {t("whoIsItFor")}
                           </h2>
                           <div className="flex flex-col gap-4">
                             {treatment.suitableFor.map((item) => (
@@ -810,7 +860,7 @@ export default async function TreatmentPage({ params }: Props) {
                           ) : null;
                         })()}
                         <h2 className="mb-4 font-subheading text-[20px] font-semibold leading-[26px] tracking-[-0.8px] text-forest uppercase">
-                          Suitable For
+                          {t("suitableFor")}
                         </h2>
                         <ul className="flex flex-col gap-3">
                           {treatment.suitableFor.map((item) => (
@@ -847,7 +897,7 @@ export default async function TreatmentPage({ params }: Props) {
             <div className="flex flex-1 flex-col gap-4">
               <div className="rounded-[14px] border border-tan/30 bg-cream p-6">
                 <h2 className="mb-4 font-subheading text-[18px] font-semibold leading-[24px] tracking-[-0.5px] text-forest uppercase">
-                  Suitable For
+                  {t("suitableFor")}
                 </h2>
                 <ul className="grid grid-cols-1 gap-x-8 gap-y-3 md:grid-cols-2">
                   {treatment.suitableFor.map((item) => (
@@ -860,7 +910,7 @@ export default async function TreatmentPage({ params }: Props) {
               </div>
               <div className="rounded-[14px] bg-[linear-gradient(135deg,#b8925a_0%,#d1ae83_50%,#b8925a_100%)] p-6 shadow-md">
                 <h2 className="mb-4 font-subheading text-[18px] font-semibold leading-[24px] tracking-[2px] text-forest uppercase">
-                  Key Benefits
+                  {t("keyBenefits")}
                 </h2>
                 <ul className="grid grid-cols-1 gap-x-8 gap-y-3 md:grid-cols-2">
                   {treatment.benefits.map((benefit) => (
@@ -1199,7 +1249,7 @@ export default async function TreatmentPage({ params }: Props) {
               {!treatment.treatmentAreas && !treatment.bodyImages && (
                 <div className="flex flex-col gap-4">
                   <h2 className="font-subheading text-[20px] font-semibold leading-[26px] tracking-[-0.8px] text-forest uppercase">
-                    Suitable For
+                    {t("suitableFor")}
                   </h2>
                   <ul className="flex flex-col gap-3">
                     {treatment.suitableFor.map((item) => (
@@ -1221,23 +1271,23 @@ export default async function TreatmentPage({ params }: Props) {
               {/* Key facts card */}
               <div className="rounded-[12px] bg-cream p-6">
                 <h3 className="font-subheading text-[14px] font-semibold tracking-[2px] text-forest uppercase">
-                  Key Facts
+                  {t("keyFacts")}
                 </h3>
                 <div className="mt-5 flex flex-col gap-4">
                   <div className="border-b border-black/10 pb-4">
-                    <p className="text-[12px] tracking-[1.5px] text-body-text/60 uppercase">Results</p>
+                    <p className="text-[12px] tracking-[1.5px] text-body-text/60 uppercase">{t("results")}</p>
                     <p className="mt-1 text-[15px] leading-[22px] text-forest">{treatment.results}</p>
                   </div>
                   {treatment.priceFrom && (
                     <div className="border-b border-black/10 pb-4">
-                      <p className="text-[12px] tracking-[1.5px] text-body-text/60 uppercase">Starting From</p>
+                      <p className="text-[12px] tracking-[1.5px] text-body-text/60 uppercase">{t("startingFrom")}</p>
                       <p className="mt-1 font-subheading text-[18px] font-semibold text-tan">
                         {treatment.priceFrom}
                       </p>
                     </div>
                   )}
                   <div>
-                    <p className="text-[12px] tracking-[1.5px] text-body-text/60 uppercase">Location</p>
+                    <p className="text-[12px] tracking-[1.5px] text-body-text/60 uppercase">{t("location")}</p>
                     <p className="mt-1 text-[15px] leading-[22px] text-forest">
                       2 Wimpole Street, London W1G 0EB
                     </p>
@@ -1249,23 +1299,23 @@ export default async function TreatmentPage({ params }: Props) {
               {!treatment.bookCTAHorizontal && (
                 <div className="rounded-[12px] bg-[linear-gradient(135deg,#7a6248_0%,#b49b7d_50%,#7a6248_100%)] p-6">
                   <h3 className="font-subheading text-[15px] font-semibold tracking-[1px] text-cream uppercase">
-                    Book a Consultation
+                    {t("bookTitle")}
                   </h3>
                   <p className="mt-2 text-[14px] leading-[22px] text-white/60">
-                    Begin with a personal consultation with Sofia to discuss your goals and confirm suitability.
+                    {t("bookDesc")}
                   </p>
                   <div className="mt-5 flex flex-col gap-3">
                     <a
                       href="tel:02072253582"
                       className="flex h-12 items-center justify-center rounded-[8px] bg-tan font-nav text-[14px] font-semibold tracking-[-0.3px] text-forest transition-opacity hover:opacity-90"
                     >
-                      Call 0207 225 3582
+                      {t("call")}
                     </a>
                     <a
                       href="/contact-us"
                       className="flex h-12 items-center justify-center rounded-[8px] border border-white/20 font-nav text-[14px] font-semibold tracking-[-0.3px] text-tan transition-colors hover:border-tan/60"
                     >
-                      Send an Enquiry
+                      {t("sendEnquiry")}
                     </a>
                   </div>
                 </div>
@@ -1302,7 +1352,7 @@ export default async function TreatmentPage({ params }: Props) {
               </div>
               <div className="flex min-w-0 flex-col justify-center rounded-[16px] border border-tan/30 bg-cream p-8 lg:p-10">
                 <h2 className="mb-7 font-subheading text-[26px] font-semibold leading-[32px] tracking-[-0.8px] text-forest uppercase">
-                  Suitable For
+                  {t("suitableFor")}
                 </h2>
                 <ul className="flex flex-col gap-6">
                   {treatment.suitableFor.map((item) => (
@@ -1316,7 +1366,7 @@ export default async function TreatmentPage({ params }: Props) {
               {treatment.benefitsInline && (
                 <div className="flex min-w-0 flex-col justify-center rounded-[16px] bg-[linear-gradient(135deg,#b8925a_0%,#d1ae83_50%,#b8925a_100%)] p-8 shadow-md lg:p-10">
                   <h2 className="mb-7 font-subheading text-[26px] font-semibold leading-[32px] tracking-[2px] text-forest uppercase">
-                    Key Benefits
+                    {t("keyBenefits")}
                   </h2>
                   <ul className="flex flex-col gap-4">
                     {treatment.benefits.map((benefit) => (
@@ -1343,10 +1393,10 @@ export default async function TreatmentPage({ params }: Props) {
                 <div className="flex flex-col gap-2">
                   <span className="h-[3px] w-12 rounded-full bg-cream" />
                   <h2 className="font-subheading text-[24px] font-semibold tracking-[2px] text-cream uppercase lg:text-[28px]">
-                    Book a Consultation
+                    {t("bookTitle")}
                   </h2>
                   <p className="max-w-[480px] text-[15px] leading-[24px] text-white/70">
-                    Begin with a personal consultation with Sofia to discuss your goals and confirm suitability.
+                    {t("bookDesc")}
                   </p>
                 </div>
                 <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
@@ -1354,13 +1404,13 @@ export default async function TreatmentPage({ params }: Props) {
                     href="tel:02072253582"
                     className="flex h-12 items-center justify-center rounded-[8px] bg-tan px-6 font-nav text-[14px] font-semibold tracking-[-0.3px] text-forest transition-opacity hover:opacity-90"
                   >
-                    Call 0207 225 3582
+                    {t("call")}
                   </a>
                   <a
                     href="/contact-us"
                     className="flex h-12 items-center justify-center rounded-[8px] border border-white/20 px-6 font-nav text-[14px] font-semibold tracking-[-0.3px] text-tan transition-colors hover:border-tan/60"
                   >
-                    Send an Enquiry
+                    {t("sendEnquiry")}
                   </a>
                 </div>
               </div>
@@ -1467,7 +1517,7 @@ export default async function TreatmentPage({ params }: Props) {
               <div className="relative flex flex-col gap-2">
                 <span className="h-[3px] w-12 rounded-full bg-forest" />
                 <h2 className="font-subheading text-[24px] font-semibold tracking-[2px] text-forest uppercase lg:text-[28px]">
-                  Key Benefits
+                  {t("keyBenefits")}
                 </h2>
               </div>
               <ul className="relative mt-8 grid grid-cols-1 gap-x-10 gap-y-4 md:grid-cols-2">
@@ -1533,7 +1583,7 @@ export default async function TreatmentPage({ params }: Props) {
                   <span className="h-px flex-1 max-w-[60px] bg-tan/40" />
                 </div>
                 <h2 className="mt-3 font-display text-[28px] font-bold leading-[34px] tracking-[-1px] text-forest lg:text-[32px] lg:leading-[38px]">
-                  What Areas Can Be Treated?
+                  {t("whatAreas")}
                 </h2>
                 <p className="mt-3 text-[14px] leading-[22px] text-body-text">
                   {treatment.title} can be used on various areas of the face and body to rejuvenate the skin, improve texture and stimulate natural healing.
@@ -1711,7 +1761,7 @@ export default async function TreatmentPage({ params }: Props) {
                       <span className="h-px flex-1 bg-tan/30" />
                     </div>
                     <h3 className="font-subheading text-[19px] font-semibold leading-[24px] text-forest">
-                      Who Is It For?
+                      {t("whoIsItFor")}
                     </h3>
                     <ul className="flex flex-col gap-2.5">
                       {treatment.suitableFor.map((item) => (
@@ -2272,7 +2322,7 @@ export default async function TreatmentPage({ params }: Props) {
         <section className="w-full border-t border-black/8 bg-cream px-5">
           <div className="mx-auto max-w-[1400px] py-[80px] lg:py-[100px]">
             <h2 className="text-center font-subheading text-[26px] font-medium leading-[32px] tracking-[-1px] text-forest uppercase lg:text-[32px] lg:leading-[38px]">
-              Before &amp; After
+              {t("beforeAfter")}
             </h2>
             <div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2">
               {treatment.beforeAfterPairs.map((pair, i) => (
@@ -2324,7 +2374,7 @@ export default async function TreatmentPage({ params }: Props) {
         <section className="w-full border-t border-black/8 px-5">
           <div className="mx-auto max-w-[900px] py-[80px] lg:py-[100px]">
             <h2 className="text-center font-subheading text-[26px] font-medium leading-[32px] tracking-[-1px] text-forest uppercase lg:text-[32px] lg:leading-[38px]">
-              {treatment.title} Price List
+              {pageTitle} — {t("priceListTitle")}
             </h2>
             <p className="mx-auto mt-3 max-w-[560px] text-center text-[15px] leading-[24px] text-body-text">
               Prices vary by treatment area and the amount of product used — confirmed exactly at your consultation.
@@ -2353,7 +2403,7 @@ export default async function TreatmentPage({ params }: Props) {
         <section className="w-full bg-cream px-5">
           <div className="mx-auto max-w-[900px] py-[80px] lg:py-[100px]">
             <h2 className="text-center font-subheading text-[26px] font-medium leading-[32px] tracking-[-1px] text-forest uppercase lg:text-[32px] lg:leading-[38px]">
-              Frequently Asked Questions
+              {t("faqsTitle")}
             </h2>
             <p className="mx-auto mt-3 max-w-[520px] text-center text-[15px] leading-[24px] text-body-text">
               Everything you need to know about {treatment.title.toLowerCase()} at YourHealthFirst Clinic.
@@ -2424,7 +2474,7 @@ export default async function TreatmentPage({ params }: Props) {
         <section className="w-full px-5">
           <div className="mx-auto max-w-[1400px] py-[80px] lg:py-[100px]">
             <h2 className="text-center font-subheading text-[26px] font-medium leading-[32px] tracking-[-1px] text-forest uppercase lg:text-[32px] lg:leading-[38px]">
-              Our Gallery
+              {t("galleryTitle")}
             </h2>
             <p className="mx-auto mt-3 max-w-[520px] text-center text-[15px] leading-[24px] text-body-text">
               Real before &amp; after results from patients treated at YourHealthFirst Clinic.
@@ -2471,7 +2521,7 @@ export default async function TreatmentPage({ params }: Props) {
                 href={`/gallery?treatment=${treatment.slug}`}
                 className="inline-flex h-12 items-center justify-center rounded-[8px] bg-[#a8896a] px-7 font-nav text-[14px] font-semibold tracking-[-0.3px] text-cream transition-opacity hover:opacity-90"
               >
-                View All Results in Our Gallery →
+                {t("viewGalleryCta")}
               </Link>
             </div>
           </div>
@@ -2483,18 +2533,18 @@ export default async function TreatmentPage({ params }: Props) {
         <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-10 py-[60px] sm:grid-cols-3">
           <div className="flex flex-col gap-2">
             <h3 className="font-subheading text-[15px] font-semibold tracking-[1px] text-forest uppercase">
-              Our Prices
+              {t("ourPrices")}
             </h3>
             <Link
               href="/price-list"
               className="text-[14px] text-tan underline-offset-4 hover:underline"
             >
-              Check Our Price List
+              {t("checkPriceList")}
             </Link>
           </div>
           <div className="flex flex-col gap-2">
             <h3 className="font-subheading text-[15px] font-semibold tracking-[1px] text-forest uppercase">
-              Get an Appointment
+              {t("getAppointment")}
             </h3>
             <p className="text-[14px] leading-[22px] text-body-text">
               By phone: 0207 225 3582 / 078 1847 4041<br />
@@ -2503,12 +2553,12 @@ export default async function TreatmentPage({ params }: Props) {
           </div>
           <div className="flex flex-col gap-2">
             <h3 className="font-subheading text-[15px] font-semibold tracking-[1px] text-forest uppercase">
-              Opening Hours
+              {t("openingHours")}
             </h3>
             <p className="text-[14px] leading-[22px] text-body-text">
-              Monday to Friday – 10am to 6pm<br />
-              Saturday – 12pm to 2pm (doctor appointments only)<br />
-              Sunday &amp; out of hours – by appointment only
+              {t("openingWeekdays")}<br />
+              {t("openingSaturday")}<br />
+              {t("openingSunday")}
             </p>
           </div>
         </div>
@@ -2519,26 +2569,30 @@ export default async function TreatmentPage({ params }: Props) {
         <section className="w-full bg-cream px-5">
           <div className="mx-auto max-w-[1400px] py-[80px]">
             <h2 className="font-subheading text-[28px] font-medium leading-[34px] tracking-[-1.2px] text-forest uppercase">
-              Related Treatments
+              {t("relatedTreatments")}
             </h2>
             <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {relatedTreatments.map((t) => (
-                <Link
-                  key={t.slug}
-                  href={`/treatments/${t.slug}`}
-                  className="group flex flex-col gap-3 rounded-[12px] bg-white p-6 transition-shadow hover:shadow-md"
-                >
-                  <p className="font-subheading text-[14px] font-semibold tracking-[-0.5px] text-forest uppercase">
-                    {t.title}
-                  </p>
-                  <p className="text-[14px] leading-[22px] text-body-text line-clamp-3">
-                    {t.intro}
-                  </p>
-                  <span className="font-nav text-[13px] font-semibold tracking-[0.5px] text-tan uppercase transition-opacity group-hover:opacity-70">
-                    Learn more →
-                  </span>
-                </Link>
-              ))}
+              {relatedTreatments.map((tItem) => {
+                const relTitle = tServices.has(`${tItem.slug}.title`) ? tServices(`${tItem.slug}.title`) : tItem.title;
+                const relIntro = tServices.has(`${tItem.slug}.description`) ? tServices(`${tItem.slug}.description`) : tItem.intro;
+                return (
+                  <Link
+                    key={tItem.slug}
+                    href={`/treatments/${tItem.slug}`}
+                    className="group flex flex-col gap-3 rounded-[12px] bg-white p-6 transition-shadow hover:shadow-md"
+                  >
+                    <p className="font-subheading text-[14px] font-semibold tracking-[-0.5px] text-forest uppercase">
+                      {relTitle}
+                    </p>
+                    <p className="text-[14px] leading-[22px] text-body-text line-clamp-3">
+                      {relIntro}
+                    </p>
+                    <span className="font-nav text-[13px] font-semibold tracking-[0.5px] text-tan uppercase transition-opacity group-hover:opacity-70">
+                      {t("learnMore")}
+                    </span>
+                  </Link>
+                );
+              })}
             </div>
           </div>
         </section>

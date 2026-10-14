@@ -30,10 +30,48 @@ const treatments = [
 export default function BookingSection() {
   const t = useTranslations("Booking");
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    treatment: "",
+    source: "",
+    message: "",
+  });
 
-  function handleSubmit(e: React.FormEvent) {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    setSubmitted(true);
+    setIsSubmitting(true);
+    setErrorMessage("");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+      if (res.ok) {
+        setSubmitted(true);
+      } else {
+        setErrorMessage(data.error || "Failed to send enquiry. Please try again.");
+      }
+    } catch {
+      setErrorMessage("Network error. Please try again or call us directly.");
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   const hours = [
@@ -165,6 +203,12 @@ export default function BookingSection() {
                 </div>
 
                 <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                  {errorMessage && (
+                    <div className="rounded-[8px] bg-red-500/10 border border-red-500/30 p-3 text-[14px] text-red-200">
+                      {errorMessage}
+                    </div>
+                  )}
+
                   <div className="flex flex-col gap-4 sm:flex-row">
                     <div className="flex flex-1 flex-col gap-2">
                       <label className="text-[12px] font-semibold tracking-[1px] text-white/85 uppercase">
@@ -172,6 +216,9 @@ export default function BookingSection() {
                       </label>
                       <input
                         type="text"
+                        name="firstName"
+                        value={formData.firstName}
+                        onChange={handleChange}
                         required
                         placeholder="Jane"
                         className="h-12 rounded-[8px] border border-white/10 bg-white/5 px-4 text-[15px] text-white placeholder:text-white/60 focus:border-tan/60 focus:outline-none"
@@ -183,6 +230,9 @@ export default function BookingSection() {
                       </label>
                       <input
                         type="text"
+                        name="lastName"
+                        value={formData.lastName}
+                        onChange={handleChange}
                         placeholder="Smith"
                         className="h-12 rounded-[8px] border border-white/10 bg-white/5 px-4 text-[15px] text-white placeholder:text-white/60 focus:border-tan/60 focus:outline-none"
                       />
@@ -196,6 +246,9 @@ export default function BookingSection() {
                       </label>
                       <input
                         type="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
                         required
                         placeholder="jane@example.com"
                         className="h-12 rounded-[8px] border border-white/10 bg-white/5 px-4 text-[15px] text-white placeholder:text-white/60 focus:border-tan/60 focus:outline-none"
@@ -207,6 +260,9 @@ export default function BookingSection() {
                       </label>
                       <input
                         type="tel"
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleChange}
                         placeholder="+44 7700 000000"
                         className="h-12 rounded-[8px] border border-white/10 bg-white/5 px-4 text-[15px] text-white placeholder:text-white/60 focus:border-tan/60 focus:outline-none"
                       />
@@ -217,7 +273,12 @@ export default function BookingSection() {
                     <label className="text-[12px] font-semibold tracking-[1px] text-white/85 uppercase">
                       {t("treatmentOfInterest")}
                     </label>
-                    <select className="h-12 rounded-[8px] border border-white/10 bg-white/5 px-4 text-[15px] text-white focus:border-tan/60 focus:outline-none">
+                    <select
+                      name="treatment"
+                      value={formData.treatment}
+                      onChange={handleChange}
+                      className="h-12 rounded-[8px] border border-white/10 bg-white/5 px-4 text-[15px] text-white focus:border-tan/60 focus:outline-none"
+                    >
                       <option value="" className="bg-white text-forest">{t("selectTreatment")}</option>
                       {treatments.map((treatment) => (
                         <option key={treatment} value={treatment} className="bg-white text-forest">{treatment}</option>
@@ -229,15 +290,20 @@ export default function BookingSection() {
                     <label className="text-[12px] font-semibold tracking-[1px] text-white/85 uppercase">
                       {t("howHeard")}
                     </label>
-                    <select className="h-12 rounded-[8px] border border-white/10 bg-white/5 px-4 text-[15px] text-white focus:border-tan/60 focus:outline-none">
+                    <select
+                      name="source"
+                      value={formData.source}
+                      onChange={handleChange}
+                      className="h-12 rounded-[8px] border border-white/10 bg-white/5 px-4 text-[15px] text-white focus:border-tan/60 focus:outline-none"
+                    >
                       <option value="" className="bg-white text-forest">{t("pleaseSelect")}</option>
-                      <option className="bg-white text-forest">{t("googleSearch")}</option>
-                      <option className="bg-white text-forest">{t("googleMaps")}</option>
-                      <option className="bg-white text-forest">{t("instagram")}</option>
-                      <option className="bg-white text-forest">{t("facebook")}</option>
-                      <option className="bg-white text-forest">{t("friendReferral")}</option>
-                      <option className="bg-white text-forest">{t("returningPatient")}</option>
-                      <option className="bg-white text-forest">{t("other")}</option>
+                      <option value="Google Search" className="bg-white text-forest">{t("googleSearch")}</option>
+                      <option value="Google Maps" className="bg-white text-forest">{t("googleMaps")}</option>
+                      <option value="Instagram" className="bg-white text-forest">{t("instagram")}</option>
+                      <option value="Facebook" className="bg-white text-forest">{t("facebook")}</option>
+                      <option value="Friend Referral" className="bg-white text-forest">{t("friendReferral")}</option>
+                      <option value="Returning Patient" className="bg-white text-forest">{t("returningPatient")}</option>
+                      <option value="Other" className="bg-white text-forest">{t("other")}</option>
                     </select>
                   </div>
 
@@ -246,6 +312,9 @@ export default function BookingSection() {
                       {t("message")}
                     </label>
                     <textarea
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
                       rows={4}
                       placeholder={t("messagePlaceholder")}
                       className="resize-none rounded-[8px] border border-white/10 bg-white/5 px-4 py-3 text-[15px] text-white placeholder:text-white/60 focus:border-tan/60 focus:outline-none"
@@ -254,9 +323,10 @@ export default function BookingSection() {
 
                   <button
                     type="submit"
-                    className="mt-2 inline-flex h-14 items-center justify-center rounded-[8px] bg-tan px-8 font-nav text-[15px] font-semibold tracking-[-0.3px] text-forest transition-opacity hover:opacity-90"
+                    disabled={isSubmitting}
+                    className="mt-2 inline-flex h-14 items-center justify-center rounded-[8px] bg-tan px-8 font-nav text-[15px] font-semibold tracking-[-0.3px] text-forest transition-opacity hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    {t("sendEnquiry")}
+                    {isSubmitting ? "Sending..." : t("sendEnquiry")}
                   </button>
                 </form>
               </>

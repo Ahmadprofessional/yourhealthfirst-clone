@@ -16,34 +16,38 @@ export async function POST(req: Request) {
       recaptchaToken,
     } = await req.json();
 
-    if (!firstName || !email || !recaptchaToken) {
+    if (!firstName || !email) {
       return NextResponse.json(
         { error: "Missing required fields" },
         { status: 400 }
       );
     }
 
-    // Verify ReCAPTCHA
+    // Verify ReCAPTCHA if token is provided
     const recaptchaSecretKey = process.env.RECAPTCHA_SECRET_KEY;
-    if (recaptchaSecretKey) {
-      const recaptchaVerifyResponse = await fetch(
-        `https://www.google.com/recaptcha/api/siteverify`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-          },
-          body: `secret=${recaptchaSecretKey}&response=${recaptchaToken}`,
-        }
-      );
-      
-      const recaptchaVerifyData = await recaptchaVerifyResponse.json();
-      
-      if (!recaptchaVerifyData.success) {
-        return NextResponse.json(
-          { error: "Failed ReCAPTCHA verification" },
-          { status: 400 }
+    if (recaptchaSecretKey && recaptchaToken) {
+      try {
+        const recaptchaVerifyResponse = await fetch(
+          `https://www.google.com/recaptcha/api/siteverify`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body: `secret=${recaptchaSecretKey}&response=${recaptchaToken}`,
+          }
         );
+        
+        const recaptchaVerifyData = await recaptchaVerifyResponse.json();
+        
+        if (!recaptchaVerifyData.success) {
+          return NextResponse.json(
+            { error: "Failed ReCAPTCHA verification" },
+            { status: 400 }
+          );
+        }
+      } catch (recaptchaErr) {
+        console.error("ReCAPTCHA verification error:", recaptchaErr);
       }
     }
 
@@ -61,7 +65,8 @@ export async function POST(req: Request) {
 
     const data = await resend.emails.send({
       from: "Your Health First Clinic <info@yourhealthfirst.uk>",
-      to: ["info@yourhealthfirst.uk", "Sofiabouzi@hotmail.com"],
+      to: ["info@yourhealthfirst.uk"],
+      cc: ["Sofiabouzi@hotmail.com"],
       replyTo: email,
       subject: `Website Enquiry from ${firstName} ${lastName || ""}`.trim(),
       html: emailHtml,

@@ -722,7 +722,7 @@
     "introP1": "YourHealthFirst Clinic has been offering private blood draws and centrifugal since 2014.",
     "introP2": "YHF offers a 'walk-in' service, however it is advised to book an appointment as patients of our clinic are given priority. Waiting times during clinical hours can reach up to 45 minutes or more if an appointment is not booked.",
     "introP3": "At YourHealthFirst Clinic we offer phlebotomy service to both adults and children.",
-    "introP4": "We offer our services to different labs like Functional DX, Regenerus Labs, Cyrex, Genova, ArminLabs, Nordic Lab, Alletess Medical Laboratory, FRAT, Viva Health, Key Clinic, RGCC International and Religen USA, among others.",
+    "introP4": "We offer our services to different labs like <labs>Functional DX, Regenerus Labs, Cyrex, Genova, ArminLabs, Nordic Lab, Alletess Medical Laboratory, FRAT, Viva Health, Key Clinic, RGCC International and Religen USA</labs>, among others.",
     "introP5": "For some cases, as per requisition form, we can also freeze the sample and keep it in the clinic until it is collected by DHL if needed.",
     "nprTitle": "National Phlebotomist Register",
     "priorTitle": "Prior to Your",

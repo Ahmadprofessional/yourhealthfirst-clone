@@ -264,7 +264,9 @@ export default async function PhlebotomyPage({
                   {t("introP3")}
                 </p>
                 <p className="text-[16px] leading-[27px] text-body-text">
-                  {t("introP4")}
+                  {t.rich("introP4", {
+                    labs: (chunks) => <strong className="font-semibold text-forest">{chunks}</strong>,
+                  })}
                 </p>
                 <p className="text-[16px] leading-[27px] text-body-text">
                   {t("introP5")}

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SafeImage from "@/components/SafeImage";
+import { Link } from "@/i18n/routing";
 import { getTranslations } from "next-intl/server";
 
 export async function generateMetadata({
@@ -16,6 +17,15 @@ export async function generateMetadata({
     description: t("subtitle"),
   };
 }
+
+const categoryColorBySlug: Record<string, string> = {
+  "prp-and-exosome-therapy": "text-tan bg-tan/10",
+  "prp-injections-for-hair-loss": "text-tan bg-tan/10",
+  "cryolipolysis-fat-freezing": "text-rust bg-rust/10",
+  "anti-wrinkles-injections": "text-[#5c4425] bg-[#5c4425]/10",
+  "prp-hair-loss": "text-tan bg-tan/10",
+  "dermal-fillers-and-its-uses": "text-[#5c4425] bg-[#5c4425]/10",
+};
 
 export default async function BlogsPage({
   params,
@@ -110,50 +120,110 @@ export default async function BlogsPage({
         <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-tan/40 to-transparent" />
       </section>
 
-      {/* Posts grid */}
+      {/* Blog posts */}
       <section className="w-full px-5">
         <div className="mx-auto max-w-[1400px] py-[80px] lg:py-[100px]">
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {posts.map((post) => (
+          {/* Featured post */}
+          <div className="mb-12">
+            <a
+              href={posts[0].href}
+              target={posts[0].external ? "_blank" : undefined}
+              rel={posts[0].external ? "noopener noreferrer" : undefined}
+              className="group flex flex-col overflow-hidden rounded-[14px] border border-black/8 bg-white transition-shadow hover:shadow-lg lg:flex-row"
+            >
+              <div className="aspect-[16/9] w-full overflow-hidden bg-cream lg:aspect-auto lg:h-[380px] lg:w-[560px] lg:shrink-0">
+                <SafeImage
+                  src={posts[0].image}
+                  alt={posts[0].title}
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+              <div className="flex flex-1 flex-col justify-center gap-5 p-8 lg:p-12">
+                <div className="flex items-center gap-3">
+                  <span
+                    className={`rounded-full px-3 py-1 text-[12px] font-semibold tracking-[0.5px] uppercase ${
+                      categoryColorBySlug[posts[0].slug] ?? "text-body-text bg-body-text/10"
+                    }`}
+                  >
+                    {posts[0].category}
+                  </span>
+                  <span className="text-[13px] text-body-text/50">{posts[0].date}</span>
+                </div>
+                <h2 className="font-subheading text-[24px] font-medium leading-[30px] tracking-[-1px] text-forest uppercase lg:text-[30px] lg:leading-[36px]">
+                  {posts[0].title}
+                </h2>
+                <p className="text-[15px] leading-[25px] text-body-text">
+                  {posts[0].excerpt}
+                </p>
+                <span className="font-nav text-[13px] font-semibold tracking-[0.5px] text-tan uppercase transition-opacity group-hover:opacity-70">
+                  {t("readMore")}
+                </span>
+              </div>
+            </a>
+          </div>
+
+          {/* Remaining posts grid */}
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {posts.slice(1).map((post) => (
               <a
                 key={post.slug}
                 href={post.href}
                 target={post.external ? "_blank" : undefined}
                 rel={post.external ? "noopener noreferrer" : undefined}
-                className="group flex flex-col overflow-hidden rounded-[14px] border border-black/8 bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+                className="group flex flex-col overflow-hidden rounded-[12px] border border-black/8 bg-white transition-shadow hover:shadow-lg"
               >
                 {/* Image */}
-                <div className="relative aspect-[16/10] w-full overflow-hidden bg-cream">
+                <div className="aspect-[16/9] w-full overflow-hidden bg-cream">
                   <SafeImage
                     src={post.image}
                     alt={post.title}
                     className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute top-4 left-4">
-                    <span className="rounded-full bg-forest/80 backdrop-blur-sm px-3 py-1 font-nav text-[11px] font-semibold tracking-[1px] text-cream uppercase">
-                      {post.category}
-                    </span>
-                  </div>
                 </div>
 
                 {/* Content */}
-                <div className="flex flex-1 flex-col gap-3 p-6">
-                  <p className="text-[12px] font-medium tracking-[0.5px] text-body-text/50 uppercase">
-                    {post.date}
-                  </p>
-                  <h2 className="font-subheading text-[18px] font-bold leading-[24px] tracking-[-0.5px] text-forest transition-colors group-hover:text-tan uppercase">
+                <div className="flex flex-1 flex-col gap-4 p-6">
+                  <div className="flex items-center gap-3">
+                    <span
+                      className={`rounded-full px-3 py-1 text-[11px] font-semibold tracking-[0.5px] uppercase ${
+                        categoryColorBySlug[post.slug] ?? "text-body-text bg-body-text/10"
+                      }`}
+                    >
+                      {post.category}
+                    </span>
+                    <span className="text-[12px] text-body-text/50">{post.date}</span>
+                  </div>
+                  <h3 className="font-subheading text-[16px] font-semibold leading-[22px] tracking-[-0.6px] text-forest uppercase">
                     {post.title}
-                  </h2>
-                  <p className="flex-1 text-[14px] leading-[23px] text-body-text line-clamp-3">
+                  </h3>
+                  <p className="flex-1 text-[14px] leading-[22px] text-body-text line-clamp-3">
                     {post.excerpt}
                   </p>
-                  <span className="mt-2 inline-flex items-center gap-1 font-nav text-[13px] font-semibold tracking-[0.5px] text-tan uppercase transition-opacity group-hover:opacity-70">
+                  <span className="font-nav text-[12px] font-semibold tracking-[0.5px] text-tan uppercase transition-opacity group-hover:opacity-70">
                     {t("readMore")}
                   </span>
                 </div>
               </a>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Newsletter / CTA */}
+      <section className="w-full bg-cream px-5">
+        <div className="mx-auto flex max-w-[1400px] flex-col items-center gap-6 py-[80px] text-center">
+          <h2 className="font-subheading text-[28px] font-medium leading-[34px] tracking-[-1.2px] text-forest uppercase lg:text-[36px] lg:leading-[42px]">
+            {t("questionTitle")}
+          </h2>
+          <p className="max-w-[440px] text-[16px] leading-[27px] text-body-text">
+            {t("questionDesc")}
+          </p>
+          <Link
+            href="/contact-us"
+            className="inline-flex h-14 items-center justify-center rounded-[8px] bg-[#a8896a] px-8 font-nav text-[15px] font-semibold tracking-[-0.3px] text-cream transition-opacity hover:opacity-90"
+          >
+            {t("contactUs")}
+          </Link>
         </div>
       </section>
 

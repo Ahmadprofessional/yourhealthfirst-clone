@@ -88,16 +88,14 @@ export async function POST(req: Request) {
 
           <!-- Navigation Links -->
           <tr>
-            <td style="background-color: #F6F1EA; padding: 12px 20px; text-align: center; border-bottom: 1px solid #EAE3D6;">
-              <a href="https://www.yourhealthfirst.uk/en" style="color: #7A6248; text-decoration: none; font-size: 13px; font-weight: 600; margin: 0 10px;">Home</a>
+            <td style="background-color: #F6F1EA; padding: 14px 20px; text-align: center; border-bottom: 1px solid #EAE3D6;">
+              <a href="https://www.yourhealthfirst.uk/en" style="color: #7A6248; text-decoration: underline; font-size: 14px; font-weight: 600; margin: 0 12px;">Home</a>
               <span style="color: #D1C5B4;">&bull;</span>
-              <a href="https://www.yourhealthfirst.uk/en/treatments" style="color: #7A6248; text-decoration: none; font-size: 13px; font-weight: 600; margin: 0 10px;">Treatments</a>
+              <a href="https://www.yourhealthfirst.uk/en/treatments" style="color: #7A6248; text-decoration: underline; font-size: 14px; font-weight: 600; margin: 0 12px;">Services</a>
               <span style="color: #D1C5B4;">&bull;</span>
-              <a href="https://www.yourhealthfirst.uk/en/about-us" style="color: #7A6248; text-decoration: none; font-size: 13px; font-weight: 600; margin: 0 10px;">About Us</a>
+              <a href="https://www.yourhealthfirst.uk/en/about-us" style="color: #7A6248; text-decoration: underline; font-size: 14px; font-weight: 600; margin: 0 12px;">About us</a>
               <span style="color: #D1C5B4;">&bull;</span>
-              <a href="https://www.yourhealthfirst.uk/en/gallery" style="color: #7A6248; text-decoration: none; font-size: 13px; font-weight: 600; margin: 0 10px;">Gallery</a>
-              <span style="color: #D1C5B4;">&bull;</span>
-              <a href="https://www.yourhealthfirst.uk/en/contact-us" style="color: #7A6248; text-decoration: none; font-size: 13px; font-weight: 600; margin: 0 10px;">Contact</a>
+              <a href="https://www.yourhealthfirst.uk/en/gallery" style="color: #7A6248; text-decoration: underline; font-size: 14px; font-weight: 600; margin: 0 12px;">Gallery</a>
             </td>
           </tr>
 
@@ -110,17 +108,8 @@ export async function POST(req: Request) {
               
               <p style="margin: 0 0 16px 0;">Thank you for requesting a consultation with <strong>YourHealthFirst Clinic</strong>. We appreciate you selecting us as a trusted source to advise and help you with your needs.</p>
               
-              <p style="margin: 0 0 16px 0;">One of our team members will be in contact shortly to collect a bit more information and schedule an appointment.</p>
+              <p style="margin: 0 0 16px 0;">One of our team members will be in contact shortly to collect a bit more information and schedule an appointment. In the meantime, please feel free to have a look at our <a href="https://www.yourhealthfirst.uk/en/gallery" style="color: #7A6248; font-weight: 600; text-decoration: underline;">image gallery</a> to see before and after treatment results or browse through our patients <a href="https://www.google.com/search?q=YourHealthFirst+Clinic#mpd=~15060418522766184397/customers/reviews" target="_blank" style="color: #7A6248; font-weight: 600; text-decoration: underline;">Reviews</a>.</p>
               
-              <div style="background-color: #FAF7F2; border-left: 3px solid #C9A84C; padding: 14px 18px; margin: 20px 0; border-radius: 4px;">
-                <p style="margin: 0; font-size: 14px; color: #4B5563;">
-                  In the meantime, please feel free to explore our 
-                  <a href="https://www.yourhealthfirst.uk/en/gallery" style="color: #7A6248; font-weight: 600; text-decoration: underline;">Image Gallery</a> 
-                  to see before &amp; after results, or view our comprehensive 
-                  <a href="https://www.yourhealthfirst.uk/en/price-list" style="color: #7A6248; font-weight: 600; text-decoration: underline;">Price List</a>.
-                </p>
-              </div>
-
               <p style="margin: 0 0 16px 0; font-size: 14px; color: #4B5563; font-style: italic;">
                 If your consultation request is regarding a promotion, please remember to mention this during our call.
               </p>
@@ -129,16 +118,16 @@ export async function POST(req: Request) {
               <div style="background-color: #F8F5F0; border: 1px solid #EAE3D6; border-radius: 8px; padding: 18px 20px; margin: 24px 0;">
                 <p style="margin: 0 0 8px 0; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #7A6248;">Please Note</p>
                 <p style="margin: 0 0 10px 0; font-size: 14px; color: #4B5563; line-height: 1.6;">
-                  We are not able to take payment via email. We understand that it might not always be possible for you to answer the phone so, if there is a particular day or time that would be best for us to give you a call, simply let us know by replying to this email or contacting us directly:
+                  We are not able to take payment via email. We understand that it might not always be possible for you to answer the phone so, if there's a particular day or time that would be best for us to give you a call, simply let us know by replying to this email or contacting us directly:
                 </p>
                 <p style="margin: 0; font-size: 14px;">
-                  <span style="color: #6B7280;">Email:</span> <a href="mailto:info@yourhealthfirst.uk" style="color: #7A6248; font-weight: 600; text-decoration: none;">info@yourhealthfirst.uk</a><br>
-                  <span style="color: #6B7280;">Telephone:</span> <a href="tel:02072253582" style="color: #7A6248; font-weight: 600; text-decoration: none;">0207 225 3582</a> / <a href="tel:07818474041" style="color: #7A6248; font-weight: 600; text-decoration: none;">078 1847 4041</a>
+                  <span style="color: #6B7280;">Email:</span> <a href="mailto:info@yourhealthfirst.uk" style="color: #7A6248; font-weight: 600; text-decoration: underline;">info@yourhealthfirst.uk</a><br>
+                  <span style="color: #6B7280;">Telephone:</span> <a href="tel:02072253582" style="color: #7A6248; font-weight: 600; text-decoration: underline;">0207 225 3582</a> / <a href="tel:07818474041" style="color: #7A6248; font-weight: 600; text-decoration: underline;">078 1847 4041</a>
                 </p>
               </div>
 
               <p style="margin: 25px 0 0 0; color: #1E293B;">
-                Yours sincerely,<br>
+                Yours Sincerely,<br>
                 <strong style="color: #7A6248; font-size: 16px;">YourHealthFirst Clinic</strong><br>
                 <span style="font-size: 13px; color: #6B7280;">2 Wimpole Street, London W1G 0EB &bull; Harley Street District</span>
               </p>
@@ -225,7 +214,7 @@ export async function POST(req: Request) {
                     Telephone Number
                   </td>
                   <td style="padding: 10px 0; border-bottom: 1px solid #F1ECE4; font-size: 15px; font-weight: 600; color: #1E293B;">
-                    ${phone ? `<a href="tel:${phone}" style="color: #7A6248; text-decoration: none;">${phone}</a>` : "N/A"}
+                    ${phone ? `<a href="tel:${phone}" style="color: #7A6248; text-decoration: underline;">${phone}</a>` : "N/A"}
                   </td>
                 </tr>
                 <tr>
@@ -262,17 +251,28 @@ export async function POST(req: Request) {
                 </tr>
               </table>
 
-              <!-- Confirmation Note Section -->
-              <div style="margin-top: 30px; padding: 20px; background-color: #FAF7F2; border: 1px solid #EAE3D6; border-radius: 8px;">
-                <p style="margin: 0 0 10px 0; font-size: 13px; font-weight: 600; color: #7A6248;">
-                  The contact received in their email (<a href="mailto:${email}" style="color: #7A6248;">${email}</a>) the following confirmation message:
+              <!-- Confirmation Note Section with Full Active Links -->
+              <div style="margin-top: 30px; padding: 22px; background-color: #FAF7F2; border: 1px solid #EAE3D6; border-radius: 8px;">
+                <p style="margin: 0 0 12px 0; font-size: 13px; font-weight: 700; color: #7A6248; text-transform: uppercase; letter-spacing: 0.5px;">
+                  The contact received in their email (<a href="mailto:${email}" style="color: #7A6248; text-decoration: underline;">${email}</a>) the following confirmation message:
                 </p>
-                <div style="background-color: #FFFFFF; border: 1px solid #E2D9CC; border-radius: 6px; padding: 16px; font-size: 13px; color: #555555; line-height: 1.6;">
-                  <strong style="color: #1E293B;">Dear ${firstName},</strong><br><br>
-                  Welcome to YourHealthFirst.<br><br>
-                  Thank you for requesting a consultation with YourHealthFirst Clinic. We appreciate you selecting us as a trusted source to advise and help you with your needs.<br><br>
-                  One of our team members will be in contact shortly to collect a bit more information and schedule an appointment.<br><br>
-                  <em>Yours sincerely,<br>YourHealthFirst Clinic</em>
+                <div style="background-color: #FFFFFF; border: 1px solid #E2D9CC; border-radius: 6px; padding: 20px; font-size: 14px; color: #374151; line-height: 1.65;">
+                  <p style="margin: 0 0 16px 0; font-size: 13px;">
+                    <a href="https://www.yourhealthfirst.uk/en" style="color: #7A6248; text-decoration: underline; font-weight: 600; margin-right: 14px;">Home</a>
+                    <a href="https://www.yourhealthfirst.uk/en/treatments" style="color: #7A6248; text-decoration: underline; font-weight: 600; margin-right: 14px;">Services</a>
+                    <a href="https://www.yourhealthfirst.uk/en/about-us" style="color: #7A6248; text-decoration: underline; font-weight: 600; margin-right: 14px;">About us</a>
+                    <a href="https://www.yourhealthfirst.uk/en/gallery" style="color: #7A6248; text-decoration: underline; font-weight: 600;">Gallery</a>
+                  </p>
+                  <p style="margin: 0 0 12px 0; font-weight: 600; color: #1E293B;">Dear ${firstName},</p>
+                  <p style="margin: 0 0 12px 0; font-weight: 600; color: #7A6248;">Welcome to YourHealthFirst.</p>
+                  <p style="margin: 0 0 12px 0;">Thank you for requesting a consultation with <strong>YourHealthFirst Clinic</strong>. We appreciate you selecting us as a trusted source to advise and help you with your needs.</p>
+                  <p style="margin: 0 0 12px 0;">One of our team members will be in contact shortly to collect a bit more information and schedule an appointment. In the meantime, please feel free to have a look at our <a href="https://www.yourhealthfirst.uk/en/gallery" style="color: #7A6248; text-decoration: underline; font-weight: 600;">image gallery</a> to see before and after treatment results or browse through our patients <a href="https://www.google.com/search?q=YourHealthFirst+Clinic#mpd=~15060418522766184397/customers/reviews" target="_blank" style="color: #7A6248; text-decoration: underline; font-weight: 600;">Reviews</a>.</p>
+                  <p style="margin: 0 0 12px 0; font-size: 13px; color: #555555; font-style: italic;">If your consultation request is regarding a promotion, please remember to mention this.</p>
+                  <p style="margin: 0 0 12px 0; font-size: 13px;">Please note: We are not able to take payment via email. We understand that it might not always be possible for you to answer the phone so, if there's a particular day or time that would be best for us to give you a call, simply let us know by replying to this email or contacting us at: <a href="mailto:info@yourhealthfirst.uk" style="color: #7A6248; text-decoration: underline; font-weight: 600;">info@yourhealthfirst.uk</a></p>
+                  <p style="margin: 16px 0 0 0;">
+                    Yours Sincerely,<br>
+                    <strong style="color: #7A6248;">YourHealthFirst Clinic</strong>
+                  </p>
                 </div>
               </div>
 
@@ -293,13 +293,16 @@ export async function POST(req: Request) {
 </body>
 </html>`;
 
+    const fullName = [firstName, lastName].filter(Boolean).join(" ");
+    const clinicSubject = `YourHealthFirst Enquiry "${fullName}"`;
+
     // Send Clinic Notification Email
     const clinicEmailPromise = resend.emails.send({
       from: "Your Health First Clinic <info@yourhealthfirst.uk>",
       to: ["info@yourhealthfirst.uk"],
       cc: ["Sofiabouzi@hotmail.com"],
       replyTo: email,
-      subject: `Website Enquiry from ${firstName} ${lastName || ""}`.trim(),
+      subject: clinicSubject,
       html: clinicNotificationHtml,
     });
 

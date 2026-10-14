@@ -264,9 +264,7 @@ function AreaIcon({ name, className }: { name: string; className?: string }) {
   }
 }
 
-export async function generateStaticParams() {
-  return treatmentDetails.map((t) => ({ slug: t.slug }));
-}
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;
@@ -292,7 +290,7 @@ function renderBold(text: string) {
 
 export default async function TreatmentPage({ params }: Props) {
   const { locale, slug } = await params;
-  const treatment = getLocalizedTreatment(slug, locale);
+  const treatment = getLocalizedTreatment(slug, locale) ?? treatmentDetails.find((t) => t.slug === slug);
   if (!treatment) notFound();
 
   const t = await getTranslations({ locale, namespace: "TreatmentDetail" });

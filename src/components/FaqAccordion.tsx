@@ -35,7 +35,7 @@ export default function FaqAccordion() {
 
         <div className="flex flex-col gap-10 lg:flex-row">
           {/* Accordion */}
-          <div className="flex flex-col lg:w-[953px] lg:shrink-0">
+          <div className="flex flex-col lg:flex-1 lg:min-w-0 xl:w-[953px] xl:flex-none">
             {faqKeys.map((item, index) => {
               const isOpen = openIndex === index;
               const question = t(item.q);
@@ -86,7 +86,7 @@ export default function FaqAccordion() {
           </div>
 
           {/* Image card with contact details */}
-          <div className="relative flex min-h-[300px] flex-col justify-end gap-6 overflow-hidden rounded-[8px] bg-[url('/images/faq-card.jpg')] bg-cover bg-center p-4 lg:h-[491px] lg:w-[391px] lg:shrink-0">
+          <div className="relative flex min-h-[300px] flex-col justify-end gap-6 overflow-hidden rounded-[8px] bg-[url('/images/faq-card.jpg')] bg-cover bg-center p-4 lg:min-h-[491px] lg:w-[340px] xl:w-[391px] lg:shrink-0">
             {/* Scrim so the contact details stay legible over the photo */}
             <div
               aria-hidden="true"

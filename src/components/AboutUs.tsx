@@ -11,7 +11,7 @@ export default function AboutUs() {
       <div className="mx-auto max-w-[1400px] py-[100px]">
         <div className="flex flex-col gap-6 lg:flex-row">
           {/* Left column */}
-          <div className="flex flex-col gap-6 lg:w-[810px] lg:shrink-0">
+          <div className="flex flex-col gap-6 lg:flex-1 lg:min-w-0 xl:w-[810px] xl:shrink-0">
             <div className="w-fit rounded-full border-[0.8px] border-[rgba(11,23,4,0.2)] px-3 py-2">
               <h2 className="text-[13px] leading-[20.8px] font-semibold tracking-[3px] text-[#0c2c1d] uppercase">
                 {t("badge")}
@@ -27,12 +27,20 @@ export default function AboutUs() {
 
             <div className="text-[16px] leading-[25.6px] font-medium tracking-[-0.2px] text-body-text">
               <p>{t("paragraph1")}</p>
-              <p className="mt-[14.4px]">{t("paragraph2")}</p>
+              <p className="mt-[14.4px]">
+                {t.rich("paragraph2", {
+                  strong: (chunks) => (
+                    <strong className="font-bold text-[#0c2c1d]">
+                      {chunks}
+                    </strong>
+                  ),
+                })}
+              </p>
             </div>
           </div>
 
           {/* Right column */}
-          <div className="flex flex-col gap-2 lg:w-[551px] lg:shrink-0 lg:pt-[69px]">
+          <div className="flex flex-col gap-2 lg:w-[380px] xl:w-[551px] lg:shrink-0 lg:pt-[69px]">
             <h2 className="font-subheading text-[34px] leading-[38px] font-medium tracking-[-1.8px] text-tan uppercase lg:text-[50px] lg:leading-[55px]">
               {t("rightHeading")}
             </h2>

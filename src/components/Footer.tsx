@@ -100,7 +100,7 @@ export default function Footer() {
         {/* Columns */}
         <div className="flex flex-col gap-6 pt-[30px] lg:flex-row">
           {/* CTA */}
-          <div className="flex flex-col gap-6 lg:w-[716px] lg:shrink-0">
+          <div className="flex flex-col gap-6 lg:flex-1 lg:min-w-0 xl:w-[716px] xl:flex-none">
             <h2 className="max-w-[573px] font-subheading text-[25px] leading-[30px] font-bold tracking-[-1px] text-white uppercase">
               {t("ctaHeading")}
             </h2>
@@ -132,8 +132,8 @@ export default function Footer() {
           </div>
 
           {/* Quick links + contact */}
-          <div className="flex flex-col gap-6 sm:flex-row lg:w-[645px] lg:shrink-0">
-            <div className="flex flex-col gap-6 sm:w-[310px]">
+          <div className="flex flex-col gap-6 sm:flex-row lg:w-[480px] xl:w-[645px] lg:shrink-0 justify-between">
+            <div className="flex flex-col gap-6 sm:flex-1 min-w-0">
               <h2 className="font-serif text-[25px] leading-[30px] tracking-[-1px] text-white uppercase">
                 {t("quickLink")}
               </h2>
@@ -151,7 +151,7 @@ export default function Footer() {
               </ul>
             </div>
 
-            <div className="flex flex-col gap-6 sm:w-[310px]">
+            <div className="flex flex-col gap-6 sm:flex-1 min-w-0">
               <h2 className="font-serif text-[25px] leading-[30px] tracking-[-1px] text-white uppercase">
                 {t("contact")}
               </h2>

@@ -118,7 +118,7 @@ export default function LanguageSwitcher({ align = "right" }: { align?: "left" |
   }
 
   return (
-    <div ref={ref} className="relative z-[60] inline-block text-left notranslate" translate="no">
+    <div ref={ref} className="relative z-[100] inline-block text-left notranslate" translate="no">
       {/* Trigger Button */}
       <button
         type="button"
@@ -142,7 +142,7 @@ export default function LanguageSwitcher({ align = "right" }: { align?: "left" |
 
       {/* Luxury Dropdown */}
       <div
-        className={`absolute ${align === "left" ? "left-0" : "right-0"} top-[calc(100%+8px)] z-[100] min-w-[195px] overflow-hidden rounded-[8px] border border-tan/30 bg-[#0c0c0c] shadow-2xl transition-all duration-200 notranslate ${
+        className={`absolute ${align === "left" ? "left-0" : "right-0"} top-[calc(100%+8px)] z-[999] min-w-[195px] overflow-hidden rounded-[8px] border border-tan/30 bg-[#0c0c0c] shadow-2xl transition-all duration-200 notranslate ${
           open
             ? "pointer-events-auto translate-y-0 opacity-100"
             : "pointer-events-none -translate-y-2 opacity-0"

@@ -142,7 +142,7 @@
     "monFri": "Lunes – Viernes",
     "monFriTime": "10:00 – 18:00",
     "saturday": "Sábado",
-    "saturdayTime": "12:00 – 14:00",
+    "saturdayTime": "12:00 – 16:00",
     "saturdayNote": "Solo citas médicas",
     "sunday": "Domingo",
     "sundayTime": "Cerrado",
@@ -357,7 +357,7 @@
     "getAppointment": "Pedir Cita",
     "openingHours": "Horario de Atención",
     "openingWeekdays": "Lunes – Viernes: 10:00 a 18:00",
-    "openingSaturday": "Sábado: 12:00 a 14:00 (solo citas médicas)",
+    "openingSaturday": "Sábado: 12:00 a 16:00 (solo citas médicas)",
     "openingSunday": "Domingo y fuera de horario: solo con cita previa"
   },
   "PriceList": {
@@ -515,7 +515,7 @@
     "addressValue": "2 Wimpole Street, Londres W1G 0EB",
     "hoursTitle": "Horario de apertura",
     "monFri": "Lunes – Viernes: 10:00 am – 6:00 pm",
-    "saturday": "Sábado: 12:00 p. m. – 2:00 p. m. (solo citas con el médico)",
+    "saturday": "Sábado: 12:00 p. m. – 4:00 p. m. (solo citas con el médico)",
     "sunday": "Domingo y fuera de horario: solo con cita previa o correo electrónico",
     "transportTitle": "Llegar aquí",
     "tubeTitle": "Por metro",

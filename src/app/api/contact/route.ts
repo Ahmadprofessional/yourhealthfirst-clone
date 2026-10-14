@@ -61,7 +61,7 @@ export async function POST(req: Request) {
 
     const data = await resend.emails.send({
       from: "Your Health First Clinic <info@yourhealthfirst.uk>",
-      to: ["info@yourhealthfirst.uk"],
+      to: ["info@yourhealthfirst.uk", "Sofiabouzi@hotmail.com"],
       replyTo: email,
       subject: `Website Enquiry from ${firstName} ${lastName || ""}`.trim(),
       html: emailHtml,

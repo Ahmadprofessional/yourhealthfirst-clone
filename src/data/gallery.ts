@@ -14,6 +14,7 @@ export interface GalleryGroup {
 export interface GallerySection {
   group: string;
   title: string;
+  fullTitle?: string;
   description: string;
   images: GalleryImage[];
 }
@@ -31,6 +32,7 @@ export const galleryGroups: GalleryGroup[] = [
   { id: "sclerotherapy", label: "Sclerotherapy (Thread Veins)", keywords: ["spider veins", "thread veins", "varicose", "legs"] },
   { id: "prp-hair-loss", label: "PRP Hair Loss & Beard", keywords: ["hair loss", "prp", "alopecia", "beard", "hair restoration", "thinning"] },
   { id: "cryopen", label: "CryoPen (Skin Lesions)", keywords: ["warts", "skin tags", "fibroma", "keratosis", "lesion removal"] },
+  { id: "prp-cellular-matrix", label: "PRP & PRP Cellular Matrix", keywords: ["prp", "cellular matrix", "matrix", "biostimulator", "face", "neck", "under eyes", "ha", "u225"] },
   { id: "exosome", label: "Exosomes (EXO OX)", keywords: ["exo ox", "skin rejuvenation", "hair restoration", "regenerative"] },
   { id: "aqualyx", label: "Aqualyx (Fat Dissolving)", keywords: ["fat dissolving", "double chin", "jawline", "fat dissolve"] },
   { id: "mounjaro", label: "Mounjaro / GLP-1 Weight Loss", keywords: ["weight loss", "glp-1", "tirzepatide", "weight management", "injections"] },
@@ -93,6 +95,21 @@ export const gallerySections: GallerySection[] = [
     title: "CryoPen",
     description: "Precision skin lesion removal results — fibromas, actinic keratosis and other benign lesions.",
     images: make("cryopen", "cryopen", "jpeg", 2, "CryoPen skin lesion removal"),
+  },
+  {
+    group: "prp-cellular-matrix",
+    title: "PRP & PRP Cellular Matrix",
+    description: "Autologous platelet-rich plasma and hyaluronic acid cellular matrix results — facial rejuvenation, under-eye bio-stimulation, and neck tightening.",
+    images: [
+      {
+        src: "/images/gallery/prp-cellular-matrix/prp-matrix-1.jpeg",
+        alt: "PRP Cellular Matrix Face + Bio-Stimulators Under Eyes before and after",
+      },
+      {
+        src: "/images/gallery/prp-cellular-matrix/prp-matrix-2.jpeg",
+        alt: "PRP Cellular Matrix HA U225 + Biostimulator Neck treatment before and after",
+      },
+    ],
   },
   {
     group: "exosome",

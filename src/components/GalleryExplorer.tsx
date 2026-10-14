@@ -252,8 +252,8 @@ export default function GalleryExplorer({ initialGroup }: { initialGroup?: strin
             <div className="mx-auto max-w-[1400px] py-[80px] lg:py-[100px]">
               <div className="mb-10 flex flex-col gap-2">
                 <div className="flex items-center gap-4">
-                  <h2 className="font-subheading text-[24px] font-medium leading-[30px] tracking-[-1px] text-forest uppercase lg:text-[30px] lg:leading-[36px]">
-                    {section.title} — {t("viewBeforeAfter")}
+                  <h2 className="font-subheading text-[24px] font-bold leading-[30px] tracking-[-1px] text-forest uppercase lg:text-[30px] lg:leading-[36px]">
+                    {section.fullTitle || `${section.title} — ${t("viewBeforeAfter")}`}
                   </h2>
                   <div className="flex-1 border-t border-black/8" />
                 </div>

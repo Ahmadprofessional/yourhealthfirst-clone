@@ -19,12 +19,14 @@ export async function generateMetadata({
 }
 
 const categoryColorBySlug: Record<string, string> = {
-  "prp-and-exosome-therapy": "text-tan bg-tan/10",
-  "prp-injections-for-hair-loss": "text-tan bg-tan/10",
+  "prp-and-exosome-therapy-advanced-rejuvenation-for-hair-face-and-body": "text-tan bg-tan/10",
+  "prp-injections-for-hair-loss-treatment": "text-tan bg-tan/10",
   "cryolipolysis-fat-freezing": "text-rust bg-rust/10",
   "anti-wrinkles-injections": "text-[#5c4425] bg-[#5c4425]/10",
   "prp-hair-loss": "text-tan bg-tan/10",
   "dermal-fillers-and-its-uses": "text-[#5c4425] bg-[#5c4425]/10",
+  "prp-and-exosome-therapy": "text-tan bg-tan/10",
+  "prp-injections-for-hair-loss": "text-tan bg-tan/10",
 };
 
 export default async function BlogsPage({
@@ -37,24 +39,22 @@ export default async function BlogsPage({
 
   const posts = [
     {
-      slug: "prp-and-exosome-therapy",
+      slug: "prp-and-exosome-therapy-advanced-rejuvenation-for-hair-face-and-body",
       title: t("post1Title"),
       excerpt: t("post1Excerpt"),
       date: t("post1Date"),
       category: t("post1Cat"),
       image: "/images/treatments/hair-restoration.jpg",
-      href: "https://yourhealthfirst.uk/blog/prp-and-exosome-therapy-advanced-rejuvenation-for-hair-face-and-body",
-      external: true,
+      href: "/blog/prp-and-exosome-therapy-advanced-rejuvenation-for-hair-face-and-body",
     },
     {
-      slug: "prp-injections-for-hair-loss",
+      slug: "prp-injections-for-hair-loss-treatment",
       title: t("post2Title"),
       excerpt: t("post2Excerpt"),
       date: t("post2Date"),
       category: t("post2Cat"),
       image: "/images/treatments/hair-restoration.jpg",
-      href: "https://yourhealthfirst.uk/blog/prp-injections-for-hair-loss-treatment",
-      external: true,
+      href: "/blog/prp-injections-for-hair-loss-treatment",
     },
     {
       slug: "cryolipolysis-fat-freezing",
@@ -63,8 +63,7 @@ export default async function BlogsPage({
       date: t("post3Date"),
       category: t("post3Cat"),
       image: "/images/treatments/body-contouring.jpg",
-      href: "https://yourhealthfirst.uk/cryolipolysis",
-      external: true,
+      href: "/blog/cryolipolysis-fat-freezing",
     },
     {
       slug: "anti-wrinkles-injections",
@@ -73,8 +72,7 @@ export default async function BlogsPage({
       date: t("post4Date"),
       category: t("post4Cat"),
       image: "/images/treatments/anti-wrinkle.jpg",
-      href: "https://yourhealthfirst.uk/anti-wrinkles-injections",
-      external: true,
+      href: "/blog/anti-wrinkles-injections",
     },
     {
       slug: "prp-hair-loss",
@@ -83,8 +81,7 @@ export default async function BlogsPage({
       date: t("post5Date"),
       category: t("post5Cat"),
       image: "/images/treatments/hair-restoration.jpg",
-      href: "https://yourhealthfirst.uk/prp-hair-loss",
-      external: true,
+      href: "/blog/prp-hair-loss",
     },
     {
       slug: "dermal-fillers-and-its-uses",
@@ -93,8 +90,7 @@ export default async function BlogsPage({
       date: t("post6Date"),
       category: t("post6Cat"),
       image: "/images/treatments/dermal-fillers.jpg",
-      href: "https://yourhealthfirst.uk/dermal-fillers-and-its-uses",
-      external: true,
+      href: "/blog/dermal-fillers-and-its-uses",
     },
   ];
 
@@ -125,10 +121,8 @@ export default async function BlogsPage({
         <div className="mx-auto max-w-[1400px] py-[80px] lg:py-[100px]">
           {/* Featured post */}
           <div className="mb-12">
-            <a
+            <Link
               href={posts[0].href}
-              target={posts[0].external ? "_blank" : undefined}
-              rel={posts[0].external ? "noopener noreferrer" : undefined}
               className="group flex flex-col overflow-hidden rounded-[14px] border border-black/8 bg-white transition-shadow hover:shadow-lg lg:flex-row"
             >
               <div className="aspect-[16/9] w-full overflow-hidden bg-cream lg:aspect-auto lg:h-[380px] lg:w-[560px] lg:shrink-0">
@@ -159,17 +153,15 @@ export default async function BlogsPage({
                   {t("readMore")}
                 </span>
               </div>
-            </a>
+            </Link>
           </div>
 
           {/* Remaining posts grid */}
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {posts.slice(1).map((post) => (
-              <a
+              <Link
                 key={post.slug}
                 href={post.href}
-                target={post.external ? "_blank" : undefined}
-                rel={post.external ? "noopener noreferrer" : undefined}
                 className="group flex flex-col overflow-hidden rounded-[12px] border border-black/8 bg-white transition-shadow hover:shadow-lg"
               >
                 {/* Image */}
@@ -203,7 +195,7 @@ export default async function BlogsPage({
                     {t("readMore")}
                   </span>
                 </div>
-              </a>
+              </Link>
             ))}
           </div>
         </div>

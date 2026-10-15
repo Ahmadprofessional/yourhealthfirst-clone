@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { treatmentDetails } from "@/data/treatments";
+import { getAllBlogPosts } from "@/data/blogs";
 import { routing } from "@/i18n/routing";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -32,7 +33,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     .map((t) => `/treatments/${t.slug}`)
     .filter((route) => route !== "/treatments/phlebotomy" && route !== "/treatments/sclerotherapy");
 
-  const allPaths = [...staticRoutes, ...treatmentRoutes];
+  // Dynamic blog routes from blogs data
+  const blogRoutes = getAllBlogPosts().map((p) => `/blog/${p.slug}`);
+
+  const allPaths = [...staticRoutes, ...treatmentRoutes, ...blogRoutes];
 
   const entries: MetadataRoute.Sitemap = [];
 
@@ -56,6 +60,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority = 0.9;
     } else if (path.startsWith("/treatments/")) {
       priority = 0.8;
+    } else if (path.startsWith("/blog/")) {
+      priority = 0.75;
+      changeFrequency = "monthly";
     } else if (path === "/privacy-policy" || path === "/cookie-policy" || path === "/terms") {
       priority = 0.4;
       changeFrequency = "monthly";

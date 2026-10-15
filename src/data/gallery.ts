@@ -35,7 +35,6 @@ export const galleryGroups: GalleryGroup[] = [
   { id: "prp-cellular-matrix", label: "PRP & PRP Cellular Matrix", keywords: ["prp", "cellular matrix", "matrix", "biostimulator", "face", "neck", "under eyes", "ha", "u225"] },
   { id: "exosome", label: "Exosomes (EXO OX)", keywords: ["exo ox", "skin rejuvenation", "hair restoration", "regenerative"] },
   { id: "aqualyx", label: "Aqualyx (Fat Dissolving)", keywords: ["fat dissolving", "double chin", "jawline", "fat dissolve"] },
-  { id: "mounjaro", label: "Mounjaro / GLP-1 Weight Loss", keywords: ["weight loss", "glp-1", "tirzepatide", "weight management", "injections"] },
   { id: "sculptra", label: "Sculptra", keywords: ["collagen", "biostimulator", "facial volume"] },
   { id: "sunekos", label: "Sunekos", keywords: ["tear trough", "under eye", "dark circles", "eye bags"] },
   { id: "profhilo", label: "Profhilo", keywords: ["skin remodelling", "hydration", "neck", "lower face"] },
@@ -122,12 +121,6 @@ export const gallerySections: GallerySection[] = [
     title: "Aqualyx",
     description: "Fat-dissolving injection results — double chin and jawline contouring.",
     images: make("aqualyx", "aqualyx", "jpeg", 2, "Aqualyx fat-dissolving injections"),
-  },
-  {
-    group: "mounjaro",
-    title: "GLP-1 Injections",
-    description: "Medically supervised weight management with GLP-1 injections.",
-    images: make("mounjaro", "mounjaro", "jpg", 4, "GLP-1 weight loss injections"),
   },
   {
     group: "sculptra",

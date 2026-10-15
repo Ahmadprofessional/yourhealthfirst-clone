@@ -3097,12 +3097,6 @@ export const treatmentDetails: TreatmentDetail[] = [
     tagline: "The clinically approved breakthrough in medical weight loss",
     category: "Body Contouring",
     image: "/images/treatments/mounjaro/product-card.jpg",
-    gallery: {
-      folder: "/images/gallery/mounjaro",
-      prefix: "mounjaro",
-      count: 3,
-      ext: "jpg",
-    },
     intro:
       "At YourHealthFirst Clinic, we provide medically supervised weight-management support for eligible patients seeking a structured and evidence-based approach to weight loss. Our Wimpole Street Weight Management Service in London is delivered by trained and experienced healthcare professionals, with an emphasis on appropriate patient assessment, treatment suitability, ongoing monitoring and safe use of prescription weight-management medicines.",
     body: [

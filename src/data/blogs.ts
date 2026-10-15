@@ -56,7 +56,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "6 min read",
     category: "Hair Restoration",
     categorySlug: "hair-restoration",
-    image: "/images/treatments/hair-restoration.jpg",
+    image: "/images/blogs/prp-exosome-rejuvenation.jpeg",
     imageAlt: "Advanced PRP and Exosome Therapy session at YourHealthFirst Clinic London",
     author: {
       name: "Dr. Sofia Bouzian",
@@ -160,7 +160,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "5 min read",
     category: "Hair Restoration",
     categorySlug: "hair-restoration",
-    image: "/images/treatments/hair-restoration.jpg",
+    image: "/images/blogs/top-prp-injections-london.jpeg",
     imageAlt: "Platelet-Rich Plasma hair thinning treatment in London Harley Street",
     author: {
       name: "Dr. Sofia Bouzian",
@@ -256,7 +256,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "5 min read",
     category: "Body Contouring",
     categorySlug: "body-contouring",
-    image: "/images/treatments/body-contouring.jpg",
+    image: "/images/blogs/cryolipolysis-fat-freezing.jpeg",
     imageAlt: "Cryolipolysis fat freezing treatment session at YourHealthFirst Clinic London",
     author: {
       name: "Dr. Sofia Bouzian",
@@ -350,7 +350,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "5 min read",
     category: "Face & Anti-Aging",
     categorySlug: "face-anti-aging",
-    image: "/images/treatments/anti-wrinkle.jpg",
+    image: "/images/blogs/anti-wrinkle-injections.jpeg",
     imageAlt: "Dr. Sofia administering bespoke anti-wrinkle injections in London Harley Street",
     author: {
       name: "Dr. Sofia Bouzian",
@@ -440,7 +440,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "6 min read",
     category: "Hair Restoration",
     categorySlug: "hair-restoration",
-    image: "/images/treatments/hair-restoration.jpg",
+    image: "/images/blogs/prp-hair-loss-guide.jpeg",
     imageAlt: "Clinical PRP hair restoration guide by Dr. Sofia Bouzian",
     author: {
       name: "Dr. Sofia Bouzian",
@@ -537,7 +537,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "6 min read",
     category: "Face & Anti-Aging",
     categorySlug: "face-anti-aging",
-    image: "/images/treatments/dermal-fillers.jpg",
+    image: "/images/blogs/dermal-fillers-guide.jpeg",
     imageAlt: "Dermal filler treatment and facial contouring by Dr. Sofia Bouzian London",
     author: {
       name: "Dr. Sofia Bouzian",

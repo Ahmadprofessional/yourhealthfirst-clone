@@ -44,7 +44,7 @@ export default async function BlogsPage({
       excerpt: t("post1Excerpt"),
       date: t("post1Date"),
       category: t("post1Cat"),
-      image: "/images/treatments/hair-restoration.jpg",
+      image: "/images/blogs/prp-exosome-rejuvenation.jpeg",
       href: "/blog/prp-and-exosome-therapy-advanced-rejuvenation-for-hair-face-and-body",
     },
     {
@@ -53,7 +53,7 @@ export default async function BlogsPage({
       excerpt: t("post2Excerpt"),
       date: t("post2Date"),
       category: t("post2Cat"),
-      image: "/images/treatments/hair-restoration.jpg",
+      image: "/images/blogs/top-prp-injections-london.jpeg",
       href: "/blog/prp-injections-for-hair-loss-treatment",
     },
     {
@@ -62,7 +62,7 @@ export default async function BlogsPage({
       excerpt: t("post3Excerpt"),
       date: t("post3Date"),
       category: t("post3Cat"),
-      image: "/images/treatments/body-contouring.jpg",
+      image: "/images/blogs/cryolipolysis-fat-freezing.jpeg",
       href: "/blog/cryolipolysis-fat-freezing",
     },
     {
@@ -71,7 +71,7 @@ export default async function BlogsPage({
       excerpt: t("post4Excerpt"),
       date: t("post4Date"),
       category: t("post4Cat"),
-      image: "/images/treatments/anti-wrinkle.jpg",
+      image: "/images/blogs/anti-wrinkle-injections.jpeg",
       href: "/blog/anti-wrinkles-injections",
     },
     {
@@ -80,7 +80,7 @@ export default async function BlogsPage({
       excerpt: t("post5Excerpt"),
       date: t("post5Date"),
       category: t("post5Cat"),
-      image: "/images/treatments/hair-restoration.jpg",
+      image: "/images/blogs/prp-hair-loss-guide.jpeg",
       href: "/blog/prp-hair-loss",
     },
     {
@@ -89,7 +89,7 @@ export default async function BlogsPage({
       excerpt: t("post6Excerpt"),
       date: t("post6Date"),
       category: t("post6Cat"),
-      image: "/images/treatments/dermal-fillers.jpg",
+      image: "/images/blogs/dermal-fillers-guide.jpeg",
       href: "/blog/dermal-fillers-and-its-uses",
     },
   ];
@@ -125,11 +125,11 @@ export default async function BlogsPage({
               href={posts[0].href}
               className="group flex flex-col overflow-hidden rounded-[14px] border border-black/8 bg-white transition-shadow hover:shadow-lg lg:flex-row"
             >
-              <div className="aspect-[16/9] w-full overflow-hidden bg-cream lg:aspect-auto lg:h-[380px] lg:w-[560px] lg:shrink-0">
+              <div className="aspect-[16/10] w-full overflow-hidden bg-cream lg:aspect-auto lg:h-[380px] lg:w-[560px] lg:shrink-0 flex items-center justify-center">
                 <SafeImage
                   src={posts[0].image}
                   alt={posts[0].title}
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="h-full w-full object-contain bg-[#f7f5f0] transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
               <div className="flex flex-1 flex-col justify-center gap-5 p-8 lg:p-12">

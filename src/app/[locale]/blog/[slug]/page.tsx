@@ -218,13 +218,19 @@ export default async function BlogDetailPage({ params }: PageProps) {
         {/* Featured Image Section */}
         <section className="relative -mt-6 sm:-mt-10 px-5 sm:px-6">
           <div className="mx-auto max-w-[1280px]">
-            <div className="relative aspect-[16/9] sm:aspect-[21/9] w-full overflow-hidden rounded-[16px] border border-black/10 shadow-2xl bg-forest/20">
+            <div className="relative aspect-[16/10] w-full overflow-hidden rounded-[16px] border border-black/10 shadow-2xl bg-[#1c241b] flex items-center justify-center">
+              {/* Subtle ambient backdrop to ensure seamless visual warmth */}
+              <div
+                className="absolute inset-0 bg-cover bg-center blur-2xl opacity-40 scale-105 pointer-events-none"
+                style={{ backgroundImage: `url(${post.image})` }}
+                aria-hidden="true"
+              />
               <SafeImage
                 src={post.image}
                 alt={post.imageAlt}
-                className="h-full w-full object-cover"
+                className="relative z-10 h-full w-full object-contain"
               />
-              <div className="absolute bottom-3 right-3 bg-black/70 backdrop-blur-md px-3 py-1.5 rounded-[6px] text-[11px] text-white/80 font-nav tracking-wide">
+              <div className="absolute bottom-3 right-3 bg-black/70 backdrop-blur-md px-3 py-1.5 rounded-[6px] text-[11px] text-white/80 font-nav tracking-wide z-20">
                 YourHealthFirst Clinic London
               </div>
             </div>

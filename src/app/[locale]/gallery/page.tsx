@@ -13,7 +13,7 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "GalleryPage" });
   return {
-    title: `${t("heading")} | YourHealthFirst Clinic — Harley Street`,
+    title: t("heading"),
     description: t("subtitle"),
   };
 }

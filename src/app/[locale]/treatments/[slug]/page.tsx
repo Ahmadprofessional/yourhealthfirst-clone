@@ -268,11 +268,28 @@ export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.yourhealthfirst.uk";
   const treatment = getLocalizedTreatment(slug, locale) ?? treatmentDetails.find((t) => t.slug === slug);
   if (!treatment) return { title: "Treatment | YourHealthFirst Clinic" };
+  const displayTitle = treatment.metaTitle ?? `${treatment.title} | YourHealthFirst Clinic — Harley Street`;
+  const description = treatment.metaDescription ?? treatment.intro;
   return {
-    title: `${treatment.title} | YourHealthFirst Clinic — Harley Street`,
-    description: treatment.metaDescription ?? treatment.intro,
+    title: treatment.metaTitle ? { absolute: treatment.metaTitle } : treatment.title,
+    description,
+    alternates: {
+      canonical: `${baseUrl}/${locale}/treatments/${slug}`,
+    },
+    openGraph: {
+      title: displayTitle,
+      description,
+      url: `${baseUrl}/${locale}/treatments/${slug}`,
+      images: [
+        {
+          url: treatment.image.startsWith("http") ? treatment.image : `${baseUrl}${treatment.image}`,
+          alt: treatment.title,
+        },
+      ],
+    },
   };
 }
 

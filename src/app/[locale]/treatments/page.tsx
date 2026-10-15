@@ -7,7 +7,7 @@ import { services } from "@/data/services";
 import { getTranslations } from "next-intl/server";
 
 export const metadata: Metadata = {
-  title: "Treatments | YourHealthFirst Clinic — Harley Street, London",
+  title: "Treatments",
   description:
     "Explore all 20 aesthetic and medical treatments at YourHealthFirst Clinic — anti-wrinkle, fillers, Profhilo, cryolipolysis, PRP hair loss, Emsculpt Neo and more.",
 };

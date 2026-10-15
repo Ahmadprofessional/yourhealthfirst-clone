@@ -14,7 +14,7 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "PriceList" });
   return {
-    title: `${t("heading")} | YourHealthFirst Clinic — Harley Street, London`,
+    title: t("heading"),
     description: t("subtitle"),
   };
 }

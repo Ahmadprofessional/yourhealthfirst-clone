@@ -14,10 +14,14 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.yourhealthfirst.uk";
   const t = await getTranslations({ locale, namespace: "SclerotherapyPage" });
   return {
-    title: t("metaTitle"),
+    title: { absolute: t("metaTitle") },
     description: t("metaDesc"),
+    alternates: {
+      canonical: `${baseUrl}/${locale}/treatments/sclerotherapy`,
+    },
   };
 }
 

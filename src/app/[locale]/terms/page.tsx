@@ -63,7 +63,7 @@ export default async function TermsPage({ params }: Props) {
                 1. Clinical Service Overview
               </h2>
               <p>
-                YourHealthFirst Clinic operates under the clinical leadership of Dr. Sofia Bouzian at 1st Floor, 2 Wimpole Street, London W1G 0EB. By booking a consultation or undergoing treatment, you agree to be bound by these Terms and Conditions.
+                YourHealthFirst Clinic operates under the clinical leadership of Dr. Sofia Bouzian at 2nd Floor, 2 Wimpole Street, London W1G 0EB. By booking a consultation or undergoing treatment, you agree to be bound by these Terms and Conditions.
               </p>
               <p>
                 All aesthetic procedures, diagnostic phlebotomy services, and wellness protocols are provided in accordance with UK clinical guidelines, medical safety standards, and manufacturer directives.
@@ -148,7 +148,7 @@ export default async function TermsPage({ params }: Props) {
             {/* Contact */}
             <div className="pt-6 border-t border-gray-200 text-sm text-gray-600">
               <p className="font-semibold text-forest">YourHealthFirst Clinic</p>
-              <p>1st Floor, 2 Wimpole Street, London W1G 0EB</p>
+              <p>2nd Floor, 2 Wimpole Street, London W1G 0EB</p>
               <p>Contact: 0207 225 3582 | <a href="mailto:info@yourhealthfirst.uk" className="text-rust underline">info@yourhealthfirst.uk</a></p>
             </div>
 

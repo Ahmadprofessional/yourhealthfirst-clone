@@ -209,7 +209,7 @@ export default async function ContactUsPage({
                           YourHealthFirst Clinic
                         </p>
                         <p className="text-[12px] text-body-text/85 leading-snug mt-0.5">
-                          1st Floor, 2 Wimpole Street, London W1G 0EB
+                          2nd Floor, 2 Wimpole Street, London W1G 0EB
                         </p>
                       </div>
                     </div>

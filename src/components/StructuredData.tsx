@@ -31,7 +31,7 @@ export default function StructuredData({ type = "clinic", breadcrumbs }: Structu
     paymentAccepted: "Cash, Credit Card, Debit Card, Bank Transfer",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "1st Floor, 2 Wimpole Street",
+      streetAddress: "2nd Floor, 2 Wimpole Street",
       addressLocality: "London",
       addressRegion: "Greater London",
       postalCode: "W1G 0EB",

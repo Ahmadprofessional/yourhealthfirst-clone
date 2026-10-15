@@ -68,7 +68,7 @@ export default async function PrivacyPolicyPage({ params }: Props) {
               </p>
               <div className="bg-[#fcfaf5] border-l-4 border-[#c98a3e] p-4 rounded-r-lg text-sm sm:text-base">
                 <p className="font-semibold text-forest">YourHealthFirst Clinic</p>
-                <p>1st Floor, 2 Wimpole Street, London W1G 0EB, United Kingdom</p>
+                <p>2nd Floor, 2 Wimpole Street, London W1G 0EB, United Kingdom</p>
                 <p>Lead Practitioner & Data Controller: Dr. Sofia Bouzian</p>
                 <p>Telephone: 0207 225 3582 / 078 1847 4041</p>
                 <p>Email: <a href="mailto:info@yourhealthfirst.uk" className="text-rust underline">info@yourhealthfirst.uk</a></p>

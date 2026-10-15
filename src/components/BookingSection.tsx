@@ -150,7 +150,7 @@ export default function BookingSection() {
                 <div>
                   <p className="text-[12px] tracking-[1px] text-white/65 uppercase">{t("address")}</p>
                   <p className="text-[16px] font-medium leading-[24px] text-white">
-                    2 Wimpole Street, London W1G 0EB
+                    2 Wimpole Street, 2nd Floor, London W1G 0EB
                   </p>
                 </div>
               </li>

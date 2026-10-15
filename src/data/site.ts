@@ -182,5 +182,5 @@ export const contact = {
   phone1: "0207 225 3582",
   phone2: "078 1847 4041",
   email: "info@yourhealthfirst.uk",
-  address: "2 Wimpole Street W1G 0EB / London, UK",
+  address: "2 Wimpole Street, 2nd Floor, London W1G 0EB",
 };

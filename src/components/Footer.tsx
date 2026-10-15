@@ -186,7 +186,7 @@ export default function Footer() {
         {/* Bottom Legal & Compliance Bar */}
         <div className="border-t border-white/15 pt-8 pb-2 flex flex-col md:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-cream/75">
           <p className="text-center md:text-left">
-            © {new Date().getFullYear()} YourHealthFirst Clinic. All rights reserved. 2 Wimpole Street, London W1G 0EB.
+            © {new Date().getFullYear()} YourHealthFirst Clinic. All rights reserved. 2 Wimpole Street, 2nd Floor, London W1G 0EB.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
             <Link

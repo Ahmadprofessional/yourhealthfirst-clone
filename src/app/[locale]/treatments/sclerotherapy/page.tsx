@@ -16,11 +16,38 @@ export async function generateMetadata({
   const { locale } = await params;
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.yourhealthfirst.uk";
   const t = await getTranslations({ locale, namespace: "SclerotherapyPage" });
+  const title = t("metaTitle");
+  const description = t("metaDesc");
+  const canonicalUrl = `${baseUrl}/${locale}/treatments/sclerotherapy`;
+  const imageUrl = `${baseUrl}/images/treatments/sclerotherapy/sclerotherapy-treatment-room-2.jpg`;
+
   return {
-    title: { absolute: t("metaTitle") },
-    description: t("metaDesc"),
+    title: { absolute: title },
+    description,
     alternates: {
-      canonical: `${baseUrl}/${locale}/treatments/sclerotherapy`,
+      canonical: canonicalUrl,
+    },
+    openGraph: {
+      title,
+      description,
+      url: canonicalUrl,
+      siteName: "YourHealthFirst Clinic — Harley Street London",
+      locale: locale === "en" ? "en_GB" : locale,
+      type: "website",
+      images: [
+        {
+          url: imageUrl,
+          width: 1200,
+          height: 630,
+          alt: "Sclerotherapy Spider Vein Removal — YourHealthFirst Clinic London",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [imageUrl],
     },
   };
 }

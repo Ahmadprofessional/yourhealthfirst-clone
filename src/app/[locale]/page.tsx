@@ -17,13 +17,39 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.yourhealthfirst.uk";
+  const title = "YourHealthFirst Clinic | Harley Street, London — Health & Aesthetics";
+  const description =
+    "Award-winning clinic at 2 Wimpole Street, London W1G 0EB. Specialising in aesthetic medicine, anti-wrinkle injections, dermal fillers, hair loss & skin rejuvenation.";
+  const canonicalUrl = `${baseUrl}/${locale}`;
+  const imageUrl = `${baseUrl}/images/hero-desk.jpg`;
 
   return {
-    title: "YourHealthFirst Clinic | Harley Street, London — Health & Aesthetics",
-    description:
-      "Award-winning clinic at 2 Wimpole Street, London W1G 0EB. Specialising in aesthetic medicine, anti-wrinkle injections, dermal fillers, hair loss & skin rejuvenation.",
+    title,
+    description,
     alternates: {
-      canonical: `${baseUrl}/${locale}`,
+      canonical: canonicalUrl,
+    },
+    openGraph: {
+      title,
+      description,
+      url: canonicalUrl,
+      siteName: "YourHealthFirst Clinic",
+      locale: locale === "en" ? "en_GB" : locale,
+      type: "website",
+      images: [
+        {
+          url: imageUrl,
+          width: 1200,
+          height: 630,
+          alt: "Dr. Sofia Bouzian — YourHealthFirst Clinic Harley Street London",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [imageUrl],
     },
   };
 }

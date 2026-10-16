@@ -4,7 +4,7 @@
     "title": "الحقن المضادة للتجاعيد",
     "tagline": "ناعم ومنتعش ومرفع بمهارة - بدقة الخبراء",
     "category": "Face & Anti-Aging",
-    "image": "/images/services/anti-wrinkles.png",
+    "image": "/images/treatments/anti-wrinkles/sofia-consultation.jpg",
     "bodyImages": [
       {
         "src": "/images/treatments/anti-wrinkles/sofia-consultation.jpg",
@@ -150,7 +150,7 @@
     "title": "الحشوات الجلدية",
     "tagline": "استعادة الحجم وتحديد الخطوط وتجديد مظهرك",
     "category": "Face & Anti-Aging",
-    "image": "/images/services/placeholder.png",
+    "image": "/images/treatments/dermal-fillers/cheek-injection.webp",
     "sidebarImage": {
       "src": "/images/treatments/dermal-fillers/consultation-mirror.jpg",
       "alt": "الدكتورة صوفيا تضع حشوة جلدية بينما تنظر المريضة في مرآة اليد"
@@ -344,7 +344,7 @@
     "title": "سونيكوس",
     "tagline": "يجدد ويرطب ويقوي من الداخل",
     "category": "Face & Anti-Aging",
-    "image": "/images/services/sunekos.png",
+    "image": "/images/treatments/sunekos/sofia-injecting.jpg",
     "suitableImage": {
       "src": "/images/treatments/sunekos/treatment-comparison-v3.jpg",
       "alt": "مقارنة علاج Sunekos — Sunekos 1200 vs Sunekos Performance: التركيز الأساسي والأفضل في مجالات العلاج والاتساق",
@@ -528,7 +528,7 @@
     "title": "بروفايلو",
     "tagline": "المحفز الحيوي النهائي لإعادة تشكيل البشرة",
     "category": "Face & Anti-Aging",
-    "image": "/images/services/placeholder.png",
+    "image": "/images/treatments/profhilo/sofia-injecting.jpg",
     "gallery": {
       "folder": "/images/gallery/profhilo",
       "prefix": "profhilo",
@@ -689,7 +689,7 @@
     "title": "بولينوكليوتيدات (PDRN)",
     "tagline": "العلاج التجديدي المتقدم للبشرة وتحت العينين",
     "category": "Face & Anti-Aging",
-    "image": "/images/services/placeholder.png",
+    "image": "/images/treatments/polynucleotides/sofia-injecting.jpg",
     "intro": "تعد البولينوكليوتيدات (PDRN — Polydeoxyribonucleotide) علاجًا متطورًا للتحفيز الحيوي مشتقًا من الحمض النووي لسمك السلمون عالي النقاء. إنها تؤدي إلى إصلاح عميق للجلد، وتقلل الالتهاب وتحفز إنتاج الكولاجين الجديد، مما يجعلها فعالة بشكل خاص للهالات السوداء والجلد الرقيق والأنسجة القديمة أو التالفة.",
     "introInBody": true,
     "body": [
@@ -987,7 +987,7 @@
     "title": "سكلبترا",
     "tagline": "المفضل لدى المشاهير – عملية شد الوجه السائلة",
     "category": "Face & Anti-Aging",
-    "image": "/images/treatments/sculptra/practitioner-vial.jpg",
+    "image": "/images/treatments/sculptra/sofia-product.jpg",
     "gallery": {
       "folder": "/images/gallery/sculptra",
       "prefix": "sculptra",
@@ -1268,7 +1268,7 @@
     "taglineInHeading": true,
     "taglineHeadingAccent": "لعكس وتأخير علامات الشيخوخة",
     "category": "Face & Anti-Aging",
-    "image": "/images/services/placeholder.png",
+    "image": "/images/treatments/prp-face-body/prp-injection-face.jpg",
     "intro": "شد الوجه وتجديد شبابه بدون جراحة والذي يصحح العيوب البصرية للبشرة ويعزز إعادة تنظيم بنيتها المجهرية. يتضمن علاج PRP حقن PRP الخاص بالمريض والفيبرين للعلاج التجميلي للتجاعيد أو الندبات في الوجه واليدين والرقبة. تُعرف هذه العملية لدى البعض باسم \"شد الوجه مصاص الدماء\"، وهي أقل تدخلاً من الجراحة التجميلية، وتستغرق حوالي 45 دقيقة لكل علاج، وتقدم تحسينات لمدة تصل إلى 12 إلى 18 شهرًا.",
     "introInBody": true,
     "introRows": [
@@ -1575,7 +1575,7 @@
     "title": "علاج تساقط الشعر بتقنية PRP",
     "tagline": "ثبت سريريًا - استعادة الكثافة والتقوية وإعادة النمو",
     "category": "Hair Restoration",
-    "image": "/images/services/placeholder.png",
+    "image": "/images/treatments/prp-hair-loss/u225-scalp-treatment-1.jpg",
     "intro": "علاج تساقط الشعر (البلازما الغنية بالصفائح الدموية) هو علاج طبي من ثلاث خطوات يتم فيه سحب دم المريض ومعالجته ثم حقنه في فروة الرأس. فهو يزيد حجم الشعر، وينمو جذورًا جديدة بشكل طبيعي، ويزيد من بقاء الشعر الموجود وتقويته، ويزيد من الأوعية الدموية في فروة الرأس، ويحسن حيوية شعرك ولونه ولمعانه - مما يحسن جودة الشعر بشكل عام من خلال عملية طبيعية تمامًا. PRP هو العلاج غير الجراحي وغير الدوائي الوحيد الذي أثبت فعاليته وسلامته.",
     "introInBody": true,
     "introRows": [
@@ -1980,7 +1980,7 @@
     "title": "الإكسوسومات: سر الجمال الذي يغير قواعد اللعبة",
     "tagline": "واحدة من أكثر الابتكارات التي تم الحديث عنها في علم الجمال التجديدي",
     "category": "Hair Restoration",
-    "image": "/images/treatments/exosome/hair-loss-hero.jpg",
+    "image": "/images/treatments/exosome/sofia-facial-exosome-treatment.jpg",
     "gallery": {
       "folder": "/images/gallery/exosome",
       "prefix": "exosome",
@@ -2329,7 +2329,7 @@
     "title": "تحلل الدهون بالتبريد (تجميد الدهون)",
     "tagline": "تخلص من الدهون العنيدة – بدون جراحة، وبدون توقف",
     "category": "Body Contouring",
-    "image": "/images/services/cryolipolysis.png",
+    "image": "/images/blogs/cryolipolysis-fat-freezing.jpeg",
     "intro": "تحلل الدهون بالتبريد هو الإجراء المناسب لك إذا كنت ترغب في تجنب الجراحة والتخلص من الدهون العنيدة وفقدان الوزن والعودة إلى حياتك في غضون ساعات قليلة. إنه يستهدف بشكل فعال المناطق التي تعاني من مشاكل بما في ذلك البطن والفخذين الداخليين والخارجيين والظهر والمزيد - وهو بديل شائع لشفط الدهون الذي يركز على الخلايا الدهنية من خلال التبريد المتحكم فيه وتجميدها والبدء في التخلص منها.",
     "videoId": "V4K0z6c9vVU",
     "howItWorks": {
@@ -2471,7 +2471,7 @@
     "title": "ايمسكولت نيو",
     "tagline": "بناء العضلات وحرق الدهون في وقت واحد — الأول من نوعه في العالم",
     "category": "Body Contouring",
-    "image": "/images/services/emsculpt-neo.png",
+    "image": "/images/treatments/emsculpt-neo/hero-abdomen.png",
     "intro": "Emculpt Neo هو العلاج الأول والوحيد غير الجراحي في العالم الذي يحرق الدهون ويبني العضلات في نفس الوقت باستخدام مزيج من تسخين الترددات الراديوية والطاقة الكهرومغناطيسية المركزة عالية الكثافة (HIFEM+). جلسة واحدة مدتها 30 دقيقة تعادل 20 ألف انقباضة عضلية.",
     "videoUrl": "/videos/treatments/emsculpt-neo-demo.mp4",
     "treatmentAreasImage": {
@@ -2637,7 +2637,7 @@
     "title": "أكواليكس (إذابة الدهون)",
     "tagline": "يذيب الدهون العنيدة بشكل دائم - مستهدف بدقة",
     "category": "Body Contouring",
-    "image": "/images/treatments/aqualyx/product-vials.jpg",
+    "image": "/images/treatments/aqualyx/aqualyx-product-hero.jpg",
     "gallery": {
       "folder": "/images/gallery/aqualyx",
       "prefix": "aqualyx",
@@ -3111,7 +3111,7 @@
     "title": "الوخز بالإبر الدقيقة",
     "tagline": "تحفيز إنتاج الكولاجين الطبيعي في بشرتك",
     "category": "Skin & Health",
-    "image": "/images/services/placeholder.png",
+    "image": "/images/treatments/microneedling/fight-aging.webp",
     "intro": "Microneedling هو علاج بسيط لتجديد شباب الجلد مصمم لتحسين نسيج البشرة وشدها وترطيبها وجودة البشرة بشكل عام. يُعرف الوخز بالإبر الدقيقة أيضًا باسم العلاج بتحريض الكولاجين، ويستخدم قلم الوخز بالإبر الدقيقة الاحترافي مع إبر دقيقة ومعقمة لإنشاء قنوات مجهرية يمكن التحكم فيها في الجلد.",
     "introRows": [
       {
@@ -3304,7 +3304,7 @@
     "title": "الميزوثيرابي",
     "tagline": "الطب التجميلي غير الجراحي للطب التجميلي والأمراض الجلدية",
     "category": "Skin & Health",
-    "image": "/images/services/placeholder.png",
+    "image": "/images/treatments/mesotherapy/mesox/aminoacids-box-2.jpg",
     "intro": "الميزوثيرابي هو علاج بسيط لتجديد شباب الجلد باستخدام سلسلة من الحقن الدقيقة الدقيقة لتقديم مزيج مخصص من المكونات النشطة إلى الطبقات السطحية من الجلد. اعتمادًا على خطة العلاج الفردية الخاصة بك، قد تحتوي التركيبة على مكونات مثل حمض الهيالورونيك والفيتامينات والمعادن والأحماض الأمينية وغيرها من المركبات الداعمة للبشرة.",
     "body": [
       "الميزوثيرابي هو إجراء طفيف التوغل حيث يتم حقن سلسلة من الحقن فائقة الدقة من الفيتامينات والمعادن والأحماض الأمينية في الطبقة المتوسطة من الجلد.",
@@ -3631,7 +3631,7 @@
     "title": "التقشير الكيميائي (التقشير الضوئي الديناميكي)",
     "tagline": "العلاج الضوئي الديناميكي، التقشير الكيميائي",
     "category": "Skin & Health",
-    "image": "/images/services/placeholder.png",
+    "image": "/images/treatments/photo-aging/skinox-wrinkles.jpg",
     "intro": "Skinox هو علاج تقشير طبي حساس لتجديد شباب و/أو لعلاج تصحيح الجلد. هذه التقنية غير الجراحية هي العلاج الديناميكي الضوئي الذي يحفز الجلد ويجدده ويصلحه.",
     "videoId": "oKODPcIJGyE",
     "relatedLinks": [
@@ -3737,7 +3737,7 @@
     "title": "العلاج بالتصليب",
     "tagline": "إزالة الأوردة العنكبوتية بطريقة غير جراحية – امنح بشرتك مظهرًا أفضل",
     "category": "Skin & Health",
-    "image": "/images/services/placeholder.png",
+    "image": "/images/treatments/sclerotherapy/sclerotherapy-treatment-room-2.jpg",
     "intro": "يعد العلاج بالتصليب أحد أكثر العلاجات فعالية للأوردة العنكبوتية والدوالي الصغيرة في الساقين. يتم حقن محلول متصلب في الوريد بواسطة إبرة رفيعة للغاية، مما يؤدي إلى تهيج بطانته، مما يؤدي إلى التصاق جدرانه ببعضها البعض، ويتوقف الدم عن التدفق عبر الوريد، والذي يمتصه الجسم تدريجيًا على مدار بضعة أسابيع. الدكتورة صوفيا عضو في الجمعية البريطانية لأخصائيي التصلب.",
     "introRows": [
       {
@@ -3872,7 +3872,7 @@
     "tagline": "يستخدم CryoPen ابتكارًا متطورًا للتجميد سريعًا وفعالًا وآمنًا لإزالة الآفات الجلدية الحميدة على الوجه والجسم.",
     "category": "Skin & Health",
     "bookCTAHorizontal": true,
-    "image": "/images/services/placeholder.png",
+    "image": "/images/treatments/cryopen/cryopen-device-v2.jpg",
     "gallery": {
       "folder": "/images/gallery/cryopen",
       "prefix": "cryopen",
@@ -4184,7 +4184,7 @@
     "title": "سحب الدم (سحب الدم الخاص)",
     "tagline": "خدمة سحب الدم والطرد المركزي الاحترافية منذ عام 2014",
     "category": "Phlebotomy & Health Tests",
-    "image": "/images/services/phlebotomy.png",
+    "image": "/images/treatments/phlebotomy/blood-draw.jpg",
     "intro": "تقدم عيادة YourHealthFirst خدمات سحب الدم الخاصة المتخصصة (سحب الدم) وخدمات الطرد المركزي للبالغين والأطفال منذ عام 2014. نقوم بمعالجة الدم لعلاجات PRP، ونوفر سحب الدم لإجراء الاختبارات المعملية الخارجية، ونقدم خدمات الطرد المركزي لمجموعة واسعة من التطبيقات السريرية.",
     "body": [
       "يتم تنفيذ خدمة سحب الدم لدينا من قبل ممارس ذي خبرة ومدرب تدريبًا كاملاً في بيئة سريرية مريحة. يتم إجراء سحب الدم لمجموعة متنوعة من الأغراض بما في ذلك التحضير لعلاجات الشعر والجلد PRP، واختبار الدم قبل العلاج، والعمل المعملي الخارجي الذي يطلبه الطبيب العام أو المتخصص.",
@@ -4243,7 +4243,7 @@
     "title": "حقن فيتامين ب12",
     "tagline": "تعزيز الطاقة والتمثيل الغذائي والرفاهية – بسرعة",
     "category": "Skin & Health",
-    "image": "/images/services/placeholder.png",
+    "image": "/images/treatments/vitamin-b12/sofia-injecting-arm.jpg",
     "intro": "توفر حقن فيتامين ب12 جرعة مباشرة ومتوفرة بيولوجيًا للغاية من هذا الفيتامين الأساسي مباشرة إلى العضلات، متجاوزة الجهاز الهضمي لامتصاصها الفوري. إنها مثالية لأولئك الذين يعانون من نقص فيتامين ب12 أو أي شخص يسعى إلى تحسين الطاقة والوضوح العقلي والدعم المناعي.",
     "introInBody": true,
     "introRows": [

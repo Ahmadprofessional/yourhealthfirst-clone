@@ -101,10 +101,10 @@ export const metadata: Metadata = {
       "Award-winning Harley Street clinic at 2 Wimpole Street, London W1G 0EB. Specialising in aesthetic medicine, anti-wrinkle injections, dermal fillers, hair loss restoration, phlebotomy & skin rejuvenation.",
     images: [
       {
-        url: "/images/hero-bg.jpeg",
+        url: `${siteUrl}/images/hero-desk.jpg`,
         width: 1200,
         height: 630,
-        alt: "YourHealthFirst Clinic Harley Street London",
+        alt: "Dr. Sofia Bouzian — YourHealthFirst Clinic Harley Street London",
       },
     ],
   },
@@ -114,7 +114,7 @@ export const metadata: Metadata = {
     description:
       "Award-winning Harley Street clinic at 2 Wimpole Street, London W1G 0EB. Specialising in aesthetic medicine, hair restoration & longevity.",
     creator: "@YHFHarleyStreet",
-    images: ["/images/hero-bg.jpeg"],
+    images: [`${siteUrl}/images/hero-desk.jpg`],
   },
   robots: {
     index: true,

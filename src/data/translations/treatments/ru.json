@@ -4,7 +4,7 @@
     "title": "Инъекции против морщин",
     "tagline": "Разглаживает, освежает и слегка подтягивает — с профессиональной точностью.",
     "category": "Face & Anti-Aging",
-    "image": "/images/services/anti-wrinkles.png",
+    "image": "/images/treatments/anti-wrinkles/sofia-consultation.jpg",
     "bodyImages": [
       {
         "src": "/images/treatments/anti-wrinkles/sofia-consultation.jpg",
@@ -150,7 +150,7 @@
     "title": "Дермальные наполнители",
     "tagline": "Восстановите объем, определите контуры, освежите внешний вид.",
     "category": "Face & Anti-Aging",
-    "image": "/images/services/placeholder.png",
+    "image": "/images/treatments/dermal-fillers/cheek-injection.webp",
     "sidebarImage": {
       "src": "/images/treatments/dermal-fillers/consultation-mirror.jpg",
       "alt": "Доктор София вставляет кожный наполнитель, пока пациент смотрит в ручное зеркало"
@@ -344,7 +344,7 @@
     "title": "Сунекос",
     "tagline": "Регенерация, увлажнение и укрепление изнутри",
     "category": "Face & Anti-Aging",
-    "image": "/images/services/sunekos.png",
+    "image": "/images/treatments/sunekos/sofia-injecting.jpg",
     "suitableImage": {
       "src": "/images/treatments/sunekos/treatment-comparison-v3.jpg",
       "alt": "Сравнение лечения Sunekos — Sunekos 1200 и Sunekos Performa: основной фокус, лучший вариант, области лечения и последовательность",
@@ -528,7 +528,7 @@
     "title": "Профило",
     "tagline": "Лучший биостимулятор для ремоделирования кожи.",
     "category": "Face & Anti-Aging",
-    "image": "/images/services/placeholder.png",
+    "image": "/images/treatments/profhilo/sofia-injecting.jpg",
     "gallery": {
       "folder": "/images/gallery/profhilo",
       "prefix": "profhilo",
@@ -689,7 +689,7 @@
     "title": "Полинуклеотиды (ПДРН)",
     "tagline": "Передовая регенеративная терапия для кожи и под глазами",
     "category": "Face & Anti-Aging",
-    "image": "/images/services/placeholder.png",
+    "image": "/images/treatments/polynucleotides/sofia-injecting.jpg",
     "intro": "Полинуклеотиды (PDRN — полидезоксирибонуклеотиды) — это новейший биостимулирующий препарат, полученный из высокоочищенной ДНК лосося. Они вызывают глубокое восстановление кожи, уменьшают воспаление и стимулируют выработку нового коллагена, что делает их особенно эффективными при темных кругах, тонкой коже, стареющих или поврежденных тканях.",
     "introInBody": true,
     "body": [
@@ -987,7 +987,7 @@
     "title": "Скульптра",
     "tagline": "Любимица знаменитостей — жидкая подтяжка лица",
     "category": "Face & Anti-Aging",
-    "image": "/images/treatments/sculptra/practitioner-vial.jpg",
+    "image": "/images/treatments/sculptra/sofia-product.jpg",
     "gallery": {
       "folder": "/images/gallery/sculptra",
       "prefix": "sculptra",
@@ -1268,7 +1268,7 @@
     "taglineInHeading": true,
     "taglineHeadingAccent": "обратить вспять и задержать признаки старения",
     "category": "Face & Anti-Aging",
-    "image": "/images/services/placeholder.png",
+    "image": "/images/treatments/prp-face-body/prp-injection-face.jpg",
     "intro": "Безоперационный лифтинг и омоложение лица, корректирующий визуальные дефекты кожи и способствующий реорганизации ее микроструктуры. PRP-терапия включает инъекции собственного PRP и фибрина пациента для косметического лечения морщин или шрамов на лице, руках и шее. Известная некоторым как «вампирская подтяжка лица», она менее инвазивна, чем пластическая хирургия, занимает около 45 минут на каждую процедуру и обеспечивает улучшение на срок от 12 до 18 месяцев.",
     "introInBody": true,
     "introRows": [
@@ -1575,7 +1575,7 @@
     "title": "Лечение выпадения волос PRP",
     "tagline": "Клинически доказано — восстановление плотности, укрепление и рост.",
     "category": "Hair Restoration",
-    "image": "/images/services/placeholder.png",
+    "image": "/images/treatments/prp-hair-loss/u225-scalp-treatment-1.jpg",
     "intro": "Лечение выпадения волос PRP (обогащенная тромбоцитами плазма) представляет собой трехэтапную медицинскую процедуру, при которой кровь пациента берется, обрабатывается и затем вводится в кожу головы. Он придает волосам объем, естественным образом отращивает новые корни, увеличивает выживаемость и укрепление существующих волос, увеличивает васкуляризацию кожи головы и улучшает жизненную силу, цвет и блеск ваших волос, улучшая общее качество волос посредством совершенно естественного процесса. PRP — единственный нехирургический и нефармацевтический метод лечения, доказавший свою эффективность и безопасность.",
     "introInBody": true,
     "introRows": [
@@ -1980,7 +1980,7 @@
     "title": "Экзосомы: революционный секрет красоты",
     "tagline": "Одна из самых обсуждаемых инноваций в регенеративной эстетике",
     "category": "Hair Restoration",
-    "image": "/images/treatments/exosome/hair-loss-hero.jpg",
+    "image": "/images/treatments/exosome/sofia-facial-exosome-treatment.jpg",
     "gallery": {
       "folder": "/images/gallery/exosome",
       "prefix": "exosome",
@@ -2329,7 +2329,7 @@
     "title": "Криолиполиз (замораживание жира)",
     "tagline": "Устранение стойкого жира — без хирургического вмешательства и без простоев",
     "category": "Body Contouring",
-    "image": "/images/services/cryolipolysis.png",
+    "image": "/images/blogs/cryolipolysis-fat-freezing.jpeg",
     "intro": "Криолиполиз – процедура для вас, если вы хотите избежать операции, избавиться от накопившегося жира, похудеть и вернуться к нормальной жизни в течение нескольких часов. Он эффективно воздействует на проблемные области, включая живот, внутреннюю и внешнюю поверхность бедер, спину и т. д. Это популярная альтернатива липосакции, которая воздействует на жировые клетки с помощью контролируемого охлаждения, замораживает их и инициирует их удаление.",
     "videoId": "V4K0z6c9vVU",
     "howItWorks": {
@@ -2471,7 +2471,7 @@
     "title": "Эмскульпт Нео",
     "tagline": "Наращивайте мышцы и сжигайте жир одновременно — впервые в мире",
     "category": "Body Contouring",
-    "image": "/images/services/emsculpt-neo.png",
+    "image": "/images/treatments/emsculpt-neo/hero-abdomen.png",
     "intro": "Emsculpt Neo — это первый и единственный в мире неинвазивный метод лечения, который одновременно сжигает жир и наращивает мышцы, используя комбинацию радиочастотного нагрева и высокоинтенсивной сфокусированной электромагнитной энергии (HIFEM+). Один 30-минутный сеанс эквивалентен 20 000 мышечных сокращений.",
     "videoUrl": "/videos/treatments/emsculpt-neo-demo.mp4",
     "treatmentAreasImage": {
@@ -2637,7 +2637,7 @@
     "title": "Акваликс (растворяющий жир)",
     "tagline": "Навсегда растворяет стойкий жир — целенаправленно",
     "category": "Body Contouring",
-    "image": "/images/treatments/aqualyx/product-vials.jpg",
+    "image": "/images/treatments/aqualyx/aqualyx-product-hero.jpg",
     "gallery": {
       "folder": "/images/gallery/aqualyx",
       "prefix": "aqualyx",
@@ -3111,7 +3111,7 @@
     "title": "Микронидлинг",
     "tagline": "Стимулируйте выработку естественного коллагена вашей кожей.",
     "category": "Skin & Health",
-    "image": "/images/services/placeholder.png",
+    "image": "/images/treatments/microneedling/fight-aging.webp",
     "intro": "Микронидлинг — это минимально инвазивная процедура омоложения кожи, предназначенная для улучшения текстуры кожи, ее упругости, увлажнения и общего качества кожи. При микронидлинге, также известном как индукционная терапия коллагеном, используется профессиональная ручка-микронидлинг с тонкими стерильными иглами для создания контролируемых микроскопических каналов в коже.",
     "introRows": [
       {
@@ -3304,7 +3304,7 @@
     "title": "Мезотерапия",
     "tagline": "Нехирургическая косметическая медицина для эстетической медицины и дерматологии",
     "category": "Skin & Health",
-    "image": "/images/services/placeholder.png",
+    "image": "/images/treatments/mesotherapy/mesox/aminoacids-box-2.jpg",
     "intro": "Мезотерапия — это минимально инвазивная процедура омоложения кожи, использующая серию точных микроинъекций для доставки индивидуальной смеси активных ингредиентов в поверхностные слои кожи. В зависимости от вашего индивидуального плана лечения, рецептура может содержать такие ингредиенты, как гиалуроновая кислота, витамины, минералы, аминокислоты и другие соединения, поддерживающие кожу.",
     "body": [
       "Мезотерапия – это минимально инвазивная процедура, при которой в мезодермальный слой кожи вводится серия тонких инъекций коктейлей витаминов, минералов и аминокислот.",
@@ -3631,7 +3631,7 @@
     "title": "Химический пилинг (Фотодинамический пилинг)",
     "tagline": "Фотодинамическая терапия, химический пилинг",
     "category": "Skin & Health",
-    "image": "/images/services/placeholder.png",
+    "image": "/images/treatments/photo-aging/skinox-wrinkles.jpg",
     "intro": "Skinox – это светочувствительный медицинский пилинг для омоложения и/или коррекции кожи. Этот неинвазивный метод представляет собой фотобиодинамическую терапию, которая стимулирует, регенерирует и восстанавливает кожу.",
     "videoId": "oKODPcIJGyE",
     "relatedLinks": [
@@ -3737,7 +3737,7 @@
     "title": "Склеротерапия",
     "tagline": "Неинвазивное удаление сосудистых звездочек — придайте коже лучший вид TESTMARKER",
     "category": "Skin & Health",
-    "image": "/images/services/placeholder.png",
+    "image": "/images/treatments/sclerotherapy/sclerotherapy-treatment-room-2.jpg",
     "intro": "Склеротерапия – один из самых эффективных методов лечения сосудистых звездочек и небольшого варикозного расширения вен на ногах. Очень тонкая игла вводит в вену склерозирующий раствор, раздражая ее оболочку, поэтому стенки слипаются — кровь перестает течь через вену, которая постепенно всасывается организмом в течение нескольких недель. Доктор София является членом Британской ассоциации склеротерапевтов.",
     "introRows": [
       {
@@ -3872,7 +3872,7 @@
     "tagline": "CryoPen использует передовые инновации в области замораживания, которые быстро, эффективно и безопасно удаляют доброкачественные образования кожи на лице и теле.",
     "category": "Skin & Health",
     "bookCTAHorizontal": true,
-    "image": "/images/services/placeholder.png",
+    "image": "/images/treatments/cryopen/cryopen-device-v2.jpg",
     "gallery": {
       "folder": "/images/gallery/cryopen",
       "prefix": "cryopen",
@@ -4184,7 +4184,7 @@
     "title": "Флеботомия (частный забор крови)",
     "tagline": "Профессиональные частные услуги по взятию крови и центрифугированию с 2014 года.",
     "category": "Phlebotomy & Health Tests",
-    "image": "/images/services/phlebotomy.png",
+    "image": "/images/treatments/phlebotomy/blood-draw.jpg",
     "intro": "Клиника YourHealthFirst предоставляет профессиональные услуги частной флеботомии (забора крови) и центрифугирования для взрослых и детей с 2014 года. Мы обрабатываем кровь для лечения PRP, проводим забор крови для внешних лабораторных исследований и предлагаем услуги центрифугирования для широкого спектра клинических применений.",
     "body": [
       "Наши услуги по флеботомии выполняются опытным, полностью обученным практикующим врачом в клинических, комфортных условиях. Заборы крови проводятся для различных целей, включая подготовку к процедурам PRP для волос и кожи, анализ крови перед процедурой и внешние лабораторные работы по заказу врача общей практики или специалиста.",
@@ -4243,7 +4243,7 @@
     "title": "Инъекции витамина B12",
     "tagline": "Повышайте энергию, обмен веществ и хорошее самочувствие — быстро",
     "category": "Skin & Health",
-    "image": "/images/services/placeholder.png",
+    "image": "/images/treatments/vitamin-b12/sofia-injecting-arm.jpg",
     "intro": "Инъекции витамина B12 доставляют прямую, высокобиодоступную дозу этого важного витамина прямо в мышцу, минуя пищеварительную систему, для немедленного всасывания. Они идеально подходят для людей с дефицитом B12 или для тех, кто хочет повысить энергию, ясность ума и поддержку иммунитета.",
     "introInBody": true,
     "introRows": [

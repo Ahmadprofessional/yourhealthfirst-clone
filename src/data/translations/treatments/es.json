@@ -4,7 +4,7 @@
     "title": "Inyecciones antiarrugas",
     "tagline": "Suaviza, refresca y levanta sutilmente, con precisión experta.",
     "category": "Face & Anti-Aging",
-    "image": "/images/services/anti-wrinkles.png",
+    "image": "/images/treatments/anti-wrinkles/sofia-consultation.jpg",
     "bodyImages": [
       {
         "src": "/images/treatments/anti-wrinkles/sofia-consultation.jpg",
@@ -150,7 +150,7 @@
     "title": "Rellenos dérmicos",
     "tagline": "Restaura el volumen, define contornos, refresca tu mirada.",
     "category": "Face & Anti-Aging",
-    "image": "/images/services/placeholder.png",
+    "image": "/images/treatments/dermal-fillers/cheek-injection.webp",
     "sidebarImage": {
       "src": "/images/treatments/dermal-fillers/consultation-mirror.jpg",
       "alt": "La Dra. Sofía coloca relleno dérmico mientras el paciente observa en un espejo de mano."
@@ -344,7 +344,7 @@
     "title": "Sunekós",
     "tagline": "Regenera, hidrata y reafirma desde dentro",
     "category": "Face & Anti-Aging",
-    "image": "/images/services/sunekos.png",
+    "image": "/images/treatments/sunekos/sofia-injecting.jpg",
     "suitableImage": {
       "src": "/images/treatments/sunekos/treatment-comparison-v3.jpg",
       "alt": "Comparación de tratamientos Sunekos: Sunekos 1200 frente a Sunekos Performa: enfoque principal, mejor para, áreas de tratamiento y consistencia",
@@ -528,7 +528,7 @@
     "title": "Profilo",
     "tagline": "El bioestimulador remodelador de la piel definitivo",
     "category": "Face & Anti-Aging",
-    "image": "/images/services/placeholder.png",
+    "image": "/images/treatments/profhilo/sofia-injecting.jpg",
     "gallery": {
       "folder": "/images/gallery/profhilo",
       "prefix": "profhilo",
@@ -689,7 +689,7 @@
     "title": "Polinucleótidos (PDRN)",
     "tagline": "Terapia regenerativa avanzada para la piel y debajo de los ojos.",
     "category": "Face & Anti-Aging",
-    "image": "/images/services/placeholder.png",
+    "image": "/images/treatments/polynucleotides/sofia-injecting.jpg",
     "intro": "Los polinucleótidos (PDRN — Polidesoxirribonucleótido) son un tratamiento bioestimulador de vanguardia derivado del ADN de salmón altamente purificado. Activan una reparación profunda de la piel, reducen la inflamación y estimulan la producción de nuevo colágeno, lo que los hace particularmente efectivos para las ojeras, la piel fina y el tejido envejecido o dañado.",
     "introInBody": true,
     "body": [
@@ -987,7 +987,7 @@
     "title": "escultura",
     "tagline": "El favorito de las celebridades: el lavado de cara líquido",
     "category": "Face & Anti-Aging",
-    "image": "/images/treatments/sculptra/practitioner-vial.jpg",
+    "image": "/images/treatments/sculptra/sofia-product.jpg",
     "gallery": {
       "folder": "/images/gallery/sculptra",
       "prefix": "sculptra",
@@ -1268,7 +1268,7 @@
     "taglineInHeading": true,
     "taglineHeadingAccent": "para revertir y retrasar los signos del envejecimiento",
     "category": "Face & Anti-Aging",
-    "image": "/images/services/placeholder.png",
+    "image": "/images/treatments/prp-face-body/prp-injection-face.jpg",
     "intro": "Lifting y rejuvenecimiento facial no quirúrgico que corrige los defectos visuales de la piel y favorece la reorganización de su microestructura. La terapia PRP implica la inyección del propio PRP y fibrina del paciente para el tratamiento cosmético de arrugas o cicatrices en la cara, manos y cuello. Conocido por algunos como el \"lifting facial vampírico\", es menos invasivo que la cirugía plástica, toma alrededor de 45 minutos por cada tratamiento y ofrece mejoras por hasta 12 a 18 meses.",
     "introInBody": true,
     "introRows": [
@@ -1575,7 +1575,7 @@
     "title": "Tratamiento PRP para la caída del cabello",
     "tagline": "Clínicamente probado: restaura la densidad, fortalece y vuelve a crecer.",
     "category": "Hair Restoration",
-    "image": "/images/services/placeholder.png",
+    "image": "/images/treatments/prp-hair-loss/u225-scalp-treatment-1.jpg",
     "intro": "El tratamiento contra la caída del cabello con PRP (plasma rico en plaquetas) es un tratamiento médico de tres pasos en el que se extrae la sangre del paciente, se procesa y luego se inyecta en el cuero cabelludo. Da volumen al cabello, hace crecer nuevas raíces de forma natural, aumenta la supervivencia y el fortalecimiento del cabello existente, aumenta la vascularización del cuero cabelludo y mejora la vitalidad, el color y el brillo del cabello, mejorando la calidad general del cabello a través de un proceso completamente natural. El PRP es el único tratamiento no quirúrgico y no farmacéutico que ha demostrado su eficacia y seguridad.",
     "introInBody": true,
     "introRows": [
@@ -1980,7 +1980,7 @@
     "title": "Exosomas: el secreto de belleza revolucionario",
     "tagline": "Una de las innovaciones más comentadas en estética regenerativa",
     "category": "Hair Restoration",
-    "image": "/images/treatments/exosome/hair-loss-hero.jpg",
+    "image": "/images/treatments/exosome/sofia-facial-exosome-treatment.jpg",
     "gallery": {
       "folder": "/images/gallery/exosome",
       "prefix": "exosome",
@@ -2329,7 +2329,7 @@
     "title": "Criolipólisis (congelación de grasa)",
     "tagline": "Elimine la grasa rebelde, sin cirugía, sin tiempo de inactividad",
     "category": "Body Contouring",
-    "image": "/images/services/cryolipolysis.png",
+    "image": "/images/blogs/cryolipolysis-fat-freezing.jpeg",
     "intro": "La criolipólisis es el procedimiento adecuado para usted si desea evitar la cirugía, eliminar la grasa rebelde, perder peso y volver a su vida en unas pocas horas. Se dirige eficazmente a áreas problemáticas como el abdomen, la parte interna y externa de los muslos, la espalda y más: una alternativa popular a la liposucción que se concentra en las células grasas con enfriamiento controlado, las congela e inicia su eliminación.",
     "videoId": "V4K0z6c9vVU",
     "howItWorks": {
@@ -2471,7 +2471,7 @@
     "title": "Esculpir Neo",
     "tagline": "Desarrolla músculo y quema grasa simultáneamente: una primicia mundial",
     "category": "Body Contouring",
-    "image": "/images/services/emsculpt-neo.png",
+    "image": "/images/treatments/emsculpt-neo/hero-abdomen.png",
     "intro": "Emsculpt Neo es el primer y único tratamiento no invasivo del mundo que quema grasa y desarrolla músculos simultáneamente mediante una combinación de calentamiento por radiofrecuencia y energía electromagnética enfocada de alta intensidad (HIFEM+). Una sesión de 30 minutos equivale a 20.000 contracciones musculares.",
     "videoUrl": "/videos/treatments/emsculpt-neo-demo.mp4",
     "treatmentAreasImage": {
@@ -2637,7 +2637,7 @@
     "title": "Aqualyx (disolución de grasas)",
     "tagline": "Disuelva permanentemente la grasa rebelde, con un objetivo preciso",
     "category": "Body Contouring",
-    "image": "/images/treatments/aqualyx/product-vials.jpg",
+    "image": "/images/treatments/aqualyx/aqualyx-product-hero.jpg",
     "gallery": {
       "folder": "/images/gallery/aqualyx",
       "prefix": "aqualyx",
@@ -3111,7 +3111,7 @@
     "title": "microagujas",
     "tagline": "Estimula la producción natural de colágeno de tu piel.",
     "category": "Skin & Health",
-    "image": "/images/services/placeholder.png",
+    "image": "/images/treatments/microneedling/fight-aging.webp",
     "intro": "Microneedling es un tratamiento de rejuvenecimiento de la piel mínimamente invasivo diseñado para mejorar la textura, firmeza, hidratación y calidad general de la piel. También conocida como terapia de inducción de colágeno, la microaguja utiliza un bolígrafo profesional con finas agujas estériles para crear canales microscópicos controlados en la piel.",
     "introRows": [
       {
@@ -3304,7 +3304,7 @@
     "title": "mesoterapia",
     "tagline": "Medicina estética no quirúrgica para medicina estética y dermatología.",
     "category": "Skin & Health",
-    "image": "/images/services/placeholder.png",
+    "image": "/images/treatments/mesotherapy/mesox/aminoacids-box-2.jpg",
     "intro": "La mesoterapia es un tratamiento de rejuvenecimiento de la piel mínimamente invasivo que utiliza una serie de microinyecciones precisas para administrar una mezcla personalizada de ingredientes activos en las capas superficiales de la piel. Dependiendo de su plan de tratamiento individual, la formulación puede contener ingredientes como ácido hialurónico, vitaminas, minerales, aminoácidos y otros compuestos que apoyan la piel.",
     "body": [
       "La mesoterapia es un procedimiento mínimamente invasivo en el que se administran una serie de inyecciones superfinas de cócteles de vitaminas, minerales y aminoácidos en la capa mesodérmica de la piel.",
@@ -3631,7 +3631,7 @@
     "title": "Peelings químicos (peeling fotodinámico)",
     "tagline": "Terapia Fotodinámica, Peeling Químico",
     "category": "Skin & Health",
-    "image": "/images/services/placeholder.png",
+    "image": "/images/treatments/photo-aging/skinox-wrinkles.jpg",
     "intro": "Skinox es un tratamiento de peeling médico fotosensible para el rejuvenecimiento y/o para el tratamiento de corrección de la piel. Esta técnica no invasiva es la terapia fotobiodinámica que estimula, regenera y repara la piel.",
     "videoId": "oKODPcIJGyE",
     "relatedLinks": [
@@ -3737,7 +3737,7 @@
     "title": "Escleroterapia",
     "tagline": "Eliminación no invasiva de arañas vasculares: dale a tu piel un mejor aspecto TESTMARKER",
     "category": "Skin & Health",
-    "image": "/images/services/placeholder.png",
+    "image": "/images/treatments/sclerotherapy/sclerotherapy-treatment-room-2.jpg",
     "intro": "La escleroterapia es uno de los tratamientos más eficaces para las arañas vasculares y las pequeñas varices de las piernas. Una aguja muy fina inyecta una solución esclerosante en la vena, irritando su revestimiento, haciendo que las paredes se peguen: la sangre deja de fluir a través de la vena, y el cuerpo la absorbe gradualmente durante unas pocas semanas. La Dra. Sofia es miembro de la Asociación Británica de Escleroterapeutas.",
     "introRows": [
       {
@@ -3872,7 +3872,7 @@
     "tagline": "CryoPen utiliza una innovación de congelación avanzada que es rápida, efectiva y segura para eliminar lesiones cutáneas benignas en la cara y el cuerpo.",
     "category": "Skin & Health",
     "bookCTAHorizontal": true,
-    "image": "/images/services/placeholder.png",
+    "image": "/images/treatments/cryopen/cryopen-device-v2.jpg",
     "gallery": {
       "folder": "/images/gallery/cryopen",
       "prefix": "cryopen",
@@ -4184,7 +4184,7 @@
     "title": "Flebotomía (extracción de sangre privada)",
     "tagline": "Servicio privado profesional de extracción de sangre y centrífuga desde 2014.",
     "category": "Phlebotomy & Health Tests",
-    "image": "/images/services/phlebotomy.png",
+    "image": "/images/treatments/phlebotomy/blood-draw.jpg",
     "intro": "YourHealthFirst Clinic ha brindado servicios profesionales privados de flebotomía (extracción de sangre) y centrífuga para adultos y niños desde 2014. Procesamos sangre para tratamientos de PRP, brindamos extracción de sangre para pruebas de laboratorio externo y ofrecemos servicios de centrífuga para una amplia gama de aplicaciones clínicas.",
     "body": [
       "Nuestro servicio de flebotomía es realizado por un médico experimentado y completamente capacitado en un ambiente clínico y cómodo. Las extracciones de sangre se llevan a cabo para una variedad de propósitos, incluida la preparación para tratamientos de piel y cabello con PRP, análisis de sangre previos al tratamiento y análisis de laboratorio externos ordenados por un médico de cabecera o un especialista.",
@@ -4243,7 +4243,7 @@
     "title": "Inyecciones de vitamina B12",
     "tagline": "Aumente la energía, el metabolismo y el bienestar, rápidamente",
     "category": "Skin & Health",
-    "image": "/images/services/placeholder.png",
+    "image": "/images/treatments/vitamin-b12/sofia-injecting-arm.jpg",
     "intro": "Las inyecciones de vitamina B12 administran una dosis directa y altamente biodisponible de esta vitamina esencial directamente al músculo, sin pasar por el sistema digestivo para una absorción inmediata. Son ideales para quienes tienen deficiencia de B12 o para cualquiera que busque mayor energía, claridad mental y apoyo inmunológico.",
     "introInBody": true,
     "introRows": [

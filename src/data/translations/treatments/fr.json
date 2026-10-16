@@ -4,7 +4,7 @@
     "title": "Injections Anti-rides",
     "tagline": "Lisse, rafraîchit et lifte subtilement — avec une précision experte",
     "category": "Face & Anti-Aging",
-    "image": "/images/services/anti-wrinkles.png",
+    "image": "/images/treatments/anti-wrinkles/sofia-consultation.jpg",
     "bodyImages": [
       {
         "src": "/images/treatments/anti-wrinkles/sofia-consultation.jpg",
@@ -150,7 +150,7 @@
     "title": "Produits de comblement cutané",
     "tagline": "Redonnez du volume, définissez les contours, rafraîchissez votre look",
     "category": "Face & Anti-Aging",
-    "image": "/images/services/placeholder.png",
+    "image": "/images/treatments/dermal-fillers/cheek-injection.webp",
     "sidebarImage": {
       "src": "/images/treatments/dermal-fillers/consultation-mirror.jpg",
       "alt": "Le Dr Sofia place un produit de comblement cutané pendant que le patient regarde dans un miroir à main"
@@ -344,7 +344,7 @@
     "title": "Sunékos",
     "tagline": "Régénérer, hydrater et raffermir de l’intérieur",
     "category": "Face & Anti-Aging",
-    "image": "/images/services/sunekos.png",
+    "image": "/images/treatments/sunekos/sofia-injecting.jpg",
     "suitableImage": {
       "src": "/images/treatments/sunekos/treatment-comparison-v3.jpg",
       "alt": "Comparaison des traitements Sunekos — Sunekos 1200 vs Sunekos Performa : objectif principal, meilleur pour les zones de traitement et cohérence",
@@ -528,7 +528,7 @@
     "title": "Profil",
     "tagline": "Le biostimulateur ultime pour le remodelage de la peau",
     "category": "Face & Anti-Aging",
-    "image": "/images/services/placeholder.png",
+    "image": "/images/treatments/profhilo/sofia-injecting.jpg",
     "gallery": {
       "folder": "/images/gallery/profhilo",
       "prefix": "profhilo",
@@ -689,7 +689,7 @@
     "title": "Polynucléotides (PDRN)",
     "tagline": "Thérapie régénérative avancée pour la peau et le contour des yeux",
     "category": "Face & Anti-Aging",
-    "image": "/images/services/placeholder.png",
+    "image": "/images/treatments/polynucleotides/sofia-injecting.jpg",
     "intro": "Les polynucléotides (PDRN — Polydeoxyribonucléotide) sont un traitement biostimulateur de pointe dérivé de l'ADN de saumon hautement purifié. Ils déclenchent une réparation cutanée en profondeur, réduisent l'inflammation et stimulent la production de nouveau collagène, ce qui les rend particulièrement efficaces contre les cernes, la peau fine et les tissus vieillis ou endommagés.",
     "introInBody": true,
     "body": [
@@ -987,7 +987,7 @@
     "title": "Sculpture",
     "tagline": "Le favori des célébrités : le lifting liquide",
     "category": "Face & Anti-Aging",
-    "image": "/images/treatments/sculptra/practitioner-vial.jpg",
+    "image": "/images/treatments/sculptra/sofia-product.jpg",
     "gallery": {
       "folder": "/images/gallery/sculptra",
       "prefix": "sculptra",
@@ -1268,7 +1268,7 @@
     "taglineInHeading": true,
     "taglineHeadingAccent": "pour inverser et retarder les signes du vieillissement",
     "category": "Face & Anti-Aging",
-    "image": "/images/services/placeholder.png",
+    "image": "/images/treatments/prp-face-body/prp-injection-face.jpg",
     "intro": "Lifting non chirurgical et rajeunissement du visage qui corrige les défauts visuels de la peau et favorise la réorganisation de sa microstructure. La thérapie PRP implique l'injection du PRP et de la fibrine du patient pour le traitement cosmétique des rides ou des cicatrices du visage, des mains et du cou. Connu par certains sous le nom de « lifting vampire », il est moins invasif que la chirurgie plastique, prend environ 45 minutes pour chaque traitement et offre des améliorations allant jusqu'à 12 à 18 mois.",
     "introInBody": true,
     "introRows": [
@@ -1575,7 +1575,7 @@
     "title": "Traitement de perte de cheveux PRP",
     "tagline": "Prouvé en clinique : restaure la densité, renforce et repousse",
     "category": "Hair Restoration",
-    "image": "/images/services/placeholder.png",
+    "image": "/images/treatments/prp-hair-loss/u225-scalp-treatment-1.jpg",
     "intro": "Le traitement contre la chute des cheveux au PRP (plasma riche en plaquettes) est un traitement médical en trois étapes dans lequel le sang d'un patient est prélevé, traité, puis injecté dans le cuir chevelu. Il donne du volume aux cheveux, fait pousser naturellement de nouvelles racines, augmente la survie et le renforcement des cheveux existants, augmente la vascularisation du cuir chevelu et améliore la vitalité, la couleur et la brillance de vos cheveux, améliorant ainsi la qualité globale des cheveux grâce à un processus entièrement naturel. Le PRP est le seul traitement non chirurgical et non pharmaceutique ayant prouvé son efficacité et sa sécurité.",
     "introInBody": true,
     "introRows": [
@@ -1980,7 +1980,7 @@
     "title": "Exosomes : le secret de beauté qui change la donne",
     "tagline": "L’une des innovations les plus parlées en matière d’esthétique régénérative",
     "category": "Hair Restoration",
-    "image": "/images/treatments/exosome/hair-loss-hero.jpg",
+    "image": "/images/treatments/exosome/sofia-facial-exosome-treatment.jpg",
     "gallery": {
       "folder": "/images/gallery/exosome",
       "prefix": "exosome",
@@ -2329,7 +2329,7 @@
     "title": "Cryolipolyse (congélation des graisses)",
     "tagline": "Éliminez les graisses tenaces — sans chirurgie, sans temps d'arrêt",
     "category": "Body Contouring",
-    "image": "/images/services/cryolipolysis.png",
+    "image": "/images/blogs/cryolipolysis-fat-freezing.jpeg",
     "intro": "La cryolipolyse est l’intervention qu’il vous faut si vous souhaitez éviter une intervention chirurgicale, éliminer les graisses tenaces, perdre du poids et reprendre le cours de votre vie en quelques heures. Il cible efficacement les zones à problèmes, notamment le ventre, l’intérieur et l’extérieur des cuisses, le dos et bien plus encore – une alternative populaire à la liposuccion qui se concentre sur les cellules adipeuses avec un refroidissement contrôlé, les gèle et initie leur élimination.",
     "videoId": "V4K0z6c9vVU",
     "howItWorks": {
@@ -2471,7 +2471,7 @@
     "title": "Emsculpt Néo",
     "tagline": "Développez vos muscles et brûlez les graisses simultanément – une première mondiale",
     "category": "Body Contouring",
-    "image": "/images/services/emsculpt-neo.png",
+    "image": "/images/treatments/emsculpt-neo/hero-abdomen.png",
     "intro": "Emsculpt Neo est le premier et le seul traitement non invasif au monde qui brûle simultanément les graisses et développe les muscles en utilisant une combinaison de chauffage par radiofréquence et d'énergie électromagnétique focalisée de haute intensité (HIFEM+). Une séance de 30 minutes équivaut à 20 000 contractions musculaires.",
     "videoUrl": "/videos/treatments/emsculpt-neo-demo.mp4",
     "treatmentAreasImage": {
@@ -2637,7 +2637,7 @@
     "title": "Aqualyx (dissolution des graisses)",
     "tagline": "Dissout définitivement les graisses tenaces – précisément ciblées",
     "category": "Body Contouring",
-    "image": "/images/treatments/aqualyx/product-vials.jpg",
+    "image": "/images/treatments/aqualyx/aqualyx-product-hero.jpg",
     "gallery": {
       "folder": "/images/gallery/aqualyx",
       "prefix": "aqualyx",
@@ -3111,7 +3111,7 @@
     "title": "Microneedling",
     "tagline": "Stimulez la production naturelle de collagène de votre peau",
     "category": "Skin & Health",
-    "image": "/images/services/placeholder.png",
+    "image": "/images/treatments/microneedling/fight-aging.webp",
     "intro": "Le microneedling est un traitement de rajeunissement de la peau peu invasif conçu pour améliorer la texture, la fermeté, l’hydratation et la qualité globale de la peau. Également connu sous le nom de thérapie d'induction de collagène, le microneedling utilise un stylo de microneedling professionnel avec de fines aiguilles stériles pour créer des canaux microscopiques contrôlés dans la peau.",
     "introRows": [
       {
@@ -3304,7 +3304,7 @@
     "title": "Mésothérapie",
     "tagline": "Médecine esthétique non chirurgicale pour la médecine esthétique et la dermatologie",
     "category": "Skin & Health",
-    "image": "/images/services/placeholder.png",
+    "image": "/images/treatments/mesotherapy/mesox/aminoacids-box-2.jpg",
     "intro": "La mésothérapie est un traitement de rajeunissement de la peau peu invasif utilisant une série de micro-injections précises pour délivrer un mélange personnalisé d'ingrédients actifs dans les couches superficielles de la peau. En fonction de votre plan de traitement individuel, la formulation peut contenir des ingrédients tels que de l'acide hyaluronique, des vitamines, des minéraux, des acides aminés et d'autres composés de soutien pour la peau.",
     "body": [
       "La mésothérapie est une procédure mini-invasive où une série d'injections ultrafines de cocktails de vitamines, de minéraux et d'acides aminés sont administrées dans la couche méso-dermique de la peau.",
@@ -3631,7 +3631,7 @@
     "title": "Peelings chimiques (Peeling photodynamique)",
     "tagline": "Thérapie photodynamique, peeling chimique",
     "category": "Skin & Health",
-    "image": "/images/services/placeholder.png",
+    "image": "/images/treatments/photo-aging/skinox-wrinkles.jpg",
     "intro": "Skinox est un traitement peeling médical photosensible destiné au rajeunissement et/ou au traitement de correction cutanée. Cette technique non invasive est la thérapie photobiodynamique qui stimule, régénère et répare la peau.",
     "videoId": "oKODPcIJGyE",
     "relatedLinks": [
@@ -3737,7 +3737,7 @@
     "title": "Sclérothérapie",
     "tagline": "Élimination non invasive des varicosités — donnez à votre peau une meilleure apparence TESTMARKER",
     "category": "Skin & Health",
-    "image": "/images/services/placeholder.png",
+    "image": "/images/treatments/sclerotherapy/sclerotherapy-treatment-room-2.jpg",
     "intro": "La sclérothérapie est l'un des traitements les plus efficaces contre les varicosités et les petites varices des jambes. Une aiguille très fine injecte une solution sclérosante dans la veine, irritant sa paroi et les parois se collent les unes aux autres : le sang cesse de circuler dans la veine et est progressivement absorbé par l'organisme en quelques semaines. Le Dr Sofia est membre de la British Association of Sclerotherapists.",
     "introRows": [
       {
@@ -3872,7 +3872,7 @@
     "tagline": "CryoPen utilise une innovation avancée en matière de congélation qui est rapide, efficace et sûre pour éliminer les lésions cutanées bénignes du visage et du corps.",
     "category": "Skin & Health",
     "bookCTAHorizontal": true,
-    "image": "/images/services/placeholder.png",
+    "image": "/images/treatments/cryopen/cryopen-device-v2.jpg",
     "gallery": {
       "folder": "/images/gallery/cryopen",
       "prefix": "cryopen",
@@ -4184,7 +4184,7 @@
     "title": "Phlébotomie (prélèvement de sang privé)",
     "tagline": "Service professionnel privé de prises de sang et de centrifugation depuis 2014",
     "category": "Phlebotomy & Health Tests",
-    "image": "/images/services/phlebotomy.png",
+    "image": "/images/treatments/phlebotomy/blood-draw.jpg",
     "intro": "YourHealthFirst Clinic propose des services professionnels privés de phlébotomie (prélèvement de sang) et de centrifugation pour adultes et enfants depuis 2014. Nous traitons le sang pour les traitements PRP, effectuons des prélèvements sanguins pour des tests de laboratoire externes et proposons des services de centrifugation pour un large éventail d'applications cliniques.",
     "body": [
       "Notre service de phlébotomie est effectué par un praticien expérimenté et entièrement formé dans un environnement clinique et confortable. Les prises de sang sont effectuées à diverses fins, notamment la préparation aux traitements capillaires et cutanés PRP, les analyses sanguines préalables au traitement et les travaux de laboratoire externes ordonnés par un médecin généraliste ou un spécialiste.",
@@ -4243,7 +4243,7 @@
     "title": "Injections de vitamine B12",
     "tagline": "Boostez votre énergie, votre métabolisme et votre bien-être – rapidement",
     "category": "Skin & Health",
-    "image": "/images/services/placeholder.png",
+    "image": "/images/treatments/vitamin-b12/sofia-injecting-arm.jpg",
     "intro": "Les injections de vitamine B12 délivrent une dose directe et hautement biodisponible de cette vitamine essentielle directement dans le muscle, contournant le système digestif pour une absorption immédiate. Ils sont idéaux pour les personnes souffrant d’une carence en vitamine B12 ou pour toute personne recherchant une énergie, une clarté mentale et un soutien immunitaire améliorés.",
     "introInBody": true,
     "introRows": [

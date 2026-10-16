@@ -11,7 +11,7 @@ export default function SafeImage({
   src,
   alt,
   className,
-  fallbackSrc = "/images/services/placeholder.png",
+  fallbackSrc = "/images/hero-desk.jpg",
 }: Props) {
   return (
     <img

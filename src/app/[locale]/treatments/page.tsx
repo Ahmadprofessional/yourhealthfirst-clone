@@ -6,11 +6,49 @@ import Image from "next/image";
 import { services } from "@/data/services";
 import { getTranslations } from "next-intl/server";
 
-export const metadata: Metadata = {
-  title: "Treatments",
-  description:
-    "Explore all 20 aesthetic and medical treatments at YourHealthFirst Clinic — anti-wrinkle, fillers, Profhilo, cryolipolysis, PRP hair loss, Emsculpt Neo and more.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.yourhealthfirst.uk";
+  const title = "Treatments | YourHealthFirst Clinic — Harley Street, London";
+  const description =
+    "Explore all 20 aesthetic and medical treatments at YourHealthFirst Clinic — anti-wrinkle, fillers, Profhilo, cryolipolysis, PRP hair loss, Emsculpt Neo and more.";
+  const canonicalUrl = `${baseUrl}/${locale}/treatments`;
+  const imageUrl = `${baseUrl}/images/hero-desk.jpg`;
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: canonicalUrl,
+    },
+    openGraph: {
+      title,
+      description,
+      url: canonicalUrl,
+      siteName: "YourHealthFirst Clinic — Harley Street London",
+      locale: locale === "en" ? "en_GB" : locale,
+      type: "website",
+      images: [
+        {
+          url: imageUrl,
+          width: 1200,
+          height: 630,
+          alt: "Treatments at YourHealthFirst Clinic Harley Street",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [imageUrl],
+    },
+  };
+}
 
 const categories: Array<{ key: string; slugs: string[] }> = [
   {

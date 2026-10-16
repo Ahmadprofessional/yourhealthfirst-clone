@@ -273,22 +273,38 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!treatment) return { title: "Treatment | YourHealthFirst Clinic" };
   const displayTitle = treatment.metaTitle ?? `${treatment.title} | YourHealthFirst Clinic — Harley Street`;
   const description = treatment.metaDescription ?? treatment.intro;
+  const imageUrl = treatment.image.startsWith("http")
+    ? treatment.image
+    : `${baseUrl}${treatment.image.startsWith("/") ? "" : "/"}${treatment.image}`;
+  const canonicalUrl = `${baseUrl}/${locale}/treatments/${slug}`;
+
   return {
     title: treatment.metaTitle ? { absolute: treatment.metaTitle } : treatment.title,
     description,
     alternates: {
-      canonical: `${baseUrl}/${locale}/treatments/${slug}`,
+      canonical: canonicalUrl,
     },
     openGraph: {
       title: displayTitle,
       description,
-      url: `${baseUrl}/${locale}/treatments/${slug}`,
+      url: canonicalUrl,
+      siteName: "YourHealthFirst Clinic — Harley Street London",
+      locale: locale === "en" ? "en_GB" : locale,
+      type: "website",
       images: [
         {
-          url: treatment.image.startsWith("http") ? treatment.image : `${baseUrl}${treatment.image}`,
-          alt: treatment.title,
+          url: imageUrl,
+          width: 1200,
+          height: 630,
+          alt: `${treatment.title} — YourHealthFirst Clinic London`,
         },
       ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: displayTitle,
+      description,
+      images: [imageUrl],
     },
   };
 }

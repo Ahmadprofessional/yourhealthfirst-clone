@@ -26,10 +26,41 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.yourhealthfirst.uk";
   const t = await getTranslations({ locale, namespace: "AboutPage" });
+  const title = `${t("heading")} | Dr. Sofia Bouzian — YourHealthFirst Clinic`;
+  const description = t("subtitle");
+  const canonicalUrl = `${baseUrl}/${locale}/about-us`;
+  const imageUrl = `${baseUrl}/images/hero-desk.jpg`;
+
   return {
-    title: t("heading"),
-    description: t("subtitle"),
+    title,
+    description,
+    alternates: {
+      canonical: canonicalUrl,
+    },
+    openGraph: {
+      title,
+      description,
+      url: canonicalUrl,
+      siteName: "YourHealthFirst Clinic — Harley Street London",
+      locale: locale === "en" ? "en_GB" : locale,
+      type: "profile",
+      images: [
+        {
+          url: imageUrl,
+          width: 1200,
+          height: 630,
+          alt: "Dr. Sofia Bouzian — Harley Street Aesthetic Medicine Doctor",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [imageUrl],
+    },
   };
 }
 

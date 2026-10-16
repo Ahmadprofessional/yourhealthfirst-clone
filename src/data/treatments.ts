@@ -323,7 +323,7 @@ export const treatmentDetails: TreatmentDetail[] = [
     title: "Anti-Wrinkle Injections",
     tagline: "Smooth, refresh and subtly lift — with expert precision",
     category: "Face & Anti-Aging",
-    image: "/images/services/anti-wrinkles.png",
+    image: "/images/treatments/anti-wrinkles/sofia-consultation.jpg",
     bodyImages: [
       {
         src: "/images/treatments/anti-wrinkles/sofia-consultation.jpg",
@@ -484,7 +484,7 @@ export const treatmentDetails: TreatmentDetail[] = [
     title: "Dermal Fillers",
     tagline: "Restore volume, define contours, refresh your look",
     category: "Face & Anti-Aging",
-    image: "/images/services/placeholder.png",
+    image: "/images/treatments/dermal-fillers/cheek-injection.webp",
     sidebarImage: {
       src: "/images/treatments/dermal-fillers/consultation-mirror.jpg",
       alt: "Dr Sofia placing dermal filler while the patient watches in a hand mirror",
@@ -651,7 +651,7 @@ export const treatmentDetails: TreatmentDetail[] = [
     title: "Sunekos",
     tagline: "Regenerate, hydrate and firm from within",
     category: "Face & Anti-Aging",
-    image: "/images/services/sunekos.png",
+    image: "/images/treatments/sunekos/sofia-injecting.jpg",
     suitableImage: {
       src: "/images/treatments/sunekos/treatment-comparison-v3.jpg",
       alt: "Sunekos treatment comparison — Sunekos 1200 vs Sunekos Performa: primary focus, best for, treatment areas and consistency",
@@ -849,7 +849,7 @@ export const treatmentDetails: TreatmentDetail[] = [
     title: "Profhilo",
     tagline: "The ultimate skin remodelling biostimulator",
     category: "Face & Anti-Aging",
-    image: "/images/services/placeholder.png",
+    image: "/images/treatments/profhilo/sofia-injecting.jpg",
     gallery: {
       folder: "/images/gallery/profhilo",
       prefix: "profhilo",
@@ -986,7 +986,7 @@ export const treatmentDetails: TreatmentDetail[] = [
     title: "Polynucleotides (PDRN)",
     tagline: "Advanced regenerative therapy for skin and under-eyes",
     category: "Face & Anti-Aging",
-    image: "/images/services/placeholder.png",
+    image: "/images/treatments/polynucleotides/sofia-injecting.jpg",
     intro:
       "Polynucleotides (PDRN — Polydeoxyribonucleotide) are a cutting-edge biostimulatory treatment derived from highly purified salmon DNA. They trigger deep skin repair, reduce inflammation and stimulate the production of new collagen, making them particularly effective for dark circles, thin skin and aged or damaged tissue.",
     introInBody: true,
@@ -1289,7 +1289,7 @@ export const treatmentDetails: TreatmentDetail[] = [
     title: "Sculptra",
     tagline: "Celebrity's favourite — the liquid facelift",
     category: "Face & Anti-Aging",
-    image: "/images/treatments/sculptra/practitioner-vial.jpg",
+    image: "/images/treatments/sculptra/sofia-product.jpg",
     gallery: {
       folder: "/images/gallery/sculptra",
       prefix: "sculptra",
@@ -1569,7 +1569,7 @@ export const treatmentDetails: TreatmentDetail[] = [
     taglineInHeading: true,
     taglineHeadingAccent: "to reverse & delay the signs of ageing",
     category: "Face & Anti-Aging",
-    image: "/images/services/placeholder.png",
+    image: "/images/treatments/prp-face-body/prp-injection-face.jpg",
     intro:
       "Non-surgical lift and facial rejuvenation that corrects visual skin defects and promotes the reorganisation of its microstructure. PRP therapy involves injection of the patient's own PRP and fibrin for the cosmetic treatment of wrinkles or scars in the face, hands and neck. Known to some as the \"vampire facelift\", it is less invasive than plastic surgery, takes about 45 minutes for each treatment, and offers improvements for up to 12 to 18 months.",
     introInBody: true,
@@ -1848,7 +1848,7 @@ export const treatmentDetails: TreatmentDetail[] = [
     title: "PRP Hair Loss Treatment",
     tagline: "Clinically proven — restore density, strengthen and regrow",
     category: "Hair Restoration",
-    image: "/images/services/placeholder.png",
+    image: "/images/treatments/prp-hair-loss/u225-scalp-treatment-1.jpg",
     intro:
       "PRP (Platelet-Rich Plasma) hair loss treatment is a three-step medical treatment in which a patient's blood is drawn, processed, and then injected into the scalp. It volumises hair, naturally grows new roots, increases the survival and strengthening of existing hair, increases vascularisation of the scalp, and improves the vitality, colour and shine of your hair — improving overall hair quality through an entirely natural process. PRP is the only non-surgical and non-pharmaceutical treatment that has proven its efficacy and safety.",
     introInBody: true,
@@ -2256,7 +2256,7 @@ export const treatmentDetails: TreatmentDetail[] = [
     title: "Exosomes: The Game-Changing Beauty Secret",
     tagline: "One of the Most Talked-About Innovations in Regenerative Aesthetics",
     category: "Hair Restoration",
-    image: "/images/treatments/exosome/hair-loss-hero.jpg",
+    image: "/images/treatments/exosome/sofia-facial-exosome-treatment.jpg",
     gallery: {
       folder: "/images/gallery/exosome",
       prefix: "exosome",
@@ -2575,7 +2575,7 @@ export const treatmentDetails: TreatmentDetail[] = [
     title: "Cryolipolysis (Fat Freezing)",
     tagline: "Eliminate stubborn fat — without surgery, without downtime",
     category: "Body Contouring",
-    image: "/images/services/cryolipolysis.png",
+    image: "/images/blogs/cryolipolysis-fat-freezing.jpeg",
     intro:
       "Cryolipolysis is the procedure for you if you want to avoid surgery, eliminate stubborn fat, lose weight and return to your life within a few hours. It effectively targets problem areas including your belly, inner and outer thighs, back and more — a popular alternative to liposuction that zeroes in on fat cells with controlled cooling, freezes them and initiates their elimination.",
     videoId: "V4K0z6c9vVU",
@@ -2733,7 +2733,7 @@ export const treatmentDetails: TreatmentDetail[] = [
     title: "Emsculpt Neo",
     tagline: "Build muscle and burn fat simultaneously — a world first",
     category: "Body Contouring",
-    image: "/images/services/emsculpt-neo.png",
+    image: "/images/treatments/emsculpt-neo/hero-abdomen.png",
     intro:
       "Emsculpt Neo is the world's first and only non-invasive treatment that simultaneously burns fat and builds muscle using a combination of radiofrequency heating and high-intensity focused electromagnetic energy (HIFEM+). One 30-minute session is equivalent to 20,000 muscle contractions.",
     videoUrl: "/videos/treatments/emsculpt-neo-demo.mp4",
@@ -2909,7 +2909,7 @@ export const treatmentDetails: TreatmentDetail[] = [
     title: "Aqualyx (Fat Dissolving)",
     tagline: "Permanently dissolve stubborn fat — precisely targeted",
     category: "Body Contouring",
-    image: "/images/treatments/aqualyx/product-vials.jpg",
+    image: "/images/treatments/aqualyx/aqualyx-product-hero.jpg",
     gallery: {
       folder: "/images/gallery/aqualyx",
       prefix: "aqualyx",
@@ -3386,7 +3386,7 @@ export const treatmentDetails: TreatmentDetail[] = [
     title: "Microneedling",
     tagline: "Stimulate your skin's natural collagen production",
     category: "Skin & Health",
-    image: "/images/services/placeholder.png",
+    image: "/images/treatments/microneedling/fight-aging.webp",
     intro:
       "Microneedling is a minimally invasive skin rejuvenation treatment designed to improve skin texture, firmness, hydration and overall skin quality. Also known as collagen induction therapy, microneedling uses a professional microneedling pen with fine sterile needles to create controlled microscopic channels in the skin.",
     introRows: [
@@ -3590,7 +3590,7 @@ export const treatmentDetails: TreatmentDetail[] = [
     title: "Mesotherapy",
     tagline: "Non-surgical cosmetic medicine for aesthetic medicine and dermatology",
     category: "Skin & Health",
-    image: "/images/services/placeholder.png",
+    image: "/images/treatments/mesotherapy/mesox/aminoacids-box-2.jpg",
     intro:
       "Mesotherapy is a minimally invasive skin rejuvenation treatment using a series of precise micro-injections to deliver a customised blend of active ingredients into the superficial layers of the skin. Depending on your individual treatment plan, the formulation may contain ingredients such as hyaluronic acid, vitamins, minerals, amino acids and other skin-supporting compounds.",
     body: [
@@ -3916,7 +3916,7 @@ export const treatmentDetails: TreatmentDetail[] = [
     title: "Chemical Peels (Photodynamic Peel)",
     tagline: "Photodynamic Therapy, Chemical Peel",
     category: "Skin & Health",
-    image: "/images/services/placeholder.png",
+    image: "/images/treatments/photo-aging/skinox-wrinkles.jpg",
     intro:
       "Skinox is a photosensitive medical peeling treatment for rejuvenation and/or for the treatment of skin correction. This non-invasive technique is the photobiodynamic therapy that stimulates, regenerates and repairs the skin.",
     videoId: "oKODPcIJGyE",
@@ -4020,9 +4020,9 @@ export const treatmentDetails: TreatmentDetail[] = [
   {
     slug: "sclerotherapy",
     title: "Sclerotherapy",
-    tagline: "Non-invasive spider vein removal — give your skin a better look TESTMARKER",
+    tagline: "Non-invasive spider vein removal — give your skin a better look",
     category: "Skin & Health",
-    image: "/images/services/placeholder.png",
+    image: "/images/treatments/sclerotherapy/sclerotherapy-treatment-room-2.jpg",
     intro:
       "Sclerotherapy is one of the most effective treatments for spider veins and small varicose veins on the legs. A very fine needle injects a sclerosing solution into the vein, irritating its lining so the walls stick together — blood stops flowing through the vein, which is gradually absorbed by the body over a few weeks. Dr Sofia is a member of the British Association of Sclerotherapists.",
     introRows: [
@@ -4166,7 +4166,7 @@ export const treatmentDetails: TreatmentDetail[] = [
     tagline: "CryoPen uses advanced freezing innovation that is fast, effective and safe for removal of benign skin lesions on face and body",
     category: "Skin & Health",
     bookCTAHorizontal: true,
-    image: "/images/services/placeholder.png",
+    image: "/images/treatments/cryopen/cryopen-device-v2.jpg",
     gallery: {
       folder: "/images/gallery/cryopen",
       prefix: "cryopen",
@@ -4432,7 +4432,7 @@ export const treatmentDetails: TreatmentDetail[] = [
     title: "Phlebotomy (Private Blood Draw)",
     tagline: "Professional private blood draw and centrifugal service since 2014",
     category: "Phlebotomy & Health Tests",
-    image: "/images/services/phlebotomy.png",
+    image: "/images/treatments/phlebotomy/blood-draw.jpg",
     intro:
       "YourHealthFirst Clinic has been providing professional private phlebotomy (blood draw) and centrifugal services for adults and children since 2014. We process blood for PRP treatments, provide blood draw for external lab testing, and offer centrifugal services for a wide range of clinical applications.",
     body: [
@@ -4499,7 +4499,7 @@ export const treatmentDetails: TreatmentDetail[] = [
     title: "Vitamin B12 Injections",
     tagline: "Boost energy, metabolism and wellbeing — fast",
     category: "Skin & Health",
-    image: "/images/services/placeholder.png",
+    image: "/images/treatments/vitamin-b12/sofia-injecting-arm.jpg",
     intro:
       "Vitamin B12 injections deliver a direct, highly bioavailable dose of this essential vitamin straight into the muscle, bypassing the digestive system for immediate absorption. They are ideal for those with a B12 deficiency or anyone seeking improved energy, mental clarity and immune support.",
     introInBody: true,

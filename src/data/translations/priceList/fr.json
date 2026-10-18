@@ -68,22 +68,22 @@
       },
       {
         "service": "Lifting des sourcils",
-        "price": "£100"
+        "price": "£150"
       },
       {
         "service": "Lignes de lapin",
         "price": "£100"
       },
       {
-        "service": "3 zones (au choix)",
+        "service": "3 zones (au choix, Visage)",
         "price": "£350"
       },
       {
-        "service": "4 zones (au choix)",
+        "service": "4 zones (au choix, Visage)",
         "price": "£400"
       },
       {
-        "service": "Combinaison de l’un des éléments ci-dessus (5 domaines)",
+        "service": "5 zones (au choix, Visage)",
         "price": "£550"
       },
       {
@@ -97,6 +97,18 @@
       {
         "service": "Grincement/serrement des dents",
         "price": "£350"
+      },
+      {
+        "service": "Lifting Néfertiti",
+        "price": "£250"
+      },
+      {
+        "service": "Lifting du cou (cordes platysmales)",
+        "price": "£350"
+      },
+      {
+        "service": "Migraines (traitement de la migraine chronique)",
+        "price": "£500"
       },
       {
         "service": "Réduction des mollets",

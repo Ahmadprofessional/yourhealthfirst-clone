@@ -68,22 +68,22 @@
       },
       {
         "service": "Brow lift",
-        "price": "£100"
+        "price": "£150"
       },
       {
         "service": "Bunny lines",
         "price": "£100"
       },
       {
-        "service": "3 areas (to choose)",
+        "service": "3 areas (to choose, Face)",
         "price": "£350"
       },
       {
-        "service": "4 areas (to choose)",
+        "service": "4 areas (to choose, Face)",
         "price": "£400"
       },
       {
-        "service": "Combination of any of the above (5 areas)",
+        "service": "5 areas (to choose, Face)",
         "price": "£550"
       },
       {
@@ -97,6 +97,18 @@
       {
         "service": "Teeth grinding / Clenching",
         "price": "£350"
+      },
+      {
+        "service": "Nefertiti lift",
+        "price": "£250"
+      },
+      {
+        "service": "Neck lift (platysmal bands)",
+        "price": "£350"
+      },
+      {
+        "service": "Migraines (chronic migraine treatment)",
+        "price": "£500"
       },
       {
         "service": "Calf reduction",

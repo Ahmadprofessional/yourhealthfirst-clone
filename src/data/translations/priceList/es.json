@@ -68,22 +68,22 @@
       },
       {
         "service": "levantamiento de cejas",
-        "price": "£100"
+        "price": "£150"
       },
       {
         "service": "Líneas de conejito",
         "price": "£100"
       },
       {
-        "service": "3 zonas (a elegir)",
+        "service": "3 zonas (a elegir, Rostro)",
         "price": "£350"
       },
       {
-        "service": "4 zonas (a elegir)",
+        "service": "4 zonas (a elegir, Rostro)",
         "price": "£400"
       },
       {
-        "service": "Combinación de cualquiera de los anteriores (5 áreas)",
+        "service": "5 zonas (a elegir, Rostro)",
         "price": "£550"
       },
       {
@@ -97,6 +97,18 @@
       {
         "service": "Rechinar/apretar los dientes",
         "price": "£350"
+      },
+      {
+        "service": "Lifting Nefertiti",
+        "price": "£250"
+      },
+      {
+        "service": "Lifting de cuello (bandas platismales)",
+        "price": "£350"
+      },
+      {
+        "service": "Migrañas (tratamiento de migraña crónica)",
+        "price": "£500"
       },
       {
         "service": "Reducción de pantorrilla",

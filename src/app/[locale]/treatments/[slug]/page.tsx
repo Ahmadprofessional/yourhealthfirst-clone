@@ -430,31 +430,27 @@ export default async function TreatmentPage({ params }: Props) {
         <section className={`w-full px-5 ${treatment.howItWorks ? "" : "bg-cream"}`}>
           <div className="mx-auto max-w-[1400px] py-[60px] lg:py-[80px]">
             {treatment.processDiagramsRow ? (
-              <div className="flex flex-col items-center gap-6 lg:flex-row lg:items-stretch lg:justify-center">
-                {treatment.processDiagrams.map((diagram) => {
-                  const w = diagram.width ?? 1600;
-                  const h = diagram.height ?? 1000;
-                  return (
-                    <div
-                      key={diagram.src}
-                      className={
-                        treatment.processDiagramsEqualSize
-                          ? "relative aspect-square w-full overflow-hidden rounded-[12px] border border-black/8 bg-white shadow-sm lg:flex-1"
-                          : "relative w-full overflow-hidden rounded-[12px] border border-black/8 bg-white shadow-sm lg:[flex:var(--g)_1_0]"
-                      }
-                      style={treatment.processDiagramsEqualSize ? undefined : { aspectRatio: `${w} / ${h}`, ["--g" as string]: w / h }}
-                    >
-                      <Image
-                        src={diagram.src}
-                        alt={diagram.alt}
-                        fill
-                        sizes="(min-width: 1024px) 50vw, 100vw"
-                        className="object-cover"
-                        style={diagram.objectPosition ? { objectPosition: diagram.objectPosition } : undefined}
-                      />
-                    </div>
-                  );
-                })}
+              <div
+                className={`grid grid-cols-1 gap-6 items-stretch justify-center ${
+                  treatment.processDiagrams.length === 2
+                    ? "md:grid-cols-2"
+                    : "md:grid-cols-2 lg:grid-cols-3"
+                }`}
+              >
+                {treatment.processDiagrams.map((diagram) => (
+                  <div
+                    key={diagram.src}
+                    className="relative w-full overflow-hidden rounded-[16px] border border-black/8 bg-white p-4 shadow-sm flex items-center justify-center transition-all duration-300 hover:shadow-md"
+                  >
+                    <Image
+                      src={diagram.src}
+                      alt={diagram.alt}
+                      width={diagram.width ?? 1600}
+                      height={diagram.height ?? 1000}
+                      className="h-auto w-full object-contain rounded-[8px]"
+                    />
+                  </div>
+                ))}
               </div>
             ) : (
             <div className="flex flex-col gap-6">

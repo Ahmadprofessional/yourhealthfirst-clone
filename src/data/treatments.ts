@@ -2604,18 +2604,25 @@ export const treatmentDetails: TreatmentDetail[] = [
         },
       ],
     },
+    processDiagramsRow: true,
     processDiagrams: [
       {
         src: "/images/treatments/cryolipolysis/how-cryolipolysis-works-steps.jpg",
         alt: "How Cryolipolysis Works — stubborn fat, controlled cooling, fat cells crystallise, natural elimination, visible results",
+        width: 1254,
+        height: 1254,
       },
       {
         src: "/images/treatments/cryolipolysis/how-cryolipolysis-works-cross-section.webp",
         alt: "Cryolipolysis before, during and after treatment — skin, fat layer and muscle cross-section",
+        width: 1536,
+        height: 1024,
       },
       {
         src: "/images/treatments/cryolipolysis/led-light-therapy-benefits.webp",
         alt: "Cryolipolysis with LED Lights — skin benefits by colour",
+        width: 2000,
+        height: 744,
       },
     ],
     diagramImage: {

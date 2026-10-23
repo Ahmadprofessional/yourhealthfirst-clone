@@ -1,0 +1,27 @@
+{
+  "page": "photobiodynamic-therapy",
+  "route": "/photobiodynamic-therapy",
+  "content": {
+    "metaTitle": "Photobiodynamic Therapy (Fotoage) | YourHealthFirst Clinic",
+    "metaDesc": "Photobiodynamic therapy combines the Fotoage HDD laser mask with Skinox photosensitive products to treat dark spots, redness, blemishes, wrinkles and photoaging.",
+    "breadParent": "Photodynamic Therapy",
+    "breadCurrent": "Fotoage Photobiodynamic",
+    "badge": "the last miracle in aesthetic medicine",
+    "heading": "Photobiodynamic Therapy",
+    "subtitle": "The last miracle in aesthetic medicine.",
+    "whatIsTitle": "What Is Photobiodynamic Therapy?",
+    "whatIsP1": "It is a non-invasive technique with excellent results in the treatment of dark spots, redness, blemishes, wrinkles and photoaging — based on stimulation, regeneration and repair of the skin, achieved with the combination of the Fotoage device and Skinox products.",
+    "boxTitle": "Accessible, Simple, Painless and Without Side Effects",
+    "boxDesc": "Each session in the clinic consists of 4 simple phases and lasts only 45 minutes. It activates the stem cells of the tissues, being an effective therapy in the treatment of the skin — without pain and without the after-effects of bruising.",
+    "treatmentsTitle": "Treatments",
+    "rejuvenation": "Rejuvenation",
+    "blemishes": "Blemishes",
+    "redness": "Redness",
+    "darkSpots": "Dark Spots",
+    "oxygenTitle": "Oxygen, Light and Photodynamic Agents for the Skin",
+    "oxygenP1": "Photobiodynamic therapy combines, in 4 phases, the HDD (High Density Diodes) laser light of the Fotoage mask with the photosensitive and photodynamic Skinox products. The HDD laser of the mask activates the Skinox products, which act on the skin, repairing and stimulating it.",
+    "oxygenBullet1": "LED light is applied on the skin",
+    "oxygenBullet2": "The photosensitive topical product is activated with light",
+    "viewPeelsCta": "View Chemical Peels (Photodynamic Peel) →"
+  }
+}

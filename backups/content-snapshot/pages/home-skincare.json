@@ -1,0 +1,14 @@
+{
+  "page": "home-skincare",
+  "route": "/home-skincare",
+  "content": {
+    "badge": "Coming Soon",
+    "heading": "Home",
+    "subheading": "Skincare",
+    "tagline": "Professional medical-grade skincare for your daily routine, personally curated by Sofia Bouzian at YourHealthFirst Clinic.",
+    "notifyTitle": "Register Your Interest",
+    "notifyDesc": "Be the first to discover our bespoke home skincare range tailored to your specific skin needs.",
+    "registerCta": "Register Your Interest →",
+    "backHome": "Back to Home"
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "header": {
+    "home": "Home",
+    "aboutMe": "About Me",
+    "treatments": "Treatments",
+    "homeSkincare": "Home Skincare",
+    "priceList": "Price List",
+    "gallery": "Gallery",
+    "blogs": "Blogs",
+    "press": "Press",
+    "contactUs": "Contact Us",
+    "bookConsultation": "Book a Consultation",
+    "viewAllTreatments": "View all treatments →",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "categories": {
+      "phlebotomy": "Phlebotomy (Blood Drawn & Centrifuge)",
+      "faceAntiAging": "Face & Anti-Aging",
+      "biostimulators": "Biostimulators",
+      "hairRestoration": "Hair Restoration",
+      "bodyContouring": "Body Contouring",
+      "weightLoss": "Weight Loss",
+      "skinHealth": "Skin & Health",
+      "longevity": "Longevity"
+    },
+    "items": {
+      "phlebotomy": "Phlebotomy",
+      "antiWrinkles": "Anti Wrinkles",
+      "dermalFillers": "Dermal Fillers",
+      "sunekos": "Sunekos",
+      "profhilo": "Profhilo",
+      "polynucleotides": "Polynucleotides",
+      "sculptra": "Sculptra",
+      "prpFaceBody": "PRP Face & Body",
+      "prpHairLoss": "PRP Hair Loss",
+      "exosomeTherapy": "Exosome Therapy",
+      "cryolipolysis": "Cryolipolysis",
+      "emsculptNeo": "Emsculpt Neo",
+      "aqualyx": "Aqualyx",
+      "mounjaro": "Mounjaro",
+      "microneedling": "Microneedling",
+      "mesotherapy": "Mesotherapy",
+      "chemicalPeels": "Chemical Peels (Photodynamic Peel)",
+      "sclerotherapy": "Sclerotherapy",
+      "cryoPen": "CryoPen",
+      "vitaminB12": "Vitamin B12",
+      "longevityProgramme": "Longevity Programme ✦ Coming Soon"
+    }
+  },
+  "footer": {
+    "clinicName": "YourHealthFirst Clinic",
+    "ctaHeading": "NOT SURE EXACTLY WHO WOULD YOU LIKE TO SEE ?",
+    "ctaSubtitle": "DON'T WORRY!",
+    "ctaDescription": "Our adviser will be sure to book you in the right clinic with the best medical practitioner to meet your needs.",
+    "callNow": "Call Now",
+    "or": "Or",
+    "emailNow": "Email Now",
+    "quickLink": "Quick Link",
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "contact": "contact"
+  },
+  "languageSwitcher": {
+    "language": "Language",
+    "en": "English",
+    "ar": "العربية",
+    "es": "Español",
+    "fr": "Français",
+    "ru": "Русский"
+  }
+}

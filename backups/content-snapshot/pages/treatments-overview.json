@@ -1,0 +1,181 @@
+{
+  "page": "Treatments Overview",
+  "route": "/treatments",
+  "treatmentsHeader": {
+    "badge": "our services",
+    "heading": "Treatments",
+    "description": "From facial rejuvenation and hair restoration to body contouring and skin health — all treatments are tailored to your individual goals by Sofia Bouzian.",
+    "learnMore": "Learn more →",
+    "comingSoon": "Coming Soon",
+    "longevityTitle": "Longevity Programme",
+    "longevityDesc": "Advanced health optimisation, preventative medicine and personalised wellness protocols — designed to help you live longer and live better. Register your interest to be notified at launch.",
+    "longevityCta": "Learn More & Register Interest →",
+    "ctaHeading": "Not sure which treatment is right for you?",
+    "ctaDescription": "Book a consultation with Sofia to discuss your concerns and design a personalised treatment plan — no pressure, just expert guidance.",
+    "callCta": "Call 0207 225 3582",
+    "bookCta": "Book a Consultation"
+  },
+  "treatmentCardsCount": 20,
+  "treatmentCardsSummary": [
+    {
+      "slug": "anti-wrinkles",
+      "title": "Anti-Wrinkle Injections",
+      "tagline": "Smooth, refresh and subtly lift — with expert precision",
+      "category": "Face & Anti-Aging",
+      "image": "/images/treatments/anti-wrinkles/sofia-consultation.jpg",
+      "intro": "Anti-wrinkle injections are one of the most popular non-surgical treatments available, used to soften facial lines and wrinkles while preserving natural expression. At YourHealthFirst, every treatment is carefully tailored to your facial anatomy and aesthetic goals."
+    },
+    {
+      "slug": "dermal-fillers",
+      "title": "Dermal Fillers",
+      "tagline": "Restore volume, define contours, refresh your look",
+      "category": "Face & Anti-Aging",
+      "image": "/images/treatments/dermal-fillers/cheek-injection.webp",
+      "intro": "Dermal fillers are injectable treatments using hyaluronic acid to restore lost volume, smooth deep lines and sculpt facial features. From subtle lip enhancement to full facial revolumisation, fillers deliver immediate, natural-looking results."
+    },
+    {
+      "slug": "sunekos",
+      "title": "Sunekos",
+      "tagline": "Regenerate, hydrate and firm from within",
+      "category": "Face & Anti-Aging",
+      "image": "/images/treatments/sunekos/sofia-injecting.jpg",
+      "intro": "Sunekos is an injectable treatment combining amino acids and hyaluronic acid to stimulate the skin's own production of collagen and elastin. It is suitable for the face, neck, décolleté and hands, delivering a naturally plumped, firmer and more luminous complexion."
+    },
+    {
+      "slug": "profhilo",
+      "title": "Profhilo",
+      "tagline": "The ultimate skin remodelling biostimulator",
+      "category": "Face & Anti-Aging",
+      "image": "/images/treatments/profhilo/sofia-injecting.jpg",
+      "intro": "Profhilo is a revolutionary injectable treatment containing one of the highest concentrations of hyaluronic acid on the market. It flows beneath the skin to intensely hydrate and stimulate collagen and elastin production, remodelling the skin from the inside out."
+    },
+    {
+      "slug": "polynucleotides",
+      "title": "Polynucleotides (PDRN)",
+      "tagline": "Advanced regenerative therapy for skin and under-eyes",
+      "category": "Face & Anti-Aging",
+      "image": "/images/treatments/polynucleotides/sofia-injecting.jpg",
+      "intro": "Polynucleotides (PDRN — Polydeoxyribonucleotide) are a cutting-edge biostimulatory treatment derived from highly purified salmon DNA. They trigger deep skin repair, reduce inflammation and stimulate the production of new collagen, making them particularly effective for dark circles, thin skin and aged or damaged tissue."
+    },
+    {
+      "slug": "sculptra",
+      "title": "Sculptra",
+      "tagline": "Celebrity's favourite — the liquid facelift",
+      "category": "Face & Anti-Aging",
+      "image": "/images/treatments/sculptra/sofia-product.jpg",
+      "intro": "Sculptra (poly-L-lactic acid) is an injectable collagen stimulator that gradually rebuilds lost facial volume and structure over time. Often described as the 'liquid facelift', it produces subtle, nuanced results that look completely natural — as if you've simply aged gracefully. It's a firm favourite among celebrities including Bella Hadid, Demi Moore, Kendall Jenner, Ariana Grande and the Kardashians."
+    },
+    {
+      "slug": "prp-face-body",
+      "title": "PRP & A-PRP-HA Cellular Matrix",
+      "tagline": "Skin Rejuvenation Using your own Platelet Rich Plasma to reverse & delay the signs of ageing",
+      "category": "Face & Anti-Aging",
+      "image": "/images/treatments/prp-face-body/prp-injection-face.jpg",
+      "intro": "Non-surgical lift and facial rejuvenation that corrects visual skin defects and promotes the reorganisation of its microstructure. PRP therapy involves injection of the patient's own PRP and fibrin for the cosmetic treatment of wrinkles or scars in the face, hands and neck. Known to some as the \"vampire facelift\", it is less invasive than plastic surgery, takes about 45 minutes for each treatment, and offers improvements for up to 12 to 18 months."
+    },
+    {
+      "slug": "prp-hair-loss",
+      "title": "PRP Hair Loss Treatment",
+      "tagline": "Clinically proven — restore density, strengthen and regrow",
+      "category": "Hair Restoration",
+      "image": "/images/treatments/prp-hair-loss/u225-scalp-treatment-1.jpg",
+      "intro": "PRP (Platelet-Rich Plasma) hair loss treatment is a three-step medical treatment in which a patient's blood is drawn, processed, and then injected into the scalp. It volumises hair, naturally grows new roots, increases the survival and strengthening of existing hair, increases vascularisation of the scalp, and improves the vitality, colour and shine of your hair — improving overall hair quality through an entirely natural process. PRP is the only non-surgical and non-pharmaceutical treatment that has proven its efficacy and safety."
+    },
+    {
+      "slug": "exosome",
+      "title": "Exosomes: The Game-Changing Beauty Secret",
+      "tagline": "One of the Most Talked-About Innovations in Regenerative Aesthetics",
+      "category": "Hair Restoration",
+      "image": "/images/treatments/exosome/sofia-facial-exosome-treatment.jpg",
+      "intro": "Exosome therapy represents the frontier of regenerative aesthetics. Exosomes are extracellular vesicles that act as biological messengers, carrying signalling molecules between cells. At YourHealthFirst, we use pure Exosomes EXO OX — with 75 billion exosomes per vial — to support hair restoration and skin renewal."
+    },
+    {
+      "slug": "cryolipolysis",
+      "title": "Cryolipolysis (Fat Freezing)",
+      "tagline": "Eliminate stubborn fat — without surgery, without downtime",
+      "category": "Body Contouring",
+      "image": "/images/blogs/cryolipolysis-fat-freezing.jpeg",
+      "intro": "Cryolipolysis is the procedure for you if you want to avoid surgery, eliminate stubborn fat, lose weight and return to your life within a few hours. It effectively targets problem areas including your belly, inner and outer thighs, back and more — a popular alternative to liposuction that zeroes in on fat cells with controlled cooling, freezes them and initiates their elimination."
+    },
+    {
+      "slug": "emsculpt-neo",
+      "title": "Emsculpt Neo",
+      "tagline": "Build muscle and burn fat simultaneously — a world first",
+      "category": "Body Contouring",
+      "image": "/images/treatments/emsculpt-neo/hero-abdomen.png",
+      "intro": "Emsculpt Neo is the world's first and only non-invasive treatment that simultaneously burns fat and builds muscle using a combination of radiofrequency heating and high-intensity focused electromagnetic energy (HIFEM+). One 30-minute session is equivalent to 20,000 muscle contractions."
+    },
+    {
+      "slug": "aqualyx",
+      "title": "Aqualyx (Fat Dissolving)",
+      "tagline": "Permanently dissolve stubborn fat — precisely targeted",
+      "category": "Body Contouring",
+      "image": "/images/treatments/aqualyx/aqualyx-product-hero.jpg",
+      "intro": "Aqualyx is a clinically proven fat-dissolving injection that permanently destroys fat cells in small, targeted areas. It is an ideal solution for localised fat deposits that are resistant to diet and exercise, such as a double chin, jowls, small abdominal pockets and inner thighs."
+    },
+    {
+      "slug": "mounjaro",
+      "title": "Mounjaro (Weight Loss Injection)",
+      "tagline": "The clinically approved breakthrough in medical weight loss",
+      "category": "Body Contouring",
+      "image": "/images/treatments/mounjaro/product-card.jpg",
+      "intro": "At YourHealthFirst Clinic, we provide medically supervised weight-management support for eligible patients seeking a structured and evidence-based approach to weight loss. Our Wimpole Street Weight Management Service in London is delivered by trained and experienced healthcare professionals, with an emphasis on appropriate patient assessment, treatment suitability, ongoing monitoring and safe use of prescription weight-management medicines."
+    },
+    {
+      "slug": "microneedling",
+      "title": "Microneedling",
+      "tagline": "Stimulate your skin's natural collagen production",
+      "category": "Skin & Health",
+      "image": "/images/treatments/microneedling/fight-aging.webp",
+      "intro": "Microneedling is a minimally invasive skin rejuvenation treatment designed to improve skin texture, firmness, hydration and overall skin quality. Also known as collagen induction therapy, microneedling uses a professional microneedling pen with fine sterile needles to create controlled microscopic channels in the skin."
+    },
+    {
+      "slug": "mesotherapy",
+      "title": "Mesotherapy",
+      "tagline": "Non-surgical cosmetic medicine for aesthetic medicine and dermatology",
+      "category": "Skin & Health",
+      "image": "/images/treatments/mesotherapy/mesox/aminoacids-box-2.jpg",
+      "intro": "Mesotherapy is a minimally invasive skin rejuvenation treatment using a series of precise micro-injections to deliver a customised blend of active ingredients into the superficial layers of the skin. Depending on your individual treatment plan, the formulation may contain ingredients such as hyaluronic acid, vitamins, minerals, amino acids and other skin-supporting compounds."
+    },
+    {
+      "slug": "photo-aging",
+      "title": "Chemical Peels (Photodynamic Peel)",
+      "tagline": "Photodynamic Therapy, Chemical Peel",
+      "category": "Skin & Health",
+      "image": "/images/treatments/photo-aging/skinox-wrinkles.jpg",
+      "intro": "Skinox is a photosensitive medical peeling treatment for rejuvenation and/or for the treatment of skin correction. This non-invasive technique is the photobiodynamic therapy that stimulates, regenerates and repairs the skin."
+    },
+    {
+      "slug": "sclerotherapy",
+      "title": "Sclerotherapy",
+      "tagline": "Non-invasive spider vein removal — give your skin a better look",
+      "category": "Skin & Health",
+      "image": "/images/treatments/sclerotherapy/sclerotherapy-treatment-room-2.jpg",
+      "intro": "Sclerotherapy is one of the most effective treatments for spider veins and small varicose veins on the legs. A very fine needle injects a sclerosing solution into the vein, irritating its lining so the walls stick together — blood stops flowing through the vein, which is gradually absorbed by the body over a few weeks. Dr Sofia is a member of the British Association of Sclerotherapists."
+    },
+    {
+      "slug": "cryopen",
+      "title": "CryoPen, Precise Treatment for Benign Skin Lesions",
+      "tagline": "CryoPen uses advanced freezing innovation that is fast, effective and safe for removal of benign skin lesions on face and body",
+      "category": "Skin & Health",
+      "image": "/images/treatments/cryopen/cryopen-device-v2.jpg",
+      "intro": "CryoPen is an innovative, high-performance cryosurgery tool that uses advanced freezing technology to remove unsightly skin tags, warts, age spots and other benign skin lesions. Designed for fast, effective and precise treatment, CryoPen can be used on selected lesions on the face and body, including areas close to the eyes."
+    },
+    {
+      "slug": "phlebotomy",
+      "title": "Phlebotomy (Private Blood Draw)",
+      "tagline": "Professional private blood draw and centrifugal service since 2014",
+      "category": "Phlebotomy & Health Tests",
+      "image": "/images/treatments/phlebotomy/blood-draw.jpg",
+      "intro": "YourHealthFirst Clinic has been providing professional private phlebotomy (blood draw) and centrifugal services for adults and children since 2014. We process blood for PRP treatments, provide blood draw for external lab testing, and offer centrifugal services for a wide range of clinical applications."
+    },
+    {
+      "slug": "vitamin-b12",
+      "title": "Vitamin B12 Injections",
+      "tagline": "Boost energy, metabolism and wellbeing — fast",
+      "category": "Skin & Health",
+      "image": "/images/treatments/vitamin-b12/sofia-injecting-arm.jpg",
+      "intro": "Vitamin B12 injections deliver a direct, highly bioavailable dose of this essential vitamin straight into the muscle, bypassing the digestive system for immediate absorption. They are ideal for those with a B12 deficiency or anyone seeking improved energy, mental clarity and immune support."
+    }
+  ]
+}

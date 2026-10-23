@@ -1,0 +1,12 @@
+{
+  "page": "press",
+  "route": "/press",
+  "content": {
+    "badge": "In the Spotlight",
+    "heading": "Press & Media",
+    "subtitle": "Features, international presentations, media coverage, and prestigious awards celebrating YourHealthFirst Clinic and Sofia Bouzian.",
+    "featuredIn": "Featured in Global Woman Magazine, Healthcare & Pharmaceutical Awards, AMWC Monaco, IMCAS Paris, and more.",
+    "videoCoverage": "Video Coverage",
+    "pressGallery": "Press Gallery"
+  }
+}

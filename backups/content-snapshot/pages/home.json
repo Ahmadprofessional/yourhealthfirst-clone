@@ -1,0 +1,620 @@
+{
+  "page": "Home",
+  "route": "/",
+  "hero": {
+    "awardWinning": "AWARD WINNING",
+    "clinic": "Clinic",
+    "subtitle": "Health, Dermatology, Hair Loss,\nAnti-Aging & Rejuvenation Clinic",
+    "harleyStreet": "Harley Street, London",
+    "since": "Since 2013 & currently in 2 Wimpole Street W1G 0EB",
+    "discoverMore": "Discover More",
+    "trustedBy": "Trusted by 10K+\nHappy Patients",
+    "expertCare": "Expert Care",
+    "advanceTreatment": "Advance Treatment",
+    "naturalResults": "Natural Results",
+    "trustedConfidential": "Trusted & Confidential"
+  },
+  "aboutUs": {
+    "badge": "about us",
+    "heading1": "Experts in",
+    "heading2": "Rejuvenation without Surgery",
+    "paragraph1": "Get immediately natural and long lasting results without getting over injected, keeping a natural and most rejuvenated look without over-stuffed look, all treatments are treated with expert hands with many years of experience using the latest techniques and innovations to obtain unbeatable and natural results.",
+    "paragraph2": "We offer a range of treatments including: <strong>Phlebotomy Services (blood draw)</strong>, <strong>Cryolipolysis</strong> and <strong>Aqualyx fat dissolving treatments</strong>, <strong>Botox – Anti-wrinkles injections</strong>, <strong>Dermal Fillers</strong>, <strong>Eye bags correction</strong>, <strong>Under eyes dark circles</strong>, <strong>Rhinomodelation</strong>, <strong>Revoluminization</strong>, <strong>Neck rejuvenation</strong>, <strong>Peeling</strong>, <strong>Micro-needling</strong>, <strong>Warts, Skin tags, Moles, Millia & Cherry Angioma removal</strong>, <strong>Sclerotherapy (spider veins removal)</strong>, <strong>PRP-Platelet Rich Plasma for Hair loss, Hair Thinning, Alopecia Problems</strong>, <strong>PRP face, neck & hands rejuvenation</strong>, <strong>Mesotherapy</strong>, <strong>Profhilo</strong>, <strong>CryoPen</strong>, <strong>Acne Scars, Active and Non-active Acne treatment</strong>, <strong>Rosacea</strong>, <strong>Stretch Marks</strong>, <strong>Age Spots, Dark Spots, Melasma</strong>, <strong>Skin Rejuvenation</strong> and more…",
+    "rightHeading": "Ready to begin your journey?",
+    "rightParagraph": "Book with us to discuss the best options to achieve the results you want, call us today to book a consultation for a customized treatment plan created just for you.",
+    "otherServices": "Other Available services; Health Screening – Full body MOT – Visa Medicals & Pre-Employment- Sexual Health Screening – Blood tests –",
+    "disclaimer": "***Where applicable, certain procedures will be refereed/ carried out by our affiliated clinic, by registered CQC doctor. ***",
+    "discoverMore": "discover more"
+  },
+  "promiseCards": {
+    "bespokeTitle": "Bespoke Treatments",
+    "bespokeP1": "Everybody is different. We strive to offer treatments that best suit your needs.",
+    "bespokeP2": "We are pioneers in Non-Invasive Aesthetic Treatments",
+    "centerTitle": "OUR PROMISE TO YOU",
+    "aftercareTitle": "After care",
+    "aftercareP1": "We will do a close follow up after your treatment, to make sure you are happy with the results;",
+    "aftercareP2Safety": "Safety",
+    "aftercareP2Aftercare": "Aftercare",
+    "aftercareP2Expertise": "Expertise",
+    "aftercareP2Rest": "are at the heart of everything we do."
+  },
+  "servicesSection": {
+    "badge": "services",
+    "subtitle": "Discover personalised skin care solutions",
+    "learnMore": "learn more",
+    "ghpBadgeSmall": "Healthcare & Pharmaceutical Awards",
+    "ghpBadgeTitle": "Best Non-Invasive Cosmetic & Medical Clinic",
+    "ghpBadgeYear": "London 2019"
+  },
+  "serviceList": {
+    "anti-wrinkles": {
+      "title": "Anti Wrinkles",
+      "description": "Anti-wrinkles injections are used for reducing facial wrinkles and fine lines especially forehead lines, crow's feet, and frown lines, lifting brows or corners of the mouth, and slimming the jawline.",
+      "tagline": "Smooth, refresh and subtly lift — with expert precision"
+    },
+    "cryolipolysis": {
+      "title": "Cryolipolysis (Fat Freezing)",
+      "description": "Cryolipolysis (Fat Freezing) eliminates stubborn fat safely and quickly without surgery, helping you lose fat and return to your best shape.",
+      "tagline": "Eliminate stubborn fat — without surgery, without downtime"
+    },
+    "sunekos": {
+      "title": "Sunekos Treatment",
+      "description": "Sunekos is an injectable treatment containing amino acids and hyaluronic acid that stimulates fibroblasts to produce a complete extracellular matrix.",
+      "tagline": "Regenerate, hydrate and firm from within"
+    },
+    "emsculpt-neo": {
+      "title": "Emsculpt Neo Body Sculpting",
+      "description": "Emsculpt Neo is non-invasive technology that simultaneously burns fat and builds muscle, delivering visible results with zero downtime.",
+      "tagline": "Build muscle and burn fat simultaneously — a world first"
+    },
+    "phlebotomy": {
+      "title": "Phlebotomy — Blood Draw Service",
+      "description": "YourHealthFirst Clinic has been offering private blood draws and centrifugal services for both adults and children with gentle, expert care since 2014.",
+      "tagline": "Professional private blood draw and laboratory centrifuge since 2014"
+    },
+    "sculptra": {
+      "title": "Sculptra",
+      "description": "Injectable Poly-L-Lactic Acid that restores youthful facial contouring and natural volume gradually without looking overdone.",
+      "tagline": "Celebrity's favourite — the liquid facelift"
+    },
+    "sclerotherapy": {
+      "title": "Sclerotherapy — Spider Veins",
+      "description": "A targeted injectable treatment that shrinks spider veins, varicose veins and thread veins safely and effectively.",
+      "tagline": "Non-invasive spider vein removal for clear, smooth skin"
+    },
+    "prp-ha": {
+      "title": "PRP Face & Body Rejuvenation",
+      "description": "Non-surgical lift and cellular facial rejuvenation using platelet-rich plasma to correct skin defects and restore youthful texture.",
+      "tagline": "Skin rejuvenation using your own platelet-rich plasma"
+    },
+    "exosome": {
+      "title": "Exosome Therapy",
+      "description": "Advanced cellular therapy promoting intense hair and skin repair, regeneration, and rejuvenation at the deepest cellular level.",
+      "tagline": "One of the most talked-about innovations in regenerative aesthetics"
+    },
+    "polynucleotides": {
+      "title": "Polynucleotides",
+      "description": "DNA nucleotide chains (PDRN) that deeply repair and regenerate skin tissue, improving dark circles, fine lines, and skin laxity.",
+      "tagline": "Advanced regenerative therapy for skin and under-eyes"
+    },
+    "prp-hair-loss": {
+      "title": "PRP Hair Loss Treatment",
+      "description": "Three-step medical PRP therapy where your blood is drawn, concentrated and injected into the scalp to restore hair growth and density.",
+      "tagline": "Clinically proven — restore density, strengthen and regrow"
+    },
+    "microneedling": {
+      "title": "Microneedling",
+      "description": "Sterilised micro-needles stimulate natural collagen production, improving skin elasticity, firmness, texture and reducing scars.",
+      "tagline": "Stimulate your skin's natural collagen production"
+    },
+    "mesotherapy": {
+      "title": "Mesotherapy",
+      "description": "Virtually pain-free U225 intradermal micro-injections delivering targeted vitamins, amino acids and antioxidant cocktails directly into the dermis.",
+      "tagline": "Non-surgical targeted skin nourishment & biorevitalisation"
+    },
+    "photo-aging": {
+      "title": "Chemical Peels (Photodynamic Peel)",
+      "description": "Skinox photosensitive treatment combined with High Density Diode HDD laser therapy for blemishes, dark spots, redness and sun damage.",
+      "tagline": "Photodynamic therapy & medical peels for total skin renewal"
+    },
+    "profhilo": {
+      "title": "Profhilo",
+      "description": "Ultra-pure hyaluronic acid bioremodelling treatment that deeply hydrates, lifts and firms the face, neck, hands and décolletage.",
+      "tagline": "The ultimate skin remodelling biostimulator"
+    },
+    "dermal-fillers": {
+      "title": "Dermal Fillers",
+      "description": "Premium hyaluronic acid fillers to restore lost facial volume, smooth deep folds, and enhance lips and cheekbones with instant, natural results.",
+      "tagline": "Restore volume, define contours, refresh your look"
+    },
+    "aqualyx": {
+      "title": "Aqualyx (Fat Dissolving)",
+      "description": "Clinically proven fat-dissolving injection that permanently destroys localized fat cells in the double chin, abdomen, and thighs.",
+      "tagline": "Permanently dissolve stubborn fat — precisely targeted"
+    },
+    "cryopen": {
+      "title": "CryoPen",
+      "description": "Precision cryotherapy to gently and quickly remove skin tags, warts, milia, age spots and cherry angiomas with minimal discomfort.",
+      "tagline": "Fast, precise and safe removal of benign skin lesions"
+    },
+    "vitamin-b12": {
+      "title": "Vitamin B12 Injections",
+      "description": "Direct intramuscular booster delivering rapid energy, improved metabolism, mental clarity, and strengthened immunity.",
+      "tagline": "Boost energy, metabolism and wellbeing — fast"
+    },
+    "mounjaro": {
+      "title": "Mounjaro (Weight Loss)",
+      "description": "Medically supervised weekly tirzepatide injections for effective appetite regulation and sustained medical weight loss.",
+      "tagline": "The clinically approved breakthrough in medical weight loss"
+    },
+    "prp-face-body": {
+      "title": "PRP Face & Body Rejuvenation",
+      "description": "Non-surgical lift and cellular facial rejuvenation using platelet-rich plasma to correct skin defects and restore youthful texture.",
+      "tagline": "Skin rejuvenation using your own platelet-rich plasma"
+    }
+  },
+  "servicesData": [
+    {
+      "slug": "anti-wrinkles",
+      "title": "Anti Wrinkles",
+      "description": [
+        {
+          "text": "Anti-wrinkles injections are used for the treatment of Reducing facial wrinkles and fine lines especially forehead lines, crow's feet, and frown lines, Lifting the brows or corners of the mouth, Slimming the jawline (by relaxing the masseter muscles)"
+        }
+      ],
+      "image": "/images/treatments/anti-wrinkles/sofia-consultation.jpg",
+      "href": "/treatments/anti-wrinkles",
+      "icon": "face",
+      "iconBg": "#d1ae83"
+    },
+    {
+      "slug": "cryolipolysis",
+      "title": "Cryolipolysis (Fat Freezing)",
+      "description": [
+        {
+          "text": "Cryolipolysis (Fat Freezing)",
+          "bold": true
+        },
+        {
+          "text": " cryolipolysis lose weight quickly and safely — the procedure for you if you want to avoid surgery, eliminate stubborn fat, lose weight and return to your best shape."
+        }
+      ],
+      "image": "/images/blogs/cryolipolysis-fat-freezing.jpeg",
+      "href": "/treatments/cryolipolysis",
+      "icon": "snowflake",
+      "iconBg": "#5da8c0"
+    },
+    {
+      "slug": "sunekos",
+      "title": "Sunekos Treatment",
+      "description": [
+        {
+          "text": "Sunekos",
+          "bold": true
+        },
+        {
+          "text": " is a new injectable treatment containing amino acids and hyaluronic acid. It works by stimulating the fibroblasts in the skin to produce a complete extracellular matrix."
+        }
+      ],
+      "image": "/images/treatments/sunekos/sofia-injecting.jpg",
+      "href": "/treatments/sunekos",
+      "icon": "drop",
+      "iconBg": "#b8814a"
+    },
+    {
+      "slug": "emsculpt-neo",
+      "title": "Emsculpt Neo Body Sculpting",
+      "description": [
+        {
+          "text": "Emsculpt Neo",
+          "bold": true
+        },
+        {
+          "text": " is the first and only "
+        },
+        {
+          "text": "non-invasive technology",
+          "bold": true
+        },
+        {
+          "text": " that simultaneously burns fat and builds muscle — delivering real, visible results with zero downtime."
+        }
+      ],
+      "image": "/images/treatments/emsculpt-neo/hero-abdomen.png",
+      "href": "/treatments/emsculpt-neo",
+      "icon": "lightning",
+      "iconBg": "#6b4a2e"
+    },
+    {
+      "slug": "phlebotomy",
+      "title": "Phlebotomy — Blood Draw Service",
+      "description": [
+        {
+          "text": "Phlebotomy (blood draw) & Centrifugal.",
+          "bold": true
+        },
+        {
+          "text": " YourHealthFirst Clinic has been offering private blood draws and centrifugal services for both adults and children since 2014."
+        }
+      ],
+      "image": "/images/treatments/phlebotomy/blood-draw.jpg",
+      "href": "/treatments/phlebotomy",
+      "icon": "vein",
+      "iconBg": "#8b3a3a"
+    },
+    {
+      "slug": "sculptra",
+      "title": "Sculptra",
+      "description": [
+        {
+          "text": "Injectable Poly-L-Lactic Acid",
+          "bold": true
+        },
+        {
+          "text": " — the celebrities' favourite treatment. The results are softly nuanced youthful facial contouring that restores your facial volume without looking overdone."
+        }
+      ],
+      "image": "/images/treatments/sculptra/sofia-product.jpg",
+      "href": "/treatments/sculptra",
+      "icon": "cell",
+      "iconBg": "#9c6a6a"
+    },
+    {
+      "slug": "sclerotherapy",
+      "title": "Sclerotherapy — Spider Veins",
+      "description": [
+        {
+          "text": "Sclerotherapy",
+          "bold": true
+        },
+        {
+          "text": " involves injecting a solution into blood vessels that causes them to shrink. It effectively treats varicose veins, spider veins and small thread veins."
+        }
+      ],
+      "image": "/images/treatments/sclerotherapy/sclerotherapy-treatment-room-2.jpg",
+      "href": "/treatments/sclerotherapy",
+      "icon": "wave",
+      "iconBg": "#6a5a8a"
+    },
+    {
+      "slug": "prp-ha",
+      "title": "PRP Face & Body Rejuvenation",
+      "description": [
+        {
+          "text": "PRP / A-PRP-HA",
+          "bold": true
+        },
+        {
+          "text": " — Non-surgical lift and facial rejuvenation that corrects visual skin defects and promotes the reorganization of its microstructure."
+        }
+      ],
+      "image": "/images/treatments/prp-face-body/prp-injection-face.jpg",
+      "href": "/treatments/prp-face-body",
+      "icon": "molecule",
+      "iconBg": "#997331"
+    },
+    {
+      "slug": "exosome",
+      "title": "Exosome Therapy",
+      "description": [
+        {
+          "text": "Exosomes",
+          "bold": true
+        },
+        {
+          "text": " are advanced skincare and aesthetic treatments that promote hair, skin, repair, rejuvenation, and healing at a cellular level."
+        }
+      ],
+      "image": "/images/treatments/exosome/sofia-facial-exosome-treatment.jpg",
+      "href": "/treatments/exosome",
+      "icon": "sparkle",
+      "iconBg": "#5a4a8a"
+    },
+    {
+      "slug": "polynucleotides",
+      "title": "Polynucleotides",
+      "description": [
+        {
+          "text": "Polynucleotides (PDRN)",
+          "bold": true
+        },
+        {
+          "text": " are chains of nucleotides — the fundamental components of DNA. They deeply regenerate and repair skin tissue, treating dark circles, fine lines and laxity."
+        }
+      ],
+      "image": "/images/treatments/polynucleotides/sofia-injecting.jpg",
+      "href": "/treatments/polynucleotides",
+      "icon": "dna",
+      "iconBg": "#3a7a6a"
+    },
+    {
+      "slug": "prp-hair-loss",
+      "title": "PRP Hair Loss Treatment",
+      "description": [
+        {
+          "text": "A-PRP / PRP Hair",
+          "bold": true
+        },
+        {
+          "text": " Therapy for hair loss is a three-step medical treatment where the patient's blood is drawn, processed and injected into the scalp to restore hair growth and thickness."
+        }
+      ],
+      "image": "/images/treatments/prp-hair-loss/u225-scalp-treatment-1.jpg",
+      "href": "/treatments/prp-hair-loss",
+      "icon": "leaf",
+      "iconBg": "#3d6b4a"
+    },
+    {
+      "slug": "microneedling",
+      "title": "Microneedling",
+      "description": [
+        {
+          "text": "Microneedling",
+          "bold": true
+        },
+        {
+          "text": " uses small, sterilised needles to stimulate the skin's natural collagen production — improving elasticity, firmness and complexion while reducing scars and fine lines."
+        }
+      ],
+      "image": "/images/treatments/microneedling/fight-aging.webp",
+      "href": "/treatments/microneedling",
+      "icon": "needle",
+      "iconBg": "#4a7a7a"
+    },
+    {
+      "slug": "mesotherapy",
+      "title": "Mesotherapy",
+      "description": [
+        {
+          "text": "Mesotherapy MesoOx",
+          "bold": true
+        },
+        {
+          "text": " is injected using the pain-free U225 intradermal injector — a non-surgical cosmetic treatment delivering tailored vitamin, amino acid and antioxidant cocktails directly into the skin."
+        }
+      ],
+      "image": "/images/treatments/mesotherapy/mesox/aminoacids-box-2.jpg",
+      "href": "/treatments/mesotherapy",
+      "icon": "needle",
+      "iconBg": "#4a7a7a"
+    },
+    {
+      "slug": "photo-aging",
+      "title": "Chemical Peels (Photodynamic Peel)",
+      "description": [
+        {
+          "text": "Skinox",
+          "bold": true
+        },
+        {
+          "text": " is a complete photosensitive treatment combined with the High Density Diodes HDD laser — indicated for blemishes, dark spots, redness and photoaging."
+        }
+      ],
+      "image": "/images/treatments/photo-aging/skinox-wrinkles.jpg",
+      "href": "/treatments/photo-aging",
+      "icon": "sun",
+      "iconBg": "#b87040"
+    },
+    {
+      "slug": "profhilo",
+      "title": "Profhilo",
+      "description": [
+        {
+          "text": "Profhilo",
+          "bold": true
+        },
+        {
+          "text": " is a unique injectable treatment using the highest concentration of hyaluronic acid to smooth, lift and tighten the skin — suitable for face, neck, hands and décolletage."
+        }
+      ],
+      "image": "/images/treatments/profhilo/sofia-injecting.jpg",
+      "href": "/treatments/profhilo",
+      "icon": "face",
+      "iconBg": "#a8607a"
+    },
+    {
+      "slug": "dermal-fillers",
+      "title": "Dermal Fillers",
+      "description": [
+        {
+          "text": "Dermal fillers",
+          "bold": true
+        },
+        {
+          "text": " are injectable treatments used to restore lost volume, smooth deep lines, and enhance facial contours. From lip enhancement to cheek augmentation, results are instant and natural-looking."
+        }
+      ],
+      "image": "/images/treatments/dermal-fillers/cheek-injection.webp",
+      "href": "/treatments/dermal-fillers",
+      "icon": "syringe",
+      "iconBg": "#9c4416"
+    },
+    {
+      "slug": "aqualyx",
+      "title": "Aqualyx (Fat Dissolving)",
+      "description": [
+        {
+          "text": "Aqualyx",
+          "bold": true
+        },
+        {
+          "text": " is a clinically proven fat-dissolving injectable that permanently destroys fat cells in targeted areas such as the chin, abdomen and thighs — a safe alternative to liposuction."
+        }
+      ],
+      "image": "/images/treatments/aqualyx/aqualyx-product-hero.jpg",
+      "href": "/treatments/aqualyx",
+      "icon": "drop",
+      "iconBg": "#3a7aaa"
+    },
+    {
+      "slug": "cryopen",
+      "title": "CryoPen",
+      "description": [
+        {
+          "text": "CryoPen",
+          "bold": true
+        },
+        {
+          "text": " is a state-of-the-art cryotherapy treatment used to precisely remove unwanted skin lesions including warts, skin tags, milia, age spots and verrucas — quickly and with minimal discomfort."
+        }
+      ],
+      "image": "/images/treatments/cryopen/cryopen-device-v2.jpg",
+      "href": "/treatments/cryopen",
+      "icon": "snowflake",
+      "iconBg": "#4a6aaa"
+    },
+    {
+      "slug": "vitamin-b12",
+      "title": "Vitamin B12 Injections",
+      "description": [
+        {
+          "text": "Vitamin B12 injections",
+          "bold": true
+        },
+        {
+          "text": " deliver a direct boost to energy levels, metabolism and overall wellbeing — ideal for anyone with a deficiency or seeking improved vitality, mental clarity and immune support."
+        }
+      ],
+      "image": "/images/treatments/vitamin-b12/sofia-injecting-arm.jpg",
+      "href": "/treatments/vitamin-b12",
+      "icon": "pill",
+      "iconBg": "#c49020"
+    },
+    {
+      "slug": "mounjaro",
+      "title": "Mounjaro (Weight Loss)",
+      "description": [
+        {
+          "text": "Mounjaro (tirzepatide)",
+          "bold": true
+        },
+        {
+          "text": " is a clinically approved weekly injection for weight management — mimicking natural hormones to regulate appetite and blood sugar, supporting significant and sustained weight loss."
+        }
+      ],
+      "image": "/images/treatments/mounjaro/product-card.jpg",
+      "href": "/treatments/mounjaro",
+      "icon": "scale",
+      "iconBg": "#3d7a5a"
+    }
+  ],
+  "whyChooseUs": {
+    "badge": "why choose us",
+    "heading": "Experience Trusted Dermatology Care With Sofia",
+    "feature1Title": "Experienced Practitioner",
+    "feature1Desc": "With years of experience in skin and aesthetic treatments, Sofia provides expert guidance and personalized recommendations to help you achieve your skincare goals.",
+    "feature2Title": "Personalized Care",
+    "feature2Desc": "Every skin journey is unique. We take the time to understand your concerns and create tailored treatment plans designed specifically for your needs.",
+    "feature3Title": "Advanced Technology",
+    "feature3Desc": "We utilize modern equipment and proven treatment techniques to deliver safe, effective, and results-driven care for a wide range of skin concerns.",
+    "feature4Title": "Trusted & Safe Care",
+    "feature4Desc": "Your comfort and safety are our priority. All treatments are carried out with professionalism, attention to detail, and a commitment to achieving natural-looking results."
+  },
+  "testimonials": {
+    "badge": "testimonials",
+    "heading1": "what our",
+    "heading2": "patient say",
+    "moreTestimonials": "more testimonials"
+  },
+  "testimonialsList": {
+    "fariah": {
+      "role": "PRP Hair Loss · Harley Street",
+      "quote": "Amazing experience! Dr Sophia was brilliant and helpful. I had 2 sessions of PRP hair — the clinic is in a great location just off Oxford Street and easy to get to. I am very happy with my results. I have stopped losing hair and am getting thicker hair! Highly recommend!"
+    },
+    "maria": {
+      "role": "Cryolipolysis · Harley Street",
+      "quote": "I had a fantastic cryo treatment with Dr Sofia — she is a true expert in medical aesthetics. I treated three areas and felt completely at ease thanks to her extensive experience, warm approach, and professionalism."
+    },
+    "robin": {
+      "role": "Blood Tests · Harley Street",
+      "quote": "I cannot recommend Sofia enough. She is very professional, very personable, and her knowledge and expertise is a great comfort when having blood drawn for multiple complex tests. Thank you so much Sofia."
+    },
+    "david": {
+      "role": "Skin Tag Removal · Harley Street",
+      "quote": "I visited YourHealthFirst Clinic to have a skin tag removed near my eye, and I couldn't be happier. The procedure was very quick and genuinely painless. Everyone was friendly, calm and professional, and I never felt rushed."
+    }
+  },
+  "faq": {
+    "badge": "faqs",
+    "heading": "frequently asked questions",
+    "q1": "How do I book an appointment?",
+    "a1": "You can book an appointment by calling us on 0207 225 3582 or 078 1847 4041, or by emailing info@yourhealthfirst.uk. We're based at 2 Wimpole Street, London W1G 0EB. Our friendly team will help you find a time that suits you and answer any questions before your visit.",
+    "q2": "What treatments do you offer?",
+    "a2": "We offer a comprehensive range of aesthetic and medical treatments including anti-wrinkle injections, dermal fillers, Profhilo, Polynucleotides, Sculptra, PRP therapy, Sunekos, Cryolipolysis (fat freezing), Emsculpt Neo, Aqualyx, Mounjaro, hair loss treatments (PRP & Exosomes), Microneedling, Mesotherapy, Sclerotherapy, CryoPen, and Vitamin B12 injections.",
+    "q3": "Do I need a consultation before treatment?",
+    "a3": "Yes — every new patient begins with a thorough one-to-one consultation with Dr Sofia. This allows us to understand your concerns, assess your suitability for treatment, and design a personalised plan tailored to your goals. Consultations are relaxed and informative with no pressure to proceed.",
+    "q4": "Are the treatments safe for all skin types?",
+    "a4": "Our treatments are suitable for a wide range of skin types and tones. During your consultation Dr Sofia will assess your skin in detail and recommend the most appropriate treatments for your individual needs. Safety and natural-looking results are always our top priority.",
+    "q5": "How long does a treatment session take?",
+    "a5": "Treatment times vary depending on the procedure. A quick anti-wrinkle injection session may take as little as 15–20 minutes, while more comprehensive treatments such as Cryolipolysis or Emsculpt Neo can take 45–60 minutes per session. We will always give you a clear time estimate when you book.",
+    "q6": "When will I see results?",
+    "a6": "Results timelines differ by treatment. Anti-wrinkle injections typically show effect within 3–14 days. Dermal fillers and Profhilo show results almost immediately, improving further over several weeks. Body contouring treatments such as Cryolipolysis generally show visible results after 8–12 weeks. Dr Sofia will guide you on what to expect during your consultation."
+  },
+  "booking": {
+    "badge": "book an appointment",
+    "heading1": "Begin Your",
+    "heading2": "Journey Today",
+    "description": "Book a consultation with Sofia Bouzian to discuss your goals and create a personalised treatment plan. No pressure — just expert, honest guidance.",
+    "telephone": "Telephone",
+    "mobile": "Mobile",
+    "email": "Email",
+    "address": "Address",
+    "openingHours": "Opening Hours",
+    "monFri": "Monday – Friday",
+    "monFriTime": "10:00am – 6:00pm",
+    "saturday": "Saturday",
+    "saturdayTime": "12:00pm – 4:00pm",
+    "saturdayNote": "Doctor appointments only",
+    "sunday": "Sunday",
+    "sundayTime": "Closed",
+    "sundayNote": "By appointment or email only",
+    "outOfHours": "Out of hours",
+    "outOfHoursTime": "By appointment or email",
+    "formTitle": "Request a Consultation",
+    "formSubtitle": "Fill in the form and we'll get back to you as soon as possible.",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "phone": "Phone",
+    "treatmentOfInterest": "Treatment of Interest",
+    "selectTreatment": "Select a treatment...",
+    "howHeard": "How did you hear about us?",
+    "pleaseSelect": "Please select...",
+    "googleSearch": "Google Search",
+    "googleMaps": "Google Maps",
+    "instagram": "Instagram",
+    "facebook": "Facebook",
+    "friendReferral": "Friend / Family Referral",
+    "returningPatient": "Returning Patient",
+    "other": "Other",
+    "message": "Message",
+    "messagePlaceholder": "Tell us about your concerns or questions...",
+    "sendEnquiry": "Send Enquiry",
+    "enquirySent": "Enquiry Sent",
+    "thankYou": "Thank you — we will be in touch shortly to confirm your appointment. You can also call us on 0207 225 3582."
+  },
+  "imageAssetsReferenced": [
+    "/dr-yassine-profile.jpg",
+    "/hero-bg.jpg",
+    "/clinic-interior.jpg",
+    "/images/treatments/anti-wrinkles/sofia-consultation.jpg",
+    "/images/blogs/cryolipolysis-fat-freezing.jpeg",
+    "/images/treatments/sunekos/sofia-injecting.jpg",
+    "/images/treatments/emsculpt-neo/hero-abdomen.png",
+    "/images/treatments/phlebotomy/blood-draw.jpg",
+    "/images/treatments/sculptra/sofia-product.jpg",
+    "/images/treatments/sclerotherapy/sclerotherapy-treatment-room-2.jpg",
+    "/images/treatments/prp-face-body/prp-injection-face.jpg",
+    "/images/treatments/exosome/sofia-facial-exosome-treatment.jpg",
+    "/images/treatments/polynucleotides/sofia-injecting.jpg",
+    "/images/treatments/prp-hair-loss/u225-scalp-treatment-1.jpg",
+    "/images/treatments/microneedling/fight-aging.webp",
+    "/images/treatments/mesotherapy/mesox/aminoacids-box-2.jpg",
+    "/images/treatments/photo-aging/skinox-wrinkles.jpg",
+    "/images/treatments/profhilo/sofia-injecting.jpg",
+    "/images/treatments/dermal-fillers/cheek-injection.webp",
+    "/images/treatments/aqualyx/aqualyx-product-hero.jpg",
+    "/images/treatments/cryopen/cryopen-device-v2.jpg",
+    "/images/treatments/vitamin-b12/sofia-injecting-arm.jpg",
+    "/images/treatments/mounjaro/product-card.jpg"
+  ]
+}

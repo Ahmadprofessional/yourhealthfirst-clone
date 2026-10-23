@@ -1,0 +1,28 @@
+{
+  "page": "longevity",
+  "route": "/longevity",
+  "content": {
+    "badge": "Coming Soon",
+    "heading": "Longevity",
+    "subheading": "Programme",
+    "tagline": "Advanced health optimisation, preventative medicine and personalised wellness protocols — designed to help you live longer and live better.",
+    "card1Title": "Health Optimisation",
+    "card1Desc": "Comprehensive blood panels, biomarker testing and personalised health protocols",
+    "card2Title": "Preventative Medicine",
+    "card2Desc": "Early detection strategies and evidence-based interventions to delay biological ageing",
+    "card3Title": "IV Therapy",
+    "card3Desc": "High-dose vitamin, mineral and amino acid infusions tailored to your specific deficiencies",
+    "notifyTitle": "Be the First to Know",
+    "notifyDesc": "Register your interest today to receive priority access and exclusive updates when the programme launches.",
+    "registerCta": "Register Your Interest →",
+    "backHome": "Back to Home",
+    "card4Title": "Hormone Balancing",
+    "card4Desc": "Precision hormone optimisation to restore vitality, mood and metabolic function",
+    "card5Title": "Cellular Regeneration",
+    "card5Desc": "Advanced peptide therapies, NAD+ and exosome protocols for cellular renewal",
+    "card6Title": "Wellness Coaching",
+    "card6Desc": "Personalised nutrition, sleep and lifestyle guidance from our medical team",
+    "notifyText": "Be the first to know when we launch",
+    "registerButton": "Register Your Interest"
+  }
+}

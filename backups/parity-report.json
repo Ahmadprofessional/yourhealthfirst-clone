@@ -1,0 +1,1247 @@
+{
+  "matchCount": 248,
+  "mismatchCount": 0,
+  "missingCount": 0,
+  "details": [
+    {
+      "id": "homePage",
+      "type": "homePage",
+      "status": "MATCH"
+    },
+    {
+      "id": "aboutPage",
+      "type": "aboutPage",
+      "status": "MATCH"
+    },
+    {
+      "id": "treatmentsOverviewPage",
+      "type": "treatmentsOverviewPage",
+      "status": "MATCH"
+    },
+    {
+      "id": "phlebotomyPage",
+      "type": "phlebotomyPage",
+      "status": "MATCH"
+    },
+    {
+      "id": "sclerotherapyPage",
+      "type": "sclerotherapyPage",
+      "status": "MATCH"
+    },
+    {
+      "id": "fotoagePage",
+      "type": "fotoagePage",
+      "status": "MATCH"
+    },
+    {
+      "id": "photobiodynamicPage",
+      "type": "photobiodynamicPage",
+      "status": "MATCH"
+    },
+    {
+      "id": "longevityPage",
+      "type": "longevityPage",
+      "status": "MATCH"
+    },
+    {
+      "id": "homeSkincarePage",
+      "type": "homeSkincarePage",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryPage",
+      "type": "galleryPage",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceListPage",
+      "type": "priceListPage",
+      "status": "MATCH"
+    },
+    {
+      "id": "blogsPage",
+      "type": "blogsPage",
+      "status": "MATCH"
+    },
+    {
+      "id": "pressPage",
+      "type": "pressPage",
+      "status": "MATCH"
+    },
+    {
+      "id": "contactPage",
+      "type": "contactPage",
+      "status": "MATCH"
+    },
+    {
+      "id": "siteSettings",
+      "type": "siteSettings",
+      "status": "MATCH"
+    },
+    {
+      "id": "treatment-anti-wrinkles",
+      "type": "treatment",
+      "status": "MATCH"
+    },
+    {
+      "id": "treatment-dermal-fillers",
+      "type": "treatment",
+      "status": "MATCH"
+    },
+    {
+      "id": "treatment-sunekos",
+      "type": "treatment",
+      "status": "MATCH"
+    },
+    {
+      "id": "treatment-profhilo",
+      "type": "treatment",
+      "status": "MATCH"
+    },
+    {
+      "id": "treatment-polynucleotides",
+      "type": "treatment",
+      "status": "MATCH"
+    },
+    {
+      "id": "treatment-sculptra",
+      "type": "treatment",
+      "status": "MATCH"
+    },
+    {
+      "id": "treatment-prp-face-body",
+      "type": "treatment",
+      "status": "MATCH"
+    },
+    {
+      "id": "treatment-prp-hair-loss",
+      "type": "treatment",
+      "status": "MATCH"
+    },
+    {
+      "id": "treatment-exosome",
+      "type": "treatment",
+      "status": "MATCH"
+    },
+    {
+      "id": "treatment-cryolipolysis",
+      "type": "treatment",
+      "status": "MATCH"
+    },
+    {
+      "id": "treatment-emsculpt-neo",
+      "type": "treatment",
+      "status": "MATCH"
+    },
+    {
+      "id": "treatment-aqualyx",
+      "type": "treatment",
+      "status": "MATCH"
+    },
+    {
+      "id": "treatment-mounjaro",
+      "type": "treatment",
+      "status": "MATCH"
+    },
+    {
+      "id": "treatment-microneedling",
+      "type": "treatment",
+      "status": "MATCH"
+    },
+    {
+      "id": "treatment-mesotherapy",
+      "type": "treatment",
+      "status": "MATCH"
+    },
+    {
+      "id": "treatment-photo-aging",
+      "type": "treatment",
+      "status": "MATCH"
+    },
+    {
+      "id": "treatment-sclerotherapy",
+      "type": "treatment",
+      "status": "MATCH"
+    },
+    {
+      "id": "treatment-cryopen",
+      "type": "treatment",
+      "status": "MATCH"
+    },
+    {
+      "id": "treatment-phlebotomy",
+      "type": "treatment",
+      "status": "MATCH"
+    },
+    {
+      "id": "treatment-vitamin-b12",
+      "type": "treatment",
+      "status": "MATCH"
+    },
+    {
+      "id": "blogPost-prp-and-exosome-therapy-advanced-rejuvenation-for-hair-face-and-body",
+      "type": "blogPost",
+      "status": "MATCH"
+    },
+    {
+      "id": "blogPost-prp-injections-for-hair-loss-treatment",
+      "type": "blogPost",
+      "status": "MATCH"
+    },
+    {
+      "id": "blogPost-cryolipolysis-fat-freezing",
+      "type": "blogPost",
+      "status": "MATCH"
+    },
+    {
+      "id": "blogPost-anti-wrinkles-injections",
+      "type": "blogPost",
+      "status": "MATCH"
+    },
+    {
+      "id": "blogPost-prp-hair-loss",
+      "type": "blogPost",
+      "status": "MATCH"
+    },
+    {
+      "id": "blogPost-dermal-fillers-and-its-uses",
+      "type": "blogPost",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-cryolipolysis-1",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-cryolipolysis-2",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-cryolipolysis-3",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-cryolipolysis-4",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-cryolipolysis-5",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-cryolipolysis-6",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-cryolipolysis-7",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-cryolipolysis-8",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-cryolipolysis-9",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-cryolipolysis-10",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-cryolipolysis-11",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-cryolipolysis-12",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-cryolipolysis-13",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-cryolipolysis-14",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-cryolipolysis-15",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-cryolipolysis-16",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-cryolipolysis-17",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-cryolipolysis-18",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-cryolipolysis-19",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-anti-wrinkle-treatments-1",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-anti-wrinkle-treatments-2",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-anti-wrinkle-treatments-3",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-anti-wrinkle-treatments-4",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-anti-wrinkle-treatments-5",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-anti-wrinkle-treatments-6",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-anti-wrinkle-treatments-7",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-anti-wrinkle-treatments-8",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-anti-wrinkle-treatments-9",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-anti-wrinkle-treatments-10",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-anti-wrinkle-treatments-11",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-anti-wrinkle-treatments-12",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-anti-wrinkle-treatments-13",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-anti-wrinkle-treatments-14",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-dermal-fillers-1",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-dermal-fillers-2",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-dermal-fillers-3",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-dermal-fillers-4",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-dermal-fillers-5",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-dermal-fillers-6",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-dermal-fillers-7",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-dermal-fillers-8",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-dermal-fillers-9",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-dermal-fillers-10",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-dermal-fillers-11",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-dermal-fillers-12",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-dermal-fillers-13",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-dermal-fillers-14",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-lip-fillers-1",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-lip-fillers-2",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-lip-fillers-3",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-sclerotherapy-1",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-sclerotherapy-2",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-sclerotherapy-3",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-sclerotherapy-4",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-prp-hair-loss-men-1",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-prp-hair-loss-men-2",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-prp-hair-loss-men-3",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-prp-hair-loss-women-1",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-prp-hair-loss-women-2",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-prp-hair-loss-women-3",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-prp-hair-loss-women-4",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-prp-patchy-beard-1",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-prp-patchy-beard-2",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-cryopen-1",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-cryopen-2",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-prp-prp-cellular-matrix-1",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-prp-prp-cellular-matrix-2",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-exosomes-1",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-exosomes-2",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-exosomes-3",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-exosomes-4",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-aqualyx-1",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-aqualyx-2",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-sculptra-1",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-sculptra-2",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-sculptra-3",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-sunekos-1",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-sunekos-2",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-sunekos-3",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-sunekos-4",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-profhilo-1",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-profhilo-2",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-profhilo-3",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-profhilo-4",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-profhilo-5",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "galleryCase-profhilo-6",
+      "type": "galleryCase",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-1",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-2",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-3",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-4",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-5",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-6",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-7",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-8",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-9",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-10",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-11",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-12",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-13",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-14",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-15",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-16",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-17",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-18",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-19",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-20",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-21",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-22",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-23",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-24",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-25",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-26",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-27",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-28",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-29",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-30",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-31",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-32",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-33",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-34",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-35",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-36",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-37",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-38",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-39",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-40",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-41",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-42",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-43",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-44",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-45",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-46",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-47",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-48",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-49",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-50",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-51",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-52",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-53",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-54",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-55",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-56",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-57",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-58",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-59",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-60",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-61",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-62",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-63",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-64",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-65",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-66",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-67",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-68",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-69",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-70",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-71",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-72",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-73",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-74",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-75",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-76",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-77",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-78",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-79",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-80",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-81",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-82",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-83",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-84",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-85",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-86",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-87",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-88",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-89",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-90",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-91",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-92",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-93",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-94",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-95",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-96",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-97",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-98",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-99",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-100",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-101",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-102",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-103",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-104",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-105",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-106",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-107",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-108",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-109",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-110",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-111",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-112",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-113",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-114",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-115",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-116",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-117",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-118",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-119",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-120",
+      "type": "priceItem",
+      "status": "MATCH"
+    },
+    {
+      "id": "priceItem-121",
+      "type": "priceItem",
+      "status": "MATCH"
+    }
+  ]
+}

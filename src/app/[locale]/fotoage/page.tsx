@@ -4,6 +4,10 @@ import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { getTranslations } from "next-intl/server";
+import { sanityFetch } from "@/sanity/lib/fetch";
+import { FOTOAGE_PAGE_QUERY, SITE_SETTINGS_QUERY } from "@/sanity/lib/queries";
+import { getSanityAttribute } from "@/sanity/lib/dataAttribute";
+import { urlFor } from "@/sanity/lib/image";
 
 export async function generateMetadata({
   params,
@@ -57,24 +61,61 @@ export default async function FotoagePage({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "FotoagePage" });
 
+  const [sanityFotoage, sanitySettings] = await Promise.all([
+    sanityFetch<any>({
+      query: FOTOAGE_PAGE_QUERY,
+      tags: ["fotoagePage"],
+    }),
+    sanityFetch<any>({
+      query: SITE_SETTINGS_QUERY,
+      tags: ["siteSettings"],
+    }),
+  ]);
+  const docId = "fotoagePage";
+
+  const heroTitle = sanityFotoage?.heroTitle || t("heading");
+  const heroSubtitle = sanityFotoage?.heroSubtitle || t("subtitle");
+  const introText = sanityFotoage?.introText || t("introP1");
+  const introP2 = sanityFotoage?.introP2 || t("introP2");
+  const viewCtaText = sanityFotoage?.viewCtaText || t("viewCta");
+
+  const maskImageSrc = sanityFotoage?.maskImage ? urlFor(sanityFotoage.maskImage).url() : "/images/treatments/photo-aging/fotoage/mask.jpg";
+  const hddHeading = sanityFotoage?.hddHeading || t("hddHeading");
+  const hddP1 = sanityFotoage?.hddP1 || t("hddP1");
+  const hddP2 = sanityFotoage?.hddP2 || t("hddP2");
+
+  const redLightImageSrc = sanityFotoage?.redLightImage ? urlFor(sanityFotoage.redLightImage).url() : "/images/treatments/photo-aging/fotoage/red_light.jpg";
+  const blueLightImageSrc = sanityFotoage?.blueLightImage ? urlFor(sanityFotoage.blueLightImage).url() : "/images/treatments/photo-aging/fotoage/blue_light.png";
+  const yellowLightImageSrc = sanityFotoage?.yellowLightImage ? urlFor(sanityFotoage.yellowLightImage).url() : "/images/treatments/photo-aging/fotoage/yellow_light.png";
+  const greenLightImageSrc = sanityFotoage?.greenLightImage ? urlFor(sanityFotoage.greenLightImage).url() : "/images/treatments/photo-aging/fotoage/green_light.png";
+
+  const customTitle = sanityFotoage?.customTitle || t("customTitle");
+  const customP1 = sanityFotoage?.customP1 || t("customP1");
+  const bookCtaText = sanityFotoage?.bookCtaText || t("bookCta");
+  const spectrumAreasImageSrc = sanityFotoage?.spectrumAreasImage ? urlFor(sanityFotoage.spectrumAreasImage).url() : "/images/treatments/photo-aging/fotoage/carac_espectro.jpg";
+
   const lights = [
     {
-      image: "/images/treatments/photo-aging/fotoage/red_light.jpg",
+      image: redLightImageSrc,
+      field: "redLightImage",
       wavelength: t("redWave"),
       points: [t("redP1"), t("redP2"), t("redP3"), t("redP4")],
     },
     {
-      image: "/images/treatments/photo-aging/fotoage/blue_light.png",
+      image: blueLightImageSrc,
+      field: "blueLightImage",
       wavelength: t("blueWave"),
       points: [t("blueP1"), t("blueP2"), t("blueP3")],
     },
     {
-      image: "/images/treatments/photo-aging/fotoage/yellow_light.png",
+      image: yellowLightImageSrc,
+      field: "yellowLightImage",
       wavelength: t("yellowWave"),
       points: [t("yellowP1"), t("yellowP2"), t("yellowP3"), t("yellowP4")],
     },
     {
-      image: "/images/treatments/photo-aging/fotoage/green_light.png",
+      image: greenLightImageSrc,
+      field: "greenLightImage",
       wavelength: t("greenWave"),
       points: [t("greenP1"), t("greenP2"), t("greenP3"), t("greenP4")],
     },
@@ -82,7 +123,7 @@ export default async function FotoagePage({
 
   return (
     <div className="flex flex-col">
-      <Header />
+      <Header sanitySettings={sanitySettings} />
 
       {/* Hero */}
       <section className="relative w-full bg-[linear-gradient(90deg,#7a6248_0%,#b49b7d_50%,#7a6248_100%)] pt-[111px]">
@@ -104,11 +145,17 @@ export default async function FotoagePage({
               {t("badge")}
             </p>
           </div>
-          <h1 className="mt-4 font-display text-[38px] leading-[42px] font-bold tracking-[-1px] text-cream uppercase lg:text-[58px] lg:leading-[64px]">
-            {t("heading")}
+          <h1
+            className="mt-4 font-display text-[38px] leading-[42px] font-bold tracking-[-1px] text-cream uppercase lg:text-[58px] lg:leading-[64px]"
+            data-sanity={getSanityAttribute(docId, "fotoagePage", "heroTitle")}
+          >
+            {heroTitle}
           </h1>
-          <p className="mt-3 max-w-[600px] font-nav text-[16px] leading-[26px] text-white/60">
-            {t("subtitle")}
+          <p
+            className="mt-3 max-w-[600px] font-nav text-[16px] leading-[26px] text-white/60"
+            data-sanity={getSanityAttribute(docId, "fotoagePage", "heroSubtitle")}
+          >
+            {heroSubtitle}
           </p>
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-tan/40 to-transparent" />
@@ -118,26 +165,37 @@ export default async function FotoagePage({
       <section className="w-full px-5">
         <div className="mx-auto max-w-[1400px] py-[70px] lg:py-[90px]">
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
-            <div className="relative mx-auto w-full max-w-[360px] overflow-hidden rounded-full border border-tan/25 shadow-lg" style={{ aspectRatio: "1/1" }}>
+            <div
+              data-sanity={getSanityAttribute(docId, "fotoagePage", "maskImage")}
+              className="relative mx-auto w-full max-w-[360px] overflow-hidden rounded-full border border-tan/25 shadow-lg"
+              style={{ aspectRatio: "1/1" }}
+            >
               <Image
-                src="/images/treatments/photo-aging/fotoage/mask.jpg"
+                src={maskImageSrc}
                 alt="Fotoage customizable laser HDD mask"
                 fill
                 className="object-contain p-8"
               />
             </div>
             <div className="flex flex-col gap-5">
-              <p className="text-[16px] leading-[27px] text-body-text">
-                {t("introP1")}
+              <p
+                className="text-[16px] leading-[27px] text-body-text"
+                data-sanity={getSanityAttribute(docId, "fotoagePage", "introText")}
+              >
+                {introText}
               </p>
-              <p className="text-[16px] leading-[27px] text-body-text">
-                {t("introP2")}
+              <p
+                className="text-[16px] leading-[27px] text-body-text"
+                data-sanity={getSanityAttribute(docId, "fotoagePage", "introP2")}
+              >
+                {introP2}
               </p>
               <Link
                 href="/treatments/photo-aging"
+                data-sanity={getSanityAttribute(docId, "fotoagePage", "viewCtaText")}
                 className="mt-1 inline-flex h-12 w-fit items-center gap-2 rounded-[8px] bg-tan px-6 font-nav text-[14px] font-semibold tracking-[-0.3px] text-forest transition-opacity hover:opacity-90"
               >
-                {t("viewCta")}
+                {viewCtaText}
               </Link>
             </div>
           </div>
@@ -147,22 +205,34 @@ export default async function FotoagePage({
       {/* How does HDD help */}
       <section className="w-full bg-cream px-5">
         <div className="mx-auto max-w-[1400px] py-[70px] lg:py-[90px]">
-          <h2 className="text-center font-subheading text-[26px] font-medium leading-[32px] tracking-[-1px] text-forest uppercase lg:text-[32px] lg:leading-[38px]">
-            {t("hddHeading")}
+          <h2
+            data-sanity={getSanityAttribute(docId, "fotoagePage", "hddHeading")}
+            className="text-center font-subheading text-[26px] font-medium leading-[32px] tracking-[-1px] text-forest uppercase lg:text-[32px] lg:leading-[38px]"
+          >
+            {hddHeading}
           </h2>
           <div className="mx-auto mt-4 flex max-w-[820px] flex-col gap-4 text-center">
-            <p className="text-[15px] leading-[24px] text-body-text">
-              {t("hddP1")}
+            <p
+              data-sanity={getSanityAttribute(docId, "fotoagePage", "hddP1")}
+              className="text-[15px] leading-[24px] text-body-text"
+            >
+              {hddP1}
             </p>
-            <p className="text-[15px] leading-[24px] text-body-text">
-              {t("hddP2")}
+            <p
+              data-sanity={getSanityAttribute(docId, "fotoagePage", "hddP2")}
+              className="text-[15px] leading-[24px] text-body-text"
+            >
+              {hddP2}
             </p>
           </div>
 
           <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {lights.map((light) => (
               <div key={light.wavelength} className="flex flex-col items-center gap-4 text-center">
-                <div className="relative h-[130px] w-[130px] shrink-0">
+                <div
+                  data-sanity={getSanityAttribute(docId, "fotoagePage", light.field)}
+                  className="relative h-[130px] w-[130px] shrink-0"
+                >
                   <Image src={light.image} alt={light.wavelength} fill className="object-contain" />
                 </div>
                 <p className="font-subheading text-[14px] font-semibold text-forest">{light.wavelength}</p>
@@ -184,22 +254,33 @@ export default async function FotoagePage({
         <div className="mx-auto max-w-[1400px] py-[70px] lg:py-[90px]">
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
             <div className="flex flex-col gap-5">
-              <h2 className="font-display text-[28px] font-bold leading-[34px] tracking-[-1px] text-forest lg:text-[32px] lg:leading-[38px]">
-                {t("customTitle")}
+              <h2
+                data-sanity={getSanityAttribute(docId, "fotoagePage", "customTitle")}
+                className="font-display text-[28px] font-bold leading-[34px] tracking-[-1px] text-forest lg:text-[32px] lg:leading-[38px]"
+              >
+                {customTitle}
               </h2>
-              <p className="text-[16px] leading-[27px] text-body-text">
-                {t("customP1")}
+              <p
+                data-sanity={getSanityAttribute(docId, "fotoagePage", "customP1")}
+                className="text-[16px] leading-[27px] text-body-text"
+              >
+                {customP1}
               </p>
               <Link
                 href="/contact-us"
+                data-sanity={getSanityAttribute(docId, "fotoagePage", "bookCtaText")}
                 className="mt-1 inline-flex h-12 w-fit items-center gap-2 rounded-[8px] bg-tan px-6 font-nav text-[14px] font-semibold tracking-[-0.3px] text-forest transition-opacity hover:opacity-90"
               >
-                {t("bookCta")}
+                {bookCtaText}
               </Link>
             </div>
-            <div className="relative mx-auto w-full max-w-[520px] overflow-hidden rounded-[12px] bg-cream p-6" style={{ aspectRatio: "570/335" }}>
+            <div
+              data-sanity={getSanityAttribute(docId, "fotoagePage", "spectrumAreasImage")}
+              className="relative mx-auto w-full max-w-[520px] overflow-hidden rounded-[12px] bg-cream p-6"
+              style={{ aspectRatio: "570/335" }}
+            >
               <Image
-                src="/images/treatments/photo-aging/fotoage/carac_espectro.jpg"
+                src={spectrumAreasImageSrc}
                 alt="Fotoage 4 independent treatment areas — forehead, full face, lower face and neck"
                 fill
                 className="object-contain"
@@ -209,7 +290,7 @@ export default async function FotoagePage({
         </div>
       </section>
 
-      <Footer />
+      <Footer sanitySettings={sanitySettings} />
     </div>
   );
 }

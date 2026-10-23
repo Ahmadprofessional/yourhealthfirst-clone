@@ -1,10 +1,11 @@
 "use client";
 
-interface Props {
+interface Props extends React.ImgHTMLAttributes<HTMLImageElement> {
   src: string;
   alt: string;
   className?: string;
   fallbackSrc?: string;
+  "data-sanity"?: string;
 }
 
 export default function SafeImage({
@@ -12,6 +13,7 @@ export default function SafeImage({
   alt,
   className,
   fallbackSrc = "/images/hero-desk.jpg",
+  ...props
 }: Props) {
   return (
     <img
@@ -21,6 +23,7 @@ export default function SafeImage({
       onError={(e) => {
         (e.currentTarget as HTMLImageElement).src = fallbackSrc;
       }}
+      {...props}
     />
   );
 }

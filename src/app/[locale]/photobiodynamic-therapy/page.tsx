@@ -4,6 +4,10 @@ import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { getTranslations } from "next-intl/server";
+import { sanityFetch } from "@/sanity/lib/fetch";
+import { PHOTOBIODYNAMIC_PAGE_QUERY, SITE_SETTINGS_QUERY } from "@/sanity/lib/queries";
+import { getSanityAttribute } from "@/sanity/lib/dataAttribute";
+import { urlFor } from "@/sanity/lib/image";
 
 export async function generateMetadata({
   params,
@@ -57,16 +61,52 @@ export default async function PhotobiodynamicTherapyPage({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "PhotobiodynamicPage" });
 
+  const [sanityPhotobio, sanitySettings] = await Promise.all([
+    sanityFetch<any>({
+      query: PHOTOBIODYNAMIC_PAGE_QUERY,
+      tags: ["photobiodynamicPage"],
+    }),
+    sanityFetch<any>({
+      query: SITE_SETTINGS_QUERY,
+      tags: ["siteSettings"],
+    }),
+  ]);
+  const docId = "photobiodynamicPage";
+
+  const heroTitle = sanityPhotobio?.heroTitle || t("heading");
+  const heroSubtitle = sanityPhotobio?.heroSubtitle || t("subtitle");
+  const introText = sanityPhotobio?.introText || t("whatIsP1");
+
+  const whatIsTitle = sanityPhotobio?.whatIsTitle || t("whatIsTitle");
+  const boxTitle = sanityPhotobio?.boxTitle || t("boxTitle");
+  const boxDesc = sanityPhotobio?.boxDesc || t("boxDesc");
+  const facialMappingImageSrc = sanityPhotobio?.facialMappingImage ? urlFor(sanityPhotobio.facialMappingImage).url() : "/images/treatments/photo-aging/photobiodynamic/fotoage_layer.jpg";
+
+  const treatmentsTitle = sanityPhotobio?.treatmentsTitle || t("treatmentsTitle");
+  const rejuvenationImageSrc = sanityPhotobio?.rejuvenationImage ? urlFor(sanityPhotobio.rejuvenationImage).url() : "/images/treatments/photo-aging/skinox-wrinkles.jpg";
+  const blemishesImageSrc = sanityPhotobio?.blemishesImage ? urlFor(sanityPhotobio.blemishesImage).url() : "/images/treatments/photo-aging/skinox-blemish.jpg";
+  const rednessImageSrc = sanityPhotobio?.rednessImage ? urlFor(sanityPhotobio.rednessImage).url() : "/images/treatments/photo-aging/skinox-redness.jpg";
+  const darkSpotsImageSrc = sanityPhotobio?.darkSpotsImage ? urlFor(sanityPhotobio.darkSpotsImage).url() : "/images/treatments/photo-aging/skinox-dark-spots.jpg";
+
+  const combinationImageSrc = sanityPhotobio?.combinationImage ? urlFor(sanityPhotobio.combinationImage).url() : "/images/treatments/photo-aging/photobiodynamic/combination.jpg";
+  const oxygenTitle = sanityPhotobio?.oxygenTitle || t("oxygenTitle");
+  const oxygenP1 = sanityPhotobio?.oxygenP1 || t("oxygenP1");
+  const oxygenBullet1 = sanityPhotobio?.oxygenBullet1 || t("oxygenBullet1");
+  const oxygenBullet2 = sanityPhotobio?.oxygenBullet2 || t("oxygenBullet2");
+
+  const treatmentStepsDiagramSrc = sanityPhotobio?.treatmentStepsDiagram ? urlFor(sanityPhotobio.treatmentStepsDiagram).url() : "/images/treatments/photo-aging/photobiodynamic/treatment-steps.png";
+  const viewPeelsCta = sanityPhotobio?.viewPeelsCta || t("viewPeelsCta");
+
   const treatments = [
-    { title: t("rejuvenation"), image: "/images/treatments/photo-aging/skinox-wrinkles.jpg" },
-    { title: t("blemishes"), image: "/images/treatments/photo-aging/skinox-blemish.jpg" },
-    { title: t("redness"), image: "/images/treatments/photo-aging/skinox-redness.jpg" },
-    { title: t("darkSpots"), image: "/images/treatments/photo-aging/skinox-dark-spots.jpg" },
+    { title: t("rejuvenation"), image: rejuvenationImageSrc, field: "rejuvenationImage" },
+    { title: t("blemishes"), image: blemishesImageSrc, field: "blemishesImage" },
+    { title: t("redness"), image: rednessImageSrc, field: "rednessImage" },
+    { title: t("darkSpots"), image: darkSpotsImageSrc, field: "darkSpotsImage" },
   ];
 
   return (
     <div className="flex flex-col">
-      <Header />
+      <Header sanitySettings={sanitySettings} />
 
       {/* Hero */}
       <section className="relative w-full bg-[linear-gradient(90deg,#7a6248_0%,#b49b7d_50%,#7a6248_100%)] pt-[111px]">
@@ -88,11 +128,17 @@ export default async function PhotobiodynamicTherapyPage({
               {t("badge")}
             </p>
           </div>
-          <h1 className="mt-4 font-display text-[38px] leading-[42px] font-bold tracking-[-1px] text-cream uppercase lg:text-[58px] lg:leading-[64px]">
-            {t("heading")}
+          <h1
+            className="mt-4 font-display text-[38px] leading-[42px] font-bold tracking-[-1px] text-cream uppercase lg:text-[58px] lg:leading-[64px]"
+            data-sanity={getSanityAttribute(docId, "photobiodynamicPage", "heroTitle")}
+          >
+            {heroTitle}
           </h1>
-          <p className="mt-3 max-w-[600px] font-serif text-[19px] leading-[28px] text-white/70 italic">
-            {t("subtitle")}
+          <p
+            className="mt-3 max-w-[600px] font-serif text-[19px] leading-[28px] text-white/70 italic"
+            data-sanity={getSanityAttribute(docId, "photobiodynamicPage", "heroSubtitle")}
+          >
+            {heroSubtitle}
           </p>
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-tan/40 to-transparent" />
@@ -103,24 +149,40 @@ export default async function PhotobiodynamicTherapyPage({
         <div className="mx-auto max-w-[1400px] py-[70px] lg:py-[90px]">
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
             <div className="flex flex-col gap-5">
-              <h2 className="font-display text-[28px] font-bold leading-[34px] tracking-[-1px] text-forest lg:text-[32px] lg:leading-[38px]">
-                {t("whatIsTitle")}
+              <h2
+                data-sanity={getSanityAttribute(docId, "photobiodynamicPage", "whatIsTitle")}
+                className="font-display text-[28px] font-bold leading-[34px] tracking-[-1px] text-forest lg:text-[32px] lg:leading-[38px]"
+              >
+                {whatIsTitle}
               </h2>
-              <p className="text-[16px] leading-[27px] text-body-text">
-                {t("whatIsP1")}
+              <p
+                className="text-[16px] leading-[27px] text-body-text"
+                data-sanity={getSanityAttribute(docId, "photobiodynamicPage", "introText")}
+              >
+                {introText}
               </p>
               <div className="rounded-[12px] border border-tan/25 bg-cream p-6">
-                <h3 className="font-subheading text-[14px] font-semibold tracking-[1.5px] text-forest uppercase">
-                  {t("boxTitle")}
+                <h3
+                  data-sanity={getSanityAttribute(docId, "photobiodynamicPage", "boxTitle")}
+                  className="font-subheading text-[14px] font-semibold tracking-[1.5px] text-forest uppercase"
+                >
+                  {boxTitle}
                 </h3>
-                <p className="mt-2 text-[14px] leading-[22px] text-body-text">
-                  {t("boxDesc")}
+                <p
+                  data-sanity={getSanityAttribute(docId, "photobiodynamicPage", "boxDesc")}
+                  className="mt-2 text-[14px] leading-[22px] text-body-text"
+                >
+                  {boxDesc}
                 </p>
               </div>
             </div>
-            <div className="relative mx-auto w-full max-w-[440px] overflow-hidden rounded-[16px] shadow-lg" style={{ aspectRatio: "1/1" }}>
+            <div
+              data-sanity={getSanityAttribute(docId, "photobiodynamicPage", "facialMappingImage")}
+              className="relative mx-auto w-full max-w-[440px] overflow-hidden rounded-[16px] shadow-lg"
+              style={{ aspectRatio: "1/1" }}
+            >
               <Image
-                src="/images/treatments/photo-aging/photobiodynamic/fotoage_layer.jpg"
+                src={facialMappingImageSrc}
                 alt="Photobiodynamic therapy facial mapping technology"
                 fill
                 className="object-cover"
@@ -133,13 +195,20 @@ export default async function PhotobiodynamicTherapyPage({
       {/* Treatments */}
       <section className="w-full bg-cream px-5">
         <div className="mx-auto max-w-[1400px] py-[70px] lg:py-[90px]">
-          <h2 className="text-center font-subheading text-[26px] font-medium leading-[32px] tracking-[-1px] text-forest uppercase lg:text-[32px] lg:leading-[38px]">
-            {t("treatmentsTitle")}
+          <h2
+            data-sanity={getSanityAttribute(docId, "photobiodynamicPage", "treatmentsTitle")}
+            className="text-center font-subheading text-[26px] font-medium leading-[32px] tracking-[-1px] text-forest uppercase lg:text-[32px] lg:leading-[38px]"
+          >
+            {treatmentsTitle}
           </h2>
           <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {treatments.map((tr) => (
               <div key={tr.title} className="overflow-hidden rounded-[12px] border border-black/8 bg-white shadow-sm">
-                <div className="relative w-full bg-white" style={{ aspectRatio: "16/10" }}>
+                <div
+                  data-sanity={getSanityAttribute(docId, "photobiodynamicPage", tr.field)}
+                  className="relative w-full bg-white"
+                  style={{ aspectRatio: "16/10" }}
+                >
                   <Image src={tr.image} alt={tr.title} fill sizes="(min-width: 1024px) 25vw, 50vw" className="object-contain" />
                 </div>
                 <p className="py-4 text-center font-subheading text-[14px] font-semibold tracking-[1px] text-forest uppercase">
@@ -155,32 +224,48 @@ export default async function PhotobiodynamicTherapyPage({
       <section className="w-full px-5">
         <div className="mx-auto max-w-[1400px] py-[70px] lg:py-[90px]">
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
-            <div className="relative mx-auto w-full max-w-[480px] overflow-hidden rounded-[16px] border border-black/8 bg-cream p-6" style={{ aspectRatio: "576/436" }}>
+            <div
+              data-sanity={getSanityAttribute(docId, "photobiodynamicPage", "combinationImage")}
+              className="relative mx-auto w-full max-w-[480px] overflow-hidden rounded-[16px] border border-black/8 bg-cream p-6"
+              style={{ aspectRatio: "576/436" }}
+            >
               <Image
-                src="/images/treatments/photo-aging/photobiodynamic/combination.jpg"
+                src={combinationImageSrc}
                 alt="Skinox products combined with the Fotoage HDD mask"
                 fill
                 className="object-contain"
               />
             </div>
             <div className="flex flex-col gap-5">
-              <h2 className="font-display text-[28px] font-bold leading-[34px] tracking-[-1px] text-forest lg:text-[32px] lg:leading-[38px]">
-                {t("oxygenTitle")}
+              <h2
+                data-sanity={getSanityAttribute(docId, "photobiodynamicPage", "oxygenTitle")}
+                className="font-display text-[28px] font-bold leading-[34px] tracking-[-1px] text-forest lg:text-[32px] lg:leading-[38px]"
+              >
+                {oxygenTitle}
               </h2>
-              <p className="text-[16px] leading-[27px] text-body-text">
-                {t("oxygenP1")}
+              <p
+                data-sanity={getSanityAttribute(docId, "photobiodynamicPage", "oxygenP1")}
+                className="text-[16px] leading-[27px] text-body-text"
+              >
+                {oxygenP1}
               </p>
               <ul className="flex flex-col gap-2">
                 <li className="flex items-start gap-3">
                   <span className="mt-[8px] h-[5px] w-[5px] shrink-0 rounded-full bg-tan" />
-                  <span className="text-[15px] leading-[24px] text-body-text">
-                    {t("oxygenBullet1")}
+                  <span
+                    data-sanity={getSanityAttribute(docId, "photobiodynamicPage", "oxygenBullet1")}
+                    className="text-[15px] leading-[24px] text-body-text"
+                  >
+                    {oxygenBullet1}
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="mt-[8px] h-[5px] w-[5px] shrink-0 rounded-full bg-tan" />
-                  <span className="text-[15px] leading-[24px] text-body-text">
-                    {t("oxygenBullet2")}
+                  <span
+                    data-sanity={getSanityAttribute(docId, "photobiodynamicPage", "oxygenBullet2")}
+                    className="text-[15px] leading-[24px] text-body-text"
+                  >
+                    {oxygenBullet2}
                   </span>
                 </li>
               </ul>
@@ -192,9 +277,13 @@ export default async function PhotobiodynamicTherapyPage({
       {/* Treatment steps diagram */}
       <section className="w-full bg-cream px-5">
         <div className="mx-auto max-w-[1400px] py-[70px] lg:py-[90px]">
-          <div className="relative mx-auto w-full max-w-[520px] overflow-hidden rounded-[12px] border border-black/8 bg-white p-6" style={{ aspectRatio: "600/674" }}>
+          <div
+            data-sanity={getSanityAttribute(docId, "photobiodynamicPage", "treatmentStepsDiagram")}
+            className="relative mx-auto w-full max-w-[520px] overflow-hidden rounded-[12px] border border-black/8 bg-white p-6"
+            style={{ aspectRatio: "600/674" }}
+          >
             <Image
-              src="/images/treatments/photo-aging/photobiodynamic/treatment-steps.png"
+              src={treatmentStepsDiagramSrc}
               alt="How the HDD light activates photosensitive agents through the layers of the skin"
               fill
               className="object-contain"
@@ -203,15 +292,16 @@ export default async function PhotobiodynamicTherapyPage({
           <div className="mt-8 flex justify-center">
             <Link
               href="/treatments/photo-aging"
+              data-sanity={getSanityAttribute(docId, "photobiodynamicPage", "viewPeelsCta")}
               className="inline-flex h-12 w-fit items-center gap-2 rounded-[8px] bg-tan px-6 font-nav text-[14px] font-semibold tracking-[-0.3px] text-forest transition-opacity hover:opacity-90"
             >
-              {t("viewPeelsCta")}
+              {viewPeelsCta}
             </Link>
           </div>
         </div>
       </section>
 
-      <Footer />
+      <Footer sanitySettings={sanitySettings} />
     </div>
   );
 }

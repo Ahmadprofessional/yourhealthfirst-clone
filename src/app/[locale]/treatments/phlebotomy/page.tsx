@@ -7,6 +7,10 @@ import TreatmentFaqAccordion from "@/components/TreatmentFaqAccordion";
 import { treatmentDetails } from "@/data/treatments";
 import { getLocalizedTreatment } from "@/data/localizedTreatments";
 import { getTranslations } from "next-intl/server";
+import { sanityFetch } from "@/sanity/lib/fetch";
+import { PHLEBOTOMY_PAGE_QUERY, SITE_SETTINGS_QUERY } from "@/sanity/lib/queries";
+import { getSanityAttribute } from "@/sanity/lib/dataAttribute";
+import { urlFor } from "@/sanity/lib/image";
 
 export async function generateMetadata({
   params,
@@ -175,18 +179,52 @@ export default async function PhlebotomyPage({
   const t = await getTranslations({ locale, namespace: "PhlebotomyPage" });
   const treatment = getLocalizedTreatment("phlebotomy", locale) ?? treatmentDetails.find((t) => t.slug === "phlebotomy")!;
 
+  const [sanityPhleb, sanitySettings] = await Promise.all([
+    sanityFetch<any>({
+      query: PHLEBOTOMY_PAGE_QUERY,
+      tags: ["phlebotomyPage"],
+    }),
+    sanityFetch<any>({
+      query: SITE_SETTINGS_QUERY,
+      tags: ["siteSettings"],
+    }),
+  ]);
+  const docId = "phlebotomyPage";
+
+  const heroTitle = sanityPhleb?.heroTitle || t("heroTitle");
+  const heroTagline = sanityPhleb?.heroSubtitle || t("heroTagline");
+
+  const bloodDrawImageSrc = sanityPhleb?.bloodDrawImage ? urlFor(sanityPhleb.bloodDrawImage).url() : "/images/treatments/phlebotomy/blood-draw.jpg";
+  const heroBannerImageSrc = sanityPhleb?.heroBannerImage ? urlFor(sanityPhleb.heroBannerImage).url() : "/images/treatments/phlebotomy/hero-banner.jpg";
+  const centrifugeImageSrc = sanityPhleb?.centrifugeImage ? urlFor(sanityPhleb.centrifugeImage).url() : "/images/treatments/phlebotomy/centrifuge-machine.jpg";
+
+  const introHeading = sanityPhleb?.introHeading || t("introHeading");
+  const priorTitle = sanityPhleb?.priorTitle || t("priorTitle");
+  const priorInstructions = sanityPhleb?.priorInstructions || t("prior1");
+  const onDayTitle = sanityPhleb?.onDayTitle || t("onDayTitle");
+  const whyTitle = sanityPhleb?.whyTitle || t("whyTitle");
+  const whySubtitle = sanityPhleb?.whySubtitle || t("whySubtitle");
+  const spinningBadge = sanityPhleb?.spinningBadge || t("spinningBadge");
+  const spinningTitle = sanityPhleb?.spinningTitle || t("spinningTitle");
+  const spinningP1 = sanityPhleb?.spinningP1 || t("spinningP1");
+  const spinningP2 = sanityPhleb?.spinningP2 || t("spinningP2");
+  const spinningCta = sanityPhleb?.spinningCta || t("spinningCta");
+  const pageFaqs = sanityPhleb?.faqs?.length ? sanityPhleb.faqs : treatment.faqs;
+
   const heroBadges = [
     { icon: "user", label: t("badgePrivate") },
     { icon: "shield", label: t("badgeCare") },
     { icon: "bolt", label: t("badgeFast") },
   ];
 
-  const onTheDaySteps = [
-    t("onDay1"),
-    t("onDay2"),
-    t("onDay3"),
-    t("onDay4"),
-  ];
+  const onTheDaySteps = (sanityPhleb?.onDaySteps && sanityPhleb.onDaySteps.length > 0)
+    ? sanityPhleb.onDaySteps
+    : [
+        t("onDay1"),
+        t("onDay2"),
+        t("onDay3"),
+        t("onDay4"),
+      ];
 
   const whyItMatters = [
     {
@@ -215,7 +253,7 @@ export default async function PhlebotomyPage({
 
   return (
     <div className="flex flex-col">
-      <Header />
+      <Header sanitySettings={sanitySettings} />
 
       {/* Hero */}
       <section className="relative w-full bg-[linear-gradient(90deg,#7a6248_0%,#b49b7d_50%,#7a6248_100%)] pt-[111px]">
@@ -238,11 +276,17 @@ export default async function PhlebotomyPage({
                 {t("category")}
               </p>
             </div>
-            <h1 className="font-display text-[38px] leading-[42px] font-bold tracking-[-1px] text-cream uppercase lg:text-[58px] lg:leading-[64px]">
-              {t("heroTitle")}
+            <h1
+              className="font-display text-[38px] leading-[42px] font-bold tracking-[-1px] text-cream uppercase lg:text-[58px] lg:leading-[64px]"
+              data-sanity={getSanityAttribute(docId, "phlebotomyPage", "heroTitle")}
+            >
+              {heroTitle}
             </h1>
-            <p className="max-w-[560px] font-serif text-[20px] leading-[30px] text-white/70 italic">
-              {t("heroTagline")}
+            <p
+              className="max-w-[560px] font-serif text-[20px] leading-[30px] text-white/70 italic"
+              data-sanity={getSanityAttribute(docId, "phlebotomyPage", "heroSubtitle")}
+            >
+              {heroTagline}
             </p>
             <div className="mt-4 flex flex-wrap gap-x-8 gap-y-4">
               {heroBadges.map((b) => (
@@ -267,9 +311,13 @@ export default async function PhlebotomyPage({
           <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-[0.5fr_1.5fr] lg:gap-16">
             <div className="relative w-full max-w-[380px]">
               <div className="pointer-events-none absolute -left-4 -top-4 h-full w-full rounded-[18px] border border-tan/40" />
-              <div className="relative w-full overflow-hidden rounded-[14px] shadow-md" style={{ aspectRatio: "3/4" }}>
+              <div
+                data-sanity={getSanityAttribute(docId, "phlebotomyPage", "bloodDrawImage")}
+                className="relative w-full overflow-hidden rounded-[14px] shadow-md cursor-pointer hover:outline-dashed hover:outline-2 hover:outline-tan/60"
+                style={{ aspectRatio: "3/4" }}
+              >
                 <Image
-                  src="/images/treatments/phlebotomy/blood-draw.jpg"
+                  src={bloodDrawImageSrc}
                   alt="Private blood draw appointment at YourHealthFirst Clinic"
                   fill
                   className="object-cover"
@@ -279,9 +327,11 @@ export default async function PhlebotomyPage({
             <div className="flex flex-col gap-6 xl:flex-row xl:gap-10">
               <div className="flex flex-1 flex-col gap-5">
                 <div className="flex flex-col gap-2">
-                  <h2 className="font-display text-[28px] font-bold leading-[34px] tracking-[-1px] text-forest lg:text-[34px] lg:leading-[40px]">
-                    {t("introHeading")}{" "}
-                    <span className="text-tan">{t("introHeadingHighlight")}</span>
+                  <h2
+                    data-sanity={getSanityAttribute(docId, "phlebotomyPage", "introHeading")}
+                    className="font-display text-[28px] font-bold leading-[34px] tracking-[-1px] text-forest lg:text-[34px] lg:leading-[40px] cursor-pointer hover:outline-dashed hover:outline-2 hover:outline-forest/60"
+                  >
+                    {introHeading}
                   </h2>
                   <span className="h-[3px] w-16 rounded-full bg-tan" />
                 </div>
@@ -320,9 +370,12 @@ export default async function PhlebotomyPage({
         <div className="pointer-events-none absolute -right-[10%] bottom-[-20%] h-[500px] w-[500px] rounded-full bg-white/40 blur-[110px]" />
         <div className="relative mx-auto max-w-[1400px] py-[70px] lg:py-[90px]">
           <div className="relative overflow-hidden rounded-[24px] border border-tan/25 bg-white/70 shadow-lg backdrop-blur-sm">
-            <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[36%] lg:block">
+            <div
+              data-sanity={getSanityAttribute(docId, "phlebotomyPage", "heroBannerImage")}
+              className="pointer-events-none absolute inset-y-0 right-0 hidden w-[36%] lg:block cursor-pointer"
+            >
               <Image
-                src="/images/treatments/phlebotomy/hero-banner.jpg"
+                src={heroBannerImageSrc}
                 alt=""
                 fill
                 className="object-cover object-[70%_50%] opacity-90"
@@ -339,9 +392,11 @@ export default async function PhlebotomyPage({
                   </span>
                   <div className="flex flex-col gap-2">
                     <span className="h-[3px] w-12 rounded-full bg-tan" />
-                    <h3 className="font-display text-[26px] font-bold leading-[30px] tracking-[-0.5px] text-forest uppercase lg:text-[30px] lg:leading-[34px]">
-                      {t("priorTitle")}{" "}
-                      <span className="text-tan">{t("priorTitleHighlight")}</span>
+                    <h3
+                      data-sanity={getSanityAttribute(docId, "phlebotomyPage", "priorTitle")}
+                      className="font-display text-[26px] font-bold leading-[30px] tracking-[-0.5px] text-forest uppercase lg:text-[30px] lg:leading-[34px] cursor-pointer hover:outline-dashed hover:outline-1 hover:outline-forest/60"
+                    >
+                      {priorTitle}
                     </h3>
                   </div>
                 </div>
@@ -349,7 +404,12 @@ export default async function PhlebotomyPage({
                   <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-tan font-nav text-[13px] font-semibold text-white">
                     1
                   </span>
-                  <p className="text-[15px] leading-[24px] text-body-text">{t("prior1")}</p>
+                  <p
+                    data-sanity={getSanityAttribute(docId, "phlebotomyPage", "priorInstructions")}
+                    className="text-[15px] leading-[24px] text-body-text cursor-pointer hover:outline-dashed hover:outline-1 hover:outline-black/30"
+                  >
+                    {priorInstructions}
+                  </p>
                 </div>
                 <div className="flex items-start gap-3 rounded-[12px] bg-white/80 p-4">
                   <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-tan/20 text-tan">
@@ -373,14 +433,16 @@ export default async function PhlebotomyPage({
                   </span>
                   <div className="flex flex-col gap-2">
                     <span className="h-[3px] w-12 rounded-full bg-tan" />
-                    <h3 className="font-display text-[26px] font-bold leading-[30px] tracking-[-0.5px] text-forest uppercase lg:text-[30px] lg:leading-[34px]">
-                      {t("onDayTitle")}{" "}
-                      <span className="text-tan">{t("onDayTitleHighlight")}</span>
+                    <h3
+                      data-sanity={getSanityAttribute(docId, "phlebotomyPage", "onDayTitle")}
+                      className="font-display text-[26px] font-bold leading-[30px] tracking-[-0.5px] text-forest uppercase lg:text-[30px] lg:leading-[34px] cursor-pointer hover:outline-dashed hover:outline-1 hover:outline-forest/60"
+                    >
+                      {onDayTitle}
                     </h3>
                   </div>
                 </div>
                 <div className="flex flex-col">
-                  {onTheDaySteps.map((step, i) => (
+                  {onTheDaySteps.map((step: any, i: number) => (
                     <div key={i} className="flex gap-4">
                       <div className="flex flex-col items-center">
                         <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-tan font-nav text-[13px] font-semibold text-white">
@@ -390,7 +452,12 @@ export default async function PhlebotomyPage({
                           <span className="my-1 w-px flex-1 bg-tan/30" />
                         )}
                       </div>
-                      <p className="pb-5 text-[15px] leading-[24px] text-body-text">{step}</p>
+                      <p
+                        data-sanity={getSanityAttribute(docId, "phlebotomyPage", `onDaySteps[${i}]`)}
+                        className="pb-5 text-[15px] leading-[24px] text-body-text cursor-pointer hover:outline-dashed hover:outline-1 hover:outline-black/30"
+                      >
+                        {step}
+                      </p>
                     </div>
                   ))}
                 </div>
@@ -493,28 +560,40 @@ export default async function PhlebotomyPage({
           <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2 lg:gap-20">
             <div className="flex flex-col gap-6">
               <div className="flex items-center gap-3">
-                <span className="font-nav text-[12px] font-semibold tracking-[3px] text-tan uppercase">
-                  {t("spinningBadge")}
+                <span
+                  data-sanity={getSanityAttribute(docId, "phlebotomyPage", "spinningBadge")}
+                  className="font-nav text-[12px] font-semibold tracking-[3px] text-tan uppercase cursor-pointer hover:outline-dashed hover:outline-1 hover:outline-tan/60"
+                >
+                  {spinningBadge}
                 </span>
                 <span className="h-px w-16 bg-tan/40" />
               </div>
-              <h2 className="font-display text-[32px] font-bold leading-[38px] tracking-[-1px] text-cream uppercase lg:text-[42px] lg:leading-[48px]">
-                {t("spinningTitle")}{" "}
-                <span className="text-tan">{t("spinningTitleHighlight")}</span>
+              <h2
+                data-sanity={getSanityAttribute(docId, "phlebotomyPage", "spinningTitle")}
+                className="font-display text-[32px] font-bold leading-[38px] tracking-[-1px] text-cream uppercase lg:text-[42px] lg:leading-[48px] cursor-pointer hover:outline-dashed hover:outline-2 hover:outline-cream/60"
+              >
+                {spinningTitle}
               </h2>
-              <p className="text-[15px] leading-[25px] text-white/70">
-                {t("spinningP1")}
+              <p
+                data-sanity={getSanityAttribute(docId, "phlebotomyPage", "spinningP1")}
+                className="text-[15px] leading-[25px] text-white/70 cursor-pointer hover:outline-dashed hover:outline-1 hover:outline-white/60"
+              >
+                {spinningP1}
               </p>
-              <p className="text-[15px] leading-[25px] text-white/70">
-                {t("spinningP2")}
+              <p
+                data-sanity={getSanityAttribute(docId, "phlebotomyPage", "spinningP2")}
+                className="text-[15px] leading-[25px] text-white/70 cursor-pointer hover:outline-dashed hover:outline-1 hover:outline-white/60"
+              >
+                {spinningP2}
               </p>
               <a
                 href="https://www.webmd.com/a-to-z-guides/what-is-phlebotomy"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-2 inline-flex h-14 w-fit items-center gap-3 rounded-[10px] bg-tan px-7 font-nav text-[14px] font-semibold tracking-[0.5px] text-forest uppercase transition-opacity hover:opacity-90"
+                data-sanity={getSanityAttribute(docId, "phlebotomyPage", "spinningCta")}
+                className="mt-2 inline-flex h-14 w-fit items-center gap-3 rounded-[10px] bg-tan px-7 font-nav text-[14px] font-semibold tracking-[0.5px] text-forest uppercase transition-opacity hover:opacity-90 cursor-pointer"
               >
-                {t("spinningCta")}
+                {spinningCta}
                 <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth={2.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12h15m0 0-6-6m6 6-6 6" />
                 </svg>
@@ -523,9 +602,13 @@ export default async function PhlebotomyPage({
 
             <div className="relative mx-auto w-full max-w-[440px]">
               <div className="pointer-events-none absolute -right-8 -top-8 h-full w-full rounded-full border border-tan/30" />
-              <div className="relative w-full overflow-hidden rounded-[24px] shadow-xl" style={{ aspectRatio: "4/5" }}>
+              <div
+                data-sanity={getSanityAttribute(docId, "phlebotomyPage", "centrifugeImage")}
+                className="relative w-full overflow-hidden rounded-[24px] shadow-xl cursor-pointer hover:outline-dashed hover:outline-2 hover:outline-tan/60"
+                style={{ aspectRatio: "4/5" }}
+              >
                 <Image
-                  src="/images/treatments/phlebotomy/centrifuge-machine.jpg"
+                  src={centrifugeImageSrc}
                   alt="Blood sample being placed in the centrifuge at YourHealthFirst Clinic"
                   fill
                   className="object-cover"
@@ -601,13 +684,13 @@ export default async function PhlebotomyPage({
               {t("faqsSubtitle")}
             </p>
             <div className="mt-10">
-              <TreatmentFaqAccordion items={treatment.faqs} />
+              <TreatmentFaqAccordion items={pageFaqs} docId={docId} />
             </div>
           </div>
         </section>
       )}
 
-      <Footer />
+      <Footer sanitySettings={sanitySettings} />
     </div>
   );
 }

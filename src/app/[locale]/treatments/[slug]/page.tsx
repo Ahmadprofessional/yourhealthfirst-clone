@@ -9,6 +9,10 @@ import TreatmentFaqAccordion from "@/components/TreatmentFaqAccordion";
 import { treatmentDetails } from "@/data/treatments";
 import { getLocalizedTreatment } from "@/data/localizedTreatments";
 import { getTranslations } from "next-intl/server";
+import { sanityFetch } from "@/sanity/lib/fetch";
+import { TREATMENT_BY_SLUG_QUERY, SITE_SETTINGS_QUERY } from "@/sanity/lib/queries";
+import { getSanityAttribute } from "@/sanity/lib/dataAttribute";
+import { urlFor } from "@/sanity/lib/image";
 
 interface Props {
   params: Promise<{ locale: string; slug: string }>;
@@ -326,13 +330,42 @@ export default async function TreatmentPage({ params }: Props) {
   const treatment = getLocalizedTreatment(slug, locale) ?? treatmentDetails.find((t) => t.slug === slug);
   if (!treatment) notFound();
 
+  const [sanityTreatment, sanitySettings] = await Promise.all([
+    sanityFetch<any>({
+      query: TREATMENT_BY_SLUG_QUERY,
+      params: { slug },
+      tags: ["treatment", `treatment-${slug}`],
+    }),
+    sanityFetch<any>({
+      query: SITE_SETTINGS_QUERY,
+      tags: ["siteSettings"],
+    }),
+  ]);
+
+  const docId = sanityTreatment?._id || `treatment-${slug}`;
   const t = await getTranslations({ locale, namespace: "TreatmentDetail" });
   const tServices = await getTranslations({ locale, namespace: "ServiceList" });
   const tHeader = await getTranslations({ locale, namespace: "Header" });
 
-  const pageTitle = treatment.title;
-  const pageIntro = treatment.intro;
-  const pageTagline = treatment.tagline;
+  const pageTitle = sanityTreatment?.title || treatment.title;
+  const pageIntro = sanityTreatment?.intro || treatment.intro;
+  const pageTagline = sanityTreatment?.tagline !== undefined ? sanityTreatment.tagline : treatment.tagline;
+  const pagePriceFrom = sanityTreatment?.priceFrom || treatment.priceFrom;
+  const pageHeroImage = sanityTreatment?.heroImage?.asset
+    ? urlFor(sanityTreatment.heroImage).width(800).quality(90).url()
+    : null;
+  const pageBenefits = (sanityTreatment?.benefits && sanityTreatment.benefits.length > 0)
+    ? sanityTreatment.benefits
+    : treatment.benefits;
+  const pageSuitableFor = (sanityTreatment?.suitableFor && sanityTreatment.suitableFor.length > 0)
+    ? sanityTreatment.suitableFor
+    : treatment.suitableFor;
+  const pageBodyParagraphs: string[] = (sanityTreatment?.bodyParagraphs && sanityTreatment.bodyParagraphs.length > 0)
+    ? sanityTreatment.bodyParagraphs
+    : treatment.body;
+  const pageFaqs = (sanityTreatment?.faqs && sanityTreatment.faqs.length > 0)
+    ? sanityTreatment.faqs
+    : treatment.faqs;
 
   const categoryMap: Record<string, Record<string, string>> = {
     'Face & Anti-Aging': {
@@ -589,7 +622,7 @@ export default async function TreatmentPage({ params }: Props) {
 
   return (
     <div className="flex flex-col">
-      <Header />
+      <Header sanitySettings={sanitySettings} />
 
       {/* Page hero */}
       <section className="relative w-full bg-[linear-gradient(90deg,#7a6248_0%,#b49b7d_50%,#7a6248_100%)] pt-[111px]">
@@ -612,7 +645,10 @@ export default async function TreatmentPage({ params }: Props) {
                 {pageCategory}
               </p>
             </div>
-            <h1 className="font-display text-[38px] leading-[42px] font-bold tracking-[-1px] text-cream uppercase lg:text-[58px] lg:leading-[64px]">
+            <h1
+              className="font-display text-[38px] leading-[42px] font-bold tracking-[-1px] text-cream uppercase lg:text-[58px] lg:leading-[64px]"
+              data-sanity={getSanityAttribute(docId, "treatment", "title")}
+            >
               {pageTitle}
               {treatment.taglineInHeading && pageTagline ? (
                 treatment.taglineHeadingAccent && pageTagline.endsWith(treatment.taglineHeadingAccent) ? (
@@ -628,7 +664,10 @@ export default async function TreatmentPage({ params }: Props) {
               )}
             </h1>
             {pageTagline && !treatment.taglineInHeading && (
-              <p className="max-w-[560px] font-serif text-[20px] leading-[30px] text-white/70 italic">
+              <p
+                className="max-w-[560px] font-serif text-[20px] leading-[30px] text-white/70 italic"
+                data-sanity={getSanityAttribute(docId, "treatment", "tagline")}
+              >
                 {pageTagline}
               </p>
             )}
@@ -646,7 +685,10 @@ export default async function TreatmentPage({ params }: Props) {
             <div className="flex flex-col gap-8 lg:flex-1">
               {/* Intro */}
               {!treatment.introInBody && (
-                <p className="text-[18px] leading-[30px] tracking-[-0.3px] text-forest font-medium">
+                <p
+                  className="text-[18px] leading-[30px] tracking-[-0.3px] text-forest font-medium"
+                  data-sanity={getSanityAttribute(docId, "treatment", "intro")}
+                >
                   {pageIntro}
                 </p>
               )}
@@ -695,17 +737,19 @@ export default async function TreatmentPage({ params }: Props) {
               {!treatment.introRows && (treatment.bodyImages && treatment.bodyImages.length > 0 && treatment.bodyImagesLayout === "float" ? (
                 <div className="flow-root">
                   <div
-                    className={`relative mb-4 w-[220px] overflow-hidden rounded-[14px] border border-black/8 shadow-md sm:w-[var(--fw,340px)] ${
+                    data-sanity={getSanityAttribute(docId, "treatment", "heroImage")}
+                    className={`relative mb-4 w-[220px] overflow-hidden rounded-[14px] border border-black/8 shadow-md sm:w-[var(--fw,340px)] cursor-pointer hover:outline-dashed hover:outline-2 hover:outline-tan/60 ${
                       treatment.bodyImages[0].float === "left" ? "float-left mr-8" : "float-right ml-8"
                     }`}
                     style={{ aspectRatio: treatment.bodyImages[0].aspect ?? "883/1214", ...(treatment.bodyImages[0].width ? ({ "--fw": `${treatment.bodyImages[0].width}px` } as React.CSSProperties) : {}) }}
                   >
                     <Image
-                      src={treatment.bodyImages[0].src}
-                      alt={treatment.bodyImages[0].alt}
+                      src={pageHeroImage || treatment.bodyImages[0].src}
+                      alt={sanityTreatment?.heroImage?.alt || treatment.bodyImages[0].alt}
                       fill
                       className="object-cover"
-                      style={treatment.bodyImages[0].position ? { objectPosition: treatment.bodyImages[0].position } : undefined}
+                      style={treatment.bodyImages[0].position && !pageHeroImage ? { objectPosition: treatment.bodyImages[0].position } : undefined}
+                      unoptimized={Boolean(pageHeroImage)}
                     />
                   </div>
                   {treatment.introInBody && (
@@ -713,8 +757,12 @@ export default async function TreatmentPage({ params }: Props) {
                       {treatment.intro}
                     </p>
                   )}
-                  {treatment.body.map((para, j) => (
-                    <p key={j} className="mb-5 text-[16px] leading-[27px] tracking-[-0.2px] text-body-text">
+                  {pageBodyParagraphs.map((para, j) => (
+                    <p
+                      key={j}
+                      className="mb-5 text-[16px] leading-[27px] tracking-[-0.2px] text-body-text"
+                      data-sanity={getSanityAttribute(docId, "treatment", `bodyParagraphs[${j}]`)}
+                    >
                       {para}
                     </p>
                   ))}
@@ -869,14 +917,19 @@ export default async function TreatmentPage({ params }: Props) {
                     {(() => {
                       const floated = treatment.bodyImages!.find((im) => im.float === "left");
                       const floatAt = treatment.treatmentAreas ? Math.min(1, treatment.body.length - 1) : -1;
-                      return treatment.body.map((para, j) => (
+                      return pageBodyParagraphs.map((para, j) => (
                         <Fragment key={j}>
                           {floated && j === floatAt && (
                             <div className="relative float-left mb-4 mr-6 aspect-[4/5] w-[180px] overflow-hidden rounded-[14px] border border-black/8 shadow-md sm:w-[210px]">
                               <Image src={floated.src} alt={floated.alt} fill className="object-cover" style={floated.position ? { objectPosition: floated.position } : undefined} />
                             </div>
                           )}
-                          <p className="mb-5 text-[16px] leading-[27px] tracking-[-0.2px] text-body-text">{para}</p>
+                          <p
+                            className="mb-5 text-[16px] leading-[27px] tracking-[-0.2px] text-body-text"
+                            data-sanity={getSanityAttribute(docId, "treatment", `bodyParagraphs[${j}]`)}
+                          >
+                            {para}
+                          </p>
                         </Fragment>
                       ));
                     })()}
@@ -905,14 +958,18 @@ export default async function TreatmentPage({ params }: Props) {
                     )}
                   </div>
                   <div className="flex w-full flex-col gap-4 sm:w-[300px] sm:shrink-0">
-                    {treatment.bodyImages.filter((im) => im.float !== "left").map((img) => (
-                      <div
-                        key={img.src}
-                        className={`relative aspect-[4/3] w-full overflow-hidden rounded-[14px] border border-black/8 shadow-md sm:aspect-auto sm:h-auto sm:min-h-[324px] sm:flex-1 ${treatment.bodyImages!.length > 1 ? "sm:max-h-[440px]" : ""}`}
-                      >
-                        <Image src={img.src} alt={img.alt} fill className="object-cover" style={img.position ? { objectPosition: img.position } : undefined} />
-                      </div>
-                    ))}
+                    {treatment.bodyImages.filter((im) => im.float !== "left").map((img, idx) => {
+                      const srcToUse = (idx === 0 && pageHeroImage) ? pageHeroImage : img.src;
+                      return (
+                        <div
+                          key={img.src}
+                          data-sanity={idx === 0 ? getSanityAttribute(docId, "treatment", "heroImage") : undefined}
+                          className={`relative aspect-[4/3] w-full overflow-hidden rounded-[14px] border border-black/8 shadow-md sm:aspect-auto sm:h-auto sm:min-h-[324px] sm:flex-1 ${treatment.bodyImages!.length > 1 ? "sm:max-h-[440px]" : ""}`}
+                        >
+                          <Image src={srcToUse} alt={img.alt} fill className="object-cover" style={img.position && !pageHeroImage ? { objectPosition: img.position } : undefined} unoptimized={typeof srcToUse === "string" && srcToUse.startsWith("http")} />
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
         {!treatment.treatmentAreas && treatment.benefitsInline && treatment.bodyImages!.some((im) => im.float === "left") && (
@@ -1052,7 +1109,8 @@ export default async function TreatmentPage({ params }: Props) {
                   )}
                   {treatment.introImage && (
                     <div
-                      className={`relative float-right ml-6 mb-4 overflow-hidden rounded-[12px] border border-black/8 ${
+                      data-sanity={getSanityAttribute(docId, "treatment", "heroImage")}
+                      className={`relative float-right ml-6 mb-4 overflow-hidden rounded-[12px] border border-black/8 cursor-pointer hover:outline-dashed hover:outline-2 hover:outline-tan/60 ${
                         treatment.introImageSize
                           ? "h-[var(--mh)] w-[160px] sm:h-[var(--ih)] sm:w-[var(--iw)]"
                           : "h-[260px] w-[190px] bg-cream sm:h-[300px] sm:w-[220px]"
@@ -1068,10 +1126,11 @@ export default async function TreatmentPage({ params }: Props) {
                       }
                     >
                       <Image
-                        src={treatment.introImage.src}
-                        alt={treatment.introImage.alt}
+                        src={pageHeroImage || treatment.introImage.src}
+                        alt={sanityTreatment?.heroImage?.alt || treatment.introImage.alt}
                         fill
                         className={treatment.introImageSize ? "object-cover" : "object-contain p-4"}
+                        unoptimized={Boolean(pageHeroImage)}
                       />
                     </div>
                   )}
@@ -1081,8 +1140,12 @@ export default async function TreatmentPage({ params }: Props) {
                         {treatment.intro}
                       </p>
                     )}
-                    {treatment.body.map((para, i) => (
-                      <p key={i} className="text-[16px] leading-[27px] tracking-[-0.2px] text-body-text">
+                    {pageBodyParagraphs.map((para, i) => (
+                      <p
+                        key={i}
+                        className="text-[16px] leading-[27px] tracking-[-0.2px] text-body-text"
+                        data-sanity={getSanityAttribute(docId, "treatment", `bodyParagraphs[${i}]`)}
+                      >
                         {para}
                       </p>
                     ))}
@@ -1092,8 +1155,12 @@ export default async function TreatmentPage({ params }: Props) {
 
               {treatment.introRows && treatment.introRows.length > 0 && treatment.introRowsShowLegacyBody && (
                 <div className="flex flex-col gap-5">
-                  {treatment.body.map((para, i) => (
-                    <p key={i} className="text-[16px] leading-[27px] tracking-[-0.2px] text-body-text">
+                  {pageBodyParagraphs.map((para, i) => (
+                    <p
+                      key={i}
+                      className="text-[16px] leading-[27px] tracking-[-0.2px] text-body-text"
+                      data-sanity={getSanityAttribute(docId, "treatment", `bodyParagraphs[${i}]`)}
+                    >
                       {para}
                     </p>
                   ))}
@@ -1309,11 +1376,14 @@ export default async function TreatmentPage({ params }: Props) {
                     <p className="text-[12px] tracking-[1.5px] text-body-text/60 uppercase">{t("results")}</p>
                     <p className="mt-1 text-[15px] leading-[22px] text-forest">{treatment.results}</p>
                   </div>
-                  {treatment.priceFrom && (
+                  {pagePriceFrom && (
                     <div className="border-b border-black/10 pb-4">
                       <p className="text-[12px] tracking-[1.5px] text-body-text/60 uppercase">{t("startingFrom")}</p>
-                      <p className="mt-1 font-subheading text-[18px] font-semibold text-tan">
-                        {treatment.priceFrom}
+                      <p
+                        className="mt-1 font-subheading text-[18px] font-semibold text-tan"
+                        data-sanity={getSanityAttribute(docId, "treatment", "priceFrom")}
+                      >
+                        {pagePriceFrom}
                       </p>
                     </div>
                   )}
@@ -1540,7 +1610,7 @@ export default async function TreatmentPage({ params }: Props) {
       {treatment.processDiagramsBeforeBenefits && processDiagramsSection}
 
       {/* Key benefits banner — mid-page gold box */}
-      {treatment.benefits.length > 0 && !treatment.benefitsInline && (
+      {pageBenefits.length > 0 && !treatment.benefitsInline && (
         <section className="w-full px-5">
           <div className="mx-auto max-w-[1400px] pb-[70px] lg:pb-[90px]">
             <div className="relative overflow-hidden rounded-[20px] bg-[linear-gradient(135deg,#b8925a_0%,#d1ae83_50%,#b8925a_100%)] p-8 shadow-lg lg:p-12">
@@ -1551,9 +1621,16 @@ export default async function TreatmentPage({ params }: Props) {
                   {t("keyBenefits")}
                 </h2>
               </div>
-              <ul className="relative mt-8 grid grid-cols-1 gap-x-10 gap-y-4 md:grid-cols-2">
-                {treatment.benefits.map((benefit) => (
-                  <li key={benefit} className="flex items-start gap-3">
+              <ul
+                className="relative mt-8 grid grid-cols-1 gap-x-10 gap-y-4 md:grid-cols-2"
+                data-sanity={getSanityAttribute(docId, "treatment", "benefits")}
+              >
+                {pageBenefits.map((benefit: string, bIdx: number) => (
+                  <li
+                    key={benefit}
+                    className="flex items-start gap-3"
+                    data-sanity={getSanityAttribute(docId, "treatment", `benefits[${bIdx}]`)}
+                  >
                     <span className="mt-[9px] h-[7px] w-[7px] shrink-0 rounded-full bg-forest" />
                     <span className="text-[15px] font-medium leading-[24px] text-forest">{benefit}</span>
                   </li>
@@ -2440,7 +2517,7 @@ export default async function TreatmentPage({ params }: Props) {
               Everything you need to know about {treatment.title.toLowerCase()} at YourHealthFirst Clinic.
             </p>
             <div className="mt-10">
-              <TreatmentFaqAccordion items={treatment.faqs} />
+              <TreatmentFaqAccordion items={pageFaqs} docId={docId} />
             </div>
           </div>
         </section>
@@ -2501,7 +2578,7 @@ export default async function TreatmentPage({ params }: Props) {
       )}
 
       {/* Real patient gallery */}
-      {treatment.gallery && (
+      {(treatment.gallery || (sanityTreatment?.galleryImages && sanityTreatment.galleryImages.length > 0)) && (
         <section className="w-full px-5">
           <div className="mx-auto max-w-[1400px] py-[80px] lg:py-[100px]">
             <h2 className="text-center font-subheading text-[26px] font-medium leading-[32px] tracking-[-1px] text-forest uppercase lg:text-[32px] lg:leading-[38px]">
@@ -2511,7 +2588,24 @@ export default async function TreatmentPage({ params }: Props) {
               Real before &amp; after results from patients treated at YourHealthFirst Clinic.
             </p>
             {(() => {
-              const shown = Math.min(3, treatment.gallery.count);
+              const sanityGalleryImages = sanityTreatment?.galleryImages && sanityTreatment.galleryImages.length > 0
+                ? sanityTreatment.galleryImages.map((img: any, i: number) => ({
+                    src: urlFor(img).url(),
+                    alt: img.alt || `${pageTitle} before & after — result ${i + 1}`,
+                  }))
+                : null;
+
+              const displayImages = sanityGalleryImages || (treatment.gallery ? Array.from({ length: Math.min(3, treatment.gallery.count) }, (_, i) => {
+                const g = treatment.gallery!;
+                return {
+                  src: `${g.folder}/${g.prefix}-${i + 1}.${g.ext}`,
+                  alt: `${treatment.title} before & after — result ${i + 1}`,
+                };
+              }) : []);
+
+              if (displayImages.length === 0) return null;
+
+              const shown = Math.min(3, displayImages.length);
               const gridClass =
                 shown === 1
                   ? "grid-cols-1 max-w-[560px]"
@@ -2519,31 +2613,31 @@ export default async function TreatmentPage({ params }: Props) {
                     ? "grid-cols-1 sm:grid-cols-2"
                     : "grid-cols-1 sm:grid-cols-3";
               return (
-                <div className={`mx-auto mt-10 grid gap-5 ${gridClass}`}>
-                  {Array.from({ length: shown }, (_, i) => {
-                    const g = treatment.gallery!;
-                    const src = `${g.folder}/${g.prefix}-${i + 1}.${g.ext}`;
-                    return (
+                <div
+                  className={`mx-auto mt-10 grid gap-5 ${gridClass}`}
+                  data-sanity={getSanityAttribute(docId, "treatment", "galleryImages")}
+                >
+                  {displayImages.slice(0, 3).map((item: any, i: number) => (
+                    <div
+                      key={item.src}
+                      className="group relative overflow-hidden rounded-[12px] shadow-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg"
+                    >
                       <div
-                        key={src}
-                        className="group relative overflow-hidden rounded-[12px] shadow-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg"
+                        className={`relative w-full ${treatment.gallery?.aspect ? "" : "aspect-square"}`}
+                        style={treatment.gallery?.aspect ? { aspectRatio: treatment.gallery.aspect } : undefined}
                       >
-                        <div
-                          className={`relative w-full ${treatment.gallery!.aspect ? "" : "aspect-square"}`}
-                          style={treatment.gallery!.aspect ? { aspectRatio: treatment.gallery!.aspect } : undefined}
-                        >
-                          <Image
-                            src={src}
-                            alt={`${treatment.title} before & after — result ${i + 1}`}
-                            fill
-                            sizes={shown === 2 ? "(min-width: 640px) 50vw, 100vw" : "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"}
-                            className={treatment.gallery!.aspect ? "object-contain" : "object-cover object-top"}
-                            loading="eager"
-                          />
-                        </div>
+                        <Image
+                          src={item.src}
+                          alt={item.alt}
+                          fill
+                          sizes={shown === 2 ? "(min-width: 640px) 50vw, 100vw" : "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"}
+                          className={treatment.gallery?.aspect ? "object-contain" : "object-cover object-top"}
+                          loading="eager"
+                          unoptimized={typeof item.src === "string" && item.src.startsWith("http")}
+                        />
                       </div>
-                    );
-                  })}
+                    </div>
+                  ))}
                 </div>
               );
             })()}
@@ -2629,7 +2723,7 @@ export default async function TreatmentPage({ params }: Props) {
         </section>
       )}
 
-      <Footer />
+      <Footer sanitySettings={sanitySettings} />
     </div>
   );
 }

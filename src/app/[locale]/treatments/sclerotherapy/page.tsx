@@ -7,6 +7,10 @@ import TreatmentFaqAccordion from "@/components/TreatmentFaqAccordion";
 import { treatmentDetails } from "@/data/treatments";
 import { getLocalizedTreatment } from "@/data/localizedTreatments";
 import { getTranslations } from "next-intl/server";
+import { sanityFetch } from "@/sanity/lib/fetch";
+import { SCLEROTHERAPY_PAGE_QUERY, SITE_SETTINGS_QUERY } from "@/sanity/lib/queries";
+import { getSanityAttribute } from "@/sanity/lib/dataAttribute";
+import { urlFor } from "@/sanity/lib/image";
 
 export async function generateMetadata({
   params,
@@ -185,6 +189,69 @@ export default async function SclerotherapyPage({
     getLocalizedTreatment("sclerotherapy", locale) ||
     treatmentDetails.find((item) => item.slug === "sclerotherapy")!;
 
+  const [sanitySclero, sanitySettings] = await Promise.all([
+    sanityFetch<any>({
+      query: SCLEROTHERAPY_PAGE_QUERY,
+      tags: ["sclerotherapyPage"],
+    }),
+    sanityFetch<any>({
+      query: SITE_SETTINGS_QUERY,
+      tags: ["siteSettings"],
+    }),
+  ]);
+  const docId = "sclerotherapyPage";
+
+  const heroTitle = sanitySclero?.heroTitle || treatment.title;
+  const heroTagline = sanitySclero?.heroSubtitle || treatment.tagline;
+
+  const introImageSrc = sanitySclero?.introImage ? urlFor(sanitySclero.introImage).url() : "/images/treatments/sclerotherapy/sclerotherapy-treatment-room-2.jpg";
+  const spiderVeinsImageSrc = sanitySclero?.spiderVeinsImage ? urlFor(sanitySclero.spiderVeinsImage).url() : "/images/treatments/sclerotherapy/spider-veins-on-legs.jpg";
+  const whatIsHeading = sanitySclero?.whatIsHeading || t("whatIsHeading");
+  const whatIsP1 = sanitySclero?.whatIsP1 || t("whatIsP1");
+  const whatIsP2 = sanitySclero?.whatIsP2 || t("whatIsP2");
+  const practitionerImageSrc = sanitySclero?.practitionerImage ? urlFor(sanitySclero.practitionerImage).url() : "/images/treatments/sclerotherapy/sclerotherapy-practitioner.jpg";
+  const whatToExpectHeading = sanitySclero?.whatToExpectHeading || t("whatToExpectHeading");
+  const whatToExpectP = sanitySclero?.whatToExpectP || t("whatToExpectP");
+  const techniquesHeading = sanitySclero?.techniquesHeading || t("techniquesHeading");
+  const techniquesP = sanitySclero?.techniquesP || t("techniquesP");
+  const techniqueLiquidTitle = sanitySclero?.techniqueLiquidTitle || t("techniqueLiquidTitle");
+  const techniqueLiquidDesc = sanitySclero?.techniqueLiquidDesc || t("techniqueLiquidDesc");
+  const techniqueFoamTitle = sanitySclero?.techniqueFoamTitle || t("techniqueFoamTitle");
+  const techniqueFoamDesc = sanitySclero?.techniqueFoamDesc || t("techniqueFoamDesc");
+
+  const benefitsBadge = sanitySclero?.benefitsBadge || t("benefitsBadge");
+  const benefitsHeading = sanitySclero?.benefitsHeading || `${t("whyChoosePrefix")} ${t("whyChooseHighlight")}`;
+  const benefitsSubtitle = sanitySclero?.benefitsSubtitle || t("benefitsSubtitle");
+
+  const howWorksHeading = sanitySclero?.howWorksHeading || t("howWorksHeading");
+  const howWorksP = sanitySclero?.howWorksP || t("howWorksP");
+  const howWorksImageBeforeSrc = sanitySclero?.howWorksImageBefore ? urlFor(sanitySclero.howWorksImageBefore).url() : "/images/treatments/sclerotherapy/before-after/pair3-before.jpg";
+  const howWorksImageAfterSrc = sanitySclero?.howWorksImageAfter ? urlFor(sanitySclero.howWorksImageAfter).url() : "/images/treatments/sclerotherapy/before-after/pair3-after.jpg";
+
+  const treatmentProcessImageSrc = sanitySclero?.treatmentProcessImage ? urlFor(sanitySclero.treatmentProcessImage).url() : "/images/treatments/sclerotherapy/treatment.jpg";
+  const processBadge = sanitySclero?.processBadge || t("processBadge");
+  const processHeading = sanitySclero?.processHeading || t("processHeading");
+  const processP1 = sanitySclero?.processP1 || t("processP1");
+  const processP2 = sanitySclero?.processP2 || t("processP2");
+
+  const afterTreatmentHeading = sanitySclero?.afterTreatmentHeading || t("afterTreatmentHeading");
+  const considerTreatmentImageSrc = sanitySclero?.considerTreatmentImage ? urlFor(sanitySclero.considerTreatmentImage).url() : "/images/treatments/sclerotherapy/intro.jpg";
+  const aftercareImageSrc = sanitySclero?.aftercareImage ? urlFor(sanitySclero.aftercareImage).url() : "/images/treatments/sclerotherapy/treatment.jpg";
+  const howSclerotherapyWorksInfographicSrc = sanitySclero?.howSclerotherapyWorksInfographic ? urlFor(sanitySclero.howSclerotherapyWorksInfographic).url() : "/images/treatments/sclerotherapy/how-sclerotherapy-works.jpg";
+
+  const tipsBadge = sanitySclero?.tipsBadge || t("tipsBadge");
+  const tipsHeading = sanitySclero?.tipsHeading || `${t("tipsHeadingPrefix")} ${t("tipsHeadingHighlight")}`;
+  const tipsSubtitle = sanitySclero?.tipsSubtitle || t("tipsSubtitle");
+
+  const pageFaqs = sanitySclero?.faqs?.length ? sanitySclero.faqs : treatment.faqs;
+
+  const displayedGalleryPairs = sanitySclero?.galleryPairs?.length > 0
+    ? sanitySclero.galleryPairs.map((p: any) => ({
+        before: p.before ? urlFor(p.before).url() : galleryPairs[0].before,
+        after: p.after ? urlFor(p.after).url() : galleryPairs[0].after,
+      }))
+    : galleryPairs;
+
   const benefitCards = [
     { icon: "target", title: t("benefit1Title"), description: t("benefit1Desc") },
     { icon: "clock", title: t("benefit2Title"), description: t("benefit2Desc") },
@@ -236,7 +303,7 @@ export default async function SclerotherapyPage({
 
   return (
     <div className="flex flex-col">
-      <Header />
+      <Header sanitySettings={sanitySettings} />
 
       {/* Standard treatment hero */}
       <section className="relative w-full bg-[linear-gradient(90deg,#7a6248_0%,#b49b7d_50%,#7a6248_100%)] pt-[111px]">
@@ -252,10 +319,18 @@ export default async function SclerotherapyPage({
             <div className="w-fit rounded-full border-[0.8px] border-white/20 px-3 py-2">
               <p className="text-[13px] font-semibold leading-[20.8px] tracking-[3px] text-tan uppercase">{treatment.category}</p>
             </div>
-            <h1 className="font-display text-[38px] leading-[42px] font-bold tracking-[-1px] text-cream uppercase lg:text-[58px] lg:leading-[64px]">
-              {treatment.title}
+            <h1
+              className="font-display text-[38px] leading-[42px] font-bold tracking-[-1px] text-cream uppercase lg:text-[58px] lg:leading-[64px]"
+              data-sanity={getSanityAttribute(docId, "sclerotherapyPage", "heroTitle")}
+            >
+              {heroTitle}
             </h1>
-            <p className="max-w-[560px] font-serif text-[20px] leading-[30px] text-white/70 italic">{treatment.tagline}</p>
+            <p
+              className="max-w-[560px] font-serif text-[20px] leading-[30px] text-white/70 italic"
+              data-sanity={getSanityAttribute(docId, "sclerotherapyPage", "heroSubtitle")}
+            >
+              {heroTagline}
+            </p>
           </div>
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-tan/40 to-transparent" />
@@ -267,11 +342,12 @@ export default async function SclerotherapyPage({
           {/* Row 1 — photo + intro */}
           <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-[minmax(0,430px)_1fr] lg:gap-12">
             <div
-              className="relative mx-auto w-full max-w-[430px] overflow-hidden rounded-[14px] border border-black/8 shadow-md"
+              data-sanity={getSanityAttribute(docId, "sclerotherapyPage", "introImage")}
+              className="relative mx-auto w-full max-w-[430px] overflow-hidden rounded-[14px] border border-black/8 shadow-md cursor-pointer hover:outline-dashed hover:outline-2 hover:outline-tan/60"
               style={{ aspectRatio: "1126/1397" }}
             >
               <Image
-                src="/images/treatments/sclerotherapy/sclerotherapy-treatment-room-2.jpg"
+                src={introImageSrc}
                 alt="Sclerotherapy injection being carried out on a leg with spider veins"
                 fill
                 sizes="(min-width: 1024px) 430px, 100vw"
@@ -281,15 +357,24 @@ export default async function SclerotherapyPage({
             <div className="flex flex-col justify-center gap-4">
               <div className="flex flex-col gap-2">
                 <span className="h-[3px] w-12 rounded-full bg-tan" />
-                <h2 className="font-display text-[26px] font-bold leading-[32px] tracking-[-0.5px] text-forest uppercase lg:text-[30px] lg:leading-[36px]">
-                  {t("whatIsHeading")}
+                <h2
+                  data-sanity={getSanityAttribute(docId, "sclerotherapyPage", "whatIsHeading")}
+                  className="font-display text-[26px] font-bold leading-[32px] tracking-[-0.5px] text-forest uppercase lg:text-[30px] lg:leading-[36px] cursor-pointer hover:outline-dashed hover:outline-2 hover:outline-forest/60"
+                >
+                  {whatIsHeading}
                 </h2>
               </div>
-              <p className="text-[16px] leading-[27px] tracking-[-0.2px] text-body-text">
-                {t("whatIsP1")}
+              <p
+                data-sanity={getSanityAttribute(docId, "sclerotherapyPage", "whatIsP1")}
+                className="text-[16px] leading-[27px] tracking-[-0.2px] text-body-text cursor-pointer hover:outline-dashed hover:outline-1 hover:outline-black/30"
+              >
+                {whatIsP1}
               </p>
-              <p className="text-[16px] leading-[27px] tracking-[-0.2px] text-body-text">
-                {t("whatIsP2")}
+              <p
+                data-sanity={getSanityAttribute(docId, "sclerotherapyPage", "whatIsP2")}
+                className="text-[16px] leading-[27px] tracking-[-0.2px] text-body-text cursor-pointer hover:outline-dashed hover:outline-1 hover:outline-black/30"
+              >
+                {whatIsP2}
               </p>
               <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                 {facts.map((fact) => (
@@ -309,45 +394,72 @@ export default async function SclerotherapyPage({
           <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-[1fr_minmax(0,350px)] lg:gap-12">
             <div className="flex flex-col gap-7">
               <div className="flex flex-col gap-4">
-                <h3 className="font-subheading text-[19px] font-semibold leading-[25px] tracking-[-0.6px] text-forest uppercase">
-                  {t("whatToExpectHeading")}
+                <h3
+                  data-sanity={getSanityAttribute(docId, "sclerotherapyPage", "whatToExpectHeading")}
+                  className="font-subheading text-[19px] font-semibold leading-[25px] tracking-[-0.6px] text-forest uppercase"
+                >
+                  {whatToExpectHeading}
                 </h3>
-                <p className="text-[16px] leading-[27px] tracking-[-0.2px] text-body-text">
-                  {t("whatToExpectP")}
+                <p
+                  data-sanity={getSanityAttribute(docId, "sclerotherapyPage", "whatToExpectP")}
+                  className="text-[16px] leading-[27px] tracking-[-0.2px] text-body-text"
+                >
+                  {whatToExpectP}
                 </p>
               </div>
 
               <div className="flex flex-col gap-4">
-                <h3 className="font-subheading text-[19px] font-semibold leading-[25px] tracking-[-0.6px] text-forest uppercase">
-                  {t("techniquesHeading")}
+                <h3
+                  data-sanity={getSanityAttribute(docId, "sclerotherapyPage", "techniquesHeading")}
+                  className="font-subheading text-[19px] font-semibold leading-[25px] tracking-[-0.6px] text-forest uppercase"
+                >
+                  {techniquesHeading}
                 </h3>
-                <p className="text-[16px] leading-[27px] tracking-[-0.2px] text-body-text">
-                  {t("techniquesP")}
+                <p
+                  data-sanity={getSanityAttribute(docId, "sclerotherapyPage", "techniquesP")}
+                  className="text-[16px] leading-[27px] tracking-[-0.2px] text-body-text"
+                >
+                  {techniquesP}
                 </p>
                 <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                   <div className="flex items-start gap-3 rounded-[10px] border border-tan/25 bg-cream px-4 py-3">
                     <span className="mt-[7px] h-[7px] w-[7px] shrink-0 rounded-full bg-tan" />
                     <span className="text-[14px] font-medium leading-[21px] text-forest">
-                      <strong className="font-semibold">{t("techniqueLiquidTitle")} </strong>
-                      {t("techniqueLiquidDesc")}
+                      <strong
+                        data-sanity={getSanityAttribute(docId, "sclerotherapyPage", "techniqueLiquidTitle")}
+                        className="font-semibold"
+                      >
+                        {techniqueLiquidTitle}{" "}
+                      </strong>
+                      <span data-sanity={getSanityAttribute(docId, "sclerotherapyPage", "techniqueLiquidDesc")}>
+                        {techniqueLiquidDesc}
+                      </span>
                     </span>
                   </div>
                   <div className="flex items-start gap-3 rounded-[10px] border border-tan/25 bg-cream px-4 py-3">
                     <span className="mt-[7px] h-[7px] w-[7px] shrink-0 rounded-full bg-tan" />
                     <span className="text-[14px] font-medium leading-[21px] text-forest">
-                      <strong className="font-semibold">{t("techniqueFoamTitle")} </strong>
-                      {t("techniqueFoamDesc")}
+                      <strong
+                        data-sanity={getSanityAttribute(docId, "sclerotherapyPage", "techniqueFoamTitle")}
+                        className="font-semibold"
+                      >
+                        {techniqueFoamTitle}{" "}
+                      </strong>
+                      <span data-sanity={getSanityAttribute(docId, "sclerotherapyPage", "techniqueFoamDesc")}>
+                        {techniqueFoamDesc}
+                      </span>
                     </span>
                   </div>
                 </div>
               </div>
             </div>
             <div
+              data-sanity={getSanityAttribute(docId, "sclerotherapyPage", "practitionerImage")}
               className="relative mx-auto w-full max-w-[350px] overflow-hidden rounded-[14px] border border-black/8 shadow-md"
               style={{ aspectRatio: "906/1259" }}
             >
               <Image
-                src="/images/treatments/sclerotherapy/sclerotherapy-practitioner.jpg"
+                src={practitionerImageSrc}
                 alt="Sclerotherapy consultation and injection in the clinic treatment room"
                 fill
                 sizes="(min-width: 1024px) 350px, 100vw"
@@ -371,14 +483,25 @@ export default async function SclerotherapyPage({
           <div className="mx-auto flex max-w-[640px] flex-col items-center gap-3 text-center">
             <div className="flex items-center gap-3">
               <span className="h-px w-10 bg-tan/50" />
-              <span className="font-nav text-[12px] font-semibold tracking-[3px] text-tan uppercase">{t("benefitsBadge")}</span>
+              <span
+                data-sanity={getSanityAttribute(docId, "sclerotherapyPage", "benefitsBadge")}
+                className="font-nav text-[12px] font-semibold tracking-[3px] text-tan uppercase"
+              >
+                {benefitsBadge}
+              </span>
               <span className="h-px w-10 bg-tan/50" />
             </div>
-            <h2 className="font-display text-[32px] font-bold leading-[38px] tracking-[-1px] text-forest lg:text-[40px] lg:leading-[46px]">
-              {t("whyChoosePrefix")} <span className="text-tan">{t("whyChooseHighlight")}</span>
+            <h2
+              data-sanity={getSanityAttribute(docId, "sclerotherapyPage", "benefitsHeading")}
+              className="font-display text-[32px] font-bold leading-[38px] tracking-[-1px] text-forest lg:text-[40px] lg:leading-[46px]"
+            >
+              {benefitsHeading}
             </h2>
-            <p className="text-[15px] leading-[24px] text-body-text">
-              {t("benefitsSubtitle")}
+            <p
+              data-sanity={getSanityAttribute(docId, "sclerotherapyPage", "benefitsSubtitle")}
+              className="text-[15px] leading-[24px] text-body-text"
+            >
+              {benefitsSubtitle}
             </p>
           </div>
 
@@ -409,18 +532,28 @@ export default async function SclerotherapyPage({
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16 lg:items-center">
             <div className="flex flex-col gap-5">
               <div className="flex flex-col gap-2">
-                <h2 className="font-display text-[28px] font-bold leading-[34px] tracking-[-1px] text-forest lg:text-[32px] lg:leading-[38px]">
-                  {t("howWorksHeading")}
+                <h2
+                  data-sanity={getSanityAttribute(docId, "sclerotherapyPage", "howWorksHeading")}
+                  className="font-display text-[28px] font-bold leading-[34px] tracking-[-1px] text-forest lg:text-[32px] lg:leading-[38px]"
+                >
+                  {howWorksHeading}
                 </h2>
                 <span className="h-[3px] w-14 rounded-full bg-tan" />
               </div>
-              <p className="text-[15px] leading-[25px] text-body-text">
-                {t("howWorksP")}
+              <p
+                data-sanity={getSanityAttribute(docId, "sclerotherapyPage", "howWorksP")}
+                className="text-[15px] leading-[25px] text-body-text"
+              >
+                {howWorksP}
               </p>
             </div>
             <div className="flex items-center gap-3">
-              <div className="relative w-full overflow-hidden rounded-[14px] shadow-sm" style={{ aspectRatio: "1/1" }}>
-                <Image src="/images/treatments/sclerotherapy/before-after/pair3-before.jpg" alt="Leg with visible spider veins before sclerotherapy treatment" fill className="object-cover" />
+              <div
+                data-sanity={getSanityAttribute(docId, "sclerotherapyPage", "howWorksImageBefore")}
+                className="relative w-full overflow-hidden rounded-[14px] shadow-sm"
+                style={{ aspectRatio: "1/1" }}
+              >
+                <Image src={howWorksImageBeforeSrc} alt="Leg with visible spider veins before sclerotherapy treatment" fill className="object-cover" />
                 <span className="absolute bottom-3 left-1/2 -translate-x-1/2 rounded-[6px] bg-forest/80 px-3 py-1 text-[11px] font-semibold tracking-[1px] text-cream uppercase">
                   {t("beforeBadge")}
                 </span>
@@ -428,8 +561,12 @@ export default async function SclerotherapyPage({
               <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-tan/20 text-tan">
                 <Icon name="arrow" className="h-5 w-5" />
               </span>
-              <div className="relative w-full overflow-hidden rounded-[14px] shadow-sm" style={{ aspectRatio: "1/1" }}>
-                <Image src="/images/treatments/sclerotherapy/before-after/pair3-after.jpg" alt="Leg with faded spider veins after sclerotherapy treatment" fill className="object-cover" />
+              <div
+                data-sanity={getSanityAttribute(docId, "sclerotherapyPage", "howWorksImageAfter")}
+                className="relative w-full overflow-hidden rounded-[14px] shadow-sm"
+                style={{ aspectRatio: "1/1" }}
+              >
+                <Image src={howWorksImageAfterSrc} alt="Leg with faded spider veins after sclerotherapy treatment" fill className="object-cover" />
                 <span className="absolute bottom-3 left-1/2 -translate-x-1/2 rounded-[6px] bg-tan px-3 py-1 text-[11px] font-semibold tracking-[1px] text-forest uppercase">
                   {t("afterBadge")}
                 </span>
@@ -444,22 +581,40 @@ export default async function SclerotherapyPage({
         <div className="pointer-events-none absolute left-1/2 top-0 h-[400px] w-[400px] -translate-x-1/2 rounded-full bg-tan/8 blur-[100px]" />
         <div className="relative mx-auto max-w-[1400px] py-[70px] lg:py-[90px]">
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
-            <div className="relative w-full overflow-hidden rounded-[16px] shadow-lg" style={{ aspectRatio: "4/3" }}>
-              <Image src="/images/treatments/sclerotherapy/treatment.jpg" alt="Sclerotherapy injection being administered to the leg" fill className="object-cover" />
+            <div
+              data-sanity={getSanityAttribute(docId, "sclerotherapyPage", "treatmentProcessImage")}
+              className="relative w-full overflow-hidden rounded-[16px] shadow-lg"
+              style={{ aspectRatio: "4/3" }}
+            >
+              <Image src={treatmentProcessImageSrc} alt="Sclerotherapy injection being administered to the leg" fill className="object-cover" />
             </div>
             <div className="flex flex-col gap-5">
               <div className="flex items-center gap-3">
-                <span className="font-nav text-[12px] font-semibold tracking-[3px] text-tan uppercase">{t("processBadge")}</span>
+                <span
+                  data-sanity={getSanityAttribute(docId, "sclerotherapyPage", "processBadge")}
+                  className="font-nav text-[12px] font-semibold tracking-[3px] text-tan uppercase"
+                >
+                  {processBadge}
+                </span>
                 <span className="h-px w-16 bg-tan/40" />
               </div>
-              <h2 className="font-display text-[28px] font-bold leading-[34px] tracking-[-1px] text-cream lg:text-[32px] lg:leading-[38px]">
-                {t("processHeading")}
+              <h2
+                data-sanity={getSanityAttribute(docId, "sclerotherapyPage", "processHeading")}
+                className="font-display text-[28px] font-bold leading-[34px] tracking-[-1px] text-cream lg:text-[32px] lg:leading-[38px]"
+              >
+                {processHeading}
               </h2>
-              <p className="text-[15px] leading-[25px] text-white/70">
-                {t("processP1")}
+              <p
+                data-sanity={getSanityAttribute(docId, "sclerotherapyPage", "processP1")}
+                className="text-[15px] leading-[25px] text-white/70"
+              >
+                {processP1}
               </p>
-              <p className="text-[15px] leading-[25px] text-white/70">
-                {t("processP2")}
+              <p
+                data-sanity={getSanityAttribute(docId, "sclerotherapyPage", "processP2")}
+                className="text-[15px] leading-[25px] text-white/70"
+              >
+                {processP2}
               </p>
             </div>
           </div>
@@ -470,8 +625,11 @@ export default async function SclerotherapyPage({
       <section className="w-full px-5">
         <div className="mx-auto max-w-[1400px] py-[70px] lg:py-[90px]">
           <div className="flex flex-col gap-2">
-            <h2 className="font-display text-[26px] font-bold leading-[32px] tracking-[-1px] text-forest lg:text-[30px] lg:leading-[36px]">
-              {t("afterTreatmentHeading")}
+            <h2
+              data-sanity={getSanityAttribute(docId, "sclerotherapyPage", "afterTreatmentHeading")}
+              className="font-display text-[26px] font-bold leading-[32px] tracking-[-1px] text-forest lg:text-[30px] lg:leading-[36px]"
+            >
+              {afterTreatmentHeading}
             </h2>
             <span className="h-[3px] w-14 rounded-full bg-tan" />
           </div>
@@ -495,7 +653,13 @@ export default async function SclerotherapyPage({
             {/* When to consider treatment */}
             <div className="relative overflow-hidden rounded-[24px] border border-tan/25 bg-white/70 p-8 shadow-lg backdrop-blur-sm lg:p-10">
               <div className="pointer-events-none absolute inset-y-0 right-0 w-[38%]">
-                <Image src="/images/treatments/sclerotherapy/intro.jpg" alt="" fill className="object-cover opacity-90" />
+                <Image
+                  src={considerTreatmentImageSrc}
+                  alt=""
+                  fill
+                  className="object-cover opacity-90"
+                  data-sanity={getSanityAttribute(docId, "sclerotherapyPage", "considerTreatmentImage")}
+                />
                 <div className="absolute inset-0 bg-[linear-gradient(90deg,#faf4ea_0%,rgba(250,244,234,0.55)_55%,rgba(250,244,234,0)_100%)]" />
               </div>
               <div className="relative flex max-w-[68%] flex-col gap-5 lg:max-w-[62%]">
@@ -520,7 +684,13 @@ export default async function SclerotherapyPage({
             {/* Aftercare guidelines */}
             <div className="relative overflow-hidden rounded-[24px] border border-tan/25 bg-white/70 p-8 shadow-lg backdrop-blur-sm lg:p-10">
               <div className="pointer-events-none absolute inset-y-0 right-0 w-[34%]">
-                <Image src="/images/treatments/sclerotherapy/treatment.jpg" alt="" fill className="object-cover opacity-90" />
+                <Image
+                  src={aftercareImageSrc}
+                  alt=""
+                  fill
+                  className="object-cover opacity-90"
+                  data-sanity={getSanityAttribute(docId, "sclerotherapyPage", "aftercareImage")}
+                />
                 <div className="absolute inset-0 bg-[linear-gradient(90deg,#faf4ea_0%,rgba(250,244,234,0.5)_50%,rgba(250,244,234,0)_100%)]" />
               </div>
               <div className="relative flex max-w-[72%] flex-col gap-5 lg:max-w-[66%]">
@@ -554,11 +724,12 @@ export default async function SclerotherapyPage({
             <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[minmax(0,660px)_1fr] lg:gap-12">
               {/* Process infographic (heading, intro and the four steps are part of the graphic) */}
               <div
+                data-sanity={getSanityAttribute(docId, "sclerotherapyPage", "howSclerotherapyWorksInfographic")}
                 className="relative mx-auto w-full max-w-[660px] overflow-hidden rounded-[16px] border border-tan/25 bg-white shadow-md"
                 style={{ aspectRatio: "1254/1254" }}
               >
                 <Image
-                  src="/images/treatments/sclerotherapy/how-sclerotherapy-works.jpg"
+                  src={howSclerotherapyWorksInfographicSrc}
                   alt="How sclerotherapy works — assessment, injection, vein closure and gradual absorption"
                   fill
                   sizes="(min-width: 1024px) 660px, 100vw"
@@ -570,14 +741,25 @@ export default async function SclerotherapyPage({
               <div className="flex flex-col gap-6">
                 <div className="flex flex-col gap-2">
                   <div className="flex items-center gap-3">
-                    <span className="font-nav text-[11px] font-semibold tracking-[2px] text-tan uppercase">{t("tipsBadge")}</span>
+                    <span
+                      data-sanity={getSanityAttribute(docId, "sclerotherapyPage", "tipsBadge")}
+                      className="font-nav text-[11px] font-semibold tracking-[2px] text-tan uppercase"
+                    >
+                      {tipsBadge}
+                    </span>
                     <span className="h-px w-12 bg-tan/40" />
                   </div>
-                  <h2 className="font-display text-[26px] font-bold leading-[31px] tracking-[-0.5px] text-forest lg:text-[30px] lg:leading-[35px]">
-                    {t("tipsHeadingPrefix")} <span className="text-tan">{t("tipsHeadingHighlight")}</span>
+                  <h2
+                    data-sanity={getSanityAttribute(docId, "sclerotherapyPage", "tipsHeading")}
+                    className="font-display text-[26px] font-bold leading-[31px] tracking-[-0.5px] text-forest lg:text-[30px] lg:leading-[35px]"
+                  >
+                    {tipsHeading}
                   </h2>
-                  <p className="mt-1 text-[14px] leading-[22px] text-body-text">
-                    {t("tipsSubtitle")}
+                  <p
+                    data-sanity={getSanityAttribute(docId, "sclerotherapyPage", "tipsSubtitle")}
+                    className="mt-1 text-[14px] leading-[22px] text-body-text"
+                  >
+                    {tipsSubtitle}
                   </p>
                 </div>
                 <div className="grid grid-cols-1 gap-4">
@@ -600,7 +782,7 @@ export default async function SclerotherapyPage({
       </section>
 
       {/* FAQs */}
-      {treatment.faqs && treatment.faqs.length > 0 && (
+      {pageFaqs && pageFaqs.length > 0 && (
         <section className="w-full bg-cream px-5">
           <div className="mx-auto max-w-[900px] py-[80px] lg:py-[100px]">
             <div className="flex items-center gap-4">
@@ -610,7 +792,7 @@ export default async function SclerotherapyPage({
               <span className="h-px flex-1 bg-black/10" />
             </div>
             <div className="mt-8">
-              <TreatmentFaqAccordion items={treatment.faqs} />
+              <TreatmentFaqAccordion items={pageFaqs} docId={docId} />
             </div>
           </div>
         </section>
@@ -626,17 +808,25 @@ export default async function SclerotherapyPage({
             <span className="h-px flex-1 bg-black/10" />
           </div>
           <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {galleryPairs.map((pair, i) => (
+            {displayedGalleryPairs.map((pair: any, i: number) => (
               <div key={i} className="flex flex-col gap-2">
                 <div className="grid grid-cols-2 gap-1.5">
-                  <div className="relative overflow-hidden rounded-[10px]" style={{ aspectRatio: "1/1" }}>
-                    <Image src={pair.before} alt={`Sclerotherapy before — result ${i + 1}`} fill className="object-cover" />
+                  <div
+                    data-sanity={getSanityAttribute(docId, "sclerotherapyPage", `galleryPairs[${i}].before`)}
+                    className="relative overflow-hidden rounded-[10px]"
+                    style={{ aspectRatio: "1/1" }}
+                  >
+                    <Image src={pair.before} alt={`Sclerotherapy before — result ${i + 1}`} fill className="object-cover" unoptimized={typeof pair.before === "string" && pair.before.startsWith("http")} />
                     <span className="absolute left-1.5 top-1.5 rounded-[4px] bg-forest/80 px-1.5 py-0.5 text-[9px] font-semibold tracking-[0.5px] text-cream uppercase">
                       {t("beforeBadge")}
                     </span>
                   </div>
-                  <div className="relative overflow-hidden rounded-[10px]" style={{ aspectRatio: "1/1" }}>
-                    <Image src={pair.after} alt={`Sclerotherapy after — result ${i + 1}`} fill className="object-cover" />
+                  <div
+                    data-sanity={getSanityAttribute(docId, "sclerotherapyPage", `galleryPairs[${i}].after`)}
+                    className="relative overflow-hidden rounded-[10px]"
+                    style={{ aspectRatio: "1/1" }}
+                  >
+                    <Image src={pair.after} alt={`Sclerotherapy after — result ${i + 1}`} fill className="object-cover" unoptimized={typeof pair.after === "string" && pair.after.startsWith("http")} />
                     <span className="absolute left-1.5 top-1.5 rounded-[4px] bg-tan px-1.5 py-0.5 text-[9px] font-semibold tracking-[0.5px] text-forest uppercase">
                       {t("afterBadge")}
                     </span>
@@ -688,7 +878,7 @@ export default async function SclerotherapyPage({
         </div>
       </section>
 
-      <Footer />
+      <Footer sanitySettings={sanitySettings} />
     </div>
   );
 }

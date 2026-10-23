@@ -4,14 +4,26 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import { galleryGroups, gallerySections, type GalleryImage } from "@/data/gallery";
 import { useTranslations } from "next-intl";
+import { getSanityAttribute } from "@/sanity/lib/dataAttribute";
 
-function BeforeAfterGrid({ images, resultLabel }: { images: GalleryImage[]; resultLabel: string }) {
+function BeforeAfterGrid({
+  images,
+  resultLabel,
+}: {
+  images: Array<GalleryImage & { docId?: string; schemaType?: string; fieldPath?: string }>;
+  resultLabel: string;
+}) {
   return (
     <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
       {images.map((img, index) => (
         <div
           key={img.src}
-          className="group relative overflow-hidden rounded-[12px] shadow-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg"
+          data-sanity={
+            img.docId
+              ? getSanityAttribute(img.docId, img.schemaType || "galleryPage", img.fieldPath || "galleryItems")
+              : getSanityAttribute("galleryPage", "galleryPage", "galleryItems")
+          }
+          className="group relative overflow-hidden rounded-[12px] shadow-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg cursor-pointer"
         >
           <div className="relative aspect-square w-full">
             <Image
@@ -21,6 +33,7 @@ function BeforeAfterGrid({ images, resultLabel }: { images: GalleryImage[]; resu
               sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
               className="object-cover object-top"
               loading={index < 3 ? "eager" : "lazy"}
+              unoptimized={img.src.startsWith("http")}
             />
           </div>
           <div className="absolute inset-0 bg-gradient-to-t from-forest/60 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
@@ -49,10 +62,36 @@ function ComingSoonPlaceholder({ title, comingSoonLabel }: { title: string; comi
   );
 }
 
-const photoCount = (groupId: string) =>
-  gallerySections.filter((s) => s.group === groupId).reduce((sum, s) => sum + s.images.length, 0);
+export interface CustomGalleryCase {
+  _id: string;
+  title: string;
+  group: string;
+  treatmentCategory?: string;
+  description?: string;
+  beforeImageUrl?: string | null;
+  afterImageUrl?: string | null;
+  docId?: string;
+  schemaType?: string;
+  fieldPath?: string;
+}
 
-export default function GalleryExplorer({ initialGroup }: { initialGroup?: string }) {
+const photoCount = (groupId: string, customCases?: CustomGalleryCase[]) => {
+  const base = gallerySections.filter((s) => s.group === groupId).reduce((sum, s) => sum + s.images.length, 0);
+  const extra = (customCases || []).filter((c) => {
+    const groupKey = groupId.toLowerCase().replace(/[^a-z0-9]/g, "");
+    const cat = (c.treatmentCategory || c.group || "").toLowerCase().replace(/[^a-z0-9]/g, "");
+    return cat.includes(groupKey) || groupKey.includes(cat);
+  }).length;
+  return base + extra;
+};
+
+export default function GalleryExplorer({
+  initialGroup,
+  customCases,
+}: {
+  initialGroup?: string;
+  customCases?: CustomGalleryCase[];
+}) {
   const t = useTranslations("GalleryPage");
   const validInitial = galleryGroups.some((g) => g.id === initialGroup) ? (initialGroup as string) : null;
   const [selected, setSelected] = useState<string | null>(validInitial);
@@ -190,7 +229,7 @@ export default function GalleryExplorer({ initialGroup }: { initialGroup?: strin
                       }`}
                     >
                       {g.label}
-                      <span className="text-[12px] text-body-text/70">{photoCount(g.id)} {t("photos")}</span>
+                      <span className="text-[12px] text-body-text/70">{photoCount(g.id, customCases)} {t("photos")}</span>
                     </button>
                   </li>
                 ))}
@@ -231,7 +270,7 @@ export default function GalleryExplorer({ initialGroup }: { initialGroup?: strin
           <section className="w-full border-b border-black/8 bg-cream/60 px-5 py-5">
             <div className="mx-auto flex max-w-[1400px] flex-wrap items-center justify-between gap-3">
               <p className="text-[15px] text-body-text">
-                {t("showing")} <strong className="text-forest">{selectedGroup.label}</strong> — {photoCount(selectedGroup.id)} {t("photos")}
+                {t("showing")} <strong className="text-forest">{selectedGroup.label}</strong> — {photoCount(selectedGroup.id, customCases)} {t("photos")}
               </p>
               <button
                 type="button"
@@ -244,25 +283,40 @@ export default function GalleryExplorer({ initialGroup }: { initialGroup?: strin
           </section>
         )}
 
-        {visible.map((section, i) => (
-          <section
-            key={section.title}
-            className={`w-full px-5 ${i > 0 ? "border-t border-black/8" : ""} ${i % 2 === 1 ? "bg-cream/40" : ""}`}
-          >
-            <div className="mx-auto max-w-[1400px] py-[80px] lg:py-[100px]">
-              <div className="mb-10 flex flex-col gap-2">
-                <div className="flex items-center gap-4">
-                  <h2 className="font-subheading text-[24px] font-bold leading-[30px] tracking-[-1px] text-forest uppercase lg:text-[30px] lg:leading-[36px]">
-                    {section.fullTitle || `${section.title} — ${t("viewBeforeAfter")}`}
-                  </h2>
-                  <div className="flex-1 border-t border-black/8" />
+        {visible.map((section, i) => {
+          const matchedCases = (customCases || []).filter((c) => {
+            const groupKey = section.group.toLowerCase().replace(/[^a-z0-9]/g, "");
+            const cat = (c.treatmentCategory || c.group || "").toLowerCase().replace(/[^a-z0-9]/g, "");
+            return cat.includes(groupKey) || groupKey.includes(cat);
+          });
+          const customImages: Array<GalleryImage & { docId?: string; schemaType?: string; fieldPath?: string }> = matchedCases.flatMap((c) => {
+            const imgs: Array<GalleryImage & { docId?: string; schemaType?: string; fieldPath?: string }> = [];
+            if (c.afterImageUrl) imgs.push({ src: c.afterImageUrl, alt: `${c.title} (After)`, docId: c.docId, schemaType: c.schemaType, fieldPath: c.fieldPath });
+            if (c.beforeImageUrl) imgs.push({ src: c.beforeImageUrl, alt: `${c.title} (Before)`, docId: c.docId, schemaType: c.schemaType, fieldPath: c.fieldPath });
+            return imgs;
+          });
+          const combinedImages = [...customImages, ...section.images];
+
+          return (
+            <section
+              key={section.title}
+              className={`w-full px-5 ${i > 0 ? "border-t border-black/8" : ""} ${i % 2 === 1 ? "bg-cream/40" : ""}`}
+            >
+              <div className="mx-auto max-w-[1400px] py-[80px] lg:py-[100px]">
+                <div className="mb-10 flex flex-col gap-2">
+                  <div className="flex items-center gap-4">
+                    <h2 className="font-subheading text-[24px] font-bold leading-[30px] tracking-[-1px] text-forest uppercase lg:text-[30px] lg:leading-[36px]">
+                      {section.fullTitle || `${section.title} — ${t("viewBeforeAfter")}`}
+                    </h2>
+                    <div className="flex-1 border-t border-black/8" />
+                  </div>
+                  <p className="text-[15px] text-body-text">{section.description}</p>
                 </div>
-                <p className="text-[15px] text-body-text">{section.description}</p>
+                <BeforeAfterGrid images={combinedImages} resultLabel={t("resultIndex")} />
               </div>
-              <BeforeAfterGrid images={section.images} resultLabel={t("resultIndex")} />
-            </div>
-          </section>
-        ))}
+            </section>
+          );
+        })}
 
         {!selected && (
           <section className="w-full border-t border-black/8 bg-cream/40 px-5">

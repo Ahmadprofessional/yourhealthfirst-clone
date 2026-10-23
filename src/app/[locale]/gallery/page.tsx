@@ -4,6 +4,10 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import GalleryExplorer from "@/components/GalleryExplorer";
 import { getTranslations } from "next-intl/server";
+import { sanityFetch } from "@/sanity/lib/fetch";
+import { GALLERY_PAGE_QUERY, SITE_SETTINGS_QUERY, ALL_GALLERY_CASES_QUERY } from "@/sanity/lib/queries";
+import { getSanityAttribute } from "@/sanity/lib/dataAttribute";
+import { urlFor } from "@/sanity/lib/image";
 
 export async function generateMetadata({
   params,
@@ -61,23 +65,84 @@ export default async function GalleryPage({
   const initialGroup = Array.isArray(treatment) ? treatment[0] : treatment;
   const t = await getTranslations({ locale, namespace: "GalleryPage" });
 
+  const [sanityGallery, sanitySettings, sanityCases] = await Promise.all([
+    sanityFetch<any>({
+      query: GALLERY_PAGE_QUERY,
+      tags: ["galleryPage"],
+    }),
+    sanityFetch<any>({
+      query: SITE_SETTINGS_QUERY,
+      tags: ["siteSettings"],
+    }),
+    sanityFetch<any[]>({
+      query: ALL_GALLERY_CASES_QUERY,
+      tags: ["galleryCase"],
+    }),
+  ]);
+  const docId = "galleryPage";
+
+  const pageGalleryItems = (sanityGallery?.galleryItems || []).map((item: any, i: number) => ({
+    _id: `galleryPage-item-${i}`,
+    title: item.title || "Before & After Result",
+    group: item.category || "anti-wrinkles",
+    treatmentCategory: item.category || "anti-wrinkles",
+    afterImageUrl: item.image ? urlFor(item.image)?.url() : null,
+    beforeImageUrl: null,
+    docId: "galleryPage",
+    schemaType: "galleryPage",
+    fieldPath: `galleryItems[${i}].image`,
+  }));
+
+  const caseStudies = (sanityCases || []).map((c: any) => ({
+    _id: c._id,
+    title: c.title,
+    group: c.treatmentCategory?.toLowerCase().replace(/\s+/g, "-") || "all",
+    treatmentCategory: c.treatmentCategory || "",
+    description: c.description || "",
+    beforeImageUrl: c.beforeImage ? urlFor(c.beforeImage)?.url() : null,
+    afterImageUrl: c.afterImage ? urlFor(c.afterImage)?.url() : null,
+    docId: c._id,
+    schemaType: "galleryCase",
+    fieldPath: "afterImage",
+  }));
+
+  const allCustomCases = [...pageGalleryItems, ...caseStudies];
+
+  const heroTitle = sanityGallery?.heroTitle || t("heading");
+  const heroSubtitle = sanityGallery?.heroSubtitle || t("subtitle");
+  const badgeText = sanityGallery?.badgeText || t("badge");
+  const notice = sanityGallery?.disclaimer || t("notice");
+  const fullGalleryTitle = sanityGallery?.fullGalleryTitle || t("fullGalleryTitle");
+  const fullGalleryDesc = sanityGallery?.fullGalleryDesc || t("fullGalleryDesc");
+  const callButtonText = sanityGallery?.callButtonText || t("callButton");
+  const bookButtonText = sanityGallery?.bookButtonText || t("bookButton");
+
   return (
     <div className="flex flex-col">
-      <Header />
+      <Header sanitySettings={sanitySettings} />
 
       {/* Page hero */}
       <section className="relative w-full bg-[linear-gradient(90deg,#7a6248_0%,#b49b7d_50%,#7a6248_100%)] pt-[111px]">
         <div className="mx-auto max-w-[1400px] px-5 py-[80px] lg:py-[100px]">
           <div className="w-fit rounded-full border-[0.8px] border-white/20 px-3 py-2">
-            <p className="text-[13px] font-semibold leading-[20.8px] tracking-[3px] text-tan uppercase">
-              {t("badge")}
+            <p
+              data-sanity={getSanityAttribute(docId, "galleryPage", "badgeText")}
+              className="text-[13px] font-semibold leading-[20.8px] tracking-[3px] text-tan uppercase"
+            >
+              {badgeText}
             </p>
           </div>
-          <h1 className="mt-4 font-display text-[42px] leading-[46px] font-bold tracking-[-1px] text-cream uppercase lg:text-[64px] lg:leading-[70px]">
-            {t("heading")}
+          <h1
+            className="mt-4 font-display text-[42px] leading-[46px] font-bold tracking-[-1px] text-cream uppercase lg:text-[64px] lg:leading-[70px]"
+            data-sanity={getSanityAttribute(docId, "galleryPage", "heroTitle")}
+          >
+            {heroTitle}
           </h1>
-          <p className="mt-3 max-w-[540px] font-nav text-[16px] leading-[26px] text-white/60">
-            {t("subtitle")}
+          <p
+            className="mt-3 max-w-[540px] font-nav text-[16px] leading-[26px] text-white/60"
+            data-sanity={getSanityAttribute(docId, "galleryPage", "heroSubtitle")}
+          >
+            {heroSubtitle}
           </p>
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-tan/40 to-transparent" />
@@ -86,43 +151,54 @@ export default async function GalleryPage({
       {/* Gallery notice */}
       <section className="w-full border-b border-black/8 bg-cream px-5 py-6">
         <div className="mx-auto max-w-[1400px]">
-          <p className="text-[15px] leading-[24px] text-body-text">
-            {t("notice")}
+          <p
+            className="text-[15px] leading-[24px] text-body-text"
+            data-sanity={getSanityAttribute(docId, "galleryPage", "disclaimer")}
+          >
+            {notice}
           </p>
         </div>
       </section>
 
-      <GalleryExplorer initialGroup={initialGroup} />
+      <GalleryExplorer initialGroup={initialGroup} customCases={allCustomCases} />
 
       {/* CTA */}
       <section className="w-full border-t border-black/8 px-5 py-[60px]">
         <div className="mx-auto max-w-[1400px]">
           <div className="rounded-[12px] border border-tan/30 bg-cream p-8 text-center">
-            <h3 className="font-subheading text-[20px] font-semibold leading-[26px] tracking-[-0.8px] text-forest uppercase">
-              {t("fullGalleryTitle")}
+            <h3
+              data-sanity={getSanityAttribute(docId, "galleryPage", "fullGalleryTitle")}
+              className="font-subheading text-[20px] font-semibold leading-[26px] tracking-[-0.8px] text-forest uppercase"
+            >
+              {fullGalleryTitle}
             </h3>
-            <p className="mx-auto mt-3 max-w-[480px] text-[15px] leading-[24px] text-body-text">
-              {t("fullGalleryDesc")}
+            <p
+              data-sanity={getSanityAttribute(docId, "galleryPage", "fullGalleryDesc")}
+              className="mx-auto mt-3 max-w-[480px] text-[15px] leading-[24px] text-body-text"
+            >
+              {fullGalleryDesc}
             </p>
             <div className="mt-6 flex flex-wrap justify-center gap-4">
               <a
                 href="tel:02072253582"
+                data-sanity={getSanityAttribute(docId, "galleryPage", "callButtonText")}
                 className="inline-flex h-12 items-center justify-center rounded-[8px] bg-[#a8896a] px-7 font-nav text-[14px] font-semibold tracking-[-0.3px] text-cream transition-opacity hover:opacity-90"
               >
-                {t("callButton")}
+                {callButtonText}
               </a>
               <Link
                 href="/contact-us"
+                data-sanity={getSanityAttribute(docId, "galleryPage", "bookButtonText")}
                 className="inline-flex h-12 items-center justify-center rounded-[8px] border border-forest/30 px-7 font-nav text-[14px] font-semibold tracking-[-0.3px] text-forest transition-colors hover:border-forest"
               >
-                {t("bookButton")}
+                {bookButtonText}
               </Link>
             </div>
           </div>
         </div>
       </section>
 
-      <Footer />
+      <Footer sanitySettings={sanitySettings} />
     </div>
   );
 }

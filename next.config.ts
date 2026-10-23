@@ -6,6 +6,12 @@ const withNextIntl = createNextIntlPlugin();
 const nextConfig: NextConfig = {
   images: {
     qualities: [75, 92],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "cdn.sanity.io",
+      },
+    ],
   },
   async headers() {
     const isPreview = process.env.VERCEL_ENV && process.env.VERCEL_ENV !== "production";

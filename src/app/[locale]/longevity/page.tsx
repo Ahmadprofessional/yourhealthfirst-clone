@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { getTranslations } from "next-intl/server";
+import { sanityFetch } from "@/sanity/lib/fetch";
+import { LONGEVITY_PAGE_QUERY, SITE_SETTINGS_QUERY } from "@/sanity/lib/queries";
+import { getSanityAttribute } from "@/sanity/lib/dataAttribute";
 
 export async function generateMetadata({
   params,
@@ -55,7 +58,26 @@ export default async function LongevityPage({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "LongevityPage" });
 
-  const cards = [
+  const [sanityLongevity, sanitySettings] = await Promise.all([
+    sanityFetch<any>({
+      query: LONGEVITY_PAGE_QUERY,
+      tags: ["longevityPage"],
+    }),
+    sanityFetch<any>({
+      query: SITE_SETTINGS_QUERY,
+      tags: ["siteSettings"],
+    }),
+  ]);
+  const docId = "longevityPage";
+
+  const heroTitle = sanityLongevity?.heroTitle || t("heading");
+  const heroSubtitle = sanityLongevity?.heroSubtitle || t("subheading");
+  const badgeText = sanityLongevity?.badgeText || t("badge");
+  const tagline = sanityLongevity?.tagline || t("tagline");
+  const notifyText = sanityLongevity?.notifyText || t("notifyText");
+  const registerButton = sanityLongevity?.registerButton || t("registerButton");
+
+  const fallbackCards = [
     { title: t("card1Title"), desc: t("card1Desc") },
     { title: t("card2Title"), desc: t("card2Desc") },
     { title: t("card3Title"), desc: t("card3Desc") },
@@ -64,9 +86,11 @@ export default async function LongevityPage({
     { title: t("card6Title"), desc: t("card6Desc") },
   ];
 
+  const displayedCards = sanityLongevity?.cards?.length > 0 ? sanityLongevity.cards : fallbackCards;
+
   return (
     <div className="flex flex-col">
-      <Header />
+      <Header sanitySettings={sanitySettings} />
 
       {/* Hero */}
       <section className="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden bg-[linear-gradient(90deg,#7a6248_0%,#b49b7d_50%,#7a6248_100%)] px-5 pt-[111px]">
@@ -88,24 +112,36 @@ export default async function LongevityPage({
           {/* Coming soon badge */}
           <div className="flex items-center gap-2 rounded-full border border-tan/30 bg-tan/10 px-5 py-2">
             <span className="h-2 w-2 animate-pulse rounded-full bg-tan" />
-            <span className="font-nav text-[12px] font-semibold tracking-[3px] text-tan uppercase">
-              {t("badge")}
+            <span
+              data-sanity={getSanityAttribute(docId, "longevityPage", "badgeText")}
+              className="font-nav text-[12px] font-semibold tracking-[3px] text-tan uppercase"
+            >
+              {badgeText}
             </span>
           </div>
 
           {/* Headline */}
           <div className="flex flex-col gap-3">
-            <h1 className="font-display text-[52px] leading-[56px] font-bold tracking-[-2px] text-cream uppercase lg:text-[80px] lg:leading-[84px]">
-              {t("heading")}
+            <h1
+              className="font-display text-[52px] leading-[56px] font-bold tracking-[-2px] text-cream uppercase lg:text-[80px] lg:leading-[84px]"
+              data-sanity={getSanityAttribute(docId, "longevityPage", "heroTitle")}
+            >
+              {heroTitle}
             </h1>
-            <h2 className="font-display text-[28px] leading-[34px] font-medium tracking-[-1px] text-tan uppercase lg:text-[40px] lg:leading-[46px]">
-              {t("subheading")}
+            <h2
+              className="font-display text-[28px] leading-[34px] font-medium tracking-[-1px] text-tan uppercase lg:text-[40px] lg:leading-[46px]"
+              data-sanity={getSanityAttribute(docId, "longevityPage", "heroSubtitle")}
+            >
+              {heroSubtitle}
             </h2>
           </div>
 
           {/* Tagline */}
-          <p className="max-w-[540px] font-serif text-[18px] leading-[30px] text-white/60 italic">
-            {t("tagline")}
+          <p
+            className="max-w-[540px] font-serif text-[18px] leading-[30px] text-white/60 italic"
+            data-sanity={getSanityAttribute(docId, "longevityPage", "tagline")}
+          >
+            {tagline}
           </p>
 
           {/* Divider */}
@@ -119,8 +155,12 @@ export default async function LongevityPage({
 
           {/* What's coming */}
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 max-w-[800px]">
-            {cards.map((item) => (
-              <div key={item.title} className="rounded-[10px] border border-white/10 bg-white/5 p-5 text-left">
+            {displayedCards.map((item: any, i: number) => (
+              <div
+                key={item.title || i}
+                data-sanity={getSanityAttribute(docId, "longevityPage", `cards[${i}]`)}
+                className="rounded-[10px] border border-white/10 bg-white/5 p-5 text-left"
+              >
                 <h3 className="font-subheading text-[13px] font-semibold tracking-[1px] text-tan uppercase">
                   {item.title}
                 </h3>
@@ -133,14 +173,18 @@ export default async function LongevityPage({
 
           {/* Notify CTA */}
           <div className="flex flex-col items-center gap-4">
-            <p className="text-[14px] text-white/50">
-              {t("notifyText")}
+            <p
+              data-sanity={getSanityAttribute(docId, "longevityPage", "notifyText")}
+              className="text-[14px] text-white/50"
+            >
+              {notifyText}
             </p>
             <a
               href="mailto:info@yourhealthfirst.uk?subject=Longevity Programme — Notify Me"
+              data-sanity={getSanityAttribute(docId, "longevityPage", "registerButton")}
               className="inline-flex h-14 items-center justify-center rounded-[8px] bg-tan px-10 font-nav text-[15px] font-semibold tracking-[-0.3px] text-forest transition-opacity hover:opacity-90"
             >
-              {t("registerButton")}
+              {registerButton}
             </a>
           </div>
         </div>
@@ -148,7 +192,7 @@ export default async function LongevityPage({
         <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-tan/40 to-transparent" />
       </section>
 
-      <Footer />
+      <Footer sanitySettings={sanitySettings} />
     </div>
   );
 }

@@ -72,6 +72,11 @@ const nextConfig: NextConfig = {
         destination: "/:locale/treatments/dermal-fillers",
         permanent: true,
       },
+      {
+        source: "/intent/:path*",
+        destination: "/studio/intent/:path*",
+        permanent: false,
+      },
     ];
   },
 };

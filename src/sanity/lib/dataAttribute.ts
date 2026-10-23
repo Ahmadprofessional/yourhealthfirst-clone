@@ -7,6 +7,7 @@ export function getSanityAttribute(id: string, type: string, path: string) {
     type,
     projectId,
     dataset,
+    baseUrl: "/studio",
   });
   return fn(path).toString();
 }

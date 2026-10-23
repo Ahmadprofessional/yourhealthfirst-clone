@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import StructuredData from "@/components/StructuredData";
+import { sanityFetch } from "@/sanity/lib/fetch";
+import { SITE_SETTINGS_QUERY } from "@/sanity/lib/queries";
 
 interface Props {
   params: Promise<{ locale: string }>;
@@ -24,6 +26,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function TermsPage({ params }: Props) {
   const { locale } = await params;
 
+  const sanitySettings = await sanityFetch<any>({
+    query: SITE_SETTINGS_QUERY,
+    tags: ["siteSettings"],
+  });
+
   const breadcrumbs = [
     { name: "Home", item: `/${locale}` },
     { name: "Terms & Conditions", item: `/${locale}/terms` },
@@ -31,7 +38,7 @@ export default async function TermsPage({ params }: Props) {
 
   return (
     <div className="flex flex-col min-h-screen bg-[#fafaf8]">
-      <Header />
+      <Header sanitySettings={sanitySettings} />
       <StructuredData type="breadcrumbs" breadcrumbs={breadcrumbs} />
 
       {/* Page Hero */}
@@ -156,7 +163,7 @@ export default async function TermsPage({ params }: Props) {
         </div>
       </main>
 
-      <Footer />
+      <Footer sanitySettings={sanitySettings} />
     </div>
   );
 }

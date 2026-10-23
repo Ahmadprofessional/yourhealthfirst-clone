@@ -4,6 +4,8 @@ import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { contact } from "@/data/site";
 import { PhoneIcon, EnvelopeIcon } from "@/components/icons";
+import { getSanityAttribute } from "@/sanity/lib/dataAttribute";
+import { urlFor } from "@/sanity/lib/image";
 
 const faqKeys = [
   { q: "q1", a: "a1" },
@@ -14,22 +16,33 @@ const faqKeys = [
   { q: "q6", a: "a6" },
 ] as const;
 
-export default function FaqAccordion() {
+export default function FaqAccordion({ sanityData }: { sanityData?: any }) {
   const t = useTranslations("Faq");
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+
+  const badge = sanityData?.faqBadge || t("badge");
+  const heading = sanityData?.faqTitle || t("heading");
+  const faqs = sanityData?.faqs;
+  const faqCardSrc = sanityData?.faqCardImage ? urlFor(sanityData.faqCardImage).url() : "/images/faq-card.jpg";
 
   return (
     <section className="w-full px-5">
       <div className="mx-auto flex max-w-[1400px] flex-col gap-10 py-[100px]">
         {/* Header */}
         <div className="flex flex-col gap-6">
-          <div className="w-fit rounded-full border-[0.8px] border-[rgba(11,23,4,0.2)] px-3 py-2">
+          <div
+            data-sanity={getSanityAttribute("homePage", "homePage", "faqBadge")}
+            className="w-fit rounded-full border-[0.8px] border-[rgba(11,23,4,0.2)] px-3 py-2"
+          >
             <h2 className="text-[13px] leading-[20.8px] font-semibold tracking-[3px] text-forest uppercase">
-              {t("badge")}
+              {badge}
             </h2>
           </div>
-          <h2 className="font-subheading text-[34px] leading-[38px] font-medium tracking-[-1.8px] text-forest uppercase lg:text-[50px] lg:leading-[55px]">
-            {t("heading")}
+          <h2
+            data-sanity={getSanityAttribute("homePage", "homePage", "faqTitle")}
+            className="font-subheading text-[34px] leading-[38px] font-medium tracking-[-1.8px] text-forest uppercase lg:text-[50px] lg:leading-[55px]"
+          >
+            {heading}
           </h2>
         </div>
 
@@ -38,15 +51,17 @@ export default function FaqAccordion() {
           <div className="flex flex-col lg:flex-1 lg:min-w-0 xl:w-[953px] xl:flex-none">
             {faqKeys.map((item, index) => {
               const isOpen = openIndex === index;
-              const question = t(item.q);
-              const answer = t(item.a);
+              const sanFaq = faqs?.[index];
+              const question = sanFaq?.question || t(item.q);
+              const answer = sanFaq?.answer || t(item.a);
               return (
                 <div key={item.q} className="mb-[10px]">
                   <button
                     type="button"
                     onClick={() => setOpenIndex(isOpen ? null : index)}
                     aria-expanded={isOpen}
-                    className="flex w-full items-center justify-between rounded-[8px] border-[0.8px] border-transparent bg-[linear-gradient(90deg,#7a6248_0%,#b49b7d_50%,#7a6248_100%)] px-[30px] py-[14px] text-left font-serif text-[21px] leading-[25.2px] text-white uppercase rtl:text-right"
+                    data-sanity={getSanityAttribute("homePage", "homePage", `faqs[${index}].question`)}
+                    className="flex w-full items-center justify-between rounded-[8px] border-[0.8px] border-transparent bg-[linear-gradient(90deg,#7a6248_0%,#b49b7d_50%,#7a6248_100%)] px-[30px] py-[14px] text-left font-serif text-[21px] leading-[25.2px] text-white uppercase rtl:text-right cursor-pointer"
                   >
                     <span className="pr-[10px] rtl:pr-0 rtl:pl-[10px]">{question}</span>
                     <svg
@@ -75,7 +90,10 @@ export default function FaqAccordion() {
                     }`}
                   >
                     <div className="overflow-hidden">
-                      <p className="p-8 text-[16px] leading-6 font-medium tracking-[-0.2px] text-body-text">
+                      <p
+                        data-sanity={getSanityAttribute("homePage", "homePage", `faqs[${index}].answer`)}
+                        className="p-8 text-[16px] leading-6 font-medium tracking-[-0.2px] text-body-text"
+                      >
                         {answer}
                       </p>
                     </div>
@@ -86,7 +104,11 @@ export default function FaqAccordion() {
           </div>
 
           {/* Image card with contact details */}
-          <div className="relative flex min-h-[300px] flex-col justify-end gap-6 overflow-hidden rounded-[8px] bg-[url('/images/faq-card.jpg')] bg-cover bg-center p-4 lg:min-h-[491px] lg:w-[340px] xl:w-[391px] lg:shrink-0">
+          <div
+            data-sanity={getSanityAttribute("homePage", "homePage", "faqCardImage")}
+            style={{ backgroundImage: `url('${faqCardSrc}')` }}
+            className="relative flex min-h-[300px] flex-col justify-end gap-6 overflow-hidden rounded-[8px] bg-cover bg-center p-4 lg:min-h-[491px] lg:w-[340px] xl:w-[391px] lg:shrink-0 cursor-pointer"
+          >
             {/* Scrim so the contact details stay legible over the photo */}
             <div
               aria-hidden="true"

@@ -3,6 +3,10 @@ import Header from "@/components/Header";
 import PressGrid from "@/components/PressGrid";
 import Footer from "@/components/Footer";
 import { getTranslations } from "next-intl/server";
+import { sanityFetch } from "@/sanity/lib/fetch";
+import { PRESS_PAGE_QUERY, SITE_SETTINGS_QUERY } from "@/sanity/lib/queries";
+import { getSanityAttribute } from "@/sanity/lib/dataAttribute";
+import { urlFor } from "@/sanity/lib/image";
 
 export async function generateMetadata({
   params,
@@ -83,23 +87,58 @@ export default async function PressPage({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "PressPage" });
 
+  const [sanityPress, sanitySettings] = await Promise.all([
+    sanityFetch<any>({
+      query: PRESS_PAGE_QUERY,
+      tags: ["pressPage"],
+    }),
+    sanityFetch<any>({
+      query: SITE_SETTINGS_QUERY,
+      tags: ["siteSettings"],
+    }),
+  ]);
+  const docId = "pressPage";
+
+  const heroTitle = sanityPress?.heroTitle || t("heading");
+  const heroSubtitle = sanityPress?.heroSubtitle || t("subtitle");
+  const badgeText = sanityPress?.badgeText || t("badge");
+  const videoCoverageTitle = sanityPress?.videoCoverageTitle || t("videoCoverage");
+  const youtubeUrl = sanityPress?.youtubeEmbedUrl || "https://www.youtube.com/embed/lmOWFIN02Gg";
+  const pressGalleryTitle = sanityPress?.pressGalleryTitle || t("pressGallery");
+
+  const displayedPressImages = sanityPress?.pressImages?.length > 0
+    ? sanityPress.pressImages.map((p: any) => ({
+        src: p.image ? urlFor(p.image).url() : pressImages[0].src,
+        alt: p.alt || "",
+      }))
+    : pressImages;
+
   return (
     <div className="flex flex-col">
-      <Header />
+      <Header sanitySettings={sanitySettings} />
 
       {/* Page hero */}
       <section className="relative w-full bg-[linear-gradient(90deg,#7a6248_0%,#b49b7d_50%,#7a6248_100%)] pt-[111px]">
         <div className="mx-auto max-w-[1400px] px-5 py-[80px] lg:py-[100px]">
           <div className="w-fit rounded-full border-[0.8px] border-white/20 px-3 py-2">
-            <p className="text-[13px] font-semibold leading-[20.8px] tracking-[3px] text-tan uppercase">
-              {t("badge")}
+            <p
+              data-sanity={getSanityAttribute(docId, "pressPage", "badgeText")}
+              className="text-[13px] font-semibold leading-[20.8px] tracking-[3px] text-tan uppercase"
+            >
+              {badgeText}
             </p>
           </div>
-          <h1 className="mt-4 font-display text-[42px] leading-[46px] font-bold tracking-[-1px] text-cream uppercase lg:text-[64px] lg:leading-[70px]">
-            {t("heading")}
+          <h1
+            className="mt-4 font-display text-[42px] leading-[46px] font-bold tracking-[-1px] text-cream uppercase lg:text-[64px] lg:leading-[70px]"
+            data-sanity={getSanityAttribute(docId, "pressPage", "heroTitle")}
+          >
+            {heroTitle}
           </h1>
-          <p className="mt-3 max-w-[560px] font-nav text-[16px] leading-[26px] text-white/60">
-            {t("subtitle")}
+          <p
+            className="mt-3 max-w-[560px] font-nav text-[16px] leading-[26px] text-white/60"
+            data-sanity={getSanityAttribute(docId, "pressPage", "heroSubtitle")}
+          >
+            {heroSubtitle}
           </p>
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-tan/40 to-transparent" />
@@ -109,15 +148,18 @@ export default async function PressPage({
       <section className="w-full bg-cream px-5">
         <div className="mx-auto max-w-[1400px] py-[70px] lg:py-[90px]">
           <div className="mb-10 flex items-center gap-4">
-            <h2 className="font-subheading text-[24px] font-medium leading-[30px] tracking-[-1px] text-forest uppercase lg:text-[30px] lg:leading-[36px]">
-              {t("videoCoverage")}
+            <h2
+              data-sanity={getSanityAttribute(docId, "pressPage", "videoCoverageTitle")}
+              className="font-subheading text-[24px] font-medium leading-[30px] tracking-[-1px] text-forest uppercase lg:text-[30px] lg:leading-[36px]"
+            >
+              {videoCoverageTitle}
             </h2>
             <div className="flex-1 border-t border-black/8" />
           </div>
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
             <div className="relative w-full overflow-hidden rounded-[12px] shadow-sm" style={{ aspectRatio: "16/9" }}>
               <iframe
-                src="https://www.youtube.com/embed/lmOWFIN02Gg"
+                src={youtubeUrl}
                 title="YourHealthFirst Clinic — press video feature"
                 className="absolute inset-0 h-full w-full"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -140,16 +182,19 @@ export default async function PressPage({
       <section className="w-full px-5">
         <div className="mx-auto max-w-[1400px] py-[80px] lg:py-[100px]">
           <div className="mb-10 flex items-center gap-4">
-            <h2 className="font-subheading text-[24px] font-medium leading-[30px] tracking-[-1px] text-forest uppercase lg:text-[30px] lg:leading-[36px]">
-              {t("pressGallery")}
+            <h2
+              data-sanity={getSanityAttribute(docId, "pressPage", "pressGalleryTitle")}
+              className="font-subheading text-[24px] font-medium leading-[30px] tracking-[-1px] text-forest uppercase lg:text-[30px] lg:leading-[36px]"
+            >
+              {pressGalleryTitle}
             </h2>
             <div className="flex-1 border-t border-black/8" />
           </div>
-          <PressGrid images={pressImages} />
+          <PressGrid images={displayedPressImages} />
         </div>
       </section>
 
-      <Footer />
+      <Footer sanitySettings={sanitySettings} />
     </div>
   );
 }

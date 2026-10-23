@@ -6,6 +6,10 @@ import Footer from "@/components/Footer";
 import SafeImage from "@/components/SafeImage";
 import PhotoSlider, { type SliderPhoto } from "@/components/PhotoSlider";
 import { getTranslations } from "next-intl/server";
+import { sanityFetch } from "@/sanity/lib/fetch";
+import { ABOUT_PAGE_QUERY, SITE_SETTINGS_QUERY } from "@/sanity/lib/queries";
+import { getSanityAttribute } from "@/sanity/lib/dataAttribute";
+import { urlFor } from "@/sanity/lib/image";
 
 const trainingPhotos: SliderPhoto[] = [
   { src: "/images/about-us/training/training-01.jpg", alt: "Sofia Bouzian — postgraduate training programme in aesthetic medicine: workshops, anatomy laboratory sessions and hands-on training", width: 1206, height: 1181 },
@@ -71,6 +75,56 @@ export default async function AboutMePage({
 }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "AboutPage" });
+
+  const [sanityAbout, sanitySettings] = await Promise.all([
+    sanityFetch<any>({
+      query: ABOUT_PAGE_QUERY,
+      tags: ["aboutPage"],
+    }),
+    sanityFetch<any>({
+      query: SITE_SETTINGS_QUERY,
+      tags: ["siteSettings"],
+    }),
+  ]);
+  const docId = "aboutPage";
+
+  const practitionerName = sanityAbout?.doctorName || t("practitionerName");
+  const practitionerRole = sanityAbout?.doctorCredentials || t("practitionerRole");
+  const practitionerTagline = sanityAbout?.heroSubtitle || t("practitionerTagline");
+  const heroBadge = sanityAbout?.heroBadge || t("heroBadge");
+  const heroQuote = sanityAbout?.heroQuote || t("heroQuote");
+  const heroQuoteAuthor = sanityAbout?.heroQuoteAuthor || t("quoteAuthor");
+  const bioLead = sanityAbout?.doctorBioLead || t("bioP1");
+  const doctorBioParagraphs: string[] = (sanityAbout?.doctorBioParagraphs && sanityAbout.doctorBioParagraphs.length > 0)
+    ? sanityAbout.doctorBioParagraphs
+    : [t("bioP2"), t("bioP3"), t("bioP4"), t("bioP5")];
+  const doctorPhotoSrc = (sanityAbout?.doctorPortrait ? urlFor(sanityAbout.doctorPortrait)?.url() : null) || "/images/about-us-page-image-v3.jpg";
+  const recognitionBadge = sanityAbout?.recognitionBadge || t("recognitionBadge");
+  const recognitionHeading = sanityAbout?.recognitionHeading || t("recognitionHeading");
+  const recognitionPhotoSrc = (sanityAbout?.recognitionImage ? urlFor(sanityAbout.recognitionImage)?.url() : null) || "/images/about us second image.jpeg";
+  const recognitionParagraphs: string[] = (sanityAbout?.recognitionParagraphs && sanityAbout.recognitionParagraphs.length > 0)
+    ? sanityAbout.recognitionParagraphs
+    : [t("recogP1"), t("recogP2"), t("recogP3"), t("recogP4"), t("recogP5"), t("recogP6")];
+  const philosophyTitle = sanityAbout?.philosophyTitle || t("philosophyHeading");
+  const philosophyDesc = sanityAbout?.philosophyParagraphs?.[0] || t("philosophyDesc");
+  const philosophyBg = sanityAbout?.philosophyBgImage ? urlFor(sanityAbout.philosophyBgImage).url() : "/images/promise-bg.jpg";
+  const philosophyAuthor = sanityAbout?.philosophyAuthor || "Sofia Bouzian";
+  const ctaTitle = sanityAbout?.ctaHeading || t("ctaReadyTitle");
+  const ctaBtnText = sanityAbout?.ctaButtonText || t("bookConsultation");
+  const ghpBadgeSmall = sanityAbout?.ghpBadgeSmall || t("ghpBadgeSmall");
+  const ghpBadgeTitle = sanityAbout?.ghpBadgeTitle || t("ghpBadgeTitle");
+  const ghpBadgeDesc = sanityAbout?.ghpBadgeDesc || t("ghpBadgeDesc");
+  const accreditationsBadge = sanityAbout?.accreditationsBadge || t("accreditationsBadge");
+  const accreditationsHeading = sanityAbout?.accreditationsHeading || t("accreditationsHeading");
+
+  const displayedTrainingPhotos: SliderPhoto[] = sanityAbout?.trainingPhotos?.length > 0
+    ? sanityAbout.trainingPhotos.map((item: any, i: number) => ({
+        src: item.image ? urlFor(item.image).url() : trainingPhotos[i % trainingPhotos.length]?.src,
+        alt: item.alt || "Training photo",
+        width: 1200,
+        height: 1000,
+      }))
+    : trainingPhotos;
 
   const areasOfExpertise = [
     t("expertArea1"),
@@ -143,7 +197,7 @@ export default async function AboutMePage({
 
   return (
     <div className="flex flex-col">
-      <Header />
+      <Header sanitySettings={sanitySettings} />
 
       {/* ── HERO — SPLIT LAYOUT ── */}
       <section className="relative flex w-full flex-col overflow-hidden bg-[linear-gradient(90deg,#7a6248_0%,#b49b7d_50%,#7a6248_100%)] pt-[111px] lg:flex-row lg:items-stretch">
@@ -153,36 +207,65 @@ export default async function AboutMePage({
 
           <div className="relative flex flex-col gap-6">
             <div className="w-fit rounded-full border-[0.8px] border-white/25 px-4 py-2">
-              <p className="font-nav text-[12px] font-semibold tracking-[3px] text-tan uppercase">
-                {t("heroBadge")}
+              <p
+                data-sanity={getSanityAttribute(docId, "aboutPage", "heroBadge")}
+                className="font-nav text-[12px] font-semibold tracking-[3px] text-tan uppercase cursor-pointer hover:outline-dashed hover:outline-1 hover:outline-tan/60"
+              >
+                {heroBadge}
               </p>
             </div>
 
             <div>
-              <h1 className="font-display text-[48px] leading-[52px] font-bold tracking-[-2px] text-cream uppercase lg:text-[62px] lg:leading-[66px]">
-                {t("practitionerName")}<br />
-                <span className="text-tan">{t("practitionerSurname")}</span>
+              <h1
+                className="font-display text-[48px] leading-[52px] font-bold tracking-[-2px] text-cream uppercase lg:text-[62px] lg:leading-[66px] cursor-pointer hover:outline-dashed hover:outline-2 hover:outline-cream/60"
+                data-sanity={getSanityAttribute(docId, "aboutPage", "doctorName")}
+              >
+                {practitionerName}
               </h1>
-              <p className="mt-3 font-nav text-[13px] font-semibold tracking-[2px] text-white/60 uppercase">
-                {t("practitionerRole")}
+              <p
+                className="mt-3 font-nav text-[13px] font-semibold tracking-[2px] text-white/60 uppercase cursor-pointer hover:outline-dashed hover:outline-1 hover:outline-white/60"
+                data-sanity={getSanityAttribute(docId, "aboutPage", "doctorCredentials")}
+              >
+                {practitionerRole}
               </p>
-              <p className="mt-2 max-w-[560px] text-[15px] leading-[24px] text-white/50">
-                {t("practitionerTagline")}
+              <p
+                className="mt-2 max-w-[560px] text-[15px] leading-[24px] text-white/50 cursor-pointer hover:outline-dashed hover:outline-1 hover:outline-white/60"
+                data-sanity={getSanityAttribute(docId, "aboutPage", "heroSubtitle")}
+              >
+                {practitionerTagline}
               </p>
             </div>
 
             <div className="flex max-w-[560px] flex-col gap-4 text-[15px] leading-[25px] text-white/55">
-              <p>{t("bioP1")}</p>
-              <p>{t("bioP2")}</p>
-              <p>{t("bioP3")}</p>
-              <p>{t("bioP4")}</p>
-              <p>{t("bioP5")}</p>
+              <p
+                data-sanity={getSanityAttribute(docId, "aboutPage", "doctorBioLead")}
+                className="cursor-pointer hover:outline-dashed hover:outline-1 hover:outline-white/60"
+              >
+                {bioLead}
+              </p>
+              {doctorBioParagraphs.map((para: string, idx: number) => (
+                <p
+                  key={idx}
+                  data-sanity={getSanityAttribute(docId, "aboutPage", `doctorBioParagraphs[${idx}]`)}
+                  className="cursor-pointer hover:outline-dashed hover:outline-1 hover:outline-white/60"
+                >
+                  {para}
+                </p>
+              ))}
             </div>
 
             <blockquote className="max-w-[560px] border-l-[3px] border-tan py-1 pl-5 font-serif text-[17px] leading-[27px] text-white/70 italic">
-              &ldquo;{t("heroQuote")}&rdquo;
-              <span className="mt-2 block font-nav text-[12px] font-semibold tracking-[1px] text-tan not-italic uppercase">
-                {t("quoteAuthor")}
+              <span
+                data-sanity={getSanityAttribute(docId, "aboutPage", "heroQuote")}
+                className="cursor-pointer hover:outline-dashed hover:outline-1 hover:outline-white/60"
+              >
+                &ldquo;{heroQuote}&rdquo;
+              </span>
+              <span
+                data-sanity={getSanityAttribute(docId, "aboutPage", "heroQuoteAuthor")}
+                className="mt-2 block font-nav text-[12px] font-semibold tracking-[1px] text-tan not-italic uppercase cursor-pointer hover:outline-dashed hover:outline-1 hover:outline-tan/60"
+              >
+                {heroQuoteAuthor}
               </span>
             </blockquote>
 
@@ -199,13 +282,11 @@ export default async function AboutMePage({
 
         {/* Right — photo */}
         <div className="relative h-[400px] w-full lg:h-auto lg:min-h-[560px] lg:w-auto lg:flex-1 lg:self-stretch">
-          <Image
-            src="/images/about-us-page-image-v3.jpg"
+          <SafeImage
+            src={doctorPhotoSrc}
             alt="Sofia Bouzian — YourHealthFirst Clinic"
-            fill
-            sizes="(min-width: 1024px) 48vw, 100vw"
-            className="object-cover object-[35%_center]"
-            priority
+            className="h-full w-full object-cover object-[35%_center]"
+            data-sanity={getSanityAttribute(docId, "aboutPage", "doctorPortrait")}
           />
         </div>
       </section>
@@ -216,9 +297,13 @@ export default async function AboutMePage({
           <div className="flex flex-col gap-12 lg:flex-row lg:gap-16">
             {/* Left — image */}
             <div className="relative lg:w-[420px] lg:shrink-0">
-              <div className="relative overflow-hidden rounded-[14px]" style={{ aspectRatio: "4/5" }}>
+              <div
+                data-sanity={getSanityAttribute(docId, "aboutPage", "recognitionImage")}
+                className="relative overflow-hidden rounded-[14px] cursor-pointer hover:outline-dashed hover:outline-2 hover:outline-forest/60"
+                style={{ aspectRatio: "4/5" }}
+              >
                 <SafeImage
-                  src="/images/about us second image.jpeg"
+                  src={recognitionPhotoSrc}
                   alt="Sofia Bouzian — YourHealthFirst Clinic"
                   className="h-full w-full object-cover object-top"
                 />
@@ -228,23 +313,32 @@ export default async function AboutMePage({
             {/* Right — recognition text */}
             <div className="flex flex-col gap-7 lg:flex-1">
               <div>
-                <div className="w-fit rounded-full border-[0.8px] border-forest/20 px-3 py-2">
+                <div
+                  data-sanity={getSanityAttribute(docId, "aboutPage", "recognitionBadge")}
+                  className="w-fit rounded-full border-[0.8px] border-forest/20 px-3 py-2 cursor-pointer hover:outline-dashed hover:outline-1 hover:outline-forest/60"
+                >
                   <p className="font-nav text-[12px] font-semibold tracking-[3px] text-forest uppercase">
-                    {t("recognitionBadge")}
+                    {recognitionBadge}
                   </p>
                 </div>
-                <h2 className="mt-4 font-subheading text-[26px] leading-[32px] font-bold tracking-[-1px] text-forest uppercase lg:text-[34px] lg:leading-[40px]">
-                  {t("recognitionHeading")}
+                <h2
+                  data-sanity={getSanityAttribute(docId, "aboutPage", "recognitionHeading")}
+                  className="mt-4 font-subheading text-[26px] leading-[32px] font-bold tracking-[-1px] text-forest uppercase lg:text-[34px] lg:leading-[40px] cursor-pointer hover:outline-dashed hover:outline-2 hover:outline-forest/60"
+                >
+                  {recognitionHeading}
                 </h2>
               </div>
 
               <div className="flex flex-col gap-4 text-[16px] leading-[28px] tracking-[-0.2px] text-body-text">
-                <p>{t("recogP1")}</p>
-                <p>{t("recogP2")}</p>
-                <p>{t("recogP3")}</p>
-                <p>{t("recogP4")}</p>
-                <p>{t("recogP5")}</p>
-                <p>{t("recogP6")}</p>
+                {recognitionParagraphs.map((para: string, idx: number) => (
+                  <p
+                    key={idx}
+                    data-sanity={getSanityAttribute(docId, "aboutPage", `recognitionParagraphs[${idx}]`)}
+                    className="cursor-pointer hover:outline-dashed hover:outline-1 hover:outline-black/30"
+                  >
+                    {para}
+                  </p>
+                ))}
               </div>
 
               <div className="flex flex-col gap-4">
@@ -300,7 +394,7 @@ export default async function AboutMePage({
             </h2>
             <div className="flex-1 border-t border-black/8" />
           </div>
-          <PhotoSlider photos={trainingPhotos} />
+          <PhotoSlider photos={displayedTrainingPhotos} />
         </div>
       </section>
 
@@ -361,9 +455,10 @@ export default async function AboutMePage({
       <section className="relative w-full overflow-hidden px-5">
         <div className="absolute inset-0">
           <SafeImage
-            src="/images/promise-bg.jpg"
+            src={philosophyBg}
             alt=""
-            className="h-full w-full object-cover object-center"
+            className="h-full w-full object-cover object-center cursor-pointer"
+            data-sanity={getSanityAttribute(docId, "aboutPage", "philosophyBgImage")}
           />
           <div className="absolute inset-0 bg-[#7a6248]/85" />
         </div>
@@ -374,16 +469,25 @@ export default async function AboutMePage({
                 {t("philosophyBadge")}
               </p>
             </div>
-            <h2 className="font-display text-[40px] leading-[46px] font-bold tracking-[-1.5px] text-cream uppercase lg:text-[58px] lg:leading-[64px]">
-              {t("philosophyHeading")}
+            <h2
+              className="font-display text-[40px] leading-[46px] font-bold tracking-[-1.5px] text-cream uppercase lg:text-[58px] lg:leading-[64px] cursor-pointer hover:outline-dashed hover:outline-2 hover:outline-cream/60"
+              data-sanity={getSanityAttribute(docId, "aboutPage", "philosophyTitle")}
+            >
+              {philosophyTitle}
             </h2>
-            <p className="text-[17px] leading-[29px] text-white/65">
-              {t("philosophyDesc")}
+            <p
+              className="text-[17px] leading-[29px] text-white/65 cursor-pointer hover:outline-dashed hover:outline-1 hover:outline-white/60"
+              data-sanity={getSanityAttribute(docId, "aboutPage", "philosophyParagraphs")}
+            >
+              {philosophyDesc}
             </p>
             <div className="flex items-center gap-4">
               <div className="h-px w-12 bg-tan/50" />
-              <p className="font-nav text-[13px] font-semibold tracking-[2px] text-tan uppercase">
-                Sofia Bouzian
+              <p
+                data-sanity={getSanityAttribute(docId, "aboutPage", "philosophyAuthor")}
+                className="font-nav text-[13px] font-semibold tracking-[2px] text-tan uppercase cursor-pointer hover:outline-dashed hover:outline-1 hover:outline-tan/60"
+              >
+                {philosophyAuthor}
               </p>
             </div>
           </div>
@@ -407,14 +511,23 @@ export default async function AboutMePage({
               </div>
             </div>
             <div className="flex flex-col gap-4">
-              <p className="font-nav text-[12px] font-semibold tracking-[3px] text-[#7ec8cc] uppercase">
-                {t("ghpBadgeSmall")}
+              <p
+                data-sanity={getSanityAttribute(docId, "aboutPage", "ghpBadgeSmall")}
+                className="font-nav text-[12px] font-semibold tracking-[3px] text-[#7ec8cc] uppercase cursor-pointer hover:outline-dashed hover:outline-1 hover:outline-[#7ec8cc]/60"
+              >
+                {ghpBadgeSmall}
               </p>
-              <h2 className="font-display text-[32px] leading-[38px] font-bold tracking-[-1.5px] text-cream uppercase lg:text-[48px] lg:leading-[54px]">
-                {t("ghpBadgeTitle")}
+              <h2
+                data-sanity={getSanityAttribute(docId, "aboutPage", "ghpBadgeTitle")}
+                className="font-display text-[32px] leading-[38px] font-bold tracking-[-1.5px] text-cream uppercase lg:text-[48px] lg:leading-[54px] cursor-pointer hover:outline-dashed hover:outline-1 hover:outline-cream/60"
+              >
+                {ghpBadgeTitle}
               </h2>
-              <p className="max-w-[460px] text-[15px] leading-[26px] text-white/50">
-                {t("ghpBadgeDesc")}
+              <p
+                data-sanity={getSanityAttribute(docId, "aboutPage", "ghpBadgeDesc")}
+                className="max-w-[460px] text-[15px] leading-[26px] text-white/50 cursor-pointer hover:outline-dashed hover:outline-1 hover:outline-white/60"
+              >
+                {ghpBadgeDesc}
               </p>
               <div className="flex items-center gap-3">
                 <div className="h-px w-10 bg-tan/40" />
@@ -432,12 +545,18 @@ export default async function AboutMePage({
         <div className="mx-auto max-w-[1400px] py-[80px] lg:py-[100px]">
           <div className="mb-12 flex flex-col items-center gap-4 text-center">
             <div className="w-fit rounded-full border-[0.8px] border-forest/20 px-3 py-2">
-              <p className="font-nav text-[12px] font-semibold tracking-[3px] text-forest uppercase">
-                {t("accreditationsBadge")}
+              <p
+                data-sanity={getSanityAttribute(docId, "aboutPage", "accreditationsBadge")}
+                className="font-nav text-[12px] font-semibold tracking-[3px] text-forest uppercase cursor-pointer hover:outline-dashed hover:outline-1 hover:outline-forest/60"
+              >
+                {accreditationsBadge}
               </p>
             </div>
-            <h2 className="font-subheading text-[30px] leading-[36px] font-bold tracking-[-1.2px] text-forest uppercase lg:text-[42px] lg:leading-[48px]">
-              {t("accreditationsHeading")}
+            <h2
+              data-sanity={getSanityAttribute(docId, "aboutPage", "accreditationsHeading")}
+              className="font-subheading text-[30px] leading-[36px] font-bold tracking-[-1.2px] text-forest uppercase lg:text-[42px] lg:leading-[48px] cursor-pointer hover:outline-dashed hover:outline-1 hover:outline-forest/60"
+            >
+              {accreditationsHeading}
             </h2>
           </div>
 
@@ -552,8 +671,11 @@ export default async function AboutMePage({
               {t("ctaReadyBadge")}
             </p>
           </div>
-          <h2 className="font-display text-[36px] leading-[42px] font-bold tracking-[-1.5px] text-cream uppercase lg:text-[52px] lg:leading-[58px]">
-            {t("ctaReadyTitle")}
+          <h2
+            className="font-display text-[36px] leading-[42px] font-bold tracking-[-1.5px] text-cream uppercase lg:text-[52px] lg:leading-[58px]"
+            data-sanity={getSanityAttribute(docId, "aboutPage", "ctaHeading")}
+          >
+            {ctaTitle}
           </h2>
           <p className="max-w-[460px] text-[16px] leading-[27px] text-white/60">
             {t("ctaReadyDesc")}
@@ -562,8 +684,9 @@ export default async function AboutMePage({
             <Link
               href="/#book"
               className="inline-flex h-13 items-center justify-center rounded-[8px] bg-tan px-10 py-4 font-nav text-[14px] font-semibold tracking-[-0.3px] text-forest transition-opacity hover:opacity-90"
+              data-sanity={getSanityAttribute(docId, "aboutPage", "ctaButtonText")}
             >
-              {t("bookConsultation")}
+              {ctaBtnText}
             </Link>
             <a
               href="mailto:info@yourhealthfirst.uk"
@@ -575,7 +698,7 @@ export default async function AboutMePage({
         </div>
       </section>
 
-      <Footer />
+      <Footer sanitySettings={sanitySettings} />
     </div>
   );
 }

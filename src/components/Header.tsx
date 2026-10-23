@@ -101,13 +101,22 @@ const navStructure = [
   { labelKey: "contactUs", href: "/contact-us" },
 ];
 
-export default function Header() {
+import { getSanityAttribute } from "@/sanity/lib/dataAttribute";
+import { urlFor } from "@/sanity/lib/image";
+
+export default function Header({ sanitySettings }: { sanitySettings?: any }) {
   const t = useTranslations("Header");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMobileTreatmentsOpen, setIsMobileTreatmentsOpen] = useState(false);
   const pathname = usePathname();
   const dropdownTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const headerLocation = sanitySettings?.headerLocation || "Harley Street • London";
+  const headerAddress = sanitySettings?.headerAddress || "2 Wimpole Street, W1G 0EB";
+  const headerPhone = sanitySettings?.headerPhone || "0207 225 3582";
+  const headerCtaText = sanitySettings?.headerCtaText || t("bookConsultation");
+  const logoUrl = sanitySettings?.logoImage ? urlFor(sanitySettings.logoImage).url() : "/images/logo.png";
 
   const openDropdown = () => {
     if (dropdownTimer.current) clearTimeout(dropdownTimer.current);
@@ -151,18 +160,27 @@ export default function Header() {
         <div className="mx-auto flex h-[36px] max-w-[1400px] items-center justify-between px-4 sm:px-6 text-[11px] xl:text-[12px] tracking-wide text-white/80">
           {/* Left: Harley Street Address & Telephone */}
           <div className="flex items-center gap-2.5 sm:gap-3 text-white/75">
-            <span className="flex items-center gap-1.5 font-medium tracking-wider text-tan uppercase text-[10.5px] sm:text-[11px]">
+            <span
+              data-sanity={getSanityAttribute("siteSettings", "siteSettings", "headerLocation")}
+              className="flex items-center gap-1.5 font-medium tracking-wider text-tan uppercase text-[10.5px] sm:text-[11px] cursor-pointer"
+            >
               <span className="inline-block h-1.5 w-1.5 rounded-full bg-tan" />
-              Harley Street &bull; London
+              {headerLocation}
             </span>
             <span className="hidden md:inline text-white/25">|</span>
-            <span className="hidden md:inline text-white/60">2 Wimpole Street, W1G 0EB</span>
+            <span
+              data-sanity={getSanityAttribute("siteSettings", "siteSettings", "headerAddress")}
+              className="hidden md:inline text-white/60 cursor-pointer"
+            >
+              {headerAddress}
+            </span>
             <span className="hidden lg:inline text-white/25">|</span>
             <a
               href="tel:02072253582"
-              className="hidden lg:inline text-white/75 hover:text-tan transition-colors font-medium"
+              data-sanity={getSanityAttribute("siteSettings", "siteSettings", "headerPhone")}
+              className="hidden lg:inline text-white/75 hover:text-tan transition-colors font-medium cursor-pointer"
             >
-              0207 225 3582
+              {headerPhone}
             </a>
           </div>
 
@@ -202,12 +220,14 @@ export default function Header() {
           {/* Logo — left */}
           <Link href="/" className="relative z-10 block shrink-0">
             <Image
-              src="/images/logo.png"
+              src={logoUrl}
               alt="Your Health First Clinic"
               width={488}
               height={328}
               priority
+              data-sanity={getSanityAttribute("siteSettings", "siteSettings", "logoImage")}
               className="h-auto w-[100px] sm:w-[115px] xl:w-[130px] object-contain"
+              unoptimized={logoUrl.startsWith("http")}
             />
           </Link>
 
@@ -310,9 +330,10 @@ export default function Header() {
           <div className="relative z-10 flex items-center gap-3 shrink-0">
             <Link
               href="/#book"
+              data-sanity={getSanityAttribute("siteSettings", "siteSettings", "headerCtaText")}
               className="hidden shrink-0 items-center justify-center rounded-[6px] bg-tan px-4 xl:px-5 py-2 xl:py-2.5 font-nav text-[12px] xl:text-[13px] font-semibold tracking-[-0.2px] text-forest whitespace-nowrap transition-all duration-200 hover:bg-white hover:text-black lg:inline-flex min-w-[130px] xl:min-w-[150px] text-center shadow-md"
             >
-              {t("bookConsultation")}
+              {headerCtaText}
             </Link>
 
             <button

@@ -9,6 +9,8 @@ import WhyChooseUs from "@/components/WhyChooseUs";
 import FaqAccordion from "@/components/FaqAccordion";
 import BookingSection from "@/components/BookingSection";
 import Footer from "@/components/Footer";
+import { sanityFetch } from "@/sanity/lib/fetch";
+import { HOME_PAGE_QUERY, SITE_SETTINGS_QUERY } from "@/sanity/lib/queries";
 
 export async function generateMetadata({
   params,
@@ -54,19 +56,30 @@ export async function generateMetadata({
   };
 }
 
-export default function Home() {
+export default async function Home() {
+  const [sanityHome, sanitySettings] = await Promise.all([
+    sanityFetch<any>({
+      query: HOME_PAGE_QUERY,
+      tags: ["homePage"],
+    }),
+    sanityFetch<any>({
+      query: SITE_SETTINGS_QUERY,
+      tags: ["siteSettings"],
+    }),
+  ]);
+
   return (
     <div className="flex flex-col">
-      <Header />
-      <Hero />
-      <Testimonials />
-      <AboutUs />
-      <PromiseCards />
-      <Services />
-      <WhyChooseUs />
-      <FaqAccordion />
-      <BookingSection />
-      <Footer />
+      <Header sanitySettings={sanitySettings} />
+      <Hero sanityData={sanityHome} />
+      <Testimonials sanityData={sanityHome} />
+      <AboutUs sanityData={sanityHome} />
+      <PromiseCards sanityData={sanityHome} />
+      <Services sanityData={sanityHome} />
+      <WhyChooseUs sanityData={sanityHome} />
+      <FaqAccordion sanityData={sanityHome} />
+      <BookingSection sanityData={sanityHome} />
+      <Footer sanitySettings={sanitySettings} />
     </div>
   );
 }

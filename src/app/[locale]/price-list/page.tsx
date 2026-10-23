@@ -5,6 +5,9 @@ import Footer from "@/components/Footer";
 import PriceListClient from "@/components/PriceListClient";
 import { getLocalizedPriceList } from "@/data/localizedPriceList";
 import { getTranslations } from "next-intl/server";
+import { sanityFetch } from "@/sanity/lib/fetch";
+import { PRICE_LIST_PAGE_QUERY, SITE_SETTINGS_QUERY } from "@/sanity/lib/queries";
+import { getSanityAttribute } from "@/sanity/lib/dataAttribute";
 
 export async function generateMetadata({
   params,
@@ -59,6 +62,32 @@ export default async function PriceListPage({
   const t = await getTranslations({ locale, namespace: "PriceList" });
   const categories = getLocalizedPriceList(locale);
 
+  const [sanityPriceList, sanitySettings] = await Promise.all([
+    sanityFetch<any>({
+      query: PRICE_LIST_PAGE_QUERY,
+      tags: ["priceListPage"],
+    }),
+    sanityFetch<any>({
+      query: SITE_SETTINGS_QUERY,
+      tags: ["siteSettings"],
+    }),
+  ]);
+  const docId = "priceListPage";
+
+  const heroTitle = sanityPriceList?.heroTitle || t("heading");
+  const heroSubtitle = sanityPriceList?.heroSubtitle || t("subtitle");
+  const badgeText = sanityPriceList?.badgeText || t("badge");
+
+  const policyBadge = sanityPriceList?.policyBadge || t("policyBadge");
+  const policyHeading = sanityPriceList?.policyHeading || t("policyHeading");
+  const policyIntro = sanityPriceList?.policyIntro || t("policyIntro");
+
+  const ctaBadge = sanityPriceList?.ctaBadge || t("ctaBadge");
+  const ctaHeading = sanityPriceList?.ctaHeading || t("ctaHeading");
+  const ctaSubtitle = sanityPriceList?.ctaSubtitle || t("ctaSubtitle");
+  const bookCta = sanityPriceList?.bookCta || t("bookCta");
+  const contactCta = sanityPriceList?.contactCta || t("contactCta");
+
   const features = [
     {
       label: t("featureTransparent"),
@@ -95,11 +124,12 @@ export default async function PriceListPage({
     },
   ];
 
-  const taglines = [t("lookGood"), t("feelConfident"), t("beYourself")];
+  const fallbackTaglines = [t("lookGood"), t("feelConfident"), t("beYourself")];
+  const taglines = sanityPriceList?.taglines?.length > 0 ? sanityPriceList.taglines : fallbackTaglines;
 
   return (
     <div className="flex flex-col">
-      <Header />
+      <Header sanitySettings={sanitySettings} />
 
       {/* ── HERO ── */}
       <section className="relative w-full overflow-hidden bg-[linear-gradient(90deg,#7a6248_0%,#b49b7d_50%,#7a6248_100%)] pt-[111px]">
@@ -111,23 +141,33 @@ export default async function PriceListPage({
             {/* Left */}
             <div className="flex flex-col gap-5 lg:max-w-[560px]">
               <div className="w-fit rounded-full border border-white/20 px-4 py-2">
-                <p className="font-nav text-[11px] font-semibold tracking-[3px] text-tan uppercase">
-                  {t("badge")}
+                <p
+                  data-sanity={getSanityAttribute(docId, "priceListPage", "badgeText")}
+                  className="font-nav text-[11px] font-semibold tracking-[3px] text-tan uppercase"
+                >
+                  {badgeText}
                 </p>
               </div>
-              <h1 className="font-display text-[52px] leading-[56px] font-bold tracking-[-1.5px] text-cream uppercase lg:text-[72px] lg:leading-[76px]">
-                {t("heading")}
+              <h1
+                className="font-display text-[52px] leading-[56px] font-bold tracking-[-1.5px] text-cream uppercase lg:text-[72px] lg:leading-[76px]"
+                data-sanity={getSanityAttribute(docId, "priceListPage", "heroTitle")}
+              >
+                {heroTitle}
               </h1>
-              <p className="max-w-[460px] text-[15px] leading-[26px] text-white/60">
-                {t("subtitle")}
+              <p
+                className="max-w-[460px] text-[15px] leading-[26px] text-white/60"
+                data-sanity={getSanityAttribute(docId, "priceListPage", "heroSubtitle")}
+              >
+                {heroSubtitle}
               </p>
             </div>
 
             {/* Right — tagline */}
             <div className="hidden flex-col items-end justify-start gap-1 lg:flex">
-              {taglines.map((line, i) => (
+              {taglines.map((line: string, i: number) => (
                 <p
                   key={line}
+                  data-sanity={getSanityAttribute(docId, "priceListPage", `taglines[${i}]`)}
                   className="font-serif text-[22px] leading-[32px] tracking-[-0.5px] text-white/80 italic lg:text-[26px] lg:leading-[36px]"
                   style={{ opacity: 1 - i * 0.15 }}
                 >
@@ -170,15 +210,24 @@ export default async function PriceListPage({
       <section className="w-full bg-cream px-5 py-[80px] lg:py-[100px]">
         <div className="mx-auto max-w-[900px]">
           <div className="w-fit rounded-full border border-forest/20 px-4 py-2">
-            <p className="font-nav text-[11px] font-semibold tracking-[3px] text-forest uppercase">
-              {t("policyBadge")}
+            <p
+              data-sanity={getSanityAttribute(docId, "priceListPage", "policyBadge")}
+              className="font-nav text-[11px] font-semibold tracking-[3px] text-forest uppercase"
+            >
+              {policyBadge}
             </p>
           </div>
-          <h2 className="mt-4 font-display text-[30px] leading-[36px] font-bold tracking-[-1px] text-forest uppercase lg:text-[38px] lg:leading-[44px]">
-            {t("policyHeading")}
+          <h2
+            data-sanity={getSanityAttribute(docId, "priceListPage", "policyHeading")}
+            className="mt-4 font-display text-[30px] leading-[36px] font-bold tracking-[-1px] text-forest uppercase lg:text-[38px] lg:leading-[44px]"
+          >
+            {policyHeading}
           </h2>
-          <p className="mt-4 text-[15px] leading-[26px] text-body-text">
-            {t("policyIntro")}
+          <p
+            data-sanity={getSanityAttribute(docId, "priceListPage", "policyIntro")}
+            className="mt-4 text-[15px] leading-[26px] text-body-text"
+          >
+            {policyIntro}
           </p>
 
           <div className="mt-10 flex flex-col gap-8">
@@ -252,34 +301,45 @@ export default async function PriceListPage({
       <section className="relative w-full overflow-hidden bg-cream px-5 py-[80px] lg:py-[100px]">
         <div className="mx-auto flex max-w-[1400px] flex-col items-center gap-6 text-center">
           <div className="w-fit rounded-full border border-forest/20 px-4 py-2">
-            <p className="font-nav text-[11px] font-semibold tracking-[3px] text-forest uppercase">
-              {t("ctaBadge")}
+            <p
+              data-sanity={getSanityAttribute(docId, "priceListPage", "ctaBadge")}
+              className="font-nav text-[11px] font-semibold tracking-[3px] text-forest uppercase"
+            >
+              {ctaBadge}
             </p>
           </div>
-          <h2 className="font-display text-[36px] leading-[42px] font-bold tracking-[-1.5px] text-forest uppercase lg:text-[52px] lg:leading-[58px]">
-            {t("ctaHeading")}
+          <h2
+            data-sanity={getSanityAttribute(docId, "priceListPage", "ctaHeading")}
+            className="font-display text-[36px] leading-[42px] font-bold tracking-[-1.5px] text-forest uppercase lg:text-[52px] lg:leading-[58px]"
+          >
+            {ctaHeading}
           </h2>
-          <p className="max-w-[460px] text-[15px] leading-[26px] text-body-text">
-            {t("ctaSubtitle")}
+          <p
+            data-sanity={getSanityAttribute(docId, "priceListPage", "ctaSubtitle")}
+            className="max-w-[460px] text-[15px] leading-[26px] text-body-text"
+          >
+            {ctaSubtitle}
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link
               href="/#book"
+              data-sanity={getSanityAttribute(docId, "priceListPage", "bookCta")}
               className="inline-flex h-14 items-center gap-2 rounded-[8px] bg-tan px-8 font-nav text-[14px] font-semibold tracking-[-0.3px] text-forest transition-opacity hover:opacity-90"
             >
-              {t("bookCta")} →
+              {bookCta} →
             </Link>
             <Link
               href="/contact-us"
+              data-sanity={getSanityAttribute(docId, "priceListPage", "contactCta")}
               className="inline-flex h-14 items-center gap-2 rounded-[8px] border-[1.5px] border-forest/30 px-8 font-nav text-[14px] font-semibold tracking-[-0.3px] text-forest transition-colors hover:border-[#b49b7d] hover:bg-[#b49b7d] hover:text-cream"
             >
-              {t("contactCta")}
+              {contactCta}
             </Link>
           </div>
         </div>
       </section>
 
-      <Footer />
+      <Footer sanitySettings={sanitySettings} />
     </div>
   );
 }

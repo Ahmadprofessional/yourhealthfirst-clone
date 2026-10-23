@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import StructuredData from "@/components/StructuredData";
+import { sanityFetch } from "@/sanity/lib/fetch";
+import { SITE_SETTINGS_QUERY } from "@/sanity/lib/queries";
 
 interface Props {
   params: Promise<{ locale: string }>;
@@ -25,6 +27,11 @@ export default async function PrivacyPolicyPage({ params }: Props) {
   const { locale } = await params;
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.yourhealthfirst.uk";
 
+  const sanitySettings = await sanityFetch<any>({
+    query: SITE_SETTINGS_QUERY,
+    tags: ["siteSettings"],
+  });
+
   const breadcrumbs = [
     { name: "Home", item: `/${locale}` },
     { name: "Privacy Policy", item: `/${locale}/privacy-policy` },
@@ -32,7 +39,7 @@ export default async function PrivacyPolicyPage({ params }: Props) {
 
   return (
     <div className="flex flex-col min-h-screen bg-[#fafaf8]">
-      <Header />
+      <Header sanitySettings={sanitySettings} />
       <StructuredData type="breadcrumbs" breadcrumbs={breadcrumbs} />
 
       {/* Page Hero */}
@@ -201,7 +208,7 @@ export default async function PrivacyPolicyPage({ params }: Props) {
         </div>
       </main>
 
-      <Footer />
+      <Footer sanitySettings={sanitySettings} />
     </div>
   );
 }

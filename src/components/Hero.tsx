@@ -9,6 +9,8 @@ import {
   HandshakeIcon,
   MapPinIcon,
 } from "@/components/icons";
+import { getSanityAttribute } from "@/sanity/lib/dataAttribute";
+import { urlFor } from "@/sanity/lib/image";
 
 const GOLD = "#c9a84c";
 
@@ -22,26 +24,43 @@ const avatars = [
   "/images/about/collage-4.jpg",
 ];
 
-export default function Hero() {
+export default function Hero({ sanityData }: { sanityData?: any }) {
   const t = useTranslations("Hero");
 
+  const heroTitle = sanityData?.heroTitle;
+  const heroSubtitle = sanityData?.heroSubtitle || t("subtitle");
+  const heroBadge = sanityData?.heroBadge || t("harleyStreet");
+  const heroCtaText = sanityData?.heroCtaText || t("discoverMore");
+
+  // Doctor Hero Image (Sanity uploaded image or fallback to local photo)
+  const heroImageSrc = sanityData?.heroImage?.asset
+    ? urlFor(sanityData.heroImage).width(1920).quality(90).url()
+    : "/images/hero-desk.jpg";
+  const heroImageAlt =
+    sanityData?.heroImage?.alt ||
+    "Dr. Sofia Bouzian — YourHealthFirst Clinic, Harley Street London";
+
   return (
-    <section className="relative flex w-full flex-col overflow-hidden lg:block lg:h-[793px]">
-      {/* Photo: stacked below the text on mobile, full-bleed behind it on desktop */}
-      <div className="relative order-2 h-[480px] w-full sm:h-[600px] lg:absolute lg:inset-0 lg:h-full">
+    <section className="relative flex w-full flex-col overflow-hidden md:block md:h-[793px]">
+      {/* Photo: stacked below the text on mobile, full-bleed behind it on tablet/desktop */}
+      <div
+        data-sanity={getSanityAttribute("homePage", "homePage", "heroImage")}
+        className="relative order-2 h-[480px] w-full sm:h-[600px] md:absolute md:inset-0 md:h-full cursor-pointer"
+      >
         <Image
-          src="/images/hero-desk.jpg"
-          alt="Dr. Sofia Bouzian — YourHealthFirst Clinic, Harley Street London"
+          src={heroImageSrc}
+          alt={heroImageAlt}
           fill
           priority
           quality={92}
-          sizes="(min-width: 1024px) 2048px, 100vw"
-          className="object-cover object-[68%_center] lg:object-right"
+          sizes="(min-width: 768px) 2048px, 100vw"
+          className="object-cover object-[68%_center] md:object-right"
+          unoptimized={heroImageSrc.startsWith("http")}
         />
         {/* Dark brown fade over the left side so the text sits on it */}
         <div
           aria-hidden="true"
-          className="absolute inset-0 hidden lg:block"
+          className="absolute inset-0 hidden md:block"
           style={{
             background:
               "linear-gradient(90deg, #4a3826 0%, #1e1a14 16%, rgba(38,30,20,0.93) 28%, rgba(58,46,26,0.6) 40%, rgba(58,46,26,0.2) 50%, rgba(58,46,26,0) 58%)",
@@ -50,17 +69,28 @@ export default function Hero() {
       </div>
 
       {/* Text column */}
-      <div className="relative z-10 order-1 flex w-full flex-col gap-[10px] bg-[linear-gradient(90deg,#4a3826_0%,#8f7355_50%,#4a3826_100%)] px-5 pt-[150px] pb-16 sm:px-[60px] sm:pt-[160px] lg:w-[680px] lg:bg-none lg:pb-0 xl:px-[120px] xl:pt-[150px]">
+      <div className="relative z-10 order-1 flex w-full flex-col gap-[10px] bg-[linear-gradient(90deg,#4a3826_0%,#8f7355_50%,#4a3826_100%)] px-5 pt-[150px] pb-16 sm:px-[60px] sm:pt-[160px] md:w-[580px] lg:w-[680px] md:bg-none md:pb-0 xl:px-[120px] xl:pt-[150px]">
         <div className="flex flex-col gap-4">
-          <h2 className="font-display text-[46px] leading-[46px] font-medium text-white uppercase lg:text-[52px] lg:leading-[52px]">
-            {t("awardWinning")}
-          </h2>
-          <h2
-            className="-mt-3 font-display text-[56px] leading-[56px] font-medium uppercase lg:text-[64px] lg:leading-[64px]"
-            style={{ color: GOLD }}
-          >
-            {t("clinic")}
-          </h2>
+          {heroTitle ? (
+            <h1
+              data-sanity={getSanityAttribute("homePage", "homePage", "heroTitle")}
+              className="font-display text-[42px] leading-[44px] font-medium text-white uppercase lg:text-[48px] lg:leading-[50px]"
+            >
+              {heroTitle}
+            </h1>
+          ) : (
+            <>
+              <h2 className="font-display text-[46px] leading-[46px] font-medium text-white uppercase lg:text-[52px] lg:leading-[52px]">
+                {t("awardWinning")}
+              </h2>
+              <h2
+                className="-mt-3 font-display text-[56px] leading-[56px] font-medium uppercase lg:text-[64px] lg:leading-[64px]"
+                style={{ color: GOLD }}
+              >
+                {t("clinic")}
+              </h2>
+            </>
+          )}
 
           <div className="flex h-6 items-center py-[2px]">
             <span className="flex w-[80%] items-center">
@@ -70,8 +100,11 @@ export default function Hero() {
             </span>
           </div>
 
-          <h2 className="font-display text-[22px] leading-[28px] font-medium text-white/85 uppercase lg:text-[24px] whitespace-pre-line">
-            {t("subtitle")}
+          <h2
+            data-sanity={getSanityAttribute("homePage", "homePage", "heroSubtitle")}
+            className="font-display text-[22px] leading-[28px] font-medium text-white/85 uppercase lg:text-[24px] whitespace-pre-line"
+          >
+            {heroSubtitle}
           </h2>
         </div>
 
@@ -79,11 +112,18 @@ export default function Hero() {
           <div className="flex gap-[11px]">
             <MapPinIcon className="h-[28px] w-[28px] shrink-0" style={{ color: GOLD }} />
             <div>
-              <h3 className="font-display text-[18px] font-medium tracking-[0.5px] uppercase" style={{ color: GOLD }}>
-                {t("harleyStreet")}
+              <h3
+                data-sanity={getSanityAttribute("homePage", "homePage", "heroBadge")}
+                className="font-display text-[18px] font-medium tracking-[0.5px] uppercase"
+                style={{ color: GOLD }}
+              >
+                {heroBadge}
               </h3>
-              <p className="text-[14px] leading-[22px] text-white/75">
-                {t("since")}
+              <p
+                data-sanity={getSanityAttribute("homePage", "homePage", "heroSince")}
+                className="text-[14px] leading-[22px] text-white/75"
+              >
+                {sanityData?.heroSince || t("since")}
               </p>
             </div>
           </div>
@@ -91,9 +131,10 @@ export default function Hero() {
           <div>
             <a
               href="/about-us"
-              className="inline-flex items-center gap-3 rounded-[8px] border-[2px] border-[#c9a84c] px-[28px] py-[14px] font-display text-[15px] font-semibold tracking-[1px] text-[#c9a84c] uppercase transition-all duration-200 hover:bg-[#c9a84c] hover:text-[#4a3826]"
+              data-sanity={getSanityAttribute("homePage", "homePage", "heroCtaText")}
+              className="inline-flex items-center gap-3 rounded-[8px] border-[2px] border-[#c9a84c] px-[28px] py-[14px] font-display text-[15px] font-semibold tracking-[1px] text-[#c9a84c] uppercase transition-all duration-200 hover:bg-[#c9a84c] hover:text-[#4a3826] cursor-pointer"
             >
-              {t("discoverMore")}
+              {heroCtaText}
               <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
               </svg>
@@ -142,8 +183,11 @@ export default function Hero() {
               ))}
             </div>
             <div>
-              <p className="font-display text-[14px] font-medium text-white uppercase leading-[18px] whitespace-pre-line">
-                {t("trustedBy")}
+              <p
+                data-sanity={getSanityAttribute("homePage", "homePage", "heroTrustedBy")}
+                className="font-display text-[14px] font-medium text-white uppercase leading-[18px] whitespace-pre-line"
+              >
+                {sanityData?.heroTrustedBy || t("trustedBy")}
               </p>
               <div className="mt-1 flex gap-[2px]">
                 {[...Array(5)].map((_, i) => (

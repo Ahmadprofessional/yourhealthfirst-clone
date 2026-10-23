@@ -4,6 +4,8 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { testimonials } from "@/data/site";
 import { StarIcon, QuoteIcon } from "@/components/icons";
+import { getSanityAttribute } from "@/sanity/lib/dataAttribute";
+import { urlFor } from "@/sanity/lib/image";
 
 const testimonialKeys: Record<string, string> = {
   "Fariah Khan": "fariah",
@@ -12,12 +14,21 @@ const testimonialKeys: Record<string, string> = {
   "David V": "david",
 };
 
-export default function Testimonials() {
+export default function Testimonials({ sanityData }: { sanityData?: any }) {
   const t = useTranslations("Testimonials");
   const tList = useTranslations("TestimonialsList");
 
+  const badge = sanityData?.testimonialsBadge || t("badge");
+  const title = sanityData?.testimonialsTitle;
+  const list = sanityData?.testimonialsList;
+  const bgImage = sanityData?.testimonialsBgImage ? urlFor(sanityData.testimonialsBgImage).url() : "/images/testimonials-bg.jpg";
+
   return (
-    <section className="relative w-full bg-brown-gold bg-[url('/images/testimonials-bg.jpg')] bg-cover bg-left-top px-5">
+    <section
+      data-sanity={getSanityAttribute("homePage", "homePage", "testimonialsBgImage")}
+      style={{ backgroundImage: `url('${bgImage}')` }}
+      className="relative w-full bg-brown-gold bg-cover bg-left-top px-5 cursor-pointer"
+    >
       {/* Gold → black overlay */}
       <div
         aria-hidden="true"
@@ -28,16 +39,31 @@ export default function Testimonials() {
         {/* Heading */}
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div className="flex flex-col gap-6">
-            <div className="w-fit rounded-[25px] border-[0.8px] border-white px-3 py-2">
+            <div
+              data-sanity={getSanityAttribute("homePage", "homePage", "testimonialsBadge")}
+              className="w-fit rounded-[25px] border-[0.8px] border-white px-3 py-2"
+            >
               <h2 className="text-[13px] leading-[20.8px] font-semibold tracking-[3px] text-white uppercase">
-                {t("badge")}
+                {badge}
               </h2>
             </div>
 
-            <h2 className="font-subheading text-[36px] leading-[40px] font-medium tracking-[-1.8px] text-black uppercase lg:text-[50px] lg:leading-[55px]">
-              <span className="block text-tan">{t("heading1")}</span>
-              {t("heading2")}
-            </h2>
+            {title ? (
+              <h2
+                data-sanity={getSanityAttribute("homePage", "homePage", "testimonialsTitle")}
+                className="font-subheading text-[36px] leading-[40px] font-medium tracking-[-1.8px] text-tan uppercase lg:text-[50px] lg:leading-[55px]"
+              >
+                {title}
+              </h2>
+            ) : (
+              <h2
+                data-sanity={getSanityAttribute("homePage", "homePage", "testimonialsTitle")}
+                className="font-subheading text-[36px] leading-[40px] font-medium tracking-[-1.8px] text-black uppercase lg:text-[50px] lg:leading-[55px]"
+              >
+                <span className="block text-tan">{t("heading1")}</span>
+                {t("heading2")}
+              </h2>
+            )}
           </div>
 
           <a
@@ -52,10 +78,12 @@ export default function Testimonials() {
 
         {/* Cards */}
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          {testimonials.map((item) => {
+          {testimonials.map((item, index) => {
             const key = testimonialKeys[item.name];
-            const quote = key && tList.has(`${key}.quote`) ? tList(`${key}.quote`) : item.quote;
-            const role = key && tList.has(`${key}.role`) ? tList(`${key}.role`) : item.role;
+            const sanItem = list?.[index];
+            const quote = sanItem?.quote || (key && tList.has(`${key}.quote`) ? tList(`${key}.quote`) : item.quote);
+            const role = sanItem?.treatment || (key && tList.has(`${key}.role`) ? tList(`${key}.role`) : item.role);
+            const patientName = sanItem?.patientName || item.name;
 
             return (
               <article
@@ -63,30 +91,41 @@ export default function Testimonials() {
                 className="relative flex flex-col rounded-[8px] border-[1.6px] border-tan p-4 shadow-[9px_11px_14px_0_rgba(0,0,0,0.1)] lg:min-h-[260px]"
               >
                 <ul className="flex h-[18px] items-center">
-                  {Array.from({ length: 5 }).map((_, index) => (
-                    <li key={index} className="mr-[3px] last:mr-0">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <li key={i} className="mr-[3px] last:mr-0">
                       <StarIcon className="h-3 w-3 text-[#fec42d]" />
                     </li>
                   ))}
                 </ul>
 
-                <p className="my-4 line-clamp-5 text-[13px] leading-[20px] font-medium tracking-[-0.2px] text-white">
+                <p
+                  data-sanity={getSanityAttribute("homePage", "homePage", `testimonialsList[${index}].quote`)}
+                  className="my-4 line-clamp-5 text-[13px] leading-[20px] font-medium tracking-[-0.2px] text-white"
+                >
                   {quote}
                 </p>
 
                 <div className="mt-auto flex items-center">
                   <Image
-                    src={item.avatar}
-                    alt={item.name}
+                    src={sanItem?.avatar ? urlFor(sanItem.avatar).url() : item.avatar}
+                    alt={patientName}
                     width={44}
                     height={44}
+                    data-sanity={getSanityAttribute("homePage", "homePage", `testimonialsList[${index}].avatar`)}
                     className="mr-3 rtl:mr-0 rtl:ml-3 h-[44px] w-[44px] shrink-0 rounded-full border border-tan/60 object-cover"
+                    unoptimized={Boolean(sanItem?.avatar)}
                   />
                   <div>
-                    <strong className="block font-display text-[15px] leading-[18px] font-medium tracking-[-0.5px] text-tan uppercase">
-                      {item.name}
+                    <strong
+                      data-sanity={getSanityAttribute("homePage", "homePage", `testimonialsList[${index}].patientName`)}
+                      className="block font-display text-[15px] leading-[18px] font-medium tracking-[-0.5px] text-tan uppercase"
+                    >
+                      {patientName}
                     </strong>
-                    <span className="text-[11px] leading-[18px] font-normal tracking-[-0.2px] text-white">
+                    <span
+                      data-sanity={getSanityAttribute("homePage", "homePage", `testimonialsList[${index}].treatment`)}
+                      className="text-[11px] leading-[18px] font-normal tracking-[-0.2px] text-white"
+                    >
                       {role}
                     </span>
                   </div>

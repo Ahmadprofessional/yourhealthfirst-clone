@@ -44,8 +44,25 @@ const socials = [
   },
 ];
 
-export default function Footer() {
+import { getSanityAttribute } from "@/sanity/lib/dataAttribute";
+import { urlFor } from "@/sanity/lib/image";
+
+export default function Footer({ sanitySettings }: { sanitySettings?: any }) {
   const t = useTranslations("Footer");
+
+  const ctaHeading = sanitySettings?.footerCtaHeading || t("ctaHeading");
+  const ctaSubtitle = sanitySettings?.footerCtaSubtitle || t("ctaSubtitle");
+  const ctaDescription = sanitySettings?.footerCtaDescription || t("ctaDescription");
+  const copyrightText =
+    sanitySettings?.copyrightText ||
+    `© ${new Date().getFullYear()} YourHealthFirst Clinic. All rights reserved. 2 Wimpole Street, 2nd Floor, London W1G 0EB.`;
+  const clinicName = sanitySettings?.clinicName || t("clinicName");
+  const callNowText = sanitySettings?.callNowText || t("callNow");
+  const emailNowText = sanitySettings?.emailNowText || t("emailNow");
+  const phone1 = sanitySettings?.contactPhone1 || contact.phone1;
+  const phone2 = sanitySettings?.contactPhone2 || contact.phone2;
+  const email = sanitySettings?.contactEmail || contact.email;
+  const address = sanitySettings?.contactAddress || contact.address;
 
   const quickLinks = [
     { label: t("home"), href: "/" as const },
@@ -54,20 +71,32 @@ export default function Footer() {
     { label: t("contact"), href: "/contact-us" as const },
   ];
 
+  const displayedLogos = sanitySettings?.accreditationLogos?.length > 0
+    ? sanitySettings.accreditationLogos.map((item: any, i: number) => ({
+        src: item.image ? urlFor(item.image).url() : accreditationLogos[i % accreditationLogos.length]?.src,
+        alt: item.alt || "Accreditation Logo",
+        key: `sanity-${i}`,
+      }))
+    : accreditationLogos.map((item) => ({ ...item, key: item.src }));
+
   return (
     <>
       {/* Accreditation logos bar */}
-      <div className="w-full border-t border-gray-100 bg-white px-5 py-10">
+      <div
+        className="w-full border-t border-gray-100 bg-white px-5 py-10"
+        data-sanity={getSanityAttribute("siteSettings", "siteSettings", "accreditationLogos")}
+      >
         <div className="mx-auto max-w-[1400px]">
           <div className="flex flex-wrap items-center justify-center gap-8 lg:gap-10">
-            {accreditationLogos.map((logo) => (
+            {displayedLogos.map((logo: any) => (
               <Image
-                key={logo.src}
+                key={logo.key || logo.src}
                 src={logo.src}
                 alt={logo.alt}
                 width={160}
                 height={80}
                 className="h-[80px] w-auto max-w-[160px] object-contain"
+                unoptimized={typeof logo.src === "string" && logo.src.startsWith("http")}
               />
             ))}
           </div>
@@ -78,8 +107,11 @@ export default function Footer() {
       <div className="mx-auto flex max-w-[1400px] flex-col gap-[50px] py-[100px]">
         {/* Brand + socials */}
         <div className="flex flex-col gap-2">
-          <h2 className="text-center font-subheading text-[34px] leading-[38px] font-medium tracking-[-1.8px] text-cream uppercase lg:text-[50px] lg:leading-[55px]">
-            {t("clinicName")}
+          <h2
+            data-sanity={getSanityAttribute("siteSettings", "siteSettings", "clinicName")}
+            className="text-center font-subheading text-[34px] leading-[38px] font-medium tracking-[-1.8px] text-cream uppercase lg:text-[50px] lg:leading-[55px]"
+          >
+            {clinicName}
           </h2>
           <div className="flex justify-center gap-[10px]">
             {socials.map(({ label, href, Icon }) => (
@@ -101,32 +133,43 @@ export default function Footer() {
         <div className="flex flex-col gap-6 pt-[30px] lg:flex-row">
           {/* CTA */}
           <div className="flex flex-col gap-6 lg:flex-1 lg:min-w-0 xl:w-[716px] xl:flex-none">
-            <h2 className="max-w-[573px] font-subheading text-[25px] leading-[30px] font-bold tracking-[-1px] text-white uppercase">
-              {t("ctaHeading")}
+            <h2
+              data-sanity={getSanityAttribute("siteSettings", "siteSettings", "footerCtaHeading")}
+              className="max-w-[573px] font-subheading text-[25px] leading-[30px] font-bold tracking-[-1px] text-white uppercase"
+            >
+              {ctaHeading}
             </h2>
 
             <div className="max-w-[394px] text-[16px] leading-[25.6px] font-medium tracking-[-0.2px] text-white">
-              <p>{t("ctaSubtitle")}</p>
-              <p>
-                {t("ctaDescription")}
+              <p
+                data-sanity={getSanityAttribute("siteSettings", "siteSettings", "footerCtaSubtitle")}
+              >
+                {ctaSubtitle}
+              </p>
+              <p
+                data-sanity={getSanityAttribute("siteSettings", "siteSettings", "footerCtaDescription")}
+              >
+                {ctaDescription}
               </p>
             </div>
 
             <div className="relative flex w-fit items-center">
               <a
-                href="tel:02072253582"
+                href={`tel:${phone1.replace(/\s+/g, "")}`}
+                data-sanity={getSanityAttribute("siteSettings", "siteSettings", "callNowText")}
                 className="flex h-14 w-[179px] items-center justify-center rounded-l-[7px] bg-rust p-[15px] text-[16px] font-bold tracking-[-0.2px] text-white"
               >
-                {t("callNow")}
+                {callNowText}
               </a>
               <span className="absolute left-1/2 z-10 flex h-10 w-10 -translate-x-1/2 items-center justify-center rounded-full bg-[#fafaf8] text-[14px] font-medium text-forest uppercase">
                 {t("or")}
               </span>
               <a
-                href={`mailto:${contact.email}`}
+                href={`mailto:${email}`}
+                data-sanity={getSanityAttribute("siteSettings", "siteSettings", "emailNowText")}
                 className="flex h-14 w-[179px] items-center justify-center rounded-r-[7px] bg-cream p-[15px] text-[16px] font-bold tracking-[-0.2px] text-rust"
               >
-                {t("emailNow")}
+                {emailNowText}
               </a>
             </div>
           </div>
@@ -158,25 +201,42 @@ export default function Footer() {
               <ul className="flex flex-col gap-[9px] text-[16px] leading-[25.6px] font-medium tracking-[-0.2px] text-cream">
                 <li className="flex items-center">
                   <PhoneIcon className="h-[14px] w-[14px] shrink-0" />
-                  <a href="tel:02072253582" className="pl-[5px]">
-                    {contact.phone1}
+                  <a
+                    href={`tel:${phone1.replace(/\s+/g, "")}`}
+                    data-sanity={getSanityAttribute("siteSettings", "siteSettings", "contactPhone1")}
+                    className="pl-[5px] cursor-pointer hover:underline"
+                  >
+                    {phone1}
                   </a>
                 </li>
                 <li className="flex items-center">
                   <MobileIcon className="h-[14px] w-[14px] shrink-0" />
-                  <a href="tel:07818474041" className="pl-[5px]">
-                    {contact.phone2}
+                  <a
+                    href={`tel:${phone2.replace(/\s+/g, "")}`}
+                    data-sanity={getSanityAttribute("siteSettings", "siteSettings", "contactPhone2")}
+                    className="pl-[5px] cursor-pointer hover:underline"
+                  >
+                    {phone2}
                   </a>
                 </li>
                 <li className="flex items-center">
                   <EnvelopeIcon className="h-[14px] w-[14px] shrink-0" />
-                  <a href={`mailto:${contact.email}`} className="pl-[5px]">
-                    {contact.email}
+                  <a
+                    href={`mailto:${email}`}
+                    data-sanity={getSanityAttribute("siteSettings", "siteSettings", "contactEmail")}
+                    className="pl-[5px] cursor-pointer hover:underline"
+                  >
+                    {email}
                   </a>
                 </li>
                 <li className="flex items-center">
                   <MapPinIcon className="h-[14px] w-[14px] shrink-0" />
-                  <span className="pl-[5px]">{contact.address}</span>
+                  <span
+                    data-sanity={getSanityAttribute("siteSettings", "siteSettings", "contactAddress")}
+                    className="pl-[5px] cursor-pointer"
+                  >
+                    {address}
+                  </span>
                 </li>
               </ul>
             </div>
@@ -185,8 +245,11 @@ export default function Footer() {
 
         {/* Bottom Legal & Compliance Bar */}
         <div className="border-t border-white/15 pt-8 pb-2 flex flex-col md:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-cream/75">
-          <p className="text-center md:text-left">
-            © {new Date().getFullYear()} YourHealthFirst Clinic. All rights reserved. 2 Wimpole Street, 2nd Floor, London W1G 0EB.
+          <p
+            data-sanity={getSanityAttribute("siteSettings", "siteSettings", "copyrightText")}
+            className="text-center md:text-left"
+          >
+            {copyrightText}
           </p>
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
             <Link

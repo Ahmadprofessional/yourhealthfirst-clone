@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import type { TreatmentFaq } from "@/data/treatments";
+import { getSanityAttribute } from "@/sanity/lib/dataAttribute";
 
-export default function TreatmentFaqAccordion({ items }: { items: TreatmentFaq[] }) {
+export default function TreatmentFaqAccordion({ items, docId }: { items: TreatmentFaq[]; docId?: string }) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
@@ -19,6 +20,7 @@ export default function TreatmentFaqAccordion({ items }: { items: TreatmentFaq[]
               type="button"
               onClick={() => setOpenIndex(isOpen ? null : index)}
               aria-expanded={isOpen}
+              data-sanity={docId ? getSanityAttribute(docId, "treatment", `faqs[${index}].question`) : undefined}
               className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
             >
               <span className="font-subheading text-[15px] font-semibold leading-[22px] text-forest">
@@ -42,7 +44,12 @@ export default function TreatmentFaqAccordion({ items }: { items: TreatmentFaq[]
             >
               <div className="overflow-hidden">
                 <div className="flex flex-col gap-4 px-6 pb-5">
-                  <p className="text-[14px] leading-[24px] text-body-text">{item.answer}</p>
+                  <p
+                    data-sanity={docId ? getSanityAttribute(docId, "treatment", `faqs[${index}].answer`) : undefined}
+                    className="text-[14px] leading-[24px] text-body-text"
+                  >
+                    {item.answer}
+                  </p>
                   {item.sections?.map((section) => (
                     <div key={section.heading} className="flex flex-col gap-2">
                       <h4 className="font-subheading text-[12px] font-semibold tracking-[1.5px] text-forest uppercase">

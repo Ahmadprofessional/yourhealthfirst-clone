@@ -6,6 +6,10 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { routing } from "@/i18n/routing";
 import { getAllBlogSlugs, getBlogPostBySlug, getAllBlogPosts, BlogPost } from "@/data/blogs";
+import { sanityFetch } from "@/sanity/lib/fetch";
+import { BLOG_BY_SLUG_QUERY, SITE_SETTINGS_QUERY } from "@/sanity/lib/queries";
+import { getSanityAttribute } from "@/sanity/lib/dataAttribute";
+import { urlFor } from "@/sanity/lib/image";
 
 interface PageProps {
   params: Promise<{ locale: string; slug: string }>;
@@ -87,6 +91,37 @@ export default async function BlogDetailPage({ params }: PageProps) {
     notFound();
   }
 
+  const [sanityPost, sanitySettings] = await Promise.all([
+    sanityFetch<any>({
+      query: BLOG_BY_SLUG_QUERY,
+      params: { slug },
+      tags: ["blogPost", `blogPost-${slug}`],
+    }),
+    sanityFetch<any>({
+      query: SITE_SETTINGS_QUERY,
+      tags: ["siteSettings"],
+    }),
+  ]);
+  const docId = sanityPost?._id || `blogPost-${slug}`;
+
+  const postTitle = sanityPost?.title || post.title;
+  const postExcerpt = sanityPost?.excerpt || post.excerpt;
+  const postCategory = sanityPost?.category || post.category;
+  const postReadTime = sanityPost?.readTime || post.readTime;
+  const postDate = sanityPost?.publishedAt || post.date;
+  const postCoverImageUrl = (sanityPost?.coverImage ? urlFor(sanityPost.coverImage)?.url() : null) || post.image;
+  const postKeyTakeaways = (sanityPost?.keyTakeaways && sanityPost.keyTakeaways.length > 0)
+    ? sanityPost.keyTakeaways
+    : post.keyTakeaways;
+  const postAuthorName = sanityPost?.authorName || post.author.name;
+  const postAuthorRole = sanityPost?.authorRole || post.author.role;
+  const postSections = (sanityPost?.body && sanityPost.body.length > 0)
+    ? sanityPost.body
+    : post.sections;
+  const postFaqs = (sanityPost?.faqs && sanityPost.faqs.length > 0)
+    ? sanityPost.faqs
+    : post.faqs;
+
   const allPosts = getAllBlogPosts();
   const relatedPosts = allPosts.filter((p) => p.slug !== post.slug).slice(0, 3);
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.yourhealthfirst.uk";
@@ -138,7 +173,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <Header />
+      <Header sanitySettings={sanitySettings} />
 
       <main className="flex-1">
         {/* Article Hero */}
@@ -166,22 +201,31 @@ export default async function BlogDetailPage({ params }: PageProps) {
 
             {/* Category badge & metadata */}
             <div className="flex flex-wrap items-center gap-3 mb-5">
-              <span className="rounded-full bg-tan/20 border border-tan/30 px-3.5 py-1 text-[11px] font-semibold tracking-[1px] text-tan uppercase">
-                {post.category}
+              <span
+                className="rounded-full bg-tan/20 border border-tan/30 px-3.5 py-1 text-[11px] font-semibold tracking-[1px] text-tan uppercase"
+                data-sanity={getSanityAttribute(docId, "blogPost", "category")}
+              >
+                {postCategory}
               </span>
-              <span className="text-[13px] text-cream/60">{post.date}</span>
+              <span className="text-[13px] text-cream/60">{postDate}</span>
               <span className="text-cream/30">•</span>
-              <span className="text-[13px] text-cream/60">{post.readTime}</span>
+              <span className="text-[13px] text-cream/60">{postReadTime}</span>
             </div>
 
             {/* Main Headline */}
-            <h1 className="font-display text-[32px] sm:text-[44px] lg:text-[54px] font-bold leading-[1.15] tracking-[-1px] text-cream uppercase max-w-[1050px]">
-              {post.title}
+            <h1
+              className="font-display text-[32px] sm:text-[44px] lg:text-[54px] font-bold leading-[1.15] tracking-[-1px] text-cream uppercase max-w-[1050px]"
+              data-sanity={getSanityAttribute(docId, "blogPost", "title")}
+            >
+              {postTitle}
             </h1>
 
             {/* Subtitle / Excerpt */}
-            <p className="mt-5 text-[17px] sm:text-[19px] leading-[28px] text-cream/80 max-w-[860px] font-light">
-              {post.excerpt}
+            <p
+              className="mt-5 text-[17px] sm:text-[19px] leading-[28px] text-cream/80 max-w-[860px] font-light"
+              data-sanity={getSanityAttribute(docId, "blogPost", "excerpt")}
+            >
+              {postExcerpt}
             </p>
 
             {/* Author bar */}
@@ -190,15 +234,18 @@ export default async function BlogDetailPage({ params }: PageProps) {
                 <div className="relative h-13 w-13 rounded-full overflow-hidden border-2 border-tan/60 shrink-0">
                   <SafeImage
                     src={post.author.image}
-                    alt={post.author.name}
+                    alt={postAuthorName}
                     className="h-full w-full object-cover"
                   />
                 </div>
                 <div>
-                  <p className="font-semibold text-[15px] text-cream tracking-[0.2px]">
-                    {post.author.name}
+                  <p
+                    className="font-semibold text-[15px] text-cream tracking-[0.2px]"
+                    data-sanity={getSanityAttribute(docId, "blogPost", "authorName")}
+                  >
+                    {postAuthorName}
                   </p>
-                  <p className="text-[12px] text-tan font-nav">{post.author.role}</p>
+                  <p className="text-[12px] text-tan font-nav">{postAuthorRole}</p>
                   <p className="text-[11px] text-cream/50">2 Wimpole Street, London W1G 0EB</p>
                 </div>
               </div>
@@ -226,9 +273,10 @@ export default async function BlogDetailPage({ params }: PageProps) {
                 aria-hidden="true"
               />
               <SafeImage
-                src={post.image}
+                src={postCoverImageUrl}
                 alt={post.imageAlt}
                 className="relative z-10 h-full w-full object-contain"
+                data-sanity={getSanityAttribute(docId, "blogPost", "coverImage")}
               />
               <div className="absolute bottom-3 right-3 bg-black/70 backdrop-blur-md px-3 py-1.5 rounded-[6px] text-[11px] text-white/80 font-nav tracking-wide z-20">
                 YourHealthFirst Clinic London
@@ -244,7 +292,10 @@ export default async function BlogDetailPage({ params }: PageProps) {
               {/* Content Column (8 cols) */}
               <article className="lg:col-span-8 flex flex-col gap-10">
                 {/* Key Takeaways Box */}
-                <div className="rounded-[14px] bg-[#1a2119] border border-tan/30 p-6 sm:p-8 text-cream shadow-lg">
+                <div
+                  className="rounded-[14px] bg-[#1a2119] border border-tan/30 p-6 sm:p-8 text-cream shadow-lg"
+                  data-sanity={getSanityAttribute(docId, "blogPost", "keyTakeaways")}
+                >
                   <div className="flex items-center gap-3 mb-4">
                     <span className="flex h-7 w-7 items-center justify-center rounded-full bg-tan/20 text-tan text-[14px]">
                       ✦
@@ -254,7 +305,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
                     </h2>
                   </div>
                   <ul className="space-y-3">
-                    {post.keyTakeaways.map((takeaway, idx) => (
+                    {postKeyTakeaways.map((takeaway: string, idx: number) => (
                       <li key={idx} className="flex items-start gap-3 text-[15px] leading-[24px] text-cream/90">
                         <span className="text-tan mt-1 shrink-0 font-bold">✓</span>
                         <span>{takeaway}</span>
@@ -265,9 +316,12 @@ export default async function BlogDetailPage({ params }: PageProps) {
 
                 {/* Article Body Sections */}
                 <div className="flex flex-col gap-10">
-                  {post.sections.map((sec, sIdx) => (
+                  {postSections.map((sec: any, sIdx: number) => (
                     <section key={sIdx} className="space-y-4">
-                      <h2 className="font-subheading text-[24px] sm:text-[28px] font-bold text-forest tracking-[-0.5px] uppercase">
+                      <h2
+                        className="font-subheading text-[24px] sm:text-[28px] font-bold text-forest tracking-[-0.5px] uppercase"
+                        data-sanity={getSanityAttribute(docId, "blogPost", `body[${sIdx}].heading`)}
+                      >
                         {sec.heading}
                       </h2>
 
@@ -277,15 +331,19 @@ export default async function BlogDetailPage({ params }: PageProps) {
                         </h3>
                       )}
 
-                      {sec.paragraphs.map((para, pIdx) => (
-                        <p key={pIdx} className="text-[16px] sm:text-[17px] leading-[29px] text-[#333333]">
+                      {sec.paragraphs?.map((para: string, pIdx: number) => (
+                        <p
+                          key={pIdx}
+                          className="text-[16px] sm:text-[17px] leading-[29px] text-[#333333]"
+                          data-sanity={getSanityAttribute(docId, "blogPost", `body[${sIdx}].paragraphs[${pIdx}]`)}
+                        >
                           {para}
                         </p>
                       ))}
 
                       {sec.bullets && sec.bullets.length > 0 && (
                         <ul className="space-y-2.5 my-4 pl-2">
-                          {sec.bullets.map((bullet, bIdx) => (
+                          {sec.bullets.map((bullet: string, bIdx: number) => (
                             <li key={bIdx} className="flex items-start gap-3 text-[15.5px] leading-[26px] text-[#333333]">
                               <span className="h-2 w-2 rounded-full bg-tan mt-2.5 shrink-0" />
                               <span>{bullet}</span>
@@ -317,7 +375,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
                 )}
 
                 {/* Clinical FAQs Accordion */}
-                {post.faqs && post.faqs.length > 0 && (
+                {postFaqs && postFaqs.length > 0 && (
                   <section className="space-y-6 pt-6 border-t border-black/10">
                     <div className="flex items-center gap-2">
                       <span className="text-tan font-bold text-[18px]">?</span>
@@ -327,15 +385,21 @@ export default async function BlogDetailPage({ params }: PageProps) {
                     </div>
 
                     <div className="space-y-4">
-                      {post.faqs.map((faq, fIdx) => (
+                      {postFaqs.map((faq: any, fIdx: number) => (
                         <div
                           key={fIdx}
                           className="rounded-[10px] border border-black/10 bg-white p-6 shadow-sm transition-all"
                         >
-                          <h3 className="text-[17px] font-bold text-forest mb-2">
+                          <h3
+                            className="text-[17px] font-bold text-forest mb-2"
+                            data-sanity={getSanityAttribute(docId, "blogPost", `faqs[${fIdx}].question`)}
+                          >
                             {faq.question}
                           </h3>
-                          <p className="text-[15px] leading-[25px] text-[#4a4a4a]">
+                          <p
+                            className="text-[15px] leading-[25px] text-[#4a4a4a]"
+                            data-sanity={getSanityAttribute(docId, "blogPost", `faqs[${fIdx}].answer`)}
+                          >
                             {faq.answer}
                           </p>
                         </div>
@@ -504,7 +568,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
         </section>
       </main>
 
-      <Footer />
+      <Footer sanitySettings={sanitySettings} />
     </div>
   );
 }

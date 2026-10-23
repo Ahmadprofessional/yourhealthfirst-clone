@@ -155,8 +155,14 @@ function ServiceIcon({ icon, bg }: { icon?: string; bg?: string }) {
   );
 }
 
+import { getSanityAttribute } from "@/sanity/lib/dataAttribute";
+
 /* ── GHP Award Badge (real certificate design) ── */
-function GhpBadge({ t }: { t: ReturnType<typeof useTranslations<"Services">> }) {
+function GhpBadge({ t, sanityData }: { t: ReturnType<typeof useTranslations<"Services">>; sanityData?: any }) {
+  const small = sanityData?.servicesGhpSmall || t("ghpBadgeSmall");
+  const title = sanityData?.servicesGhpTitle || t("ghpBadgeTitle");
+  const year = sanityData?.servicesGhpYear || t("ghpBadgeYear");
+
   return (
     <a
       href="https://ghpnews.digital/winners/yourhealthfirst-clinic/"
@@ -171,45 +177,75 @@ function GhpBadge({ t }: { t: ReturnType<typeof useTranslations<"Services">> }) 
         <text x="30" y="40" textAnchor="middle" fontSize="16" fontWeight="700" fill="white" fontFamily="sans-serif">ghp</text>
       </svg>
       <div className="min-w-0">
-        <p className="font-nav text-[10px] font-semibold tracking-[2px] text-forest/80 uppercase">{t("ghpBadgeSmall")}</p>
-        <p className="font-subheading text-[14px] font-semibold leading-[18px] tracking-[-0.3px] text-forest">
-          {t("ghpBadgeTitle")}
+        <p
+          data-sanity={getSanityAttribute("homePage", "homePage", "servicesGhpSmall")}
+          className="font-nav text-[10px] font-semibold tracking-[2px] text-forest/80 uppercase cursor-pointer"
+        >
+          {small}
         </p>
-        <p className="font-nav text-[11px] text-forest/60">{t("ghpBadgeYear")}</p>
+        <p
+          data-sanity={getSanityAttribute("homePage", "homePage", "servicesGhpTitle")}
+          className="font-subheading text-[14px] font-semibold leading-[18px] tracking-[-0.3px] text-forest cursor-pointer"
+        >
+          {title}
+        </p>
+        <p
+          data-sanity={getSanityAttribute("homePage", "homePage", "servicesGhpYear")}
+          className="font-nav text-[11px] text-forest/60 cursor-pointer"
+        >
+          {year}
+        </p>
       </div>
     </a>
   );
 }
 
-export default function Services() {
+export default function Services({ sanityData }: { sanityData?: any }) {
   const t = useTranslations("Services");
   const tList = useTranslations("ServiceList");
+
+  const badge = sanityData?.servicesBadge || t("badge");
+  const subtitle = sanityData?.servicesSubtitle || t("subtitle");
 
   return (
     <section className="w-full px-5">
       <div className="mx-auto flex max-w-[1400px] flex-col gap-8 pt-[20px] pb-[100px]">
         {/* Header */}
         <div className="flex flex-col items-center gap-5">
-          <div className="w-fit rounded-full border-[0.8px] border-[rgba(11,23,4,0.2)] px-4 py-2">
+          <div
+            data-sanity={getSanityAttribute("homePage", "homePage", "servicesBadge")}
+            className="w-fit rounded-full border-[0.8px] border-[rgba(11,23,4,0.2)] px-4 py-2"
+          >
             <h2 className="text-[18px] leading-[24px] font-semibold tracking-[2px] text-forest uppercase lg:text-[22px] lg:leading-[28px]">
-              {t("badge")}
+              {badge}
             </h2>
           </div>
-          <h2 className="max-w-[700px] text-center font-subheading text-[15px] leading-[19px] font-medium tracking-[-0.3px] text-forest uppercase lg:text-[17px] lg:leading-[21px]">
-            {t("subtitle")}
+          <h2
+            data-sanity={getSanityAttribute("homePage", "homePage", "servicesSubtitle")}
+            className="max-w-[700px] text-center font-subheading text-[15px] leading-[19px] font-medium tracking-[-0.3px] text-forest uppercase lg:text-[17px] lg:leading-[21px]"
+          >
+            {subtitle}
           </h2>
-          <GhpBadge t={t} />
+          <GhpBadge t={t} sanityData={sanityData} />
         </div>
 
         {/* Cards */}
         <div className="grid gap-7 md:grid-cols-2 lg:grid-cols-3">
-          {services.map((service) => {
-            const title = tList.has(`${service.slug}.title`)
-              ? tList(`${service.slug}.title`)
-              : service.title;
-            const description = tList.has(`${service.slug}.description`)
-              ? tList(`${service.slug}.description`)
-              : service.description.map((s) => s.text).join("");
+          {services.map((service, index) => {
+            const sanCard =
+              sanityData?.servicesList?.find((item: any) => item.slug === service.slug) ||
+              sanityData?.servicesList?.[index];
+
+            const title =
+              sanCard?.title ||
+              (tList.has(`${service.slug}.title`)
+                ? tList(`${service.slug}.title`)
+                : service.title);
+            const description =
+              sanCard?.description ||
+              (tList.has(`${service.slug}.description`)
+                ? tList(`${service.slug}.description`)
+                : service.description.map((s) => s.text).join(""));
 
             return (
               <article
@@ -217,14 +253,20 @@ export default function Services() {
                 className="flex flex-col justify-between gap-7 rounded-[10px] border-[1.6px] border-tan bg-[rgba(209,174,131,0.12)] p-7 transition-shadow duration-200 hover:shadow-md"
               >
                 <div className="flex items-start justify-between gap-4">
-                  <h3 className="font-display text-[26px] leading-[31px] font-medium text-forest uppercase lg:text-[32px] lg:leading-[37px]">
+                  <h3
+                    data-sanity={getSanityAttribute("homePage", "homePage", `servicesList[${index}].title`)}
+                    className="font-display text-[26px] leading-[31px] font-medium text-forest uppercase lg:text-[32px] lg:leading-[37px]"
+                  >
                     {title}
                   </h3>
                   <ServiceIcon icon={service.icon} bg={service.iconBg} />
                 </div>
 
                 <div className="flex flex-col gap-3">
-                  <p className="text-[16px] leading-[26px] font-medium tracking-[-0.2px] text-body-text">
+                  <p
+                    data-sanity={getSanityAttribute("homePage", "homePage", `servicesList[${index}].description`)}
+                    className="text-[16px] leading-[26px] font-medium tracking-[-0.2px] text-body-text"
+                  >
                     {description}
                   </p>
                   <div className="mt-2">

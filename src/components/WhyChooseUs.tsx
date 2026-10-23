@@ -7,6 +7,7 @@ import {
   CogIcon,
   CheckCircleIcon,
 } from "@/components/icons";
+import { getSanityAttribute } from "@/sanity/lib/dataAttribute";
 
 const featureIcons = [UserIcon, EditIcon, CogIcon, CheckCircleIcon];
 const darkCard = [true, false, false, true];
@@ -18,20 +19,30 @@ const featureKeys = [
   { title: "feature4Title", desc: "feature4Desc" },
 ] as const;
 
-export default function WhyChooseUs() {
+export default function WhyChooseUs({ sanityData }: { sanityData?: any }) {
   const t = useTranslations("WhyChooseUs");
+
+  const badge = sanityData?.whyChooseBadge || t("badge");
+  const heading = sanityData?.whyChooseTitle || t("heading");
+  const features = sanityData?.whyChooseFeatures;
 
   return (
     <section className="w-full bg-cream px-5">
       <div className="mx-auto flex max-w-[1400px] flex-col gap-10 py-[100px]">
         <div className="flex flex-col gap-6">
-          <div className="w-fit rounded-full border-[0.8px] border-forest px-3 py-2">
+          <div
+            data-sanity={getSanityAttribute("homePage", "homePage", "whyChooseBadge")}
+            className="w-fit rounded-full border-[0.8px] border-forest px-3 py-2"
+          >
             <h2 className="text-[13px] leading-[20.8px] font-semibold tracking-[3px] text-forest uppercase">
-              {t("badge")}
+              {badge}
             </h2>
           </div>
-          <h2 className="max-w-[708px] font-subheading text-[34px] leading-[38px] font-medium tracking-[-1.8px] text-rust uppercase lg:text-[50px] lg:leading-[55px]">
-            {t("heading")}
+          <h2
+            data-sanity={getSanityAttribute("homePage", "homePage", "whyChooseTitle")}
+            className="max-w-[708px] font-subheading text-[34px] leading-[38px] font-medium tracking-[-1.8px] text-rust uppercase lg:text-[50px] lg:leading-[55px]"
+          >
+            {heading}
           </h2>
         </div>
 
@@ -39,6 +50,10 @@ export default function WhyChooseUs() {
           {featureKeys.map((item, index) => {
             const Icon = featureIcons[index];
             const isDark = darkCard[index];
+            const feat = features?.[index];
+            const cardTitle = feat?.title || t(item.title);
+            const cardDesc = feat?.description || t(item.desc);
+
             return (
               <article
                 key={item.title}
@@ -50,18 +65,20 @@ export default function WhyChooseUs() {
                   className={`h-6 w-6 ${isDark ? "text-white" : "text-rust"}`}
                 />
                 <h3
+                  data-sanity={getSanityAttribute("homePage", "homePage", `whyChooseFeatures[${index}].title`)}
                   className={`font-subheading text-[25px] leading-[30px] font-medium tracking-[-1px] uppercase ${
                     isDark ? "text-cream" : "text-forest"
                   }`}
                 >
-                  {t(item.title)}
+                  {cardTitle}
                 </h3>
                 <p
+                  data-sanity={getSanityAttribute("homePage", "homePage", `whyChooseFeatures[${index}].description`)}
                   className={`text-[16px] leading-[25.6px] font-medium tracking-[-0.2px] ${
                     isDark ? "text-white" : "text-body-text"
                   }`}
                 >
-                  {t(item.desc)}
+                  {cardDesc}
                 </p>
               </article>
             );

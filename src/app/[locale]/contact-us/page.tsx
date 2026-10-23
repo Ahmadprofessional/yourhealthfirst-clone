@@ -10,6 +10,10 @@ import {
   MapPinIcon,
 } from "@/components/icons";
 import { getTranslations } from "next-intl/server";
+import { sanityFetch } from "@/sanity/lib/fetch";
+import { CONTACT_PAGE_QUERY, SITE_SETTINGS_QUERY } from "@/sanity/lib/queries";
+import { getSanityAttribute } from "@/sanity/lib/dataAttribute";
+import { urlFor } from "@/sanity/lib/image";
 
 export async function generateMetadata({
   params,
@@ -63,6 +67,38 @@ export default async function ContactUsPage({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "ContactPage" });
 
+  const [sanityContact, sanitySettings] = await Promise.all([
+    sanityFetch<any>({
+      query: CONTACT_PAGE_QUERY,
+      tags: ["contactPage"],
+    }),
+    sanityFetch<any>({
+      query: SITE_SETTINGS_QUERY,
+      tags: ["siteSettings"],
+    }),
+  ]);
+  const docId = "contactPage";
+
+  const heroTitle = sanityContact?.heroTitle || t("heading");
+  const heroSubtitle = sanityContact?.heroSubtitle || t("subtitle");
+  const badgeText = sanityContact?.badgeText || t("badge");
+  const contactInfoHeading = sanityContact?.contactInfoHeading || t("contactInfoHeading");
+  const clinicAddress = sanityContact?.clinicAddress || t("addressValue");
+  const clinicTelephone = sanityContact?.telephone || "0207 225 3582";
+  const mobilePhone = sanityContact?.mobilePhone || "078 1847 4041";
+  const clinicEmail = sanityContact?.email || "info@yourhealthfirst.uk";
+
+  const hoursTitle = sanityContact?.hoursTitle || t("hoursTitle");
+  const monFri = sanityContact?.monFri || t("monFri");
+  const saturday = sanityContact?.saturday || t("saturday");
+  const sunday = sanityContact?.sunday || t("sunday");
+
+  const transportTitle = sanityContact?.transportTitle || t("transportTitle");
+  const mapImageSrc = sanityContact?.mapImage ? urlFor(sanityContact.mapImage).url() : "/images/map-yourhealthfirst.jpeg";
+  const directionsTitle = sanityContact?.directionsTitle || "YourHealthFirst Clinic";
+  const directionsAddress = sanityContact?.directionsAddress || "2nd Floor, 2 Wimpole Street, London W1G 0EB";
+  const directionsButtonText = sanityContact?.directionsButtonText || "Get Directions";
+
   const transport = [
     {
       mode: t("tubeTitle"),
@@ -80,21 +116,30 @@ export default async function ContactUsPage({
 
   return (
     <div className="flex flex-col">
-      <Header />
+      <Header sanitySettings={sanitySettings} />
 
       {/* Page hero */}
       <section className="relative w-full bg-[linear-gradient(90deg,#7a6248_0%,#b49b7d_50%,#7a6248_100%)] pt-[111px]">
         <div className="mx-auto max-w-[1400px] px-5 py-[80px] lg:py-[100px]">
           <div className="w-fit rounded-full border-[0.8px] border-white/20 px-3 py-2">
-            <p className="text-[13px] font-semibold leading-[20.8px] tracking-[3px] text-tan uppercase">
-              {t("badge")}
+            <p
+              data-sanity={getSanityAttribute(docId, "contactPage", "badgeText")}
+              className="text-[13px] font-semibold leading-[20.8px] tracking-[3px] text-tan uppercase"
+            >
+              {badgeText}
             </p>
           </div>
-          <h1 className="mt-4 font-display text-[42px] leading-[46px] font-bold tracking-[-1px] text-cream uppercase lg:text-[64px] lg:leading-[70px]">
-            {t("heading")}
+          <h1
+            className="mt-4 font-display text-[42px] leading-[46px] font-bold tracking-[-1px] text-cream uppercase lg:text-[64px] lg:leading-[70px]"
+            data-sanity={getSanityAttribute(docId, "contactPage", "heroTitle")}
+          >
+            {heroTitle}
           </h1>
-          <p className="mt-3 max-w-[500px] font-nav text-[16px] leading-[26px] text-white/60">
-            {t("subtitle")}
+          <p
+            className="mt-3 max-w-[500px] font-nav text-[16px] leading-[26px] text-white/60"
+            data-sanity={getSanityAttribute(docId, "contactPage", "heroSubtitle")}
+          >
+            {heroSubtitle}
           </p>
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-tan/40 to-transparent" />
@@ -108,8 +153,11 @@ export default async function ContactUsPage({
             <div className="flex flex-col gap-10 lg:w-[380px] lg:shrink-0">
               {/* Contact details */}
               <div className="flex flex-col gap-5">
-                <h2 className="font-subheading text-[22px] font-semibold leading-[28px] tracking-[-0.8px] text-forest uppercase">
-                  {t("contactInfoHeading")}
+                <h2
+                  data-sanity={getSanityAttribute(docId, "contactPage", "contactInfoHeading")}
+                  className="font-subheading text-[22px] font-semibold leading-[28px] tracking-[-0.8px] text-forest uppercase"
+                >
+                  {contactInfoHeading}
                 </h2>
                 <ul className="flex flex-col gap-4">
                   <li className="flex items-start gap-3">
@@ -119,10 +167,11 @@ export default async function ContactUsPage({
                         {t("phoneLabel")}
                       </p>
                       <a
-                        href="tel:02072253582"
+                        href={`tel:${clinicTelephone.replace(/\s+/g, '')}`}
                         className="text-[16px] font-medium text-forest hover:text-tan transition-colors"
+                        data-sanity={getSanityAttribute(docId, "contactPage", "telephone")}
                       >
-                        0207 225 3582
+                        {clinicTelephone}
                       </a>
                     </div>
                   </li>
@@ -133,10 +182,11 @@ export default async function ContactUsPage({
                         {t("mobileLabel")}
                       </p>
                       <a
-                        href="tel:07818474041"
+                        href={`tel:${mobilePhone.replace(/\s+/g, '')}`}
                         className="text-[16px] font-medium text-forest hover:text-tan transition-colors"
+                        data-sanity={getSanityAttribute(docId, "contactPage", "mobilePhone")}
                       >
-                        078 1847 4041
+                        {mobilePhone}
                       </a>
                     </div>
                   </li>
@@ -147,10 +197,11 @@ export default async function ContactUsPage({
                         {t("emailLabel")}
                       </p>
                       <a
-                        href="mailto:info@yourhealthfirst.uk"
+                        href={`mailto:${clinicEmail}`}
                         className="text-[16px] font-medium text-forest hover:text-tan transition-colors"
+                        data-sanity={getSanityAttribute(docId, "contactPage", "email")}
                       >
-                        info@yourhealthfirst.uk
+                        {clinicEmail}
                       </a>
                     </div>
                   </li>
@@ -160,8 +211,11 @@ export default async function ContactUsPage({
                       <p className="text-[13px] tracking-[1px] text-body-text/60 uppercase">
                         {t("addressLabel")}
                       </p>
-                      <p className="text-[16px] font-medium leading-[24px] text-forest">
-                        {t("addressValue")}
+                      <p
+                        className="text-[16px] font-medium leading-[24px] text-forest"
+                        data-sanity={getSanityAttribute(docId, "contactPage", "clinicAddress")}
+                      >
+                        {clinicAddress}
                       </p>
                     </div>
                   </li>
@@ -170,23 +224,35 @@ export default async function ContactUsPage({
 
               {/* Opening hours */}
               <div className="flex flex-col gap-4">
-                <h2 className="font-subheading text-[22px] font-semibold leading-[28px] tracking-[-0.8px] text-forest uppercase">
-                  {t("hoursTitle")}
+                <h2
+                  data-sanity={getSanityAttribute(docId, "contactPage", "hoursTitle")}
+                  className="font-subheading text-[22px] font-semibold leading-[28px] tracking-[-0.8px] text-forest uppercase"
+                >
+                  {hoursTitle}
                 </h2>
                 <ul className="flex flex-col gap-3">
                   <li className="flex flex-col gap-[2px] border-b border-black/8 pb-3">
-                    <span className="text-[15px] leading-[22px] text-body-text">
-                      {t("monFri")}
+                    <span
+                      data-sanity={getSanityAttribute(docId, "contactPage", "monFri")}
+                      className="text-[15px] leading-[22px] text-body-text"
+                    >
+                      {monFri}
                     </span>
                   </li>
                   <li className="flex flex-col gap-[2px] border-b border-black/8 pb-3">
-                    <span className="text-[15px] leading-[22px] text-body-text">
-                      {t("saturday")}
+                    <span
+                      data-sanity={getSanityAttribute(docId, "contactPage", "saturday")}
+                      className="text-[15px] leading-[22px] text-body-text"
+                    >
+                      {saturday}
                     </span>
                   </li>
                   <li className="flex flex-col gap-[2px] border-b border-black/8 pb-3">
-                    <span className="text-[15px] leading-[22px] text-body-text">
-                      {t("sunday")}
+                    <span
+                      data-sanity={getSanityAttribute(docId, "contactPage", "sunday")}
+                      className="text-[15px] leading-[22px] text-body-text"
+                    >
+                      {sunday}
                     </span>
                   </li>
                 </ul>
@@ -194,8 +260,11 @@ export default async function ContactUsPage({
 
               {/* Transport */}
               <div className="flex flex-col gap-4">
-                <h2 className="font-subheading text-[22px] font-semibold leading-[28px] tracking-[-0.8px] text-forest uppercase">
-                  {t("transportTitle")}
+                <h2
+                  data-sanity={getSanityAttribute(docId, "contactPage", "transportTitle")}
+                  className="font-subheading text-[22px] font-semibold leading-[28px] tracking-[-0.8px] text-forest uppercase"
+                >
+                  {transportTitle}
                 </h2>
                 <ul className="flex flex-col gap-4">
                   {transport.map(({ mode, detail }) => (
@@ -218,10 +287,11 @@ export default async function ContactUsPage({
                     rel="noopener noreferrer"
                     className="group relative block w-full overflow-hidden rounded-[12px] border border-tan/40 bg-black shadow-lg transition-all hover:border-tan cursor-pointer"
                     title="Click to open YourHealthFirst Clinic in Google Maps"
+                    data-sanity={getSanityAttribute(docId, "contactPage", "mapImage")}
                   >
                     <div className="relative w-full aspect-[3/2]">
                       <Image
-                        src="/images/map-yourhealthfirst.jpeg"
+                        src={mapImageSrc}
                         alt="YourHealthFirst Clinic Location Map — 2 Wimpole Street, London W1G 0EB"
                         fill
                         sizes="(max-width: 1024px) 100vw, 650px"
@@ -236,11 +306,17 @@ export default async function ContactUsPage({
                     <div className="flex items-start gap-2.5">
                       <MapPinIcon className="mt-0.5 h-4 w-4 text-tan shrink-0" />
                       <div>
-                        <p className="text-[13px] font-semibold text-forest leading-snug">
-                          YourHealthFirst Clinic
+                        <p
+                          data-sanity={getSanityAttribute(docId, "contactPage", "directionsTitle")}
+                          className="text-[13px] font-semibold text-forest leading-snug"
+                        >
+                          {directionsTitle}
                         </p>
-                        <p className="text-[12px] text-body-text/85 leading-snug mt-0.5">
-                          2nd Floor, 2 Wimpole Street, London W1G 0EB
+                        <p
+                          data-sanity={getSanityAttribute(docId, "contactPage", "directionsAddress")}
+                          className="text-[12px] text-body-text/85 leading-snug mt-0.5"
+                        >
+                          {directionsAddress}
                         </p>
                       </div>
                     </div>
@@ -249,9 +325,10 @@ export default async function ContactUsPage({
                       href="https://www.google.com/maps/search/?api=1&query=YourHealthFirst+Clinic,+2+Wimpole+Street,+London+W1G+0EB"
                       target="_blank"
                       rel="noopener noreferrer"
+                      data-sanity={getSanityAttribute(docId, "contactPage", "directionsButtonText")}
                       className="inline-flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-[6px] bg-tan text-forest font-nav text-[12px] font-bold uppercase tracking-wider transition-all hover:bg-forest hover:text-white shrink-0 shadow-sm whitespace-nowrap"
                     >
-                      <span>Get Directions</span>
+                      <span>{directionsButtonText}</span>
                       <span>↗</span>
                     </a>
                   </div>
@@ -265,7 +342,7 @@ export default async function ContactUsPage({
         </div>
       </section>
 
-      <Footer />
+      <Footer sanitySettings={sanitySettings} />
     </div>
   );
 }

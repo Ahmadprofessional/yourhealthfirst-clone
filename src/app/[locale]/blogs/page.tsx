@@ -4,6 +4,9 @@ import Footer from "@/components/Footer";
 import SafeImage from "@/components/SafeImage";
 import { Link } from "@/i18n/routing";
 import { getTranslations } from "next-intl/server";
+import { sanityFetch } from "@/sanity/lib/fetch";
+import { BLOGS_PAGE_QUERY, SITE_SETTINGS_QUERY } from "@/sanity/lib/queries";
+import { getSanityAttribute } from "@/sanity/lib/dataAttribute";
 
 export async function generateMetadata({
   params,
@@ -68,6 +71,25 @@ export default async function BlogsPage({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "BlogPage" });
 
+  const [sanityBlogs, sanitySettings] = await Promise.all([
+    sanityFetch<any>({
+      query: BLOGS_PAGE_QUERY,
+      tags: ["blogsPage"],
+    }),
+    sanityFetch<any>({
+      query: SITE_SETTINGS_QUERY,
+      tags: ["siteSettings"],
+    }),
+  ]);
+  const docId = "blogsPage";
+
+  const heroBadge = sanityBlogs?.badgeText || t("badge");
+  const heroTitle = sanityBlogs?.heroTitle || t("heading");
+  const heroSubtitle = sanityBlogs?.heroSubtitle || t("subtitle");
+  const questionTitle = sanityBlogs?.questionTitle || t("questionTitle");
+  const questionDesc = sanityBlogs?.questionDesc || t("questionDesc");
+  const contactUsText = sanityBlogs?.contactUsText || t("contactUs");
+
   const posts = [
     {
       slug: "prp-and-exosome-therapy-advanced-rejuvenation-for-hair-face-and-body",
@@ -127,21 +149,30 @@ export default async function BlogsPage({
 
   return (
     <div className="flex flex-col">
-      <Header />
+      <Header sanitySettings={sanitySettings} />
 
       {/* Page hero */}
       <section className="relative w-full bg-[linear-gradient(90deg,#7a6248_0%,#b49b7d_50%,#7a6248_100%)] pt-[111px]">
         <div className="mx-auto max-w-[1400px] px-5 py-[80px] lg:py-[100px]">
           <div className="w-fit rounded-full border-[0.8px] border-white/20 px-3 py-2">
-            <p className="text-[13px] font-semibold leading-[20.8px] tracking-[3px] text-tan uppercase">
-              {t("badge")}
+            <p
+              className="text-[13px] font-semibold leading-[20.8px] tracking-[3px] text-tan uppercase"
+              data-sanity={getSanityAttribute(docId, "blogsPage", "badgeText")}
+            >
+              {heroBadge}
             </p>
           </div>
-          <h1 className="mt-4 font-display text-[42px] leading-[46px] font-bold tracking-[-1px] text-cream uppercase lg:text-[64px] lg:leading-[70px]">
-            {t("heading")}
+          <h1
+            className="mt-4 font-display text-[42px] leading-[46px] font-bold tracking-[-1px] text-cream uppercase lg:text-[64px] lg:leading-[70px]"
+            data-sanity={getSanityAttribute(docId, "blogsPage", "heroTitle")}
+          >
+            {heroTitle}
           </h1>
-          <p className="mt-3 max-w-[560px] font-nav text-[16px] leading-[26px] text-white/60">
-            {t("subtitle")}
+          <p
+            className="mt-3 max-w-[560px] font-nav text-[16px] leading-[26px] text-white/60"
+            data-sanity={getSanityAttribute(docId, "blogsPage", "heroSubtitle")}
+          >
+            {heroSubtitle}
           </p>
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-tan/40 to-transparent" />
@@ -235,22 +266,29 @@ export default async function BlogsPage({
       {/* Newsletter / CTA */}
       <section className="w-full bg-cream px-5">
         <div className="mx-auto flex max-w-[1400px] flex-col items-center gap-6 py-[80px] text-center">
-          <h2 className="font-subheading text-[28px] font-medium leading-[34px] tracking-[-1.2px] text-forest uppercase lg:text-[36px] lg:leading-[42px]">
-            {t("questionTitle")}
+          <h2
+            className="font-subheading text-[28px] font-medium leading-[34px] tracking-[-1.2px] text-forest uppercase lg:text-[36px] lg:leading-[42px]"
+            data-sanity={getSanityAttribute(docId, "blogsPage", "questionTitle")}
+          >
+            {questionTitle}
           </h2>
-          <p className="max-w-[440px] text-[16px] leading-[27px] text-body-text">
-            {t("questionDesc")}
+          <p
+            className="max-w-[440px] text-[16px] leading-[27px] text-body-text"
+            data-sanity={getSanityAttribute(docId, "blogsPage", "questionDesc")}
+          >
+            {questionDesc}
           </p>
           <Link
             href="/contact-us"
             className="inline-flex h-14 items-center justify-center rounded-[8px] bg-[#a8896a] px-8 font-nav text-[15px] font-semibold tracking-[-0.3px] text-cream transition-opacity hover:opacity-90"
+            data-sanity={getSanityAttribute(docId, "blogsPage", "contactUsText")}
           >
-            {t("contactUs")}
+            {contactUsText}
           </Link>
         </div>
       </section>
 
-      <Footer />
+      <Footer sanitySettings={sanitySettings} />
     </div>
   );
 }

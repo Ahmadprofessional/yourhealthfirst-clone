@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { PhoneIcon, MobileIcon, EnvelopeIcon, MapPinIcon } from "@/components/icons";
+import { getSanityAttribute } from "@/sanity/lib/dataAttribute";
 
 const treatments = [
   "Anti-Wrinkle Injections",
@@ -27,8 +28,10 @@ const treatments = [
   "General Enquiry",
 ];
 
-export default function BookingSection() {
+export default function BookingSection({ sanityData }: { sanityData?: any }) {
   const t = useTranslations("Booking");
+  const heading = sanityData?.bookingHeading;
+  const subtitle = sanityData?.bookingSubtitle || t("description");
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
@@ -97,14 +100,28 @@ export default function BookingSection() {
             </div>
 
             <div className="flex flex-col gap-3">
-              <h2 className="font-subheading text-[34px] leading-[38px] font-medium tracking-[-1.8px] text-[#c9a84c] uppercase lg:text-[48px] lg:leading-[53px]">
-                {t("heading1")}
-              </h2>
-              <h2 className="-mt-2 font-subheading text-[34px] leading-[38px] font-medium tracking-[-1.8px] text-white uppercase lg:text-[48px] lg:leading-[53px]">
-                {t("heading2")}
-              </h2>
-              <p className="mt-2 text-[16px] leading-[27px] tracking-[-0.2px] text-white/80">
-                {t("description")}
+              {heading ? (
+                <h2
+                  data-sanity={getSanityAttribute("homePage", "homePage", "bookingHeading")}
+                  className="font-subheading text-[34px] leading-[38px] font-medium tracking-[-1.8px] text-[#c9a84c] uppercase lg:text-[48px] lg:leading-[53px]"
+                >
+                  {heading}
+                </h2>
+              ) : (
+                <>
+                  <h2 className="font-subheading text-[34px] leading-[38px] font-medium tracking-[-1.8px] text-[#c9a84c] uppercase lg:text-[48px] lg:leading-[53px]">
+                    {t("heading1")}
+                  </h2>
+                  <h2 className="-mt-2 font-subheading text-[34px] leading-[38px] font-medium tracking-[-1.8px] text-white uppercase lg:text-[48px] lg:leading-[53px]">
+                    {t("heading2")}
+                  </h2>
+                </>
+              )}
+              <p
+                data-sanity={getSanityAttribute("homePage", "homePage", "bookingSubtitle")}
+                className="mt-2 text-[16px] leading-[27px] tracking-[-0.2px] text-white/80"
+              >
+                {subtitle}
               </p>
             </div>
 

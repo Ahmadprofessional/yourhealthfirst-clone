@@ -19,6 +19,8 @@ import {NextIntlClientProvider} from 'next-intl';
 import {getMessages} from 'next-intl/server';
 import {routing} from '@/i18n/routing';
 import {notFound} from 'next/navigation';
+import {draftMode} from 'next/headers';
+import VisualEditing from '@/components/VisualEditing';
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -144,6 +146,7 @@ export default async function RootLayout({
     notFound();
   }
   const messages = await getMessages();
+  const draft = await draftMode();
 
   return (
     <html
@@ -191,6 +194,7 @@ export default async function RootLayout({
           {children}
           <WhatsAppFloat />
           <CookieBanner />
+          {draft.isEnabled && <VisualEditing />}
         </NextIntlClientProvider>
       </body>
     </html>

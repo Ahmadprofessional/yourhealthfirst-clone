@@ -226,7 +226,7 @@ export default async function AboutMePage({
                 {practitionerName}
               </h1>
               <p
-                className="mt-3 font-nav text-[13px] font-semibold tracking-[2px] text-white/60 uppercase cursor-pointer hover:outline-dashed hover:outline-1 hover:outline-white/60"
+                className="mt-3 font-nav text-[13px] font-semibold tracking-[2px] text-white/60 cursor-pointer hover:outline-dashed hover:outline-1 hover:outline-white/60"
                 data-sanity={getSanityAttribute(docId, "aboutPage", "doctorCredentials")}
               >
                 {practitionerRole}

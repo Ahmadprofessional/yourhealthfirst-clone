@@ -27,20 +27,21 @@ export const aboutPage = defineType({
     defineField({
       name: "doctorCredentials",
       title: "Doctor Credentials / Qualifications",
-      type: "string",
+      type: "text",
+      rows: 4,
       description: "e.g. 'GMC Registered Medical Doctor | Aesthetic Specialist'",
     }),
     defineField({
       name: "doctorBioLead",
       title: "Doctor Bio Lead Paragraph",
       type: "text",
-      rows: 3,
+      rows: 4,
     }),
     defineField({
       name: "doctorBioParagraphs",
       title: "Doctor Bio Detailed Paragraphs",
       type: "array",
-      of: [{ type: "text", rows: 4 }],
+      of: [{ type: "text", rows: 6 }],
     }),
     defineField({
       name: "doctorPortrait",
@@ -100,7 +101,7 @@ export const aboutPage = defineType({
       name: "recognitionParagraphs",
       title: "Recognition Section Paragraphs",
       type: "array",
-      of: [{ type: "text", rows: 3 }],
+      of: [{ type: "text", rows: 6 }],
       description: "Detailed background, training, and clinic milestones paragraphs",
     }),
     defineField({

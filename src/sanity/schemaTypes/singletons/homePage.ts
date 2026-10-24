@@ -79,13 +79,13 @@ export const homePage = defineType({
       name: "aboutLead",
       title: "About Us Lead Paragraph",
       type: "text",
-      rows: 3,
+      rows: 5,
     }),
     defineField({
       name: "aboutParagraphs",
       title: "About Us Body Paragraphs",
       type: "array",
-      of: [{ type: "text", rows: 3 }],
+      of: [{ type: "text", rows: 6 }],
       description: "Body paragraphs introducing the clinic philosophy and doctor expertise",
     }),
     defineField({

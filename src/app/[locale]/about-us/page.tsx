@@ -95,18 +95,21 @@ export default async function AboutMePage({
   const heroQuote = sanityAbout?.heroQuote || t("heroQuote");
   const heroQuoteAuthor = sanityAbout?.heroQuoteAuthor || t("quoteAuthor");
   const bioLead = sanityAbout?.doctorBioLead || t("bioP1");
-  const doctorBioParagraphs: string[] = (sanityAbout?.doctorBioParagraphs && sanityAbout.doctorBioParagraphs.length > 0)
-    ? sanityAbout.doctorBioParagraphs
+  const rawDoctorBio = (sanityAbout?.doctorBioParagraphs || []).filter((p: string) => typeof p === "string" && p.trim().length > 0);
+  const doctorBioParagraphs: string[] = rawDoctorBio.length > 0
+    ? rawDoctorBio
     : [t("bioP2"), t("bioP3"), t("bioP4"), t("bioP5")];
   const doctorPhotoSrc = (sanityAbout?.doctorPortrait ? urlFor(sanityAbout.doctorPortrait)?.url() : null) || "/images/about-us-page-image-v3.jpg";
   const recognitionBadge = sanityAbout?.recognitionBadge || t("recognitionBadge");
   const recognitionHeading = sanityAbout?.recognitionHeading || t("recognitionHeading");
   const recognitionPhotoSrc = (sanityAbout?.recognitionImage ? urlFor(sanityAbout.recognitionImage)?.url() : null) || "/images/about us second image.jpeg";
-  const recognitionParagraphs: string[] = (sanityAbout?.recognitionParagraphs && sanityAbout.recognitionParagraphs.length > 0)
-    ? sanityAbout.recognitionParagraphs
+  const rawRecognition = (sanityAbout?.recognitionParagraphs || []).filter((p: string) => typeof p === "string" && p.trim().length > 0);
+  const recognitionParagraphs: string[] = rawRecognition.length > 0
+    ? rawRecognition
     : [t("recogP1"), t("recogP2"), t("recogP3"), t("recogP4"), t("recogP5"), t("recogP6")];
   const philosophyTitle = sanityAbout?.philosophyTitle || t("philosophyHeading");
-  const philosophyDesc = sanityAbout?.philosophyParagraphs?.[0] || t("philosophyDesc");
+  const rawPhilosophy = (sanityAbout?.philosophyParagraphs || []).filter((p: string) => typeof p === "string" && p.trim().length > 0);
+  const philosophyDesc = rawPhilosophy[0] || t("philosophyDesc");
   const philosophyBg = sanityAbout?.philosophyBgImage ? urlFor(sanityAbout.philosophyBgImage).url() : "/images/promise-bg.jpg";
   const philosophyAuthor = sanityAbout?.philosophyAuthor || "Sofia Bouzian";
   const ctaTitle = sanityAbout?.ctaHeading || t("ctaReadyTitle");

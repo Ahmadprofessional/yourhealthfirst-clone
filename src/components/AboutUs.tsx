@@ -51,27 +51,31 @@ export default function AboutUs({ sanityData }: { sanityData?: any }) {
               >
                 {lead}
               </p>
-              {paragraphs && paragraphs.length > 0 ? (
-                paragraphs.map((p: string, i: number) => (
-                  <p
-                    key={i}
-                    data-sanity={getSanityAttribute("homePage", "homePage", `aboutParagraphs[${i}]`)}
-                    className="mt-[14.4px]"
-                  >
-                    {p}
+              {(() => {
+                const validParagraphs = (paragraphs || []).filter((p: string) => typeof p === "string" && p.trim().length > 0);
+                if (validParagraphs.length > 0) {
+                  return validParagraphs.map((p: string, i: number) => (
+                    <p
+                      key={i}
+                      data-sanity={getSanityAttribute("homePage", "homePage", `aboutParagraphs[${i}]`)}
+                      className="mt-[14.4px]"
+                    >
+                      {p}
+                    </p>
+                  ));
+                }
+                return (
+                  <p className="mt-[14.4px]">
+                    {t.rich("paragraph2", {
+                      strong: (chunks) => (
+                        <strong className="font-bold text-[#0c2c1d]">
+                          {chunks}
+                        </strong>
+                      ),
+                    })}
                   </p>
-                ))
-              ) : (
-                <p className="mt-[14.4px]">
-                  {t.rich("paragraph2", {
-                    strong: (chunks) => (
-                      <strong className="font-bold text-[#0c2c1d]">
-                        {chunks}
-                      </strong>
-                    ),
-                  })}
-                </p>
-              )}
+                );
+              })()}
             </div>
           </div>
 

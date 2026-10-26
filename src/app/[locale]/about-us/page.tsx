@@ -333,15 +333,26 @@ export default async function AboutMePage({
               </div>
 
               <div className="flex flex-col gap-4 text-[16px] leading-[28px] tracking-[-0.2px] text-body-text">
-                {recognitionParagraphs.map((para: string, idx: number) => (
-                  <p
-                    key={idx}
-                    data-sanity={getSanityAttribute(docId, "aboutPage", `recognitionParagraphs[${idx}]`)}
-                    className="cursor-pointer hover:outline-dashed hover:outline-1 hover:outline-black/30"
-                  >
-                    {para}
-                  </p>
-                ))}
+                {recognitionParagraphs.map((para: string, idx: number) => {
+                  const isHighlighted =
+                    idx === 1 ||
+                    para.toLowerCase().includes("phlebotomy") ||
+                    para.includes("флеботом") ||
+                    para.includes("flebotom") ||
+                    para.includes("phlébotom") ||
+                    para.includes("سحب الدم");
+                  return (
+                    <p
+                      key={idx}
+                      data-sanity={getSanityAttribute(docId, "aboutPage", `recognitionParagraphs[${idx}]`)}
+                      className={`cursor-pointer hover:outline-dashed hover:outline-1 hover:outline-black/30 ${
+                        isHighlighted ? "font-bold text-forest" : ""
+                      }`}
+                    >
+                      {para}
+                    </p>
+                  );
+                })}
               </div>
 
               <div className="flex flex-col gap-4">

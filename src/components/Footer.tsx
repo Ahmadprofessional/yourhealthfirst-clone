@@ -177,19 +177,19 @@ export default function Footer({ sanitySettings }: { sanitySettings?: any }) {
           </div>
 
           {/* Logos with Full-Color Luxury Cards & Smooth Floating Hover */}
-          <div className="flex flex-wrap items-center justify-center gap-6 md:gap-8 lg:gap-10 pt-2">
+          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 md:gap-8 lg:gap-10 pt-2">
             {seenOnLogos.map((logo) => (
               <div
                 key={logo.src}
                 title={logo.title}
-                className="group relative flex items-center justify-center rounded-2xl border border-[#7a6248]/15 bg-[#fbf9f5] px-7 py-4 shadow-[0_2px_12px_-2px_rgba(122,98,72,0.06)] transition-all duration-500 ease-out hover:-translate-y-2 hover:scale-[1.05] hover:border-[#b49b7d] hover:shadow-[0_16px_36px_-6px_rgba(180,155,125,0.28)]"
+                className="group relative flex items-center justify-center rounded-2xl border border-[#7a6248]/15 bg-[#fbf9f5] px-4 py-3 sm:px-7 sm:py-4 max-w-full shadow-[0_2px_12px_-2px_rgba(122,98,72,0.06)] transition-all duration-500 ease-out hover:-translate-y-2 hover:scale-[1.05] hover:border-[#b49b7d] hover:shadow-[0_16px_36px_-6px_rgba(180,155,125,0.28)]"
               >
                 <Image
                   src={logo.src}
                   alt={logo.alt}
                   width={logo.width}
                   height={logo.height}
-                  className={`${logo.maxH} w-auto object-contain transition-transform duration-500 group-hover:scale-105`}
+                  className={`${logo.maxH} max-w-full w-auto object-contain transition-transform duration-500 group-hover:scale-105`}
                 />
               </div>
             ))}
@@ -214,19 +214,19 @@ export default function Footer({ sanitySettings }: { sanitySettings?: any }) {
           </div>
 
           {/* Logos with Full-Color Luxury Cards & Smooth Floating Hover */}
-          <div className="flex flex-wrap items-center justify-center gap-5 md:gap-7 lg:gap-8 pt-2">
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-5 md:gap-7 lg:gap-8 pt-2">
             {memberOfLogos.map((logo) => (
               <div
                 key={logo.src}
                 title={logo.title}
-                className="group relative flex items-center justify-center rounded-2xl border border-[#7a6248]/15 bg-white px-6 py-3.5 shadow-[0_2px_10px_-2px_rgba(122,98,72,0.06)] transition-all duration-500 ease-out hover:-translate-y-2 hover:scale-[1.05] hover:border-[#b49b7d]/60 hover:shadow-[0_16px_36px_-6px_rgba(180,155,125,0.28)]"
+                className="group relative flex items-center justify-center rounded-2xl border border-[#7a6248]/15 bg-white px-4 py-2.5 sm:px-6 sm:py-3.5 max-w-full shadow-[0_2px_10px_-2px_rgba(122,98,72,0.06)] transition-all duration-500 ease-out hover:-translate-y-2 hover:scale-[1.05] hover:border-[#b49b7d]/60 hover:shadow-[0_16px_36px_-6px_rgba(180,155,125,0.28)]"
               >
                 <Image
                   src={logo.src}
                   alt={logo.alt}
                   width={logo.width}
                   height={logo.height}
-                  className={`${logo.maxH} w-auto object-contain transition-transform duration-500 group-hover:scale-105`}
+                  className={`${logo.maxH} max-w-full w-auto object-contain transition-transform duration-500 group-hover:scale-105`}
                 />
               </div>
             ))}

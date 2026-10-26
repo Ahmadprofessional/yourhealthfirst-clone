@@ -186,7 +186,7 @@ export default function Header({ sanitySettings }: { sanitySettings?: any }) {
 
           {/* Right: Social Links + Language Switcher */}
           <div className="flex items-center gap-2 sm:gap-3 ml-auto">
-            <div className="flex items-center gap-1 sm:gap-1.5">
+            <div className="hidden sm:flex items-center gap-1 sm:gap-1.5">
               <span className="hidden sm:inline text-[10px] uppercase font-semibold text-white/45 tracking-wider mr-1">
                 Follow:
               </span>
@@ -205,7 +205,7 @@ export default function Header({ sanitySettings }: { sanitySettings?: any }) {
               ))}
             </div>
 
-            <span className="h-3.5 w-[1px] bg-white/20 mx-0.5" />
+            <span className="hidden sm:block h-3.5 w-[1px] bg-white/20 mx-0.5" />
 
             <div className="shrink-0 flex items-center">
               <LanguageSwitcher align="right" />

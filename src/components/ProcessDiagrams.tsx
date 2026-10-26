@@ -147,12 +147,15 @@ export default function ProcessDiagrams({
       </section>
 
       {/* Pop-out Lightbox with Zoom In, Zoom Out and Close controls */}
-      <ImageLightboxModal
-        images={lightboxImages}
-        currentIndex={lightboxIndex ?? 0}
-        isOpen={lightboxIndex !== null}
-        onClose={() => setLightboxIndex(null)}
-      />
+      {lightboxIndex !== null && (
+        <ImageLightboxModal
+          key={`${lightboxIndex}-${lightboxImages[lightboxIndex]?.src || ""}`}
+          images={lightboxImages}
+          currentIndex={lightboxIndex}
+          isOpen={true}
+          onClose={() => setLightboxIndex(null)}
+        />
+      )}
     </>
   );
 }

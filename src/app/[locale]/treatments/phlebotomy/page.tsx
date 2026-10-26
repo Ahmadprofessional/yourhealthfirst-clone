@@ -310,7 +310,7 @@ export default async function PhlebotomyPage({
         <div className="mx-auto max-w-[1400px] py-[70px] lg:py-[90px]">
           <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-[0.5fr_1.5fr] lg:gap-16">
             <div className="relative w-full max-w-[380px]">
-              <div className="pointer-events-none absolute -left-4 -top-4 h-full w-full rounded-[18px] border border-tan/40" />
+              <div className="pointer-events-none absolute -left-2 sm:-left-4 -top-2 sm:-top-4 h-full w-full rounded-[18px] border border-tan/40" />
               <div
                 data-sanity={getSanityAttribute(docId, "phlebotomyPage", "bloodDrawImage")}
                 className="relative w-full overflow-hidden rounded-[14px] shadow-md"
@@ -601,7 +601,7 @@ export default async function PhlebotomyPage({
             </div>
 
             <div className="relative mx-auto w-full max-w-[440px]">
-              <div className="pointer-events-none absolute -right-8 -top-8 h-full w-full rounded-full border border-tan/30" />
+              <div className="pointer-events-none absolute -right-2 sm:-right-8 -top-2 sm:-top-8 h-full w-full rounded-full border border-tan/30" />
               <div
                 data-sanity={getSanityAttribute(docId, "phlebotomyPage", "centrifugeImage")}
                 className="relative w-full overflow-hidden rounded-[24px] shadow-xl"
@@ -614,11 +614,11 @@ export default async function PhlebotomyPage({
                   className="object-cover"
                 />
               </div>
-              <span className="absolute -left-6 -top-6 flex h-16 w-16 items-center justify-center rounded-full bg-tan text-forest shadow-lg">
-                <Icon name="drop" className="h-7 w-7" />
+              <span className="absolute -left-2 sm:-left-6 -top-2 sm:-top-6 flex h-12 w-12 sm:h-16 sm:w-16 items-center justify-center rounded-full bg-tan text-forest shadow-lg">
+                <Icon name="drop" className="h-5 w-5 sm:h-7 sm:w-7" />
               </span>
-              <span className="absolute -right-6 -bottom-6 flex h-16 w-16 items-center justify-center rounded-full bg-tan text-forest shadow-lg">
-                <Icon name="tubes" className="h-7 w-7" />
+              <span className="absolute -right-2 sm:-right-6 -bottom-2 sm:-bottom-6 flex h-12 w-12 sm:h-16 sm:w-16 items-center justify-center rounded-full bg-tan text-forest shadow-lg">
+                <Icon name="tubes" className="h-5 w-5 sm:h-7 sm:w-7" />
               </span>
             </div>
           </div>

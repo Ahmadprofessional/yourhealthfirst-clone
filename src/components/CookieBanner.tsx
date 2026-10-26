@@ -109,13 +109,13 @@ export default function CookieBanner() {
           role="dialog"
           aria-live="polite"
           aria-label="Cookie consent banner"
-          className="fixed bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 z-[9999] w-[calc(100%-2rem)] max-w-4xl rounded-2xl sm:rounded-full border border-[#c98a3e]/40 bg-[#181512]/98 px-5 py-3.5 sm:px-7 sm:py-4 text-cream shadow-[0_12px_40px_rgba(0,0,0,0.55)] backdrop-blur-xl transition-all duration-300 animate-fadeIn"
+          className="fixed bottom-0 inset-x-0 sm:bottom-6 sm:left-1/2 sm:-translate-x-1/2 z-[9999] w-full sm:w-[calc(100%-2rem)] sm:max-w-4xl rounded-t-2xl sm:rounded-full border-t sm:border border-[#c98a3e]/40 bg-[#181512]/98 px-4 py-3.5 sm:px-7 sm:py-4 pb-[calc(1rem+env(safe-area-inset-bottom,0px))] sm:pb-4 text-cream shadow-[0_-8px_30px_rgba(0,0,0,0.5)] sm:shadow-[0_12px_40px_rgba(0,0,0,0.55)] backdrop-blur-xl transition-all duration-300 animate-fadeIn"
         >
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 text-sm">
             {/* Left: Message with amber indicator */}
-            <div className="flex items-center gap-3 text-center sm:text-left">
+            <div className="flex items-center gap-2.5 sm:gap-3 text-center sm:text-left">
               <span className="hidden sm:inline-block h-2.5 w-2.5 rounded-full bg-[#c98a3e] shrink-0 shadow-[0_0_8px_#c98a3e]" />
-              <p className="text-[13px] sm:text-[14px] leading-relaxed text-cream/95 font-normal">
+              <p className="text-[12px] sm:text-[14px] leading-snug sm:leading-relaxed text-cream/95 font-normal">
                 We use cookies to improve your clinical experience. By continuing you agree to our{" "}
                 <Link
                   href={`/${locale}/cookie-policy`}
@@ -139,21 +139,21 @@ export default function CookieBanner() {
               <button
                 type="button"
                 onClick={() => setShowPreferences(true)}
-                className="order-3 sm:order-1 text-xs sm:text-[13px] text-cream/75 hover:text-white underline underline-offset-2 transition-colors cursor-pointer px-2 py-1"
+                className="order-3 sm:order-1 text-[11px] sm:text-[13px] text-cream/75 hover:text-white underline underline-offset-2 transition-colors cursor-pointer px-2 py-1"
               >
                 Preferences
               </button>
               <button
                 type="button"
                 onClick={handleRejectAll}
-                className="order-1 sm:order-2 flex-1 sm:flex-initial rounded-full border border-[#c98a3e] px-3.5 sm:px-5 py-2 text-xs sm:text-[13px] font-semibold text-[#e3bb7b] hover:bg-[#c98a3e]/15 transition-all text-center cursor-pointer shadow-sm whitespace-nowrap"
+                className="order-1 sm:order-2 flex-1 sm:flex-initial rounded-full border border-[#c98a3e] px-3 sm:px-5 py-1.5 sm:py-2 text-[11px] sm:text-[13px] font-semibold text-[#e3bb7b] hover:bg-[#c98a3e]/15 transition-all text-center cursor-pointer shadow-sm whitespace-nowrap"
               >
                 Reject Non-Essential
               </button>
               <button
                 type="button"
                 onClick={handleAcceptAll}
-                className="order-2 sm:order-3 flex-1 sm:flex-initial rounded-full bg-[#c98a3e] px-4 sm:px-6 py-2 text-xs sm:text-[13px] font-bold text-[#181512] hover:bg-[#d89b4f] shadow-md transition-all text-center cursor-pointer whitespace-nowrap"
+                className="order-2 sm:order-3 flex-1 sm:flex-initial rounded-full bg-[#c98a3e] px-3.5 sm:px-6 py-1.5 sm:py-2 text-[11px] sm:text-[13px] font-bold text-[#181512] hover:bg-[#d89b4f] shadow-md transition-all text-center cursor-pointer whitespace-nowrap"
               >
                 Accept All
               </button>
@@ -161,7 +161,7 @@ export default function CookieBanner() {
                 type="button"
                 onClick={handleRejectAll}
                 aria-label="Dismiss cookie notice"
-                className="order-4 text-cream/50 hover:text-white text-xl leading-none p-1 transition-colors cursor-pointer ml-1"
+                className="order-4 text-cream/50 hover:text-white text-lg sm:text-xl leading-none p-1 transition-colors cursor-pointer ml-1"
               >
                 ×
               </button>

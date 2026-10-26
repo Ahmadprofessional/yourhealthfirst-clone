@@ -81,17 +81,25 @@ export default async function GalleryPage({
   ]);
   const docId = "galleryPage";
 
-  const pageGalleryItems = (sanityGallery?.galleryItems || []).map((item: any, i: number) => ({
-    _id: `galleryPage-item-${i}`,
-    title: item.title || "Before & After Result",
-    group: item.category || "anti-wrinkles",
-    treatmentCategory: item.category || "anti-wrinkles",
-    afterImageUrl: item.image ? urlFor(item.image)?.url() : null,
-    beforeImageUrl: null,
-    docId: "galleryPage",
-    schemaType: "galleryPage",
-    fieldPath: `galleryItems[${i}].image`,
-  }));
+  const pageGalleryItems = (sanityGallery?.galleryItems || [])
+    .filter((item: any) => {
+      if (!item || !item.image) return false;
+      if (item.title?.trim().toLowerCase() === "test") return false;
+      const assetRef = item.image?.asset?._ref || "";
+      if (assetRef.includes("f16c29a457da53bb5febeef46401e34becc43ae6")) return false;
+      return true;
+    })
+    .map((item: any, i: number) => ({
+      _id: `galleryPage-item-${i}`,
+      title: item.title || "Before & After Result",
+      group: item.category || "anti-wrinkles",
+      treatmentCategory: item.category || "anti-wrinkles",
+      afterImageUrl: item.image ? urlFor(item.image)?.url() : null,
+      beforeImageUrl: null,
+      docId: "galleryPage",
+      schemaType: "galleryPage",
+      fieldPath: `galleryItems[${i}].image`,
+    }));
 
   const caseStudies = (sanityCases || []).map((c: any) => ({
     _id: c._id,

@@ -13,6 +13,7 @@ import { sanityFetch } from "@/sanity/lib/fetch";
 import { TREATMENT_BY_SLUG_QUERY, SITE_SETTINGS_QUERY } from "@/sanity/lib/queries";
 import { getSanityAttribute } from "@/sanity/lib/dataAttribute";
 import { urlFor } from "@/sanity/lib/image";
+import ProcessDiagrams from "@/components/ProcessDiagrams";
 
 interface Props {
   params: Promise<{ locale: string; slug: string }>;
@@ -427,53 +428,13 @@ export default async function TreatmentPage({ params }: Props) {
   const processDiagramsSection = (
     <>
       {treatment.processDiagrams && treatment.processDiagrams.length > 0 && (
-        <section className={`w-full px-5 ${treatment.howItWorks ? "" : "bg-cream"}`}>
-          <div className="mx-auto max-w-[1400px] py-[60px] lg:py-[80px]">
-            {treatment.processDiagramsRow ? (
-              <div
-                className={`grid grid-cols-1 gap-6 items-stretch justify-center ${
-                  treatment.processDiagrams.length === 2
-                    ? "md:grid-cols-2"
-                    : "md:grid-cols-2 lg:grid-cols-3"
-                }`}
-              >
-                {treatment.processDiagrams.map((diagram) => (
-                  <div
-                    key={diagram.src}
-                    className="relative w-full overflow-hidden rounded-[16px] border border-black/8 bg-white p-4 shadow-sm flex items-center justify-center transition-all duration-300 hover:shadow-md"
-                  >
-                    <Image
-                      src={diagram.src}
-                      alt={diagram.alt}
-                      width={diagram.width ?? 1600}
-                      height={diagram.height ?? 1000}
-                      className="h-auto w-full object-contain rounded-[8px]"
-                    />
-                  </div>
-                ))}
-              </div>
-            ) : (
-            <div className="flex flex-col gap-6">
-              {treatment.processDiagrams.map((diagram) => (
-                <div
-                  key={diagram.src}
-                  className="relative mx-auto w-full overflow-hidden rounded-[12px] bg-white p-4 shadow-sm"
-                  style={{ maxWidth: diagram.maxWidth ?? 1100 }}
-                >
-                  <Image
-                    src={diagram.src}
-                    alt={diagram.alt}
-                    width={diagram.width ?? 1600}
-                    height={diagram.height ?? 600}
-                    className="h-auto w-full object-contain"
-                  />
-                </div>
-              ))}
-            </div>
-            )}
-          </div>
-        </section>
-      )}</>
+        <ProcessDiagrams
+          diagrams={treatment.processDiagrams}
+          isRow={treatment.processDiagramsRow}
+          howItWorks={Boolean(treatment.howItWorks)}
+        />
+      )}
+    </>
   );
 
   const premiumFeaturesSection = (

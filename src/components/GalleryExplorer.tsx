@@ -5,13 +5,16 @@ import Image from "next/image";
 import { galleryGroups, gallerySections, type GalleryImage } from "@/data/gallery";
 import { useTranslations } from "next-intl";
 import { getSanityAttribute } from "@/sanity/lib/dataAttribute";
+import ImageLightboxModal, { LightboxImage } from "@/components/ImageLightboxModal";
 
 function BeforeAfterGrid({
   images,
   resultLabel,
+  onImageClick,
 }: {
   images: Array<GalleryImage & { docId?: string; schemaType?: string; fieldPath?: string }>;
   resultLabel: string;
+  onImageClick?: (index: number) => void;
 }) {
   return (
     <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -23,7 +26,9 @@ function BeforeAfterGrid({
               ? getSanityAttribute(img.docId, img.schemaType || "galleryPage", img.fieldPath || "galleryItems")
               : getSanityAttribute("galleryPage", "galleryPage", "galleryItems")
           }
-          className="group relative overflow-hidden rounded-[12px] shadow-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg cursor-pointer"
+          onClick={() => onImageClick?.(index)}
+          title="Click to view full size and zoom in"
+          className="group relative overflow-hidden rounded-[12px] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl cursor-pointer"
         >
           <div className="relative aspect-square w-full">
             <Image
@@ -31,13 +36,19 @@ function BeforeAfterGrid({
               alt={img.alt}
               fill
               sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-              className="object-cover object-top"
+              className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
               loading={index < 3 ? "eager" : "lazy"}
               unoptimized={img.src.startsWith("http")}
             />
           </div>
           <div className="absolute inset-0 bg-gradient-to-t from-forest/60 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-          <div className="absolute bottom-0 left-0 right-0 translate-y-4 px-4 pb-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+          {/* Subtle zoom icon on side */}
+          <div className="absolute top-3 right-3 flex h-8 w-8 items-center justify-center rounded-full bg-forest/80 text-cream shadow-md backdrop-blur-sm opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:scale-100 scale-90">
+            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607ZM10.5 7.5v6m3-3h-6" />
+            </svg>
+          </div>
+          <div className="absolute bottom-0 left-0 right-0 translate-y-2 px-4 pb-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
             <p className="text-center font-subheading text-[12px] font-semibold tracking-[1px] text-cream uppercase">
               {resultLabel} {index + 1}
             </p>
@@ -97,6 +108,10 @@ export default function GalleryExplorer({
   const [selected, setSelected] = useState<string | null>(validInitial);
   const [query, setQuery] = useState("");
   const [open, setOpen] = useState(false);
+  const [activeLightbox, setActiveLightbox] = useState<{
+    images: LightboxImage[];
+    index: number;
+  } | null>(null);
   const wrapRef = useRef<HTMLDivElement>(null);
   const resultsRef = useRef<HTMLDivElement>(null);
 
@@ -312,7 +327,19 @@ export default function GalleryExplorer({
                   </div>
                   <p className="text-[15px] text-body-text">{section.description}</p>
                 </div>
-                <BeforeAfterGrid images={combinedImages} resultLabel={t("resultIndex")} />
+                <BeforeAfterGrid
+                  images={combinedImages}
+                  resultLabel={t("resultIndex")}
+                  onImageClick={(idx) => {
+                    setActiveLightbox({
+                      images: combinedImages.map((img) => ({
+                        src: img.src,
+                        alt: img.alt,
+                      })),
+                      index: idx,
+                    });
+                  }}
+                />
               </div>
             </section>
           );
@@ -337,6 +364,14 @@ export default function GalleryExplorer({
           </section>
         )}
       </div>
+
+      {/* Pop-out Lightbox with Zoom In, Zoom Out, and Close controls */}
+      <ImageLightboxModal
+        images={activeLightbox?.images || []}
+        currentIndex={activeLightbox?.index || 0}
+        isOpen={activeLightbox !== null}
+        onClose={() => setActiveLightbox(null)}
+      />
     </>
   );
 }

@@ -32,5 +32,8 @@ export function getLocalizedTreatment(slug: string, locale: string): TreatmentDe
     videoId: base.videoId,
     videoId2: base.videoId2,
     videoUrl: base.videoUrl,
+    processDiagrams: base.processDiagrams,
+    processDiagramsRow: base.processDiagramsRow,
+    diagramImage: base.diagramImage,
   } as TreatmentDetail;
 }

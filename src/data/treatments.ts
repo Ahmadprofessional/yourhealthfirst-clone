@@ -212,6 +212,8 @@ export interface TreatmentDetail {
     height?: number;
     /** CSS object-position, used when processDiagramsEqualSize crops the image via object-cover */
     objectPosition?: string;
+    /** Occupy individual full row width instead of sharing a row */
+    fullWidth?: boolean;
   }[];
   /** Detailed price breakdown by treatment area, shown as its own section */
   priceList?: {
@@ -2623,12 +2625,16 @@ export const treatmentDetails: TreatmentDetail[] = [
         alt: "Cryolipolysis with LED Lights — skin benefits by colour",
         width: 2000,
         height: 744,
+        fullWidth: true,
+      },
+      {
+        src: "/images/treatments/cryolipolysis/treatment-areas-new.jpg",
+        alt: "Cryolipolysis treatment areas — female and male",
+        width: 1600,
+        height: 1200,
+        fullWidth: true,
       },
     ],
-    diagramImage: {
-      src: "/images/treatments/cryolipolysis/treatment-areas-new.jpg",
-      alt: "Cryolipolysis treatment areas — female and male",
-    },
     body: [
       "Fat cells are more susceptible to cold temperatures than surrounding skin and tissue. During cryolipolysis, a specialised applicator draws the fatty tissue into contact with controlled cooling panels. The fat cells crystallise and die, then are naturally eliminated by the body's lymphatic system over the following weeks.",
       "Dr Sofia has worked with cryolipolysis since its early days at one of Harley Street's pioneering clinics, and has successfully treated thousands of patients. Areas commonly treated include the abdomen, flanks, inner and outer thighs, upper arms, bra area, back, knees, chin and small fatty deposits.",

@@ -695,7 +695,7 @@ export default async function TreatmentPage({ params }: Props) {
                 <div className="flow-root">
                   <div
                     data-sanity={getSanityAttribute(docId, "treatment", "heroImage")}
-                    className={`relative mb-4 w-[220px] overflow-hidden rounded-[14px] border border-black/8 shadow-md sm:w-[var(--fw,340px)] cursor-pointer hover:outline-dashed hover:outline-2 hover:outline-tan/60 ${
+                    className={`relative mb-4 w-[220px] overflow-hidden rounded-[14px] border border-black/8 shadow-md sm:w-[var(--fw,340px)] ${
                       treatment.bodyImages[0].float === "left" ? "float-left mr-8" : "float-right ml-8"
                     }`}
                     style={{ aspectRatio: treatment.bodyImages[0].aspect ?? "883/1214", ...(treatment.bodyImages[0].width ? ({ "--fw": `${treatment.bodyImages[0].width}px` } as React.CSSProperties) : {}) }}
@@ -1067,7 +1067,7 @@ export default async function TreatmentPage({ params }: Props) {
                   {treatment.introImage && (
                     <div
                       data-sanity={getSanityAttribute(docId, "treatment", "heroImage")}
-                      className={`relative float-right ml-6 mb-4 overflow-hidden rounded-[12px] border border-black/8 cursor-pointer hover:outline-dashed hover:outline-2 hover:outline-tan/60 ${
+                      className={`relative float-right ml-6 mb-4 overflow-hidden rounded-[12px] border border-black/8 ${
                         treatment.introImageSize
                           ? "h-[var(--mh)] w-[160px] sm:h-[var(--ih)] sm:w-[var(--iw)]"
                           : "h-[260px] w-[190px] bg-cream sm:h-[300px] sm:w-[220px]"

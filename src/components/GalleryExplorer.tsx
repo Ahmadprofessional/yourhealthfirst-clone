@@ -366,12 +366,15 @@ export default function GalleryExplorer({
       </div>
 
       {/* Pop-out Lightbox with Zoom In, Zoom Out, and Close controls */}
-      <ImageLightboxModal
-        images={activeLightbox?.images || []}
-        currentIndex={activeLightbox?.index || 0}
-        isOpen={activeLightbox !== null}
-        onClose={() => setActiveLightbox(null)}
-      />
+      {activeLightbox && (
+        <ImageLightboxModal
+          key={`${activeLightbox.index}-${activeLightbox.images[activeLightbox.index]?.src || ""}`}
+          images={activeLightbox.images}
+          currentIndex={activeLightbox.index}
+          isOpen={true}
+          onClose={() => setActiveLightbox(null)}
+        />
+      )}
     </>
   );
 }

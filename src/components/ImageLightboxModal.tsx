@@ -27,6 +27,7 @@ export default function ImageLightboxModal({
   onNavigate,
 }: ImageLightboxModalProps) {
   const [index, setIndex] = useState(currentIndex);
+  const [prevProps, setPrevProps] = useState({ currentIndex, isOpen });
   const [zoom, setZoom] = useState(1);
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
@@ -34,12 +35,13 @@ export default function ImageLightboxModal({
   const posStartRef = useRef({ x: 0, y: 0 });
   const imageContainerRef = useRef<HTMLDivElement>(null);
 
-  // Sync index when prop changes
-  useEffect(() => {
+  // Sync state synchronously during render when props change
+  if (prevProps.currentIndex !== currentIndex || prevProps.isOpen !== isOpen) {
+    setPrevProps({ currentIndex, isOpen });
     setIndex(currentIndex);
     setZoom(1);
     setPosition({ x: 0, y: 0 });
-  }, [currentIndex, isOpen]);
+  }
 
   const currentImage = images[index];
 

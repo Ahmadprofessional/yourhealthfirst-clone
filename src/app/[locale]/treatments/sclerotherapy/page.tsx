@@ -343,7 +343,7 @@ export default async function SclerotherapyPage({
           <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-[minmax(0,430px)_1fr] lg:gap-12">
             <div
               data-sanity={getSanityAttribute(docId, "sclerotherapyPage", "introImage")}
-              className="relative mx-auto w-full max-w-[430px] overflow-hidden rounded-[14px] border border-black/8 shadow-md cursor-pointer hover:outline-dashed hover:outline-2 hover:outline-tan/60"
+              className="relative mx-auto w-full max-w-[430px] overflow-hidden rounded-[14px] border border-black/8 shadow-md"
               style={{ aspectRatio: "1126/1397" }}
             >
               <Image
@@ -359,20 +359,20 @@ export default async function SclerotherapyPage({
                 <span className="h-[3px] w-12 rounded-full bg-tan" />
                 <h2
                   data-sanity={getSanityAttribute(docId, "sclerotherapyPage", "whatIsHeading")}
-                  className="font-display text-[26px] font-bold leading-[32px] tracking-[-0.5px] text-forest uppercase lg:text-[30px] lg:leading-[36px] cursor-pointer hover:outline-dashed hover:outline-2 hover:outline-forest/60"
+                  className="font-display text-[26px] font-bold leading-[32px] tracking-[-0.5px] text-forest uppercase lg:text-[30px] lg:leading-[36px]"
                 >
                   {whatIsHeading}
                 </h2>
               </div>
               <p
                 data-sanity={getSanityAttribute(docId, "sclerotherapyPage", "whatIsP1")}
-                className="text-[16px] leading-[27px] tracking-[-0.2px] text-body-text cursor-pointer hover:outline-dashed hover:outline-1 hover:outline-black/30"
+                className="text-[16px] leading-[27px] tracking-[-0.2px] text-body-text"
               >
                 {whatIsP1}
               </p>
               <p
                 data-sanity={getSanityAttribute(docId, "sclerotherapyPage", "whatIsP2")}
-                className="text-[16px] leading-[27px] tracking-[-0.2px] text-body-text cursor-pointer hover:outline-dashed hover:outline-1 hover:outline-black/30"
+                className="text-[16px] leading-[27px] tracking-[-0.2px] text-body-text"
               >
                 {whatIsP2}
               </p>

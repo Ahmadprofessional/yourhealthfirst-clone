@@ -212,7 +212,7 @@ export default async function AboutMePage({
             <div className="w-fit rounded-full border-[0.8px] border-white/25 px-4 py-2">
               <p
                 data-sanity={getSanityAttribute(docId, "aboutPage", "heroBadge")}
-                className="font-nav text-[12px] font-semibold tracking-[3px] text-tan uppercase cursor-pointer hover:outline-dashed hover:outline-1 hover:outline-tan/60"
+                className="font-nav text-[12px] font-semibold tracking-[3px] text-tan uppercase"
               >
                 {heroBadge}
               </p>
@@ -220,19 +220,19 @@ export default async function AboutMePage({
 
             <div>
               <h1
-                className="font-display text-[48px] leading-[52px] font-bold tracking-[-2px] text-cream uppercase lg:text-[62px] lg:leading-[66px] cursor-pointer hover:outline-dashed hover:outline-2 hover:outline-cream/60"
+                className="font-display text-[48px] leading-[52px] font-bold tracking-[-2px] text-cream uppercase lg:text-[62px] lg:leading-[66px]"
                 data-sanity={getSanityAttribute(docId, "aboutPage", "doctorName")}
               >
                 {practitionerName}
               </h1>
               <p
-                className="mt-3 font-nav text-[13px] font-semibold tracking-[2px] text-white/60 cursor-pointer hover:outline-dashed hover:outline-1 hover:outline-white/60"
+                className="mt-3 font-nav text-[13px] font-semibold tracking-[2px] text-white/60"
                 data-sanity={getSanityAttribute(docId, "aboutPage", "doctorCredentials")}
               >
                 {practitionerRole}
               </p>
               <p
-                className="mt-2 max-w-[560px] text-[15px] leading-[24px] text-white/50 cursor-pointer hover:outline-dashed hover:outline-1 hover:outline-white/60"
+                className="mt-2 max-w-[560px] text-[15px] leading-[24px] text-white/50"
                 data-sanity={getSanityAttribute(docId, "aboutPage", "heroSubtitle")}
               >
                 {practitionerTagline}
@@ -240,17 +240,13 @@ export default async function AboutMePage({
             </div>
 
             <div className="flex max-w-[560px] flex-col gap-4 text-[15px] leading-[25px] text-white/55">
-              <p
-                data-sanity={getSanityAttribute(docId, "aboutPage", "doctorBioLead")}
-                className="cursor-pointer hover:outline-dashed hover:outline-1 hover:outline-white/60"
-              >
+              <p data-sanity={getSanityAttribute(docId, "aboutPage", "doctorBioLead")}>
                 {bioLead}
               </p>
               {doctorBioParagraphs.map((para: string, idx: number) => (
                 <p
                   key={idx}
                   data-sanity={getSanityAttribute(docId, "aboutPage", `doctorBioParagraphs[${idx}]`)}
-                  className="cursor-pointer hover:outline-dashed hover:outline-1 hover:outline-white/60"
                 >
                   {para}
                 </p>
@@ -258,15 +254,12 @@ export default async function AboutMePage({
             </div>
 
             <blockquote className="max-w-[560px] border-l-[3px] border-tan py-1 pl-5 font-serif text-[17px] leading-[27px] text-white/70 italic">
-              <span
-                data-sanity={getSanityAttribute(docId, "aboutPage", "heroQuote")}
-                className="cursor-pointer hover:outline-dashed hover:outline-1 hover:outline-white/60"
-              >
+              <span data-sanity={getSanityAttribute(docId, "aboutPage", "heroQuote")}>
                 &ldquo;{heroQuote}&rdquo;
               </span>
               <span
                 data-sanity={getSanityAttribute(docId, "aboutPage", "heroQuoteAuthor")}
-                className="mt-2 block font-nav text-[12px] font-semibold tracking-[1px] text-tan not-italic uppercase cursor-pointer hover:outline-dashed hover:outline-1 hover:outline-tan/60"
+                className="mt-2 block font-nav text-[12px] font-semibold tracking-[1px] text-tan not-italic uppercase"
               >
                 {heroQuoteAuthor}
               </span>
@@ -302,7 +295,7 @@ export default async function AboutMePage({
             <div className="relative lg:w-[420px] lg:shrink-0">
               <div
                 data-sanity={getSanityAttribute(docId, "aboutPage", "recognitionImage")}
-                className="relative overflow-hidden rounded-[14px] cursor-pointer hover:outline-dashed hover:outline-2 hover:outline-forest/60"
+                className="relative overflow-hidden rounded-[14px]"
                 style={{ aspectRatio: "4/5" }}
               >
                 <SafeImage
@@ -318,7 +311,7 @@ export default async function AboutMePage({
               <div>
                 <div
                   data-sanity={getSanityAttribute(docId, "aboutPage", "recognitionBadge")}
-                  className="w-fit rounded-full border-[0.8px] border-forest/20 px-3 py-2 cursor-pointer hover:outline-dashed hover:outline-1 hover:outline-forest/60"
+                  className="w-fit rounded-full border-[0.8px] border-forest/20 px-3 py-2"
                 >
                   <p className="font-nav text-[12px] font-semibold tracking-[3px] text-forest uppercase">
                     {recognitionBadge}
@@ -326,7 +319,7 @@ export default async function AboutMePage({
                 </div>
                 <h2
                   data-sanity={getSanityAttribute(docId, "aboutPage", "recognitionHeading")}
-                  className="mt-4 font-subheading text-[26px] leading-[32px] font-bold tracking-[-1px] text-forest uppercase lg:text-[34px] lg:leading-[40px] cursor-pointer hover:outline-dashed hover:outline-2 hover:outline-forest/60"
+                  className="mt-4 font-subheading text-[26px] leading-[32px] font-bold tracking-[-1px] text-forest uppercase lg:text-[34px] lg:leading-[40px]"
                 >
                   {recognitionHeading}
                 </h2>
@@ -345,9 +338,7 @@ export default async function AboutMePage({
                     <p
                       key={idx}
                       data-sanity={getSanityAttribute(docId, "aboutPage", `recognitionParagraphs[${idx}]`)}
-                      className={`cursor-pointer hover:outline-dashed hover:outline-1 hover:outline-black/30 ${
-                        isHighlighted ? "font-bold text-forest" : ""
-                      }`}
+                      className={isHighlighted ? "font-bold text-forest" : undefined}
                     >
                       {para}
                     </p>
@@ -484,13 +475,13 @@ export default async function AboutMePage({
               </p>
             </div>
             <h2
-              className="font-display text-[40px] leading-[46px] font-bold tracking-[-1.5px] text-cream uppercase lg:text-[58px] lg:leading-[64px] cursor-pointer hover:outline-dashed hover:outline-2 hover:outline-cream/60"
+              className="font-display text-[40px] leading-[46px] font-bold tracking-[-1.5px] text-cream uppercase lg:text-[58px] lg:leading-[64px]"
               data-sanity={getSanityAttribute(docId, "aboutPage", "philosophyTitle")}
             >
               {philosophyTitle}
             </h2>
             <p
-              className="text-[17px] leading-[29px] text-white/65 cursor-pointer hover:outline-dashed hover:outline-1 hover:outline-white/60"
+              className="text-[17px] leading-[29px] text-white/65"
               data-sanity={getSanityAttribute(docId, "aboutPage", "philosophyParagraphs")}
             >
               {philosophyDesc}
@@ -499,7 +490,7 @@ export default async function AboutMePage({
               <div className="h-px w-12 bg-tan/50" />
               <p
                 data-sanity={getSanityAttribute(docId, "aboutPage", "philosophyAuthor")}
-                className="font-nav text-[13px] font-semibold tracking-[2px] text-tan uppercase cursor-pointer hover:outline-dashed hover:outline-1 hover:outline-tan/60"
+                className="font-nav text-[13px] font-semibold tracking-[2px] text-tan uppercase"
               >
                 {philosophyAuthor}
               </p>
@@ -527,19 +518,19 @@ export default async function AboutMePage({
             <div className="flex flex-col gap-4">
               <p
                 data-sanity={getSanityAttribute(docId, "aboutPage", "ghpBadgeSmall")}
-                className="font-nav text-[12px] font-semibold tracking-[3px] text-[#7ec8cc] uppercase cursor-pointer hover:outline-dashed hover:outline-1 hover:outline-[#7ec8cc]/60"
+                className="font-nav text-[12px] font-semibold tracking-[3px] text-[#7ec8cc] uppercase"
               >
                 {ghpBadgeSmall}
               </p>
               <h2
                 data-sanity={getSanityAttribute(docId, "aboutPage", "ghpBadgeTitle")}
-                className="font-display text-[32px] leading-[38px] font-bold tracking-[-1.5px] text-cream uppercase lg:text-[48px] lg:leading-[54px] cursor-pointer hover:outline-dashed hover:outline-1 hover:outline-cream/60"
+                className="font-display text-[32px] leading-[38px] font-bold tracking-[-1.5px] text-cream uppercase lg:text-[48px] lg:leading-[54px]"
               >
                 {ghpBadgeTitle}
               </h2>
               <p
                 data-sanity={getSanityAttribute(docId, "aboutPage", "ghpBadgeDesc")}
-                className="max-w-[460px] text-[15px] leading-[26px] text-white/50 cursor-pointer hover:outline-dashed hover:outline-1 hover:outline-white/60"
+                className="max-w-[460px] text-[15px] leading-[26px] text-white/50"
               >
                 {ghpBadgeDesc}
               </p>
@@ -561,14 +552,14 @@ export default async function AboutMePage({
             <div className="w-fit rounded-full border-[0.8px] border-forest/20 px-3 py-2">
               <p
                 data-sanity={getSanityAttribute(docId, "aboutPage", "accreditationsBadge")}
-                className="font-nav text-[12px] font-semibold tracking-[3px] text-forest uppercase cursor-pointer hover:outline-dashed hover:outline-1 hover:outline-forest/60"
+                className="font-nav text-[12px] font-semibold tracking-[3px] text-forest uppercase"
               >
                 {accreditationsBadge}
               </p>
             </div>
             <h2
               data-sanity={getSanityAttribute(docId, "aboutPage", "accreditationsHeading")}
-              className="font-subheading text-[30px] leading-[36px] font-bold tracking-[-1.2px] text-forest uppercase lg:text-[42px] lg:leading-[48px] cursor-pointer hover:outline-dashed hover:outline-1 hover:outline-forest/60"
+              className="font-subheading text-[30px] leading-[36px] font-bold tracking-[-1.2px] text-forest uppercase lg:text-[42px] lg:leading-[48px]"
             >
               {accreditationsHeading}
             </h2>

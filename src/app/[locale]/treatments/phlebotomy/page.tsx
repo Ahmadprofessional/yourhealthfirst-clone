@@ -199,9 +199,9 @@ export default async function PhlebotomyPage({
   const centrifugeImageSrc = sanityPhleb?.centrifugeImage ? urlFor(sanityPhleb.centrifugeImage).url() : "/images/treatments/phlebotomy/centrifuge-machine.jpg";
 
   const introHeading = sanityPhleb?.introHeading || t("introHeading");
-  const priorTitle = sanityPhleb?.priorTitle || t("priorTitle");
+  const priorTitle = sanityPhleb?.priorTitle || `${t("priorTitle")} ${t("priorTitleHighlight")}`;
   const priorInstructions = sanityPhleb?.priorInstructions || t("prior1");
-  const onDayTitle = sanityPhleb?.onDayTitle || t("onDayTitle");
+  const onDayTitle = sanityPhleb?.onDayTitle || `${t("onDayTitle")} ${t("onDayTitleHighlight")}`;
   const whyTitle = sanityPhleb?.whyTitle || t("whyTitle");
   const whySubtitle = sanityPhleb?.whySubtitle || t("whySubtitle");
   const spinningBadge = sanityPhleb?.spinningBadge || t("spinningBadge");
@@ -313,7 +313,7 @@ export default async function PhlebotomyPage({
               <div className="pointer-events-none absolute -left-4 -top-4 h-full w-full rounded-[18px] border border-tan/40" />
               <div
                 data-sanity={getSanityAttribute(docId, "phlebotomyPage", "bloodDrawImage")}
-                className="relative w-full overflow-hidden rounded-[14px] shadow-md cursor-pointer hover:outline-dashed hover:outline-2 hover:outline-tan/60"
+                className="relative w-full overflow-hidden rounded-[14px] shadow-md"
                 style={{ aspectRatio: "3/4" }}
               >
                 <Image
@@ -329,7 +329,7 @@ export default async function PhlebotomyPage({
                 <div className="flex flex-col gap-2">
                   <h2
                     data-sanity={getSanityAttribute(docId, "phlebotomyPage", "introHeading")}
-                    className="font-display text-[28px] font-bold leading-[34px] tracking-[-1px] text-forest lg:text-[34px] lg:leading-[40px] cursor-pointer hover:outline-dashed hover:outline-2 hover:outline-forest/60"
+                    className="font-display text-[28px] font-bold leading-[34px] tracking-[-1px] text-forest lg:text-[34px] lg:leading-[40px]"
                   >
                     {introHeading}
                   </h2>
@@ -394,7 +394,7 @@ export default async function PhlebotomyPage({
                     <span className="h-[3px] w-12 rounded-full bg-tan" />
                     <h3
                       data-sanity={getSanityAttribute(docId, "phlebotomyPage", "priorTitle")}
-                      className="font-display text-[26px] font-bold leading-[30px] tracking-[-0.5px] text-forest uppercase lg:text-[30px] lg:leading-[34px] cursor-pointer hover:outline-dashed hover:outline-1 hover:outline-forest/60"
+                      className="font-display text-[26px] font-bold leading-[30px] tracking-[-0.5px] text-forest uppercase lg:text-[30px] lg:leading-[34px]"
                     >
                       {priorTitle}
                     </h3>
@@ -406,7 +406,7 @@ export default async function PhlebotomyPage({
                   </span>
                   <p
                     data-sanity={getSanityAttribute(docId, "phlebotomyPage", "priorInstructions")}
-                    className="text-[15px] leading-[24px] text-body-text cursor-pointer hover:outline-dashed hover:outline-1 hover:outline-black/30"
+                    className="text-[15px] leading-[24px] text-body-text"
                   >
                     {priorInstructions}
                   </p>
@@ -435,7 +435,7 @@ export default async function PhlebotomyPage({
                     <span className="h-[3px] w-12 rounded-full bg-tan" />
                     <h3
                       data-sanity={getSanityAttribute(docId, "phlebotomyPage", "onDayTitle")}
-                      className="font-display text-[26px] font-bold leading-[30px] tracking-[-0.5px] text-forest uppercase lg:text-[30px] lg:leading-[34px] cursor-pointer hover:outline-dashed hover:outline-1 hover:outline-forest/60"
+                      className="font-display text-[26px] font-bold leading-[30px] tracking-[-0.5px] text-forest uppercase lg:text-[30px] lg:leading-[34px]"
                     >
                       {onDayTitle}
                     </h3>
@@ -454,7 +454,7 @@ export default async function PhlebotomyPage({
                       </div>
                       <p
                         data-sanity={getSanityAttribute(docId, "phlebotomyPage", `onDaySteps[${i}]`)}
-                        className="pb-5 text-[15px] leading-[24px] text-body-text cursor-pointer hover:outline-dashed hover:outline-1 hover:outline-black/30"
+                        className="pb-5 text-[15px] leading-[24px] text-body-text"
                       >
                         {step}
                       </p>
@@ -562,7 +562,7 @@ export default async function PhlebotomyPage({
               <div className="flex items-center gap-3">
                 <span
                   data-sanity={getSanityAttribute(docId, "phlebotomyPage", "spinningBadge")}
-                  className="font-nav text-[12px] font-semibold tracking-[3px] text-tan uppercase cursor-pointer hover:outline-dashed hover:outline-1 hover:outline-tan/60"
+                  className="font-nav text-[12px] font-semibold tracking-[3px] text-tan uppercase"
                 >
                   {spinningBadge}
                 </span>
@@ -570,19 +570,19 @@ export default async function PhlebotomyPage({
               </div>
               <h2
                 data-sanity={getSanityAttribute(docId, "phlebotomyPage", "spinningTitle")}
-                className="font-display text-[32px] font-bold leading-[38px] tracking-[-1px] text-cream uppercase lg:text-[42px] lg:leading-[48px] cursor-pointer hover:outline-dashed hover:outline-2 hover:outline-cream/60"
+                className="font-display text-[32px] font-bold leading-[38px] tracking-[-1px] text-cream uppercase lg:text-[42px] lg:leading-[48px]"
               >
                 {spinningTitle}
               </h2>
               <p
                 data-sanity={getSanityAttribute(docId, "phlebotomyPage", "spinningP1")}
-                className="text-[15px] leading-[25px] text-white/70 cursor-pointer hover:outline-dashed hover:outline-1 hover:outline-white/60"
+                className="text-[15px] leading-[25px] text-white/70"
               >
                 {spinningP1}
               </p>
               <p
                 data-sanity={getSanityAttribute(docId, "phlebotomyPage", "spinningP2")}
-                className="text-[15px] leading-[25px] text-white/70 cursor-pointer hover:outline-dashed hover:outline-1 hover:outline-white/60"
+                className="text-[15px] leading-[25px] text-white/70"
               >
                 {spinningP2}
               </p>
@@ -591,7 +591,7 @@ export default async function PhlebotomyPage({
                 target="_blank"
                 rel="noopener noreferrer"
                 data-sanity={getSanityAttribute(docId, "phlebotomyPage", "spinningCta")}
-                className="mt-2 inline-flex h-14 w-fit items-center gap-3 rounded-[10px] bg-tan px-7 font-nav text-[14px] font-semibold tracking-[0.5px] text-forest uppercase transition-opacity hover:opacity-90 cursor-pointer"
+                className="mt-2 inline-flex h-14 w-fit items-center gap-3 rounded-[10px] bg-tan px-7 font-nav text-[14px] font-semibold tracking-[0.5px] text-forest uppercase transition-opacity hover:opacity-90"
               >
                 {spinningCta}
                 <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth={2.5}>
@@ -604,7 +604,7 @@ export default async function PhlebotomyPage({
               <div className="pointer-events-none absolute -right-8 -top-8 h-full w-full rounded-full border border-tan/30" />
               <div
                 data-sanity={getSanityAttribute(docId, "phlebotomyPage", "centrifugeImage")}
-                className="relative w-full overflow-hidden rounded-[24px] shadow-xl cursor-pointer hover:outline-dashed hover:outline-2 hover:outline-tan/60"
+                className="relative w-full overflow-hidden rounded-[24px] shadow-xl"
                 style={{ aspectRatio: "4/5" }}
               >
                 <Image

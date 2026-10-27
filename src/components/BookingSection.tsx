@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useId } from "react";
 import { useTranslations } from "next-intl";
 import { PhoneIcon, MobileIcon, EnvelopeIcon, MapPinIcon } from "@/components/icons";
 import { getSanityAttribute } from "@/sanity/lib/dataAttribute";
@@ -30,6 +30,7 @@ const treatments = [
 
 export default function BookingSection({ sanityData }: { sanityData?: any }) {
   const t = useTranslations("Booking");
+  const uid = useId();
   const heading = sanityData?.bookingHeading;
   const subtitle = sanityData?.bookingSubtitle || t("description");
   const [submitted, setSubmitted] = useState(false);
@@ -287,12 +288,12 @@ export default function BookingSection({ sanityData }: { sanityData?: any }) {
                   </div>
 
                   <div className="flex flex-col gap-2">
-                    <label className="text-[12px] font-semibold tracking-[1px] text-white/85 uppercase">
+                    <label htmlFor={`${uid}-treatment`} className="text-[12px] font-semibold tracking-[1px] text-white/85 uppercase">
                       {t("treatmentOfInterest")}
                     </label>
                     <select
+                      id={`${uid}-treatment`}
                       name="treatment"
-                      aria-label={t("treatmentOfInterest")}
                       value={formData.treatment}
                       onChange={handleChange}
                       className="h-12 rounded-[8px] border border-white/10 bg-white/5 px-4 text-[15px] text-white focus:border-tan/60 focus:outline-none"
@@ -305,12 +306,12 @@ export default function BookingSection({ sanityData }: { sanityData?: any }) {
                   </div>
 
                   <div className="flex flex-col gap-2">
-                    <label className="text-[12px] font-semibold tracking-[1px] text-white/85 uppercase">
+                    <label htmlFor={`${uid}-source`} className="text-[12px] font-semibold tracking-[1px] text-white/85 uppercase">
                       {t("howHeard")}
                     </label>
                     <select
+                      id={`${uid}-source`}
                       name="source"
-                      aria-label={t("howHeard")}
                       value={formData.source}
                       onChange={handleChange}
                       className="h-12 rounded-[8px] border border-white/10 bg-white/5 px-4 text-[15px] text-white focus:border-tan/60 focus:outline-none"

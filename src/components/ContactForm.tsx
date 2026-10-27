@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useId } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import { useTranslations } from "next-intl";
 
@@ -29,6 +29,7 @@ const treatmentItemKeys = [
 
 export default function ContactForm() {
   const tBooking = useTranslations("Booking");
+  const uid = useId();
   const tContact = useTranslations("ContactPage");
   const tItems = useTranslations("Header.items");
 
@@ -175,12 +176,12 @@ export default function ContactForm() {
         </div>
 
         <div className="flex flex-col gap-2">
-          <label className="text-[13px] font-semibold tracking-[0.5px] text-forest uppercase">
+          <label htmlFor={`${uid}-treatment`} className="text-[13px] font-semibold tracking-[0.5px] text-forest uppercase">
             {tBooking("treatmentOfInterest")}
           </label>
           <select
+            id={`${uid}-treatment`}
             name="treatment"
-            aria-label={tBooking("treatmentOfInterest")}
             className="h-12 rounded-[8px] border border-body-text/20 bg-white px-4 text-[15px] text-forest focus:border-tan focus:outline-none bg-none"
           >
             <option value="">{tBooking("selectTreatment")}</option>
@@ -196,12 +197,12 @@ export default function ContactForm() {
         </div>
 
         <div className="flex flex-col gap-2">
-          <label className="text-[13px] font-semibold tracking-[0.5px] text-forest uppercase">
+          <label htmlFor={`${uid}-source`} className="text-[13px] font-semibold tracking-[0.5px] text-forest uppercase">
             {tBooking("howHeard")}
           </label>
           <select
+            id={`${uid}-source`}
             name="source"
-            aria-label={tBooking("howHeard")}
             className="h-12 rounded-[8px] border border-body-text/20 bg-white px-4 text-[15px] text-forest focus:border-tan focus:outline-none"
           >
             <option value="">{tBooking("pleaseSelect")}</option>

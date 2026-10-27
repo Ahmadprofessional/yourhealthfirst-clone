@@ -15,6 +15,8 @@ import {notFound} from 'next/navigation';
 import {draftMode} from 'next/headers';
 import VisualEditing from '@/components/VisualEditing';
 
+const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-LTY0ZMKGJ8";
+
 const montserrat = Montserrat({
   variable: "--font-montserrat",
   subsets: ["latin"],
@@ -166,6 +168,16 @@ export default async function RootLayout({
               });
               gtag('set', 'ads_data_redaction', true);
               gtag('set', 'url_passthrough', true);
+            `,
+          }}
+        />
+        {/* Google Analytics (gtag.js) — loads after the Consent Mode defaults above, so cookies/ad storage stay denied until the visitor accepts in the cookie banner */}
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`} />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              gtag('js', new Date());
+              gtag('config', '${GA_MEASUREMENT_ID}');
             `,
           }}
         />

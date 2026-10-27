@@ -275,7 +275,8 @@ export default function Services({ sanityData }: { sanityData?: any }) {
                       className="inline-flex items-center gap-[5px] rounded-[8px] border-[1.6px] border-tan p-[10px] font-display text-[13px] leading-[13px] font-semibold tracking-[0.6px] text-tan uppercase transition-colors duration-200 hover:bg-tan hover:text-black"
                     >
                       {t("learnMore")}
-                      <ArrowRightIcon className="h-3 w-3" />
+                      <span className="sr-only"> — {title}</span>
+                      <ArrowRightIcon className="h-3 w-3" aria-hidden="true" />
                     </Link>
                   </div>
                 </div>

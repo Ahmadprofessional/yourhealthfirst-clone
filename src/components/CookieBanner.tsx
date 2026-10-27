@@ -105,7 +105,7 @@ export default function CookieBanner() {
     <>
       {/* Floating rounded luxury banner (Dark warm obsidian/charcoal - zero green) */}
       {!showPreferences && (
-        <aside
+        <div
           role="dialog"
           aria-live="polite"
           aria-label="Cookie consent banner"
@@ -167,7 +167,7 @@ export default function CookieBanner() {
               </button>
             </div>
           </div>
-        </aside>
+        </div>
       )}
 
       {/* Preferences Modal (Centered dialog in dark warm luxury charcoal/black) */}

@@ -180,6 +180,7 @@ export default function ContactForm() {
           </label>
           <select
             name="treatment"
+            aria-label={tBooking("treatmentOfInterest")}
             className="h-12 rounded-[8px] border border-body-text/20 bg-white px-4 text-[15px] text-forest focus:border-tan focus:outline-none bg-none"
           >
             <option value="">{tBooking("selectTreatment")}</option>
@@ -200,6 +201,7 @@ export default function ContactForm() {
           </label>
           <select
             name="source"
+            aria-label={tBooking("howHeard")}
             className="h-12 rounded-[8px] border border-body-text/20 bg-white px-4 text-[15px] text-forest focus:border-tan focus:outline-none"
           >
             <option value="">{tBooking("pleaseSelect")}</option>

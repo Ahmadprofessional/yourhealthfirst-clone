@@ -292,6 +292,7 @@ export default function BookingSection({ sanityData }: { sanityData?: any }) {
                     </label>
                     <select
                       name="treatment"
+                      aria-label={t("treatmentOfInterest")}
                       value={formData.treatment}
                       onChange={handleChange}
                       className="h-12 rounded-[8px] border border-white/10 bg-white/5 px-4 text-[15px] text-white focus:border-tan/60 focus:outline-none"
@@ -309,6 +310,7 @@ export default function BookingSection({ sanityData }: { sanityData?: any }) {
                     </label>
                     <select
                       name="source"
+                      aria-label={t("howHeard")}
                       value={formData.source}
                       onChange={handleChange}
                       className="h-12 rounded-[8px] border border-white/10 bg-white/5 px-4 text-[15px] text-white focus:border-tan/60 focus:outline-none"

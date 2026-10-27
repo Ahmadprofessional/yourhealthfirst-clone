@@ -341,13 +341,13 @@ export default function Header({ sanitySettings }: { sanitySettings?: any }) {
               aria-label={t("openMenu")}
               aria-expanded={isMenuOpen}
               onClick={() => setIsMenuOpen(true)}
-              className="flex h-11 w-11 shrink-0 items-center justify-center bg-rust text-white lg:hidden"
+              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-tan/40 bg-black/70 text-tan shadow-sm backdrop-blur-md transition-all duration-200 hover:scale-105 hover:border-tan hover:bg-tan hover:text-forest lg:hidden"
             >
               <span className="sr-only">{t("openMenu")}</span>
-              <svg width="22" height="16" viewBox="0 0 22 16" fill="none" aria-hidden="true">
-                <rect width="22" height="2" fill="currentColor" />
-                <rect y="7" width="22" height="2" fill="currentColor" />
-                <rect y="14" width="22" height="2" fill="currentColor" />
+              <svg width="20" height="14" viewBox="0 0 22 16" fill="none" aria-hidden="true">
+                <rect width="22" height="2" rx="1" fill="currentColor" />
+                <rect y="7" width="22" height="2" rx="1" fill="currentColor" />
+                <rect y="14" width="22" height="2" rx="1" fill="currentColor" />
               </svg>
             </button>
           </div>
@@ -382,14 +382,25 @@ export default function Header({ sanitySettings }: { sanitySettings?: any }) {
             type="button"
             aria-label={t("closeMenu")}
             onClick={() => setIsMenuOpen(false)}
-            className="flex h-12 w-12 shrink-0 items-center justify-center bg-rust text-white"
+            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-forest/20 bg-forest/5 text-forest transition-all hover:bg-forest hover:text-white"
           >
             <span className="sr-only">{t("closeMenu")}</span>
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
-              <line x1="1" y1="1" x2="17" y2="17" stroke="currentColor" strokeWidth="2" />
-              <line x1="17" y1="1" x2="1" y2="17" stroke="currentColor" strokeWidth="2" />
+            <svg width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+              <line x1="1" y1="1" x2="17" y2="17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+              <line x1="17" y1="1" x2="1" y2="17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
             </svg>
           </button>
+        </div>
+
+        {/* Mobile Booking CTA button */}
+        <div className="px-6 pb-2">
+          <Link
+            href="/#book"
+            onClick={() => setIsMenuOpen(false)}
+            className="flex w-full items-center justify-center rounded-[8px] bg-tan py-3 px-6 font-nav text-[13px] font-semibold tracking-[0.5px] text-forest shadow-sm transition-all hover:bg-forest hover:text-white text-center uppercase"
+          >
+            {headerCtaText}
+          </Link>
         </div>
 
         {/* Social links row in mobile drawer */}

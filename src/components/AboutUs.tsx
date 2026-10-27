@@ -22,9 +22,9 @@ export default function AboutUs({ sanityData }: { sanityData?: any }) {
               data-sanity={getSanityAttribute("homePage", "homePage", "aboutBadge")}
               className="w-fit rounded-full border-[0.8px] border-[rgba(11,23,4,0.2)] px-3 py-2"
             >
-              <h2 className="text-[13px] leading-[20.8px] font-semibold tracking-[3px] text-[#0c2c1d] uppercase">
+              <p className="text-[13px] leading-[20.8px] font-semibold tracking-[3px] text-[#0c2c1d] uppercase">
                 {badge}
-              </h2>
+              </p>
             </div>
 
             {title ? (

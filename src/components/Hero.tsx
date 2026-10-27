@@ -79,17 +79,17 @@ export default function Hero({ sanityData }: { sanityData?: any }) {
               {heroTitle}
             </h1>
           ) : (
-            <>
-              <h2 className="font-display text-[46px] leading-[46px] font-medium text-white uppercase lg:text-[52px] lg:leading-[52px]">
+            <h1 className="flex flex-col">
+              <span className="font-display text-[46px] leading-[46px] font-medium text-white uppercase lg:text-[52px] lg:leading-[52px]">
                 {t("awardWinning")}
-              </h2>
-              <h2
+              </span>
+              <span
                 className="-mt-3 font-display text-[56px] leading-[56px] font-medium uppercase lg:text-[64px] lg:leading-[64px]"
                 style={{ color: GOLD }}
               >
                 {t("clinic")}
-              </h2>
-            </>
+              </span>
+            </h1>
           )}
 
           <div className="flex h-6 items-center py-[2px]">

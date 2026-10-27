@@ -5,14 +5,7 @@ import {
   Jost,
   Playfair_Display_SC,
   Instrument_Serif,
-  Great_Vibes,
 } from "next/font/google";
-
-const greatVibes = Great_Vibes({
-  variable: "--font-great-vibes",
-  subsets: ["latin"],
-  weight: ["400"],
-});
 import "../globals.css";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import {NextIntlClientProvider} from 'next-intl';
@@ -130,7 +123,9 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || "YOUR_GOOGLE_VERIFICATION_TOKEN",
+    ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+      ? { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION }
+      : {}),
   },
 };
 
@@ -153,7 +148,7 @@ export default async function RootLayout({
       lang={locale}
       dir={locale === 'ar' ? 'rtl' : 'ltr'}
       suppressHydrationWarning
-      className={`${montserrat.variable} ${interTight.variable} ${jost.variable} ${playfairSC.variable} ${instrumentSerif.variable} ${greatVibes.variable} h-full antialiased`}
+      className={`${montserrat.variable} ${interTight.variable} ${jost.variable} ${playfairSC.variable} ${instrumentSerif.variable} h-full antialiased`}
     >
       <head>
         {/* Google Consent Mode v2 Default Denied (inline before any analytics/ads fire) */}
@@ -175,19 +170,6 @@ export default async function RootLayout({
           }}
         />
         <StructuredData />
-        {routing.locales.map((loc) => (
-          <link
-            key={loc}
-            rel="alternate"
-            hrefLang={loc}
-            href={`${siteUrl}/${loc}`}
-          />
-        ))}
-        <link
-          rel="alternate"
-          hrefLang="x-default"
-          href={`${siteUrl}/en`}
-        />
       </head>
       <body suppressHydrationWarning className="min-h-full flex flex-col overflow-x-hidden">
         <NextIntlClientProvider messages={messages}>

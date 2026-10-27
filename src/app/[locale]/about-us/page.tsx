@@ -226,20 +226,20 @@ export default async function AboutMePage({
                 {practitionerName}
               </h1>
               <p
-                className="mt-3 font-nav text-[13px] font-semibold tracking-[2px] text-white/60"
+                className="mt-3 font-nav text-[13px] font-semibold tracking-[2px] text-cream/90"
                 data-sanity={getSanityAttribute(docId, "aboutPage", "doctorCredentials")}
               >
                 {practitionerRole}
               </p>
               <p
-                className="mt-2 max-w-[560px] text-[15px] leading-[24px] text-white/50"
+                className="mt-2 max-w-[560px] text-[15px] leading-[24px] text-cream/85"
                 data-sanity={getSanityAttribute(docId, "aboutPage", "heroSubtitle")}
               >
                 {practitionerTagline}
               </p>
             </div>
 
-            <div className="flex max-w-[560px] flex-col gap-4 text-[15px] leading-[25px] text-white/55">
+            <div className="flex max-w-[560px] flex-col gap-4 text-[15px] leading-[25px] text-cream/95">
               <p data-sanity={getSanityAttribute(docId, "aboutPage", "doctorBioLead")}>
                 {bioLead}
               </p>
@@ -253,7 +253,7 @@ export default async function AboutMePage({
               ))}
             </div>
 
-            <blockquote className="max-w-[560px] border-l-[3px] border-tan py-1 pl-5 font-serif text-[17px] leading-[27px] text-white/70 italic">
+            <blockquote className="max-w-[560px] border-l-[3px] border-tan py-1 pl-5 font-serif text-[17px] leading-[27px] text-cream/95 italic">
               <span data-sanity={getSanityAttribute(docId, "aboutPage", "heroQuote")}>
                 &ldquo;{heroQuote}&rdquo;
               </span>

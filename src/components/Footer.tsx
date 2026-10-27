@@ -247,7 +247,7 @@ export default function Footer({ sanitySettings }: { sanitySettings?: any }) {
             >
               {clinicName}
             </h2>
-            <p className="max-w-[700px] text-[14px] md:text-[15px] tracking-[1.5px] uppercase text-cream/70 font-nav font-medium">
+            <p className="max-w-[700px] text-[14px] md:text-[15px] tracking-[1.5px] uppercase text-white/90 font-nav font-medium">
               Harley Street Aesthetic Medicine &amp; Longevity Clinic · 2 Wimpole Street, London
             </p>
 
@@ -278,7 +278,7 @@ export default function Footer({ sanitySettings }: { sanitySettings?: any }) {
               >
                 {ctaHeading}
               </h3>
-              <div className="text-[14px] leading-[23px] text-cream/80 space-y-2">
+              <div className="text-[14px] leading-[23px] text-white/90 space-y-2">
                 <p data-sanity={getSanityAttribute("siteSettings", "siteSettings", "footerCtaSubtitle")}>
                   {ctaSubtitle}
                 </p>
@@ -311,7 +311,7 @@ export default function Footer({ sanitySettings }: { sanitySettings?: any }) {
               <h3 className="font-serif text-[20px] font-bold text-white uppercase tracking-[-0.5px]">
                 {t("quickLink")}
               </h3>
-              <ul className="flex flex-col gap-2.5 text-[14px] leading-[22px] text-cream/85">
+              <ul className="flex flex-col gap-2.5 text-[14px] leading-[22px] text-white/90">
                 {quickLinks.map((link) => (
                   <li key={link.label}>
                     <Link
@@ -330,7 +330,7 @@ export default function Footer({ sanitySettings }: { sanitySettings?: any }) {
               <h3 className="font-serif text-[20px] font-bold text-white uppercase tracking-[-0.5px]">
                 Signature Treatments
               </h3>
-              <ul className="flex flex-col gap-2.5 text-[14px] leading-[22px] text-cream/85">
+              <ul className="flex flex-col gap-2.5 text-[14px] leading-[22px] text-white/90">
                 {popularTreatments.map((item) => (
                   <li key={item.label}>
                     <Link
@@ -349,7 +349,7 @@ export default function Footer({ sanitySettings }: { sanitySettings?: any }) {
               <h3 className="font-serif text-[20px] font-bold text-white uppercase tracking-[-0.5px]">
                 {t("contact")}
               </h3>
-              <ul className="flex flex-col gap-3.5 text-[14px] leading-[22px] text-cream/90">
+              <ul className="flex flex-col gap-3.5 text-[14px] leading-[22px] text-white/90">
                 <li className="flex items-start gap-3">
                   <MapPinIcon className="h-5 w-5 shrink-0 text-tan mt-0.5" />
                   <span
@@ -389,7 +389,7 @@ export default function Footer({ sanitySettings }: { sanitySettings?: any }) {
                     {email}
                   </a>
                 </li>
-                <li className="pt-2 text-xs text-cream/70 border-t border-white/10">
+                <li className="pt-2 text-xs text-white/90 border-t border-white/10">
                   <p className="font-semibold text-cream">Opening Hours:</p>
                   <p>Monday – Friday: 9:00 AM – 6:00 PM</p>
                   <p>Saturday: By Appointment Only</p>
@@ -399,7 +399,7 @@ export default function Footer({ sanitySettings }: { sanitySettings?: any }) {
           </div>
 
           {/* Bottom Legal, Standards & Compliance Bar */}
-          <div className="border-t border-white/15 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-cream/75">
+          <div className="border-t border-white/15 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-white/90">
             <p
               data-sanity={getSanityAttribute("siteSettings", "siteSettings", "copyrightText")}
               className="text-center md:text-left"
@@ -432,7 +432,7 @@ export default function Footer({ sanitySettings }: { sanitySettings?: any }) {
                     window.dispatchEvent(new CustomEvent("openCookieSettings"));
                   }
                 }}
-                className="text-[#e3bb7b] hover:text-white transition-colors underline-offset-4 hover:underline cursor-pointer"
+                className="text-[#fbeccd] hover:text-white transition-colors underline-offset-4 hover:underline cursor-pointer"
               >
                 Cookie Settings
               </button>
@@ -440,7 +440,7 @@ export default function Footer({ sanitySettings }: { sanitySettings?: any }) {
           </div>
 
           {/* Medical Standards Disclaimer */}
-          <div className="mt-4 text-center text-[11px] text-cream/50">
+          <div className="mt-4 text-center text-[11px] text-white/90">
             GMC Registered Medical Practitioners · CQC Regulated Clinic Standards · Fully Insured Clinical Practice
           </div>
         </div>

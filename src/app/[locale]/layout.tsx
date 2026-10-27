@@ -14,6 +14,7 @@ import {routing} from '@/i18n/routing';
 import {notFound} from 'next/navigation';
 import {draftMode} from 'next/headers';
 import VisualEditing from '@/components/VisualEditing';
+import Script from 'next/script';
 
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-LTY0ZMKGJ8";
 
@@ -171,8 +172,12 @@ export default async function RootLayout({
             `,
           }}
         />
-        {/* Google Analytics (gtag.js) — loads after the Consent Mode defaults above, so cookies/ad storage stay denied until the visitor accepts in the cookie banner */}
-        <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`} />
+        {/* Google Analytics (gtag.js) — the commands below are queued immediately (after the Consent Mode defaults above, so cookies/ad storage stay denied until the visitor accepts in the cookie banner); the large gtag.js file itself loads once the page has finished loading, to keep it off the critical path */}
+        <Script
+          id="ga-gtag-js"
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          strategy="lazyOnload"
+        />
         <script
           dangerouslySetInnerHTML={{
             __html: `

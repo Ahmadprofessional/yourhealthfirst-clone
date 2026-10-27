@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { treatmentDetails } from "@/data/treatments";
 import { getAllBlogPosts } from "@/data/blogs";
 import { routing } from "@/i18n/routing";
+import { comingSoonPaths } from "@/data/comingSoon";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.yourhealthfirst.uk";
@@ -36,7 +37,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Dynamic blog routes from blogs data
   const blogRoutes = getAllBlogPosts().map((p) => `/blog/${p.slug}`);
 
-  const allPaths = [...staticRoutes, ...treatmentRoutes, ...blogRoutes];
+  // "Coming soon" placeholder pages are kept out of the sitemap (see src/data/comingSoon.ts)
+  const allPaths = [...staticRoutes, ...treatmentRoutes, ...blogRoutes].filter(
+    (path) => !comingSoonPaths.includes(path)
+  );
 
   const entries: MetadataRoute.Sitemap = [];
 

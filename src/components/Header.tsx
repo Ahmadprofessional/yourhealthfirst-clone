@@ -225,6 +225,7 @@ export default function Header({ sanitySettings }: { sanitySettings?: any }) {
               width={488}
               height={328}
               priority
+              sizes="(min-width: 1280px) 130px, (min-width: 640px) 115px, 100px"
               data-sanity={getSanityAttribute("siteSettings", "siteSettings", "logoImage")}
               className="h-auto w-[100px] sm:w-[115px] xl:w-[130px] object-contain"
               unoptimized={logoUrl.startsWith("http")}

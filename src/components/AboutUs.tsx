@@ -30,13 +30,13 @@ export default function AboutUs({ sanityData }: { sanityData?: any }) {
             {title ? (
               <h2
                 data-sanity={getSanityAttribute("homePage", "homePage", "aboutTitle")}
-                className="font-subheading text-[34px] leading-[38px] font-medium tracking-[-1.8px] text-tan uppercase lg:text-[50px] lg:leading-[55px]"
+                className="font-subheading text-[34px] leading-[38px] font-medium tracking-[-1.8px] text-[#a67c3d] uppercase lg:text-[50px] lg:leading-[55px]"
               >
                 {title}
               </h2>
             ) : (
               <>
-                <h2 className="font-subheading text-[34px] leading-[38px] font-medium tracking-[-1.8px] text-tan uppercase lg:text-[50px] lg:leading-[55px]">
+                <h2 className="font-subheading text-[34px] leading-[38px] font-medium tracking-[-1.8px] text-[#a67c3d] uppercase lg:text-[50px] lg:leading-[55px]">
                   {t("heading1")}
                 </h2>
                 <h2 className="-mt-[15px] font-subheading text-[34px] leading-[38px] font-medium tracking-[-1.8px] text-[#0c2c1d] uppercase lg:text-[50px] lg:leading-[55px]">
@@ -83,7 +83,7 @@ export default function AboutUs({ sanityData }: { sanityData?: any }) {
           <div className="flex flex-col gap-2 lg:w-[380px] xl:w-[551px] lg:shrink-0 lg:pt-[69px]">
             <h2
               data-sanity={getSanityAttribute("homePage", "homePage", "aboutRightHeading")}
-              className="font-subheading text-[34px] leading-[38px] font-medium tracking-[-1.8px] text-tan uppercase lg:text-[50px] lg:leading-[55px]"
+              className="font-subheading text-[34px] leading-[38px] font-medium tracking-[-1.8px] text-[#a67c3d] uppercase lg:text-[50px] lg:leading-[55px]"
             >
               {sanityData?.aboutRightHeading || t("rightHeading")}
             </h2>
@@ -113,7 +113,7 @@ export default function AboutUs({ sanityData }: { sanityData?: any }) {
               <Link
                 href="/about-us"
                 data-sanity={getSanityAttribute("homePage", "homePage", "aboutCtaText")}
-                className="inline-block rounded-[8px] border-[2.4px] border-tan px-[26px] py-4 text-center font-display text-[18px] leading-[18px] font-semibold tracking-[0.6px] text-tan uppercase transition-colors duration-200 hover:bg-tan hover:text-black cursor-pointer"
+                className="inline-block rounded-[8px] border-[2.4px] border-tan px-[26px] py-4 text-center font-display text-[18px] leading-[18px] font-semibold tracking-[0.6px] text-[#8c6529] uppercase transition-colors duration-200 hover:bg-tan hover:text-black cursor-pointer"
               >
                 {sanityData?.aboutCtaText || t("discoverMore")}
               </Link>

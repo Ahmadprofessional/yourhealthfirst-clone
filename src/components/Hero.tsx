@@ -52,6 +52,7 @@ export default function Hero({ sanityData }: { sanityData?: any }) {
           alt={heroImageAlt}
           fill
           priority
+          fetchPriority="high"
           quality={92}
           sizes="(min-width: 768px) 2048px, 100vw"
           className="object-cover object-[68%_center] md:object-right"

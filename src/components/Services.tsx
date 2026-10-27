@@ -272,7 +272,7 @@ export default function Services({ sanityData }: { sanityData?: any }) {
                   <div className="mt-2">
                     <Link
                       href={service.href}
-                      className="inline-flex items-center gap-[5px] rounded-[8px] border-[1.6px] border-tan p-[10px] font-display text-[13px] leading-[13px] font-semibold tracking-[0.6px] text-tan uppercase transition-colors duration-200 hover:bg-tan hover:text-black"
+                      className="inline-flex items-center gap-[5px] rounded-[8px] border-[1.6px] border-tan p-[10px] font-display text-[13px] leading-[13px] font-semibold tracking-[0.6px] text-[#8c6529] uppercase transition-colors duration-200 hover:bg-tan hover:text-black"
                     >
                       {t("learnMore")}
                       <span className="sr-only"> — {title}</span>

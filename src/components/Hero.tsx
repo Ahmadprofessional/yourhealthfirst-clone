@@ -38,7 +38,7 @@ export default function Hero({ sanityData }: { sanityData?: any }) {
     : "/images/hero-desk.jpg";
   const heroImageAlt =
     sanityData?.heroImage?.alt ||
-    "Dr. Sofia Bouzian — YourHealthFirst Clinic, Harley Street London";
+    "Sofia Bouzian — YourHealthFirst Clinic, Harley Street London";
 
   return (
     <section className="relative flex w-full flex-col overflow-hidden md:block md:h-[793px]">

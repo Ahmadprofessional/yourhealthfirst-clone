@@ -468,7 +468,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
                       Harley Street Practice
                     </span>
                     <h3 className="font-subheading text-[20px] font-bold text-forest uppercase">
-                      Private Consultation with Dr. Sofia
+                      Private Consultation with Sofia
                     </h3>
                     <p className="text-[13px] leading-[20px] text-[#555555]">
                       Experience bespoke clinical assessment and customized treatment planning tailored to your exact aesthetic goals.
@@ -554,7 +554,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
               Book Your Private Aesthetic Consultation
             </h2>
             <p className="text-[16px] sm:text-[18px] text-cream/90 max-w-xl mx-auto leading-relaxed">
-              Meet with Dr. Sofia Bouzian at 2 Wimpole Street, London to receive your bespoke treatment plan.
+              Meet with Sofia Bouzian at 2 Wimpole Street, London to receive your bespoke treatment plan.
             </p>
             <div className="pt-2">
               <Link

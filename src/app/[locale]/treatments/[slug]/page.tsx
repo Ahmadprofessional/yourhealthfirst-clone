@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import TreatmentFaqAccordion from "@/components/TreatmentFaqAccordion";
 import { treatmentDetails } from "@/data/treatments";
 import { getLocalizedTreatment } from "@/data/localizedTreatments";
+import { getEnglishTreatmentSeo } from "@/data/seoMeta";
 import { getTranslations } from "next-intl/server";
 import { sanityFetch } from "@/sanity/lib/fetch";
 import { TREATMENT_BY_SLUG_QUERY, SITE_SETTINGS_QUERY } from "@/sanity/lib/queries";
@@ -276,15 +277,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.yourhealthfirst.uk";
   const treatment = getLocalizedTreatment(slug, locale) ?? treatmentDetails.find((t) => t.slug === slug);
   if (!treatment) return { title: "Treatment | YourHealthFirst Clinic" };
-  const displayTitle = treatment.metaTitle ?? `${treatment.title} | YourHealthFirst Clinic — Harley Street`;
-  const description = treatment.metaDescription ?? treatment.intro;
+  const seo = locale === "en" ? getEnglishTreatmentSeo(slug) : undefined;
+  const metaTitle = seo?.title ?? treatment.metaTitle;
+  const displayTitle = metaTitle ?? `${treatment.title} | YourHealthFirst Clinic — Harley Street`;
+  const description = seo?.description ?? treatment.metaDescription ?? treatment.intro;
   const imageUrl = treatment.image.startsWith("http")
     ? treatment.image
     : `${baseUrl}${treatment.image.startsWith("/") ? "" : "/"}${treatment.image}`;
   const canonicalUrl = `${baseUrl}/${locale}/treatments/${slug}`;
 
   return {
-    title: treatment.metaTitle ? { absolute: treatment.metaTitle } : treatment.title,
+    title: metaTitle ? { absolute: metaTitle } : treatment.title,
     description,
     alternates: {
       canonical: canonicalUrl,

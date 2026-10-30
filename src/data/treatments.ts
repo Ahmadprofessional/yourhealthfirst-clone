@@ -329,7 +329,7 @@ export const treatmentDetails: TreatmentDetail[] = [
     bodyImages: [
       {
         src: "/images/treatments/anti-wrinkles/sofia-consultation.jpg",
-        alt: "Dr Sofia carefully assessing a patient's face before anti-wrinkle treatment",
+        alt: "Sofia carefully assessing a patient's face before anti-wrinkle treatment",
         position: "50% 30%",
       },
       {
@@ -350,7 +350,7 @@ export const treatmentDetails: TreatmentDetail[] = [
       "Wrinkles are a natural part of the ageing process. With age, our skin gets thinner and drier and we lose elastin. The ability of our skin to protect itself is reduced as we age. Eventually, wrinkles, creases and lines form on our skin.",
       "Continuous muscle contraction is also a major contributor to facial wrinkles. Continuous muscle movement causes 'dynamic wrinkles', which only appear when the muscle is used. Over time, if left untreated, these wrinkles become 'static wrinkles' — meaning they become difficult to remove and, over time, permanently etched into the skin.",
       "Anti-wrinkle treatments work by temporarily preventing muscles from contracting. For the underarms, the injections block the nerves responsible for your sweat glands — only stopping the nerves that are directly injected — reducing the amount of active sweat glands and leaving you feeling more confident and comfortable when you're sweat-free.",
-      "Dr Sofia carries out a thorough assessment at every consultation to ensure the right dose is placed in exactly the right location. Results typically become visible within 3–7 days and last between 3–6 months depending on the area and individual metabolism. With regular treatment, many patients find that results last longer over time.",
+      "Sofia carries out a thorough assessment at every consultation to ensure the right dose is placed in exactly the right location. Results typically become visible within 3–7 days and last between 3–6 months depending on the area and individual metabolism. With regular treatment, many patients find that results last longer over time.",
     ],
     benefits: [
       "Reverses the signs of ageing and dramatically diminishes the appearance of wrinkles",
@@ -398,7 +398,7 @@ export const treatmentDetails: TreatmentDetail[] = [
       {
         question: "What results can I expect?",
         answer:
-          "A softened, more rested appearance in the treated area with your natural expression preserved. Dr Sofia's approach favours subtle, natural movement rather than a 'frozen' look, so you'll still be able to smile, frown and raise your brows normally.",
+          "A softened, more rested appearance in the treated area with your natural expression preserved. Sofia's approach favours subtle, natural movement rather than a 'frozen' look, so you'll still be able to smile, frown and raise your brows normally.",
       },
       {
         question: "Will it 'freeze' my face and leave me expressionless?",
@@ -489,14 +489,14 @@ export const treatmentDetails: TreatmentDetail[] = [
     image: "/images/treatments/dermal-fillers/cheek-injection.webp",
     sidebarImage: {
       src: "/images/treatments/dermal-fillers/consultation-mirror.jpg",
-      alt: "Dr Sofia placing dermal filler while the patient watches in a hand mirror",
+      alt: "Sofia placing dermal filler while the patient watches in a hand mirror",
     },
     benefitsInline: true,
     bodyImagesLayout: "stacked",
     bodyImages: [
       {
         src: "/images/treatments/dermal-fillers/cheek-injection.webp",
-        alt: "Dr Sofia carefully placing dermal filler in the cheek",
+        alt: "Sofia carefully placing dermal filler in the cheek",
         position: "50% 62%",
       },
       {
@@ -531,7 +531,7 @@ export const treatmentDetails: TreatmentDetail[] = [
     ],
     body: [
       "As we age, our skin loses collagen, elastin and hyaluronic acid, leading to hollowing, sagging and deeper lines. Dermal fillers replenish this lost volume and stimulate collagen production, creating a refreshed and youthful appearance without surgery.",
-      "At YourHealthFirst, Dr Sofia specialises in a wide range of filler treatments: lip enhancement using the Russian lips technique, tear trough treatment for dark circles and hollow eyes, non-surgical rhinoplasty, cheek augmentation, jawline contouring, nasolabial folds and marionette lines correction, and hand rejuvenation.",
+      "At YourHealthFirst, Sofia specialises in a wide range of filler treatments: lip enhancement using the Russian lips technique, tear trough treatment for dark circles and hollow eyes, non-surgical rhinoplasty, cheek augmentation, jawline contouring, nasolabial folds and marionette lines correction, and hand rejuvenation.",
       "All fillers used are CE/FDA-approved premium hyaluronic acid products. Treatments are performed with the utmost care for symmetry and proportion, ensuring a result that looks refreshed, not overdone. Dissolving (hyaluronidase) is also available should a correction be needed.",
       "Following a consultation, most dermal filler appointments take around 25 to 50 minutes from start to finish, depending on how many areas are being treated. On average, most patients choose to repeat their filler course after 4–6 months to maintain results — lip fillers in particular, when performed with premium products, tend to hold their volume for a longer-lasting effect.",
     ],
@@ -609,7 +609,7 @@ export const treatmentDetails: TreatmentDetail[] = [
       {
         question: "Will I look overfilled or unnatural?",
         answer:
-          "No — Dr Sofia's approach prioritises symmetry, proportion and a natural outcome over maximum volume. Filler is built up gradually and conservatively, and dissolving is always available if you ever want a correction.",
+          "No — Sofia's approach prioritises symmetry, proportion and a natural outcome over maximum volume. Filler is built up gradually and conservatively, and dissolving is always available if you ever want a correction.",
       },
       {
         question: "What are the side-effects?",
@@ -664,7 +664,7 @@ export const treatmentDetails: TreatmentDetail[] = [
     bodyImages: [
       {
         src: "/images/treatments/sunekos/sofia-injecting.jpg",
-        alt: "Dr Sofia carefully treating the eye area with Sunekos",
+        alt: "Sofia carefully treating the eye area with Sunekos",
         position: "40% 35%",
       },
     ],
@@ -837,7 +837,7 @@ export const treatmentDetails: TreatmentDetail[] = [
       {
         question: "Who should not be treated with Sunekos?",
         answer:
-          "Sunekos should not be used on patients who are pregnant or breastfeeding, those with a history of severe allergies or anaphylaxis, or patients with a compromised immune system. Dr Sofia will confirm suitability at your consultation.",
+          "Sunekos should not be used on patients who are pregnant or breastfeeding, those with a history of severe allergies or anaphylaxis, or patients with a compromised immune system. Sofia will confirm suitability at your consultation.",
       },
       {
         question: "What should I expect from the treatment?",
@@ -884,7 +884,7 @@ export const treatmentDetails: TreatmentDetail[] = [
       ],
       bestForImage: {
         src: "/images/treatments/profhilo/sofia-injecting-lips.jpg",
-        alt: "Dr Sofia Bouzian administering a Profhilo injection near the lips",
+        alt: "Sofia Bouzian administering a Profhilo injection near the lips",
       },
       notRightHeading: "When Might Profhilo Not Be the Right Treatment?",
       notRightIntro: "Although Profhilo can improve skin quality, it is not designed to address every aesthetic concern. Depending on your goals, another treatment may be more appropriate.",
@@ -2026,7 +2026,7 @@ export const treatmentDetails: TreatmentDetail[] = [
       },
     ],
     body: [
-      "Dr Sofia is a recognised PRP Hair Loss Specialist with extensive experience treating both male pattern baldness and female hair thinning. The treatment uses your own blood — processed to concentrate the platelets — which are then injected precisely into the thinning areas of the scalp. In collaboration with Regen Lab's original and patented technologies, a one-step closed system is used to prepare your own blood cells, and the Advanced PRP Cellular Matrix is injected using the pain-free U225 latest intradermal medical injector.",
+      "Sofia is a recognised PRP Hair Loss Specialist with extensive experience treating both male pattern baldness and female hair thinning. The treatment uses your own blood — processed to concentrate the platelets — which are then injected precisely into the thinning areas of the scalp. In collaboration with Regen Lab's original and patented technologies, a one-step closed system is used to prepare your own blood cells, and the Advanced PRP Cellular Matrix is injected using the pain-free U225 latest intradermal medical injector.",
       "There are two major forms of alopecia affecting the population that can be improved with PRP. Androgenic Alopecia is the most common cause of male pattern baldness, due to hormonal imbalance, genetic predisposition, age and metabolic syndromes — treatments are generally challenging, and previous therapies have often shown limited effectiveness or side-effects. Androgenetic alopecia affects up to 30% of men over 30 and 50% of men over 50, as well as many women, and PRP shows excellent results for male and female patients from initial to intermediate stages (I–V on the Norwood scale).",
       "Alopecia Areata is an auto-immune disease that causes spot baldness, generally due to genetic predisposition and triggered by a physiological change such as stress or nutrient deficiencies. In both types, male and female patients show excellent results in most cases of hair loss.",
       "Standard PRP stimulates the scalp follicles and has the ability to repair and restore injuries within skin tissue, accelerating the healing of damaged tissue. It increases collagen production and enhances the skin's elasticity, tone and thickness — results begin to show after the second treatment, allowing cell angiogenesis and hair regrowth in the scalp, and increasing hair density and thickness within 6 months. Standard PRP, the traditional form of PRP, is injected manually.",
@@ -2164,7 +2164,7 @@ export const treatmentDetails: TreatmentDetail[] = [
       {
         question: "Does it work for all types of hair loss?",
         answer:
-          "PRP is most effective for androgenetic alopecia (pattern hair loss) and alopecia areata, and works best on follicles that are thinning but still active. Dr Sofia will assess suitability at your consultation.",
+          "PRP is most effective for androgenetic alopecia (pattern hair loss) and alopecia areata, and works best on follicles that are thinning but still active. Sofia will assess suitability at your consultation.",
       },
       {
         question: "Is the treatment painful?",
@@ -2637,7 +2637,7 @@ export const treatmentDetails: TreatmentDetail[] = [
     ],
     body: [
       "Fat cells are more susceptible to cold temperatures than surrounding skin and tissue. During cryolipolysis, a specialised applicator draws the fatty tissue into contact with controlled cooling panels. The fat cells crystallise and die, then are naturally eliminated by the body's lymphatic system over the following weeks.",
-      "Dr Sofia has worked with cryolipolysis since its early days at one of Harley Street's pioneering clinics, and has successfully treated thousands of patients. Areas commonly treated include the abdomen, flanks, inner and outer thighs, upper arms, bra area, back, knees, chin and small fatty deposits.",
+      "Sofia has worked with cryolipolysis since its early days at one of Harley Street's pioneering clinics, and has successfully treated thousands of patients. Areas commonly treated include the abdomen, flanks, inner and outer thighs, upper arms, bra area, back, knees, chin and small fatty deposits.",
       "Light therapy works in two ways to speed up results: ATP is the spark that ignites the metabolism, so the body burns more fat while maintaining its muscle mass, and it improves detoxification and removal of waste products that encourage retention of water. Our advanced cryolipolysis machine uses the latest technology, which not only freezes the fat but also offers Colour Light Therapy — a completely holistic, non-invasive treatment using coloured LEDs to stimulate, activate or calm the skin and muscles, encouraging the body to begin to heal itself.",
       "All areas are treated with large cups, rather than the combination of medium and large cups used by many other clinics — a larger cup treats a larger area in each session. One area refers to any unpaired part of the body (e.g. upper or lower abdomen, or an uneven part of the body to even it out); two areas refers to paired parts of the body (e.g. arms, inner thighs, outer thighs, love handles).",
       "Results are visible from 8 weeks, with optimal results at 12–16 weeks. The treated fat cells are permanently destroyed and will not return — provided a stable weight is maintained. Multiple areas can be treated in one session.",
@@ -2708,7 +2708,7 @@ export const treatmentDetails: TreatmentDetail[] = [
       {
         question: "Can multiple areas be treated at once?",
         answer:
-          "Yes — depending on your goals, multiple applicators and areas can be treated within the same appointment, which Dr Sofia will plan with you at consultation.",
+          "Yes — depending on your goals, multiple applicators and areas can be treated within the same appointment, which Sofia will plan with you at consultation.",
       },
       {
         question: "Who is suitable for cryolipolysis?",
@@ -4037,7 +4037,7 @@ export const treatmentDetails: TreatmentDetail[] = [
     category: "Skin & Health",
     image: "/images/treatments/sclerotherapy/sclerotherapy-treatment-room-2.jpg",
     intro:
-      "Sclerotherapy is one of the most effective treatments for spider veins and small varicose veins on the legs. A very fine needle injects a sclerosing solution into the vein, irritating its lining so the walls stick together — blood stops flowing through the vein, which is gradually absorbed by the body over a few weeks. Dr Sofia is a member of the British Association of Sclerotherapists.",
+      "Sclerotherapy is one of the most effective treatments for spider veins and small varicose veins on the legs. A very fine needle injects a sclerosing solution into the vein, irritating its lining so the walls stick together — blood stops flowing through the vein, which is gradually absorbed by the body over a few weeks. Sofia is a member of the British Association of Sclerotherapists.",
     introRows: [
       {
         image: {
@@ -4078,7 +4078,7 @@ export const treatmentDetails: TreatmentDetail[] = [
       "Foam sclerotherapy available for larger veins",
       "Treats the legs and other areas of the body",
       "Progressive fading as vessels are absorbed by the body",
-      "Dr Sofia is a member of the British Association of Sclerotherapists",
+      "Sofia is a member of the British Association of Sclerotherapists",
       "Minimal downtime — normal exercise resumes after 24 hours",
     ],
     suitableFor: [
@@ -4169,7 +4169,7 @@ export const treatmentDetails: TreatmentDetail[] = [
       {
         question: "Who is suitable for sclerotherapy?",
         answer:
-          "Adults with visible spider veins, thread veins or small varicose veins seeking a non-surgical removal option. Dr Sofia is a member of the British Association of Sclerotherapists.",
+          "Adults with visible spider veins, thread veins or small varicose veins seeking a non-surgical removal option. Sofia is a member of the British Association of Sclerotherapists.",
       },
     ],
   },
@@ -4648,7 +4648,7 @@ export const treatmentDetails: TreatmentDetail[] = [
       {
         question: "How often should I have injections?",
         answer:
-          "This depends on your individual needs — for a diagnosed deficiency, a typical protocol starts with more frequent injections before tapering to a monthly maintenance shot. Others prefer single top-up shots periodically for an energy boost. Dr Sofia will advise a schedule suited to you.",
+          "This depends on your individual needs — for a diagnosed deficiency, a typical protocol starts with more frequent injections before tapering to a monthly maintenance shot. Others prefer single top-up shots periodically for an energy boost. Sofia will advise a schedule suited to you.",
       },
       {
         question: "Do B12 injections help with weight loss?",

@@ -8,6 +8,7 @@ import { getTranslations } from "next-intl/server";
 import { sanityFetch } from "@/sanity/lib/fetch";
 import { TREATMENTS_OVERVIEW_QUERY, SITE_SETTINGS_QUERY } from "@/sanity/lib/queries";
 import { getSanityAttribute } from "@/sanity/lib/dataAttribute";
+import { seoMeta } from "@/data/seoMeta";
 
 export async function generateMetadata({
   params,
@@ -16,14 +17,15 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.yourhealthfirst.uk";
-  const title = "Treatments | YourHealthFirst Clinic — Harley Street, London";
-  const description =
+  const seo = locale === "en" ? seoMeta.treatments : undefined;
+  const title = seo?.title ?? "Treatments | YourHealthFirst Clinic — Harley Street, London";
+  const description = seo?.description ??
     "Explore all 20 aesthetic and medical treatments at YourHealthFirst Clinic — anti-wrinkle, fillers, Profhilo, cryolipolysis, PRP hair loss, Emsculpt Neo and more.";
   const canonicalUrl = `${baseUrl}/${locale}/treatments`;
   const imageUrl = `${baseUrl}/images/hero-desk.jpg`;
 
   return {
-    title,
+    title: seo ? { absolute: title } : title,
     description,
     alternates: {
       canonical: canonicalUrl,

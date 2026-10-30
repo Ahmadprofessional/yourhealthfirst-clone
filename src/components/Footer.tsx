@@ -15,7 +15,7 @@ import {
 } from "@/components/icons";
 import { getSanityAttribute } from "@/sanity/lib/dataAttribute";
 
-// ── 1. AS SEEN ON & AWARDS (100% Genuine Dr. Sofia Recognitions) ──
+// ── 1. AS SEEN ON & AWARDS (100% Genuine Sofia Recognitions) ──
 const seenOnLogos = [
   {
     src: "/images/logos/ghp-awards-2020.png",

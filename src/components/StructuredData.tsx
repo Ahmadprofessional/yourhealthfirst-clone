@@ -59,7 +59,7 @@ export default function StructuredData({ type = "clinic", breadcrumbs }: Structu
     ],
     founder: {
       "@type": "Person",
-      name: "Dr. Sofia Bouzian",
+      name: "Sofia Bouzian",
       jobTitle: "Founder & Medical Aesthetic Practitioner",
       worksFor: {
         "@type": "MedicalClinic",

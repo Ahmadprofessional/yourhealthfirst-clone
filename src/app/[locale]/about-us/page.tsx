@@ -10,6 +10,7 @@ import { sanityFetch } from "@/sanity/lib/fetch";
 import { ABOUT_PAGE_QUERY, SITE_SETTINGS_QUERY } from "@/sanity/lib/queries";
 import { getSanityAttribute } from "@/sanity/lib/dataAttribute";
 import { urlFor } from "@/sanity/lib/image";
+import { seoMeta } from "@/data/seoMeta";
 
 const trainingPhotos: SliderPhoto[] = [
   { src: "/images/about-us/training/training-01.jpg", alt: "Sofia Bouzian — postgraduate training programme in aesthetic medicine: workshops, anatomy laboratory sessions and hands-on training", width: 1206, height: 1181 },
@@ -32,13 +33,14 @@ export async function generateMetadata({
   const { locale } = await params;
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.yourhealthfirst.uk";
   const t = await getTranslations({ locale, namespace: "AboutPage" });
-  const title = `${t("heading")} | Dr. Sofia Bouzian — YourHealthFirst Clinic`;
-  const description = t("subtitle");
+  const seo = locale === "en" ? seoMeta.about : undefined;
+  const title = seo?.title ?? `${t("heading")} | Sofia Bouzian — YourHealthFirst Clinic`;
+  const description = seo?.description ?? t("subtitle");
   const canonicalUrl = `${baseUrl}/${locale}/about-us`;
   const imageUrl = `${baseUrl}/images/hero-desk.jpg`;
 
   return {
-    title,
+    title: seo ? { absolute: title } : title,
     description,
     alternates: {
       canonical: canonicalUrl,
@@ -55,7 +57,7 @@ export async function generateMetadata({
           url: imageUrl,
           width: 1200,
           height: 630,
-          alt: "Dr. Sofia Bouzian — Harley Street Aesthetic Medicine Doctor",
+          alt: "Sofia Bouzian — Harley Street Aesthetic Practitioner",
         },
       ],
     },

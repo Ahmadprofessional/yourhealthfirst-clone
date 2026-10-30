@@ -159,12 +159,12 @@ export const faqs: FaqItem[] = [
   {
     question: "Do I need a consultation before treatment?",
     answer:
-      "Yes — every new patient begins with a thorough one-to-one consultation with Dr Sofia. This allows us to understand your concerns, assess your suitability for treatment, and design a personalised plan tailored to your goals. Consultations are relaxed and informative with no pressure to proceed.",
+      "Yes — every new patient begins with a thorough one-to-one consultation with Sofia. This allows us to understand your concerns, assess your suitability for treatment, and design a personalised plan tailored to your goals. Consultations are relaxed and informative with no pressure to proceed.",
   },
   {
     question: "Are the treatments safe for all skin types?",
     answer:
-      "Our treatments are suitable for a wide range of skin types and tones. During your consultation Dr Sofia will assess your skin in detail and recommend the most appropriate treatments for your individual needs. Safety and natural-looking results are always our top priority.",
+      "Our treatments are suitable for a wide range of skin types and tones. During your consultation Sofia will assess your skin in detail and recommend the most appropriate treatments for your individual needs. Safety and natural-looking results are always our top priority.",
   },
   {
     question: "How long does a treatment session take?",
@@ -174,7 +174,7 @@ export const faqs: FaqItem[] = [
   {
     question: "When will I see results?",
     answer:
-      "Results timelines differ by treatment. Anti-wrinkle injections typically show effect within 3–14 days. Dermal fillers and Profhilo show results almost immediately, improving further over several weeks. Body contouring treatments such as Cryolipolysis generally show visible results after 8–12 weeks. Dr Sofia will guide you on what to expect during your consultation.",
+      "Results timelines differ by treatment. Anti-wrinkle injections typically show effect within 3–14 days. Dermal fillers and Profhilo show results almost immediately, improving further over several weeks. Body contouring treatments such as Cryolipolysis generally show visible results after 8–12 weeks. Sofia will guide you on what to expect during your consultation.",
   },
 ];
 

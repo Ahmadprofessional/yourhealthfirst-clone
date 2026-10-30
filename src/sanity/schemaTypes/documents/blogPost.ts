@@ -56,7 +56,7 @@ export const blogPost = defineType({
       name: "authorName",
       title: "Author Name",
       type: "string",
-      initialValue: "Dr. Sofia Bouzian",
+      initialValue: "Sofia Bouzian",
     }),
     defineField({
       name: "authorRole",

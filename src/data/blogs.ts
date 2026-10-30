@@ -59,7 +59,7 @@ export const blogPosts: BlogPost[] = [
     image: "/images/blogs/prp-exosome-rejuvenation.jpeg",
     imageAlt: "Advanced PRP and Exosome Therapy session at YourHealthFirst Clinic London",
     author: {
-      name: "Dr. Sofia Bouzian",
+      name: "Sofia Bouzian",
       role: "Founder & Lead Aesthetic Practitioner",
       image: "/images/About us page image.jpeg",
       credentials: "BSc, Aesthetic Medicine Specialist, Registered Phlebotomist",
@@ -73,7 +73,7 @@ export const blogPosts: BlogPost[] = [
     ],
     quote: {
       text: "Regenerative aesthetics is not about masking age with synthetic fillers alone; it is about awakening the body’s own cellular machinery to rebuild healthy, vibrant collagen and stimulate dormant hair roots.",
-      citation: "Dr. Sofia Bouzian — YourHealthFirst Clinic",
+      citation: "Sofia Bouzian — YourHealthFirst Clinic",
     },
     sections: [
       {
@@ -154,7 +154,7 @@ export const blogPosts: BlogPost[] = [
     aliases: ["prp-injections-for-hair-loss", "top-prp-injections-london"],
     title: "Top PRP Injections in London — What You Need to Know",
     excerpt:
-      "PRP injections for hair loss have become the gold standard non-surgical solution for thinning hair and alopecia. Dr. Sofia Bouzian outlines what PRP is, how it works, what to expect, and how to choose the right London clinic.",
+      "PRP injections for hair loss have become the gold standard non-surgical solution for thinning hair and alopecia. Sofia Bouzian outlines what PRP is, how it works, what to expect, and how to choose the right London clinic.",
     date: "6 September 2023",
     datePublished: "2023-09-06T09:00:00Z",
     readTime: "5 min read",
@@ -163,7 +163,7 @@ export const blogPosts: BlogPost[] = [
     image: "/images/blogs/top-prp-injections-london.jpeg",
     imageAlt: "Platelet-Rich Plasma hair thinning treatment in London Harley Street",
     author: {
-      name: "Dr. Sofia Bouzian",
+      name: "Sofia Bouzian",
       role: "Founder & Lead Aesthetic Practitioner",
       image: "/images/About us page image.jpeg",
       credentials: "BSc, Aesthetic Medicine Specialist, Registered Phlebotomist",
@@ -177,7 +177,7 @@ export const blogPosts: BlogPost[] = [
     ],
     quote: {
       text: "The key to successful PRP hair treatment lies in centrifuge purity and accurate injection depth. Administering concentrated platelets directly to the bulge region of the follicle is where true regeneration happens.",
-      citation: "Dr. Sofia Bouzian — London Hair Restoration Specialist",
+      citation: "Sofia Bouzian — London Hair Restoration Specialist",
     },
     sections: [
       {
@@ -207,7 +207,7 @@ export const blogPosts: BlogPost[] = [
           "At YourHealthFirst Clinic, we use Swiss Regen Lab medical-grade kits. Furthermore, our Advanced Cellular Matrix protocol combines high-concentration PRP with uncrosslinked Hyaluronic Acid and Biotin, creating a 3D bio-scaffold that retains growth factors at the scalp root for sustained release.",
         ],
         callout:
-          "The U225 Advantage: Rather than manual syringe injections that can be painful, Dr. Sofia utilizes the U225 medical injector. Operating at 500 injections per minute with micrometer depth control, it creates zero scalp bruising and virtually no discomfort.",
+          "The U225 Advantage: Rather than manual syringe injections that can be painful, Sofia utilizes the U225 medical injector. Operating at 500 injections per minute with micrometer depth control, it creates zero scalp bruising and virtually no discomfort.",
       },
       {
         heading: "Who Is the Ideal Candidate?",
@@ -259,7 +259,7 @@ export const blogPosts: BlogPost[] = [
     image: "/images/blogs/cryolipolysis-fat-freezing.jpeg",
     imageAlt: "Cryolipolysis fat freezing treatment session at YourHealthFirst Clinic London",
     author: {
-      name: "Dr. Sofia Bouzian",
+      name: "Sofia Bouzian",
       role: "Founder & Lead Aesthetic Practitioner",
       image: "/images/About us page image.jpeg",
       credentials: "BSc, Aesthetic Medicine Specialist, Registered Phlebotomist",
@@ -273,7 +273,7 @@ export const blogPosts: BlogPost[] = [
     ],
     quote: {
       text: "Stubborn pockets of subcutaneous fat on the abdomen or flanks often resist even the strictest diet and exercise. Cryolipolysis provides a non-surgical sculpted contour without a single incision or day of downtime.",
-      citation: "Dr. Sofia Bouzian — Body Contouring Specialist",
+      citation: "Sofia Bouzian — Body Contouring Specialist",
     },
     sections: [
       {
@@ -344,16 +344,16 @@ export const blogPosts: BlogPost[] = [
     aliases: ["anti-wrinkles"],
     title: "Anti-Wrinkle Injections — Everything You Need to Know",
     excerpt:
-      "Anti-wrinkle injections remain one of the most requested aesthetic treatments in the UK. Dr. Sofia covers what they are, how they work, the areas treated, and what creates the difference between a natural look and an overdone appearance.",
+      "Anti-wrinkle injections remain one of the most requested aesthetic treatments in the UK. Sofia covers what they are, how they work, the areas treated, and what creates the difference between a natural look and an overdone appearance.",
     date: "16 March 2023",
     datePublished: "2023-03-16T09:00:00Z",
     readTime: "5 min read",
     category: "Face & Anti-Aging",
     categorySlug: "face-anti-aging",
     image: "/images/blogs/anti-wrinkle-injections.jpeg",
-    imageAlt: "Dr. Sofia administering bespoke anti-wrinkle injections in London Harley Street",
+    imageAlt: "Sofia administering bespoke anti-wrinkle injections in London Harley Street",
     author: {
-      name: "Dr. Sofia Bouzian",
+      name: "Sofia Bouzian",
       role: "Founder & Lead Aesthetic Practitioner",
       image: "/images/About us page image.jpeg",
       credentials: "BSc, Aesthetic Medicine Specialist, Registered Phlebotomist",
@@ -362,12 +362,12 @@ export const blogPosts: BlogPost[] = [
     keyTakeaways: [
       "Temporarily relaxes facial hyperactive muscles to smooth dynamic expression lines.",
       "Prevents dynamic lines from becoming permanently etched static creases over time.",
-      "Dr. Sofia’s philosophy prioritizes natural facial animation — smoothing lines while preserving your true expression.",
+      "Sofia’s philosophy prioritizes natural facial animation — smoothing lines while preserving your true expression.",
       "Advanced therapeutic uses include masseter jawline slimming, bruxism relief, and hyperhidrosis (sweating) control.",
     ],
     quote: {
       text: "The highest artistry in anti-wrinkle treatment is imperceptibility. People should notice that you look well-rested, radiant, and refreshed — never frozen.",
-      citation: "Dr. Sofia Bouzian — Facial Aesthetics Specialist",
+      citation: "Sofia Bouzian — Facial Aesthetics Specialist",
     },
     sections: [
       {
@@ -401,7 +401,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "The Harley Street Natural Aesthetic",
         paragraphs: [
-          "One of the biggest concerns patients voice is the fear of looking 'frozen' or unnatural. Dr. Sofia’s micro-dosing technique ensures that key retaining muscles maintain mobility, preserving warm eye smiles and natural brow inflection.",
+          "One of the biggest concerns patients voice is the fear of looking 'frozen' or unnatural. Sofia’s micro-dosing technique ensures that key retaining muscles maintain mobility, preserving warm eye smiles and natural brow inflection.",
           "Results begin developing within 3 to 5 days, with the full refined outcome visible at day 14. Longevity typically ranges between 3 and 5 months, with regular treatments often extending the intervals between top-ups.",
         ],
       },
@@ -410,7 +410,7 @@ export const blogPosts: BlogPost[] = [
       {
         question: "Will my face look frozen?",
         answer:
-          "Not under Dr. Sofia's care. We practice a conservative, anatomy-led technique designed to smooth wrinkles while retaining your authentic facial expressions and warmth.",
+          "Not under Sofia's care. We practice a conservative, anatomy-led technique designed to smooth wrinkles while retaining your authentic facial expressions and warmth.",
       },
       {
         question: "How long does the appointment take?",
@@ -441,9 +441,9 @@ export const blogPosts: BlogPost[] = [
     category: "Hair Restoration",
     categorySlug: "hair-restoration",
     image: "/images/blogs/prp-hair-loss-guide.jpeg",
-    imageAlt: "Clinical PRP hair restoration guide by Dr. Sofia Bouzian",
+    imageAlt: "Clinical PRP hair restoration guide by Sofia Bouzian",
     author: {
-      name: "Dr. Sofia Bouzian",
+      name: "Sofia Bouzian",
       role: "Founder & Lead Aesthetic Practitioner",
       image: "/images/About us page image.jpeg",
       credentials: "BSc, Aesthetic Medicine Specialist, Registered Phlebotomist",
@@ -457,7 +457,7 @@ export const blogPosts: BlogPost[] = [
     ],
     quote: {
       text: "Early intervention is the cornerstone of hair preservation. When patients address thinning at the first sign of widening parting or receding temples, PRP can deliver remarkable restorative outcomes.",
-      citation: "Dr. Sofia Bouzian — London Hair Clinic Director",
+      citation: "Sofia Bouzian — London Hair Clinic Director",
     },
     sections: [
       {
@@ -523,7 +523,7 @@ export const blogPosts: BlogPost[] = [
     relatedTreatment: {
       title: "PRP Hair Loss Consultations",
       href: "/treatments/prp-hair-loss",
-      description: "Book an in-depth scalp analysis with Dr. Sofia Bouzian at 2 Wimpole Street, London.",
+      description: "Book an in-depth scalp analysis with Sofia Bouzian at 2 Wimpole Street, London.",
     },
   },
   {
@@ -531,16 +531,16 @@ export const blogPosts: BlogPost[] = [
     aliases: ["dermal-fillers"],
     title: "Dermal Fillers and Their Uses — The Complete Guide",
     excerpt:
-      "From lip enhancement to non-surgical rhinoplasty, dermal fillers have a remarkably wide range of applications. Dr. Sofia explains the types of hyaluronic acid fillers, areas treated, and what to look for when choosing a practitioner.",
+      "From lip enhancement to non-surgical rhinoplasty, dermal fillers have a remarkably wide range of applications. Sofia explains the types of hyaluronic acid fillers, areas treated, and what to look for when choosing a practitioner.",
     date: "16 March 2023",
     datePublished: "2023-03-16T09:00:00Z",
     readTime: "6 min read",
     category: "Face & Anti-Aging",
     categorySlug: "face-anti-aging",
     image: "/images/blogs/dermal-fillers-guide.jpeg",
-    imageAlt: "Dermal filler treatment and facial contouring by Dr. Sofia Bouzian London",
+    imageAlt: "Dermal filler treatment and facial contouring by Sofia Bouzian London",
     author: {
-      name: "Dr. Sofia Bouzian",
+      name: "Sofia Bouzian",
       role: "Founder & Lead Aesthetic Practitioner",
       image: "/images/About us page image.jpeg",
       credentials: "BSc, Aesthetic Medicine Specialist, Registered Phlebotomist",
@@ -554,7 +554,7 @@ export const blogPosts: BlogPost[] = [
     ],
     quote: {
       text: "Facial contouring is about harmony and proportion. Rather than focusing on a single line or isolated feature, we evaluate the full architectural balance of your face to achieve elegant, undetectable enhancement.",
-      citation: "Dr. Sofia Bouzian — Facial Contouring Specialist",
+      citation: "Sofia Bouzian — Facial Contouring Specialist",
     },
     sections: [
       {
@@ -570,7 +570,7 @@ export const blogPosts: BlogPost[] = [
           "Modern dermal fillers come in various rheological densities — from soft hydrating gels for delicate lips to firm structural gels for bone-mimicking projection:",
         ],
         bullets: [
-          "Lips: Shaping, defining the vermilion border, restoring hydration, and adding balanced volume using Dr. Sofia’s refined Russian Lips technique.",
+          "Lips: Shaping, defining the vermilion border, restoring hydration, and adding balanced volume using Sofia’s refined Russian Lips technique.",
           "Cheeks & Midface: Lifting sunken cheeks, restoring the youthful Ogee curve, and lightening nasolabial folds.",
           "Tear Troughs: Filling hollow, shadowy under-eye circles to banish perpetual exhaustion.",
           "Jawline & Chin: Sharpening mandibular definition, elongating the profile, and balancing facial symmetry.",
@@ -590,7 +590,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "Choosing the Right Practitioner in London",
         paragraphs: [
-          "While dermal fillers are widely available, clinical outcome depends heavily on the injector's anatomical knowledge, aesthetic eye, and injection technique. Dr. Sofia utilizes blunt-tipped microcannulas wherever possible to minimize tissue trauma, bruising, and vascular risks, ensuring optimal patient comfort.",
+          "While dermal fillers are widely available, clinical outcome depends heavily on the injector's anatomical knowledge, aesthetic eye, and injection technique. Sofia utilizes blunt-tipped microcannulas wherever possible to minimize tissue trauma, bruising, and vascular risks, ensuring optimal patient comfort.",
         ],
       },
     ],

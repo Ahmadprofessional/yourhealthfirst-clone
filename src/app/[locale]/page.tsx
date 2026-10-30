@@ -11,6 +11,7 @@ import BookingSection from "@/components/BookingSection";
 import Footer from "@/components/Footer";
 import { sanityFetch } from "@/sanity/lib/fetch";
 import { HOME_PAGE_QUERY, SITE_SETTINGS_QUERY } from "@/sanity/lib/queries";
+import { seoMeta } from "@/data/seoMeta";
 
 export async function generateMetadata({
   params,
@@ -19,14 +20,15 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.yourhealthfirst.uk";
-  const title = "YourHealthFirst Clinic | Harley Street, London — Health & Aesthetics";
-  const description =
+  const seo = locale === "en" ? seoMeta.home : undefined;
+  const title = seo?.title ?? "YourHealthFirst Clinic | Harley Street, London — Health & Aesthetics";
+  const description = seo?.description ??
     "Award-winning clinic at 2 Wimpole Street, London W1G 0EB. Specialising in aesthetic medicine, anti-wrinkle injections, dermal fillers, hair loss & skin rejuvenation.";
   const canonicalUrl = `${baseUrl}/${locale}`;
   const imageUrl = `${baseUrl}/images/hero-desk.jpg`;
 
   return {
-    title,
+    title: seo ? { absolute: title } : title,
     description,
     alternates: {
       canonical: canonicalUrl,
@@ -43,7 +45,7 @@ export async function generateMetadata({
           url: imageUrl,
           width: 1200,
           height: 630,
-          alt: "Dr. Sofia Bouzian — YourHealthFirst Clinic Harley Street London",
+          alt: "Sofia Bouzian — YourHealthFirst Clinic Harley Street London",
         },
       ],
     },

@@ -8,6 +8,7 @@ import { sanityFetch } from "@/sanity/lib/fetch";
 import { GALLERY_PAGE_QUERY, SITE_SETTINGS_QUERY, ALL_GALLERY_CASES_QUERY } from "@/sanity/lib/queries";
 import { getSanityAttribute } from "@/sanity/lib/dataAttribute";
 import { urlFor } from "@/sanity/lib/image";
+import { seoMeta } from "@/data/seoMeta";
 
 export async function generateMetadata({
   params,
@@ -17,13 +18,14 @@ export async function generateMetadata({
   const { locale } = await params;
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.yourhealthfirst.uk";
   const t = await getTranslations({ locale, namespace: "GalleryPage" });
-  const title = `${t("heading")} | Before & After — YourHealthFirst Clinic`;
-  const description = t("subtitle");
+  const seo = locale === "en" ? seoMeta.gallery : undefined;
+  const title = seo?.title ?? `${t("heading")} | Before & After — YourHealthFirst Clinic`;
+  const description = seo?.description ?? t("subtitle");
   const canonicalUrl = `${baseUrl}/${locale}/gallery`;
   const imageUrl = `${baseUrl}/images/hero-desk.jpg`;
 
   return {
-    title,
+    title: seo ? { absolute: title } : title,
     description,
     alternates: {
       canonical: canonicalUrl,

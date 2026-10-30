@@ -7,6 +7,7 @@ import { sanityFetch } from "@/sanity/lib/fetch";
 import { PRESS_PAGE_QUERY, SITE_SETTINGS_QUERY } from "@/sanity/lib/queries";
 import { getSanityAttribute } from "@/sanity/lib/dataAttribute";
 import { urlFor } from "@/sanity/lib/image";
+import { seoMeta } from "@/data/seoMeta";
 
 export async function generateMetadata({
   params,
@@ -16,13 +17,14 @@ export async function generateMetadata({
   const { locale } = await params;
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.yourhealthfirst.uk";
   const t = await getTranslations({ locale, namespace: "PressPage" });
-  const title = `${t("heading")} | Dr. Sofia Bouzian in the Media — YourHealthFirst Clinic`;
-  const description = t("subtitle");
+  const seo = locale === "en" ? seoMeta.press : undefined;
+  const title = seo?.title ?? `${t("heading")} | Sofia Bouzian in the Media — YourHealthFirst Clinic`;
+  const description = seo?.description ?? t("subtitle");
   const canonicalUrl = `${baseUrl}/${locale}/press`;
   const imageUrl = `${baseUrl}/images/press/press-50.jpg`;
 
   return {
-    title,
+    title: seo ? { absolute: title } : title,
     description,
     alternates: {
       canonical: canonicalUrl,
@@ -39,7 +41,7 @@ export async function generateMetadata({
           url: imageUrl,
           width: 1200,
           height: 630,
-          alt: "Dr. Sofia Bouzian — Featured in Press & Global Media",
+          alt: "Sofia Bouzian — Featured in Press & Global Media",
         },
       ],
     },

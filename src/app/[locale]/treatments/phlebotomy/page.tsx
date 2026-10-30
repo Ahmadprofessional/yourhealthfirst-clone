@@ -11,6 +11,7 @@ import { sanityFetch } from "@/sanity/lib/fetch";
 import { PHLEBOTOMY_PAGE_QUERY, SITE_SETTINGS_QUERY } from "@/sanity/lib/queries";
 import { getSanityAttribute } from "@/sanity/lib/dataAttribute";
 import { urlFor } from "@/sanity/lib/image";
+import { seoMeta } from "@/data/seoMeta";
 
 export async function generateMetadata({
   params,
@@ -20,8 +21,9 @@ export async function generateMetadata({
   const { locale } = await params;
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.yourhealthfirst.uk";
   const t = await getTranslations({ locale, namespace: "PhlebotomyPage" });
-  const title = t("metaTitle");
-  const description = t("metaDesc");
+  const seo = locale === "en" ? seoMeta.treatment["phlebotomy"] : undefined;
+  const title = seo?.title ?? t("metaTitle");
+  const description = seo?.description ?? t("metaDesc");
   const canonicalUrl = `${baseUrl}/${locale}/treatments/phlebotomy`;
   const imageUrl = `${baseUrl}/images/treatments/phlebotomy/blood-draw.jpg`;
 

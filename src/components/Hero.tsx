@@ -43,11 +43,11 @@ export default function Hero({ sanityData }: { sanityData?: any }) {
     "Sofia Bouzian — YourHealthFirst Clinic, Harley Street London";
 
   return (
-    <section className="relative flex w-full flex-col overflow-hidden md:block md:h-[793px]">
+    <section className="relative flex w-full flex-col overflow-hidden md:block md:min-h-[700px] lg:min-h-[740px] xl:h-[793px]">
       {/* Photo: stacked below the text on mobile, full-bleed behind it on tablet/desktop */}
       <div
         data-sanity={getSanityAttribute("homePage", "homePage", "heroImage")}
-        className="relative order-2 h-[480px] w-full sm:h-[600px] md:absolute md:inset-0 md:h-full cursor-pointer"
+        className="relative order-2 h-[380px] w-full sm:h-[480px] md:absolute md:inset-0 md:h-full cursor-pointer"
       >
         <Image
           src={heroImageSrc}
@@ -72,22 +72,22 @@ export default function Hero({ sanityData }: { sanityData?: any }) {
       </div>
 
       {/* Text column */}
-      <div className="relative z-10 order-1 flex w-full flex-col gap-[10px] bg-[linear-gradient(90deg,#4a3826_0%,#8f7355_50%,#4a3826_100%)] px-5 pt-[150px] pb-16 sm:px-[60px] sm:pt-[160px] md:absolute md:inset-y-0 md:left-0 md:right-auto rtl:md:left-0 rtl:md:right-auto md:w-[580px] lg:w-[680px] md:bg-none md:pb-0 xl:px-[120px] xl:pt-[150px]">
+      <div className="relative z-10 order-1 flex w-full flex-col gap-2.5 sm:gap-3 bg-[linear-gradient(90deg,#4a3826_0%,#8f7355_50%,#4a3826_100%)] px-5 pt-[130px] pb-12 sm:px-8 sm:pt-[140px] sm:pb-16 md:absolute md:inset-y-0 md:left-0 md:right-auto rtl:md:left-0 rtl:md:right-auto md:w-[480px] lg:w-[580px] xl:w-[680px] md:bg-none md:pt-[125px] lg:pt-[135px] xl:pt-[150px] md:pb-6 lg:pb-8 xl:pb-0 md:px-8 lg:px-12 xl:px-[120px] md:justify-center">
         <div className="flex flex-col gap-4">
           {heroTitle ? (
             <h1
               data-sanity={getSanityAttribute("homePage", "homePage", "heroTitle")}
-              className="font-display text-[42px] leading-[44px] font-medium text-white uppercase lg:text-[48px] lg:leading-[50px]"
+              className="font-display text-[32px] leading-[36px] sm:text-[40px] sm:leading-[44px] lg:text-[48px] lg:leading-[50px] font-medium text-white uppercase"
             >
               {heroTitle}
             </h1>
           ) : (
             <h1 className="flex flex-col">
-              <span className="font-display text-[46px] leading-[46px] font-medium text-white uppercase lg:text-[52px] lg:leading-[52px]">
+              <span className="font-display text-[34px] leading-[36px] sm:text-[42px] sm:leading-[44px] lg:text-[48px] lg:leading-[48px] xl:text-[52px] xl:leading-[52px] font-medium text-white uppercase">
                 {t("awardWinning")}
               </span>
               <span
-                className="-mt-3 font-display text-[56px] leading-[56px] font-medium uppercase lg:text-[64px] lg:leading-[64px]"
+                className="-mt-2 sm:-mt-3 font-display text-[42px] leading-[44px] sm:text-[52px] sm:leading-[54px] lg:text-[58px] lg:leading-[60px] xl:text-[64px] xl:leading-[64px] font-medium uppercase"
                 style={{ color: GOLD }}
               >
                 {t("clinic")}
@@ -105,7 +105,7 @@ export default function Hero({ sanityData }: { sanityData?: any }) {
 
           <h2
             data-sanity={getSanityAttribute("homePage", "homePage", "heroSubtitle")}
-            className="font-display text-[22px] leading-[28px] font-medium text-white/85 uppercase lg:text-[24px] whitespace-pre-line"
+            className="font-display text-[16px] leading-[22px] sm:text-[19px] sm:leading-[25px] lg:text-[22px] lg:leading-[28px] xl:text-[24px] font-medium text-white/85 uppercase whitespace-pre-line"
           >
             {heroSubtitle}
           </h2>
@@ -135,7 +135,7 @@ export default function Hero({ sanityData }: { sanityData?: any }) {
             <a
               href="/about-us"
               data-sanity={getSanityAttribute("homePage", "homePage", "heroCtaText")}
-              className="inline-flex items-center gap-3 rounded-[8px] border-[2px] border-[#c9a84c] px-[28px] py-[14px] font-display text-[15px] font-semibold tracking-[1px] text-[#c9a84c] uppercase transition-all duration-200 hover:bg-[#c9a84c] hover:text-[#4a3826] cursor-pointer"
+              className="inline-flex items-center gap-2.5 sm:gap-3 rounded-[8px] border-[2px] border-[#c9a84c] px-5 py-2.5 sm:px-7 sm:py-3.5 font-display text-[13.5px] sm:text-[15px] font-semibold tracking-[1px] text-[#c9a84c] uppercase transition-all duration-200 hover:bg-[#c9a84c] hover:text-[#4a3826] cursor-pointer"
             >
               {heroCtaText}
               <svg className="h-4 w-4 rtl:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
@@ -144,20 +144,20 @@ export default function Hero({ sanityData }: { sanityData?: any }) {
             </a>
           </div>
 
-          <div className="grid grid-cols-2 gap-y-3 sm:flex sm:gap-0">
+          <div className="grid grid-cols-2 gap-y-2 sm:grid-cols-4 sm:gap-0 max-w-[480px]">
             {trustKeys.map((key, index) => {
               const Icon = trustIcons[index];
               return (
                 <div
                   key={key}
-                  className="flex flex-col items-center border-r rtl:border-r-0 rtl:border-l px-2 text-center sm:w-[138px]"
+                  className="flex flex-col items-center px-1.5 sm:px-2 text-center border-r last:border-r-0 rtl:border-r-0 rtl:border-l rtl:last:border-l-0"
                   style={{ borderColor: `${GOLD}55` }}
                 >
                   <div className="h-[32px]">
                     <Icon className="h-[32px] w-[32px]" style={{ color: GOLD }} />
                   </div>
                   <h3
-                    className="mt-1 font-subheading text-[11px] font-semibold tracking-[0.5px] uppercase"
+                    className="mt-1 font-subheading text-[10px] sm:text-[10.5px] lg:text-[11px] font-semibold tracking-[0.5px] uppercase"
                     style={{ color: GOLD }}
                   >
                     {t(key)}
@@ -168,7 +168,7 @@ export default function Hero({ sanityData }: { sanityData?: any }) {
           </div>
 
           <div
-            className="flex w-full max-w-[400px] items-center gap-4 rounded-[8px] border px-4 py-4"
+            className="flex w-full max-w-[390px] items-center gap-3 sm:gap-4 rounded-[8px] border px-3 sm:px-4 py-2.5 sm:py-3.5"
             style={{ borderColor: `${GOLD}66` }}
           >
             <div className="flex shrink-0">
@@ -179,8 +179,8 @@ export default function Hero({ sanityData }: { sanityData?: any }) {
                   alt=""
                   width={52}
                   height={52}
-                  className={`h-[52px] w-[52px] rounded-full object-cover ring-2 ring-[#4a3826] ${
-                    index > 0 ? "-ml-[28px] rtl:ml-0 rtl:-mr-[28px]" : ""
+                  className={`h-10 w-10 sm:h-[46px] sm:w-[46px] lg:h-[52px] lg:w-[52px] rounded-full object-cover ring-2 ring-[#4a3826] ${
+                    index > 0 ? "-ml-[18px] sm:-ml-[24px] rtl:ml-0 rtl:-mr-[18px] rtl:sm:-mr-[24px]" : ""
                   }`}
                 />
               ))}
@@ -188,7 +188,7 @@ export default function Hero({ sanityData }: { sanityData?: any }) {
             <div>
               <p
                 data-sanity={getSanityAttribute("homePage", "homePage", "heroTrustedBy")}
-                className="font-display text-[14px] font-medium text-white uppercase leading-[18px] whitespace-pre-line"
+                className="font-display text-[12px] sm:text-[13px] lg:text-[14px] font-medium text-white uppercase leading-[16px] sm:leading-[18px] whitespace-pre-line"
               >
                 {(isEn && sanityData?.heroTrustedBy) || t("trustedBy")}
               </p>

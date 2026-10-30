@@ -145,7 +145,7 @@ export const blogPosts: BlogPost[] = [
     ],
     relatedTreatment: {
       title: "PRP Hair & Skin Restoration",
-      href: "/treatments/prp",
+      href: "/treatments/prp-face-body",
       description: "Explore our Harley Street PRP protocols including Cellular Matrix BCT with Biotin and U225 injection technology.",
     },
   },
@@ -241,7 +241,7 @@ export const blogPosts: BlogPost[] = [
     ],
     relatedTreatment: {
       title: "PRP Hair Loss Treatments",
-      href: "/treatments/prp",
+      href: "/treatments/prp-hair-loss",
       description: "Discover our specialized London hair restoration clinic packages and book a private scalp assessment.",
     },
   },
@@ -522,7 +522,7 @@ export const blogPosts: BlogPost[] = [
     ],
     relatedTreatment: {
       title: "PRP Hair Loss Consultations",
-      href: "/treatments/prp",
+      href: "/treatments/prp-hair-loss",
       description: "Book an in-depth scalp analysis with Dr. Sofia Bouzian at 2 Wimpole Street, London.",
     },
   },

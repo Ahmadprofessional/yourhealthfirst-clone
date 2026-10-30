@@ -14,7 +14,6 @@ import {routing} from '@/i18n/routing';
 import {notFound} from 'next/navigation';
 import {draftMode} from 'next/headers';
 import VisualEditing from '@/components/VisualEditing';
-import Script from 'next/script';
 
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-LTY0ZMKGJ8";
 
@@ -47,6 +46,7 @@ const playfairSC = Playfair_Display_SC({
 
 import StructuredData from "@/components/StructuredData";
 import CookieBanner from "@/components/CookieBanner";
+import GoogleAnalyticsLoader from "@/components/GoogleAnalyticsLoader";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.yourhealthfirst.uk";
 
@@ -172,12 +172,7 @@ export default async function RootLayout({
             `,
           }}
         />
-        {/* Google Analytics (gtag.js) — the commands below are queued immediately (after the Consent Mode defaults above, so cookies/ad storage stay denied until the visitor accepts in the cookie banner); the large gtag.js file itself loads once the page has finished loading, to keep it off the critical path */}
-        <Script
-          id="ga-gtag-js"
-          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-          strategy="lazyOnload"
-        />
+        {/* Google Analytics: the commands below are queued immediately (after the Consent Mode defaults above, so cookies/ad storage stay denied until the visitor accepts in the cookie banner). The large gtag.js file itself is loaded by <GoogleAnalyticsLoader /> on the visitor's first interaction (or after a short delay) to keep it off the critical path. */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -193,6 +188,7 @@ export default async function RootLayout({
           {children}
           <WhatsAppFloat />
           <CookieBanner />
+          <GoogleAnalyticsLoader id={GA_MEASUREMENT_ID} />
           {draft.isEnabled && <VisualEditing />}
         </NextIntlClientProvider>
       </body>

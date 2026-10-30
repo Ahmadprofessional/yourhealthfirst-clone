@@ -6,7 +6,11 @@ export const routing = defineRouting({
   locales: ['en', 'ar', 'es', 'fr', 'ru'],
 
   // Used when no locale matches
-  defaultLocale: 'en'
+  defaultLocale: 'en',
+
+  // The auto-generated Link header names the unprefixed URL (which redirects) as x-default.
+  // hreflang is already published in sitemap.xml with x-default pointing at /en.
+  alternateLinks: false
 });
 
 // Lightweight wrappers around Next.js' navigation APIs

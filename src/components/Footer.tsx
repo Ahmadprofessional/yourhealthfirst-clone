@@ -123,16 +123,20 @@ const socials = [
 
 export default function Footer({ sanitySettings }: { sanitySettings?: any }) {
   const t = useTranslations("Footer");
+  const tHeader = useTranslations("Header");
+  const tServices = useTranslations("ServiceList");
+  const locale = useLocale();
+  const isEn = locale === "en";
 
-  const ctaHeading = sanitySettings?.footerCtaHeading || t("ctaHeading");
-  const ctaSubtitle = sanitySettings?.footerCtaSubtitle || t("ctaSubtitle");
-  const ctaDescription = sanitySettings?.footerCtaDescription || t("ctaDescription");
+  const ctaHeading = (isEn && sanitySettings?.footerCtaHeading) || t("ctaHeading");
+  const ctaSubtitle = (isEn && sanitySettings?.footerCtaSubtitle) || t("ctaSubtitle");
+  const ctaDescription = (isEn && sanitySettings?.footerCtaDescription) || t("ctaDescription");
   const copyrightText =
-    sanitySettings?.copyrightText ||
+    (isEn && sanitySettings?.copyrightText) ||
     `© ${new Date().getFullYear()} YourHealthFirst Clinic. All rights reserved. 2 Wimpole Street, 2nd Floor, London W1G 0EB.`;
-  const clinicName = sanitySettings?.clinicName || t("clinicName");
-  const callNowText = sanitySettings?.callNowText || t("callNow");
-  const emailNowText = sanitySettings?.emailNowText || t("emailNow");
+  const clinicName = (isEn && sanitySettings?.clinicName) || t("clinicName");
+  const callNowText = (isEn && sanitySettings?.callNowText) || t("callNow");
+  const emailNowText = (isEn && sanitySettings?.emailNowText) || t("emailNow");
   const phone1 = sanitySettings?.contactPhone1 || contact.phone1;
   const phone2 = sanitySettings?.contactPhone2 || contact.phone2;
   const email = sanitySettings?.contactEmail || contact.email;
@@ -142,20 +146,20 @@ export default function Footer({ sanitySettings }: { sanitySettings?: any }) {
     { label: t("home"), href: "/" as const },
     { label: t("about"), href: "/about-us" as const },
     { label: t("services"), href: "/treatments" as const },
-    { label: "Before & After Gallery", href: "/gallery" as const },
-    { label: "Treatment Price List", href: "/price-list" as const },
-    { label: "Clinical Insights & Blog", href: "/blog" as const },
+    { label: tHeader("gallery"), href: "/gallery" as const },
+    { label: tHeader("priceList"), href: "/price-list" as const },
+    { label: tHeader("blogs"), href: "/blogs" as const },
     { label: t("contact"), href: "/contact-us" as const },
   ];
 
   const popularTreatments = [
-    { label: "Anti-Wrinkle Injections", href: "/treatments/anti-wrinkles" as const },
-    { label: "Dermal Fillers", href: "/treatments/dermal-fillers" as const },
-    { label: "Cryolipolysis (Fat Freezing)", href: "/treatments/cryolipolysis" as const },
-    { label: "PRP Hair Loss & Restoration", href: "/treatments/prp-hair-loss" as const },
-    { label: "Profhilo Skin Remodelling", href: "/treatments/profhilo" as const },
-    { label: "Mounjaro Weight Management", href: "/treatments/mounjaro" as const },
-    { label: "Private Phlebotomy", href: "/phlebotomy" as const },
+    { label: tServices("anti-wrinkles.title"), href: "/treatments/anti-wrinkles" as const },
+    { label: tServices("dermal-fillers.title"), href: "/treatments/dermal-fillers" as const },
+    { label: tServices("cryolipolysis.title"), href: "/treatments/cryolipolysis" as const },
+    { label: tServices("prp-hair-loss.title"), href: "/treatments/prp-hair-loss" as const },
+    { label: tServices("profhilo.title"), href: "/treatments/profhilo" as const },
+    { label: tServices("mounjaro.title"), href: "/treatments/mounjaro" as const },
+    { label: tServices("phlebotomy.title"), href: "/treatments/phlebotomy" as const },
   ];
 
   return (
@@ -198,7 +202,7 @@ export default function Footer({ sanitySettings }: { sanitySettings?: any }) {
       </section>
 
       {/* ─────────────────────────────────────────────────────────────
-          2. MEMBER OF (Warm Luxury Ivory/Sand Bar — Matching rozinaali.com)
+          2. MEMBER OF (Warm Luxury Ivory/Sand Bar)
           ───────────────────────────────────────────────────────────── */}
       <section
         aria-label="Professional Accreditations and Memberships"
@@ -209,7 +213,7 @@ export default function Footer({ sanitySettings }: { sanitySettings?: any }) {
           <div className="relative mb-8 flex items-center justify-center">
             <div className="w-full border-t border-[#7a6248]/20" />
             <span className="absolute bg-[#f7f4ee] px-6 font-serif text-[22px] italic tracking-[0.5px] text-[#7a6248] md:text-[25px]">
-              Member of
+              {t("memberOf")}
             </span>
           </div>
 
@@ -325,10 +329,10 @@ export default function Footer({ sanitySettings }: { sanitySettings?: any }) {
               </ul>
             </div>
 
-            {/* Col 3: {t("signatureTreatments")} */}
+            {/* Col 3: Signature Treatments */}
             <div className="flex flex-col gap-4">
               <h3 className="font-serif text-[20px] font-bold text-white uppercase tracking-[-0.5px]">
-                Signature Treatments
+                {t("signatureTreatments")}
               </h3>
               <ul className="flex flex-col gap-2.5 text-[14px] leading-[22px] text-white/90">
                 {popularTreatments.map((item) => (
@@ -390,9 +394,9 @@ export default function Footer({ sanitySettings }: { sanitySettings?: any }) {
                   </a>
                 </li>
                 <li className="pt-2 text-xs text-white/90 border-t border-white/10">
-                  <p className="font-semibold text-cream">Opening Hours:</p>
-                  <p>Monday – Friday: 9:00 AM – 6:00 PM</p>
-                  <p>Saturday: By Appointment Only</p>
+                  <p className="font-semibold text-cream">{t("openingHours")}</p>
+                  <p>{t("monFri")}</p>
+                  <p>{t("saturday")}</p>
                 </li>
               </ul>
             </div>
@@ -411,19 +415,19 @@ export default function Footer({ sanitySettings }: { sanitySettings?: any }) {
                 href="/privacy-policy"
                 className="hover:text-cream transition-colors underline-offset-4 hover:underline"
               >
-                Privacy Policy
+                {t("privacyPolicy")}
               </Link>
               <Link
                 href="/cookie-policy"
                 className="hover:text-cream transition-colors underline-offset-4 hover:underline"
               >
-                Cookie Policy
+                {t("cookiePolicy")}
               </Link>
               <Link
                 href="/terms"
                 className="hover:text-cream transition-colors underline-offset-4 hover:underline"
               >
-                Terms &amp; Conditions
+                {t("termsConditions")}
               </Link>
               <button
                 type="button"
@@ -434,7 +438,7 @@ export default function Footer({ sanitySettings }: { sanitySettings?: any }) {
                 }}
                 className="text-[#fbeccd] hover:text-white transition-colors underline-offset-4 hover:underline cursor-pointer"
               >
-                Cookie Settings
+                {t("cookieSettings")}
               </button>
             </div>
           </div>

@@ -104,7 +104,7 @@ export async function POST(req: Request) {
             <td style="padding: 35px 35px 25px 35px; line-height: 1.65; font-size: 15px; color: #374151;">
               <p style="margin: 0 0 18px 0; font-size: 17px; font-weight: 600; color: #1E293B;">Dear ${firstName},</p>
               
-              <p style="margin: 0 0 16px 0; font-size: 16px; font-weight: 600; color: #7A6248;">Welcome to YourHealthFirst.</p>
+              <p style="margin: 0 0 16px 0; font-size: 16px; font-weight: 600; color: #7A6248;">Welcome to Yourhealthfirst Clinic.</p>
               
               <p style="margin: 0 0 16px 0;">Thank you for requesting a consultation with <strong>YourHealthFirst Clinic</strong>. We appreciate you selecting us as a trusted source to advise and help you with your needs.</p>
               
@@ -139,7 +139,7 @@ export async function POST(req: Request) {
             <td style="background-color: #2C2520; padding: 22px 30px; text-align: center; color: rgba(255, 255, 255, 0.7); font-size: 12px; line-height: 1.6;">
               <p style="margin: 0 0 6px 0; color: #FFFFFF; font-weight: 600;">YourHealthFirst Clinic</p>
               <p style="margin: 0;">2 Wimpole Street, London W1G 0EB &bull; Telephone: 0207 225 3582</p>
-              <p style="margin: 6px 0 0 0; font-size: 11px; color: rgba(255, 255, 255, 0.5);">&copy; ${now.getFullYear()} YourHealthFirst. All rights reserved.</p>
+              <p style="margin: 6px 0 0 0; font-size: 11px; color: rgba(255, 255, 255, 0.5);">&copy; ${now.getFullYear()} Yourhealthfirst Clinic. All rights reserved.</p>
             </td>
           </tr>
 
@@ -294,11 +294,11 @@ export async function POST(req: Request) {
 </html>`;
 
     const fullName = [firstName, lastName].filter(Boolean).join(" ");
-    const clinicSubject = `YourHealthFirst Enquiry "${fullName}"`;
+    const clinicSubject = `Yourhealthfirst Clinic Enquiry "${fullName}"`;
 
     // Send Clinic Notification Email
     const clinicEmailPromise = resend.emails.send({
-      from: "Your Health First Clinic <info@yourhealthfirst.uk>",
+      from: "Yourhealthfirst Clinic <info@yourhealthfirst.uk>",
       to: ["info@yourhealthfirst.uk"],
       cc: ["Sofiabouzi@hotmail.com"],
       replyTo: email,
@@ -308,10 +308,10 @@ export async function POST(req: Request) {
 
     // Send Patient Confirmation Email
     const patientEmailPromise = resend.emails.send({
-      from: "Your Health First Clinic <info@yourhealthfirst.uk>",
+      from: "Yourhealthfirst Clinic <info@yourhealthfirst.uk>",
       to: [email],
       replyTo: "info@yourhealthfirst.uk",
-      subject: "Consultation Request Confirmation — YourHealthFirst Clinic",
+      subject: "Consultation Request Confirmation — Yourhealthfirst Clinic",
       html: patientConfirmationHtml,
     });
 

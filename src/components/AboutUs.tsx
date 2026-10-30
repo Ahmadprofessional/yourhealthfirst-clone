@@ -108,7 +108,7 @@ export default function AboutUs({ sanityData }: { sanityData?: any }) {
               data-sanity={getSanityAttribute("homePage", "homePage", "aboutDisclaimer")}
               className="text-[14px] leading-[25.6px] font-medium tracking-[-0.2px] text-body-text"
             >
-              {sanityData?.aboutDisclaimer || t("disclaimer")}
+              {(isEn && sanityData?.aboutDisclaimer) || t("disclaimer")}
             </p>
 
             <div>
@@ -117,7 +117,7 @@ export default function AboutUs({ sanityData }: { sanityData?: any }) {
                 data-sanity={getSanityAttribute("homePage", "homePage", "aboutCtaText")}
                 className="inline-block rounded-[8px] border-[2.4px] border-tan px-[26px] py-4 text-center font-display text-[18px] leading-[18px] font-semibold tracking-[0.6px] text-[#8c6529] uppercase transition-colors duration-200 hover:bg-tan hover:text-black cursor-pointer"
               >
-                {sanityData?.aboutCtaText || t("discoverMore")}
+                {(isEn && sanityData?.aboutCtaText) || t("discoverMore")}
               </Link>
             </div>
           </div>

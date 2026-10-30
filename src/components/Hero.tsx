@@ -66,13 +66,13 @@ export default function Hero({ sanityData }: { sanityData?: any }) {
           className="absolute inset-0 hidden md:block"
           style={{
             background:
-              "linear-gradient(90deg, #4a3826 0%, #1e1a14 16%, rgba(38,30,20,0.93) 28%, rgba(58,46,26,0.6) 40%, rgba(58,46,26,0.2) 50%, rgba(58,46,26,0) 58%)",
+              "linear-gradient(90deg, #4a3826 0%, #1e1a14 18%, rgba(38,30,20,0.95) 32%, rgba(58,46,26,0.75) 45%, rgba(58,46,26,0.3) 55%, rgba(58,46,26,0) 65%)",
           }}
         />
       </div>
 
       {/* Text column */}
-      <div className="relative z-10 order-1 flex w-full flex-col gap-[10px] bg-[linear-gradient(90deg,#4a3826_0%,#8f7355_50%,#4a3826_100%)] px-5 pt-[150px] pb-16 sm:px-[60px] sm:pt-[160px] md:w-[580px] lg:w-[680px] md:bg-none md:pb-0 xl:px-[120px] xl:pt-[150px]">
+      <div className="relative z-10 order-1 flex w-full flex-col gap-[10px] bg-[linear-gradient(90deg,#4a3826_0%,#8f7355_50%,#4a3826_100%)] px-5 pt-[150px] pb-16 sm:px-[60px] sm:pt-[160px] md:absolute md:inset-y-0 md:left-0 md:right-auto rtl:md:left-0 rtl:md:right-auto md:w-[580px] lg:w-[680px] md:bg-none md:pb-0 xl:px-[120px] xl:pt-[150px]">
         <div className="flex flex-col gap-4">
           {heroTitle ? (
             <h1
@@ -138,7 +138,7 @@ export default function Hero({ sanityData }: { sanityData?: any }) {
               className="inline-flex items-center gap-3 rounded-[8px] border-[2px] border-[#c9a84c] px-[28px] py-[14px] font-display text-[15px] font-semibold tracking-[1px] text-[#c9a84c] uppercase transition-all duration-200 hover:bg-[#c9a84c] hover:text-[#4a3826] cursor-pointer"
             >
               {heroCtaText}
-              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+              <svg className="h-4 w-4 rtl:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
               </svg>
             </a>
@@ -150,7 +150,7 @@ export default function Hero({ sanityData }: { sanityData?: any }) {
               return (
                 <div
                   key={key}
-                  className="flex flex-col items-center border-r px-2 text-center sm:w-[138px]"
+                  className="flex flex-col items-center border-r rtl:border-r-0 rtl:border-l px-2 text-center sm:w-[138px]"
                   style={{ borderColor: `${GOLD}55` }}
                 >
                   <div className="h-[32px]">
@@ -180,7 +180,7 @@ export default function Hero({ sanityData }: { sanityData?: any }) {
                   width={52}
                   height={52}
                   className={`h-[52px] w-[52px] rounded-full object-cover ring-2 ring-[#4a3826] ${
-                    index > 0 ? "-ml-[28px]" : ""
+                    index > 0 ? "-ml-[28px] rtl:ml-0 rtl:-mr-[28px]" : ""
                   }`}
                 />
               ))}

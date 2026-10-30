@@ -56,6 +56,7 @@ export default async function LongevityPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  const isEn = locale === "en";
   const t = await getTranslations({ locale, namespace: "LongevityPage" });
 
   const [sanityLongevity, sanitySettings] = await Promise.all([
@@ -70,12 +71,12 @@ export default async function LongevityPage({
   ]);
   const docId = "longevityPage";
 
-  const heroTitle = sanityLongevity?.heroTitle || t("heading");
-  const heroSubtitle = sanityLongevity?.heroSubtitle || t("subheading");
-  const badgeText = sanityLongevity?.badgeText || t("badge");
-  const tagline = sanityLongevity?.tagline || t("tagline");
-  const notifyText = sanityLongevity?.notifyText || t("notifyText");
-  const registerButton = sanityLongevity?.registerButton || t("registerButton");
+  const heroTitle = (isEn && sanityLongevity?.heroTitle) || t("heading");
+  const heroSubtitle = (isEn && sanityLongevity?.heroSubtitle) || t("subheading");
+  const badgeText = (isEn && sanityLongevity?.badgeText) || t("badge");
+  const tagline = (isEn && sanityLongevity?.tagline) || t("tagline");
+  const notifyText = (isEn && sanityLongevity?.notifyText) || t("notifyText");
+  const registerButton = (isEn && sanityLongevity?.registerButton) || t("registerButton");
 
   const fallbackCards = [
     { title: t("card1Title"), desc: t("card1Desc") },
@@ -86,7 +87,7 @@ export default async function LongevityPage({
     { title: t("card6Title"), desc: t("card6Desc") },
   ];
 
-  const displayedCards = sanityLongevity?.cards?.length > 0 ? sanityLongevity.cards : fallbackCards;
+  const displayedCards = (isEn && sanityLongevity?.cards?.length > 0) ? sanityLongevity.cards : fallbackCards;
 
   return (
     <div className="flex flex-col">

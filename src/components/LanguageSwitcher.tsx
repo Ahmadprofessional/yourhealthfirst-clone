@@ -35,13 +35,45 @@ function FlagRU({ className = "h-3.5 w-5 shrink-0 rounded-[2px]" }: { className?
   );
 }
 
-function FlagAE({ className = "h-3.5 w-5 shrink-0 rounded-[2px]" }: { className?: string }) {
+function FlagSA({ className = "h-3.5 w-5 shrink-0 rounded-[2px]" }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 60 36" aria-hidden="true">
-      <rect width="60" height="12" fill="#00732f" />
-      <rect y="12" width="60" height="12" fill="#ffffff" />
-      <rect y="24" width="60" height="12" fill="#000000" />
-      <rect width="18" height="36" fill="#f00000" />
+      <rect width="60" height="36" fill="#006c35" />
+      {/* Arabic Fusha / Standard script stylized emblem in white */}
+      <path
+        d="M14 16.5c1.2-1.8 3.5-2.5 5.5-1.5 1.5.8 2.5 2.2 4 2.2 1.8 0 3-1.5 4.5-1.5 1.8 0 2.8 1.2 4 1.2s2.5-1.5 4-1.5c1.5 0 2.8 1.2 4 1.2s2.2-.8 3.5-.8c1.5 0 2.5 1 4 1M15 20c3-.5 6-.5 9 0 2 .3 4 .3 6 0 3-.5 6-.5 9 0M21 24h18"
+        stroke="#ffffff"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        fill="none"
+      />
+      {/* Traditional sword emblem */}
+      <path
+        d="M17 25.5h26M19 23.5v4M41 25.5l2-1.5v3l-2-1.5"
+        stroke="#ffffff"
+        strokeWidth="1.4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+      />
+    </svg>
+  );
+}
+
+function FlagMA({ className = "h-3.5 w-5 shrink-0 rounded-[2px]" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 60 36" aria-hidden="true">
+      {/* Moroccan Red Field */}
+      <rect width="60" height="36" fill="#c1272d" />
+      {/* Green Pentagram (5-pointed star of Morocco) */}
+      <path
+        d="M 30,9 L 35.29,25.28 L 21.44,15.22 L 38.56,15.22 L 24.71,25.28 Z"
+        stroke="#006233"
+        strokeWidth="2.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+      />
     </svg>
   );
 }
@@ -68,10 +100,11 @@ function FlagFR({ className = "h-3.5 w-5 shrink-0 rounded-[2px]" }: { className?
 
 const localesConfig = [
   { code: "en", name: "English", nativeName: "English", Flag: FlagUK },
-  { code: "ru", name: "Russian", nativeName: "Русский", Flag: FlagRU },
-  { code: "ar", name: "Arabic", nativeName: "العربية", Flag: FlagAE },
-  { code: "es", name: "Spanish", nativeName: "Español", Flag: FlagES },
+  { code: "ar", name: "Arabic", nativeName: "العربية", Flag: FlagSA },
+  { code: "ary", name: "Moroccan", nativeName: "المغربية", Flag: FlagMA },
   { code: "fr", name: "French", nativeName: "Français", Flag: FlagFR },
+  { code: "es", name: "Spanish", nativeName: "Español", Flag: FlagES },
+  { code: "ru", name: "Russian", nativeName: "Русский", Flag: FlagRU },
 ] as const;
 
 function clearStaleTranslateCookies() {
@@ -111,7 +144,7 @@ export default function LanguageSwitcher({ align = "right" }: { align?: "left" |
   const current = localesConfig.find((l) => l.code === locale) ?? localesConfig[0];
   const CurrentFlag = current.Flag;
 
-  function switchLocale(nextLocale: "en" | "ar" | "es" | "fr" | "ru") {
+  function switchLocale(nextLocale: (typeof localesConfig)[number]["code"]) {
     setOpen(false);
     clearStaleTranslateCookies();
     router.replace(pathname, { locale: nextLocale });

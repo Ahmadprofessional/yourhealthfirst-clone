@@ -1,6 +1,6 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/i18n/routing";
 import { services } from "@/data/services";
 import { ArrowRightIcon } from "@/components/icons";
@@ -158,10 +158,10 @@ function ServiceIcon({ icon, bg }: { icon?: string; bg?: string }) {
 import { getSanityAttribute } from "@/sanity/lib/dataAttribute";
 
 /* ── GHP Award Badge (real certificate design) ── */
-function GhpBadge({ t, sanityData }: { t: ReturnType<typeof useTranslations<"Services">>; sanityData?: any }) {
-  const small = sanityData?.servicesGhpSmall || t("ghpBadgeSmall");
-  const title = sanityData?.servicesGhpTitle || t("ghpBadgeTitle");
-  const year = sanityData?.servicesGhpYear || t("ghpBadgeYear");
+function GhpBadge({ t, sanityData, isEn }: { t: ReturnType<typeof useTranslations<"Services">>; sanityData?: any; isEn: boolean }) {
+  const small = (isEn && sanityData?.servicesGhpSmall) || t("ghpBadgeSmall");
+  const title = (isEn && sanityData?.servicesGhpTitle) || t("ghpBadgeTitle");
+  const year = (isEn && sanityData?.servicesGhpYear) || t("ghpBadgeYear");
 
   return (
     <a
@@ -203,9 +203,11 @@ function GhpBadge({ t, sanityData }: { t: ReturnType<typeof useTranslations<"Ser
 export default function Services({ sanityData }: { sanityData?: any }) {
   const t = useTranslations("Services");
   const tList = useTranslations("ServiceList");
+  const locale = useLocale();
+  const isEn = locale === "en";
 
-  const badge = sanityData?.servicesBadge || t("badge");
-  const subtitle = sanityData?.servicesSubtitle || t("subtitle");
+  const badge = (isEn && sanityData?.servicesBadge) || t("badge");
+  const subtitle = (isEn && sanityData?.servicesSubtitle) || t("subtitle");
 
   return (
     <section className="w-full px-5">
@@ -226,15 +228,15 @@ export default function Services({ sanityData }: { sanityData?: any }) {
           >
             {subtitle}
           </h2>
-          <GhpBadge t={t} sanityData={sanityData} />
+          <GhpBadge t={t} sanityData={sanityData} isEn={isEn} />
         </div>
 
         {/* Cards */}
         <div className="grid gap-7 md:grid-cols-2 lg:grid-cols-3">
           {services.map((service, index) => {
-            const sanCard =
-              sanityData?.servicesList?.find((item: any) => item.slug === service.slug) ||
-              sanityData?.servicesList?.[index];
+            const sanCard = isEn
+              ? (sanityData?.servicesList?.find((item: any) => item.slug === service.slug) || sanityData?.servicesList?.[index])
+              : null;
 
             const title =
               sanCard?.title ||

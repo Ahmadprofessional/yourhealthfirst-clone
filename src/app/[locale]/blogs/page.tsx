@@ -71,6 +71,7 @@ export default async function BlogsPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  const isEn = locale === "en";
   const t = await getTranslations({ locale, namespace: "BlogPage" });
 
   const [sanityBlogs, sanitySettings] = await Promise.all([
@@ -85,12 +86,12 @@ export default async function BlogsPage({
   ]);
   const docId = "blogsPage";
 
-  const heroBadge = sanityBlogs?.badgeText || t("badge");
-  const heroTitle = sanityBlogs?.heroTitle || t("heading");
-  const heroSubtitle = sanityBlogs?.heroSubtitle || t("subtitle");
-  const questionTitle = sanityBlogs?.questionTitle || t("questionTitle");
-  const questionDesc = sanityBlogs?.questionDesc || t("questionDesc");
-  const contactUsText = sanityBlogs?.contactUsText || t("contactUs");
+  const heroBadge = (isEn && sanityBlogs?.badgeText) || t("badge");
+  const heroTitle = (isEn && sanityBlogs?.heroTitle) || t("heading");
+  const heroSubtitle = (isEn && sanityBlogs?.heroSubtitle) || t("subtitle");
+  const questionTitle = (isEn && sanityBlogs?.questionTitle) || t("questionTitle");
+  const questionDesc = (isEn && sanityBlogs?.questionDesc) || t("questionDesc");
+  const contactUsText = (isEn && sanityBlogs?.contactUsText) || t("contactUs");
 
   const posts = [
     {

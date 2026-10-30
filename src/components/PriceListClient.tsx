@@ -24,6 +24,7 @@ interface Props {
     exploreTitle?: string;
     selectCategory?: string;
     searchPlaceholder?: string;
+    disclaimer?: string;
   };
 }
 
@@ -136,9 +137,7 @@ export default function PriceListClient({ categories, translations }: Props) {
 
         {/* Disclaimer */}
         <p className="mt-10 text-[13px] leading-[21px] text-body-text/55">
-          * Prices are subject to change. A consultation fee may be deducted from the cost of treatment if booked on the same day.
-          Certain procedures may be referred to our affiliated clinic, carried out by a registered CQC doctor where applicable.
-          Please contact us for a personalised quote.
+          {translations?.disclaimer ?? "* Prices are subject to change. A consultation fee may be deducted from the cost of treatment if booked on the same day. Certain procedures may be referred to our affiliated clinic, carried out by a registered CQC doctor where applicable. Please contact us for a personalised quote."}
         </p>
       </div>
     </section>

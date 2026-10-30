@@ -1,16 +1,18 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/i18n/routing";
 import { getSanityAttribute } from "@/sanity/lib/dataAttribute";
 
 export default function AboutUs({ sanityData }: { sanityData?: any }) {
   const t = useTranslations("AboutUs");
+  const locale = useLocale();
+  const isEn = locale === "en";
 
-  const badge = sanityData?.aboutBadge || t("badge");
-  const title = sanityData?.aboutTitle;
-  const lead = sanityData?.aboutLead || t("paragraph1");
-  const paragraphs = sanityData?.aboutParagraphs;
+  const badge = (isEn && sanityData?.aboutBadge) || t("badge");
+  const title = isEn ? sanityData?.aboutTitle : null;
+  const lead = (isEn && sanityData?.aboutLead) || t("paragraph1");
+  const paragraphs = isEn ? sanityData?.aboutParagraphs : null;
 
   return (
     <section className="w-full px-5">
@@ -85,21 +87,21 @@ export default function AboutUs({ sanityData }: { sanityData?: any }) {
               data-sanity={getSanityAttribute("homePage", "homePage", "aboutRightHeading")}
               className="font-subheading text-[34px] leading-[38px] font-medium tracking-[-1.8px] text-[#a67c3d] uppercase lg:text-[50px] lg:leading-[55px]"
             >
-              {sanityData?.aboutRightHeading || t("rightHeading")}
+              {(isEn && sanityData?.aboutRightHeading) || t("rightHeading")}
             </h2>
 
             <p
               data-sanity={getSanityAttribute("homePage", "homePage", "aboutRightParagraph")}
               className="text-[16px] leading-[25.6px] font-medium tracking-[-0.2px] text-body-text"
             >
-              {sanityData?.aboutRightParagraph || t("rightParagraph")}
+              {(isEn && sanityData?.aboutRightParagraph) || t("rightParagraph")}
             </p>
 
             <p
               data-sanity={getSanityAttribute("homePage", "homePage", "aboutOtherServices")}
               className="text-[14px] leading-[25.6px] font-medium tracking-[-0.2px] text-body-text"
             >
-              {sanityData?.aboutOtherServices || t("otherServices")}
+              {(isEn && sanityData?.aboutOtherServices) || t("otherServices")}
             </p>
 
             <p

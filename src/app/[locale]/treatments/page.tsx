@@ -125,9 +125,10 @@ export default async function TreatmentsPage({
 }) {
   const resolvedParams = params ? await params : { locale: "en" };
   const locale = resolvedParams.locale || "en";
-  const t = await getTranslations("Treatments");
-  const tCat = await getTranslations("Header.categories");
-  const tList = await getTranslations("ServiceList");
+  const isEn = locale === "en";
+  const t = await getTranslations({ locale, namespace: "Treatments" });
+  const tCat = await getTranslations({ locale, namespace: "Header.categories" });
+  const tList = await getTranslations({ locale, namespace: "ServiceList" });
 
   const [sanityTreatmentsPage, sanitySettings] = await Promise.all([
     sanityFetch<any>({
@@ -141,19 +142,19 @@ export default async function TreatmentsPage({
   ]);
   const docId = "treatmentsOverviewPage";
 
-  const heroBadge = sanityTreatmentsPage?.heroBadge || t("badge");
-  const heroTitle = sanityTreatmentsPage?.heroTitle || t("heading");
-  const heroSubtitle = sanityTreatmentsPage?.heroSubtitle || t("description");
+  const heroBadge = (isEn && sanityTreatmentsPage?.heroBadge) || t("badge");
+  const heroTitle = (isEn && sanityTreatmentsPage?.heroTitle) || t("heading");
+  const heroSubtitle = (isEn && sanityTreatmentsPage?.heroSubtitle) || t("description");
 
-  const longevityBadge = sanityTreatmentsPage?.longevityBadge || t("comingSoon");
-  const longevityTitle = sanityTreatmentsPage?.longevityTitle || t("longevityTitle");
-  const longevityDesc = sanityTreatmentsPage?.longevityDesc || t("longevityDesc");
-  const longevityCta = sanityTreatmentsPage?.longevityCta || t("longevityCta");
+  const longevityBadge = (isEn && sanityTreatmentsPage?.longevityBadge) || t("comingSoon");
+  const longevityTitle = (isEn && sanityTreatmentsPage?.longevityTitle) || t("longevityTitle");
+  const longevityDesc = (isEn && sanityTreatmentsPage?.longevityDesc) || t("longevityDesc");
+  const longevityCta = (isEn && sanityTreatmentsPage?.longevityCta) || t("longevityCta");
 
-  const ctaHeading = sanityTreatmentsPage?.ctaHeading || t("ctaHeading");
-  const ctaDescription = sanityTreatmentsPage?.ctaDescription || t("ctaDescription");
-  const callCta = sanityTreatmentsPage?.callCta || t("callCta");
-  const bookCta = sanityTreatmentsPage?.bookCta || t("bookCta");
+  const ctaHeading = (isEn && sanityTreatmentsPage?.ctaHeading) || t("ctaHeading");
+  const ctaDescription = (isEn && sanityTreatmentsPage?.ctaDescription) || t("ctaDescription");
+  const callCta = (isEn && sanityTreatmentsPage?.callCta) || t("callCta");
+  const bookCta = (isEn && sanityTreatmentsPage?.bookCta) || t("bookCta");
 
   return (
     <div className="flex flex-col">

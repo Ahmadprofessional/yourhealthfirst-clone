@@ -56,6 +56,7 @@ export default async function HomeSkincarePage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  const isEn = locale === "en";
   const t = await getTranslations({ locale, namespace: "HomeSkincarePage" });
 
   const [sanitySkincare, sanitySettings] = await Promise.all([
@@ -70,12 +71,12 @@ export default async function HomeSkincarePage({
   ]);
   const docId = "homeSkincarePage";
 
-  const heroTitle = sanitySkincare?.heroTitle || t("heading");
-  const heroSubtitle = sanitySkincare?.heroSubtitle || t("subheading");
-  const badgeText = sanitySkincare?.badgeText || t("badge");
-  const tagline = sanitySkincare?.tagline || t("tagline");
-  const notifyTitle = sanitySkincare?.notifyTitle || t("notifyTitle");
-  const registerCta = sanitySkincare?.registerCta || t("registerCta");
+  const heroTitle = (isEn && sanitySkincare?.heroTitle) || t("heading");
+  const heroSubtitle = (isEn && sanitySkincare?.heroSubtitle) || t("subheading");
+  const badgeText = (isEn && sanitySkincare?.badgeText) || t("badge");
+  const tagline = (isEn && sanitySkincare?.tagline) || t("tagline");
+  const notifyTitle = (isEn && sanitySkincare?.notifyTitle) || t("notifyTitle");
+  const registerCta = (isEn && sanitySkincare?.registerCta) || t("registerCta");
 
   return (
     <div className="flex flex-col">

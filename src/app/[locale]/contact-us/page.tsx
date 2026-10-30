@@ -67,6 +67,7 @@ export default async function ContactUsPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  const isEn = locale === "en";
   const t = await getTranslations({ locale, namespace: "ContactPage" });
 
   const [sanityContact, sanitySettings] = await Promise.all([
@@ -81,25 +82,25 @@ export default async function ContactUsPage({
   ]);
   const docId = "contactPage";
 
-  const heroTitle = sanityContact?.heroTitle || t("heading");
-  const heroSubtitle = sanityContact?.heroSubtitle || t("subtitle");
-  const badgeText = sanityContact?.badgeText || t("badge");
-  const contactInfoHeading = sanityContact?.contactInfoHeading || t("contactInfoHeading");
-  const clinicAddress = sanityContact?.clinicAddress || t("addressValue");
+  const heroTitle = (isEn && sanityContact?.heroTitle) || t("heading");
+  const heroSubtitle = (isEn && sanityContact?.heroSubtitle) || t("subtitle");
+  const badgeText = (isEn && sanityContact?.badgeText) || t("badge");
+  const contactInfoHeading = (isEn && sanityContact?.contactInfoHeading) || t("contactInfoHeading");
+  const clinicAddress = (isEn && sanityContact?.clinicAddress) || t("addressValue");
   const clinicTelephone = sanityContact?.telephone || "0207 225 3582";
   const mobilePhone = sanityContact?.mobilePhone || "078 1847 4041";
   const clinicEmail = sanityContact?.email || "info@yourhealthfirst.uk";
 
-  const hoursTitle = sanityContact?.hoursTitle || t("hoursTitle");
-  const monFri = sanityContact?.monFri || t("monFri");
-  const saturday = sanityContact?.saturday || t("saturday");
-  const sunday = sanityContact?.sunday || t("sunday");
+  const hoursTitle = (isEn && sanityContact?.hoursTitle) || t("hoursTitle");
+  const monFri = (isEn && sanityContact?.monFri) || t("monFri");
+  const saturday = (isEn && sanityContact?.saturday) || t("saturday");
+  const sunday = (isEn && sanityContact?.sunday) || t("sunday");
 
-  const transportTitle = sanityContact?.transportTitle || t("transportTitle");
+  const transportTitle = (isEn && sanityContact?.transportTitle) || t("transportTitle");
   const mapImageSrc = sanityContact?.mapImage ? urlFor(sanityContact.mapImage).url() : "/images/map-yourhealthfirst.jpeg";
-  const directionsTitle = sanityContact?.directionsTitle || "YourHealthFirst Clinic";
-  const directionsAddress = sanityContact?.directionsAddress || "2nd Floor, 2 Wimpole Street, London W1G 0EB";
-  const directionsButtonText = sanityContact?.directionsButtonText || "Get Directions";
+  const directionsTitle = (isEn && sanityContact?.directionsTitle) || "YourHealthFirst Clinic";
+  const directionsAddress = (isEn && sanityContact?.directionsAddress) || "2nd Floor, 2 Wimpole Street, London W1G 0EB";
+  const directionsButtonText = (isEn && sanityContact?.directionsButtonText) || t("getDirections");
 
   const transport = [
     {

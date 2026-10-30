@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { testimonials } from "@/data/site";
 import { StarIcon, QuoteIcon } from "@/components/icons";
 import { getSanityAttribute } from "@/sanity/lib/dataAttribute";
@@ -17,10 +17,12 @@ const testimonialKeys: Record<string, string> = {
 export default function Testimonials({ sanityData }: { sanityData?: any }) {
   const t = useTranslations("Testimonials");
   const tList = useTranslations("TestimonialsList");
+  const locale = useLocale();
+  const isEn = locale === "en";
 
-  const badge = sanityData?.testimonialsBadge || t("badge");
-  const title = sanityData?.testimonialsTitle;
-  const list = sanityData?.testimonialsList;
+  const badge = (isEn && sanityData?.testimonialsBadge) || t("badge");
+  const title = isEn ? sanityData?.testimonialsTitle : null;
+  const list = isEn ? sanityData?.testimonialsList : null;
   const bgImage = sanityData?.testimonialsBgImage ? urlFor(sanityData.testimonialsBgImage).url() : "/images/testimonials-bg.jpg";
 
   return (

@@ -61,6 +61,7 @@ export default async function PriceListPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  const isEn = locale === "en";
   const t = await getTranslations({ locale, namespace: "PriceList" });
   const categories = getLocalizedPriceList(locale);
 
@@ -76,19 +77,19 @@ export default async function PriceListPage({
   ]);
   const docId = "priceListPage";
 
-  const heroTitle = sanityPriceList?.heroTitle || t("heading");
-  const heroSubtitle = sanityPriceList?.heroSubtitle || t("subtitle");
-  const badgeText = sanityPriceList?.badgeText || t("badge");
+  const heroTitle = (isEn && sanityPriceList?.heroTitle) || t("heading");
+  const heroSubtitle = (isEn && sanityPriceList?.heroSubtitle) || t("subtitle");
+  const badgeText = (isEn && sanityPriceList?.badgeText) || t("badge");
 
-  const policyBadge = sanityPriceList?.policyBadge || t("policyBadge");
-  const policyHeading = sanityPriceList?.policyHeading || t("policyHeading");
-  const policyIntro = sanityPriceList?.policyIntro || t("policyIntro");
+  const policyBadge = (isEn && sanityPriceList?.policyBadge) || t("policyBadge");
+  const policyHeading = (isEn && sanityPriceList?.policyHeading) || t("policyHeading");
+  const policyIntro = (isEn && sanityPriceList?.policyIntro) || t("policyIntro");
 
-  const ctaBadge = sanityPriceList?.ctaBadge || t("ctaBadge");
-  const ctaHeading = sanityPriceList?.ctaHeading || t("ctaHeading");
-  const ctaSubtitle = sanityPriceList?.ctaSubtitle || t("ctaSubtitle");
-  const bookCta = sanityPriceList?.bookCta || t("bookCta");
-  const contactCta = sanityPriceList?.contactCta || t("contactCta");
+  const ctaBadge = (isEn && sanityPriceList?.ctaBadge) || t("ctaBadge");
+  const ctaHeading = (isEn && sanityPriceList?.ctaHeading) || t("ctaHeading");
+  const ctaSubtitle = (isEn && sanityPriceList?.ctaSubtitle) || t("ctaSubtitle");
+  const bookCta = (isEn && sanityPriceList?.bookCta) || t("bookCta");
+  const contactCta = (isEn && sanityPriceList?.contactCta) || t("contactCta");
 
   const features = [
     {
@@ -127,7 +128,7 @@ export default async function PriceListPage({
   ];
 
   const fallbackTaglines = [t("lookGood"), t("feelConfident"), t("beYourself")];
-  const taglines = sanityPriceList?.taglines?.length > 0 ? sanityPriceList.taglines : fallbackTaglines;
+  const taglines = (isEn && sanityPriceList?.taglines?.length > 0) ? sanityPriceList.taglines : fallbackTaglines;
 
   return (
     <div className="flex flex-col">
@@ -205,6 +206,7 @@ export default async function PriceListPage({
           exploreTitle: t("exploreTitle"),
           selectCategory: t("selectCategory"),
           searchPlaceholder: t("searchPlaceholder"),
+          disclaimer: t("disclaimer"),
         }}
       />
 

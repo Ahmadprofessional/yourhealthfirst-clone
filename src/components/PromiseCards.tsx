@@ -1,12 +1,14 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { getSanityAttribute } from "@/sanity/lib/dataAttribute";
 import { urlFor } from "@/sanity/lib/image";
 
 export default function PromiseCards({ sanityData }: { sanityData?: any }) {
   const t = useTranslations("PromiseCards");
-  const cards = sanityData?.promiseCards;
+  const locale = useLocale();
+  const isEn = locale === "en";
+  const cards = isEn ? sanityData?.promiseCards : null;
 
   const bespokeTitle = cards?.[0]?.title || t("bespokeTitle");
   const bespokeDesc = cards?.[0]?.description || t("bespokeP1");
@@ -50,7 +52,7 @@ export default function PromiseCards({ sanityData }: { sanityData?: any }) {
                   data-sanity={getSanityAttribute("homePage", "homePage", "promiseCardsBespokeP2")}
                   className="mt-[14.4px]"
                 >
-                  {sanityData?.promiseCardsBespokeP2 || t("bespokeP2")}
+                  {(isEn && sanityData?.promiseCardsBespokeP2) || t("bespokeP2")}
                 </p>
               </div>
             </div>
@@ -83,7 +85,7 @@ export default function PromiseCards({ sanityData }: { sanityData?: any }) {
                   data-sanity={getSanityAttribute("homePage", "homePage", "promiseCardsAftercareP2")}
                   className="mt-[14.4px]"
                 >
-                  {sanityData?.promiseCardsAftercareP2 || (
+                  {(isEn && sanityData?.promiseCardsAftercareP2) || (
                     <>
                       <strong className="font-bold">{t("aftercareP2Safety")}</strong>,{" "}
                       <strong className="font-bold">{t("aftercareP2Aftercare")}</strong>, and{" "}

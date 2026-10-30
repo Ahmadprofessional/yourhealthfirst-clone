@@ -3,12 +3,14 @@ import ruTreatments from "./translations/treatments/ru.json";
 import esTreatments from "./translations/treatments/es.json";
 import frTreatments from "./translations/treatments/fr.json";
 import arTreatments from "./translations/treatments/ar.json";
+import aryTreatments from "./translations/treatments/ary.json";
 
 const translationsMap: Record<string, Record<string, any>> = {
   ru: Object.fromEntries((ruTreatments as any[]).map((t) => [t.slug, t])),
   es: Object.fromEntries((esTreatments as any[]).map((t) => [t.slug, t])),
   fr: Object.fromEntries((frTreatments as any[]).map((t) => [t.slug, t])),
   ar: Object.fromEntries((arTreatments as any[]).map((t) => [t.slug, t])),
+  ary: Object.fromEntries((aryTreatments as any[]).map((t) => [t.slug, t])),
 };
 
 export function getLocalizedTreatment(slug: string, locale: string): TreatmentDetail | undefined {
@@ -35,5 +37,14 @@ export function getLocalizedTreatment(slug: string, locale: string): TreatmentDe
     processDiagrams: base.processDiagrams,
     processDiagramsRow: base.processDiagramsRow,
     diagramImage: base.diagramImage,
+    // Explicitly guarantee no English leakage for optional extended sections
+    extendedGuide: localized.extendedGuide ?? undefined,
+    contraindications: localized.contraindications ?? undefined,
+    comparisonTable: localized.comparisonTable ?? undefined,
+    areaSizeGuide: localized.areaSizeGuide ?? undefined,
+    premiumFeatures: localized.premiumFeatures ?? undefined,
+    treatmentAreas: localized.treatmentAreas ?? undefined,
+    treatmentAreasHeading: localized.treatmentAreasHeading ?? undefined,
+    advantages: localized.advantages ?? undefined,
   } as TreatmentDetail;
 }

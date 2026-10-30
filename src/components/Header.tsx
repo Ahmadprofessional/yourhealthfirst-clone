@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { Link, usePathname } from "@/i18n/routing";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import {
   ChevronDownIcon,
   InstagramIcon,
@@ -115,7 +115,9 @@ export default function Header({ sanitySettings }: { sanitySettings?: any }) {
   const headerLocation = sanitySettings?.headerLocation || "Harley Street • London";
   const headerAddress = sanitySettings?.headerAddress || "2 Wimpole Street, W1G 0EB";
   const headerPhone = sanitySettings?.headerPhone || "0207 225 3582";
-  const headerCtaText = sanitySettings?.headerCtaText || t("bookConsultation");
+  const locale = useLocale();
+  const isEn = locale === "en";
+  const headerCtaText = (isEn && sanitySettings?.headerCtaText) || t("bookConsultation");
   const logoUrl = sanitySettings?.logoImage ? urlFor(sanitySettings.logoImage).url() : "/images/logo.png";
 
   const openDropdown = () => {

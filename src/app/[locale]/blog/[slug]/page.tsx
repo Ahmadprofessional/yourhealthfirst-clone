@@ -5,7 +5,9 @@ import SafeImage from "@/components/SafeImage";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { routing } from "@/i18n/routing";
-import { getAllBlogSlugs, getBlogPostBySlug, getAllBlogPosts, BlogPost } from "@/data/blogs";
+import { getAllBlogSlugs, BlogPost } from "@/data/blogs";
+import { getLocalizedBlogPost, getAllLocalizedBlogPosts } from "@/data/localizedBlogs";
+import { getTranslations } from "next-intl/server";
 import { sanityFetch } from "@/sanity/lib/fetch";
 import { BLOG_BY_SLUG_QUERY, SITE_SETTINGS_QUERY } from "@/sanity/lib/queries";
 import { getSanityAttribute } from "@/sanity/lib/dataAttribute";
@@ -30,7 +32,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale, slug } = await params;
-  const post = getBlogPostBySlug(slug);
+  const post = getLocalizedBlogPost(slug, locale);
 
   if (!post) {
     return {
@@ -85,7 +87,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function BlogDetailPage({ params }: PageProps) {
   const { locale, slug } = await params;
-  const post = getBlogPostBySlug(slug);
+  const isEn = locale === "en";
+  const tHeader = await getTranslations({ locale, namespace: "Header" });
+  const tBlog = await getTranslations({ locale, namespace: "BlogDetailPage" });
+  const post = getLocalizedBlogPost(slug, locale);
 
   if (!post) {
     notFound();
@@ -104,25 +109,25 @@ export default async function BlogDetailPage({ params }: PageProps) {
   ]);
   const docId = sanityPost?._id || `blogPost-${slug}`;
 
-  const postTitle = sanityPost?.title || post.title;
-  const postExcerpt = sanityPost?.excerpt || post.excerpt;
-  const postCategory = sanityPost?.category || post.category;
-  const postReadTime = sanityPost?.readTime || post.readTime;
-  const postDate = sanityPost?.publishedAt || post.date;
+  const postTitle = (isEn && sanityPost?.title) || post.title;
+  const postExcerpt = (isEn && sanityPost?.excerpt) || post.excerpt;
+  const postCategory = (isEn && sanityPost?.category) || post.category;
+  const postReadTime = (isEn && sanityPost?.readTime) || post.readTime;
+  const postDate = (isEn && sanityPost?.publishedAt) || post.date;
   const postCoverImageUrl = (sanityPost?.coverImage ? urlFor(sanityPost.coverImage)?.url() : null) || post.image;
-  const postKeyTakeaways = (sanityPost?.keyTakeaways && sanityPost.keyTakeaways.length > 0)
+  const postKeyTakeaways = (isEn && sanityPost?.keyTakeaways && sanityPost.keyTakeaways.length > 0)
     ? sanityPost.keyTakeaways
     : post.keyTakeaways;
-  const postAuthorName = sanityPost?.authorName || post.author.name;
-  const postAuthorRole = sanityPost?.authorRole || post.author.role;
-  const postSections = (sanityPost?.body && sanityPost.body.length > 0)
+  const postAuthorName = (isEn && sanityPost?.authorName) || post.author.name;
+  const postAuthorRole = (isEn && sanityPost?.authorRole) || post.author.role;
+  const postSections = (isEn && sanityPost?.body && sanityPost.body.length > 0)
     ? sanityPost.body
     : post.sections;
-  const postFaqs = (sanityPost?.faqs && sanityPost.faqs.length > 0)
+  const postFaqs = (isEn && sanityPost?.faqs && sanityPost.faqs.length > 0)
     ? sanityPost.faqs
     : post.faqs;
 
-  const allPosts = getAllBlogPosts();
+  const allPosts = getAllLocalizedBlogPosts(locale);
   const relatedPosts = allPosts.filter((p) => p.slug !== post.slug).slice(0, 3);
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.yourhealthfirst.uk";
 
@@ -130,8 +135,8 @@ export default async function BlogDetailPage({ params }: PageProps) {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": ["BlogPosting", "MedicalWebPage"],
-    headline: post.title,
-    description: post.excerpt,
+    headline: postTitle,
+    description: postExcerpt,
     image: post.image.startsWith("http") ? post.image : `${siteUrl}${post.image}`,
     datePublished: post.datePublished,
     dateModified: post.datePublished,
@@ -141,8 +146,8 @@ export default async function BlogDetailPage({ params }: PageProps) {
     },
     author: {
       "@type": "Person",
-      name: post.author.name,
-      jobTitle: post.author.role,
+      name: postAuthorName,
+      jobTitle: postAuthorRole,
       description: post.author.bio,
       worksFor: {
         "@type": "MedicalClinic",
@@ -189,14 +194,14 @@ export default async function BlogDetailPage({ params }: PageProps) {
               className="flex items-center gap-2 text-[12px] uppercase tracking-[1.5px] text-cream/70 font-nav mb-6"
             >
               <Link href={`/${locale}`} className="hover:text-tan transition-colors">
-                Home
+                {tBlog("home")}
               </Link>
               <span>/</span>
               <Link href={`/${locale}/blogs`} className="hover:text-tan transition-colors">
-                Blog
+                {tBlog("blog")}
               </Link>
               <span>/</span>
-              <span className="text-tan truncate max-w-[280px] sm:max-w-md">{post.category}</span>
+              <span className="text-tan truncate max-w-[280px] sm:max-w-md">{postCategory}</span>
             </nav>
 
             {/* Category badge & metadata */}
@@ -246,7 +251,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
                     {postAuthorName}
                   </p>
                   <p className="text-[12px] text-tan font-nav">{postAuthorRole}</p>
-                  <p className="text-[11px] text-cream/50">2 Wimpole Street, London W1G 0EB</p>
+                  <p className="text-[11px] text-cream/50">{tBlog("clinicAddress")}</p>
                 </div>
               </div>
 
@@ -255,7 +260,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
                 href={`/${locale}/contact-us`}
                 className="inline-flex items-center gap-2 rounded-[8px] bg-tan hover:bg-[#b87d35] text-forest font-semibold text-[13px] px-5 py-2.5 transition-all shadow-md hover:shadow-lg"
               >
-                <span>Book Consultation</span>
+                <span>{tHeader("bookConsultation")}</span>
                 <span>→</span>
               </Link>
             </div>
@@ -279,7 +284,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
                 data-sanity={getSanityAttribute(docId, "blogPost", "coverImage")}
               />
               <div className="absolute bottom-3 right-3 bg-black/70 backdrop-blur-md px-3 py-1.5 rounded-[6px] text-[11px] text-white/80 font-nav tracking-wide z-20">
-                YourHealthFirst Clinic London
+                {tBlog("clinicName")}
               </div>
             </div>
           </div>
@@ -301,7 +306,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
                       ✦
                     </span>
                     <h2 className="font-subheading text-[18px] sm:text-[20px] font-semibold text-tan tracking-wide uppercase">
-                      Clinical Highlights & Key Takeaways
+                      {tBlog("clinicHighlights")}
                     </h2>
                   </div>
                   <ul className="space-y-3">
@@ -380,7 +385,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
                     <div className="flex items-center gap-2">
                       <span className="text-tan font-bold text-[18px]">?</span>
                       <h2 className="font-subheading text-[24px] sm:text-[28px] font-bold text-forest tracking-[-0.5px] uppercase">
-                        Frequently Asked Questions
+                        {tBlog("faqsTitle")}
                       </h2>
                     </div>
 
@@ -413,21 +418,21 @@ export default async function BlogDetailPage({ params }: PageProps) {
                   <div className="relative h-24 w-24 sm:h-28 sm:w-28 rounded-full overflow-hidden border-2 border-tan shrink-0">
                     <SafeImage
                       src={post.author.image}
-                      alt={post.author.name}
+                      alt={postAuthorName}
                       className="h-full w-full object-cover"
                     />
                   </div>
                   <div className="space-y-2 text-center sm:text-left">
                     <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2">
                       <h3 className="font-subheading text-[20px] font-bold text-forest uppercase">
-                        {post.author.name}
+                        {postAuthorName}
                       </h3>
                       <span className="rounded-full bg-forest/10 px-2.5 py-0.5 text-[11px] font-semibold text-forest uppercase">
-                        Medical Author
+                        {tBlog("medicalAuthor")}
                       </span>
                     </div>
                     <p className="text-[13px] font-medium text-tan">
-                      {post.author.role} • {post.author.credentials}
+                      {postAuthorRole} • {post.author.credentials}
                     </p>
                     <p className="text-[14px] leading-[23px] text-[#555555]">
                       {post.author.bio}
@@ -440,7 +445,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
                   <div className="rounded-[14px] bg-[linear-gradient(135deg,#232b21_0%,#333d2f_100%)] p-8 text-cream flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
                     <div className="space-y-2 text-center sm:text-left">
                       <span className="text-[11px] font-semibold text-tan uppercase tracking-[1.5px]">
-                        Related Treatment At YourHealthFirst
+                        {tBlog("relatedTreatment")}
                       </span>
                       <h3 className="font-display text-[22px] sm:text-[26px] font-bold text-cream uppercase">
                         {post.relatedTreatment.title}
@@ -453,7 +458,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
                       href={`/${locale}${post.relatedTreatment.href}`}
                       className="rounded-[8px] bg-tan hover:bg-[#b87d35] text-forest font-bold text-[14px] px-6 py-3.5 shrink-0 transition-all text-center"
                     >
-                      View Treatment Protocol →
+                      {tBlog("viewTreatmentProtocol")}
                     </Link>
                   </div>
                 )}
@@ -465,24 +470,24 @@ export default async function BlogDetailPage({ params }: PageProps) {
                 <div className="rounded-[14px] border border-tan/30 bg-white p-6 sm:p-7 shadow-lg space-y-5 sticky top-28">
                   <div className="space-y-2 border-b border-black/8 pb-4">
                     <span className="text-[11px] font-bold text-tan uppercase tracking-[1.5px]">
-                      Harley Street Practice
+                      {tBlog("harleyStreetPractice")}
                     </span>
                     <h3 className="font-subheading text-[20px] font-bold text-forest uppercase">
-                      Private Consultation with Sofia
+                      {tBlog("privateConsultationTitle")}
                     </h3>
                     <p className="text-[13px] leading-[20px] text-[#555555]">
-                      Experience bespoke clinical assessment and customized treatment planning tailored to your exact aesthetic goals.
+                      {tBlog("privateConsultationDesc")}
                     </p>
                   </div>
 
                   <div className="space-y-3 text-[13px]">
                     <div className="flex items-center gap-3 text-forest">
                       <span className="text-tan font-bold">📍</span>
-                      <span>2 Wimpole Street, London W1G 0EB</span>
+                      <span>{tBlog("clinicAddress")}</span>
                     </div>
                     <div className="flex items-center gap-3 text-forest">
                       <span className="text-tan font-bold">📞</span>
-                      <a href="tel:02080500445" className="hover:text-tan font-semibold transition-colors">
+                      <a href="tel:02080500445" className="hover:text-tan font-semibold transition-colors" dir="ltr">
                         020 8050 0445
                       </a>
                     </div>
@@ -493,8 +498,9 @@ export default async function BlogDetailPage({ params }: PageProps) {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="hover:text-tan font-semibold transition-colors"
+                        dir="ltr"
                       >
-                        WhatsApp Direct (+44 7738 048600)
+                        {tBlog("whatsappDirect")}
                       </a>
                     </div>
                   </div>
@@ -503,14 +509,14 @@ export default async function BlogDetailPage({ params }: PageProps) {
                     href={`/${locale}/contact-us`}
                     className="block w-full text-center rounded-[8px] bg-tan hover:bg-[#b87d35] text-forest font-bold text-[14px] py-3.5 transition-all shadow-md hover:shadow-lg"
                   >
-                    Schedule Consultation
+                    {tBlog("scheduleConsultation")}
                   </Link>
                 </div>
 
                 {/* Related Articles Widget */}
                 <div className="rounded-[14px] border border-black/10 bg-white p-6 shadow-sm space-y-4">
                   <h3 className="font-subheading text-[17px] font-bold text-forest uppercase border-b border-black/8 pb-3">
-                    More Clinical Articles
+                    {tBlog("moreArticles")}
                   </h3>
                   <div className="space-y-4">
                     {relatedPosts.map((rel) => (
@@ -536,7 +542,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
                     href={`/${locale}/blogs`}
                     className="block text-center text-[13px] font-semibold text-tan hover:underline pt-2"
                   >
-                    View All Articles →
+                    {tBlog("viewAllArticles")}
                   </Link>
                 </div>
               </aside>
@@ -548,20 +554,20 @@ export default async function BlogDetailPage({ params }: PageProps) {
         <section className="w-full bg-[linear-gradient(90deg,#7a6248_0%,#b49b7d_50%,#7a6248_100%)] px-5 py-16 sm:py-20 text-center text-white">
           <div className="mx-auto max-w-[800px] space-y-6">
             <span className="inline-block rounded-full border border-white/20 bg-white/10 px-4 py-1 text-[12px] font-semibold text-tan uppercase tracking-[2px]">
-              Ready to Begin?
+              {tBlog("readyToBegin")}
             </span>
             <h2 className="font-display text-[32px] sm:text-[44px] font-bold uppercase leading-tight text-cream">
-              Book Your Private Aesthetic Consultation
+              {tBlog("bottomCtaTitle")}
             </h2>
             <p className="text-[16px] sm:text-[18px] text-cream/90 max-w-xl mx-auto leading-relaxed">
-              Meet with Sofia Bouzian at 2 Wimpole Street, London to receive your bespoke treatment plan.
+              {tBlog("bottomCtaDesc")}
             </p>
             <div className="pt-2">
               <Link
                 href={`/${locale}/contact-us`}
                 className="inline-flex h-14 items-center justify-center rounded-[8px] bg-forest px-8 font-nav text-[15px] font-semibold tracking-[-0.3px] text-cream transition-all hover:bg-black shadow-xl"
               >
-                Book Your Consultation Online
+                {tBlog("bookConsultationOnline")}
               </Link>
             </div>
           </div>

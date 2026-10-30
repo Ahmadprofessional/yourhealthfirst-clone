@@ -202,50 +202,51 @@ export default async function SclerotherapyPage({
     }),
   ]);
   const docId = "sclerotherapyPage";
+  const isEn = locale === "en";
 
-  const heroTitle = sanitySclero?.heroTitle || treatment.title;
-  const heroTagline = sanitySclero?.heroSubtitle || treatment.tagline;
+  const heroTitle = (isEn && sanitySclero?.heroTitle) || treatment.title;
+  const heroTagline = (isEn && sanitySclero?.heroSubtitle) || treatment.tagline;
 
   const introImageSrc = sanitySclero?.introImage ? urlFor(sanitySclero.introImage).url() : "/images/treatments/sclerotherapy/sclerotherapy-treatment-room-2.jpg";
   const spiderVeinsImageSrc = sanitySclero?.spiderVeinsImage ? urlFor(sanitySclero.spiderVeinsImage).url() : "/images/treatments/sclerotherapy/spider-veins-on-legs.jpg";
-  const whatIsHeading = sanitySclero?.whatIsHeading || t("whatIsHeading");
-  const whatIsP1 = sanitySclero?.whatIsP1 || t("whatIsP1");
-  const whatIsP2 = sanitySclero?.whatIsP2 || t("whatIsP2");
+  const whatIsHeading = (isEn && sanitySclero?.whatIsHeading) || t("whatIsHeading");
+  const whatIsP1 = (isEn && sanitySclero?.whatIsP1) || t("whatIsP1");
+  const whatIsP2 = (isEn && sanitySclero?.whatIsP2) || t("whatIsP2");
   const practitionerImageSrc = sanitySclero?.practitionerImage ? urlFor(sanitySclero.practitionerImage).url() : "/images/treatments/sclerotherapy/sclerotherapy-practitioner.jpg";
-  const whatToExpectHeading = sanitySclero?.whatToExpectHeading || t("whatToExpectHeading");
-  const whatToExpectP = sanitySclero?.whatToExpectP || t("whatToExpectP");
-  const techniquesHeading = sanitySclero?.techniquesHeading || t("techniquesHeading");
-  const techniquesP = sanitySclero?.techniquesP || t("techniquesP");
-  const techniqueLiquidTitle = sanitySclero?.techniqueLiquidTitle || t("techniqueLiquidTitle");
-  const techniqueLiquidDesc = sanitySclero?.techniqueLiquidDesc || t("techniqueLiquidDesc");
-  const techniqueFoamTitle = sanitySclero?.techniqueFoamTitle || t("techniqueFoamTitle");
-  const techniqueFoamDesc = sanitySclero?.techniqueFoamDesc || t("techniqueFoamDesc");
+  const whatToExpectHeading = (isEn && sanitySclero?.whatToExpectHeading) || t("whatToExpectHeading");
+  const whatToExpectP = (isEn && sanitySclero?.whatToExpectP) || t("whatToExpectP");
+  const techniquesHeading = (isEn && sanitySclero?.techniquesHeading) || t("techniquesHeading");
+  const techniquesP = (isEn && sanitySclero?.techniquesP) || t("techniquesP");
+  const techniqueLiquidTitle = (isEn && sanitySclero?.techniqueLiquidTitle) || t("techniqueLiquidTitle");
+  const techniqueLiquidDesc = (isEn && sanitySclero?.techniqueLiquidDesc) || t("techniqueLiquidDesc");
+  const techniqueFoamTitle = (isEn && sanitySclero?.techniqueFoamTitle) || t("techniqueFoamTitle");
+  const techniqueFoamDesc = (isEn && sanitySclero?.techniqueFoamDesc) || t("techniqueFoamDesc");
 
-  const benefitsBadge = sanitySclero?.benefitsBadge || t("benefitsBadge");
-  const benefitsHeading = sanitySclero?.benefitsHeading || `${t("whyChoosePrefix")} ${t("whyChooseHighlight")}`;
-  const benefitsSubtitle = sanitySclero?.benefitsSubtitle || t("benefitsSubtitle");
+  const benefitsBadge = (isEn && sanitySclero?.benefitsBadge) || t("benefitsBadge");
+  const benefitsHeading = (isEn && sanitySclero?.benefitsHeading) || `${t("whyChoosePrefix")} ${t("whyChooseHighlight")}`;
+  const benefitsSubtitle = (isEn && sanitySclero?.benefitsSubtitle) || t("benefitsSubtitle");
 
-  const howWorksHeading = sanitySclero?.howWorksHeading || t("howWorksHeading");
-  const howWorksP = sanitySclero?.howWorksP || t("howWorksP");
+  const howWorksHeading = (isEn && sanitySclero?.howWorksHeading) || t("howWorksHeading");
+  const howWorksP = (isEn && sanitySclero?.howWorksP) || t("howWorksP");
   const howWorksImageBeforeSrc = sanitySclero?.howWorksImageBefore ? urlFor(sanitySclero.howWorksImageBefore).url() : "/images/treatments/sclerotherapy/before-after/pair3-before.jpg";
   const howWorksImageAfterSrc = sanitySclero?.howWorksImageAfter ? urlFor(sanitySclero.howWorksImageAfter).url() : "/images/treatments/sclerotherapy/before-after/pair3-after.jpg";
 
   const treatmentProcessImageSrc = sanitySclero?.treatmentProcessImage ? urlFor(sanitySclero.treatmentProcessImage).url() : "/images/treatments/sclerotherapy/treatment.jpg";
-  const processBadge = sanitySclero?.processBadge || t("processBadge");
-  const processHeading = sanitySclero?.processHeading || t("processHeading");
-  const processP1 = sanitySclero?.processP1 || t("processP1");
-  const processP2 = sanitySclero?.processP2 || t("processP2");
+  const processBadge = (isEn && sanitySclero?.processBadge) || t("processBadge");
+  const processHeading = (isEn && sanitySclero?.processHeading) || t("processHeading");
+  const processP1 = (isEn && sanitySclero?.processP1) || t("processP1");
+  const processP2 = (isEn && sanitySclero?.processP2) || t("processP2");
 
-  const afterTreatmentHeading = sanitySclero?.afterTreatmentHeading || t("afterTreatmentHeading");
+  const afterTreatmentHeading = (isEn && sanitySclero?.afterTreatmentHeading) || t("afterTreatmentHeading");
   const considerTreatmentImageSrc = sanitySclero?.considerTreatmentImage ? urlFor(sanitySclero.considerTreatmentImage).url() : "/images/treatments/sclerotherapy/intro.jpg";
   const aftercareImageSrc = sanitySclero?.aftercareImage ? urlFor(sanitySclero.aftercareImage).url() : "/images/treatments/sclerotherapy/treatment.jpg";
   const howSclerotherapyWorksInfographicSrc = sanitySclero?.howSclerotherapyWorksInfographic ? urlFor(sanitySclero.howSclerotherapyWorksInfographic).url() : "/images/treatments/sclerotherapy/how-sclerotherapy-works.jpg";
 
-  const tipsBadge = sanitySclero?.tipsBadge || t("tipsBadge");
-  const tipsHeading = sanitySclero?.tipsHeading || `${t("tipsHeadingPrefix")} ${t("tipsHeadingHighlight")}`;
-  const tipsSubtitle = sanitySclero?.tipsSubtitle || t("tipsSubtitle");
+  const tipsBadge = (isEn && sanitySclero?.tipsBadge) || t("tipsBadge");
+  const tipsHeading = (isEn && sanitySclero?.tipsHeading) || `${t("tipsHeadingPrefix")} ${t("tipsHeadingHighlight")}`;
+  const tipsSubtitle = (isEn && sanitySclero?.tipsSubtitle) || t("tipsSubtitle");
 
-  const pageFaqs = sanitySclero?.faqs?.length ? sanitySclero.faqs : treatment.faqs;
+  const pageFaqs = (isEn && sanitySclero?.faqs?.length) ? sanitySclero.faqs : treatment.faqs;
 
   const displayedGalleryPairs = sanitySclero?.galleryPairs?.length > 0
     ? sanitySclero.galleryPairs.map((p: any) => ({

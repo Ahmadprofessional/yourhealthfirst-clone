@@ -59,6 +59,7 @@ export default async function PhotobiodynamicTherapyPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  const isEn = locale === "en";
   const t = await getTranslations({ locale, namespace: "PhotobiodynamicPage" });
 
   const [sanityPhotobio, sanitySettings] = await Promise.all([
@@ -73,29 +74,29 @@ export default async function PhotobiodynamicTherapyPage({
   ]);
   const docId = "photobiodynamicPage";
 
-  const heroTitle = sanityPhotobio?.heroTitle || t("heading");
-  const heroSubtitle = sanityPhotobio?.heroSubtitle || t("subtitle");
-  const introText = sanityPhotobio?.introText || t("whatIsP1");
+  const heroTitle = (isEn && sanityPhotobio?.heroTitle) || t("heading");
+  const heroSubtitle = (isEn && sanityPhotobio?.heroSubtitle) || t("subtitle");
+  const introText = (isEn && sanityPhotobio?.introText) || t("whatIsP1");
 
-  const whatIsTitle = sanityPhotobio?.whatIsTitle || t("whatIsTitle");
-  const boxTitle = sanityPhotobio?.boxTitle || t("boxTitle");
-  const boxDesc = sanityPhotobio?.boxDesc || t("boxDesc");
+  const whatIsTitle = (isEn && sanityPhotobio?.whatIsTitle) || t("whatIsTitle");
+  const boxTitle = (isEn && sanityPhotobio?.boxTitle) || t("boxTitle");
+  const boxDesc = (isEn && sanityPhotobio?.boxDesc) || t("boxDesc");
   const facialMappingImageSrc = sanityPhotobio?.facialMappingImage ? urlFor(sanityPhotobio.facialMappingImage).url() : "/images/treatments/photo-aging/photobiodynamic/fotoage_layer.jpg";
 
-  const treatmentsTitle = sanityPhotobio?.treatmentsTitle || t("treatmentsTitle");
+  const treatmentsTitle = (isEn && sanityPhotobio?.treatmentsTitle) || t("treatmentsTitle");
   const rejuvenationImageSrc = sanityPhotobio?.rejuvenationImage ? urlFor(sanityPhotobio.rejuvenationImage).url() : "/images/treatments/photo-aging/skinox-wrinkles.jpg";
   const blemishesImageSrc = sanityPhotobio?.blemishesImage ? urlFor(sanityPhotobio.blemishesImage).url() : "/images/treatments/photo-aging/skinox-blemish.jpg";
   const rednessImageSrc = sanityPhotobio?.rednessImage ? urlFor(sanityPhotobio.rednessImage).url() : "/images/treatments/photo-aging/skinox-redness.jpg";
   const darkSpotsImageSrc = sanityPhotobio?.darkSpotsImage ? urlFor(sanityPhotobio.darkSpotsImage).url() : "/images/treatments/photo-aging/skinox-dark-spots.jpg";
 
   const combinationImageSrc = sanityPhotobio?.combinationImage ? urlFor(sanityPhotobio.combinationImage).url() : "/images/treatments/photo-aging/photobiodynamic/combination.jpg";
-  const oxygenTitle = sanityPhotobio?.oxygenTitle || t("oxygenTitle");
-  const oxygenP1 = sanityPhotobio?.oxygenP1 || t("oxygenP1");
-  const oxygenBullet1 = sanityPhotobio?.oxygenBullet1 || t("oxygenBullet1");
-  const oxygenBullet2 = sanityPhotobio?.oxygenBullet2 || t("oxygenBullet2");
+  const oxygenTitle = (isEn && sanityPhotobio?.oxygenTitle) || t("oxygenTitle");
+  const oxygenP1 = (isEn && sanityPhotobio?.oxygenP1) || t("oxygenP1");
+  const oxygenBullet1 = (isEn && sanityPhotobio?.oxygenBullet1) || t("oxygenBullet1");
+  const oxygenBullet2 = (isEn && sanityPhotobio?.oxygenBullet2) || t("oxygenBullet2");
 
   const treatmentStepsDiagramSrc = sanityPhotobio?.treatmentStepsDiagram ? urlFor(sanityPhotobio.treatmentStepsDiagram).url() : "/images/treatments/photo-aging/photobiodynamic/treatment-steps.png";
-  const viewPeelsCta = sanityPhotobio?.viewPeelsCta || t("viewPeelsCta");
+  const viewPeelsCta = (isEn && sanityPhotobio?.viewPeelsCta) || t("viewPeelsCta");
 
   const treatments = [
     { title: t("rejuvenation"), image: rejuvenationImageSrc, field: "rejuvenationImage" },

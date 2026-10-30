@@ -178,6 +178,7 @@ export default async function PhlebotomyPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  const isEn = locale === "en";
   const t = await getTranslations({ locale, namespace: "PhlebotomyPage" });
   const treatment = getLocalizedTreatment("phlebotomy", locale) ?? treatmentDetails.find((t) => t.slug === "phlebotomy")!;
 
@@ -193,25 +194,25 @@ export default async function PhlebotomyPage({
   ]);
   const docId = "phlebotomyPage";
 
-  const heroTitle = sanityPhleb?.heroTitle || t("heroTitle");
-  const heroTagline = sanityPhleb?.heroSubtitle || t("heroTagline");
+  const heroTitle = (isEn && sanityPhleb?.heroTitle) || t("heroTitle");
+  const heroTagline = (isEn && sanityPhleb?.heroSubtitle) || t("heroTagline");
 
   const bloodDrawImageSrc = sanityPhleb?.bloodDrawImage ? urlFor(sanityPhleb.bloodDrawImage).url() : "/images/treatments/phlebotomy/blood-draw.jpg";
   const heroBannerImageSrc = sanityPhleb?.heroBannerImage ? urlFor(sanityPhleb.heroBannerImage).url() : "/images/treatments/phlebotomy/hero-banner.jpg";
   const centrifugeImageSrc = sanityPhleb?.centrifugeImage ? urlFor(sanityPhleb.centrifugeImage).url() : "/images/treatments/phlebotomy/centrifuge-machine.jpg";
 
-  const introHeading = sanityPhleb?.introHeading || t("introHeading");
-  const priorTitle = sanityPhleb?.priorTitle || `${t("priorTitle")} ${t("priorTitleHighlight")}`;
-  const priorInstructions = sanityPhleb?.priorInstructions || t("prior1");
-  const onDayTitle = sanityPhleb?.onDayTitle || `${t("onDayTitle")} ${t("onDayTitleHighlight")}`;
-  const whyTitle = sanityPhleb?.whyTitle || t("whyTitle");
-  const whySubtitle = sanityPhleb?.whySubtitle || t("whySubtitle");
-  const spinningBadge = sanityPhleb?.spinningBadge || t("spinningBadge");
-  const spinningTitle = sanityPhleb?.spinningTitle || t("spinningTitle");
-  const spinningP1 = sanityPhleb?.spinningP1 || t("spinningP1");
-  const spinningP2 = sanityPhleb?.spinningP2 || t("spinningP2");
-  const spinningCta = sanityPhleb?.spinningCta || t("spinningCta");
-  const pageFaqs = sanityPhleb?.faqs?.length ? sanityPhleb.faqs : treatment.faqs;
+  const introHeading = (isEn && sanityPhleb?.introHeading) || t("introHeading");
+  const priorTitle = (isEn && sanityPhleb?.priorTitle) || `${t("priorTitle")} ${t("priorTitleHighlight")}`;
+  const priorInstructions = (isEn && sanityPhleb?.priorInstructions) || t("prior1");
+  const onDayTitle = (isEn && sanityPhleb?.onDayTitle) || `${t("onDayTitle")} ${t("onDayTitleHighlight")}`;
+  const whyTitle = (isEn && sanityPhleb?.whyTitle) || t("whyTitle");
+  const whySubtitle = (isEn && sanityPhleb?.whySubtitle) || t("whySubtitle");
+  const spinningBadge = (isEn && sanityPhleb?.spinningBadge) || t("spinningBadge");
+  const spinningTitle = (isEn && sanityPhleb?.spinningTitle) || t("spinningTitle");
+  const spinningP1 = (isEn && sanityPhleb?.spinningP1) || t("spinningP1");
+  const spinningP2 = (isEn && sanityPhleb?.spinningP2) || t("spinningP2");
+  const spinningCta = (isEn && sanityPhleb?.spinningCta) || t("spinningCta");
+  const pageFaqs = (isEn && sanityPhleb?.faqs?.length) ? sanityPhleb.faqs : treatment.faqs;
 
   const heroBadges = [
     { icon: "user", label: t("badgePrivate") },

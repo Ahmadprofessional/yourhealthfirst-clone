@@ -59,6 +59,7 @@ export default async function FotoagePage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  const isEn = locale === "en";
   const t = await getTranslations({ locale, namespace: "FotoagePage" });
 
   const [sanityFotoage, sanitySettings] = await Promise.all([
@@ -73,25 +74,25 @@ export default async function FotoagePage({
   ]);
   const docId = "fotoagePage";
 
-  const heroTitle = sanityFotoage?.heroTitle || t("heading");
-  const heroSubtitle = sanityFotoage?.heroSubtitle || t("subtitle");
-  const introText = sanityFotoage?.introText || t("introP1");
-  const introP2 = sanityFotoage?.introP2 || t("introP2");
-  const viewCtaText = sanityFotoage?.viewCtaText || t("viewCta");
+  const heroTitle = (isEn && sanityFotoage?.heroTitle) || t("heading");
+  const heroSubtitle = (isEn && sanityFotoage?.heroSubtitle) || t("subtitle");
+  const introText = (isEn && sanityFotoage?.introText) || t("introP1");
+  const introP2 = (isEn && sanityFotoage?.introP2) || t("introP2");
+  const viewCtaText = (isEn && sanityFotoage?.viewCtaText) || t("viewCta");
 
   const maskImageSrc = sanityFotoage?.maskImage ? urlFor(sanityFotoage.maskImage).url() : "/images/treatments/photo-aging/fotoage/mask.jpg";
-  const hddHeading = sanityFotoage?.hddHeading || t("hddHeading");
-  const hddP1 = sanityFotoage?.hddP1 || t("hddP1");
-  const hddP2 = sanityFotoage?.hddP2 || t("hddP2");
+  const hddHeading = (isEn && sanityFotoage?.hddHeading) || t("hddHeading");
+  const hddP1 = (isEn && sanityFotoage?.hddP1) || t("hddP1");
+  const hddP2 = (isEn && sanityFotoage?.hddP2) || t("hddP2");
 
   const redLightImageSrc = sanityFotoage?.redLightImage ? urlFor(sanityFotoage.redLightImage).url() : "/images/treatments/photo-aging/fotoage/red_light.jpg";
   const blueLightImageSrc = sanityFotoage?.blueLightImage ? urlFor(sanityFotoage.blueLightImage).url() : "/images/treatments/photo-aging/fotoage/blue_light.png";
   const yellowLightImageSrc = sanityFotoage?.yellowLightImage ? urlFor(sanityFotoage.yellowLightImage).url() : "/images/treatments/photo-aging/fotoage/yellow_light.png";
   const greenLightImageSrc = sanityFotoage?.greenLightImage ? urlFor(sanityFotoage.greenLightImage).url() : "/images/treatments/photo-aging/fotoage/green_light.png";
 
-  const customTitle = sanityFotoage?.customTitle || t("customTitle");
-  const customP1 = sanityFotoage?.customP1 || t("customP1");
-  const bookCtaText = sanityFotoage?.bookCtaText || t("bookCta");
+  const customTitle = (isEn && sanityFotoage?.customTitle) || t("customTitle");
+  const customP1 = (isEn && sanityFotoage?.customP1) || t("customP1");
+  const bookCtaText = (isEn && sanityFotoage?.bookCtaText) || t("bookCta");
   const spectrumAreasImageSrc = sanityFotoage?.spectrumAreasImage ? urlFor(sanityFotoage.spectrumAreasImage).url() : "/images/treatments/photo-aging/fotoage/carac_espectro.jpg";
 
   const lights = [

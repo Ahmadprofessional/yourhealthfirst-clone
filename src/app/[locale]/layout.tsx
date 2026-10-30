@@ -82,6 +82,7 @@ export const metadata: Metadata = {
     languages: {
       en: "/en",
       ar: "/ar",
+      "ar-MA": "/ary",
       es: "/es",
       fr: "/fr",
       ru: "/ru",
@@ -91,7 +92,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_GB",
-    alternateLocale: ["ar_AE", "es_ES", "fr_FR", "ru_RU"],
+    alternateLocale: ["ar_SA", "ar_MA", "es_ES", "fr_FR", "ru_RU"],
     url: siteUrl,
     siteName: "YourHealthFirst Clinic",
     title: "YourHealthFirst Clinic | Harley Street, London",
@@ -149,7 +150,7 @@ export default async function RootLayout({
   return (
     <html
       lang={locale}
-      dir={locale === 'ar' ? 'rtl' : 'ltr'}
+      dir={locale === 'ar' || locale === 'ary' ? 'rtl' : 'ltr'}
       suppressHydrationWarning
       className={`${montserrat.variable} ${interTight.variable} ${jost.variable} ${playfairSC.variable} ${instrumentSerif.variable} h-full antialiased`}
     >

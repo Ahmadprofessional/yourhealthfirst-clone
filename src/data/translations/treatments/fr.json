@@ -244,32 +244,32 @@
       "Après une consultation, la plupart des rendez-vous pour des produits de comblement cutané durent environ 25 à 50 minutes du début à la fin, selon le nombre de zones à traiter. En moyenne, la plupart des patients choisissent de répéter leur cure de comblement après 4 à 6 mois pour maintenir les résultats. Les comblements de lèvres en particulier, lorsqu'ils sont réalisés avec des produits haut de gamme, ont tendance à conserver leur volume pour un effet plus durable."
     ],
     "advantages": {
-      "title": "Avantages des produits de comblement cutané",
-      "intro": "Les produits de comblement cutané exploitent l'acide hyaluronique naturel de votre corps pour combattre les signes du vieillissement. Voici six avantages clés du choix des produits de comblement cutané chez YourHealthFirst.",
+      "title": "Sublimation naturelle des traits",
+      "intro": "Notre approche sur-mesure de l'acide hyaluronique garantit des résultats discrets et harmonieux qui respectent votre physionomie unique.",
       "items": [
         {
-          "title": "Réduction des rides",
-          "description": "Les produits de comblement cutané lissent efficacement les rides et ridules, redonnant ainsi une apparence plus jeune."
+          "title": "Atténuation des rides",
+          "description": "Comble efficacement les rides et ridules d'expression autour des lèvres et du nez."
         },
         {
           "title": "Restauration des volumes",
-          "description": "Ils ajoutent du volume aux zones du visage – notamment les lèvres, les joues, le dessous des yeux et la mâchoire – qui ont perdu de leur volume en raison du vieillissement, ce qui donne un aspect plus rebondi et rajeuni."
+          "description": "Restaure les volumes du visage — notamment pommettes, lèvres et ligne mandibulaire."
         },
         {
-          "title": "Non chirurgical",
-          "description": "Les produits de comblement cutané offrent une alternative non invasive aux procédures chirurgicales, avec peu ou pas de temps d'arrêt et un inconfort minimal."
+          "title": "Alternative non chirurgicale",
+          "description": "Une solution douce aux liftings chirurgicaux, sans anesthésie générale ni lourde convalescence."
         },
         {
-          "title": "Résultats naturels",
-          "description": "Lorsqu’ils sont réalisés par un professionnel qualifié, les produits de comblement cutané fournissent des résultats d’apparence naturelle, améliorant les traits du visage – y compris les produits de comblement des lèvres – sans paraître exagérés."
+          "title": "Résultats harmonieux",
+          "description": "Pratiqué par une experte, il offre un visage reposé et jeune qui respecte vos expressions."
         },
         {
-          "title": "Effets durables",
-          "description": "Selon le type de produit de comblement utilisé, les résultats peuvent durer de plusieurs mois à plus d'un an."
+          "title": "Tenue prolongée",
+          "description": "Selon le produit injecté, les bénéfices durent de 6 à 18 mois avec une totale réversibilité."
         },
         {
-          "title": "Polyvalence",
-          "description": "Les produits de comblement cutané offrent un traitement polyvalent et complet, adapté pour traiter diverses zones du visage et offrir une expérience complète de rajeunissement du visage."
+          "title": "Approche sur-mesure",
+          "description": "Un traitement polyvalent pour sculpter, hydrater et défatiguer harmonieusement les traits."
         }
       ]
     },
@@ -544,72 +544,37 @@
       "alt": "Bioremodelage cutané Profhilo — bienfaits et points d'injection sur le visage et le cou"
     },
     "extendedGuide": {
-      "heading": "Profhilo est-il le traitement qui vous convient ?",
-      "subheading": "Découvrez si le traitement de rajeunissement cutané Profhilo convient à vos problèmes de peau.",
-      "intro": "Profhilo est un traitement injectable à l'acide hyaluronique conçu pour améliorer l'hydratation, la fermeté, l'élasticité et la qualité globale de la peau. Il aide à restaurer une apparence plus lisse, plus fraîche et plus radieuse sans ajouter de volume au visage ni modifier les traits naturels de votre visage. À la clinique YourHealthFirst de Wimpole Street, à Londres, nous proposons des traitements Profhilo personnalisés pour vous aider à obtenir un rajeunissement cutané d'apparence naturelle adapté à vos besoins individuels.",
-      "bestForHeading": "À qui s’adresse Profhilo ?",
-      "bestForIntro": "Profhilo peut convenir si vous :",
+      "heading": "Profhilo est-il le traitement adapté à votre peau ?",
+      "subheading": "Découvrez si le biorajeunissement Profhilo répond à vos besoins cutanés.",
+      "intro": "Profhilo est un traitement injectable innovant à base d'acide hyaluronique pur, conçu pour restaurer l'hydratation, la fermeté et l'élasticité de la peau. Il offre un teint frais et lissé sans ajouter de volume artificiel ni modifier l'harmonie naturelle de votre visage. À la clinique YourHealthFirst, 2 Wimpole Street à Londres, Sofia Bouzian réalise une évaluation approfondie pour confirmer si Profhilo est le protocole idéal pour vous.",
+      "bestForHeading": "À qui s'adresse principalement Profhilo",
+      "bestForIntro": "Profhilo est particulièrement indiqué si vous recherchez :",
       "bestForItems": [
-        {
-          "title": "Avoir une peau terne, fatiguée ou déshydratée",
-          "description": "Améliorez l'hydratation de la peau et obtenez un teint plus frais et plus éclatant."
-        },
-        {
-          "title": "Remarquez les ridules et l’élasticité réduite",
-          "description": "Traite les premiers signes du vieillissement cutané et de la perte de fermeté de la peau."
-        },
-        {
-          "title": "Avoir une peau moins lisse ou moins rebondie",
-          "description": "Favorise une texture et une hydratation améliorées de la peau."
-        },
-        {
-          "title": "Vous voulez une peau plus saine et éclatante",
-          "description": "Améliorez l'apparence de votre peau sans ajouter de volume."
-        },
-        {
-          "title": "Préférez les résultats naturels",
-          "description": "Améliorez la qualité de la peau tout en conservant les traits naturels de votre visage."
-        },
-        {
-          "title": "Remarquons les premiers signes de vieillissement",
-          "description": "Adoptez une approche proactive pour maintenir l’hydratation et l’élasticité de la peau."
-        }
+        "Une hydratation profonde et un éclat renouvelé pour les peaux ternes et déshydratées",
+        "Une amélioration du relâchement cutané léger et de la tonicité des tissus",
+        "Un lissage des ridules et ridules de déshydratation sans effet volumateur",
+        "Une amélioration globale du grain de peau sur le visage, le cou, le décolleté et les mains",
+        "Un traitement préventif contre les premiers signes de l'âge"
       ],
-      "bestForImage": {
-        "src": "/images/treatments/profhilo/sofia-injecting-lips.jpg",
-        "alt": "Sofia Bouzian administrant une injection de Profhilo près des lèvres"
-      },
-      "notRightHeading": "Quand Profhilo pourrait-il ne pas être le bon traitement ?",
-      "notRightIntro": "Bien que Profhilo puisse améliorer la qualité de la peau, il n’est pas conçu pour répondre à tous les problèmes esthétiques. En fonction de vos objectifs, un autre traitement peut être plus approprié.",
+      "notRightHeading": "Cas nécessitant d'autres approches thérapeutiques",
+      "notRightIntro": "D'autres soins seront plus adaptés si vos objectifs concernent :",
       "notRightItems": [
-        {
-          "title": "Vous souhaitez plus de volume ou de définition du visage",
-          "description": "Si votre principale préoccupation est d’ajouter du volume ou d’améliorer les contours du visage, les produits de comblement cutané peuvent être plus adaptés. Ils peuvent être utilisés pour traiter des zones telles que les joues, les lèvres et le menton suite à une consultation personnalisée."
-        },
-        {
-          "title": "Vous avez un relâchement ou un relâchement cutané important",
-          "description": "Profhilo peut soutenir la fermeté et l’élasticité de la peau, mais il ne s’agit pas d’un traitement chirurgical de lifting. Si vous présentez un relâchement prononcé, des bajoues ou un relâchement cutané important, des traitements alternatifs peuvent être plus adaptés."
-        },
-        {
-          "title": "Vous souhaitez traiter les creux ou les cernes sous les yeux",
-          "description": "Profhilo n'est pas spécifiquement conçu pour corriger les creux ou la pigmentation sous les yeux. Une consultation peut vous aider à déterminer quel traitement est le plus adapté à vos préoccupations individuelles et à la zone délicate des yeux."
-        },
-        {
-          "title": "Vous recherchez des résultats immédiats",
-          "description": "Profhilo agit progressivement, avec des améliorations de l'hydratation et de la qualité de la peau se développant au fil des semaines suivant le traitement. Il n’est pas destiné à provoquer un changement instantané de la structure du visage ou un effet lifting spectaculaire."
-        }
+        "La restauration de volumes perdus aux joues ou tempes (mieux traitée par acide hyaluronique réticulé)",
+        "Un relâchement cutané sévère nécessitant un lifting chirurgical ou radiofréquence profonde",
+        "Des rides d'expression dynamiques du front ou de la patte d'oie (indiquées pour la toxine botulique)",
+        "Des taches pigmentaires profondes ou cicatrices d'acné creuses (traitées par microneedling ou peelings)"
       ],
-      "resultsHeading": "Quels résultats pouvez-vous attendre de Profhilo ?",
-      "resultsBody": "Profhilo est conçu pour améliorer progressivement l'hydratation, la texture, l'éclat et la fermeté de la peau. Les résultats varient d'un individu à l'autre en fonction de l'état de la peau, de l'âge et de la réponse au traitement. Votre praticien évaluera votre peau, discutera de vos attentes et vous recommandera un plan de traitement approprié, incluant le nombre et le calendrier des séances.",
-      "ctaHeading": "Réservez votre consultation Profhilo à Londres",
-      "ctaBody": "Si vous envisagez Profhilo pour le rajeunissement de la peau, réservez une consultation à la YourHealthFirst Clinic, 2 Wimpole Street, Londres, pour discuter de vos problèmes de peau et savoir si ce traitement vous convient."
+      "resultsHeading": "Résultats et calendrier attendus",
+      "resultsBody": "Le protocole complet comprend 2 séances espacées de 4 semaines. L'éclat et l'hydratation s'apprécient dès les 2 premières semaines, tandis que le raffermissement se consolide après la 2ème séance, avec des bénéfices persistant jusqu'à 6 mois.",
+      "ctaHeading": "Consultation personnalisée avec notre praticienne",
+      "ctaBody": "Prenez rendez-vous avec Sofia Bouzian dans notre clinique londonienne pour une analyse sur-mesure de votre peau."
     },
     "treatmentAreas": [
       "Visage",
       "Cou",
-      "Mains",
       "Décolleté",
-      "Bras supérieurs"
+      "Mains",
+      "Bras"
     ],
     "treatmentAreaIcons": {
       "Face": "face",
@@ -895,30 +860,30 @@
       "Toute personne souhaitant un boost de régénération cutanée en profondeur"
     ],
     "premiumFeatures": {
-      "eyebrow": "Zones de traitement",
+      "eyebrow": "Zones d'application",
       "main": "Polynucléotides pour",
-      "accent": "Chaque préoccupation",
-      "subtitle": "Un traitement régénérant polyvalent adapté à quatre domaines de préoccupation clés.",
+      "accent": "Chaque besoin",
+      "subtitle": "Un traitement régénératif polyvalent adapté à quatre zones anatomiques majeures.",
       "items": [
         {
           "icon": "eye",
-          "title": "Yeux",
-          "description": "Hydratation en profondeur et élasticité améliorée autour de la zone délicate des yeux – minimisant les ridules, les cernes, les poches et les marques de fatigue."
+          "title": "Contour des yeux",
+          "description": "Hydratation intense et amélioration de l'élasticité cutanée — atténue cernes sombres, ridules, poches et signes de fatigue."
         },
         {
           "icon": "face",
           "title": "Visage",
-          "description": "Régénère les cellules de la peau tout en améliorant l'hydratation, le tonus et la texture, nourrissant la peau de ce dont elle a besoin pour sa réparation et son renouvellement naturels."
+          "description": "Régénère les cellules cutanées, améliore la texture et l'éclat — apporte les nutriments essentiels au renouvellement cellulaire."
         },
         {
           "icon": "neck",
-          "title": "Cou",
-          "description": "Lifte et resserre la peau affaissée et crépue en stimulant l'activité des fibroblastes et en augmentant l'hydratation pour un décolleté plus ferme et plus lisse."
+          "title": "Cou et décolleté",
+          "description": "Raffermit la peau froissée et relâchée en stimulant l'activité des fibroblastes pour un port de cou lissé."
         },
         {
           "icon": "hair",
           "title": "Cheveux et cuir chevelu",
-          "description": "Rajeunit les follicules pileux et améliore l’état du cuir chevelu, augmentant ainsi l’apport sanguin pour favoriser une croissance des cheveux plus épaisse et plus saine."
+          "description": "Revitalise les follicules pileux, stimule la microcirculation et favorise une repousse plus dense, forte et saine."
         }
       ]
     },
@@ -1070,10 +1035,10 @@
       }
     ],
     "treatmentAreas": [
-      "Joues",
-      "Temples",
-      "Mâchoire",
-      "Bas du visage et laxisme"
+      "Pommettes et médio-visage",
+      "Tempes",
+      "Ovale du visage et bas-joues",
+      "Plis d'amertume et menton"
     ],
     "treatmentAreaIcons": {
       "Cheeks": "face",
@@ -1083,64 +1048,59 @@
     },
     "premiumFeatures": {
       "eyebrow": "Pourquoi choisir Sculptra",
-      "main": "Les avantages de",
-      "accent": "Sculpture",
-      "subtitle": "Une approche progressive et naturelle du rajeunissement du visage avec des résultats durables.",
+      "main": "Les bénéfices de",
+      "accent": "Sculptra",
+      "subtitle": "Une approche subtile et progressive de la régénération faciale aux effets pérennes.",
       "items": [
         {
           "icon": "sparkle",
-          "title": "Résultats d'apparence naturelle",
-          "description": "Étant donné que Sculptra agit progressivement pour stimuler le collagène, les améliorations sont subtiles et s’accumulent avec le temps – aucun signe révélateur d’un travail effectué."
+          "title": "Résultats d'aspect 100% naturel",
+          "description": "La stimulation progressive du collagène permet une amélioration graduelle sans aucun signe artificiel d'intervention esthétique."
         },
         {
           "icon": "clock",
-          "title": "Effets durables",
-          "description": "Les résultats peuvent durer jusqu'à deux ans : 95 % des patients signalent une amélioration de l'éclat de leur peau, même deux ans après le traitement."
+          "title": "Durabilité jusqu'à 2 ans",
+          "description": "Les résultats persistent jusqu'à 24 mois — 95% des patients confirment un teint lumineux et raffermi même deux ans après le soin."
         },
         {
           "icon": "shield",
-          "title": "Rajeunissement complet",
-          "description": "En restaurant la structure sous-jacente de la peau, Sculptra offre un rajeunissement naturel plus complet que les traitements de surface."
+          "title": "Restauration structurelle globale",
+          "description": "En restaurant l'armature cutanée en profondeur, Sculptra offre un rajeunissement bien plus complet que les soins superficiels."
         },
         {
           "icon": "pulse",
-          "title": "Temps d'arrêt minimal",
-          "description": "La plupart des patients reprennent rapidement leurs activités normales, l'enflure ou la rougeur disparaissant généralement en quelques jours."
+          "title": "Éviction sociale minimale",
+          "description": "Reprise immédiate des activités quotidiennes ; les rougeurs ou gonflements transitoires s'estompent en quelques jours."
         }
       ]
     },
     "advantages": {
-      "title": "Votre parcours de traitement Sculptra",
-      "intro": "À quoi s’attendre de la consultation jusqu’aux résultats.",
+      "title": "Rajeunissement progressif et durable",
+      "intro": "Contrairement aux gels de comblement classiques, Sculptra stimule la production biologique de votre propre collagène pour des résultats pérennes.",
       "items": [
         {
-          "title": "1. Consultations",
-          "description": "Nous discutons de vos préoccupations, de vos objectifs et de vos attentes et établissons un plan de traitement adapté à vos besoins individuels."
+          "title": "1. Consultation initiale",
+          "description": "Nous définissons ensemble vos objectifs pour établir un plan thérapeutique personnalisé."
         },
         {
-          "title": "2. Anesthésie",
-          "description": "Un anesthésique topique peut être appliqué au préalable sur la zone de traitement pour assurer votre confort tout au long du traitement."
+          "title": "2. Anesthésie de confort",
+          "description": "Application d'une crème anesthésiante pour vous assurer un confort optimal tout au long du soin."
         },
         {
-          "title": "3. Procédure",
-          "description": "Un traitement injectable avancé et non invasif : votre praticien cible soigneusement chaque domaine de préoccupation avec précision."
+          "title": "3. Protocole d'injection",
+          "description": "Traitement avancé non invasif — injection minutieuse de Sculptra dans les plans profonds de la peau."
         },
         {
-          "title": "4. Soyez patient",
-          "description": "Sculptra agit progressivement pour stimuler la production de collagène, de sorte que les résultats s'accumulent sur plusieurs semaines, voire plusieurs mois, plutôt que d'apparaître immédiatement."
+          "title": "4. Action progressive",
+          "description": "Sculptra stimule la néocollagénèse dans la durée ; les effets se consolident sur plusieurs semaines."
         }
       ]
     },
     "contraindications": {
-      "title": "Qui ne devrait pas bénéficier de ce traitement",
+      "title": "Contre-indications au traitement",
       "items": [
-        "Femmes enceintes ou allaitantes"
-      ],
-      "image": {
-        "src": "/images/treatments/sculptra/before-after-profile-v2.jpg",
-        "alt": "Sculptra before and after — cheek and jawline lift"
-      },
-      "imageAspect": "3/2"
+        "Femmes enceintes ou en période d'allaitement"
+      ]
     },
     "careInstructions": {
       "title": "Sculptra — Entretien",
@@ -1397,66 +1357,56 @@
       "Les résultats sont visibles dès deux semaines et s'améliorent progressivement au fil des mois suivants, avec une amélioration de la texture et de la tonicité. La régénération complète du collagène prend trois mois."
     ],
     "comparisonTable": {
-      "title": "PRP traditionnel vs A-PRP-HA : quelle est la différence ?",
-      "image": {
-        "src": "/images/treatments/prp-face-body/prp-therapy-comparison-full.jpg",
-        "alt": "PRP Therapy — Traditional PRP vs A-PRP-HA comparison table — key ingredients, delivery, treatment focus, cosmetic aims, expected results and suitability"
-      },
-      "imageAspect": "1253/1254",
+      "title": "PRP classique vs A-PRP-HA : Quelles différences ?",
       "columnLabels": [
-        "PRP traditionnel",
-        "A-PRP-HA avancé"
+        "PRP classique",
+        "A-PRP-HA enrichi"
       ],
       "rows": [
         {
-          "feature": "Ce qu'il contient",
+          "feature": "Composition",
           "a": "Plasma riche en plaquettes préparé à partir de votre propre sang",
-          "b": "Votre plasma riche en plaquettes associé à de l'acide hyaluronique non réticulé"
+          "b": "Plasma riche en plaquettes combiné à de l'acide hyaluronique pur non réticulé"
         },
         {
-          "feature": "Comment il est livré",
-          "a": "Injecté manuellement dans des zones sélectionnées",
-          "b": "Administré en utilisant la technique clinique sélectionnée ; L'injecteur U225 peut être utilisé le cas échéant"
+          "feature": "Mode d'administration",
+          "a": "Injections manuelles ciblées dans les couches dermiques",
+          "b": "Technique avancée par micro-injections ou pistolet U225 pour une répartition homogène"
         },
         {
-          "feature": "Objectif principal du traitement",
-          "a": "Soutenir les processus naturels de réparation de la peau et améliorer l’apparence de la qualité de la peau",
-          "b": "Combinant le PRP avec l'HA, qui aide à retenir l'eau et contribue à l'hydratation de la peau"
+          "feature": "Action principale",
+          "a": "Stimulation de la réparation tissulaire et amélioration de la qualité cutanée",
+          "b": "Synergie du PRP et de l'acide hyaluronique pour une hydratation intense et immédiate"
         },
         {
-          "feature": "Objectifs cosmétiques potentiels",
-          "a": "S'attaquer aux ridules sélectionnées, à la texture inégale et à la peau d'apparence terne",
-          "b": "Objectifs de qualité de peau similaires, avec l'apport supplémentaire de l'HA à l'hydratation"
+          "feature": "Bénéfices esthétiques",
+          "a": "Atténuation des ridules, amélioration du grain de peau et de l'éclat",
+          "b": "Tous les bienfaits régénératifs avec un effet repulpant et hydratant décuplé"
         },
         {
-          "feature": "À quoi s'attendre",
-          "a": "Modifications graduelles et variables de l’apparence de la peau ; les résultats ne sont pas garantis",
-          "b": "Des changements progressifs et variables ; une étude clinique combinant PRP et HA a rapporté des résultats encourageants en matière d'apparence et d'élasticité du visage, mais cela ne garantit pas un résultat individuel"
-        },
-        {
-          "feature": "À qui cela peut convenir",
-          "a": "Patients jugés aptes au PRP qui préfèrent une option PRP uniquement",
-          "b": "Patients jugés aptes au PRP et à la préparation spécifique d'HA"
+          "feature": "Évolution des résultats",
+          "a": "Amélioration progressive s'épanouissant sur plusieurs semaines",
+          "b": "Hydratation et éclat instantanés suivis d'un raffermissement continu"
         }
       ]
     },
     "treatmentAreas": [
-      "Texture de la peau",
-      "Peau froissée autour des yeux",
-      "Cernes autour des yeux",
-      "Joues et milieu du visage",
-      "Visage (sillons nasogéniens, joues et mâchoires, zones périorbitales, pattes d'oie, lèvre supérieure, nez et front)",
-      "Cou",
-      "Mâchoire",
-      "Poitrine et Décolleté",
-      "Lifting des seins",
-      "Dos des mains et des bras",
-      "Autres zones du corps présentant des vergetures",
-      "Guérir les cicatrices",
-      "Vergetures",
-      "Marques d'acné",
-      "Perte de cheveux/Alopécie",
-      "Problèmes articulaires et musculaires"
+      "Visage complet",
+      "Cernes et vallée des larmes",
+      "Pommettes et joues",
+      "Sillons nasogéniens",
+      "Plis d'amertume",
+      "Lèvres et ridules péribuccales",
+      "Front et glabelle",
+      "Cou et ligne mandibulaire",
+      "Décolleté et buste",
+      "Mains",
+      "Bras",
+      "Abdomen",
+      "Cuisses et fesses",
+      "Genoux",
+      "Vergetures et cicatrices",
+      "Cicatrices post-opératoires"
     ],
     "treatmentAreaIcons": {
       "Skin Texture": "sparkle",
@@ -1491,19 +1441,18 @@
       }
     ],
     "contraindications": {
-      "title": "Personnes qui ne devraient PAS suivre de traitement PRP",
+      "title": "Contre-indications absolues au traitement PRP",
       "items": [
-        "Gros fumeurs, consommateurs de drogues et d'alcool",
-        "Syndrome de dysfonctionnement plaquettaire",
-        "Thrombocytopénie critique",
-        "Hypofibrinogénéémie",
+        "Tabagisme important, abus d'alcool ou substances illicites",
+        "Syndrome de dysfonction plaquettaire",
+        "Thrombopénie sévère",
+        "Hypofibrinogénémie",
         "Instabilité hémodynamique",
-        "Sepsie",
-        "Infections aiguës et chroniques",
+        "Septicémie et infections aiguës ou chroniques",
         "Pathologie hépatique chronique",
-        "Thérapie anticoagulante",
-        "Personne atteinte d'une maladie de la peau ou d'un cancer",
-        "Troubles métaboliques et systémiques graves"
+        "Traitement anticoagulant en cours",
+        "Dermatose active sur la zone ou pathologie oncologique",
+        "Troubles métaboliques et systémiques majeurs"
       ]
     },
     "benefits": [
@@ -1778,58 +1727,26 @@
       "Une cure de 3 séances est recommandée, espacées de 4 à 6 semaines, avec des séances d'entretien annuelles pour pérenniser les résultats. La plupart des patients constatent une diminution de la chute des cheveux dès la première séance, avec une amélioration visible de la densité et de l'épaisseur dès 3 mois environ."
     ],
     "comparisonTable": {
-      "title": "Injections manuelles de PRP vs U225 PRP",
-      "showAdvantagesImageBeside": true,
-      "image": {
-        "src": "/images/prp hair 1.jpeg",
-        "alt": "Manual PRP vs U225 PRP Injections comparison"
-      },
-      "imageAspect": "1254/1254",
-      "imageMaxWidth": 720,
+      "title": "Protocoles capillaires PRP comparés",
       "columnLabels": [
-        "Injections manuelles de PRP",
-        "Injections U225-PRP"
+        "Protocole standard",
+        "Protocole régénératif intensif"
       ],
       "rows": [
         {
-          "feature": "Méthode",
-          "a": "Le praticien utilise une seringue standard et une aiguille fine pour injecter le PRP directement dans le cuir chevelu.",
-          "b": "Un appareil de mésothérapie automatisé, le mésogun U225, est utilisé pour administrer une série rapide de micro-injections."
+          "feature": "Concentration plaquettaire",
+          "a": "Concentration thérapeutique standard de plaquettes actives",
+          "b": "Double concentration enrichie avec protocole de bio-stimulation cellulaire"
         },
         {
-          "feature": "Précision",
-          "a": "La précision dépend entièrement de la compétence et de la technique du praticien. L’injection manuelle permet un ajustement flexible et en temps réel de la profondeur pour cibler différentes zones du cuir chevelu.",
-          "b": "Le dispositif U225 offre un contrôle supérieur sur la profondeur et le volume d'injection, garantissant une administration constante du PRP."
+          "feature": "Délais d'efficacité",
+          "a": "Diminution de la chute observée entre 4 et 6 semaines",
+          "b": "Arrêt rapide de la chute et repousse active visible dès le 2ème mois"
         },
         {
-          "feature": "Confort des patients",
-          "a": "Cette méthode peut être plus inconfortable ou douloureuse pour certains patients, et sa gestion nécessite souvent une crème anesthésiante topique.",
-          "b": "Grâce à son mécanisme d'injection pneumatique rapide, l'U225 réduit considérablement l'inconfort. Certains patients le trouvent pratiquement indolore et ne nécessitent pas de crème anesthésiante."
-        },
-        {
-          "feature": "Vitesse et efficacité",
-          "a": "Les injections manuelles peuvent prendre plus de temps, en particulier pour traiter de plus grandes zones du cuir chevelu.",
-          "b": "Le pistolet U225 peut effectuer des centaines de micro-injections par minute, ce qui réduit considérablement la durée globale du traitement."
-        },
-        {
-          "feature": "Cohérence",
-          "a": "Le volume et la pression de chaque injection peuvent varier en fonction du contrôle humain, ce qui peut conduire à des résultats moins cohérents.",
-          "b": "L'automatisation garantit une distribution uniforme du PRP dans toute la zone de traitement, réduisant ainsi le risque d'erreur humaine."
-        },
-        {
-          "feature": "Coût",
-          "a": "Cette technique élimine le besoin d’équipement spécialisé, ce qui peut en faire une option plus rentable.",
-          "b": "Le dispositif spécialisé U225 et ses composants jetables peuvent augmenter le coût global du traitement."
-        },
-        {
-          "feature": "Commentaires tactiles",
-          "a": "Le praticien reçoit un retour tactile immédiat, lui permettant de ressentir la résistance des tissus et d'ajuster sa technique selon ses besoins.",
-          "b": "Cette méthode ne dispose pas du retour tactile direct des injections manuelles."
-        },
-        {
-          "feature": "Temps d'arrêt",
-          "a": "Les ecchymoses et les gonflements peuvent être plus importants que l’application douce du mésogun.",
-          "b": "Des ecchymoses et des gonflements minimes sont typiques, ce qui entraîne une réduction des temps d'arrêt."
+          "feature": "Indications idéales",
+          "a": "Perte de densité débutante à modérée et alopécie diffuse",
+          "b": "Chute sévère, zones dégarnies et alopécie androgénétique avancée"
         }
       ]
     },
@@ -1840,26 +1757,20 @@
       }
     ],
     "advantages": {
-      "title": "Vos options de restauration capillaire PRP",
-      "intro": "Chez YourHealthFirst Clinic, nous proposons trois approches basées sur le PRP en fonction de votre évaluation individuelle, du degré de perte de cheveux et des objectifs du traitement. Un bilan personnalisé est réalisé avant le traitement pour déterminer si le PRP vous convient.",
-      "image": {
-        "src": "/images/prp hair 2.jpeg",
-        "alt": "Your PRP Hair Restoration Options graphic"
-      },
-      "imageAspect": "1254/1254",
-      "imageMaxWidth": 720,
+      "title": "Régénération capillaire avancée",
+      "intro": "Mobilisation des facteurs de croissance autologues pour réactiver les follicules dormants et densifier la chevelure.",
       "items": [
         {
-          "title": "1. Restauration capillaire PRP standard – 400 £",
-          "description": "Notre traitement traditionnel de restauration capillaire au plasma riche en plaquettes. Votre propre sang est traité pour préparer du PRP, qui est ensuite injecté manuellement dans des zones sélectionnées du cuir chevelu. Le PRP contient des facteurs de croissance naturels impliqués dans la réparation des tissus et la signalisation cellulaire. La recherche sur le PRP pour l'alopécie androgénétique a signalé des améliorations potentielles de la densité et du nombre de cheveux, bien que les preuves restent variables et les réponses individuelles diffèrent. Peut être utilisé pour soutenir la santé du cuir chevelu et des follicules, la densité des cheveux, l’épaisseur des cheveux, l’apparence des cheveux clairsemés et la qualité globale des cheveux. Jusqu'à 10 mL de préparation plaquettaire, cuir chevelu complet, administration manuelle."
+          "title": "1. PRP capillaire standard — £400",
+          "description": "Protocole traditionnel de plasma riche en plaquettes pour stimuler les follicules affaiblis."
         },
         {
-          "title": "2. Matrice cellulaire PRP avancée + biotine – 600 £",
-          "description": "Pour les patients recherchant une approche plus avancée basée sur le PRP. Ce soin associe du plasma riche en plaquettes à une approche Matrice Cellulaire (PRP associé à une matrice d'acide hyaluronique non réticulé) et de la Biotine, dans le cadre d'un protocole de restauration capillaire individualisé. La biotine soutient les processus métaboliques normaux des cheveux et de la peau, mais elle est présentée ici dans le cadre d’un programme plus large plutôt que comme un remède autonome. Peut être administré à l’aide de l’injecteur médical intradermique U225, permettant une administration contrôlée via plusieurs micro-injections dans la zone de traitement. Préparation plaquettaire jusqu'à 10 mL, cuir chevelu complet, protocole de traitement avancé."
+          "title": "2. Cellular Matrix + Biotine — £600",
+          "description": "Association synergique de PRP, acide hyaluronique et biotine pour une revitalisation profonde."
         },
         {
-          "title": "3. Matrice cellulaire PRP suprême + biotine + exosomes – 800 £",
-          "description": "Notre option de restauration capillaire basée sur le PRP la plus complète. Le traitement combine le protocole PRP Cellular Matrix avec de la biotine et des exosomes, sous réserve d'une évaluation et d'une adéquation individuelles. Comme pour tous nos traitements, nous décrivons soigneusement les bénéfices attendus et les preuves : le statut réglementaire et les preuves cliniques des traitements capillaires à base d'exosomes varient considérablement, cette option n'est donc recommandée qu'après une consultation complète."
+          "title": "3. Suprême PRP + Exosomes + Biotine — £800",
+          "description": "Notre soin d'excellence combinant PRP autologue, exosomes et biotine pour redensifier la chevelure."
         }
       ]
     },
@@ -2246,14 +2157,14 @@
       "Pour la peau, les exosomes sont appliqués via microneedling pour stimuler la régénération en profondeur, la production de collagène et d’élastine et la réparation des tissus endommagés ou vieillis par le soleil – accélérant également la guérison, c’est pourquoi le traitement est souvent utilisé pour le psoriasis, la dermatite atopique et d’autres affections cutanées inflammatoires. La thérapie par exosomes peut être utilisée seule ou combinée au PRP pour un effet régénérateur synergique. De nombreux patients choisissent cette combinaison pour obtenir des résultats optimaux en matière de restauration capillaire."
     ],
     "treatmentAreas": [
-      "Ridules et rides",
-      "Relâchement cutané et élasticité",
-      "Peau terne et déshydratée",
-      "Acné et cicatrices d'acné",
-      "Cernes et mélasma",
-      "Couperose et rougeurs",
-      "Chute et repousse des cheveux",
-      "Récupération de fatigue"
+      "Visage complet",
+      "Contour des yeux",
+      "Cou",
+      "Décolleté",
+      "Mains",
+      "Cuir chevelu (repousse)",
+      "Zones cicatricielles d'acné",
+      "Peau post-procédure"
     ],
     "treatmentAreaIcons": {
       "Fine Lines & Wrinkles": "sparkle",
@@ -2479,9 +2390,9 @@
       "alt": "Applicateur de traitement de l'abdomen Emsculpt Neo"
     },
     "treatmentAreasHeading": {
-      "main": "Ciblé",
-      "accent": "Remodelage du corps",
-      "subtitle": "Une approche non chirurgicale de la définition musculaire et de la mise en forme du corps."
+      "main": "Zones d'action",
+      "accent": "Ciblées",
+      "subtitle": "Appareil homologué FDA et certifié CE pour traiter 5 zones corporelles clés, réduisant la masse grasse tout en développant la masse musculaire."
     },
     "imageTextSections": [
       {
@@ -2533,31 +2444,32 @@
       "Les études cliniques montrent en moyenne une augmentation de 25% du volume musculaire et une réduction de 30% de la graisse sous-cutanée après une cure de 4 séances."
     ],
     "advantages": {
-      "title": "Pourquoi choisir YourHealthFirst pour Emsculpt Neo",
+      "title": "Double action remodelage & tonification",
+      "intro": "Réduit la graisse jusqu'à 30% et augmente le muscle de 25% grâce à l'énergie simultanée RF et HIFEM+ en une séance de 30 minutes seulement.",
       "items": [
         {
           "title": "Praticiens certifiés",
-          "description": "Chaque traitement est effectué par des praticiens entièrement certifiés et expérimentés."
+          "description": "Chaque séance est effectuée par des praticiens diplômés et formés aux technologies BTL."
         },
         {
-          "title": "Consultations d'experts",
-          "description": "Une consultation approfondie garantit que le plan de traitement est adapté à vos objectifs et à votre corps."
+          "title": "Consultation experte",
+          "description": "Un bilan corporel approfondi confirme l'adéquation du traitement avec vos objectifs physiques."
         },
         {
-          "title": "Planification flexible",
-          "description": "Des rendez-vous adaptés à des plannings professionnels et familiaux chargés."
+          "title": "Flexibilité des rendez-vous",
+          "description": "Créneaux flexibles pour s'adapter aisément à vos obligations professionnelles et personnelles."
         },
         {
-          "title": "Commodité de la réservation en ligne",
-          "description": "Réservez votre consultation ou séance en ligne, quand cela vous convient."
+          "title": "Réservation en ligne aisée",
+          "description": "Planifiez facilement votre séance en ligne selon vos disponibilités."
         },
         {
-          "title": "Service transparent",
-          "description": "Une tarification claire et sans frais cachés, y compris pour les séances double-zone."
+          "title": "Transparence tarifaire",
+          "description": "Tarifs clairs sans frais cachés, y compris pour les protocoles combinés multi-zones."
         },
         {
-          "title": "Suivi dédié",
-          "description": "Un soutien et des conseils continus tout au long de votre parcours de traitement."
+          "title": "Accompagnement continu",
+          "description": "Un suivi bienveillant tout au long de votre parcours pour maximiser vos résultats."
         }
       ]
     },
@@ -2584,16 +2496,16 @@
       "Clients cherchant à le combiner avec des soins Cryo pour une transformation complète"
     ],
     "treatmentAreas": [
-      "Abdomen (noyau)",
-      "Fesses (lifting non chirurgical)",
-      "Bras",
-      "Cuisses extérieures",
-      "Intérieur des cuisses",
-      "Cuisses avant",
-      "Cuisses arrière",
+      "Abdomen",
+      "Fesses",
       "Biceps",
       "Triceps",
-      "Veaux"
+      "Mollets",
+      "Cuisses (avant)",
+      "Cuisses (arrière)",
+      "Cuisses (intérieur)",
+      "Cuisses (extérieur)",
+      "Poignées d'amour"
     ],
     "results": "Améliorations visibles après 2 à 4 séances, optimales à 12 semaines",
     "priceFrom": "À partir de 200 £ la séance",
@@ -2672,15 +2584,15 @@
       "Chez YourHealthFirst, Aqualyx est couramment utilisé pour traiter la zone sous-mentonnière (double menton), les bajoues, les petites zones abdominales, le haut des bras et l'intérieur des cuisses. Elle est particulièrement appréciée en complément de la cryolipolyse pour des zones cibles plus petites ou plus définies. En règle générale, 1 à 3 traitements sont nécessaires pour les petites zones (par exemple les bajoues) et 2 à 8 pour les zones plus grandes (par exemple les cuisses), espacés d'environ 6 semaines. Aqualyx provoque une réaction inflammatoire dans les cellules adipeuses qui peut entraîner un gonflement pendant 3 à 5 jours — c'est un signe normal que le traitement fonctionne."
     ],
     "treatmentAreas": [
-      "Menton et mâchoire",
-      "Joues",
-      "Épaules et bras",
-      "Aisselle",
-      "Renflement de la sangle du soutien-gorge",
-      "Taille et Abdomen",
-      "Hanches et fesses",
-      "Cuisses intérieures et extérieures",
-      "Genoux et chevilles"
+      "Double menton",
+      "Bras (ailes de chauve-souris)",
+      "Plis du soutien-gorge et dos",
+      "Abdomen supérieur et inférieur",
+      "Hanches et poignées d'amour",
+      "Culotte de cheval",
+      "Face interne et externe des cuisses",
+      "Genoux",
+      "Gynécomastie masculine"
     ],
     "treatmentAreaIcons": {
       "Chin & Jawline": "jaw",
@@ -2708,13 +2620,11 @@
       }
     ],
     "contraindications": {
-      "title": "Qui ne devrait pas bénéficier de ce traitement",
+      "title": "Qui ne devrait pas recevoir Aqualyx",
       "items": [
         "Femmes enceintes ou allaitantes",
-        "Patients atteints d'une maladie auto-immune",
-        "Diabétiques",
-        "Antécédents de réactions anaphylactiques graves ou d'allergies",
-        "Toute personne diagnostiquée avec une lipodystrophie ou d'autres conditions pathologiques"
+        "Personnes souffrant d'affections cutanées aiguës ou chroniques sur la zone",
+        "Patients diabétiques instables, souffrant de maladies auto-immunes ou rénales/hépatiques sévères"
       ]
     },
     "careInstructions": {
@@ -2866,8 +2776,8 @@
     ],
     "treatmentAreas": [
       "Abdomen",
-      "Cuisse",
-      "Bras supérieur"
+      "Cuisses (face antérieure)",
+      "Bras (face postérieure)"
     ],
     "hideTreatmentAreasCard": true,
     "advantagesInAreasSection": true,
@@ -2879,73 +2789,67 @@
       "Upper Arm": "hand"
     },
     "premiumFeatures": {
-      "eyebrow": "Comment ça marche",
-      "main": "Comment Mounjaro",
-      "accent": "Travail?",
-      "subtitle": "Le tirzépatide cible l'appétit et la digestion à travers quatre mécanismes complémentaires.",
+      "eyebrow": "Mécanisme d'action double",
+      "main": "Bénéfices de",
+      "accent": "Mounjaro",
+      "subtitle": "Une avancée médicale majeure pour la gestion pondérale et la santé métabolique.",
       "items": [
         {
-          "icon": "shield",
-          "title": "Régulation de l'appétit",
-          "description": "Mounjaro peut réduire la faim et les fringales, vous aidant à gérer la taille des portions et l'apport alimentaire global."
-        },
-        {
-          "icon": "clock",
-          "title": "Satiété accrue",
-          "description": "Le médicament peut vous aider à vous sentir rassasié plus longtemps après avoir mangé."
-        },
-        {
-          "icon": "gear",
-          "title": "Vidange gastrique plus lente",
-          "description": "Le tirzépatide peut retarder le mouvement des aliments depuis l'estomac, contribuant ainsi à une sensation de satiété."
+          "icon": "sparkle",
+          "title": "Satiété naturelle et durable",
+          "description": "Réduit les fringales et procure une sensation de satiété prolongée même après de petites portions."
         },
         {
           "icon": "pulse",
-          "title": "Effets métaboliques",
-          "description": "Le tirzépatide affecte également la régulation de la glycémie grâce à son activité GIP et GLP-1."
+          "title": "Régulation métabolique globale",
+          "description": "Améliore la sensibilité à l'insuline et optimise l'oxydation des graisses corporelles."
+        },
+        {
+          "icon": "shield",
+          "title": "Suivi médical rigoureux",
+          "description": "Protocole clinique strictement encadré par notre praticienne pour une sécurité thérapeutique maximale."
+        },
+        {
+          "icon": "clock",
+          "title": "Une seule injection par semaine",
+          "description": "Administration hebdomadaire simple et pratique, favorisant une excellente adhésion au traitement."
         }
       ]
     },
     "advantages": {
-      "title": "Votre parcours de gestion du poids",
-      "intro": "Notre approche est basée sur une évaluation médicale plutôt que sur une simple injection de perte de poids.",
+      "title": "Double agoniste des récepteurs GIP et GLP-1",
+      "intro": "Une injection hebdomadaire novatrice reproduisant l'action de deux hormones digestives naturelles pour réguler l'appétit et favoriser une perte de poids durable.",
       "items": [
         {
-          "title": "1. Évaluation initiale",
-          "description": "Nous examinons vos antécédents médicaux, votre IMC, vos médicaments actuels, vos problèmes de santé pertinents et vos objectifs de gestion du poids."
+          "title": "1. Évaluation médicale initiale",
+          "description": "Analyse de vos antécédents, de votre IMC et de vos habitudes de vie."
         },
         {
-          "title": "2. Évaluation de l'adéquation",
-          "description": "Un prescripteur qualifié détermine si Mounjaro vous convient cliniquement."
+          "title": "2. Validation de l'éligibilité",
+          "description": "Notre prescripteur vérifie scrupuleusement la sécurité et l'indication clinique du traitement."
         },
         {
-          "title": "3. Plan de traitement",
-          "description": "Si prescrit, vous recevez des conseils sur la dose initiale appropriée, l’administration, les mesures de style de vie et la surveillance."
+          "title": "3. Plan thérapeutique et dosage",
+          "description": "Conseils précis sur la posologie initiale et l'utilisation simple du stylo injecteur hebdomadaire."
         },
         {
-          "title": "4. Surveillance continue",
-          "description": "Vos progrès, votre réponse au traitement, vos effets secondaires et vos exigences en matière de dose peuvent être examinés tout au long de votre parcours."
+          "title": "4. Suivi clinique régulier",
+          "description": "Contrôle de la perte de poids, de la tolérance et adaptation progressive des paliers de doses."
         },
         {
-          "title": "5. Gestion du poids à long terme",
-          "description": "La gestion du poids implique bien plus que des médicaments. La nutrition, l’activité physique, les facteurs comportementaux et les changements durables dans le mode de vie restent des éléments importants du traitement."
+          "title": "5. Maintien durable du poids",
+          "description": "Accompagnement hygiéno-diététique global pour stabiliser durablement vos nouveaux acquis."
         }
       ]
     },
     "contraindications": {
-      "title": "Qui pourrait ne pas convenir à Mounjaro",
+      "title": "Contre-indications formelles à Mounjaro",
       "items": [
-        "Pancréatite ou maladie pancréatique",
-        "Diabète",
-        "Calculs biliaires ou maladie de la vésicule biliaire",
-        "Problèmes rénaux ou hépatiques",
-        "Maladie thyroïdienne ou nodules thyroïdiens",
-        "Problèmes gastro-intestinaux importants",
-        "Des antécédents de réactions allergiques graves",
-        "Problèmes de rythme cardiaque rapide ou de palpitations",
-        "Conditions nécessitant un traitement anticoagulant",
-        "Autres médicaments pour le diabète ou la gestion du poids",
-        "Enceinte, planifiant une grossesse ou allaitant"
+        "Antécédents personnels ou familiaux de cancer médullaire de la thyroïde (CMT)",
+        "Syndrome de néoplasie endocrinienne multiple de type 2 (NEM 2)",
+        "Hypersensibilité avérée au tirzépatide",
+        "Grossesse, projet de conception ou allaitement",
+        "Pathologie gastro-intestinale sévère ou antécédent de pancréatite"
       ]
     },
     "careInstructions": {
@@ -3418,21 +3322,21 @@
     ],
     "areaSizeGuideAfterFeatures": true,
     "areaSizeGuide": {
-      "eyebrow": "Important",
-      "title": "Tailles des zones de traitement",
-      "subtitle": "La quantité de produit utilisée dépend de la taille de la zone à traiter. Votre praticien évaluera vos besoins et recommandera la bonne quantité pour de meilleurs résultats.",
+      "eyebrow": "Guide pratique",
+      "title": "Dimensions des zones traitées",
+      "subtitle": "Le volume de solution utilisé dépend de la taille de la zone. Notre praticienne définira la posologie optimale pour un résultat harmonieux.",
       "groups": [
         {
           "icon": "eye",
           "heading": "Petite zone",
-          "subheading": "Maximum 2,5 ml",
-          "description": "Pour choisir entre par ex. sous les yeux, les lèvres, le menton, le côté des yeux, par ex. pour les cheveux : zone de la couronne, racine des cheveux dégarnie, etc., ou toute autre taille similaire.",
+          "subheading": "Jusqu'à 2,5 ml",
+          "description": "Exemples : contour des yeux, lèvres, menton, pattes d'oie ou golfes temporaux.",
           "image": "/images/treatments/mesotherapy/areas/small-eye.jpg",
-          "imageAlt": "Gros plan sur la zone sous les yeux",
+          "imageAlt": "Gros plan sur la zone du contour de l'œil",
           "chips": [
             {
               "icon": "eye",
-              "label": "Sous les yeux"
+              "label": "Cernes / yeux"
             },
             {
               "icon": "lips",
@@ -3440,17 +3344,17 @@
             },
             {
               "icon": "hair",
-              "label": "Cheveux (petite zone)"
+              "label": "Cheveux (zone ciblée)"
             }
           ]
         },
         {
           "icon": "face",
           "heading": "Zone moyenne",
-          "subheading": "Maximum 5 ml",
-          "description": "Pour choisir entre par ex. visage complet, cou, mains, cuir chevelu ou toute autre taille similaire.",
+          "subheading": "Jusqu'à 5 ml",
+          "description": "Exemples : visage complet, cou, mains, vertex ou toute zone de superficie équivalente.",
           "image": "/images/treatments/mesotherapy/areas/medium-neck.jpg",
-          "imageAlt": "Gros plan sur la zone du cou et de la mâchoire",
+          "imageAlt": "Gros plan sur la zone du cou et de l'ovale",
           "chips": [
             {
               "icon": "face",
@@ -3472,11 +3376,11 @@
         },
         {
           "icon": "body",
-          "heading": "Grande superficie",
-          "subheading": "Maximum 10 ml",
-          "description": "Pour choisir entre par ex. abdomen complet, intérieur des cuisses, cuir chevelu complet ou toute autre taille similaire.",
+          "heading": "Grande zone",
+          "subheading": "Jusqu'à 10 ml",
+          "description": "Exemples : abdomen complet, face interne des cuisses, cuir chevelu entier.",
           "image": "/images/treatments/mesotherapy/areas/large-abdomen.jpg",
-          "imageAlt": "Gros plan de la zone abdominale",
+          "imageAlt": "Gros plan sur la zone abdominale",
           "chips": [
             {
               "icon": "body",
@@ -3484,11 +3388,11 @@
             },
             {
               "icon": "wave",
-              "label": "Intérieur des cuisses"
+              "label": "Intérieur cuisses"
             },
             {
               "icon": "hair",
-              "label": "Cuir chevelu complet"
+              "label": "Cuir chevelu entier"
             }
           ]
         }
@@ -3674,16 +3578,12 @@
       "Une fois le traitement terminé, les résultats peuvent durer de 1 à 3 ans selon l'indication et les habitudes du patient. Il est conseillé de ne pas s'exposer au soleil pendant les 48 heures suivant le traitement."
     ],
     "contraindications": {
-      "title": "Qui ne devrait pas bénéficier de ce traitement",
+      "title": "Contre-indications au traitement",
       "items": [
-        "Peau extrêmement sensible"
-      ],
-      "image": {
-        "src": "/images/treatments/photo-aging/skinox-fotoage-kit-2.jpg",
-        "alt": "Skinox photosensitive peel kits used with the Fotoage LED mask"
-      },
-      "imageAspect": "1443/1090",
-      "imageMaxWidth": 600
+        "Peau hypersensible ou réactive",
+        "Prise de médicaments photosensibilisants",
+        "Grossesse et allaitement"
+      ]
     },
     "benefits": [
       "Solution contre l'acné, les rides, les rougeurs et les taches brunes",
@@ -3978,36 +3878,36 @@
       }
     ],
     "advantages": {
-      "title": "Votre traitement CryoPen à la clinique YourHealthFirst",
-      "intro": "Votre rendez-vous CryoPen est adapté à la lésion et à la zone traitée.",
+      "title": "Rapide, précis et confortable",
+      "intro": "Cryothérapie de haute précision au millimètre près pour éliminer les lésions cutanées bénignes sans léser les tissus sains environnants.",
       "items": [
         {
-          "title": "1. Évaluation",
-          "description": "Le praticien examine la lésion et évalue la zone à traiter."
+          "title": "1. Examen de la lésion",
+          "description": "Évaluation dermatologique précise de la zone et de la bénignité de l'élément à traiter."
         },
         {
-          "title": "2. Préparation",
-          "description": "La peau est préparée pour le traitement et la procédure est expliquée."
+          "title": "2. Préparation cutanée",
+          "description": "Désinfection méticuleuse de la zone et explications du déroulement de l'acte."
         },
         {
-          "title": "3. Congélation ciblée",
-          "description": "L'applicateur CryoPen est positionné à proximité de la lésion et le flux de froid est dirigé vers la zone à traiter."
+          "title": "3. Congélation millimétrique",
+          "description": "Application du micro-jet de N2O ciblant exclusivement la lésion sans toucher la peau saine."
         },
         {
-          "title": "4. Conseils de suivi",
-          "description": "Votre praticien vous explique à quoi s'attendre pendant que la zone guérit et vous fournit tous les conseils de suivi nécessaires."
+          "title": "4. Conseils post-procédure",
+          "description": "Remise des recommandations complètes pour favoriser une cicatrisation discrète et parfaite."
         }
       ]
     },
     "treatmentAreas": [
-      "Acrochordons",
-      "Verrues",
-      "Taches de vieillesse",
-      "Taches solaires",
-      "Taches de foie",
-      "Milia",
-      "Angiome cerise",
-      "Verrues virales"
+      "Visage et front",
+      "Paupières et contour des yeux",
+      "Cou et décolleté",
+      "Mains et doigts",
+      "Buste et dos",
+      "Bras et épaules",
+      "Jambes",
+      "Cuir chevelu"
     ],
     "treatmentAreaIcons": {
       "Skin Tags": "bandage",
@@ -4035,49 +3935,49 @@
     ],
     "premiumFeatures": {
       "eyebrow": "Technologie Cryo™",
-      "main": "Avantages &",
-      "accent": "Principales fonctionnalités",
-      "subtitle": "Cryo™ est une innovation avancée en matière de cryothérapie utilisant des cartouches jetables de N2O liquéfié pour offrir un traitement rapide et hautement ciblé pour les lésions cutanées bénignes.",
+      "main": "Avantages et",
+      "accent": "Caractéristiques",
+      "subtitle": "Un dispositif de pointe utilisant des cartouches de N2O liquide pour éradiquer rapidement les lésions bénignes.",
       "items": [
         {
           "icon": "drop",
-          "title": "N2O ultra-froid",
-          "description": "Distribué à une température extrême de -89°C pour geler et détruire les cellules lésionnelles ciblées presque instantanément."
+          "title": "Froid extrême (-89°C)",
+          "description": "Délivré à -89°C pour cristalliser et détruire instantanément les cellules de la lésion."
         },
         {
           "icon": "gear",
-          "title": "Livraison haute pression",
-          "description": "Un jet de 725 psi assure une congélation rapide et constante sans variation de la qualité du traitement."
+          "title": "Projection sous haute pression (725 psi)",
+          "description": "Assure une congélation rapide, homogène et reproductible sans variation de débit."
         },
         {
           "icon": "target",
-          "title": "Précision précise",
-          "description": "Traite les lésions de 1 mm à 10 mm, atteignant une profondeur allant jusqu'à 5 mm avec une précision totale."
+          "title": "Précision millimétrique",
+          "description": "Traite les lésions de 1 mm à 10 mm jusqu'à 5 mm de profondeur avec une totale rigueur."
         },
         {
           "icon": "eye",
-          "title": "Sans danger près des yeux",
-          "description": "Suffisamment doux pour traiter en toute sécurité les lésions du visage et de la zone délicate des yeux."
+          "title": "Sûr près des yeux",
+          "description": "Suffisamment doux pour traiter les lésions des paupières et du visage en toute sérénité."
         },
         {
           "icon": "sparkle",
-          "title": "Traitement flexible",
-          "description": "Les paramètres réglables conviennent à un large éventail de types, de tailles et de tons de peau de lésions."
+          "title": "Polyvalence clinique",
+          "description": "Paramètres modulables adaptés à une grande variété de lésions et tous phototypes."
         },
         {
           "icon": "shield",
-          "title": "Tissus sains protégés",
-          "description": "Cible uniquement la lésion elle-même, laissant intacte la peau saine environnante."
+          "title": "Préservation des tissus sains",
+          "description": "Cible exclusivement la lésion sans toucher la peau saine périphérique."
         },
         {
           "icon": "clock",
-          "title": "Aucun soin de suivi",
-          "description": "Un traitement rapide en clinique sans suivi particulier ni temps d’arrêt requis."
+          "title": "Zéro convalescence",
+          "description": "Soin rapide au cabinet sans pansement contraignant ni interruption des activités."
         },
         {
           "icon": "wave",
           "title": "Application sans contact",
-          "description": "Le jet N2O ne touche jamais la peau, gardant le traitement hygiénique et confortable."
+          "description": "Le micro-jet n'entre pas en contact direct avec l'épiderme, garantissant une hygiène parfaite."
         }
       ]
     },
@@ -4120,14 +4020,14 @@
       ]
     },
     "contraindications": {
-      "title": "Qui ne devrait pas recevoir de traitement CryoPen",
+      "title": "Contre-indications au CryoPen",
       "items": [
-        "Une sensibilité connue au froid",
-        "Sensation cutanée réduite ou problèmes de circulation",
-        "Une histoire de mauvaise cicatrisation des plaies",
-        "Une infection active ou une plaie ouverte dans la zone de traitement",
-        "Une condition médicale ou un médicament pouvant affecter la guérison",
-        "Une lésion évolutive, saignante, irrégulière, douloureuse ou n'ayant pas été évaluée médicalement"
+        "Sensibilité ou intolérance connue au froid",
+        "Troubles circulatoires ou de la sensibilité cutanée",
+        "Antécédents de mauvaise cicatrisation ou chéloïdes",
+        "Infection cutanée active ou plaie sur la zone",
+        "Affections ou traitements altérant la régénération tissulaire",
+        "Toute lésion suspecte, pigmentée de manière irrégulière, douloureuse ou non diagnostiquée"
       ]
     },
     "results": "La lésion disparaît 1 à 4 semaines après le traitement",
@@ -4322,28 +4222,24 @@
       "Toute personne recherchant un boost métabolique et immunitaire"
     ],
     "advantages": {
-      "title": "Saviez-vous? — Causes de la carence en B12",
-      "image": {
-        "src": "/images/treatments/vitamin-b12/b12-deficiency-factors.jpg",
-        "alt": "Did You Know? — Factors that can contribute to low Vitamin B12: possible early symptoms, dietary intake, absorption & health conditions, medicines & checks"
-      },
-      "intro": "La carence en vitamine B12 est plus courante que la plupart des gens ne le pensent et peut être déclenchée par divers facteurs quotidiens.",
+      "title": "Énergie vitale et soutien cellulaire",
+      "intro": "Injections de vitamine B12 médicale hautement assimilable pour contourner la barrière digestive et retrouver vitalité, clarté mentale et tonus immunitaire.",
       "items": [
         {
-          "title": "Signes d’alerte précoces",
-          "description": "La faiblesse et la fatigue sont souvent les tout premiers symptômes d’une carence en vitamine B12."
+          "title": "Signes précoces",
+          "description": "Une fatigue persistante et une baisse de tonus sont les premiers avertissements d'un déficit."
         },
         {
-          "title": "Certains médicaments",
-          "description": "Les médicaments contre les brûlures d'estomac à long terme et les pilules contraceptives peuvent tous deux augmenter votre risque de carence."
+          "title": "Impact médicamenteux",
+          "description": "Les pansements gastriques au long cours et contraceptifs oraux réduisent l'absorption du B12."
         },
         {
-          "title": "Boire beaucoup",
-          "description": "Une consommation excessive et régulière d’alcool augmente le risque de développer une carence."
+          "title": "Consommation d'alcool",
+          "description": "L'alcool régulier perturbe les réserves hépatiques de cette vitamine essentielle."
         },
         {
-          "title": "Conditions liées",
-          "description": "La carence est liée à l’anémie pernicieuse, aux problèmes du système immunitaire et aux problèmes digestifs."
+          "title": "Conséquences cliniques",
+          "description": "Un déficit prolongé expose à l'anémie pernicieuse, aux engourdissements et aux troubles de mémoire."
         }
       ]
     },

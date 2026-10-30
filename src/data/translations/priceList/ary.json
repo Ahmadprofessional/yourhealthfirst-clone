@@ -1,0 +1,679 @@
+[
+  {
+    "id": "general-fees",
+    "title": "الرسوم العامة",
+    "image": "/images/treatments/anti-wrinkles/sofia-consultation.jpg",
+    "description": "رسوم الاستشارة القياسية عبر العلاجات.",
+    "items": [
+      {
+        "service": "التشاور",
+        "price": "£50",
+        "note": "مجانًا إذا تابعت العلاج"
+      }
+    ]
+  },
+  {
+    "id": "phlebotomy-adults",
+    "title": "الكبار الفصد",
+    "image": "/images/treatments/phlebotomy/blood-draw.jpg",
+    "description": "سحب الدم الخاص وخدمة الطرد المركزي للبالغين.",
+    "items": [
+      {
+        "service": "سحب الدم",
+        "price": "From £80"
+      },
+      {
+        "service": "الطرد المركزي للدم (لكل أنبوب)",
+        "price": "£10"
+      }
+    ]
+  },
+  {
+    "id": "phlebotomy-children",
+    "title": "الأطفال تحت سن 16 عامًا",
+    "image": "/images/treatments/phlebotomy/blood-draw.jpg",
+    "description": "خدمة سحب الدم والطرد المركزي الخاصة للأطفال.",
+    "items": [
+      {
+        "service": "سحب الدم",
+        "price": "From £120"
+      },
+      {
+        "service": "الطرد المركزي للدم (لكل أنبوب)",
+        "price": "£10"
+      }
+    ]
+  },
+  {
+    "id": "anti-wrinkle",
+    "title": "الحقن المضادة للتجاعيد",
+    "image": "/images/treatments/anti-wrinkles/eye-area-injection.webp",
+    "description": "تنعيم الخطوط الدقيقة واستعادة المظهر الشبابي.",
+    "items": [
+      {
+        "service": "التشاور",
+        "price": "£50"
+      },
+      {
+        "service": "الجبين",
+        "price": "£200"
+      },
+      {
+        "service": "عبوس",
+        "price": "£150"
+      },
+      {
+        "service": "أقدام الغراب",
+        "price": "£150"
+      },
+      {
+        "service": "رفع الحاجب",
+        "price": "£150"
+      },
+      {
+        "service": "خطوط الارنب",
+        "price": "£100"
+      },
+      {
+        "service": "3 مناطق (للاختيار، الوجه)",
+        "price": "£350"
+      },
+      {
+        "service": "4 مناطق (للاختيار، الوجه)",
+        "price": "£400"
+      },
+      {
+        "service": "5 مناطق (للاختيار، الوجه)",
+        "price": "£550"
+      },
+      {
+        "service": "الفك / الماضغة (تنحيف الفك)",
+        "price": "£375"
+      },
+      {
+        "service": "ابتسامة لثوية",
+        "price": "£175"
+      },
+      {
+        "service": "طحن / انقباض الأسنان",
+        "price": "£350"
+      },
+      {
+        "service": "شد نفرتيتي",
+        "price": "£250"
+      },
+      {
+        "service": "شد الرقبة (أحزمة العضلة الجلدية للعنق)",
+        "price": "£350"
+      },
+      {
+        "service": "الصداع النصفي (علاج الصداع النصفي المزمن)",
+        "price": "£500"
+      },
+      {
+        "service": "تخفيض العجل",
+        "price": "£500"
+      },
+      {
+        "service": "فرط التعرق – تحت كلا الذراعين",
+        "price": "£450–£600"
+      },
+      {
+        "service": "فرط التعرق – راحتي اليدين",
+        "price": "£450–£600"
+      },
+      {
+        "service": "فرط التعرق – باطن القدمين",
+        "price": "£450–£600"
+      }
+    ]
+  },
+  {
+    "id": "cryolipolysis",
+    "title": "تحلل الدهون بالتبريد",
+    "image": "/images/treatments/cryolipolysis/treatment-areas-new.jpg",
+    "description": "استهدف الدهون العنيدة وأعد تشكيل صورتك الظلية.",
+    "items": [
+      {
+        "service": "التشاور",
+        "price": "£50"
+      },
+      {
+        "service": "1 منطقة",
+        "price": "£400"
+      },
+      {
+        "service": "2 مناطق",
+        "price": "£800"
+      },
+      {
+        "service": "3 مناطق",
+        "price": "£1,000"
+      },
+      {
+        "service": "4 مناطق",
+        "price": "£1,200"
+      }
+    ]
+  },
+  {
+    "id": "dermal-fillers",
+    "title": "الحشوات الجلدية",
+    "image": "/images/treatments/dermal-fillers/lip-filler.webp",
+    "description": "تعزيز واستعادة وتحديد الخطوط بدقة.",
+    "items": [
+      {
+        "service": "تجميل الشفاه / الشفاه الروسية",
+        "price": "£250–£350 (1ml) / £550 (2ml)"
+      },
+      {
+        "service": "الطيات الأنفية الشفوية / خطوط الدمية",
+        "price": "£375 (1ml) / £700 (2ml)"
+      },
+      {
+        "service": "تعزيز الذقن",
+        "price": "£500 (1ml) / £700 (2ml)"
+      },
+      {
+        "service": "الخدين / منتصف الوجه",
+        "price": "£500 (1ml) / £700 (2ml)"
+      },
+      {
+        "service": "تجميل الأنف غير الجراحي (عملية الأنف)",
+        "price": "£500"
+      },
+      {
+        "service": "خطوط غلابيلار (عبوس)",
+        "price": "£350"
+      },
+      {
+        "service": "حوض الدموع / تحت العيون / الهالات السوداء",
+        "price": "£550"
+      },
+      {
+        "service": "الفك",
+        "price": "£450"
+      },
+      {
+        "service": "حشوات اليد",
+        "price": "£600"
+      },
+      {
+        "service": "إذابة الحشو – عكس من استشاري آخر",
+        "price": "£325"
+      },
+      {
+        "service": "إذابة الحشو – يتم تطبيقه بشكل عكسي في YHF",
+        "price": "£150",
+        "note": "لا رسوم الاستشارة"
+      }
+    ]
+  },
+  {
+    "id": "hair-loss",
+    "title": "تساقط الشعر بالبلازما الغنية بالصفائح الدموية (PRP).",
+    "image": "/images/treatments/prp-hair-loss/u225-scalp-treatment-1.jpg",
+    "description": "حلول متقدمة لشعر أقوى وأكثر صحة.",
+    "items": [
+      {
+        "service": "التشاور",
+        "price": "£50",
+        "note": "مجانًا إذا تم حجز العلاج"
+      },
+      {
+        "service": "استعادة الشعر بتقنية PRP القياسية",
+        "price": "£400"
+      },
+      {
+        "service": "المصفوفة الخلوية PRP المتقدمة + البيوتين",
+        "price": "£600"
+      },
+      {
+        "service": "المصفوفة الخلوية العليا PRP + البيوتين + الإكسوزومات",
+        "price": "£800"
+      }
+    ]
+  },
+  {
+    "id": "sunekos",
+    "title": "سونيكوس",
+    "image": "/images/treatments/sunekos/sofia-injecting.jpg",
+    "description": "تجديد وترطيب وشد البشرة من الداخل.",
+    "items": [
+      {
+        "service": "التشاور",
+        "price": "£50",
+        "note": "مجانا مع العلاج"
+      },
+      {
+        "service": "علاج واحد",
+        "price": "£200"
+      },
+      {
+        "service": "دورة 4 (الوجه)",
+        "price": "£600 (£150 each)"
+      },
+      {
+        "service": "دورة 4 (الرقبة)",
+        "price": "£600 (£175 each)"
+      }
+    ]
+  },
+  {
+    "id": "sculptra",
+    "title": "سكلبترا",
+    "image": "/images/treatments/sculptra/product-box.jpg",
+    "description": "شد الوجه السائل – إعادة بناء الكولاجين الطبيعي تدريجيًا.",
+    "items": [
+      {
+        "service": "1 جلسة",
+        "price": "£600"
+      },
+      {
+        "service": "جلستان (الباقة)",
+        "price": "£1,100"
+      }
+    ]
+  },
+  {
+    "id": "emsculpt-neo",
+    "title": "ايمسكولت نيو",
+    "image": "/images/treatments/emsculpt-neo/hero-abdomen.png",
+    "description": "بناء العضلات وحرق الدهون في وقت واحد.",
+    "items": [
+      {
+        "service": "1 جلسة",
+        "price": "£200"
+      },
+      {
+        "service": "4 جلسات",
+        "price": "£600"
+      }
+    ]
+  },
+  {
+    "id": "sclerotherapy",
+    "title": "العلاج بالتصليب",
+    "image": "/images/treatments/sclerotherapy/sclerotherapy-treatment-room-2.jpg",
+    "description": "إزالة الأوردة العنكبوتية والدوالي الصغيرة.",
+    "items": [
+      {
+        "service": "التشاور",
+        "price": "£50"
+      },
+      {
+        "service": "العلاج (في كل جلسة، ما يصل إلى 4-5 عروق)",
+        "price": "£350"
+      }
+    ]
+  },
+  {
+    "id": "prp-face-body",
+    "title": "PRP، تجديد الوجه والجسم",
+    "image": "/images/treatments/prp-face-body/prp-injection-face.jpg",
+    "description": "البلازما الخاصة بك، مشحونة للغاية لتجديد البشرة.",
+    "items": [
+      {
+        "service": "التشاور",
+        "price": "£50",
+        "note": "مجانًا إذا تم حجز العلاج"
+      },
+      {
+        "service": "معيار PRP (\"الوجه مصاص الدماء\")",
+        "price": "£399 per treatment"
+      },
+      {
+        "service": "A-PRP الخلوية (PRP + حمض الهيالورونيك، الوخز بالإبر الدقيقة)",
+        "price": "£599 per treatment"
+      }
+    ]
+  },
+  {
+    "id": "microneedling",
+    "title": "الوخز بالإبر الدقيقة",
+    "image": "/images/treatments/microneedling/fight-aging.webp",
+    "description": "العلاج التعريفي بالكولاجين لبشرة أكثر نعومة وثباتًا.",
+    "items": [
+      {
+        "service": "جلسة ميكرونيدلينغ",
+        "price": "£150"
+      }
+    ]
+  },
+  {
+    "id": "mesotherapy",
+    "title": "الميزوثيرابي",
+    "image": "/images/treatments/mesotherapy/mesox/aminoacids-box-2.jpg",
+    "description": "معززات البشرة بالفيتامينات والأحماض الأمينية ومضادات الأكسدة.",
+    "items": [
+      {
+        "service": "التشاور",
+        "price": "£50",
+        "note": "مجانًا إذا تم حجز العلاج"
+      },
+      {
+        "service": "منطقة صغيرة (مثل تحت العينين والهالات السوداء والتصبغات والبقع العمرية)",
+        "price": "£200"
+      },
+      {
+        "service": "منطقة متوسطة (مثل الوجه الكامل والذراعين وأسفل الظهر)",
+        "price": "£250"
+      },
+      {
+        "service": "مساحة كبيرة (مثل فروة الرأس الكاملة والبطن الكامل)",
+        "price": "£275"
+      }
+    ]
+  },
+  {
+    "id": "photodynamic-therapy",
+    "title": "التقشير الكيميائي (التقشير الضوئي الديناميكي)",
+    "image": "/images/treatments/photo-aging/skinox-wrinkles.jpg",
+    "description": "علاج منشط بالضوء للبقع والاحمرار وأضرار أشعة الشمس.",
+    "items": [
+      {
+        "service": "التشاور",
+        "price": "£50"
+      },
+      {
+        "service": "قشر مضاد للتجاعيد",
+        "price": "£200"
+      },
+      {
+        "service": "قشر البقع الداكنة",
+        "price": "£200"
+      },
+      {
+        "service": "قشر الوردية",
+        "price": "£200"
+      },
+      {
+        "service": "قشر العيب",
+        "price": "£200"
+      },
+      {
+        "service": "1 علاج",
+        "price": "£200"
+      },
+      {
+        "service": "4 علاجات",
+        "price": "£600"
+      }
+    ]
+  },
+  {
+    "id": "cryopen",
+    "title": "كريوبين",
+    "image": "/images/treatments/cryopen/cryopen-device-v2.jpg",
+    "description": "إزالة دقيقة للآفات الجلدية غير المرغوب فيها في دقائق.",
+    "items": [
+      {
+        "service": "التشاور",
+        "price": "£20"
+      },
+      {
+        "service": "علامات الجلد",
+        "price": "From £20"
+      },
+      {
+        "service": "العدس الشمسي",
+        "price": "From £35"
+      },
+      {
+        "service": "بقع العمر",
+        "price": "From £35"
+      },
+      {
+        "service": "ميليا",
+        "price": "£20–£30"
+      },
+      {
+        "service": "الثآليل",
+        "price": "£25–£35"
+      },
+      {
+        "service": "ورم وعائي الكرز",
+        "price": "From £20"
+      },
+      {
+        "service": "الثؤلول الفيروسي",
+        "price": "From £40"
+      }
+    ]
+  },
+  {
+    "id": "profhilo",
+    "title": "بروفايلو",
+    "image": "/images/treatments/profhilo/sofia-injecting-lips.jpg",
+    "description": "المحفز الحيوي النهائي لإعادة تشكيل البشرة.",
+    "items": [
+      {
+        "service": "التشاور",
+        "price": "£50",
+        "note": "مجانا مع العلاج"
+      },
+      {
+        "service": "1 علاج (الوجه)",
+        "price": "£400"
+      },
+      {
+        "service": "دورة 2 (الوجه)",
+        "price": "£700"
+      },
+      {
+        "service": "1 علاج (الرقبة)",
+        "price": "£400"
+      },
+      {
+        "service": "دورة 2 (الرقبة)",
+        "price": "£700"
+      }
+    ]
+  },
+  {
+    "id": "aqualyx",
+    "title": "أكواليكس",
+    "image": "/images/treatments/aqualyx/aqualyx-product-hero.jpg",
+    "description": "يذيب الدهون العنيدة بشكل دائم - مستهدف بدقة.",
+    "items": [
+      {
+        "service": "التشاور",
+        "price": "From £50",
+        "note": "مجانا مع العلاج"
+      },
+      {
+        "service": "الذقن",
+        "price": "£350"
+      },
+      {
+        "service": "خطوط الفك",
+        "price": "£350"
+      },
+      {
+        "service": "أسفل البطن",
+        "price": "From £450"
+      },
+      {
+        "service": "الجزء العلوي من البطن",
+        "price": "From £350"
+      },
+      {
+        "service": "الجزء العلوي / السفلي من البطن",
+        "price": "From £800"
+      },
+      {
+        "service": "الأسلحة",
+        "price": "From £350"
+      },
+      {
+        "service": "الإبط",
+        "price": "From £250"
+      },
+      {
+        "service": "انتفاخ حزام حمالة الصدر",
+        "price": "From £300"
+      },
+      {
+        "service": "قمم الكعك",
+        "price": "From £300"
+      },
+      {
+        "service": "تحت الأرداف",
+        "price": "From £250"
+      },
+      {
+        "service": "الوركين",
+        "price": "From £500"
+      },
+      {
+        "service": "الفخذين الخارجيين",
+        "price": "From £300"
+      },
+      {
+        "service": "الفخذين الداخلية",
+        "price": "From £350"
+      },
+      {
+        "service": "الركبة",
+        "price": "From £250"
+      },
+      {
+        "service": "الكاحل",
+        "price": "From £250"
+      }
+    ]
+  },
+  {
+    "id": "mounjaro",
+    "title": "مونجارو (تخسيس الوزن)",
+    "image": "/images/treatments/mounjaro/product-card.jpg",
+    "description": "إدارة الوزن الطبي – وصفة طبية فقط. تقييم الأهلية مطلوب.",
+    "items": [
+      {
+        "service": "مونجارو 2.5 ملغ",
+        "price": "£250"
+      },
+      {
+        "service": "مونجارو 5مجم",
+        "price": "£275"
+      },
+      {
+        "service": "مونجارو 7.5 ملغ",
+        "price": "£350"
+      },
+      {
+        "service": "مونجارو 10مجم",
+        "price": "£500"
+      },
+      {
+        "service": "مونجارو 12.5 ملغ",
+        "price": "£550"
+      },
+      {
+        "service": "مونجارو 15مجم",
+        "price": "£575"
+      }
+    ]
+  },
+  {
+    "id": "vitamin-b12",
+    "title": "فيتامين ب12",
+    "image": "/images/treatments/vitamin-b12/sofia-injecting-arm.jpg",
+    "description": "تعزيز الطاقة والتمثيل الغذائي والرفاهية – بسرعة.",
+    "items": [
+      {
+        "service": "التشاور",
+        "price": "£50",
+        "note": "مجانا مع العلاج"
+      },
+      {
+        "service": "حقنة واحدة معززة",
+        "price": "£60"
+      },
+      {
+        "service": "حقنة معززة مزدوجة",
+        "price": "£80"
+      },
+      {
+        "service": "دورة من 4 حقن واحدة",
+        "price": "£200"
+      },
+      {
+        "service": "دورة من 4 حقن مزدوجة",
+        "price": "£280"
+      }
+    ]
+  },
+  {
+    "id": "exosomes-facial",
+    "title": "إكسوسومات الوجه",
+    "image": "/images/treatments/exosome/sofia-facial-exosome-treatment.jpg",
+    "description": "الجيل القادم من الطب التجديدي للبشرة.",
+    "items": [
+      {
+        "service": "جلسة واحدة (1 قارورة من محلول HA + 1 قارورة إكسوسوم)",
+        "price": "£800"
+      },
+      {
+        "service": "جلستين (تم شراؤهما معًا)",
+        "price": "£650 each"
+      },
+      {
+        "service": "3 جلسات (تم شراؤها معًا)",
+        "price": "£550 each"
+      },
+      {
+        "service": "4 جلسات (تم شراؤها معًا)",
+        "price": "£500 each"
+      }
+    ]
+  },
+  {
+    "id": "exosomes-hair",
+    "title": "شعر الأكسوزومات",
+    "image": "/images/treatments/exosome/sofia-scalp-exosome-treatment.jpg",
+    "description": "الجيل القادم من الطب التجديدي لاستعادة الشعر.",
+    "items": [
+      {
+        "service": "جلسة واحدة (1 قارورة من محلول HA + 1 قارورة إكسوسوم)",
+        "price": "£800"
+      },
+      {
+        "service": "جلستين (تم شراؤهما معًا)",
+        "price": "£650 each"
+      },
+      {
+        "service": "3 جلسات (تم شراؤها معًا)",
+        "price": "£550 each"
+      },
+      {
+        "service": "4 جلسات (تم شراؤها معًا)",
+        "price": "£500 each"
+      }
+    ]
+  },
+  {
+    "id": "polynucleotides",
+    "title": "بولينوكليوتيدات",
+    "image": "/images/treatments/polynucleotides/sofia-injecting.jpg",
+    "description": "العلاج التجديدي المتقدم للبشرة وتحت العينين.",
+    "items": [
+      {
+        "service": "عيون",
+        "price": "£250"
+      },
+      {
+        "service": "الوجه",
+        "price": "£499"
+      },
+      {
+        "service": "الرقبة",
+        "price": "£499"
+      },
+      {
+        "service": "شعر",
+        "price": "£250"
+      }
+    ]
+  }
+]

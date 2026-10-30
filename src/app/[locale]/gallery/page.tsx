@@ -65,6 +65,7 @@ export default async function GalleryPage({
   const { locale } = await params;
   const { treatment } = await searchParams;
   const initialGroup = Array.isArray(treatment) ? treatment[0] : treatment;
+  const isEn = locale === "en";
   const t = await getTranslations({ locale, namespace: "GalleryPage" });
 
   const [sanityGallery, sanitySettings, sanityCases] = await Promise.all([
@@ -118,14 +119,14 @@ export default async function GalleryPage({
 
   const allCustomCases = [...pageGalleryItems, ...caseStudies];
 
-  const heroTitle = sanityGallery?.heroTitle || t("heading");
-  const heroSubtitle = sanityGallery?.heroSubtitle || t("subtitle");
-  const badgeText = sanityGallery?.badgeText || t("badge");
-  const notice = sanityGallery?.disclaimer || t("notice");
-  const fullGalleryTitle = sanityGallery?.fullGalleryTitle || t("fullGalleryTitle");
-  const fullGalleryDesc = sanityGallery?.fullGalleryDesc || t("fullGalleryDesc");
-  const callButtonText = sanityGallery?.callButtonText || t("callButton");
-  const bookButtonText = sanityGallery?.bookButtonText || t("bookButton");
+  const heroTitle = (isEn && sanityGallery?.heroTitle) || t("heading");
+  const heroSubtitle = (isEn && sanityGallery?.heroSubtitle) || t("subtitle");
+  const badgeText = (isEn && sanityGallery?.badgeText) || t("badge");
+  const notice = (isEn && sanityGallery?.disclaimer) || t("notice");
+  const fullGalleryTitle = (isEn && sanityGallery?.fullGalleryTitle) || t("fullGalleryTitle");
+  const fullGalleryDesc = (isEn && sanityGallery?.fullGalleryDesc) || t("fullGalleryDesc");
+  const callButtonText = (isEn && sanityGallery?.callButtonText) || t("callButton");
+  const bookButtonText = (isEn && sanityGallery?.bookButtonText) || t("bookButton");
 
   return (
     <div className="flex flex-col">

@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import {
   SmileIcon,
   DnaIcon,
@@ -26,11 +26,13 @@ const avatars = [
 
 export default function Hero({ sanityData }: { sanityData?: any }) {
   const t = useTranslations("Hero");
+  const locale = useLocale();
+  const isEn = locale === "en";
 
-  const heroTitle = sanityData?.heroTitle;
-  const heroSubtitle = sanityData?.heroSubtitle || t("subtitle");
-  const heroBadge = sanityData?.heroBadge || t("harleyStreet");
-  const heroCtaText = sanityData?.heroCtaText || t("discoverMore");
+  const heroTitle = isEn ? sanityData?.heroTitle : null;
+  const heroSubtitle = (isEn && sanityData?.heroSubtitle) || t("subtitle");
+  const heroBadge = (isEn && sanityData?.heroBadge) || t("harleyStreet");
+  const heroCtaText = (isEn && sanityData?.heroCtaText) || t("discoverMore");
 
   // Doctor Hero Image (Sanity uploaded image or fallback to local photo)
   const heroImageSrc = sanityData?.heroImage?.asset
@@ -124,7 +126,7 @@ export default function Hero({ sanityData }: { sanityData?: any }) {
                 data-sanity={getSanityAttribute("homePage", "homePage", "heroSince")}
                 className="text-[14px] leading-[22px] text-white/75"
               >
-                {sanityData?.heroSince || t("since")}
+                {(isEn && sanityData?.heroSince) || t("since")}
               </p>
             </div>
           </div>
@@ -188,7 +190,7 @@ export default function Hero({ sanityData }: { sanityData?: any }) {
                 data-sanity={getSanityAttribute("homePage", "homePage", "heroTrustedBy")}
                 className="font-display text-[14px] font-medium text-white uppercase leading-[18px] whitespace-pre-line"
               >
-                {sanityData?.heroTrustedBy || t("trustedBy")}
+                {(isEn && sanityData?.heroTrustedBy) || t("trustedBy")}
               </p>
               <div className="mt-1 flex gap-[2px]">
                 {[...Array(5)].map((_, i) => (

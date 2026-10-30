@@ -76,6 +76,7 @@ export default async function AboutMePage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  const isEn = locale === "en";
   const t = await getTranslations({ locale, namespace: "AboutPage" });
 
   const [sanityAbout, sanitySettings] = await Promise.all([
@@ -90,37 +91,37 @@ export default async function AboutMePage({
   ]);
   const docId = "aboutPage";
 
-  const practitionerName = sanityAbout?.doctorName || t("practitionerName");
-  const practitionerRole = sanityAbout?.doctorCredentials || t("practitionerRole");
-  const practitionerTagline = sanityAbout?.heroSubtitle || t("practitionerTagline");
-  const heroBadge = sanityAbout?.heroBadge || t("heroBadge");
-  const heroQuote = sanityAbout?.heroQuote || t("heroQuote");
-  const heroQuoteAuthor = sanityAbout?.heroQuoteAuthor || t("quoteAuthor");
-  const bioLead = sanityAbout?.doctorBioLead || t("bioP1");
-  const rawDoctorBio = (sanityAbout?.doctorBioParagraphs || []).filter((p: string) => typeof p === "string" && p.trim().length > 0);
+  const practitionerName = (isEn && sanityAbout?.doctorName) || t("practitionerName");
+  const practitionerRole = (isEn && sanityAbout?.doctorCredentials) || t("practitionerRole");
+  const practitionerTagline = (isEn && sanityAbout?.heroSubtitle) || t("practitionerTagline");
+  const heroBadge = (isEn && sanityAbout?.heroBadge) || t("heroBadge");
+  const heroQuote = (isEn && sanityAbout?.heroQuote) || t("heroQuote");
+  const heroQuoteAuthor = (isEn && sanityAbout?.heroQuoteAuthor) || t("quoteAuthor");
+  const bioLead = (isEn && sanityAbout?.doctorBioLead) || t("bioP1");
+  const rawDoctorBio = isEn ? (sanityAbout?.doctorBioParagraphs || []).filter((p: string) => typeof p === "string" && p.trim().length > 0) : [];
   const doctorBioParagraphs: string[] = rawDoctorBio.length > 0
     ? rawDoctorBio
     : [t("bioP2"), t("bioP3"), t("bioP4"), t("bioP5")];
   const doctorPhotoSrc = (sanityAbout?.doctorPortrait ? urlFor(sanityAbout.doctorPortrait)?.url() : null) || "/images/about-us-page-image-v3.jpg";
-  const recognitionBadge = sanityAbout?.recognitionBadge || t("recognitionBadge");
-  const recognitionHeading = sanityAbout?.recognitionHeading || t("recognitionHeading");
+  const recognitionBadge = (isEn && sanityAbout?.recognitionBadge) || t("recognitionBadge");
+  const recognitionHeading = (isEn && sanityAbout?.recognitionHeading) || t("recognitionHeading");
   const recognitionPhotoSrc = (sanityAbout?.recognitionImage ? urlFor(sanityAbout.recognitionImage)?.url() : null) || "/images/about us second image.jpeg";
-  const rawRecognition = (sanityAbout?.recognitionParagraphs || []).filter((p: string) => typeof p === "string" && p.trim().length > 0);
+  const rawRecognition = isEn ? (sanityAbout?.recognitionParagraphs || []).filter((p: string) => typeof p === "string" && p.trim().length > 0) : [];
   const recognitionParagraphs: string[] = rawRecognition.length > 0
     ? rawRecognition
     : [t("recogP1"), t("recogP2"), t("recogP3"), t("recogP4"), t("recogP5"), t("recogP6")];
-  const philosophyTitle = sanityAbout?.philosophyTitle || t("philosophyHeading");
-  const rawPhilosophy = (sanityAbout?.philosophyParagraphs || []).filter((p: string) => typeof p === "string" && p.trim().length > 0);
+  const philosophyTitle = (isEn && sanityAbout?.philosophyTitle) || t("philosophyHeading");
+  const rawPhilosophy = isEn ? (sanityAbout?.philosophyParagraphs || []).filter((p: string) => typeof p === "string" && p.trim().length > 0) : [];
   const philosophyDesc = rawPhilosophy[0] || t("philosophyDesc");
   const philosophyBg = sanityAbout?.philosophyBgImage ? urlFor(sanityAbout.philosophyBgImage).url() : "/images/promise-bg.jpg";
   const philosophyAuthor = sanityAbout?.philosophyAuthor || "Sofia Bouzian";
-  const ctaTitle = sanityAbout?.ctaHeading || t("ctaReadyTitle");
-  const ctaBtnText = sanityAbout?.ctaButtonText || t("bookConsultation");
-  const ghpBadgeSmall = sanityAbout?.ghpBadgeSmall || t("ghpBadgeSmall");
-  const ghpBadgeTitle = sanityAbout?.ghpBadgeTitle || t("ghpBadgeTitle");
-  const ghpBadgeDesc = sanityAbout?.ghpBadgeDesc || t("ghpBadgeDesc");
-  const accreditationsBadge = sanityAbout?.accreditationsBadge || t("accreditationsBadge");
-  const accreditationsHeading = sanityAbout?.accreditationsHeading || t("accreditationsHeading");
+  const ctaTitle = (isEn && sanityAbout?.ctaHeading) || t("ctaReadyTitle");
+  const ctaBtnText = (isEn && sanityAbout?.ctaButtonText) || t("bookConsultation");
+  const ghpBadgeSmall = (isEn && sanityAbout?.ghpBadgeSmall) || t("ghpBadgeSmall");
+  const ghpBadgeTitle = (isEn && sanityAbout?.ghpBadgeTitle) || t("ghpBadgeTitle");
+  const ghpBadgeDesc = (isEn && sanityAbout?.ghpBadgeDesc) || t("ghpBadgeDesc");
+  const accreditationsBadge = (isEn && sanityAbout?.accreditationsBadge) || t("accreditationsBadge");
+  const accreditationsHeading = (isEn && sanityAbout?.accreditationsHeading) || t("accreditationsHeading");
 
   const displayedTrainingPhotos: SliderPhoto[] = sanityAbout?.trainingPhotos?.length > 0
     ? sanityAbout.trainingPhotos.map((item: any, i: number) => ({

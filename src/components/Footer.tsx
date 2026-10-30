@@ -1,7 +1,7 @@
 "use client";
 
 import { Link } from "@/i18n/routing";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import Image from "next/image";
 import { contact } from "@/data/site";
 import {
@@ -172,7 +172,7 @@ export default function Footer({ sanitySettings }: { sanitySettings?: any }) {
           <div className="relative mb-8 flex items-center justify-center">
             <div className="w-full border-t border-black/10" />
             <span className="absolute bg-white px-6 font-serif text-[22px] italic tracking-[0.5px] text-[#7a6248] md:text-[25px]">
-              As seen on &amp; Recognition
+              {t("asSeenOn")}
             </span>
           </div>
 
@@ -248,7 +248,7 @@ export default function Footer({ sanitySettings }: { sanitySettings?: any }) {
               {clinicName}
             </h2>
             <p className="max-w-[700px] text-[14px] md:text-[15px] tracking-[1.5px] uppercase text-white/90 font-nav font-medium">
-              Harley Street Aesthetic Medicine &amp; Longevity Clinic · 2 Wimpole Street, London
+              {t("tagline")}
             </p>
 
             {/* Social Media Interactive Badges */}
@@ -325,7 +325,7 @@ export default function Footer({ sanitySettings }: { sanitySettings?: any }) {
               </ul>
             </div>
 
-            {/* Col 3: Signature Treatments */}
+            {/* Col 3: {t("signatureTreatments")} */}
             <div className="flex flex-col gap-4">
               <h3 className="font-serif text-[20px] font-bold text-white uppercase tracking-[-0.5px]">
                 Signature Treatments
@@ -441,7 +441,7 @@ export default function Footer({ sanitySettings }: { sanitySettings?: any }) {
 
           {/* Medical Standards Disclaimer */}
           <div className="mt-4 text-center text-[11px] text-white/90">
-            GMC Registered Medical Practitioners · CQC Regulated Clinic Standards · Fully Insured Clinical Practice
+            {t("medicalStandards")}
           </div>
         </div>
       </footer>

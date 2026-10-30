@@ -87,6 +87,7 @@ export default async function PressPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  const isEn = locale === "en";
   const t = await getTranslations({ locale, namespace: "PressPage" });
 
   const [sanityPress, sanitySettings] = await Promise.all([
@@ -101,12 +102,12 @@ export default async function PressPage({
   ]);
   const docId = "pressPage";
 
-  const heroTitle = sanityPress?.heroTitle || t("heading");
-  const heroSubtitle = sanityPress?.heroSubtitle || t("subtitle");
-  const badgeText = sanityPress?.badgeText || t("badge");
-  const videoCoverageTitle = sanityPress?.videoCoverageTitle || t("videoCoverage");
+  const heroTitle = (isEn && sanityPress?.heroTitle) || t("heading");
+  const heroSubtitle = (isEn && sanityPress?.heroSubtitle) || t("subtitle");
+  const badgeText = (isEn && sanityPress?.badgeText) || t("badge");
+  const videoCoverageTitle = (isEn && sanityPress?.videoCoverageTitle) || t("videoCoverage");
   const youtubeUrl = sanityPress?.youtubeEmbedUrl || "https://www.youtube.com/embed/lmOWFIN02Gg";
-  const pressGalleryTitle = sanityPress?.pressGalleryTitle || t("pressGallery");
+  const pressGalleryTitle = (isEn && sanityPress?.pressGalleryTitle) || t("pressGallery");
 
   const displayedPressImages = sanityPress?.pressImages?.length > 0
     ? sanityPress.pressImages.map((p: any) => ({

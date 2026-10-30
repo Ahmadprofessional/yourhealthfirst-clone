@@ -1,38 +1,41 @@
 "use client";
 
 import { useState, useId } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { PhoneIcon, MobileIcon, EnvelopeIcon, MapPinIcon } from "@/components/icons";
 import { getSanityAttribute } from "@/sanity/lib/dataAttribute";
 
-const treatments = [
-  "Anti-Wrinkle Injections",
-  "Dermal Fillers",
-  "Profhilo",
-  "Polynucleotides",
-  "Sculptra",
-  "Sunekos",
-  "PRP Face & Body",
-  "PRP Hair Loss",
-  "Exosome Therapy",
-  "Cryolipolysis (Fat Freezing)",
-  "Emsculpt Neo",
-  "Aqualyx",
-  "Mounjaro",
-  "Microneedling / Mesotherapy",
-  "Chemical Peels (Photodynamic Peel)",
-  "Sclerotherapy",
-  "CryoPen",
-  "Phlebotomy",
-  "Vitamin B12 Injections",
-  "General Enquiry",
-];
+const treatmentItemKeys = [
+  "antiWrinkles",
+  "dermalFillers",
+  "profhilo",
+  "polynucleotides",
+  "sculptra",
+  "sunekos",
+  "prpFaceBody",
+  "prpHairLoss",
+  "exosomeTherapy",
+  "cryolipolysis",
+  "emsculptNeo",
+  "aqualyx",
+  "mounjaro",
+  "microneedling",
+  "mesotherapy",
+  "chemicalPeels",
+  "sclerotherapy",
+  "cryoPen",
+  "phlebotomy",
+  "vitaminB12",
+] as const;
 
 export default function BookingSection({ sanityData }: { sanityData?: any }) {
   const t = useTranslations("Booking");
+  const tItems = useTranslations("Header.items");
+  const locale = useLocale();
+  const isEn = locale === "en";
   const uid = useId();
-  const heading = sanityData?.bookingHeading;
-  const subtitle = sanityData?.bookingSubtitle || t("description");
+  const heading = isEn ? sanityData?.bookingHeading : null;
+  const subtitle = (isEn && sanityData?.bookingSubtitle) || t("description");
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
@@ -299,9 +302,10 @@ export default function BookingSection({ sanityData }: { sanityData?: any }) {
                       className="h-12 rounded-[8px] border border-white/10 bg-white/5 px-4 text-[15px] text-white focus:border-tan/60 focus:outline-none"
                     >
                       <option value="" className="bg-white text-forest">{t("selectTreatment")}</option>
-                      {treatments.map((treatment) => (
-                        <option key={treatment} value={treatment} className="bg-white text-forest">{treatment}</option>
+                      {treatmentItemKeys.map((key) => (
+                        <option key={key} value={tItems(key)} className="bg-white text-forest">{tItems(key)}</option>
                       ))}
+                      <option value={t("generalEnquiry")} className="bg-white text-forest">{t("generalEnquiry")}</option>
                     </select>
                   </div>
 
@@ -346,7 +350,7 @@ export default function BookingSection({ sanityData }: { sanityData?: any }) {
                     disabled={isSubmitting}
                     className="mt-2 inline-flex h-14 items-center justify-center rounded-[8px] bg-tan px-8 font-nav text-[15px] font-semibold tracking-[-0.3px] text-forest transition-opacity hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    {isSubmitting ? "Sending..." : t("sendEnquiry")}
+                    {isSubmitting ? t("sending") : t("sendEnquiry")}
                   </button>
                 </form>
               </>

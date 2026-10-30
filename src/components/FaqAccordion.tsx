@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { contact } from "@/data/site";
 import { PhoneIcon, EnvelopeIcon } from "@/components/icons";
 import { getSanityAttribute } from "@/sanity/lib/dataAttribute";
@@ -18,11 +18,13 @@ const faqKeys = [
 
 export default function FaqAccordion({ sanityData }: { sanityData?: any }) {
   const t = useTranslations("Faq");
+  const locale = useLocale();
+  const isEn = locale === "en";
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
-  const badge = sanityData?.faqBadge || t("badge");
-  const heading = sanityData?.faqTitle || t("heading");
-  const faqs = sanityData?.faqs;
+  const badge = (isEn && sanityData?.faqBadge) || t("badge");
+  const heading = (isEn && sanityData?.faqTitle) || t("heading");
+  const faqs = isEn ? sanityData?.faqs : null;
   const faqCardSrc = sanityData?.faqCardImage ? urlFor(sanityData.faqCardImage).url() : "/images/faq-card.jpg";
 
   return (

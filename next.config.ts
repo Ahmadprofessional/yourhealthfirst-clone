@@ -68,7 +68,7 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
-        source: "/:locale(en|ar|es|fr|ru)/cryolipolysis",
+        source: "/:locale(en|ar|ary|es|fr|ru)/cryolipolysis",
         destination: "/:locale/treatments/cryolipolysis",
         permanent: true,
       },
@@ -78,7 +78,7 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
-        source: "/:locale(en|ar|es|fr|ru)/anti-wrinkles-injections",
+        source: "/:locale(en|ar|ary|es|fr|ru)/anti-wrinkles-injections",
         destination: "/:locale/treatments/anti-wrinkles",
         permanent: true,
       },
@@ -88,12 +88,12 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
-        source: "/:locale(en|ar|es|fr|ru)/prp-hair-loss",
+        source: "/:locale(en|ar|ary|es|fr|ru)/prp-hair-loss",
         destination: "/:locale/treatments/prp-hair-loss",
         permanent: true,
       },
       {
-        source: "/:locale(en|ar|es|fr|ru)/treatments/prp",
+        source: "/:locale(en|ar|ary|es|fr|ru)/treatments/prp",
         destination: "/:locale/treatments/prp-hair-loss",
         permanent: true,
       },
@@ -103,7 +103,7 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
-        source: "/:locale(en|ar|es|fr|ru)/our-services/anti-wrinkle-injections",
+        source: "/:locale(en|ar|ary|es|fr|ru)/our-services/anti-wrinkle-injections",
         destination: "/:locale/treatments/anti-wrinkles",
         permanent: true,
       },
@@ -113,7 +113,7 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
-        source: "/:locale(en|ar|es|fr|ru)/testimonials",
+        source: "/:locale(en|ar|ary|es|fr|ru)/testimonials",
         destination: "/:locale",
         permanent: true,
       },
@@ -128,7 +128,7 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
-        source: "/:locale(en|ar|es|fr|ru)/dermal-fillers-and-its-uses",
+        source: "/:locale(en|ar|ary|es|fr|ru)/dermal-fillers-and-its-uses",
         destination: "/:locale/treatments/dermal-fillers",
         permanent: true,
       },

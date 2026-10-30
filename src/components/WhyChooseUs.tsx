@@ -1,6 +1,6 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import {
   UserIcon,
   EditIcon,
@@ -21,10 +21,12 @@ const featureKeys = [
 
 export default function WhyChooseUs({ sanityData }: { sanityData?: any }) {
   const t = useTranslations("WhyChooseUs");
+  const locale = useLocale();
+  const isEn = locale === "en";
 
-  const badge = sanityData?.whyChooseBadge || t("badge");
-  const heading = sanityData?.whyChooseTitle || t("heading");
-  const features = sanityData?.whyChooseFeatures;
+  const badge = (isEn && sanityData?.whyChooseBadge) || t("badge");
+  const heading = (isEn && sanityData?.whyChooseTitle) || t("heading");
+  const features = isEn ? sanityData?.whyChooseFeatures : null;
 
   return (
     <section className="w-full bg-cream px-5">

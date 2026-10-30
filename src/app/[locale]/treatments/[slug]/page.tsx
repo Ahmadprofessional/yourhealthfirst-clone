@@ -351,23 +351,26 @@ export default async function TreatmentPage({ params }: Props) {
   const tServices = await getTranslations({ locale, namespace: "ServiceList" });
   const tHeader = await getTranslations({ locale, namespace: "Header" });
 
-  const pageTitle = sanityTreatment?.title || treatment.title;
-  const pageIntro = sanityTreatment?.intro || treatment.intro;
-  const pageTagline = sanityTreatment?.tagline !== undefined ? sanityTreatment.tagline : treatment.tagline;
-  const pagePriceFrom = sanityTreatment?.priceFrom || treatment.priceFrom;
+  const isEn = locale === "en";
+  const pageTitle = (isEn && sanityTreatment?.title) || treatment.title;
+  const pageIntro = (isEn && sanityTreatment?.intro) || treatment.intro;
+  const pageTagline = isEn
+    ? (sanityTreatment?.tagline !== undefined ? sanityTreatment.tagline : treatment.tagline)
+    : treatment.tagline;
+  const pagePriceFrom = (isEn && sanityTreatment?.priceFrom) || treatment.priceFrom;
   const pageHeroImage = sanityTreatment?.heroImage?.asset
     ? urlFor(sanityTreatment.heroImage).width(800).quality(90).url()
     : null;
-  const pageBenefits = (sanityTreatment?.benefits && sanityTreatment.benefits.length > 0)
+  const pageBenefits = (isEn && sanityTreatment?.benefits && sanityTreatment.benefits.length > 0)
     ? sanityTreatment.benefits
     : treatment.benefits;
-  const pageSuitableFor = (sanityTreatment?.suitableFor && sanityTreatment.suitableFor.length > 0)
+  const pageSuitableFor = (isEn && sanityTreatment?.suitableFor && sanityTreatment.suitableFor.length > 0)
     ? sanityTreatment.suitableFor
     : treatment.suitableFor;
-  const pageBodyParagraphs: string[] = (sanityTreatment?.bodyParagraphs && sanityTreatment.bodyParagraphs.length > 0)
+  const pageBodyParagraphs: string[] = (isEn && sanityTreatment?.bodyParagraphs && sanityTreatment.bodyParagraphs.length > 0)
     ? sanityTreatment.bodyParagraphs
     : treatment.body;
-  const pageFaqs = (sanityTreatment?.faqs && sanityTreatment.faqs.length > 0)
+  const pageFaqs = (isEn && sanityTreatment?.faqs && sanityTreatment.faqs.length > 0)
     ? sanityTreatment.faqs
     : treatment.faqs;
 
@@ -377,6 +380,7 @@ export default async function TreatmentPage({ params }: Props) {
       fr: 'Visage & Anti-Âge',
       es: 'Rostro y Antienvejecimiento',
       ar: 'الوجه ومكافحة الشيخوخة',
+      ary: 'الوجه ومحاربة الشيخوخة',
       ru: 'Лицо и Омоложение',
     },
     'Hair Restoration': {
@@ -384,6 +388,7 @@ export default async function TreatmentPage({ params }: Props) {
       fr: 'Restauration Capillaire',
       es: 'Restauración Capilar',
       ar: 'استعادة الشعر',
+      ary: 'علاج وتساقط الشعر',
       ru: 'Восстановление Волос',
     },
     'Body Contouring': {
@@ -391,6 +396,7 @@ export default async function TreatmentPage({ params }: Props) {
       fr: 'Remodelage Corporel',
       es: 'Remodelación Corporal',
       ar: 'نحت القوام',
+      ary: 'نحت وتناسق الجسم',
       ru: 'Контурирование Тела',
     },
     'Skin & Health': {
@@ -398,6 +404,7 @@ export default async function TreatmentPage({ params }: Props) {
       fr: 'Peau & Santé',
       es: 'Piel y Salud',
       ar: 'البشرة والصحة',
+      ary: 'البشرة والصحة',
       ru: 'Кожа и Здоровье',
     },
     'Phlebotomy & Health Tests': {
@@ -405,6 +412,7 @@ export default async function TreatmentPage({ params }: Props) {
       fr: 'Phlébotomie & Analyses Médicales',
       es: 'Flebotomía y Pruebas Médicas',
       ar: 'سحب الدم والفحوصات الطبية',
+      ary: 'سحب الدم والتحاليل الطبية',
       ru: 'Флеботомия и Анализы',
     },
   };
@@ -417,7 +425,7 @@ export default async function TreatmentPage({ params }: Props) {
 
   const contraChips = treatment.contraindications ? (
     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-      {treatment.contraindications.items.map((item) => (
+      {(treatment.contraindications.items || []).map((item) => (
         <div key={item} className="flex items-center gap-4 rounded-[14px] border border-tan/20 bg-white/70 p-5 backdrop-blur-sm">
           <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-tan/15 text-tan">
             <AreaIcon name={contraindicationIcon(item)} className="h-5 w-5" />
@@ -590,7 +598,7 @@ export default async function TreatmentPage({ params }: Props) {
           <div className="flex flex-col gap-4">
             <div className="flex flex-wrap items-center gap-2">
               <Link
-                href="/treatments"
+                href={`/${locale}/treatments`}
                 className="font-nav text-[13px] tracking-[1px] text-white/40 uppercase transition-colors hover:text-tan"
               >
                 {tHeader("treatments")}
@@ -1019,7 +1027,7 @@ export default async function TreatmentPage({ params }: Props) {
                             {showSuitable && (
                               <div className={`flex flex-col gap-4 ${paras.length ? "mt-2" : ""}`}>
                                 <h2 className="font-subheading text-[20px] font-semibold leading-[26px] tracking-[-0.8px] text-forest uppercase">
-                                  Suitable For
+                                  {t("suitableFor")}
                                 </h2>
                                 <ul className="flex flex-col gap-3">
                                   {treatment.suitableFor.map((item) => (
@@ -1373,7 +1381,7 @@ export default async function TreatmentPage({ params }: Props) {
                       {t("call")}
                     </a>
                     <a
-                      href="/contact-us"
+                      href={`/${locale}/contact-us`}
                       className="flex h-12 items-center justify-center rounded-[8px] border border-white/20 font-nav text-[14px] font-semibold tracking-[-0.3px] text-tan transition-colors hover:border-tan/60"
                     >
                       {t("sendEnquiry")}
@@ -1468,7 +1476,7 @@ export default async function TreatmentPage({ params }: Props) {
                     {t("call")}
                   </a>
                   <a
-                    href="/contact-us"
+                    href={`/${locale}/contact-us`}
                     className="flex h-12 items-center justify-center rounded-[8px] border border-white/20 px-6 font-nav text-[14px] font-semibold tracking-[-0.3px] text-tan transition-colors hover:border-tan/60"
                   >
                     {t("sendEnquiry")}
@@ -1610,18 +1618,18 @@ export default async function TreatmentPage({ params }: Props) {
         <section className="w-full border-t border-black/8 bg-cream px-5">
           <div className="mx-auto max-w-[1400px] py-[44px] lg:py-[56px]">
             <div className="mb-5 flex items-center gap-3">
-              <span className="font-nav text-[12px] font-semibold tracking-[2px] text-tan uppercase">Discover more</span>
+              <span className="font-nav text-[12px] font-semibold tracking-[2px] text-tan uppercase">{t("discoverMore")}</span>
               <span className="h-px max-w-[80px] flex-1 bg-tan/40" />
             </div>
             <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
               {treatment.relatedLinks.map((link) => (
                 <Link
                   key={link.href}
-                  href={link.href}
+                  href={link.href.startsWith("/") && !link.href.startsWith(`/${locale}`) ? `/${locale}${link.href}` : link.href}
                   className="group flex min-h-[88px] items-center justify-between gap-5 rounded-[16px] border border-[#a37f4a]/40 bg-[linear-gradient(135deg,#b8925a_0%,#d9b98c_50%,#b8925a_100%)] px-7 py-5 shadow-[0_10px_28px_-10px_rgba(120,90,40,0.55)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_34px_-10px_rgba(120,90,40,0.7)]"
                 >
                   <span className="flex flex-col">
-                    <span className="font-nav text-[12px] font-semibold tracking-[1.5px] text-forest/70 uppercase">Click here for</span>
+                    <span className="font-nav text-[12px] font-semibold tracking-[1.5px] text-forest/70 uppercase">{t("clickHereFor")}</span>
                     <span className="mt-1 font-subheading text-[19px] font-semibold leading-[25px] text-forest lg:text-[22px] lg:leading-[28px]">
                       {link.label}
                     </span>
@@ -1647,14 +1655,14 @@ export default async function TreatmentPage({ params }: Props) {
               {!treatment.hideTreatmentAreasCard && (
               <div className="rounded-[24px] border border-tan/25 bg-white/60 p-8 shadow-lg backdrop-blur-sm lg:p-10">
                 <div className="flex items-center gap-3">
-                  <span className="font-nav text-[11px] font-semibold tracking-[2px] text-tan uppercase">Treatment Areas</span>
+                  <span className="font-nav text-[11px] font-semibold tracking-[2px] text-tan uppercase">{t("treatmentAreas")}</span>
                   <span className="h-px flex-1 max-w-[60px] bg-tan/40" />
                 </div>
                 <h2 className="mt-3 font-display text-[28px] font-bold leading-[34px] tracking-[-1px] text-forest lg:text-[32px] lg:leading-[38px]">
                   {t("whatAreas")}
                 </h2>
                 <p className="mt-3 text-[14px] leading-[22px] text-body-text">
-                  {treatment.title} can be used on various areas of the face and body to rejuvenate the skin, improve texture and stimulate natural healing.
+                  {treatment.title} {t("treatmentAreasDesc")}
                 </p>
                 <div className="mt-7 grid grid-cols-1 gap-3 sm:grid-cols-2">
                   {treatment.treatmentAreas.map((area, i) => {
@@ -1677,14 +1685,14 @@ export default async function TreatmentPage({ params }: Props) {
               <div className="flex flex-col gap-6 rounded-[24px] border border-tan/25 bg-white/60 p-8 shadow-lg backdrop-blur-sm lg:p-10">
                 <div>
                   <div className="flex items-center gap-3">
-                    <span className="font-nav text-[11px] font-semibold tracking-[2px] text-tan uppercase">Ideal Candidates</span>
+                    <span className="font-nav text-[11px] font-semibold tracking-[2px] text-tan uppercase">{t("idealCandidates")}</span>
                     <span className="h-px flex-1 max-w-[60px] bg-tan/40" />
                   </div>
                   <h2 className="mt-3 font-display text-[28px] font-bold leading-[34px] tracking-[-1px] text-forest lg:text-[32px] lg:leading-[38px]">
-                    Who Is It For?
+                    {t("whoIsItFor")}
                   </h2>
                   <p className="mt-3 text-[13px] tracking-[0.5px] text-body-text/60 uppercase">
-                    {treatment.title} is ideal for:
+                    {treatment.title} {t("isIdealFor")}
                   </p>
                 </div>
                 <div className="flex flex-col gap-3">
@@ -1701,10 +1709,10 @@ export default async function TreatmentPage({ params }: Props) {
                   })}
                 </div>
                 <Link
-                  href="/contact-us"
+                  href={`/${locale}/contact-us`}
                   className="inline-flex h-12 w-fit items-center gap-2 rounded-[8px] bg-tan px-6 font-nav text-[13px] font-semibold tracking-[0.5px] text-forest uppercase transition-opacity hover:opacity-90"
                 >
-                  Book a Consultation Now
+                  {t("bookConsultationNow")}
                   <AreaIcon name="arrow" className="h-4 w-4" />
                 </Link>
                 {treatment.trustBadges && treatment.trustBadges.length > 0 && (
@@ -1731,7 +1739,7 @@ export default async function TreatmentPage({ params }: Props) {
                 <div className="flex flex-col gap-6 rounded-[24px] border border-tan/25 bg-white/60 p-8 shadow-lg backdrop-blur-sm lg:p-10">
                   <div>
                     <div className="flex items-center gap-3">
-                      <span className="font-nav text-[11px] font-semibold tracking-[2px] text-tan uppercase">Our Approach</span>
+                      <span className="font-nav text-[11px] font-semibold tracking-[2px] text-tan uppercase">{t("ourApproach")}</span>
                       <span className="h-px flex-1 max-w-[60px] bg-tan/40" />
                     </div>
                     <h2 className="mt-3 font-display text-[28px] font-bold leading-[34px] tracking-[-1px] text-forest lg:text-[32px] lg:leading-[38px]">
@@ -1742,7 +1750,7 @@ export default async function TreatmentPage({ params }: Props) {
                     )}
                   </div>
                   <div className="flex flex-col gap-3">
-                    {treatment.advantages.items.map((item, i) => {
+                    {(treatment.advantages.items || []).map((item, i) => {
                       const color = iconPaletteColor(i);
                       return (
                         <div key={item.title} className="flex items-start gap-4 rounded-[12px] bg-white/70 p-4">
@@ -1844,10 +1852,10 @@ export default async function TreatmentPage({ params }: Props) {
                       ))}
                     </ul>
                     <a
-                      href="/contact-us"
+                      href={`/${locale}/contact-us`}
                       className="mt-1 flex h-11 w-full items-center justify-center rounded-[8px] bg-tan px-6 font-nav text-[13px] font-semibold tracking-[0.5px] text-forest uppercase transition-opacity hover:opacity-90"
                     >
-                      Book a Consultation Now
+                      {t("bookConsultationNow")}
                     </a>
                   </div>
                 </div>
@@ -1881,10 +1889,10 @@ export default async function TreatmentPage({ params }: Props) {
               </div>
               <div className="flex flex-col gap-5">
                 <h2 className="font-display text-[26px] font-bold leading-[32px] tracking-[-1px] text-forest lg:text-[30px] lg:leading-[36px]">
-                  Who Is It For?
+                  {t("whoIsItFor")}
                 </h2>
                 <p className="text-[14px] tracking-[1px] text-body-text/60 uppercase">
-                  {treatment.title} is ideal for:
+                  {treatment.title} {t("isIdealFor")}
                 </p>
                 <ul className="flex flex-col gap-3">
                   {treatment.suitableFor.map((item) => (
@@ -1899,10 +1907,10 @@ export default async function TreatmentPage({ params }: Props) {
                   ))}
                 </ul>
                 <a
-                  href="/contact-us"
+                  href={`/${locale}/contact-us`}
                   className="mt-2 flex h-12 w-fit items-center justify-center rounded-[8px] bg-tan px-6 font-nav text-[14px] font-semibold tracking-[-0.3px] text-forest transition-opacity hover:opacity-90"
                 >
-                  Book Consultation Now
+                  {t("bookConsultationNow")}
                 </a>
               </div>
             </div>
@@ -1930,7 +1938,7 @@ export default async function TreatmentPage({ params }: Props) {
             >
               <div className="flex flex-col gap-5">
                 <div className="flex items-center gap-3">
-                  <span className="font-nav text-[11px] font-semibold tracking-[2px] text-tan uppercase">Important Information</span>
+                  <span className="font-nav text-[11px] font-semibold tracking-[2px] text-tan uppercase">{t("importantInformation")}</span>
                   <span className="h-px flex-1 max-w-[60px] bg-tan/40" />
                 </div>
                 <h2 className="font-display text-[30px] font-bold leading-[36px] tracking-[-1px] text-forest lg:text-[34px] lg:leading-[40px]">
@@ -1945,22 +1953,22 @@ export default async function TreatmentPage({ params }: Props) {
                   })()}
                 </h2>
                 <p className="text-[15px] leading-[24px] text-body-text">
-                  This treatment may not be suitable for everyone. It is not recommended for individuals with the following conditions, to ensure your safety and the best possible results.
+                  {t("contraindicationsNotice")}
                 </p>
                 {treatment.contraindications.imageMaxWidth && contraChips}
                 <div className="mt-2 flex flex-col gap-3 rounded-[16px] border border-tan/25 bg-white/70 p-6 backdrop-blur-sm">
                   <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-tan/15 text-tan">
                     <AreaIcon name="alert" className="h-5 w-5" />
                   </span>
-                  <h3 className="font-subheading text-[16px] font-semibold text-forest">Not sure if you&apos;re suitable?</h3>
+                  <h3 className="font-subheading text-[16px] font-semibold text-forest">{t("notSureSuitable")}</h3>
                   <p className="text-[13px] leading-[20px] text-body-text">
-                    Book a consultation with our specialist to discuss your medical history and find out if this treatment is right for you.
+                    {t("notSureSuitableDesc")}
                   </p>
                   <Link
-                    href="/contact-us"
+                    href={`/${locale}/contact-us`}
                     className="mt-1 inline-flex h-11 w-fit items-center gap-2 rounded-[8px] bg-tan px-5 font-nav text-[13px] font-semibold tracking-[0.3px] text-forest uppercase transition-opacity hover:opacity-90"
                   >
-                    Book a Consultation
+                    {t("bookConsultation")}
                     <AreaIcon name="arrow" className="h-4 w-4" />
                   </Link>
                 </div>
@@ -2204,7 +2212,7 @@ export default async function TreatmentPage({ params }: Props) {
                   </p>
                 )}
                 <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                  {treatment.advantages.items.map((item) => (
+                  {(treatment.advantages.items || []).map((item) => (
                     <div
                       key={item.title}
                       className="flex flex-col gap-3 rounded-[12px] bg-white p-6 shadow-sm"
@@ -2256,10 +2264,10 @@ export default async function TreatmentPage({ params }: Props) {
                   ))}
                 </div>
                 <Link
-                  href="/contact-us"
+                  href={`/${locale}/contact-us`}
                   className="mt-2 inline-flex h-14 w-fit items-center gap-2 rounded-[8px] bg-tan px-6 font-nav text-[13px] font-semibold tracking-[0.5px] text-forest uppercase transition-opacity hover:opacity-90"
                 >
-                  Book a Consultation
+                  {t("bookConsultation")}
                   <AreaIcon name="arrow" className="h-4 w-4" />
                 </Link>
               </div>
@@ -2347,7 +2355,7 @@ export default async function TreatmentPage({ params }: Props) {
                 <div className="relative overflow-hidden rounded-[18px] border border-[#a37f4a]/40 bg-[linear-gradient(135deg,#b8925a_0%,#dcbf93_50%,#b8925a_100%)] p-5 shadow-[0_20px_50px_-20px_rgba(120,90,40,0.6)] sm:col-span-2 lg:col-span-4 lg:p-8">
                   <div className="pointer-events-none absolute -right-[8%] -top-[40%] h-[320px] w-[320px] rounded-full bg-white/30 blur-[100px]" />
                   <div className="relative mb-6 flex items-center gap-4">
-                    <span className="font-subheading text-[18px] font-semibold tracking-[3px] text-forest uppercase lg:text-[22px]">Our Most Popular Treatments</span>
+                    <span className="font-subheading text-[18px] font-semibold tracking-[3px] text-forest uppercase lg:text-[22px]">{t("mostPopularTreatments")}</span>
                     <span className="h-px flex-1 bg-forest/25" />
                   </div>
                   <div className="relative grid grid-cols-1 gap-5 md:grid-cols-3">
@@ -2621,7 +2629,7 @@ export default async function TreatmentPage({ params }: Props) {
               {t("ourPrices")}
             </h3>
             <Link
-              href="/price-list"
+              href={`/${locale}/price-list`}
               className="text-[14px] text-tan underline-offset-4 hover:underline"
             >
               {t("checkPriceList")}

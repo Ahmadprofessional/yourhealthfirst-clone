@@ -454,10 +454,21 @@ export default function Header({ sanitySettings }: { sanitySettings?: any }) {
                     {/* Mobile accordion */}
                     <div
                       className={`overflow-hidden transition-all duration-300 ${
-                        isMobileTreatmentsOpen ? "max-h-[1000px]" : "max-h-0"
+                        isMobileTreatmentsOpen ? "max-h-[1600px]" : "max-h-0"
                       }`}
                     >
                       <div className="flex flex-col gap-6 pb-6 pl-2">
+                        {/* Primary direct link to All Treatments catalog page */}
+                        <div className="pt-2">
+                          <Link
+                            href="/treatments"
+                            onClick={() => setIsMenuOpen(false)}
+                            className="inline-flex items-center justify-between w-full rounded-[8px] bg-[#7a6248]/10 border border-[#7a6248]/25 px-4 py-3 font-nav text-[14px] font-semibold tracking-[-0.2px] text-[#7a6248] uppercase transition-all hover:bg-[#7a6248] hover:text-white shadow-sm"
+                          >
+                            <span>{t("viewAllTreatments")}</span>
+                          </Link>
+                        </div>
+
                         {dropdownStructure.map((group) => (
                           <div key={group.categoryKey}>
                             <p className="mb-2 font-display text-[10px] font-medium tracking-[2px] text-rust uppercase">
@@ -478,6 +489,17 @@ export default function Header({ sanitySettings }: { sanitySettings?: any }) {
                             </ul>
                           </div>
                         ))}
+
+                        {/* Bottom link to All Treatments */}
+                        <div className="pt-2 border-t border-black/10">
+                          <Link
+                            href="/treatments"
+                            onClick={() => setIsMenuOpen(false)}
+                            className="inline-flex items-center justify-center w-full rounded-[8px] bg-tan/20 border border-tan/40 py-2.5 px-4 font-nav text-[13px] font-semibold text-forest uppercase tracking-wider transition-colors hover:bg-forest hover:text-white"
+                          >
+                            {t("viewAllTreatments")}
+                          </Link>
+                        </div>
                       </div>
                     </div>
                   </li>

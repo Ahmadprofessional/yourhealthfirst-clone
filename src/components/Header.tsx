@@ -250,8 +250,9 @@ export default function Header({ sanitySettings }: { sanitySettings?: any }) {
                       onMouseEnter={openDropdown}
                       onMouseLeave={closeDropdown}
                     >
-                      <button
-                        type="button"
+                      <Link
+                        href="/treatments"
+                        onClick={() => setIsDropdownOpen(false)}
                         className={`flex h-[40px] items-center gap-0.5 xl:gap-1 px-2 xl:px-2.5 2xl:px-3 font-nav text-[11.5px] xl:text-[12.5px] 2xl:text-[13px] leading-tight font-medium tracking-tight uppercase whitespace-nowrap transition-colors hover:text-white ${
                           isActive ? "text-white" : "text-tan"
                         }`}
@@ -262,22 +263,37 @@ export default function Header({ sanitySettings }: { sanitySettings?: any }) {
                             isDropdownOpen ? "rotate-180" : ""
                           }`}
                         />
-                      </button>
+                      </Link>
 
                       {/* Mega-dropdown panel — centered under nav */}
                       <div
                         onMouseEnter={openDropdown}
                         onMouseLeave={closeDropdown}
-                        className={`absolute left-1/2 top-[calc(100%+6px)] -translate-x-1/2 w-[860px] max-w-[calc(100vw-40px)] rounded-[8px] border-[0.8px] border-tan/30 bg-[#0c0c0c] shadow-2xl transition-all duration-200 z-30 ${
+                        className={`absolute left-1/2 top-[calc(100%+6px)] -translate-x-1/2 w-[860px] max-w-[calc(100vw-40px)] max-h-[calc(100vh-130px)] flex flex-col rounded-[8px] border-[0.8px] border-tan/30 bg-[#0c0c0c] shadow-2xl transition-all duration-200 z-30 ${
                           isDropdownOpen
                             ? "pointer-events-auto translate-y-0 opacity-100"
                             : "pointer-events-none -translate-y-2 opacity-0"
                         }`}
                       >
                         {/* Gold top accent line */}
-                        <div className="h-[2px] w-full rounded-t-[8px] bg-gradient-to-r from-transparent via-tan to-transparent" />
+                        <div className="h-[2px] w-full shrink-0 rounded-t-[8px] bg-gradient-to-r from-transparent via-tan to-transparent" />
 
-                        <div className="grid grid-cols-4 gap-8 p-8">
+                        {/* Top action bar: View all treatments */}
+                        <div className="flex shrink-0 items-center justify-between border-b border-white/10 px-8 py-3 bg-white/[0.03]">
+                          <span className="font-display text-[12px] font-semibold tracking-[2px] text-tan/75 uppercase">
+                            {t("treatments")}
+                          </span>
+                          <Link
+                            href="/treatments"
+                            onClick={() => setIsDropdownOpen(false)}
+                            className="inline-flex items-center gap-1.5 font-nav text-[12px] font-semibold tracking-[1px] text-tan uppercase transition-colors hover:text-white"
+                          >
+                            <span>{t("viewAllTreatments")}</span>
+                            <span aria-hidden="true" className="rtl:rotate-180">→</span>
+                          </Link>
+                        </div>
+
+                        <div className="grid grid-cols-4 gap-8 p-8 overflow-y-auto">
                           {dropdownStructure.map((group) => (
                             <div key={group.categoryKey}>
                               <p className="mb-4 border-b border-tan/30 pb-3 font-display text-[13px] font-medium tracking-[2px] text-tan uppercase">
@@ -288,6 +304,7 @@ export default function Header({ sanitySettings }: { sanitySettings?: any }) {
                                   <li key={item.href}>
                                     <Link
                                       href={item.href}
+                                      onClick={() => setIsDropdownOpen(false)}
                                       className="block font-nav text-[15px] font-medium leading-[1.4] text-white/75 tracking-[-0.3px] transition-colors duration-150 hover:text-tan"
                                     >
                                       {t(`items.${item.labelKey}`)}
@@ -300,12 +317,14 @@ export default function Header({ sanitySettings }: { sanitySettings?: any }) {
                         </div>
 
                         {/* Footer strip — view all link */}
-                        <div className="border-t border-white/10 px-8 py-4">
+                        <div className="shrink-0 border-t border-white/10 px-8 py-3.5 bg-black/40">
                           <Link
                             href="/treatments"
-                            className="font-nav text-[14px] font-medium tracking-[1px] text-tan/70 uppercase transition-colors hover:text-tan"
+                            onClick={() => setIsDropdownOpen(false)}
+                            className="inline-flex items-center gap-1.5 font-nav text-[13px] font-medium tracking-[1px] text-tan/75 uppercase transition-colors hover:text-white"
                           >
-                            {t("viewAllTreatments")}
+                            <span>{t("viewAllTreatments")}</span>
+                            <span aria-hidden="true" className="rtl:rotate-180">→</span>
                           </Link>
                         </div>
                       </div>

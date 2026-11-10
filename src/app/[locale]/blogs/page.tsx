@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import SafeImage from "@/components/SafeImage";
 import { Link } from "@/i18n/routing";
 import { getTranslations } from "next-intl/server";
+import { getAllLocalizedBlogPosts } from "@/data/localizedBlogs";
 import { sanityFetch } from "@/sanity/lib/fetch";
 import { BLOGS_PAGE_QUERY, SITE_SETTINGS_QUERY } from "@/sanity/lib/queries";
 import { getSanityAttribute } from "@/sanity/lib/dataAttribute";
@@ -55,6 +56,12 @@ export async function generateMetadata({
 }
 
 const categoryColorBySlug: Record<string, string> = {
+  "private-phlebotomy-london-blood-collection": "text-[#7a6248] bg-[#7a6248]/10",
+  "how-to-prepare-for-a-blood-test": "text-[#7a6248] bg-[#7a6248]/10",
+  "blood-tests-adults-children-london": "text-[#7a6248] bg-[#7a6248]/10",
+  "what-to-expect-home-phlebotomy-visit": "text-[#7a6248] bg-[#7a6248]/10",
+  "manage-anxiety-during-blood-collection": "text-[#7a6248] bg-[#7a6248]/10",
+  "why-book-private-phlebotomy-london": "text-[#7a6248] bg-[#7a6248]/10",
   "prp-and-exosome-therapy-advanced-rejuvenation-for-hair-face-and-body": "text-tan bg-tan/10",
   "prp-injections-for-hair-loss-treatment": "text-tan bg-tan/10",
   "cryolipolysis-fat-freezing": "text-rust bg-rust/10",
@@ -93,62 +100,16 @@ export default async function BlogsPage({
   const questionDesc = (isEn && sanityBlogs?.questionDesc) || t("questionDesc");
   const contactUsText = (isEn && sanityBlogs?.contactUsText) || t("contactUs");
 
-  const posts = [
-    {
-      slug: "prp-and-exosome-therapy-advanced-rejuvenation-for-hair-face-and-body",
-      title: t("post1Title"),
-      excerpt: t("post1Excerpt"),
-      date: t("post1Date"),
-      category: t("post1Cat"),
-      image: "/images/blogs/prp-exosome-rejuvenation.jpeg",
-      href: "/blog/prp-and-exosome-therapy-advanced-rejuvenation-for-hair-face-and-body",
-    },
-    {
-      slug: "prp-injections-for-hair-loss-treatment",
-      title: t("post2Title"),
-      excerpt: t("post2Excerpt"),
-      date: t("post2Date"),
-      category: t("post2Cat"),
-      image: "/images/blogs/top-prp-injections-london.jpeg",
-      href: "/blog/prp-injections-for-hair-loss-treatment",
-    },
-    {
-      slug: "cryolipolysis-fat-freezing",
-      title: t("post3Title"),
-      excerpt: t("post3Excerpt"),
-      date: t("post3Date"),
-      category: t("post3Cat"),
-      image: "/images/blogs/cryolipolysis-fat-freezing.jpeg",
-      href: "/blog/cryolipolysis-fat-freezing",
-    },
-    {
-      slug: "anti-wrinkles-injections",
-      title: t("post4Title"),
-      excerpt: t("post4Excerpt"),
-      date: t("post4Date"),
-      category: t("post4Cat"),
-      image: "/images/blogs/anti-wrinkle-injections.jpeg",
-      href: "/blog/anti-wrinkles-injections",
-    },
-    {
-      slug: "prp-hair-loss",
-      title: t("post5Title"),
-      excerpt: t("post5Excerpt"),
-      date: t("post5Date"),
-      category: t("post5Cat"),
-      image: "/images/blogs/prp-hair-loss-guide.jpeg",
-      href: "/blog/prp-hair-loss",
-    },
-    {
-      slug: "dermal-fillers-and-its-uses",
-      title: t("post6Title"),
-      excerpt: t("post6Excerpt"),
-      date: t("post6Date"),
-      category: t("post6Cat"),
-      image: "/images/blogs/dermal-fillers-guide.jpeg",
-      href: "/blog/dermal-fillers-and-its-uses",
-    },
-  ];
+  const allLocalized = getAllLocalizedBlogPosts(locale);
+  const posts = allLocalized.map((b) => ({
+    slug: b.slug,
+    title: b.title,
+    excerpt: b.excerpt,
+    date: b.date,
+    category: b.category,
+    image: b.image,
+    href: `/blog/${b.slug}`,
+  }));
 
   return (
     <div className="flex flex-col">

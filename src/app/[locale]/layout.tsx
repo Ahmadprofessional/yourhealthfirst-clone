@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import {
   Montserrat,
   Inter_Tight,
@@ -155,8 +156,13 @@ export default async function RootLayout({
       className={`${montserrat.variable} ${interTight.variable} ${jost.variable} ${playfairSC.variable} ${instrumentSerif.variable} h-full antialiased`}
     >
       <head>
-        {/* Google Consent Mode v2 Default Denied (inline before any analytics/ads fire) */}
-        <script
+        <StructuredData />
+      </head>
+      <body suppressHydrationWarning className="min-h-full flex flex-col overflow-x-hidden">
+        {/* Google Consent Mode v2 Default Denied (before any analytics/ads fire) */}
+        <Script
+          id="google-consent-mode"
+          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
@@ -170,21 +176,11 @@ export default async function RootLayout({
               });
               gtag('set', 'ads_data_redaction', true);
               gtag('set', 'url_passthrough', true);
-            `,
-          }}
-        />
-        {/* Google Analytics: the commands below are queued immediately (after the Consent Mode defaults above, so cookies/ad storage stay denied until the visitor accepts in the cookie banner). The large gtag.js file itself is loaded by <GoogleAnalyticsLoader /> on the visitor's first interaction (or after a short delay) to keep it off the critical path. */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
               gtag('js', new Date());
               gtag('config', '${GA_MEASUREMENT_ID}');
             `,
           }}
         />
-        <StructuredData />
-      </head>
-      <body suppressHydrationWarning className="min-h-full flex flex-col overflow-x-hidden">
         <NextIntlClientProvider messages={messages}>
           {children}
           <WhatsAppFloat />

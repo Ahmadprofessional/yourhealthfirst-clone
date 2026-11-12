@@ -108,6 +108,26 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/phlebotomy",
+        destination: "/en/treatments/phlebotomy",
+        permanent: true,
+      },
+      {
+        source: "/:locale(en|ar|ary|es|fr|ru)/phlebotomy",
+        destination: "/:locale/treatments/phlebotomy",
+        permanent: true,
+      },
+      {
+        source: "/blog",
+        destination: "/en/blogs",
+        permanent: true,
+      },
+      {
+        source: "/:locale(en|ar|ary|es|fr|ru)/blog",
+        destination: "/:locale/blogs",
+        permanent: true,
+      },
+      {
         source: "/testimonials",
         destination: "/en",
         permanent: true,
